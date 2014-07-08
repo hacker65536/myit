@@ -31,18 +31,18 @@ echo "contents" > file
 これだと標準出力がファイルにリダイレクションされる  
 この例では`echo`なので、何がファイルに入るかは事前にわかってるが、動的に出力されるものだとファイルを開いてみるまではわからない
 
-```bash
+```
 $ ps axu|grep mongod |grep -v grep
 mongod    1230  0.1  1.7 452876 30388 ?        Sl   17:11   0:10 /usr/bin/mongod -f /etc/mongod.conf
 ```
 mongdbのプロセスIDを確認した後に記憶しておきたいとする
-```bash
+```
 $ ps axu|grep mongod |grep -v grep > file
 ```
 これでは何も表示されない
 
 記憶もしたいし画面でも確認したいときはこれ
-```bash
+```
 $ ps axu|grep mongod |grep -v grep | tee -a file
 mongod    1230  0.1  1.7 452876 30388 ?        Sl   17:11   0:10 /usr/bin/mongod -f /etc/mongod.conf
 ```
