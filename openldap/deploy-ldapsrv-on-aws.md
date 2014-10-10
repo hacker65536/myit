@@ -105,3 +105,7 @@ A second -L disables comments.  A third -L disables printing of the LDIF version
 - -D binddn
 
 >Use the Distinguished Name binddn to bind to the LDAP directory.  For SASL binds, the server is expected to ignore this value.
+
+- -b searchbase
+
+>Use searchbase as the starting point for the search instead of the default.
