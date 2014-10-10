@@ -167,8 +167,9 @@ modifying entry "olcDatabase={2}bdb,cn=config"
 
 用語
 
-| column | column |cloumn|cloumn|
+| 略称| 正式名称 |日本語|説明|
 |--------|--------|------|------|
 | DN       |    distinguished name    |識別名|DITのエントリー(ノード)の一意の識別に用いる 相対識別名の場合はRDN(relative)|
 |DC|domain component|ドメイン名要素|dc=company,dc=jp|
 |DIT| directory information tree|ディレクトリ情報ツリー|ディレクトリサービスにおいてのツリー構造|
+|olc| On-Line Configuration|オンライン設定|openldap2.4から採用された設定方法  それまでは静的ファイルslap.confで設定してるが変更された convert方法は提供されている|
