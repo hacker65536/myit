@@ -52,3 +52,15 @@ rsyslogを再起動
 ```
 service rsyslog restart
 ```
+
+##設定
+DB_CONFIGをコピー
+```
+cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
+```
+権限設定
+
+```
+echo 'chown ldap:ldap DB_CONFIG' >> /var/lib/ldap/DB_CONFIG
+```
+
