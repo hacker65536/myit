@@ -147,16 +147,16 @@ add: 0, rename: 0, modify: 1, delete: 0
 Action? [yYqQvVebB*rsf+?]
 ```
 
-- -y -- commit changes
+- y -- commit changes
 
 http://www.lichteblau.com/ldapvi/manual
 
 
 
-database(初期dn)作成(修正)
+初期suffix修正
 
 ```
-vim base.ldif
+vim suffix.ldif
 ```
 ```
 dn: olcDatabase={1}monitor,cn=config
@@ -185,7 +185,7 @@ olcRootPW: {SSHA}QbgC8LOCYsd78ikhKvBj8xOGETdOEedY
 反映
 
 ```
-ldapmodify -x -D "cn=config" -w password -f base.ldif
+ldapmodify -x -D "cn=config" -w password -f suffix.ldif
 ```
 
 ```
@@ -201,8 +201,14 @@ modifying entry "olcDatabase={2}bdb,cn=config"
 ldapviでも同様な事が可能  
 
 ```
-ldapvi -Y EXTERNAL -h ldapi:/// -b 'olcDatabase={0}config,cn=config'
+ldapvi -Y EXTERNAL -h ldapi:/// -b 'olcDatabase={1}monitor,cn=config'
+ldapvi -Y EXTERNAL -h ldapi:/// -b 'olcDatabase={2}bdb,cn=config'
 ```
+olcRootPWはolcRootDNの設定後(commit)でないと以下のエラーがでる
+```
+additional info: <olcRootPW> can only be set when rootdn is under suffix
+```
+
 
 用語
 
