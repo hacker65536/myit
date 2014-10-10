@@ -88,9 +88,9 @@ ldapadd -Y EXTERNAL -H ldapi:// -f ldapconf.ldif
 ```
 - -Y mech
 
+
     Specify the SASL mechanism to be used for authentication. If it's not specified, the program will  choose  the  best mechanism  the server knows.
 
-- 
 
 
     SASL/EXTERNAL authentication started
