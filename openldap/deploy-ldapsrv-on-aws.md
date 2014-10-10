@@ -1,4 +1,4 @@
-サーバとクライアントをyumでインストール
+##サーバとクライアントをyumでインストール
 ```bash
 yum install -y openldap-servers openldap-clients
 ```
@@ -15,9 +15,12 @@ yum list installed 'openldap*'
     openldap-clients.x86_64                2.4.23-34.23.amzn1                    @amzn-main
     openldap-servers.x86_64                2.4.23-34.23.amzn1                    @amzn-main
 
+##ldapのlog設定
 
-この記述をconfig dirにファイルとして出力
+
+
 `local4.* -/var/log/ldap`
+この記述をconfig dirにファイルとして出力
 ```bash
 echo -e '#ldaplog\nlocal4.*\t-/var/log/ldap' > /etc/rsyslog.d/ldap.conf
 ```
