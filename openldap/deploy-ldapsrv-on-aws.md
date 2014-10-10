@@ -101,4 +101,7 @@ ldapsearch -x -LLL -D "cn=config" -w password -b "cn=config" '(objectClass=*)'
 
 >Search results are display in LDAP Data Interchange Format detailed in ldif(5).  A single -L restricts the output to LDIFv1.
 A second -L disables comments.  A third -L disables printing of the LDIF version.  The default is to use  an  extended  version  of LDIF.
-```
+
+- -D binddn
+
+>Use the Distinguished Name binddn to bind to the LDAP directory.  For SASL binds, the server is expected to ignore this value.
