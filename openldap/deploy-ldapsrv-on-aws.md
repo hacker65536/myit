@@ -140,7 +140,7 @@ ldapviで行う場合
 ldapvi -Y EXTERNAL -h ldapi:/// -b 'olcDatabase={0}config,cn=config'
 ```
 
-`olcRootPW: {SSHA}dx+l9fhNGwRQYTeMIDejFVu8EfQYeuL`を追記
+`olcRootPW: {SSHA}dx+l9fhNGwRQYTeMIDejFVu8EfQYeuL`を追記し`:wq`で保存するとすべきActionの選択が出てくる
 
 ```
 add: 0, rename: 0, modify: 1, delete: 0
