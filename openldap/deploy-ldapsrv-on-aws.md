@@ -148,6 +148,8 @@ olcRootPW: {SSHA}QbgC8LOCYsd78ikhKvBj8xOGETdOEedY
 
 ```
 
+反映
+
 ```
 ldapmodify -x -D "cn=config" -w password -f base.ldif
 ```
