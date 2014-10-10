@@ -60,6 +60,13 @@ cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
 chown ldap. /var/lib/ldap/DB_CONFIG
 ```
 
+ldapviをインストール  
+ldapviはインタラクティブに設定の変更を行えるツール
+```
+yum install -y --enablerepo=epel ldapvi
+```
+
+
 設定ファイル作成
 ```
 mkdir ldapconf
@@ -128,6 +135,24 @@ A second -L disables comments.  A third -L disables printing of the LDIF version
 >Prompt for simple authentication.  This is used instead of specifying the password on the command line.
 
 
+ldapviで行う場合
+```
+ldapvi -Y EXTERNAL -h ldapi:/// -b 'olcDatabase={0}config,cn=config'
+```
+
+`olcRootPW: {SSHA}dx+l9fhNGwRQYTeMIDejFVu8EfQYeuL`を追記
+
+```
+add: 0, rename: 0, modify: 1, delete: 0
+Action? [yYqQvVebB*rsf+?]
+```
+
+- -y -- commit changes
+
+http://www.lichteblau.com/ldapvi/manual
+
+
+
 database(初期dn)作成(修正)
 
 ```
@@ -174,11 +199,6 @@ modifying entry "olcDatabase={2}bdb,cn=config"
 ```
 
 ldapviでも同様な事が可能  
-
-ldapviをインストール
-```
-yum install -y --enablerepo=epel ldapvi
-```
 
 ```
 ldapvi -Y EXTERNAL -h ldapi:/// -b 'olcDatabase={0}config,cn=config'
