@@ -96,3 +96,11 @@ ldapadd -Y EXTERNAL -H ldapi:// -f ldapconf.ldif
 ```
 ldapsearch -x -LLL -D "cn=config" -w password -b "cn=config" '(objectClass=*)'
 ```
+
+- -L 
+```
+Search results are display in LDAP Data Interchange Format detailed in ldif(5).  A single -L restricts the output to LDIFv1.
+               A second -L disables comments.  A third -L disables printing of the LDIF version.  The default is to use  an  extended  version  of
+              LDIF.
+
+```
