@@ -6,13 +6,13 @@ yum install openldap-servers openldap-clients
 ```
 yum list installed 'openldap*'
 ```
-```
-Loaded plugins: priorities, update-motd, upgrade-helper
-Installed Packages
-openldap.x86_64                                                         2.4.23-34.23.amzn1                                                  installed
-openldap-clients.x86_64                                                 2.4.23-34.23.amzn1                                                  @amzn-main
-openldap-servers.x86_64                                                 2.4.23-34.23.amzn1                                                  @amzn-main
-```
+
+    Loaded plugins: priorities, update-motd, upgrade-helper
+    Installed Packages
+    openldap.x86_64                        2.4.23-34.23.amzn1                    installed
+    openldap-clients.x86_64                2.4.23-34.23.amzn1                    @amzn-main
+    openldap-servers.x86_64                2.4.23-34.23.amzn1                    @amzn-main
+
 
 この記述をconfig dirにファイルとして出力
 `local4.* -/var/log/ldap`
