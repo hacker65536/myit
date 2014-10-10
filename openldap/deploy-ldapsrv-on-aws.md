@@ -169,5 +169,6 @@ modifying entry "olcDatabase={2}bdb,cn=config"
 
 | column | column |cloumn|cloumn|
 |--------|--------|------|------|
-| DN       |    distinguished name    |識別子|大体baseDNを指す dcで繋いだ組織をbaseDNとすることが多い e.g. dc=comapny,dc=jp|
+| DN       |    distinguished name    |識別名|DITのエントリー(ノード)の一意の識別に用いる 相対識別名の場合はRDN(relative)|
 |DC|domain component|ドメイン名要素|dc=company,dc=jp|
+|DIT| directory information tree|ディレクトリ情報ツリー|ディレクトリサービスにおいてのツリー構造|
