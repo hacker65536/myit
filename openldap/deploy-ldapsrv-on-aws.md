@@ -163,3 +163,11 @@ modifying entry "olcDatabase={2}bdb,cn=config"
 
 modifying entry "olcDatabase={2}bdb,cn=config"
 ```
+
+
+用語
+
+| column | column |cloumn|cloumn|
+|--------|--------|------|------|
+| DN       |    distinguished name    |識別子|大体baseDNを指す dcで繋いだ組織をbaseDNとすることが多い e.g. dc=comapny,dc=jp|
+|DC|domain component|ドメイン名要素|dc=company,dc=jp|
