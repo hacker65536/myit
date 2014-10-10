@@ -92,4 +92,7 @@ ldapadd -Y EXTERNAL -H ldapi:// -f ldapconf.ldif
     SASL SSF: 0
     modifying entry "olcDatabase={0}config,cn=config"
 
-
+確認
+```
+ldapsearch -x -LLL -D "cn=config" -w password -b "cn=config" '(objectClass=*)'
+```
