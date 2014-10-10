@@ -80,9 +80,14 @@ add: olcRootPW
 olcRootPW:{SSHA}dx+bl9fhNGwRQYT3MIDejFVu8EfQYeuL
 ```
 
+反映
 ```
 ldapadd -Y EXTERNAL -H ldapi:// -f ldapconf.ldif
 ```
 
+    SASL/EXTERNAL authentication started
+    SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth
+    SASL SSF: 0
+    modifying entry "olcDatabase={0}config,cn=config"
 
 
