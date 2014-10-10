@@ -109,3 +109,11 @@ A second -L disables comments.  A third -L disables printing of the LDIF version
 - -b searchbase
 
 >Use searchbase as the starting point for the search instead of the default.
+
+- -w passwd
+
+>Use passwd as the password for simple authentication.
+
+- -W
+
+>Prompt for simple authentication.  This is used instead of specifying the password on the command line.
