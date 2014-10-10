@@ -164,6 +164,16 @@ modifying entry "olcDatabase={2}bdb,cn=config"
 modifying entry "olcDatabase={2}bdb,cn=config"
 ```
 
+ldapviでも同様な事が可能  
+
+ldapviをインストール
+```
+yum install -y --enablerepo=epel ldapvi
+```
+
+```
+ldapvi -Y EXTERNAL -h ldapi:/// -b 'olcDatabase={0}config,cn=config'
+```
 
 用語
 
