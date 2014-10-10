@@ -117,3 +117,47 @@ A second -L disables comments.  A third -L disables printing of the LDIF version
 - -W
 
 >Prompt for simple authentication.  This is used instead of specifying the password on the command line.
+
+
+database(初期dn)作成(修正)
+
+```
+vim base.ldif
+```
+```
+dn: olcDatabase={1}monitor,cn=config
+changetype: modify
+replace: olcAccess
+olcAccess: {0}to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth"
+  read by dn.base="cn=Manager,dc=testcompany,dc=com" read by * none
+
+dn: olcDatabase={2}bdb,cn=config
+changetype: modify
+replace: olcSuffix
+olcSuffix: dc=testcompany,dc=com
+
+dn: olcDatabase={2}bdb,cn=config
+changetype: modify
+replace: olcRootDN
+olcRootDN: cn=Manager,dc=testcompany,dc=com
+
+dn: olcDatabase={2}bdb,cn=config
+changetype: modify
+add: olcRootPW
+olcRootPW: {SSHA}QbgC8LOCYsd78ikhKvBj8xOGETdOEedY
+
+```
+
+```
+ldapmodify -x -D "cn=config" -w password -f base.ldif
+```
+
+```
+modifying entry "olcDatabase={1}monitor,cn=config"
+
+modifying entry "olcDatabase={2}bdb,cn=config"
+
+modifying entry "olcDatabase={2}bdb,cn=config"
+
+modifying entry "olcDatabase={2}bdb,cn=config"
+```
