@@ -86,6 +86,12 @@ olcRootPW:{SSHA}dx+bl9fhNGwRQYT3MIDejFVu8EfQYeuL
 ```
 ldapadd -Y EXTERNAL -H ldapi:// -f ldapconf.ldif
 ```
+- -Y mech
+
+    Specify the SASL mechanism to be used for authentication. If it's not specified, the program will  choose  the  best mechanism  the server knows.
+
+- 
+
 
     SASL/EXTERNAL authentication started
     SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth
