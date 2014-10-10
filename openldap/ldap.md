@@ -8,6 +8,10 @@ LDAPv2 ネットスケープ社中心にDAPの問題点を洗い出し再設計�
 LDAPv2+ 分散化処理  
 LDAPv3 セキュリティ強化  
 
+
+SNMPのMIB-Management information baseもツリー構造でありIETFが標準化している
+一部IEEEに移管(ブリッジなど)
+
 ##X.500
 - DAP (Directory Access Protocol)
 - DSP (Directory System Protocol)
