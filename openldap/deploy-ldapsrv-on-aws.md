@@ -60,5 +60,29 @@ cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
 chown ldap. /var/lib/ldap/DB_CONFIG
 ```
 
+設定ファイル作成
+```
+mkdir ldapconf
+cd ldapconf
+```
+password
+```
+slappasswd -s password
+{SSHA}dx+bl9fhNGwRQYT3MIDejFVu8EfQYeuL
+```
+```
+vim ldapconf.ldif
+```
+```
+dn:olcDatabase={0}config,cn=config
+changeType:modify
+add: olcRootPW
+olcRootPW:{SSHA}dx+bl9fhNGwRQYT3MIDejFVu8EfQYeuL
+```
+
+```
+ldapadd -Y EXTERNAL -H ldapi:// -f ldapconf.ldif
+```
+
 
 
