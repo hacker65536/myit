@@ -70,6 +70,8 @@ password
 slappasswd -s password
 {SSHA}dx+bl9fhNGwRQYT3MIDejFVu8EfQYeuL
 ```
+
+初期設定
 ```
 vim ldapconf.ldif
 ```
