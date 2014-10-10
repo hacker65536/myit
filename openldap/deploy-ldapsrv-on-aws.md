@@ -18,8 +18,19 @@ cp /etc/logrotate.d/syslog /etc/logrotate.d/syslog.org
 sed -i '3s/\(.*\)/\1\n\/var\/log\/ldap/' /etc/logrotate.d/syslog
 ```
 
+三行目に追加されている事を確認
 ```
 diff /etc/logrotate.d/syslog /etc/logrotate.d/syslog.org
 ```
 >4d3  
 >< /var/log/ldap
+
+コピーを削除
+```
+rm -f /etc/logrotate.d/syslog.org
+```
+
+rsyslogを再起動
+```
+service rsyslog restart
+```
