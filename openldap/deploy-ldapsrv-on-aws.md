@@ -1,8 +1,10 @@
 サーバとクライアントをyumでインストール
 ```bash
-yum install openldap-servers openldap-clients
+yum install -y openldap-servers openldap-clients
 ```
 
+
+インストールしたバージョンを確認
 ```
 yum list installed 'openldap*'
 ```
