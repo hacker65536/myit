@@ -90,3 +90,8 @@ ldconfig -v|grep libs3
 ```
 
 
+#### make once again
+```bash
+cd /usr/local/src/libs3/
+make && make install
+```
