@@ -1,6 +1,9 @@
 #aws s3 library for C/C++
 
-become root from ec2-user ```sudo su -```
+###become root from ec2-user 
+```bash
+sudo su -
+```
 
 ###update yum
 ```bash
