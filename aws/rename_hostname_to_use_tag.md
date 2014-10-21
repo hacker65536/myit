@@ -51,7 +51,7 @@ if [ -e $hostfile -a -s $hostfile ];then
 
 else
 
-  id=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document|jq '.instanceId'|tr -d '"')
+  id=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document|/usr/local/bin/jq '.instanceId'|tr -d '"')
   region=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | /usr/local/bin/jq '.region' | tr -d '"')
 
   /bin/ping example.com -w 3 >/dev/null 2>&1
