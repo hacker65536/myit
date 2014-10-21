@@ -33,8 +33,8 @@ git checkout 3e1baf59167d6e7d836ec39d353eec1022331a6d
 
 #hostname.sh
 
-/etc/profile.d/hostname.sh
-
+/etc/profile.d/hostname.sh  
+[hostname.sh](https://github.com/hacker65536/myit/blob/master/aws/hostname.sh)
 ```bash
 #!/bin/bash
 
