@@ -46,22 +46,22 @@ git checkout 3e1baf59167d6e7d836ec39d353eec1022331a6d
 hostfile='/tmp/ec2hostname'
 
 if [ -e $hostfile -a -s $hostfile ];then
-  export PS1="[\u@$(cat $hostfile) \W]\$ "
 
+  export PS1="[\u@$(cat $hostfile) \W]\$ "
 
 else
 
-  id=$(get_ec2_profile | jq '.instanceId' | tr -d '"')
+  id=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document|jq '.instanceId'|tr -d '"')
+  region=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | /usr/local/bin/jq '.region' | tr -d '"')
 
-  /bin/ping www.yahoo.co.jp -w 3 >/dev/null 2>&1
+  /bin/ping example.com -w 3 >/dev/null 2>&1
 
   if [ $? -eq 1 ]
   then
     exit 1
   fi
 
-  case $(get_this_region) in
-
+  case "$region" in
     ap-northeast-1)
     reg='jp';;
     ap-southeast-1 )
@@ -80,13 +80,12 @@ else
     reg='ore';;
   esac
 
-  host=$(aws ec2 describe-tags --region "$(get_this_region)" --filters Name=key,Values=Name Name=resource-id,Values="$id" | jq '.Tags[] .Value' | tr -d '"')
-  if [ ! -z $host ];then
+  host=$(aws ec2 describe-tags --region "$region" --filters Name=key,Values=Name Name=resource-id,Values="$id" | jq '.Tags[] .Value' | tr -d '"')
+  if [ ! -z "$host" ];then
     echo "${reg}-${host}" > $hostfile
     chmod 777 $hostfile
     export PS1="[\u@$(cat $hostfile) \W]\$ "
   fi
 
 fi
-
 ```
