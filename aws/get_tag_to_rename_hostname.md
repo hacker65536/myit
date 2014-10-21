@@ -1,4 +1,4 @@
-#neaded
+#needed
 
 - jq (to parse the json from api of the aws)
 - aws-cli  (aws command line interface)
