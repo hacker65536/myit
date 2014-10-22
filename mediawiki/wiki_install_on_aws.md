@@ -122,8 +122,10 @@ run command as `root`
 system info
 ```bash
 uname -a
-Linux ip-172-31-1-100 3.14.20-20.44.amzn1.x86_64 #1 SMP Mon Oct 6 22:52:46 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
 ```
+
+    Linux ip-172-31-1-100 3.14.20-20.44.amzn1.x86_64 #1 SMP Mon Oct 6 22:52:46 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
+
 
 ####timezone
 ```bash
@@ -138,3 +140,5 @@ date
 ```bash
 yum -y update
 ```
+
+https://github.com/hacker65536/myit/blob/master/aws/rename_hostname_to_use_tag.md2356
