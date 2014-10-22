@@ -98,7 +98,7 @@ example
 
 example
 
-| name                       | value                     |
+| Name                       | value                     |
 |----------------------------|---------------------------|
 | name                       | wikirediscache            |
 | Cache Port                 | 6379                      |
