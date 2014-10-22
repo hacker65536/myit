@@ -42,3 +42,26 @@ example
 | valume type    | general purpose(SSD)                        |
 | tag            | wiki                                        |
 | security group | use sg for ec2                              |
+
+
+##create RDS
+
+example
+
+| resource            | value                      |
+|---------------------|----------------------------|
+| db engine           | mysql                      |
+| engine version      | 5.6.21                     |
+| instance class      | db.t2.micro                |
+| Multi-AZ            | No                         |
+| storage type        | enablegeneral purpose(SSD) |
+| allocated storage   | 10GB                       |
+| identifier          | wiki                       |
+| master username     | wikimaster                 |
+| master password     | wikipasswd                 |
+| VPC                 | default                    |
+| subnet group        | default                    |
+| publicly accessible | no                         |
+| security group      | use sg for mysql           |
+| database name       | wki_db                     |
+| paramter group      | wiki_db                    |
