@@ -2,6 +2,8 @@
 
 #overview
 
+![wiki structure on aws](https://raw.githubusercontent.com/hacker65536/myit/master/images/wikisystemonaws.png "wikisystem on aws")
+
 #deploy
 
 ##create security group
