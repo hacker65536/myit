@@ -98,21 +98,18 @@ example
 
 example
 
-| name                | value                         |
-|---------------------|-------------------------------|
-| db engine           | mysql                         |
-| engine version      | 5.6.21                        |
-| instance class      | db.t2.micro                   |
-| Multi-AZ            | No                            |
-| storage type        | enablegeneral purpose(SSD)    |
-| allocated storage   | 10GB                          |
-| identifier          | wiki                          |
-| master username     | wikimaster                    |
-| master password     | wikipasswd                    |
-| VPC                 | default                       |
-| subnet group        | default                       |
-| avaliability zone   | default (or same az with ec2) |
-| publicly accessible | no                            |
-| security group      | sgmysql (use sg for mysql)    |
-| database name       | wiki_db                       |
-| paramter group      | wikidbparam                   |
+| name                       | value                     |
+|----------------------------|---------------------------|
+| name                       | wikirediscache            |
+| Cache Port                 | 6379                      |
+| Number of Nodes            | 1                         |
+| Preferred Zone(s)          | default (e.g. us-west-2a) |
+| Cache Subnet Group         | default                   |
+| Engine                     | redis                     |
+| Engine Version             | 2.8.6                     |
+| Node Type                  | cache.t2.micro(555MB)     |
+| SNS Notification           | Disable                   |
+| Auto Minor Version Upgrade | Yes                       |
+| Security Group             | sgredis                   |
+| Cache Parameter Group      | default                   |
+| Maintenance Window         | No Preference             |
