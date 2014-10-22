@@ -6,7 +6,7 @@
 
 ##create security group
 
-- sg for ec2
+- sgwiki (for ec2)
 
 |type|protocol|portrange|source|
 |---|---|---|---|
@@ -14,13 +14,13 @@
 |http|tcp|80|0.0.0.0/0|
 |https|tcp|443|0.0.0.0/0|
 
-- sg for mysql
+- sgmysql (for mysql)
 
 |type|protocol|portrange|source|
 |---|---|---|---|
 |mysql|tcp|3306|172.31.0.0/16|
 
-- sg for redis
+- sgredis (for redis)
 
 |type|protocol|portrange|source|
 |---|---|---|---|
@@ -48,11 +48,13 @@ example
 
 ###create paramter groups (my.cnf)
 
+- wikidbparam
+
 | parameter group                | value    |
 |--------------------------------|----------|
 | DB Parameter Group Family      | mysql5.6 |
-| DB Parameter Group Name        | wikiconf |
-| DB Parameter Group Description | wikiconf |
+| DB Parameter Group Name        | *wikidbparam* |
+| DB Parameter Group Description | *wikidbparam* |
 
 
 | paramters                | value           |
@@ -78,12 +80,13 @@ example
 | Multi-AZ            | No                         |
 | storage type        | enablegeneral purpose(SSD) |
 | allocated storage   | 10GB                       |
-| identifier          | wiki                       |
-| master username     | wikimaster                 |
-| master password     | wikipasswd                 |
+| identifier          | *wiki*                       |
+| master username     | *wikimaster*                 |
+| master password     | *wikipasswd*                 |
 | VPC                 | default                    |
 | subnet group        | default                    |
+| avaliability zone   | default (or same az with ec2)  |
 | publicly accessible | no                         |
-| security group      | use sg for mysql           |
-| database name       | wki_db                     |
-| paramter group      | wiki_db                    |
+| security group      | *sgmysql* (use sg for mysql)           |
+| database name       | *wiki_db*                     |
+| paramter group      | *wikidbparam*                   |
