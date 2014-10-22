@@ -117,18 +117,23 @@ example
 
 ###install package
 
-do with `root`
+run command as `root`
 
+system info
 ```bash
 uname -a
-Linux ip-172-31-47-231 3.14.20-20.44.amzn1.x86_64 #1 SMP Mon Oct 6 22:52:46 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
+Linux ip-172-31-1-100 3.14.20-20.44.amzn1.x86_64 #1 SMP Mon Oct 6 22:52:46 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
 ####timezone
 ```bash
 cp /etc/localtime /etc/localtime.org
 \cp -f /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+date
 ```
+
+    Wed Oct 22 17:43:08 JST 2014
+
 ####yum update
 ```bash
 yum -y update
