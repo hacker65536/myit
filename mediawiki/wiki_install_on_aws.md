@@ -32,7 +32,7 @@
 
 example
 
-| resource       | value                                       |
+| name           | value                                       |
 |----------------|---------------------------------------------|
 | AMI            | Amazon Linux AMI 2014.09.1 (HVM)            |
 | type           | t2.micro                                    |
@@ -74,7 +74,31 @@ example
 
 example
 
-| resource            | value                         |
+| name                | value                         |
+|---------------------|-------------------------------|
+| db engine           | mysql                         |
+| engine version      | 5.6.21                        |
+| instance class      | db.t2.micro                   |
+| Multi-AZ            | No                            |
+| storage type        | enablegeneral purpose(SSD)    |
+| allocated storage   | 10GB                          |
+| identifier          | wiki                          |
+| master username     | wikimaster                    |
+| master password     | wikipasswd                    |
+| VPC                 | default                       |
+| subnet group        | default                       |
+| avaliability zone   | default (or same az with ec2) |
+| publicly accessible | no                            |
+| security group      | sgmysql (use sg for mysql)    |
+| database name       | wiki_db                       |
+| paramter group      | wikidbparam                   |
+
+
+###Redis (cache)
+
+example
+
+| name                | value                         |
 |---------------------|-------------------------------|
 | db engine           | mysql                         |
 | engine version      | 5.6.21                        |
