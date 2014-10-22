@@ -46,6 +46,28 @@ example
 
 ##create RDS
 
+###create paramter groups (my.cnf)
+
+| parameter group                | value    |
+|--------------------------------|----------|
+| DB Parameter Group Family      | mysql5.6 |
+| DB Parameter Group Name        | wikiconf |
+| DB Parameter Group Description | wikiconf |
+
+
+| paramters                | value           |
+|--------------------------|-----------------|
+| character_set_client     | utf8            |
+| character_set_connection | utf8            |
+| character_set_database   | utf8            |
+| character_set_filesystem | binary          |
+| character_set_results    | utf8            |
+| character_set_server     | utf8            |
+| collation_connection     | utf8_general_ci |
+
+
+###RDS instance
+
 example
 
 | resource            | value                      |
