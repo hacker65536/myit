@@ -8,23 +8,23 @@
 
 - sgwiki (for ec2)
 
-|type|protocol|portrange|source|
-|---|---|---|---|
-|ssh|tcp|22|myIP|
-|http|tcp|80|0.0.0.0/0|
-|https|tcp|443|0.0.0.0/0|
+| type  | protocol | portrange | source    |
+|-------|----------|-----------|-----------|
+| ssh   | tcp      | 22        | myIP      |
+| http  | tcp      | 80        | 0.0.0.0/0 |
+| https | tcp      | 443       | 0.0.0.0/0 |
 
 - sgmysql (for mysql)
 
-|type|protocol|portrange|source|
-|---|---|---|---|
-|mysql|tcp|3306|172.31.0.0/16|
+| type  | protocol | portrange | source        |
+|-------|----------|-----------|---------------|
+| mysql | tcp      | 3306      | 172.31.0.0/16 |
 
 - sgredis (for redis)
 
-|type|protocol|portrange|source|
-|---|---|---|---|
-|custom tcp rule|tcp|6379|172.31.0.0/16|
+| type            | protocol | portrange | source        |
+|-----------------|----------|-----------|---------------|
+| custom tcp rule | tcp      | 6379      | 172.31.0.0/16 |
 
 ##create ec2 instance
 
@@ -50,11 +50,11 @@ example
 
 - wikidbparam
 
-| parameter group                | value    |
-|--------------------------------|----------|
-| DB Parameter Group Family      | mysql5.6 |
-| DB Parameter Group Name        | *wikidbparam* |
-| DB Parameter Group Description | *wikidbparam* |
+| parameter group                | value       |
+|--------------------------------|-------------|
+| DB Parameter Group Family      | mysql5.6    |
+| DB Parameter Group Name        | wikidbparam |
+| DB Parameter Group Description | wikidbparam |
 
 
 | paramters                | value           |
@@ -72,21 +72,21 @@ example
 
 example
 
-| resource            | value                      |
-|---------------------|----------------------------|
-| db engine           | mysql                      |
-| engine version      | 5.6.21                     |
-| instance class      | db.t2.micro                |
-| Multi-AZ            | No                         |
-| storage type        | enablegeneral purpose(SSD) |
-| allocated storage   | 10GB                       |
-| identifier          | *wiki*                       |
-| master username     | *wikimaster*                 |
-| master password     | *wikipasswd*                 |
-| VPC                 | default                    |
-| subnet group        | default                    |
-| avaliability zone   | default (or same az with ec2)  |
-| publicly accessible | no                         |
-| security group      | *sgmysql* (use sg for mysql)           |
-| database name       | *wiki_db*                     |
-| paramter group      | *wikidbparam*                   |
+| resource            | value                         |
+|---------------------|-------------------------------|
+| db engine           | mysql                         |
+| engine version      | 5.6.21                        |
+| instance class      | db.t2.micro                   |
+| Multi-AZ            | No                            |
+| storage type        | enablegeneral purpose(SSD)    |
+| allocated storage   | 10GB                          |
+| identifier          | wiki                          |
+| master username     | wikimaster                    |
+| master password     | wikipasswd                    |
+| VPC                 | default                       |
+| subnet group        | default                       |
+| avaliability zone   | default (or same az with ec2) |
+| publicly accessible | no                            |
+| security group      | sgmysql (use sg for mysql)    |
+| database name       | wiki_db                       |
+| paramter group      | wikidbparam                   |
