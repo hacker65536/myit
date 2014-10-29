@@ -181,6 +181,7 @@ cd /usr/local/src
 wget "http://releases.wikimedia.org/mediawiki/1.23/mediawiki-1.23.5.tar.gz"
 tar zxvf mediawiki-1.23.5.tar.gz
 mv mediawiki-1.23.5 /var/www/wiki
+chown -R apache. /var/www/wiki/
 ```
 
 ####wiki configure
