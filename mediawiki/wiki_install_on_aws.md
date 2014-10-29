@@ -177,3 +177,7 @@ mv mediawiki-1.23.5 /var/www/wiki
 ####wiki configure
 
 http://wiki.hostname.com
+
+- cite
+- renameuser
+- syntaxhighlight_geshi
