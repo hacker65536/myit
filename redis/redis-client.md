@@ -1,3 +1,7 @@
+#require
+```bash
+yum -y install gcc
+```
 
 #install redisclient
 ```bash
