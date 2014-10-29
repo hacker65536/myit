@@ -153,6 +153,10 @@ https://github.com/hacker65536/myit/blob/master/aws/rename_hostname_to_use_tag.m
 yum install -y php55 php55-pecl-apc php55-mysqlnd php55-mbstring php55-pecl-imagick php55-intl mysql postfix mailx
 ```
 
+###install redis-client
+
+https://github.com/hacker65536/myit/blob/master/redis/redis-client.md
+
 ####config httpd
 
 `vim /etc/httpd/conf.d/vhost.conf`
