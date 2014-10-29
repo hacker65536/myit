@@ -200,6 +200,15 @@ chown -R apache. /var/www/wiki/
 
 http://wiki.hostname.com
 
-- cite
+- cite (ref function)
 - renameuser
 - syntaxhighlight_geshi
+
+
+- ImageMap (clickable image)
+- LocalisationUpdate (update message)
+- Nuke (delete multiple pages)
+
+
+
+
