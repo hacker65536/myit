@@ -166,7 +166,12 @@ documentroot /var/www/wiki
 </Virtualhost>
 ```
 
-####test mail
+####mail test
+
+```bash
+chkconfig postfix on
+service postfix start
+```
 
 `echo "test"|mail me@mail.com`
 
