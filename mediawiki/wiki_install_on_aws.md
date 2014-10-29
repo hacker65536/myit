@@ -4,7 +4,7 @@
 
 ![wiki structure on aws](https://raw.githubusercontent.com/hacker65536/myit/master/images/wikisystemonaws.png "wikisystem on aws")
 
-#deploy
+#environment
 
 ##create security group
 
@@ -115,7 +115,7 @@ example
 | Maintenance Window         | No Preference             |
 
 
-###install package
+###ec2 settings
 
 run command as `root`
 
@@ -165,6 +165,10 @@ documentroot /var/www/wiki
 </Directory>
 </Virtualhost>
 ```
+
+####test mail
+
+`echo "test"|mail me@mail.com`
 
 ####wiki install
 ```bash
