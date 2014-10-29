@@ -141,14 +141,22 @@ date
 yum -y update
 ```
 
+####git
+```bash
+yum install -y git
+```
+
 https://github.com/hacker65536/myit/blob/master/aws/rename_hostname_to_use_tag.md
 
 ####install php and apache
 ```bash
-yum install php55
+yum install php55 php55-pecl-apc php55-mysqlnd php55-mbstring php55-pecl-imagick php55-intl
 ```
 
 ####config httpd
+
+`vim /etc/httpd/conf.d/vhost.conf`
+
 ```
 <Virtualhost *:80>
 servername wiki.hostname.com
@@ -165,3 +173,7 @@ wget "http://releases.wikimedia.org/mediawiki/1.23/mediawiki-1.23.5.tar.gz"
 tar zxvf mediawiki-1.23.5.tar.gz
 mv mediawiki-1.23.5 /var/www/wiki
 ```
+
+####wiki configure
+
+http://wiki.hostname.com
