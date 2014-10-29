@@ -148,6 +148,16 @@ https://github.com/hacker65536/myit/blob/master/aws/rename_hostname_to_use_tag.m
 yum install php55
 ```
 
+####config httpd
+```
+<Virtualhost *:80>
+servername wiki.hostname.com
+documentroot /var/www/wiki
+<Directory /var/www/wiki>
+</Directory>
+</Virtualhost>
+```
+
 ####wiki install
 ```bash
 cd /usr/local/src
