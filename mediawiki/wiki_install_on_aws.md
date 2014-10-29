@@ -150,7 +150,7 @@ https://github.com/hacker65536/myit/blob/master/aws/rename_hostname_to_use_tag.m
 
 ####install require packages (php and apache etc)
 ```bash
-yum install -y php55 php55-pecl-apc php55-mysqlnd php55-mbstring php55-pecl-imagick php55-intl mysql postfix mailx
+yum install -y php55 php55-pecl-apc php55-mysqlnd php55-mbstring php55-pecl-imagick php55-intl php55-pecl-redis mysql postfix mailx
 ```
 ####php timezone
 ```bash
