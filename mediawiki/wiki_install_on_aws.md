@@ -161,6 +161,10 @@ sed -i 's/^\(;date.timezone =.*\)/\1\ndate.timezone = Asia\/Tokyo/' /etc/php.ini
 
 https://github.com/hacker65536/myit/blob/master/redis/redis-client.md
 
+####config session use redis
+
+https://github.com/hacker65536/myit/blob/master/redis/php-redis-session.md
+
 ####config httpd
 
 `vim /etc/httpd/conf.d/vhost.conf`
