@@ -1,3 +1,8 @@
+#install php-pecl-redis
+```bash
+yum install -y php55-pecl-redis
+```
+
 #php.ini
 `/etc/php-5.5.d/session.ini`
 
