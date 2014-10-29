@@ -148,9 +148,9 @@ yum install -y git
 
 https://github.com/hacker65536/myit/blob/master/aws/rename_hostname_to_use_tag.md
 
-####install php and apache
+####install require packages (php and apache etc)
 ```bash
-yum install php55 php55-pecl-apc php55-mysqlnd php55-mbstring php55-pecl-imagick php55-intl
+yum install php55 php55-pecl-apc php55-mysqlnd php55-mbstring php55-pecl-imagick php55-intl mysql postfix
 ```
 
 ####config httpd
