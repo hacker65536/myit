@@ -152,8 +152,12 @@ https://github.com/hacker65536/myit/blob/master/aws/rename_hostname_to_use_tag.m
 ```bash
 yum install -y php55 php55-pecl-apc php55-mysqlnd php55-mbstring php55-pecl-imagick php55-intl mysql postfix mailx
 ```
+####php timezone
+```bash
+sed -i 's/^\(;date.timezone =.*\)/\1\ndate.timezone = Asia\/Tokyo/' /etc/php.ini
+```
 
-###install redis-client
+####install redis-client
 
 https://github.com/hacker65536/myit/blob/master/redis/redis-client.md
 
