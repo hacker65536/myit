@@ -141,4 +141,17 @@ date
 yum -y update
 ```
 
-https://github.com/hacker65536/myit/blob/master/aws/rename_hostname_to_use_tag.md2356
+https://github.com/hacker65536/myit/blob/master/aws/rename_hostname_to_use_tag.md
+
+####install php and apache
+```bash
+yum install php55
+```
+
+####wiki install
+```bash
+cd /usr/local/src
+wget "http://releases.wikimedia.org/mediawiki/1.23/mediawiki-1.23.5.tar.gz"
+tar zxvf mediawiki-1.23.5.tar.gz
+mv mediawiki-1.23.5 /var/www/wiki
+```
