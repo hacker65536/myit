@@ -83,7 +83,7 @@ else
     reg='ore';;
   esac
 
-  host=$(aws ec2 describe-tags --region "$region" --filters Name=key,Values=Name Name=resource-id,Values="$id" | jq '.Tags[] .Value' | tr -d '"')
+  host=$(aws ec2 describe-tags --region "$region" --filters Name=key,Values=Name Name=resource-id,Values="$id" | /usr/local/bin/jq '.Tags[] .Value' | tr -d '"')
   if [ ! -z "$host" ];then
     echo "${reg}-${host}" > $hostfile
     chmod 777 $hostfile
