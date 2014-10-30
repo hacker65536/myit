@@ -195,7 +195,10 @@ tar zxvf mediawiki-1.23.5.tar.gz
 mv mediawiki-1.23.5 /var/www/wiki
 chown -R apache. /var/www/wiki/
 ```
-
+```bash
+chkconfig httpd on
+service httpd start
+```
 ####wiki configure
 
 http://wiki.hostname.com
