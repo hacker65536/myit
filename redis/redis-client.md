@@ -18,11 +18,8 @@ make install
 redis-cli -h host get key
 ```
 ```bash
-redis-cli -h host
-host:6379>monitor
-```
-
-```
+# redis-cli -h host
+host:6379> monitor
 OK
 1414638306.001141 [0 127.0.0.1:62426] "ping"
 1414638306.001226 [0 127.0.0.1:62426] "set" "ElastiCacheMasterReplicationTimestamp" "2014-10-30T03:05:06.001Z"
