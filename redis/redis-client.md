@@ -17,7 +17,7 @@ make install
 ```bash
 redis-cli -h host get key
 ```
-```bash
+```
 # redis-cli -h host
 host:6379> monitor
 OK
