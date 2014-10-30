@@ -25,7 +25,7 @@ checking for bison version... 2.4.1
 configure: error: You need bison version 3.0 or greater.
 ```
 
-change revision and do ./configure again
+change revision and do autoreconf and ./configure again
 
 ```bash
 git checkout 3e1baf59167d6e7d836ec39d353eec1022331a6d
