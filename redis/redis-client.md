@@ -15,7 +15,7 @@ make install
 
 #test  
 ```bash
-redis-cli -h $host get $key
+redis-cli -h host get key
 ```
 ```bash
 redis-cli -h host
