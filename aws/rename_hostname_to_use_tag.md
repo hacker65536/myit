@@ -73,6 +73,8 @@ else
     reg='syd';;
     eu-west-1 )
     reg='irl';;
+    eu-central-1)
+    reg='fra';;
     sa-esat-1 )
     reg='sao';;
     us-east-1 )
