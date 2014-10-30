@@ -1,3 +1,7 @@
+systeminfo
+`3.14.20-20.44.amzn1.x86_64`
+
+
 #require
 ```bash
 yum -y install gcc
