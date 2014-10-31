@@ -12,6 +12,7 @@ yum install -y git gcc flex bison autoconf automake libtool oniguruma-devel
 cd /usr/local/src
 git clone https://github.com/stedolan/jq.git
 cd jq
+#git checkout 3e1baf59167d6e7d836ec39d353eec1022331a6d
 autoreconf -i
 ./configure
 make
