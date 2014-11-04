@@ -22,3 +22,10 @@ source ~/.bash_rc
 ```
 
 you'll be able to use glob from when you logged in
+
+#example
+
+```bash
+ls -d !(*.json)
+```
+you will get list exclude *.json
