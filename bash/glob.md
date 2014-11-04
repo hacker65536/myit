@@ -8,7 +8,7 @@ show current setting
 ```bash
 shopt -s extglob
 ```
-enable
+enable use glob
 
 ```bash
 shopt -u extglob
@@ -21,4 +21,4 @@ echo "shopt -s extglob" >> ~/.bash_rc
 source ~/.bash_rc
 ```
 
-used when login
+you'll be able to use glob from when you logged in
