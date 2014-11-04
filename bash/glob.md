@@ -29,3 +29,8 @@ you'll be able to use glob from when you logged in
 ls -d !(*.json)
 ```
 you will get list exclude *.json
+
+```bash
+cp !(a.*) /target/dir
+```
+copy file except a.*
