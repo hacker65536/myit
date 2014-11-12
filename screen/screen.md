@@ -1,4 +1,4 @@
-
+## settings
 ```bash
 vim ~/.screenrc
 ```
