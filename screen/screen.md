@@ -12,8 +12,20 @@ termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 #termcapinfo kterm-color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 # escape screen resize for kterm-color
 ```
+##operation
+```bash
+screen -ls
+```
 
-##copy paste
+```bash
+screen -r <process number>
+```
+
+```bash
+screen -x <session name>
+```
+
+##copy and  paste
 
 * `ctrl+z` change mode for screen cmd  
 * `[` copy mode start  
