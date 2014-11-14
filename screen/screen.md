@@ -34,3 +34,11 @@ screen -x <session name>
 * `y` copy and continue  
 * `W` copy word  
 * `]` paste  
+
+##troubleshooting
+```bash
+$ screen
+Cannot open your terminal '/dev/pts/1' - please check.
+```
+
+run comand with login user
