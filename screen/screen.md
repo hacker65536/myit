@@ -41,4 +41,4 @@ $ screen
 Cannot open your terminal '/dev/pts/1' - please check.
 ```
 
-run comand with login user
+run command with login user
