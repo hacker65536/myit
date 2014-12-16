@@ -129,6 +129,7 @@ vim /etc/tomcat8/server.xml
                connectionTimeout="20000"
                redirectPort="8443" />
     -->
+    <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
 ```
 
 ```bash
