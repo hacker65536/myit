@@ -41,7 +41,8 @@ vim /etc/tomcat8/tomcat-users.xml
 
 ```xml
 <role rolename="manager-gui"/>
-<user username="manager" password="password" roles="manager-gui"/>
+<role rolename="admin-gui"/>
+<user username="tomcat" password="s3cret" roles="manager-gui,admin-gui"/>
 ```
 ```bash
 service tomcat8 start
