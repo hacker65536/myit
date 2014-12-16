@@ -85,7 +85,7 @@ vim /etc/tomcat8/server.xml
                redirectPort="8443" />
     -->
 ```
-###access examples
+###To be able to access examples/
 you can't access to examples/ when using default settings
 
 error log on /var/lib/tomcat8/catalina.yyyy-mm-dd.log
@@ -113,3 +113,4 @@ vim /etc/tomcat8/context.xml
  -->
  <Resources allowLinking="true"></Resources>
  </Context>
+ ```
