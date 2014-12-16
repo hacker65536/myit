@@ -28,6 +28,37 @@ $ javac -version
 javac 1.7.0_71
 ```
 
+###with java-1.8
+
+```bash
+yum -y install java-1.8.0-openjdk-devel java-1.8.0-openjdk
+```
+```
+alternatives --config java
+
+There are 2 programs which provide 'java'.
+
+  Selection    Command
+-----------------------------------------------
+*+ 1           /usr/lib/jvm/jre-1.7.0-openjdk.x86_64/bin/java
+   2           /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.25-0.b18.4.amzn1.x86_64/jre/bin/java
+
+Enter to keep the current selection[+], or type selection number: 2
+```
+```
+alternatives --config javac
+
+There are 2 programs which provide 'javac'.
+
+  Selection    Command
+-----------------------------------------------
+*+ 1           /usr/lib/jvm/java-1.7.0-openjdk.x86_64/bin/javac
+   2           /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.25-0.b18.4.amzn1.x86_64/bin/javac
+
+Enter to keep the current selection[+], or type selection number: 2
+```
+
+
 ###sample & manager
 ```bash
 yum install -y tomcat8-admin-webapps tomcat8-webapps
