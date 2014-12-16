@@ -44,7 +44,7 @@ vim /etc/tomcat8/tomcat-users.xml
 <user username="manager" password="password" roles="manager-gui"/>
 ```
 ```bash
-service tomcat8 restart
+service tomcat8 start
 ```
 
 http://hostname:8080/manager  
