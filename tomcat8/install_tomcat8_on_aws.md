@@ -139,7 +139,7 @@ service httpd start
 ###To be able to access examples/
 you can't access to examples/ when using default settings
 
-error log on /var/lib/tomcat8/catalina.yyyy-mm-dd.log
+warning log will output to /var/lib/tomcat8/catalina.yyyy-mm-dd.log
 ```
 16-Dec-2014 07:44:26.698 WARNING [localhost-startStop-1] org.apache.catalina.startup.SetContextPropertiesRule.begin [SetContextPropertiesRule]{Context} Setting property 'allowLinking' to 'true' did not find a matching property.
 16-Dec-2014 07:44:26.716 SEVERE [localhost-startStop-1] org.apache.catalina.core.ContainerBase.addChildInternal ContainerBase.addChild: start:
