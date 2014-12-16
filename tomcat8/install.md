@@ -6,7 +6,7 @@ uname -a
 Linux ip-xxx-xxx-xxx-xxx 3.14.20-20.44.amzn1.x86_64 #1 SMP Mon Oct 1 00:00:00 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-
+##install
 ```bash
 yum install -y tomcat8 
 ```
