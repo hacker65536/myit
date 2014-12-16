@@ -73,3 +73,14 @@ ProxyPass ajp://localhost:8009/host-manager
 </Location>
 ```
 
+```bash
+vim /etc/tomcat8/server.xml
+```
+```xml
+    <!--
+    <Connector executor="tomcatThreadPool"
+               port="8080" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+    -->
+```
