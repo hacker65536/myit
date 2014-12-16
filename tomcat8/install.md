@@ -73,6 +73,7 @@ ProxyPass ajp://localhost:8009/host-manager
 </Location>
 ```
 
+comment out default port 8080
 ```bash
 vim /etc/tomcat8/server.xml
 ```
