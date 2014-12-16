@@ -34,7 +34,7 @@ javac 1.7.0_71
 yum -y install java-1.8.0-openjdk-devel java-1.8.0-openjdk
 ```
 ```
-alternatives --config java
+# alternatives --config java
 
 There are 2 programs which provide 'java'.
 
@@ -46,7 +46,7 @@ There are 2 programs which provide 'java'.
 Enter to keep the current selection[+], or type selection number: 2
 ```
 ```
-alternatives --config javac
+# alternatives --config javac
 
 There are 2 programs which provide 'javac'.
 
@@ -56,6 +56,17 @@ There are 2 programs which provide 'javac'.
    2           /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.25-0.b18.4.amzn1.x86_64/bin/javac
 
 Enter to keep the current selection[+], or type selection number: 2
+```
+
+```
+# java -version
+openjdk version "1.8.0_25"
+OpenJDK Runtime Environment (build 1.8.0_25-b18)
+OpenJDK 64-Bit Server VM (build 25.25-b02, mixed mode)
+
+# javac -version
+javac 1.8.0_25
+
 ```
 
 
