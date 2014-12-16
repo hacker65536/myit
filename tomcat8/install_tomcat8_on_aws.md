@@ -99,7 +99,7 @@ http://hostname:8080/manager  //basic authentication
 ```
 ###with apache
 ```bash
-yum install httpd24
+yum install -y httpd24
 ```
 
 ```bash
