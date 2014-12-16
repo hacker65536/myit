@@ -47,11 +47,10 @@ vim /etc/tomcat8/tomcat-users.xml
 ```bash
 service tomcat8 start
 ```
-
-http://hostname:8080/manager  
-or  
-http://hostname:8080 ->[server status]
-
+```
+http://hostname:8080
+http://hostname:8080/manager  //basic authentication
+```
 ###with apache
 ```bash
 yum install httpd24
@@ -85,6 +84,11 @@ vim /etc/tomcat8/server.xml
                redirectPort="8443" />
     -->
 ```
+
+```bash
+service tomcat8 restart
+service httpd start
+```
 ###To be able to access examples/
 you can't access to examples/ when using default settings
 
@@ -114,3 +118,9 @@ vim /etc/tomcat8/context.xml
  <Resources allowLinking="true"></Resources>
  </Context>
  ```
+
+```
+http://hostname/examples
+http://hostname/manager
+http://hostname/host-manager
+```
