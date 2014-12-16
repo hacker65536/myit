@@ -63,12 +63,16 @@ Enter to keep the current selection[+], or type selection number: 2
 openjdk version "1.8.0_25"
 OpenJDK Runtime Environment (build 1.8.0_25-b18)
 OpenJDK 64-Bit Server VM (build 25.25-b02, mixed mode)
-
-# javac -version
-javac 1.8.0_25
-
 ```
 
+```
+# javac -version
+javac 1.8.0_25
+```
+
+```bash
+service tomcat8 restart
+```
 
 ###sample & manager
 ```bash
