@@ -50,3 +50,25 @@ service tomcat8 start
 http://hostname:8080/manager  
 or  
 http://hostname:8080 ->[server status]
+
+###with apache
+```bash
+yum install httpd24
+```
+
+```bash
+vim /etc/httpd/conf.d/tomcat.conf
+```
+
+```apache
+<Location /examples >
+ProxyPass ajp://localhost:8009/examples
+</Location>
+<Location /manager >
+ProxyPass ajp://localhost:8009/manager
+</Location>
+<Location /host-manager >
+ProxyPass ajp://localhost:8009/host-manager
+</Location>
+```
+
