@@ -86,7 +86,26 @@ vim /etc/tomcat8/server.xml
     -->
 ```
 ###access examples
+you can't access to examples/ when using default settings
 
+error log on /var/lib/tomcat8/catalina.yyyy-mm-dd.log
+```
+16-Dec-2014 07:44:26.698 WARNING [localhost-startStop-1] org.apache.catalina.startup.SetContextPropertiesRule.begin [SetContextPropertiesRule]{Context} Setting property 'allowLinking' to 'true' did not find a matching property.
+16-Dec-2014 07:44:26.716 SEVERE [localhost-startStop-1] org.apache.catalina.core.ContainerBase.addChildInternal ContainerBase.addChild: start:
+ org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/examples]]
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:154)
+        at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:725)
+        at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:701)
+        ...more
+        
+16-Dec-2014 07:44:26.717 SEVERE [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Error deploying web application directory /var/lib/tomcat8/webapps/examples
+ java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/examples]]
+```
+edit context.xml
+
+```bash
+vim /etc/tomcat8/context.xml
+```
 ```xml
  <Context>
  <!--
