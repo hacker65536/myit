@@ -165,6 +165,9 @@ vim /etc/tomcat8/context.xml
  <Resources allowLinking="true"></Resources>
  </Context>
  ```
+```bash
+service tomcat8 restart
+```
 
 ```
 http://hostname/examples
