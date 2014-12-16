@@ -85,3 +85,12 @@ vim /etc/tomcat8/server.xml
                redirectPort="8443" />
     -->
 ```
+###access examples
+
+```xml
+ <Context>
+ <!--
+ ...
+ -->
+ <Resources allowLinking="true"></Resources>
+ </Context>
