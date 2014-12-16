@@ -43,3 +43,10 @@ vim /etc/tomcat8/tomcat-users.xml
 <role rolename="manager-gui"/>
 <user username="manager" password="password" roles="manager-gui"/>
 ```
+```bash
+service tomcat8 restart
+```
+
+http://hostname:8080/manager  
+or  
+http://hostname:8080 ->[server status]
