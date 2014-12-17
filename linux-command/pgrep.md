@@ -33,5 +33,31 @@ root     30162  0.0  0.0 110284   840 pts/0    S+   07:13   0:00 grep httpd
 
 ```bash
 pgrep -u root -n -l
+25783 rsyslogd
 ```
+
+```bash
+ps -fp $(pgrep -d, -x httpd)
+UID        PID  PPID  C STIME TTY          TIME CMD
+root      2722     1  0 Dec16 ?        00:00:02 /usr/sbin/httpd
+apache    2724  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
+apache    2725  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
+apache    2726  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
+apache    2727  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
+apache    2728  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
+apache    2991  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
+apache    2997  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
+apache    2999  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
+apache    3000  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
+```
+
+
 select the newest of the matching processes of root user
+
+- -f filtter of the pattern
+- -l list the process name as well as the process ID
+- -n newest process.
+- -o oldest process.
+- -u effective user ID.
+- -U real user ID.
+- -v Negates the matching
