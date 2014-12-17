@@ -30,3 +30,8 @@ root     30162  0.0  0.0 110284   840 pts/0    S+   07:13   0:00 grep httpd
 2999 /usr/sbin/httpd
 3000 /usr/sbin/httpd
 ```
+
+```bash
+pgrep -u root -n -l
+```
+select the newest of the matching processes of root user
