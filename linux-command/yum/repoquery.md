@@ -9,6 +9,7 @@ yum -y install yum-utils
 ##example
 ```
  repoquery -l yum-utils
+ 
 /etc/bash_completion.d
 /etc/bash_completion.d/yum-utils.bash
 /usr/bin/debuginfo-install
@@ -19,3 +20,9 @@ yum -y install yum-utils
 /usr/bin/repo-rss
 ...
 ```
+
+##options
+
+- -i Show general information about package similarly to "rpm -qi"
+- -l list files in package.
+- -s show package source rpm name.
