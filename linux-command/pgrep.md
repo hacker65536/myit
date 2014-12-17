@@ -30,11 +30,13 @@ root     30162  0.0  0.0 110284   840 pts/0    S+   07:13   0:00 grep httpd
 2999 /usr/sbin/httpd
 3000 /usr/sbin/httpd
 ```
-
+##example
 ```bash
 pgrep -u root -n -l
 25783 rsyslogd
 ```
+select the newest of the matching processes of root user
+
 
 ```bash
 ps -fp $(pgrep -d, -x httpd)
@@ -52,7 +54,7 @@ apache    3000  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
 ```
 
 
-select the newest of the matching processes of root user
+##options
 
 - -d delimiter Sets the string used to delimit each process ID in the output(by default a newline).
 - -f filtter of the pattern
