@@ -21,8 +21,13 @@ yum -y install yum-utils
 ...
 ```
 
+like as this command
+```bash
+rpm -ql
+```
+
 ##options
 
-- -i Show general information about package similarly to "rpm -qi"
+- -i show general information about package similarly to "rpm -qi"
 - -l list files in package.
 - -s show package source rpm name.
