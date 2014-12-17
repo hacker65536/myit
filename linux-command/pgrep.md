@@ -52,7 +52,7 @@ apache    2997  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
 apache    2999  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
 apache    3000  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
 ```
-
+Show detailed infomation of httpd processes. 
 
 ##options
 
