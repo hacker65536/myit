@@ -26,7 +26,7 @@ rpm -ql
 ```
 
 like as this command.  
-"rpm" only can use to local package that are installed.  
+"rpm" command can only use for the local package that are installed or downloaded.  
 "repoquery" can give information from yum repositories without install package.
 
 ##options
