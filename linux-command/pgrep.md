@@ -66,3 +66,6 @@ Show detailed infomation of httpd processes.
 - -u effective user ID.
 - -U real user ID.
 - -v Negates the matching
+
+
+reference [http://linuxjm.sourceforge.jp/html/procps/man1/pgrep.1.html]
