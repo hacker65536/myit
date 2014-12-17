@@ -54,6 +54,7 @@ apache    3000  2722  0 Dec16 ?        00:00:00 /usr/sbin/httpd
 
 select the newest of the matching processes of root user
 
+- -d delimiter Sets the string used to delimit each process ID in the output(by default a newline).
 - -f filtter of the pattern
 - -l list the process name as well as the process ID
 - -n newest process.
