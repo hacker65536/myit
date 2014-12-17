@@ -21,10 +21,12 @@ yum -y install yum-utils
 ...
 ```
 
-like as this command
 ```bash
 rpm -ql
 ```
+
+like as this command.  
+"rpm" only can use to local package that are installed. but "repoquery" can give information from yum repositories.
 
 ##options
 
