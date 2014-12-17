@@ -68,4 +68,4 @@ Show detailed infomation of httpd processes.
 - -v Negates the matching
 
 
-reference [http://linuxjm.sourceforge.jp/html/procps/man1/pgrep.1.html]
+reference http://linuxjm.sourceforge.jp/html/procps/man1/pgrep.1.html
