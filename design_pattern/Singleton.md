@@ -117,6 +117,8 @@ public enum Singleton {
 ```
 ###php
 
+ref http://www.phptherightway.com/pages/Design-Patterns.html  
+
 ```php
 <?php
 class Singleton {
