@@ -7,10 +7,10 @@
 
 
 ##UML(Class diagram)
-|Class| Creator |
+|Class| *Creator* |
 |-------|--------|
 | **Attributes** ||
-| **Methods** |# factoryMethod() : Product|
+| **Methods** |*# factoryMethod() : Product*|
 
 
 
@@ -21,7 +21,7 @@
 
 
 
-|Class| Product |
+|Class| *Product* |
 |-------|--------|
 | **Attributes** ||
 | **Methods** ||
