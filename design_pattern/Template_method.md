@@ -8,7 +8,7 @@
 |Class| *AbstractClass* |
 |-------|--------|
 | **Attributes** ||
-| **Methods** |+ templateMethod() <br /> *#method1()<br/> *#method2()|
+| **Methods** |+ templateMethod() <br /> *#method1()* <br/> *#method2()*|
 
 |Class| ConcreteClass |
 |-------|--------|
