@@ -19,7 +19,7 @@ ConcreteCreateor ____Generalization_____> Creator
 | **Attributes** ||
 | **Methods** |+ factoryMethod() : Product|
 
-ConcreteCreateor --<<create>>(dependency)--> Product
+ConcreteCreateor --«create» (dependency)--> Product
 
 |Class| Product |
 |-------|--------|
