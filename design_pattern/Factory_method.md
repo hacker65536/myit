@@ -18,3 +18,10 @@ ConcreteCreateor --Generalization--> Creator
 |-------|--------|
 | **Attributes** ||
 | **Methods** |+ factoryMethod() : Product|
+
+ConcreteCreateor --dependency--> Product
+
+|Class| Product |
+|-------|--------|
+| **Attributes** ||
+| **Methods** ||
