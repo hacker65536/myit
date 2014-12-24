@@ -12,16 +12,23 @@
 | **Attributes** ||
 | **Methods** |# factoryMethod() : Product|
 
-ConcreteCreateor --Generalization--> Creator
+ConcreteCreateor ____Generalization_____> Creator
 
 |Class| ConcreteCreator |
 |-------|--------|
 | **Attributes** ||
 | **Methods** |+ factoryMethod() : Product|
 
-ConcreteCreateor --dependency--> Product
+ConcreteCreateor --<<create>>(dependency)--> Product
 
 |Class| Product |
+|-------|--------|
+| **Attributes** ||
+| **Methods** ||
+
+ConcreteProduct ____Generalization_____> Product
+
+|Class| ConcreteProduct |
 |-------|--------|
 | **Attributes** ||
 | **Methods** ||
