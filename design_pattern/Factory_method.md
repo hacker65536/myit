@@ -35,6 +35,6 @@
 
 
 Createor --«create» (dependency)--> Product  
-ConcreteCreateor --«create» (dependency)--> ConcreteProduct 
+ConcreteCreateor --«create» (dependency)--> ConcreteProduct  
 ConcreteCreateor ____Generalization_____> Creator  
 ConcreteProduct ____Generalization_____> Product  
