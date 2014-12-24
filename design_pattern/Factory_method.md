@@ -36,5 +36,5 @@
 
 Creator(abstract) --«create» (dependency)--> Product(abstract)  
 ConcreteCreateor --«create» (dependency)--> ConcreteProduct  
-ConcreteCreateor  ____Generalization_____> Creator(abstract)  
-ConcreteProduct ____Generalization_____> Product(abstract)  
+ConcreteCreateor  ____inheritance(Generalization)_____> Creator(abstract)  
+ConcreteProduct ____inheritance(Generalization)_____> Product(abstract)  
