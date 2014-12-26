@@ -12,7 +12,7 @@ abstract class Template {
 }
 
 //inheritance of class (subclass)
-class TemplateMethod1 extends Template {
+class Template1 extends Template {
   /* Implementation of necessary concrete methods */
   String method1(){
     return "";
@@ -25,7 +25,7 @@ class TemplateMethod1 extends Template {
 }
 
 //inheritance of class (subclass)
-class TemplateMethod2 extends Template {
+class Template2 extends Template {
   /* Implementation of necessary concrete methods */
   String method1(){
     return "";
@@ -33,5 +33,15 @@ class TemplateMethod2 extends Template {
   /* Implementation of necessary concrete methods */
   String method2(){
     return "";
+  }
+}
+
+public class TemplateMethod {
+  public static void main(String[] argv){
+    Template tmp1 = new Template1();
+    Template tmp2 = new Template2();
+    
+    System.out.println(tmp1.method3());
+    System.out.println(tmp2.method3());
   }
 }
