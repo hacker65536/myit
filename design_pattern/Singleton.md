@@ -11,7 +11,7 @@ This design pattern restricts the instantiation of a class to one object.
 ##UML(Class diagram)
 |Class| Singleton |
 |-------|--------|
-| **Attributes** |- instance : Singleton = null|
+| **Attributes** |<span style="text-decoration: underline">- instance : Singleton = null</span>|
 | **Methods** |+ getinstance() : Singleton <br /> - Singleton() : void|
 
 ###java
