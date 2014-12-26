@@ -1,5 +1,8 @@
 #Singleton
 
+##
+This design pattern restricts the instantiation of a class to one object.
+
 ##relevant pattern
 - Abstract Factory
 - Builder
