@@ -13,6 +13,7 @@ public class TestJava {
 
 `[{` or `]}` you can to jump to the beginning(end) of a block. 
 
-
+http://vim-jp.org/vimdoc-ja/motion.html#various-motions  
+http://vimdoc.sourceforge.net/htmldoc/motion.html#various-motions  
 http://vim-jp.org/vimdoc-ja/motion.html#object-motions  
 http://vimdoc.sourceforge.net/htmldoc/motion.html#object-motions
