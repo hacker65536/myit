@@ -21,5 +21,5 @@ public class Student {
 
 `]m` jump to next method beginning  
 `]M` jump to next method end  
-`[m` jump to before method beginngin
+`[m` jump to before method beginning  
 `[M` jump to before method end
