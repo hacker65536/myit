@@ -21,5 +21,5 @@ tar zxvf node-v0.10.36.tar.gz
 cd node-v0.10.36
 ./configure
 make
-
+make install
 ```
