@@ -12,3 +12,5 @@ cd myapp
 npm init
 npm install express --save
 ```
+
+omit the --save opthion if its not necessary to add to the dependencies list
