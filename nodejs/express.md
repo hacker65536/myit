@@ -42,7 +42,9 @@ create sampe app
 
 ```bash
 express myapp
+```
 
+```
    create : myapp
    create : myapp/package.json
    create : myapp/app.js
