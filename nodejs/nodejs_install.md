@@ -1,7 +1,11 @@
 #node.js
 
 version v0.10.36  
-env amzlinux
+##env
+```bash
+uname -a
+Linux ip-xxx-xx-xx-xx 3.14.27-25.47.amzn1.x86_64 #1 SMP Wed Dec 17 18:36:15 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
+```
 
 ##require
 ```bash
