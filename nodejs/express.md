@@ -81,3 +81,31 @@ DEBUG=myapp ./bin/www
 ```
 
 
+directory structure
+```bash
+tree -L 2 .
+.
+├── app.js
+├── bin
+│   └── www
+├── node_modules
+│   ├── body-parser
+│   ├── cookie-parser
+│   ├── debug
+│   ├── express
+│   ├── jade
+│   ├── morgan
+│   └── serve-favicon
+├── package.json
+├── public
+│   ├── images
+│   ├── javascripts
+│   └── stylesheets
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.jade
+    ├── index.jade
+    └── layout.jade
+```
