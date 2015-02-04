@@ -1,10 +1,12 @@
 #node.js
 
 version v0.10.36  
+env amzlinux
 
 ##require
 ```bash
-yum install gcc
+yum install gcc gcc-c++
+
 ```
 
 ##install
