@@ -37,7 +37,7 @@ express -h
 
 
 ```
-
+###create sample-app
 ```bash
 express myapp
 
@@ -64,4 +64,8 @@ express myapp
 
    run the app:
      $ DEBUG=myapp:* ./bin/www
+```
+```bash
+cd myapp
+npm install
 ```
