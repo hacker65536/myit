@@ -1,4 +1,5 @@
 
+##sourcecode PHP
 ```php
                 $backet="BACKETNAME";
                 $s3=Aws\S3\S3Client::factory(
@@ -24,4 +25,10 @@
                 echo "Output response from aws-s3".PHP_EOL;
                 var_dump($res);
                 echo "</pre>";
+```
+
+##CommandLine
+required jq
+```bash
+aws s3api head-object --bucket backetname --key templatedev.json | jq '.VersionId' | tr -d '"'
 ```
