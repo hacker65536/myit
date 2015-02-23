@@ -104,3 +104,10 @@ mount -av
 /proc                    : already mounted
 /mnt/gitdata             : already mounted
 ```
+
+##install git-flow
+```bash
+cd /usr/local/src
+wget --no-check-certificate -q  https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh
+sh gitflow-installer.sh
+```
