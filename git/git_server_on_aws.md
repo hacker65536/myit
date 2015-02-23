@@ -67,14 +67,18 @@ useradd gitolite
 ```
 
 ###setup
+
 ```bash
 sudo -u gitolite -i mkdir bin
 sudo -u gitolite -i git clone git://github.com/sitaramc/gitolite
 sudo -u gitolite -i gitolite/install -to ~gitolite/bin
 ```
-###create sshkey
+create sshkey  
 ```bash
 sudo -H -u gitolite sh -c  "ssh-keygen -f /home/gitolite/.ssh/id_rsa -N ''"
 sudo -H -u gitolite -i cp ~gitolite/.ssh/id_rsa.pub ~gitolite/gitadmin.pub
+```
+
+```bash
 sudo -H -u gitolite -i gitolite setup -pk ~gitolite/gitadmin.pub
 ```
