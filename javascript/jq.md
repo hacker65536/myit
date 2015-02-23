@@ -5,5 +5,5 @@
 ##yum update
 
 ```bash
-sudo yum update -y
+yum update -y
 ```
