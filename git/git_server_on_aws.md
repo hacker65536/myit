@@ -135,3 +135,36 @@ find /home/gitolite/repositories/ -type d -exec chmod 775 {} \;
 sed -i 's/0077/0027/' /home/gitolite/.gitolite.rc
 sed -i "s/\s\+GIT_CONFIG_KEYS\s\+=>\s\+'/&core.sharedRepository/" /home/gitolite/.gitolite.rc
 ```
+
+you should do the command after create new repository  
+
+on server
+```bash
+su - gitolite
+cd repositories/newrepo.git/
+git config core.sharedRepository group
+git update-server-info
+chmod -R g+ws hooks
+chmod -R g+ws info
+chmod -R g+ws objects
+chmod -R g+ws refs
+exit
+```
+
+on conf
+```
+vim gitolite-admin/conf/gitlite.conf
+```
+
+```
+repo testing1
+    RW+     =   @all
+config core.sharedRepository = 0660 #add this line
+```
+
+```bash
+git commit -a -m "i"
+git push
+```
+
+
