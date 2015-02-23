@@ -19,3 +19,11 @@ aws ec2 attach-volume --volume-id ${vid} --instance-id ${thisId} --device /dev/x
 
 sleep 15
 ```
+
+```bash
+lsblk
+NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0   8G  0 disk
+└─xvda1 202:1    0   8G  0 part /
+xvdf    202:80   0  20G  0 disk
+```
