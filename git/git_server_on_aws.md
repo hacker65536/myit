@@ -123,3 +123,15 @@ config
 cp /etc/gitweb.conf /etc/gitweb.conf.org
 sed -i 's/^#our \$projectroot.*/&\nour \$projectroot="\/home\/gitolite\/repositories";/' /etc/gitweb.conf
 ```
+
+modify userinfo  
+```bash
+usermod -a -G gitolite apache
+chmod g+rx /home/gitolite/
+
+find /home/gitolite/repositories/ -type f -exec chmod 664 {} \; 
+find /home/gitolite/repositories/ -type d -exec chmod 775 {} \;
+
+sed -i 's/0077/0027/' /home/gitolite/.gitolite.rc
+sed -i "s/\s\+GIT_CONFIG_KEYS\s\+=>\s\+'/&core.sharedRepository/" /home/gitolite/.gitolite.rc
+```
