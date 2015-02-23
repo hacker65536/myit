@@ -112,10 +112,12 @@ wget --no-check-certificate -q  https://github.com/nvie/gitflow/raw/develop/cont
 sh gitflow-installer.sh
 ```
 
-##create repository
+##adding users and repos 
 
-First time, you edit a config file of repository to using root user on git server.
+configure special repo called "gitolite-admin" and pushing those changes to the server.
+using installation user like root.
 
+make a file for access to server of gitolite on localhost ,using ssh port.   
 ```bash
 echo "host githost
 hostname localhost
