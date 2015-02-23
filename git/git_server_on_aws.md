@@ -57,3 +57,24 @@ devtmpfs          501948      60    501888   1% /dev
 tmpfs             510096       0    510096   0% /dev/shm
 /dev/xvdf       20511356   44992  19401404   1% /mnt/gitdata
 ```
+
+
+##install gitolite
+
+###create user
+```bash
+useradd gitolite
+```
+
+###setup
+```bash
+sudo -u gitolite -i mkdir bin
+sudo -u gitolite -i git clone git://github.com/sitaramc/gitolite
+sudo -u gitolite -i gitolite/install -to ~gitolite/bin
+```
+###create sshkey
+```bash
+sudo -H -u gitolite sh -c  "ssh-keygen -f /home/gitolite/.ssh/id_rsa -N ''"
+sudo -H -u gitolite -i cp ~gitolite/.ssh/id_rsa.pub ~gitolite/gitadmin.pub
+sudo -H -u gitolite -i gitolite setup -pk ~gitolite/gitadmin.pub
+```
