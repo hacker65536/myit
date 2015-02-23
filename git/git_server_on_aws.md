@@ -82,3 +82,18 @@ sudo -H -u gitolite -i cp ~gitolite/.ssh/id_rsa.pub ~gitolite/gitadmin.pub
 ```bash
 sudo -H -u gitolite -i gitolite setup -pk ~gitolite/gitadmin.pub
 ```
+
+replace directory  
+```bash
+cp -ar ~gitolite/repositories/ /mnt/gitdata
+rm -rf ~gitolite/repositories/
+ln -s /mnt/gitdata/repositories ~gitolite/
+```
+
+set mount for reboot
+```bash
+echo "/dev/xvdf       /mnt/data       ext4    defaults        0       2" >> /etc/fstab
+```
+```bash
+mount -av
+```
