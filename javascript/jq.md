@@ -26,7 +26,7 @@ latest version(2015/02/22) require bison 3.x ,but amzlinux have 2.4.1
 dont use bison or update bison 3.x from source ,or use previous version `3e1baf59167d6e7d836ec39d353eec1022331a6d`
 
 ```bash
-yum install -y gcc autoconf automake libtool
+yum install -y git gcc autoconf automake libtool
 ```
 optional  
 ```bash
