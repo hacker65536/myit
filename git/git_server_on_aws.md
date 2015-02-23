@@ -97,4 +97,10 @@ echo "/dev/xvdf       /mnt/gitdata       ext4    defaults        0       2" >> /
 ```
 ```bash
 mount -av
+/                        : ignored
+/dev/shm                 : already mounted
+/dev/pts                 : already mounted
+/sys                     : already mounted
+/proc                    : already mounted
+/mnt/gitdata             : already mounted
 ```
