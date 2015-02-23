@@ -124,7 +124,7 @@ StrictHostKeyChecking no" >> ~/.ssh/config
 chmod 600 ~/.ssh/config
 ```
 
-this sample suppose root user on git server,not gitolite user. change value of hostname and identityfile if you are remote user.
+this is first time to edit config of repository on gitolite. So suppose root user on git server,not gitolite user. change value of hostname and identityfile if you are remote user.
 
 ```bash
 cd 
