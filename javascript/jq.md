@@ -2,6 +2,12 @@
 
 #install jq
 
+##environment
+
+```bash
+uname -a
+Linux ip-10-0-0-232 3.14.27-25.47.amzn1.x86_64 #1 SMP Wed Dec 17 18:36:15 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
+```
 ##set timezone
 ```bash
 cp /etc/localtime /etc/localtime.org
