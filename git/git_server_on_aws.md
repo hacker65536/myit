@@ -111,3 +111,9 @@ cd /usr/local/src
 wget --no-check-certificate -q  https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh
 sh gitflow-installer.sh
 ```
+
+
+##install gitweb
+```bash
+yum install -y httpd24 gitweb
+```
