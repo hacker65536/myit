@@ -92,6 +92,7 @@ ln -s /mnt/gitdata/repositories ~gitolite/
 
 set mount for reboot
 ```bash
+cp /etc/fstab /etc/fstab.org
 echo "/dev/xvdf       /mnt/data       ext4    defaults        0       2" >> /etc/fstab
 ```
 ```bash
