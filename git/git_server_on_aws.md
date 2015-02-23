@@ -126,7 +126,7 @@ StrictHostKeyChecking no" >> ~/.ssh/config
 chmod 600 ~/.ssh/config
 ```
 
-
+clone repository for edit  
 ```bash
 cd 
 git clone githost:gitolite-admin
