@@ -117,3 +117,9 @@ sh gitflow-installer.sh
 ```bash
 yum install -y httpd24 gitweb
 ```
+
+config  
+```bash
+cp /etc/gitweb.conf /etc/gitweb.conf.org
+sed -i 's/^#our \$projectroot.*/&\nour \$projectroot="\/home\/gitolite\/repositories";/' /etc/gitweb.conf
+```
