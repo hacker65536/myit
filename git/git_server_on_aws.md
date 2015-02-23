@@ -49,3 +49,11 @@ Writing superblocks and filesystem accounting information: done
 mkdir /mnt/gitdata
 mount /dev/xvdf /mnt/gitdata
 ```
+```bash
+ df -l
+Filesystem     1K-blocks    Used Available Use% Mounted on
+/dev/xvda1       8123812 1315056   6708508  17% /
+devtmpfs          501948      60    501888   1% /dev
+tmpfs             510096       0    510096   0% /dev/shm
+/dev/xvdf       20511356   44992  19401404   1% /mnt/gitdata
+```
