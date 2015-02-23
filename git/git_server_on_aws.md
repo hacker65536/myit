@@ -114,6 +114,8 @@ sh gitflow-installer.sh
 
 ##create repository
 
+First time, you edit a config file of repository to using root user on git server.
+
 ```bash
 echo "host githost
 hostname localhost
@@ -124,7 +126,6 @@ StrictHostKeyChecking no" >> ~/.ssh/config
 chmod 600 ~/.ssh/config
 ```
 
-this is first time to edit config of repository on gitolite. So suppose root user on git server,not gitolite user. change value of hostname and identityfile if you are remote user.
 
 ```bash
 cd 
