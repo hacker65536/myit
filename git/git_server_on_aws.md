@@ -122,7 +122,8 @@ port 22
 identityfile /home/gitolite/.ssh/id_rsa
 StrictHostKeyChecking no" >> ~/.ssh/config
 ```
-this is not gitolite user. create .ssh/config for your local user. change hostname if you are remote.
+
+this sample suppose root user on git server,not gitolite user. change value of hostname and identityfile if you are remote user.
 
 ```bash
 cd 
