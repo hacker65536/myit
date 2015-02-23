@@ -24,5 +24,47 @@ yum install -y gcc autoconf automake libtool
 ```
 optional  
 ```bash
-yum install -y flex bison
+yum install -y flex bison oniguruma-devel
+```
+
+###previous version
+
+```bash
+yum install -y oniguruma-devel
+cd /usr/local/src
+git clone https://github.com/stedolan/jq.git
+cd jq
+git checkout  3e1baf59167d6e7d836ec39d353eec1022331a6d
+autoreconf -i
+./configure
+make
+make install
+```
+
+###latest version(2015/02/22)
+```bash
+yum remove bison
+cd /usr/local/src/
+wget "http://ftp.gnu.org/gnu/bison/bison-3.0.4.tar.gz"
+tar zxvf bison-3.0.4.tar.gz
+cd bison-3.0.4
+./configure
+make
+make install
+```
+add to ld.so.conf  
+```bash
+echo "/usr/local/lib" >>  /etc/ld.so.conf.d/local.conf
+ldconfig
+ldconfig -p
+```
+
+```bash
+cd /usr/local/src
+git clone https://github.com/stedolan/jq.git
+cd jq
+autoreconf -i
+./configure
+make
+make install
 ```
