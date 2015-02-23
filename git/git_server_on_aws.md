@@ -112,6 +112,24 @@ wget --no-check-certificate -q  https://github.com/nvie/gitflow/raw/develop/cont
 sh gitflow-installer.sh
 ```
 
+##create repository
+
+```bash
+echo "host githost
+hostname localhost
+user gitolite
+port 22
+identityfile /home/gitolite/.ssh/id_rsa
+StrictHostKeyChecking no" >> ~/.ssh/config
+```
+this is not gitolite user. create .ssh/config for your local user. change hostname if you are remote.
+
+```bash
+cd 
+git clone githost:gitolite-admin
+cd gitolite-admin/
+```
+
 
 ##install gitweb
 ```bash
