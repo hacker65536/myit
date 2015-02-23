@@ -73,7 +73,7 @@ sudo -u gitolite -i mkdir bin
 sudo -u gitolite -i git clone git://github.com/sitaramc/gitolite
 sudo -u gitolite -i gitolite/install -to ~gitolite/bin
 ```
-create sshkey  
+create sshkey of gitolite admin 
 ```bash
 sudo -H -u gitolite sh -c  "ssh-keygen -f /home/gitolite/.ssh/id_rsa -N ''"
 sudo -H -u gitolite -i cp ~gitolite/.ssh/id_rsa.pub ~gitolite/gitadmin.pub
@@ -133,6 +133,29 @@ clone repository for edit
 cd 
 git clone githost:gitolite-admin
 cd gitolite-admin/
+```
+
+add user and repo
+
+conf/gitolite.conf  
+```
+repo gitolite-admin
+    RW+     =   gitadmin
+
+repo testing
+    RW+     =   @all
+
+repo newrepo
+    RW+ = newuser
+```
+add public key to "keydir"  
+
+commit and push to change  
+```bash
+git add conf
+git add keydir
+git commit -m "add repo and user"
+git push
 ```
 
 
