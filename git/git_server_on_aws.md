@@ -121,6 +121,7 @@ user gitolite
 port 22
 identityfile /home/gitolite/.ssh/id_rsa
 StrictHostKeyChecking no" >> ~/.ssh/config
+chmod 600 ~/.ssh/config
 ```
 
 this sample suppose root user on git server,not gitolite user. change value of hostname and identityfile if you are remote user.
