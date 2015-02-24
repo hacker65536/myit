@@ -9,6 +9,7 @@ need IAMrole for ontrol EBS
 
 ##attach ebs
 
+cli  
 ```bash
 ebssize=20
 thisAz=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq '.availabilityZone'| tr -d '\"')
