@@ -172,6 +172,26 @@ git push
 
 ##install gitweb
 [gitweb doc](https://www.kernel.org/pub/software/scm/git/docs/gitweb.conf.html)
+
+instant
+```bash
+cd gitrepo
+git instaweb --httpd=webrick
+```
+then you can access http://hostname:1234 to view repository  
+
+```
+# lsof -i:1234
+COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+ruby    13426 root    9u  IPv4  43516      0t0  TCP *:search-agent (LISTEN)
+```
+
+stop instaweb  
+```bash
+git instaweb --httpd=webrick --stop
+```
+
+
 ```bash
 yum install -y httpd24 gitweb
 ```
