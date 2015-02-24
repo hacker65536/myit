@@ -171,6 +171,7 @@ git push
 
 
 ##install gitweb
+[gitweb doc](https://www.kernel.org/pub/software/scm/git/docs/gitweb.conf.html)
 ```bash
 yum install -y httpd24 gitweb
 ```
