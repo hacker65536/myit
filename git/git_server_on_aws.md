@@ -136,7 +136,7 @@ git clone githost:gitolite-admin
 cd gitolite-admin/
 ```
 
-set your account's default identity on this repository. (--global always using same info)  
+set your account's default identity on this repository. (add --global opt  using same info always)  
 ```bash
 git config user.email "gitoliteadmin@localhost"
 git config user.name "gitoliteadmin"
