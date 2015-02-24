@@ -173,7 +173,12 @@ git push
 ##install gitweb
 [gitweb doc](https://www.kernel.org/pub/software/scm/git/docs/gitweb.conf.html)
 
-instant
+```bash
+yum install -y httpd24 gitweb
+```
+
+
+###instant view  
 ```bash
 cd gitrepo
 git instaweb --httpd=webrick
@@ -190,12 +195,7 @@ stop instaweb
 ```bash
 git instaweb --httpd=webrick --stop
 ```
-
-
-```bash
-yum install -y httpd24 gitweb
-```
-
+###for httpd
 config  
 ```bash
 cp /etc/gitweb.conf /etc/gitweb.conf.org
