@@ -142,7 +142,7 @@ git config user.email "gitoliteadmin@localhost"
 git config user.name "gitoliteadmin"
 ```
 
-add user and repo  
+add public key of user to "keydir"  
 ```bash
 ssh-keygen -t rsa -N "" -f ~/scott
 cp ~/scott.pub keydir/
@@ -159,7 +159,7 @@ repo testing
 repo newrepo
     RW+ = newuser
 ```
-add public key to "keydir"  
+
 
 commit and push to change  
 ```bash
