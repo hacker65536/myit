@@ -136,7 +136,17 @@ git clone githost:gitolite-admin
 cd gitolite-admin/
 ```
 
-add user and repo
+set your account's default identity on this repository. (--global always using same info)  
+```bash
+git config user.email "gitoliteadmin@localhost"
+git config user.name "gitoliteadmin"
+```
+
+add user and repo  
+```bash
+ssh-keygen -t rsa -N "" -f ~/scott
+cp ~/scott.pub keydir/
+```
 
 conf/gitolite.conf  
 ```
