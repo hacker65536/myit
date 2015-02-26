@@ -214,6 +214,7 @@ DBinstance
       "MultiAZ" : false,
       "PreferredBackupWindow" : {"Ref": "DBBackupWindow"},
       "PreferredMaintenanceWindow" : { "Ref": "DBMaintenanceWindow"},
+      "StorageType":"gp2",
       "Tags" : [ 
          {
             "Key": "Name",
