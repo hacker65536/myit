@@ -182,7 +182,7 @@ DBSubnetGroup
                                     {
                                         "Ref": "AWS::StackName"
                                     },
-                                    "Mycnf_utf8"
+                                    "DBSubnetGroup"
                                 ]
                             ]
                         }
