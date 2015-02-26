@@ -74,55 +74,49 @@ Parameter
 
 SG  
 ```json
-         "SGMysql": {
+        "SGMysql": {
             "Properties": {
-                "GroupDescription": "SG for mysql", 
+                "GroupDescription": "SG for mysql",
                 "SecurityGroupIngress": [
                     {
                         "CidrIp": {
                             "Fn::Join": [
-                                "", 
+                                "",
                                 [
                                     {
                                         "Ref": "VPCCidr"
-                                    }, 
+                                    },
                                     ".0.0/16"
                                 ]
                             ]
-                        }, 
-                        "FromPort": "3306", 
-                        "IpProtocol": "tcp", 
+                        },
+                        "FromPort": "3306",
+                        "IpProtocol": "tcp",
                         "ToPort": "3306"
                     }
-                ], 
+                ],
                 "Tags": [
                     {
-                        "Key": "Env", 
-                        "Value": {
-                            "Ref": "Tag"
-                        }
-                    }, 
-                    {
-                        "Key": "Name", 
+                        "Key": "Name",
                         "Value": {
                             "Fn::Join": [
-                                "-", 
+                                "-",
                                 [
                                     {
                                         "Ref": "AWS::StackName"
-                                    }, 
+                                    },
                                     "SGMysql"
                                 ]
                             ]
                         }
                     }
-                ], 
+                ],
                 "VpcId": {
                     "Ref": "VPC"
                 }
-            }, 
+            },
             "Type": "AWS::EC2::SecurityGroup"
-        }, 
+        },
 ```
 DBParameter  
 ```json
