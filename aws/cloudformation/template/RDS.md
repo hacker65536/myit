@@ -21,6 +21,11 @@
             "Description": "DBInstanceIdentifier", 
             "Type": "String"
         }, 
+        "DBSize": {
+            "Default": "10", 
+            "Description": "GB", 
+            "Type": "String"
+        },
         "DBBackupWindow": {
             "Default": "19:00-20:00", 
             "Description": "dbbackupwindow jst 4:00-5:00-> utc 19:00-20:00", 
@@ -117,6 +122,37 @@ SG
             "Type": "AWS::EC2::SecurityGroup"
         }, 
 ```
+DBParameter  
+```json
+       "DBParameterGroup": {
+            "Properties": {
+                "Description": "mycnf_utf8", 
+                "Family": "MySQL5.6", 
+                "Parameters": {
+                    "character_set_client": "utf8", 
+                    "character_set_connection": "utf8", 
+                    "character_set_database": "utf8", 
+                    "character_set_results": "utf8", 
+                    "character_set_server": "utf8", 
+                    "collation_connection": "utf8_general_ci", 
+                    "collation_server": "utf8_general_ci"
+                }, 
+                "Tags": [
+                    {
+                        "Key": "Env", 
+                        "Value": {
+                            "Ref": "Tag"
+                        }
+                    }, 
+                    {
+                        "Key": "Name", 
+                        "Value": "mycnf_utf8"
+                    }
+                ]
+            }, 
+            "Type": "AWS::RDS::DBParameterGroup"
+        }, 
+```
 
 DBinstance  
 ```json
@@ -124,14 +160,14 @@ DBinstance
    "Type" : "AWS::RDS::DBInstance",
    "Properties" :
    {
-      "AllocatedStorage" : "10",
+      "AllocatedStorage" : {"Ref":"DBSize"},
       "AllowMajorVersionUpgrade" : true,
       "AutoMinorVersionUpgrade" : true,
       "BackupRetentionPeriod" : {"Ref":"DBBackupRetentionPeriod"},
       "DBInstanceClass" : {"Ref":"DBInstanceClass"},
       "DBInstanceIdentifier" : {"Ref":"DBId"},
       "DBName" : {"Ref":"DBName"},
-      "DBParameterGroupName" : {"Ref":"DBParameterGroupName"},
+      "DBParameterGroupName" : {"Ref":"DBParameterGroup"},
       "DBSubnetGroupName" : {"Ref":"DBId"},
       "Engine" : "MySQL",
       "MasterUsername" : {"Ref":"DBUser"},
