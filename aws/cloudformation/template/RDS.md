@@ -149,6 +149,49 @@ DBParameter
             "Type": "AWS::RDS::DBParameterGroup"
         }, 
 ```
+DBSubnetGroup  
+```json
+        "DBSubnetGroup": {
+            "Properties": {
+                "DBSubnetGroupDescription": {
+                    "Fn::Join": [
+                        "-",
+                        [
+                            {
+                                "Ref": "AWS::StackName"
+                            },
+                            "DBSubnetGroup"
+                        ]
+                    ]
+                },
+                "SubnetIds": [
+                    {
+                        "Ref": "Subnet0"
+                    },
+                    {
+                        "Ref": "Subnet1"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": {
+                            "Fn::Join": [
+                                "-",
+                                [
+                                    {
+                                        "Ref": "AWS::StackName"
+                                    },
+                                    "Mycnf_utf8"
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Type": "AWS::RDS::DBSubnetGroup"
+        },
+```
 
 DBinstance  
 ```json
