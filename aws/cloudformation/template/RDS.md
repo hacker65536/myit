@@ -1,4 +1,42 @@
 
+
+DBinstance  
 ```json
-{"Ref":"DBId"}
+"RDSInstanceName":{
+   "Type" : "AWS::RDS::DBInstance",
+   "Properties" :
+   {
+      "AllocatedStorage" : "10",
+      "AllowMajorVersionUpgrade" : true,
+      "AutoMinorVersionUpgrade" : true,
+      "BackupRetentionPeriod" : "5",
+      "DBInstanceClass" : {"Ref":"DBInstanceClass"},
+      "DBInstanceIdentifier" : {"Ref":"DBId"},
+      "DBName" : {"Ref":"DBName"},
+      "DBParameterGroupName" : {"Ref":"DBParameterGroupName"},
+      "DBSubnetGroupName" : {"Ref":"DBId"},
+      "Engine" : "MySQL",
+      "MasterUsername" : {"Ref":"DBUser"},
+      "MasterUserPassword" : {"Ref":"DBPass"},
+      "MultiAZ" : false,
+      "PreferredBackupWindow" : {"Ref": "DBBackupWindow"},
+      "PreferredMaintenanceWindow" : { "Ref": "MaintenanceWindow"},
+      "Tags" : [ 
+         {
+            "Key": "Name",
+               "Value": {
+                "Fn::Join": [
+                   "-",                          [
+                   {
+                     "Ref": "AWS::StackName"
+                    },
+                    "rds"
+                   ]
+               ]
+            }
+          }
+      ],
+      "VPCSecurityGroups" : [ { "Ref": "SGMysql"}]
+   }
+} 
 ```
