@@ -2,4 +2,4 @@
 
 
 
-[CF custom rdsinstance josn parts](https://gist.github.com/f6560fbf249ac6687460.git)
+[CF custom rdsinstance josn parts](https://gist.github.com/hacker65536/f6560fbf249ac6687460)
