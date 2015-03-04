@@ -47,3 +47,19 @@ gem install mysql2 -v '0.3.18'
 ```bash
 bundle install --without development test
 ```
+##config mysql
+```bash
+cp config/database.yml.example config/database.yml
+vim config/database.yml
+```
+
+edit  
+```
+production:
+  adapter: mysql2
+  database: redmine
+  host: localhost
+  username: root
+  password: ""
+  encoding: utf8
+```
