@@ -39,7 +39,7 @@ gem install rmagick -v '2.13.4'
 ```
 ##gem mysql2
 ```bash
-sudo yum iinstall -y mysql-devel
+sudo yum install -y mysql-devel
 gem install mysql2 -v '0.3.18'
 ```
 
