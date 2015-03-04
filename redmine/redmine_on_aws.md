@@ -72,3 +72,41 @@ rake generate_secret_token
 ```bash
 RAILS_ENV=production rake db:migrate
 ```
+
+
+##make mod_passenger.so for apache
+
+```bash
+sudo yum install gcc-c++ curl-devel httpd24-devel
+passenger-install-apache2-module
+```
+
+##config httpd.conf
+
+`vim /etc/httpd/conf.d/redmine.conf`  
+```apache
+ LoadModule passenger_module /home/ec2-user/.gem/ruby/2.0/gems/passenger-4.0.59/buildout/apache2/mod_passenger.so
+   <IfModule mod_passenger.c>
+     PassengerRoot /home/ec2-user/.gem/ruby/2.0/gems/passenger-4.0.59
+     PassengerDefaultRuby /usr/bin/ruby2.0
+   </IfModule>
+
+
+   <VirtualHost *:80>
+      ServerName redmine.mydomain.com
+      # !!! Be sure to point DocumentRoot to 'public'!
+      DocumentRoot /var/www/redmine/public
+   RailsEnv production
+   RailsBaseURI /
+      <Directory /var/www/redmine/public>
+         # This relaxes Apache security settings.
+         AllowOverride all
+         # MultiViews must be turned off.
+         Options -MultiViews
+         # Uncomment this if you're on Apache >= 2.4:
+         #Require all granted
+      </Directory>
+   </VirtualHost>
+   ```
+
+
