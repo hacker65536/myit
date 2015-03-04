@@ -37,6 +37,11 @@ gem install nokogiri -v '1.6.6.2'
 sudo yum install -y ImageMagick-devel
 gem install rmagick -v '2.13.4'
 ```
+##gem mysql2
+```bash
+sudo yum iinstall -y mysql-devel
+gem install mysql2 -v '0.3.18'
+```
 
 ##gem bundle
 ```bash
