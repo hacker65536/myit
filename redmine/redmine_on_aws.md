@@ -47,7 +47,7 @@ gem install mysql2 -v '0.3.18'
 ```bash
 bundle install --without development test
 ```
-##config mysql
+##config mysql adapter 
 ```bash
 cp config/database.yml.example config/database.yml
 vim config/database.yml
@@ -62,4 +62,13 @@ production:
   username: root
   password: ""
   encoding: utf8
+```
+##session store
+```bash
+rake generate_secret_token
+```
+
+##create table
+```bash
+RAILS_ENV=production rake db:migrate
 ```
