@@ -10,6 +10,7 @@
 |RSA| Rivest Shamir Adleman|RSA|公開鍵暗号方式の一つ　名前は開発者の三名の名前から|
 |DES| Data Encryption Standard |DES|1960年にIBM社によって開発された秘密鍵暗号化アルゴリズム|
 |3DES|Triple DES|トリプルDES|DESを(鍵を変えながら)暗号化->複合->暗号化の順に３回施す(EDEとも)暗号アルゴリズム|
+|OpenSSL|||TLS・SSLプロトコルのツールキッド|
 
 
 
