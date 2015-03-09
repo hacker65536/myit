@@ -15,3 +15,12 @@ Private-Key: (2048 bit)
 openssl rsa -in secret.key -text -noout | head -1
 Private-Key: (2048 bit)
 ```
+HTTPS site  
+```bash
+ echo | openssl s_client -connect google.com:443 2>/dev/null | openssl x509 -text -noout | grep "Public-Key"
+```
+
+SSL Certificate  
+```bash
+openssl x509 -in certificate.crt -text -noout | grep "Public Key"
+```
