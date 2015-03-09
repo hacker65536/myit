@@ -9,6 +9,7 @@ openssl command [ command_opts ] [ command_args ]
 - req X.509 Certificate Signing Request(CSR) Manegement.
 - genrsa Generation of RSA Private key.  Superceded by genpkey.
 - x509 X.509 Certificate Data Management.
+- s_client This implements a generic SSL/TLS client which can establish a transparent connection to a remote server speaking SSL/TLS.
 
 ## example
 
@@ -38,3 +39,7 @@ openssl req -noout -text -in mydomain.com.csr
 ```bash
 openssl x509 -noout -text -in mydomain.com.crt
 ```
+###info crt from https
+```bash
+ echo|openssl s_client -connect google.com:443 -showcerts
+ ```
