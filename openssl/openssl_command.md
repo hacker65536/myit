@@ -41,5 +41,5 @@ openssl x509 -noout -text -in mydomain.com.crt
 ```
 ###info crt from https
 ```bash
- echo|openssl s_client -connect google.com:443 -showcerts
+echo|openssl s_client -connect google.com:443 -showcerts
  ```
