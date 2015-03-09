@@ -34,6 +34,6 @@ RSAが代表的、素因数分解が難しいことを利用した暗号化ア�
 ||public key cryptosystem/Public-key ciphers|公開鍵暗号/非対称鍵暗号|対となる２つの鍵を使ったデータの暗号化・復号化を行う暗号方式|
 ||common key encryptosystem/Symmetric ciphers|共通鍵暗号/対象鍵暗号|暗号化と複合に同じ鍵を用いる暗号方式 現在の主流は公開鍵暗号|
 |PKI|public key infrastructure|公開鍵基盤|暗号化技術において利用者の身分について「信頼できる第三者」が審査を行い、保証を実現する仕組み|
-
+|X.509|The Directory: Authentication framework|X.509|公開鍵証明書の標準形式や証明書パス検証アルゴリズムを定めているPKIの規格|
 
 
