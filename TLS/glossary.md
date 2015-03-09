@@ -11,7 +11,7 @@
 |DES| Data Encryption Standard |DES|1960年にIBM社によって開発された秘密鍵暗号化アルゴリズム|
 |3DES|Triple DES|トリプルDES|DESを(鍵を変えながら)暗号化->複合->暗号化の順に３回施す(EDEとも)暗号アルゴリズム|
 |OpenSSL|||TLS・SSLプロトコルのツールキッド|
-|PGP|Pretty Good Privacy||データを暗号化するためのソフトウェア、また同ソフトを利用した暗号化方式と手順 RFC2440|
+|PGP|Pretty Good Privacy||データを暗号化するためのソフトウェア、また同ソフトを利用した暗号化方式と手順。公開鍵暗号と共通鍵暗号を組み合わせた暗号化方式 RFC2440|
 
 
 
