@@ -67,6 +67,11 @@ after edit database.yml
 bundle install --without development test
 ```
 
+if you want install current directory
+```bash
+bundle install --without development test --path vendor/bundle
+```
+
 ##session store
 ```bash
 rake generate_secret_token
