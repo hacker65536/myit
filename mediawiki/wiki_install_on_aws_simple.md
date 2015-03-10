@@ -7,7 +7,7 @@ Linux ip-10-1-0-130 3.14.27-25.47.amzn1.x86_64 #1 SMP Wed Dec 17 18:36:15 UTC 20
 #install
 ##require 
 ```bash
-yum install -y httpd24 php55  php55-mysqlnd php55-xml php55-gd php55-pecl-apc php55-mbstring php55-pecl-imagick php55-intl git postfix mysql
+yum install -y httpd24 php55  php55-mysqlnd php55-xml php55-gd php55-pecl-apc php55-mbstring php55-pecl-imagick php55-intl git mysql postfix mailx
 ```
 
 ##download package
