@@ -118,6 +118,12 @@ passenger-install-apache2-module
          #Require all granted
       </Directory>
    </VirtualHost>
-   ```
+```
+
+check module path 
+```bash
+passenger-install-apache2-module --snippet
+```
+
 
 
