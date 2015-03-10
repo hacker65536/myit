@@ -127,3 +127,5 @@ passenger-install-apache2-module --snippet
 
 
 
+#shortcut
+[shortcutscript on gist](https://gist.github.com/hacker65536/8a8bf37a681bc904be7f)
