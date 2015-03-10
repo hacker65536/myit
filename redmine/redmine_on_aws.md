@@ -77,7 +77,8 @@ RAILS_ENV=production rake db:migrate
 ##make mod_passenger.so for apache
 
 ```bash
-sudo yum install gcc-c++ curl-devel httpd24-devel
+cd
+sudo yum install -y gcc-c++ curl-devel httpd24-devel
 passenger-install-apache2-module
 ```
 
