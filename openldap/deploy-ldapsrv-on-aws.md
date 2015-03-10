@@ -73,8 +73,10 @@ mkdir ldapconf
 cd ldapconf
 ```
 password
-```
+```bash
 slappasswd -s password
+```
+```
 {SSHA}dx+bl9fhNGwRQYT3MIDejFVu8EfQYeuL
 ```
 
