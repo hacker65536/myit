@@ -38,3 +38,15 @@ dbuser="dbuser"
 dbpass="dbpass"
 mysqladmin -h $dbhost -u $dbuser -p${dbpass} create wiki
 ```
+
+##config httpd
+
+```apache
+<VirtualHost _default_:80>
+ServerName wiki.mydomain.com
+DocumentRoot /var/www/mediawiki
+<Directory /var/www/mediawiki>
+AllowOverride all
+</Directory>
+</VirtualHost>
+```
