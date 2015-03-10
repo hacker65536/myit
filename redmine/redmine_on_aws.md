@@ -124,7 +124,11 @@ check module path
 ```bash
 passenger-install-apache2-module --snippet
 ```
+##run apache
 
+```bash
+service httpd start
+```
 
 
 #shortcut
