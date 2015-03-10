@@ -30,3 +30,11 @@ chown -R apache:apache /var/www/mediawiki/
 ```
 `/var/www/mediawiki` is a symlink = file  
 `/var/www/mediawiki/` is a directory. must use this.
+
+##create database
+```bash
+dbhost="dbhost"
+dbuser="dbuser"
+dbpass="dbpass"
+mysqladmin -h $dbhost -u $dbuser -p${dbpass} create wiki
+```
