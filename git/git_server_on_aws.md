@@ -33,6 +33,8 @@ xvdf    202:80   0  20G  0 disk
 ###mkfs
 ```bash
 mkfs.ext4 /dev/xvdf
+```
+```
 mke2fs 1.42.12 (29-Aug-2014)
 Creating filesystem with 5242880 4k blocks and 1310720 inodes
 Filesystem UUID: 99f2768f-21e0-40a9-abd5-2667e5205bee
