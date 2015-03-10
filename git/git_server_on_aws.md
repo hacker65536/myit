@@ -2,7 +2,7 @@
 
 ##require 
 
-[install jq](https://github.com/hacker65536/myit/blob/master/javascript/jq.md)  
+[install jq](https://github.com/hacker65536/myit/blob/master/javascript/install_jq.md)  
 need IAMrole for ontrol EBS
 
 
