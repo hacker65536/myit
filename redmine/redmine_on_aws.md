@@ -43,10 +43,7 @@ sudo yum install -y mysql-devel
 gem install mysql2 -v '0.3.18'
 ```
 
-##gem bundle
-```bash
-bundle install --without development test
-```
+
 ##config mysql adapter 
 ```bash
 cp config/database.yml.example config/database.yml
@@ -63,6 +60,13 @@ production:
   password: ""
   encoding: utf8
 ```
+
+##gem bundle
+after edit database.yml  
+```bash
+bundle install --without development test
+```
+
 ##session store
 ```bash
 rake generate_secret_token
