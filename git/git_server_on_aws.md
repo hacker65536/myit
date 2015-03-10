@@ -16,9 +16,10 @@ thisAz=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/documen
 thisReg=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq '.region' | tr -d '\"')
 thisId=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq '.instanceId'|tr -d '"')
 vid=$(aws ec2 create-volume --size ${ebssize} --volume-type gp2 --availability-zone ${thisAz} --region ${thisReg} | jq '.VolumeId'| tr -d '"')
+sleep 15
 aws ec2 attach-volume --volume-id ${vid} --instance-id ${thisId} --device /dev/xvdf --region ${thisReg}
 
-sleep 15
+
 ```
 
 ```bash
