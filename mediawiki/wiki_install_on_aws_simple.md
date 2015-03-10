@@ -52,3 +52,9 @@ AllowOverride all
 </Directory>
 </VirtualHost>
 ```
+
+##run service
+```bash
+chkconfig postfix on
+chkconfig httpd on
+```
