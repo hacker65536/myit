@@ -6,7 +6,7 @@ Linux ip-10-1-1-237 3.14.27-25.47.amzn1.x86_64 #1 SMP Wed Dec 17 18:36:15 UTC 20
 ```
 #install
 
-dont use root
+use account of ec2-user
 
 ##download and extract
 ```bash
