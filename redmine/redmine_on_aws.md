@@ -79,6 +79,7 @@ RAILS_ENV=production rake db:migrate
 ```bash
 cd
 sudo yum install -y gcc-c++ curl-devel httpd24-devel
+gem install passenger
 passenger-install-apache2-module
 ```
 
