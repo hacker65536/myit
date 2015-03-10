@@ -40,7 +40,9 @@ mysqladmin -h $dbhost -u $dbuser -p${dbpass} create wiki
 ```
 
 ##config httpd
-
+```bash
+vim /etc/httpd/conf.d/wiki.conf
+```
 ```apache
 <VirtualHost _default_:80>
 ServerName wiki.mydomain.com
