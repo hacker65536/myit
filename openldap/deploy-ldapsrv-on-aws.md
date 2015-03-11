@@ -66,6 +66,11 @@ ldapviはインタラクティブに設定の変更を行えるツール
 yum install -y --enablerepo=epel ldapvi
 ```
 
+ldap 起動  
+```bash
+service slapd start
+```
+
 
 設定ファイル作成
 ```
