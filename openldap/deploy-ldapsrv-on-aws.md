@@ -130,6 +130,11 @@ echo "olcRootPW: ${ldappassword}">>ldapconf_init_passwd.ldif
 反映
 ```
 ldapadd -Y EXTERNAL -H ldapi:// -f ldapconf_init_passwd.ldif
+
+SASL/EXTERNAL authentication started
+SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth
+SASL SSF: 0
+modifying entry "olcDatabase={0}config,cn=config"
 ```
 - -Y mech
 
@@ -141,10 +146,6 @@ ldapadd -Y EXTERNAL -H ldapi:// -f ldapconf_init_passwd.ldif
 >Specify URI(s) referring to the ldap server(s); only the protocol/host/port fields are allowed; a list of URI, separated  by  white‐space or commas is expected.
 
 
-    SASL/EXTERNAL authentication started
-    SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth
-    SASL SSF: 0
-    modifying entry "olcDatabase={0}config,cn=config"
 
 確認
 ```
