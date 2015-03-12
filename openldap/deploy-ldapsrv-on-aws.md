@@ -129,7 +129,7 @@ echo "olcRootPW: ${ldappassword}">>ldapconf_init_passwd.ldif
 
 反映
 ```
-ldapadd -Y EXTERNAL -H ldapi:// -f ldapconf.ldif
+ldapadd -Y EXTERNAL -H ldapi:// -f ldapconf_init_passwd.ldif
 ```
 - -Y mech
 
