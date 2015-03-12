@@ -95,7 +95,7 @@ service slapd start
 mkdir ldapconf
 cd ldapconf
 ```
-password
+password生成
 ```bash
 slappasswd -s password
 ```
