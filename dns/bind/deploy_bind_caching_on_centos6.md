@@ -27,7 +27,7 @@ chown named. /var/named/chroot/var/log/named
 vim /var/named/chroot/etc/named.conf
 ```
 
-```bind
+```named
  # 動作全般に関する設定
  options
  {
@@ -67,8 +67,7 @@ vim /var/named/chroot/etc/named.conf
 
  
  };
-```
-```bind
+
  # ログ設定（デフォルト）
  logging
  {
@@ -78,9 +77,7 @@ vim /var/named/chroot/etc/named.conf
                  severity dynamic;
          };
  };
-```
- 
- ```bind
+
 #キャッシュサーバの設定
 view "localhost_resolver"
 {
