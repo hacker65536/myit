@@ -103,7 +103,7 @@ slappasswd -s password
 {SSHA}dx+bl9fhNGwRQYT3MIDejFVu8EfQYeuL
 ```
 
-初期設定
+初期設定 パスワード設定
 ```
 vim ldapconf.ldif
 ```
@@ -113,6 +113,20 @@ changeType:modify
 add: olcRootPW
 olcRootPW:{SSHA}dx+bl9fhNGwRQYT3MIDejFVu8EfQYeuL
 ```
+
+簡易版
+```bash
+ldappassword=$(slappasswd -s password)
+
+echo "dn:olcDatabase={0}config,cn=config\n
+changeType:modify\n
+add: olcRootPW\n
+olcRootPW:${ldappassword}
+" >ldapconf_init_passwd.ldif
+```
+
+
+
 
 反映
 ```
