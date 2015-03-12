@@ -85,6 +85,7 @@ yum install -y --enablerepo=epel ldapvi
 
 ldap 起動  
 ```bash
+chkconfig slapd on
 service slapd start
 ```
 
