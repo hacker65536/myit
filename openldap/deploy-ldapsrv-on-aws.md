@@ -36,10 +36,10 @@ yum list installed 'openldap*'
 
 
 
-`local4.* -/var/log/ldap`
+`local4.* -/var/log/ldaplog`
 この記述をconfig dirにファイルとして出力
 ```bash
-echo -e '#ldaplog\nlocal4.*\t-/var/log/ldap' > /etc/rsyslog.d/ldap.conf
+echo -e '#ldaplog\nlocal4.*\t-/var/log/ldaplog' > /etc/rsyslog.d/ldap.conf
 ```
 
 念のためにコピー
