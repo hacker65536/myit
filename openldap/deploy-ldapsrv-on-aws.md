@@ -58,7 +58,7 @@ diff /etc/logrotate.d/syslog /etc/logrotate.d/syslog.org
 ```
 
     4d3  
-    < /var/log/ldap
+    < /var/log/ldaplog
 
 コピーを削除
 ```
