@@ -1,3 +1,20 @@
+#環境
+```bash
+uname -a
+Linux ip-10-1-1-6 3.14.27-25.47.amzn1.x86_64 #1 SMP Wed Dec 17 18:36:15 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
+```
+##時間設定
+```bash
+cp /etc/localtime /etc/localtime.org
+\cp -f /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+date
+```
+
+##yum update
+```bash
+yum -y update
+```
+
 ##サーバとクライアントをyumでインストール
 ```bash
 yum install -y openldap-servers openldap-clients
