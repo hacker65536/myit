@@ -105,7 +105,11 @@ ln -s /var/named/chroot/etc/named.conf /etc/named.conf
 ##SELINUX
 ```bash
 getsebool -a|grep named
+```
+```
 named_write_master_zones --> off
+```
+```bash
 setsebool -P named_write_master_zones 1
 ```
 ##起動
