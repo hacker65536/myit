@@ -105,7 +105,7 @@ slappasswd -s password
 
 初期設定 パスワード設定
 ```
-vim ldapconf.ldif
+vim ldapconf_init_passwd.ldif
 ```
 ```
 dn:olcDatabase={0}config,cn=config
