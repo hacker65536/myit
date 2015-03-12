@@ -49,7 +49,7 @@ cp /etc/logrotate.d/syslog /etc/logrotate.d/syslog.org
 
 3行目に `/var/log/ldap`を追加
 ```
-sed -i '3s/\(.*\)/\1\n\/var\/log\/ldap/' /etc/logrotate.d/syslog
+sed -i '3s/\(.*\)/\1\n\/var\/log\/ldaplog/' /etc/logrotate.d/syslog
 ```
 
 三行目に追加されている事を確認
