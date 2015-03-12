@@ -118,11 +118,7 @@ olcRootPW:{SSHA}dx+bl9fhNGwRQYT3MIDejFVu8EfQYeuL
 ```bash
 ldappassword=$(slappasswd -s password)
 
-echo "dn:olcDatabase={0}config,cn=config\n
-changeType:modify\n
-add: olcRootPW\n
-olcRootPW:${ldappassword}
-" >ldapconf_init_passwd.ldif
+echo "dn: olcDatabase={0}config,cn=config\nchangeType: modify\nadd: olcRootPW\nolcRootPW: ${ldappassword}">ldapconf_init_passwd.ldif
 ```
 
 
