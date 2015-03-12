@@ -128,9 +128,10 @@ echo "olcRootPW: ${ldappassword}">>ldapconf_init_passwd.ldif
 
 
 反映
-```
+```bash
 ldapadd -Y EXTERNAL -H ldapi:// -f ldapconf_init_passwd.ldif
-
+```
+```
 SASL/EXTERNAL authentication started
 SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth
 SASL SSF: 0
