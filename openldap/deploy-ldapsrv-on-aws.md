@@ -166,7 +166,7 @@ http://www.lichteblau.com/ldapvi/manual
 初期suffix修正
 
 ```
-vim suffix.ldif
+vim ldapconf_init_suffix.ldif
 ```
 ```
 dn: olcDatabase={1}monitor,cn=config
@@ -195,7 +195,7 @@ olcRootPW: {SSHA}QbgC8LOCYsd78ikhKvBj8xOGETdOEedY
 反映
 
 ```
-ldapmodify -x -D "cn=config" -w password -f suffix.ldif
+ldapmodify -x -D "cn=config" -w password -f ldapconf_init_suffix.ldif
 ```
 
 ```
