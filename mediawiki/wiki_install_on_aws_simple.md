@@ -87,9 +87,13 @@ $wgLDAPServerNames = array(
   'LdapDomain' => 'localhost',
 );
 $wgLDAPUseLocal = false;
+
+//ssl or tls or clear
 $wgLDAPEncryptionType = array(
-  'LdapDomain' => 'clear',
+  'LdapDomain' => 'tls',
 );
+
+
 $wgLDAPPort = array(
   'LdapDomain' => 389,
 );
