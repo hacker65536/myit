@@ -250,12 +250,30 @@ yum install -y mod24_ssl
 ```
 `/etc/pki/tls/private/`の下に`localhost.key`と`/etc/pki/tls/certs/`の下に`localhost.crt`が作られているのでこれを利用。
 
+
 ```bash
 cd /etc/openldap/certs
 cp /etc/pki/tls/private/localhost.key .
 cp /etc/pki/tls/certs/localhost.crt .
 cp /etc/pki/tls/certs/ca-bundle.crt .
 chown ldap. ./*
+```
+
+```bash
+vim tls.ldif
+```
+
+```ldif
+dn: cn=config
+changetype: modify
+add: olcTLSCACertificateFile
+olcTLSCACertificateFile: /etc/openldap/certs
+-
+add: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/openldap/certs/localhost.crt
+-
+add: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/openldap/certs/localhost.key
 ```
 
 
