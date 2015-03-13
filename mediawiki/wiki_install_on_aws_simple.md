@@ -62,3 +62,12 @@ AllowOverride all
 chkconfig postfix on
 chkconfig httpd on
 ```
+
+##with ldap
+```bash
+cd /usr/local/src
+wget "https://extdist.wmflabs.org/dist/extensions/LdapAuthentication-REL1_24-24a399e.tar.gz"
+tar -xzf LdapAuthentication-REL1_24-24a399e.tar.gz -C /var/www/mediawiki/extensions
+```
+
+if you want implements after , must do `php maintenance/update.php` to create domain table.
