@@ -277,6 +277,12 @@ olcTLSCertificateKeyFile: /etc/openldap/certs/localhost.key
 ldapmodify -x -w password -D "cn=config" -f ldapconf_init_tls.ldif
 ```
 
+証明書チェック
+
+```bash
+echo | openssl s_client -connect localhost:636 -showcerts -state 
+```
+
 用語
 
 | 略称| 正式名称 |日本語|説明|
