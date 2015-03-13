@@ -30,7 +30,7 @@ yum install -y git gcc autoconf automake libtool
 ```
 optional  
 ```bash
-yum install -y flex bison oniguruma-devel
+yum install -y flex bison oniguruma-devel valgrind
 ```
 
 ###previous version
