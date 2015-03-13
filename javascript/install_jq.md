@@ -74,3 +74,21 @@ autoreconf -i
 make
 make install
 ```
+
+if you have this message  
+```
+Install missing gems with `bundle install`
+*****************************************************************
+*  Ruby dependencies for building jq documentation not found.   *
+*  You can still build, install and hack on jq, but the manpage *
+*  will not be rebuilt and some of the tests won't run.         *
+*  See docs/README.md for how to install the docs dependencies. *
+*****************************************************************
+no
+```
+
+this command to resolve this problem  
+```bash
+cd docs/
+bundle install
+```
