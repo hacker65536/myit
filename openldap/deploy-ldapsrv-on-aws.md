@@ -436,6 +436,9 @@ echo userPassword: $(slappasswd -s test${cnt})
 echo loginShell: /bin/bash
 echo uidNumber: $BASE_NUM
 echo gidNumber: $i
+echo givenName: firstName
+echo sn: LastName
+echo mail: user$cnt@mail.com
 echo homeDirectory: /home/user$cnt
 echo 
 
