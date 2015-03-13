@@ -71,3 +71,70 @@ tar -xzf LdapAuthentication-REL1_24-24a399e.tar.gz -C /var/www/mediawiki/extensi
 ```
 
 if you want implements after , must do `php maintenance/update.php` to create domain table.
+
+add to `LocalSettings.php`
+```php
+// implement after you must need fellow lines
+//require_once "$IP/extensions/LdapAuthentication/LdapAuthentication.php";
+//require_once "$IP/includes/AuthPlugin.php";
+
+
+$wgAuth = new LdapAuthenticationPlugin();
+$wgLDAPDomainNames = array(
+  'LdapDomain',
+);
+$wgLDAPServerNames = array(
+  'LdapDomain' => 'localhost',
+);
+$wgLDAPUseLocal = false;
+$wgLDAPEncryptionType = array(
+  'LdapDomain' => 'clear',
+);
+$wgLDAPPort = array(
+  'LdapDomain' => 389,
+);
+/*
+$wgLDAPProxyAgent = array(
+  'LdapDomain' => 'cn=readonly,dc=example,dc=com',
+);
+$wgLDAPProxyAgentPassword = array(
+  'LdapDomain' => '*****',
+);
+*/
+$wgLDAPSearchAttributes = array(
+  'LdapDomain' => 'uid'
+);
+$wgLDAPBaseDNs = array(
+  'LdapDomain' => 'dc=mycompany,dc=jp',
+);
+
+
+$wgLDAPGroupBaseDNs = array(
+  "LdapDomain"=>"ou=Group,dc=mycompany,dc=jp"
+  );
+$wgLDAPUserBaseDNs = array(
+  "LdapDomain"=>"ou=People,dc=mycompany,dc=jp"
+  );
+
+
+
+
+# To pull e-mail address from LDAP
+//$wgLDAPPreferences = array(
+//  'LdapDomain' => array( 'email' => 'mail')
+//);
+# Group based restriction
+$wgLDAPGroupUseFullDN = array( "LdapDomain"=>false );
+$wgLDAPGroupObjectclass = array( "LdapDomain"=>"posixgroup" );
+$wgLDAPGroupAttribute = array( "LdapDomain"=>"memberUid" );
+$wgLDAPGroupSearchNestedGroups = array( "LdapDomain"=>false );
+$wgLDAPGroupNameAttribute = array( "LdapDomain"=>"cn" );
+$wgLDAPRequiredGroups = array( "LdapDomain"=>array("cn=division1,ou=Group,dc=mycompany,dc=jp"));
+$wgLDAPLowerCaseUsername = array(
+  'LdapDomain' => true,
+);
+
+## for debug 
+$wgLDAPDebug = 1;
+$wgDebugLogGroups["ldap"] = "/tmp/debug.log" ;
+```
