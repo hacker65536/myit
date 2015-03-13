@@ -235,6 +235,11 @@ cat /etc/sysconfig/ldap |grep SLAPD_LDAPS|grep -v -E "^#"
 SLAPD_LDAPS=yes
 ```
 
+```bash
+service slapd restart
+
+lsof -i:696
+```
 
 用語
 
