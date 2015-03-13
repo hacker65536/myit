@@ -282,6 +282,86 @@ ldapmodify -x -w password -D "cn=config" -f ldapconf_init_tls.ldif
 ```bash
 echo | openssl s_client -connect localhost:636 -showcerts -state 
 ```
+```
+CONNECTED(00000003)
+SSL_connect:before/connect initialization
+SSL_connect:SSLv2/v3 write client hello A
+SSL_connect:SSLv3 read server hello A
+depth=0 C = --, ST = SomeState, L = SomeCity, O = SomeOrganization, OU = SomeOrganizationalUnit, CN = ip-10-1-1-6, emailAddress = root@ip-10-1-1-6
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 C = --, ST = SomeState, L = SomeCity, O = SomeOrganization, OU = SomeOrganizationalUnit, CN = ip-10-1-1-6, emailAddress = root@ip-10-1-1-6
+verify return:1
+SSL_connect:SSLv3 read server certificate A
+SSL_connect:SSLv3 read server key exchange A
+SSL_connect:SSLv3 read server done A
+SSL_connect:SSLv3 write client key exchange A
+SSL_connect:SSLv3 write change cipher spec A
+SSL_connect:SSLv3 write finished A
+SSL_connect:SSLv3 flush data
+SSL_connect:SSLv3 read finished A
+---
+Certificate chain
+ 0 s:/C=--/ST=SomeState/L=SomeCity/O=SomeOrganization/OU=SomeOrganizationalUnit/CN=ip-10-1-1-6/emailAddress=root@ip-10-1-1-6
+   i:/C=--/ST=SomeState/L=SomeCity/O=SomeOrganization/OU=SomeOrganizationalUnit/CN=ip-10-1-1-6/emailAddress=root@ip-10-1-1-6
+-----BEGIN CERTIFICATE-----
+MIIEUjCCAzqgAwIBAgICPewwDQYJKoZIhvcNAQELBQAwgacxCzAJBgNVBAYTAi0t
+MRIwEAYDVQQIDAlTb21lU3RhdGUxETAPBgNVBAcMCFNvbWVDaXR5MRkwFwYDVQQK
+DBBTb21lT3JnYW5pemF0aW9uMR8wHQYDVQQLDBZTb21lT3JnYW5pemF0aW9uYWxV
+bml0MRQwEgYDVQQDDAtpcC0xMC0xLTEtNjEfMB0GCSqGSIb3DQEJARYQcm9vdEBp
+cC0xMC0xLTEtNjAeFw0xNTAzMTMwNjQ3NDNaFw0xNjAzMTIwNjQ3NDNaMIGnMQsw
+CQYDVQQGEwItLTESMBAGA1UECAwJU29tZVN0YXRlMREwDwYDVQQHDAhTb21lQ2l0
+eTEZMBcGA1UECgwQU29tZU9yZ2FuaXphdGlvbjEfMB0GA1UECwwWU29tZU9yZ2Fu
+aXphdGlvbmFsVW5pdDEUMBIGA1UEAwwLaXAtMTAtMS0xLTYxHzAdBgkqhkiG9w0B
+CQEWEHJvb3RAaXAtMTAtMS0xLTYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQDOLOZ0+PapJND5j5td+zg4Vxj7ydvjNro2pLGrYYLkyC+bS7ltvJV4TneA
+ZVpyVKxIWbTR3cbgNPK5F3NEU9tAMvP9D5xyAYawvmPgeqseBES1IOY70eZb/K1c
+C82jzA9qa9xJU9ney2vDnKRr8Oj+vZKskvKxvtJdimkFkrGD8LRvxqYitypQkQ4Q
+0mKB+oZav5Ov0EkTAtd1ojMzllXfjcLNeoY3laTWj6zfKC2BD2WkMgl1MQapD9mW
+87TPCM/hkpPH3R0mNrtuW7iaJV3LiVc/Ao9u3ukIi1s2xhGyOlyL/2bl8HsKrAPw
+wjcxuc1BENEBRrEHOeqGEWzaowI7AgMBAAGjgYUwgYIwDAYDVR0TBAUwAwEB/zBl
+BgNVHREEXjBcgglsb2NhbGhvc3SCFWxvY2FsaG9zdC5sb2NhbGRvbWFpboILaXAt
+MTAtMS0xLTaCK2lwLTEwLTEtMS02LmFwLXNvdXRoZWFzdC0yLmNvbXB1dGUuaW50
+ZXJuYWwwCwYDVR0PBAQDAgLkMA0GCSqGSIb3DQEBCwUAA4IBAQB2EYPH7ZYmkwH1
+p+zCfag0+iogzeSFsufcVx25A6wqUUlT0FscYMUjmdXrIBE17+DsUT4U3T4rH03w
+2xVJ+n9F1+vOS0OGT/oA4GPWQgxKxcSPkrXnrQAlCrmD7e/gMJqwCdhnVBYU9DtW
+2ApwvNYl9ifai7tBW5Vf3gZew5HpQFGu72E1+ixra8MM6+nylJ5gOn8i0DoGbs83
+JVjExbvyG59pZ06ETodMu63dS18RdGaSJEDGqdABfHJ4j84wF9D61leecUsOfl6V
+gf8HuBq9gB2pMi+BP7WqJSqQ6Jtp8axkxIg5qmqWdNmZhXKeyTGEJzFola6QqI9z
+Db14bcaz
+-----END CERTIFICATE-----
+---
+Server certificate
+subject=/C=--/ST=SomeState/L=SomeCity/O=SomeOrganization/OU=SomeOrganizationalUnit/CN=ip-10-1-1-6/emailAddress=root@ip-10-1-1-6
+issuer=/C=--/ST=SomeState/L=SomeCity/O=SomeOrganization/OU=SomeOrganizationalUnit/CN=ip-10-1-1-6/emailAddress=root@ip-10-1-1-6
+---
+No client certificate CA names sent
+Server Temp Key: ECDH, prime256v1, 256 bits
+---
+SSL handshake has read 1606 bytes and written 381 bytes
+---
+New, TLSv1/SSLv3, Cipher is ECDHE-RSA-AES128-SHA
+Server public key is 2048 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+SSL-Session:
+    Protocol  : TLSv1
+    Cipher    : ECDHE-RSA-AES128-SHA
+    Session-ID: 6FEAB749EDE9380DD71F9D7A23097E0C59CAB74D3EFC24C4DCAAF0036888609A
+    Session-ID-ctx:
+    Master-Key: 68DE7EAFFA574C27ED4C1430760AD6916CD2043EAC867D527CC718C2775FEC364484C87D1AA6782193AD84607BCA21AF
+    Key-Arg   : None
+    Krb5 Principal: None
+    PSK identity: None
+    PSK identity hint: None
+    Start Time: 1426230730
+    Timeout   : 300 (sec)
+    Verify return code: 18 (self signed certificate)
+---
+DONE
+SSL3 alert write:warning:close notify
+```
 
 用語
 
