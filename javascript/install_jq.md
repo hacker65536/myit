@@ -87,7 +87,7 @@ Install missing gems with `bundle install`
 no
 ```
 
-this command to resolve this problem  
+the command below to resolve this problem  
 ```bash
 cd docs/
 bundle install
