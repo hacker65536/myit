@@ -363,6 +363,21 @@ DONE
 SSL3 alert write:warning:close notify
 ```
 
+##サンプルエントリー
+
+```
+dc=testcompany,dc=com
+├── ou=Group
+│   ├── cn=division1  (cn=division1,ou=Group,dc=testcompany,dc=com)
+│   └── cn=division2
+└── ou=People
+     ├── uid=user1 (uid=user1,ou=People,dc=testcompany,dc=com)
+     ├── uid=user2
+     ├── uid=user3
+     └── uid=user4
+```
+
+
 用語
 
 | 略称| 正式名称 |日本語|説明|
