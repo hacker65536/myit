@@ -223,19 +223,17 @@ additional info: <olcRootPW> can only be set when rootdn is under suffix
 tls対応
 
 ```bash
- vim /etc/sysconfig/ldap
+vim /etc/sysconfig/ldap
 ```
-
-```
-SLAPD_LDAPS=yes
-```
-
 or  
 ```
 sed -i 's/SLAPD_LDAPS=no/SLAPD_LDAPS=yes/' /etc/sysconfig/ldap
 cat /etc/sysconfig/ldap |grep SLAPD_LDAPS|grep -v -E "^#"
 ```
 
+```
+SLAPD_LDAPS=yes
+```
 
 
 用語
