@@ -241,6 +241,24 @@ service slapd restart
 lsof -i:ldaps  #lsof -i:636
 ```
 
+認証局と証明書作成  
+
+本来はopensslを使用して作成するが一般公開するものではないのでできる限り手順を省略する。apacheのsslmoduleを入れるとkeyと証明書を代わりに作ってくれるので、こちらを利用する。
+
+```bash
+yum install -y mod24_ssl
+```
+`/etc/pki/tls/private/`の下に`localhost.key`と`/etc/pki/tls/certs/`の下に`localhost.crt`が作られているのでこれを利用。
+
+```bash
+cd /etc/openldap/certs
+cp /etc/pki/tls/private/localhost.key .
+cp /etc/pki/tls/certs/localhost.crt .
+cp /etc/pki/tls/certs/ca-bundle.crt .
+chown ldap. ./*
+```
+
+
 用語
 
 | 略称| 正式名称 |日本語|説明|
