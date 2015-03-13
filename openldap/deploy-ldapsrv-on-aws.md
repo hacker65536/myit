@@ -220,6 +220,24 @@ additional info: <olcRootPW> can only be set when rootdn is under suffix
 ```
 
 
+tls対応
+
+```bash
+ vim /etc/sysconfig/ldap
+```
+
+```
+SLAPD_LDAPS=yes
+```
+
+or  
+```
+sed -i 's/SLAPD_LDAPS=no/SLAPD_LDAPS=yes/' /etc/sysconfig/ldap
+cat /etc/sysconfig/ldap |grep SLAPD_LDAPS
+```
+
+
+
 用語
 
 | 略称| 正式名称 |日本語|説明|
