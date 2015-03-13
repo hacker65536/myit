@@ -233,7 +233,7 @@ SLAPD_LDAPS=yes
 or  
 ```
 sed -i 's/SLAPD_LDAPS=no/SLAPD_LDAPS=yes/' /etc/sysconfig/ldap
-cat /etc/sysconfig/ldap |grep SLAPD_LDAPS
+cat /etc/sysconfig/ldap |grep SLAPD_LDAPS|grep -v -E "^#"
 ```
 
 
