@@ -452,7 +452,13 @@ done
 ```
 
 
+反映  
+```bash
+ldapadd -x -D cn=Manager,dc=testcompany,dc=com -w password -f sample-entry1.ldif
 
+ldapadd -x -D cn=Manager,dc=testcompany,dc=com -w password -f sample-entry2.ldif
+
+```
 
 
 
