@@ -260,22 +260,22 @@ chown ldap. ./*
 ```
 
 ```bash
-vim tls.ldif
+vim ldapconf_init_tls.ldif
 ```
 
 ```ldif
 dn: cn=config
 changetype: modify
-add: olcTLSCACertificateFile
-olcTLSCACertificateFile: /etc/openldap/certs
--
-add: olcTLSCertificateFile
+replace: olcTLSCertificateFile
 olcTLSCertificateFile: /etc/openldap/certs/localhost.crt
 -
-add: olcTLSCertificateKeyFile
+replace: olcTLSCertificateKeyFile
 olcTLSCertificateKeyFile: /etc/openldap/certs/localhost.key
 ```
 
+```bash
+ldapmodify -x -w password -D "cn=config" -f ldapconf_init_tls.ldif
+```
 
 用語
 
