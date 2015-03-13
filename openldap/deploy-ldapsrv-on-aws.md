@@ -377,6 +377,81 @@ dc=testcompany,dc=com
      └── uid=user4
 ```
 
+sample-entry1.ldif  
+```
+dn: dc=testcompany,dc=com
+objectClass: dcObject
+objectClass: organization
+dc: testcompany
+o: testcompany
+
+dn: cn=Manager,dc=testcompany,dc=com
+objectclass: organizationalRole
+cn: Manager
+
+dn: ou=People,dc=testcompany,dc=com
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Group,dc=testcompany,dc=com
+objectClass: organizationalUnit
+ou: Group
+
+dn: cn=division1,ou=Group,dc=testcompany,dc=com
+objectClass: posixGroup
+gidNumber: 1001
+
+dn: cn=division2,ou=Group,dc=testcompany,dc=com
+objectClass: posixGroup
+gidNumber: 1002
+```
+
+generate-sample-entry2-ldif.sh  
+```bash
+
+#!/bin/bash
+
+exec > sample-entry2.ldif
+SUFFIX="dc=testcompany,dc=com"
+OU_USERS="ou=People"
+OU_GROUPS="ou=Group"
+BASE_NUM=1000
+cnt=0
+
+
+for i in $(seq 1001 1002)
+do
+
+usermax=0
+
+while [ $usermax -lt 3 ]
+do
+echo  dn: uid=user$cnt,$OU_USERS,$SUFFIX 
+echo uid: user$cnt
+echo cn: user$cnt
+echo objectClass: inetOrgPerson
+echo objectClass: PosixAccount
+echo objectClass: shadowAccount
+echo userPassword: $(slappasswd -s test${cnt})
+echo loginShell: /bin/bash
+echo uidNumber: $BASE_NUM
+echo gidNumber: $i
+echo homeDirectory: /home/user$cnt
+echo 
+
+usermax=$(($usermax +1))
+BASE_NUM=$(($BASE_NUM +1))
+cnt=$(($cnt+1))
+done 
+
+done
+
+```
+
+
+
+
+
 
 用語
 
