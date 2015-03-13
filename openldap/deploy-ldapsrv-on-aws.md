@@ -238,7 +238,7 @@ SLAPD_LDAPS=yes
 ```bash
 service slapd restart
 
-lsof -i:696
+lsof -i:ldaps  #lsof -i:636
 ```
 
 用語
