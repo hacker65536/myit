@@ -147,3 +147,21 @@ $wgLDAPLowerCaseUsername = array(
 $wgLDAPDebug = 1;
 $wgDebugLogGroups["ldap"] = "/tmp/debug.log" ;
 ```
+
+#backup and restore
+
+dbbackup  
+```bash
+mysqldump -h rds.amazonaws.com -u dbuser  --password  wiki > backup.sql
+```
+dbrestore
+
+```bash
+mysql -h rds.amazonaws.com -u dbuser  --password  wiki < backup.sql
+```
+
+backup images  
+```bash
+cd /var/www/mediawiki/
+tar zcvf wikiimages.tar.gz images/
+```
