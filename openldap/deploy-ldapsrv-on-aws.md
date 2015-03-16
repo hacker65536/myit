@@ -459,6 +459,31 @@ ldapadd -x -D cn=Manager,dc=testcompany,dc=com -w password -f sample-entry1.ldif
 ```
 
 
+#バックアップとリストア
+
+バックアップ  
+```bash
+slapcat > backup.ldif
+slapcat -b cn=config > config.ldif
+```
+
+
+リストア  
+```bash
+service slapd stop
+mkdir ldapback
+mv /etc/openldap/slapd.d ./ldapback
+mkdir -m 700 /etc/openldap/slapd.d/
+mv /var/lib/ldap ./ldapback
+mkdir -m 700 /var/lib/ldap
+cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
+
+slapadd -n0 -F /etc/openldap/slapd.d -l config.ldif
+slapadd -l backup.ldif
+
+service slapd start
+```
+
 
 用語
 
