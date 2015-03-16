@@ -30,4 +30,26 @@ git push --all
 ```
 
 
-##
+##add function
+start feature branch  
+```bash
+git flow feature start function
+git add *
+git commit -m " add "
+```
+finished feature branch  
+```bash
+git flow feature finish function
+```
+push  
+```bash
+git branch
+```
+```
+*develop
+ master
+```
+
+```bash 
+git push origin develop
+```
