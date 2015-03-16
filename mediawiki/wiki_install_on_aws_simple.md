@@ -70,6 +70,11 @@ wget "https://extdist.wmflabs.org/dist/extensions/LdapAuthentication-REL1_24-24a
 tar -xzf LdapAuthentication-REL1_24-24a399e.tar.gz -C /var/www/mediawiki/extensions
 ```
 
+set `TLS_REQCERT never`, otherwise you'll get error msg as `conn=1001 fd=16 closed (TLS negotiation failure)`
+```bash
+echo "TLS_REQCERT never" >> /etc/openldap/ldap.conf
+```
+
 if you want implements after , must do `php maintenance/update.php` to create domain table.
 
 add to `LocalSettings.php`
