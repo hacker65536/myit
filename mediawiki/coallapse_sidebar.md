@@ -11,3 +11,12 @@ cd /usr/local/src/
 wget "https://extdist.wmflabs.org/dist/extensions/CollapsibleVector-REL1_24-25e6ffb.tar.gz"
 tar -xzf CollapsibleVector-REL1_24-25e6ffb.tar.gz -C /var/www/mediawiki/extensions
 ```
+
+
+vim LocalSettings.php
+
+```php
+require_once "$IP/extensions/CollapsibleVector/CollapsibleVector.php";
+$wgVectorFeatures['collapsiblenav']['global'] = false;
+$wgVectorFeatures['collapsiblenav']['user'] = true;
+```
