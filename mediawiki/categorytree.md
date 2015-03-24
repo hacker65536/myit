@@ -10,3 +10,4 @@ LocalSettings.php
 $wgUseAjax = true;
 require_once( "$IP/extensions/CategoryTree/CategoryTree.php" );
 ```
+http://www.mediawiki.org/wiki/Extension:CategoryTree/ja
