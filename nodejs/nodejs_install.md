@@ -23,3 +23,7 @@ cd node-v0.10.36
 make
 make install
 ```
+
+```bash
+yum install --enablerepo=epel nodejs
+```
