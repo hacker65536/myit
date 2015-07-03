@@ -17,7 +17,7 @@ omit the --save opthion if its not necessary to add to the dependencies list
 
 ##express generator
 ```bash
-npm install express-gnerator -g
+npm install express-generator -g
 ```
 ```bash
 express -h
