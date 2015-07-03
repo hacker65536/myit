@@ -7,8 +7,8 @@ http://hideyukisaito.github.io/expressjs-doc_ja/
 
 ##install
 ```bash
-mkdir myapp
-cd myapp
+mkdir webdir
+cd webdir
 npm init
 npm install express --save
 ```
