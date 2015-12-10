@@ -10,3 +10,9 @@ change JST
 cp /etc/localtime /etc/localtime.org
 \cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 ```
+
+new
+```bash
+sed -e 's/ZONE\(*\)/#ZONE$1\nZONE="Asia/Tokyo"/' /etc/sysconfig/clock"
+tzdata-update
+```
