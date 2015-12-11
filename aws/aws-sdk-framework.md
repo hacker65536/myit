@@ -45,7 +45,7 @@ require AWS_SDK_PATH . '/autoload.php';
 cd ../Controller/
 ```
 
-AwsController.php
+`AwsController.php`
 ```php
 <?php
 class AwsController extends Controller {
@@ -79,7 +79,7 @@ array(
 ```
 
 
-AwsS3StsController.php
+`AwsS3StsController.php`
 ```php
 <?php
 class AwsStsController extends Controller {
@@ -123,7 +123,7 @@ class AwsStsController extends Controller {
 
 ```
 
-
+`httpd.conf`
 ```apache
 <VirtualHost *:80>
         ServerAdmin support@example.com
