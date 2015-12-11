@@ -25,14 +25,9 @@ echo '
 }
 '> composer.json
 
-
 php composer.phar install
-
-
 cd ../
-
 mkdir aws-cakesample
-
 #
 ./aws/Vendor/bin/cake bake project aws-cakesample/
 cd aws-cakesample/Config/
