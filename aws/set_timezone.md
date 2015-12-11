@@ -20,7 +20,7 @@ ZONE="UTC"
 UTC=true
 
 
-sed -i 's/ZONE\(.*\)/#ZONE\1\nZONE="Asia\/Tokyo"/' /etc/sysconfig/clock
+sed  -i 's/^ZONE\(.*\)/#ZONE\1\nZONE="Asia\/Tokyo"/' /etc/sysconfig/clock
 
 cat /etc/sysconfig/clock
 
