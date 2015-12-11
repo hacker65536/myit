@@ -79,7 +79,7 @@ class AwsController extends Controller {
 `AwsS3StsController.php`
 ```php
 <?php
-class AwsStsController extends Controller {
+class AwsS3StsController extends Controller {
 
         public function index(){
                 $this->autoRender=false;
