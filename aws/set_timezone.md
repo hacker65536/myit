@@ -14,5 +14,5 @@ cp /etc/localtime /etc/localtime.org
 new
 ```bash
 sed -i 's/ZONE\(.*\)/#ZONE\1\nZONE="Asia\/Tokyo"/' /etc/sysconfig/clock
-tzdata-update
+reboot
 ```
