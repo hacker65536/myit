@@ -1,0 +1,92 @@
+[
+  {
+    "IpProtocol": "tcp",
+    "FromPort": 995,
+    "ToPort": 995,
+    "IpRanges": [
+      {
+        "CidrIp": "xxx.xxx.xxx.xxx/32"
+      }
+    ]
+  },
+  {
+    "IpProtocol": "tcp",
+    "FromPort": 110,
+    "ToPort": 110,
+    "IpRanges": [
+      {
+        "CidrIp": "xxx.xxx.xxx.xxx/32"
+      }
+    ]
+  },
+  {
+    "IpProtocol": "tcp",
+    "FromPort": 465,
+    "ToPort": 465,
+    "IpRanges": [
+      {
+        "CidrIp": "0.0.0.0/0"
+      }
+    ]
+  },
+  {
+    "IpProtocol": "tcp",
+    "FromPort": 25,
+    "ToPort": 25,
+    "IpRanges": [
+      {
+        "CidrIp": "0.0.0.0/0"
+      }
+    ]
+  },
+  {
+    "IpProtocol": "tcp",
+    "FromPort": 143,
+    "ToPort": 143,
+    "IpRanges": [
+      {
+        "CidrIp": "xxx.xxx.xxx.xxx/32"
+      }
+    ]
+  },
+  {
+    "IpProtocol": "tcp",
+    "FromPort": 993,
+    "ToPort": 993,
+    "IpRanges": [
+      {
+        "CidrIp": "xxx.xxx.xxx.xxx/32"
+      }
+    ]
+  },
+  {
+    "IpProtocol": "tcp",
+    "FromPort": 80,
+    "ToPort": 80,
+    "IpRanges": [
+      {
+        "CidrIp": "xxx.xxx.xxx.xxx/32"
+      }
+    ]
+  },
+  {
+    "IpProtocol": "tcp",
+    "FromPort": 587,
+    "ToPort": 587,
+    "IpRanges": [
+      {
+        "CidrIp": "xxx.xxx.xxx.xxx/32"
+      }
+    ]
+  },
+  {
+    "IpProtocol": "-1",
+    "FromPort": 0,
+    "ToPort": 65535,
+    "IpRanges": [
+      {
+        "CidrIp": "10.0.0.0/16"
+      }
+    ]
+  }
+]
