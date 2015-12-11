@@ -13,6 +13,6 @@ cp /etc/localtime /etc/localtime.org
 
 new
 ```bash
-sed -e 's/ZONE\(*\)/#ZONE$1\nZONE="Asia/Tokyo"/' /etc/sysconfig/clock"
+sed -i 's/ZONE\(.*\)/#ZONE\1\nZONE="Asia\/Tokyo"/' /etc/sysconfig/clock
 tzdata-update
 ```
