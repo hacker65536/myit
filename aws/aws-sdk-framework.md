@@ -53,6 +53,16 @@ class AwsController extends Controller {
                                         'region'=>'ap-southeast-2',
                                      )
                                 );
+                                
+                                #if your ec2 not have role of authority 
+
+                                /*
+                                array(
+                                 'key'=>key, //edit
+                                 'secret'=secret, //edit
+                                 'region'=>'ap-southeast-2',
+                                 );
+                                */
                 $res=$client->listTables();
                 foreach ($res['TableNames'] as $tableName) {
                         echo $tableName . "\n";
@@ -61,15 +71,7 @@ class AwsController extends Controller {
 }
 
 
-#if your ec2 not have role of authority 
 
-/*
-array(
- 'key'=>key, //edit
- 'secret'=secret, //edit
- 'region'=>'ap-southeast-2',
- );
- */
 
 ```
 
