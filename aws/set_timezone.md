@@ -17,6 +17,8 @@ cp /etc/localtime /etc/localtime.org
 rpm -qf /etc/localtime
 glibc-2.17-55.143.amzn1.x86_64
 ````
+or
+
 
 `yum provides "*/localtime"`
 
@@ -26,14 +28,10 @@ Repo        : amzn-main
 Matched from:
 Filename    : /etc/localtime
 
-
-
 glibc-2.17-78.161.amzn1.x86_64 : The GNU libc libraries
 Repo        : amzn-main
 Matched from:
 Filename    : /etc/localtime
-
-
 
 glibc-2.17-55.143.amzn1.x86_64 : The GNU libc libraries
 Repo        : @amzn-updates
@@ -41,6 +39,7 @@ Matched from:
 Filename    : /etc/localtime
 ```
 
+ This file that named `/etc/localtime' is overwritten every time a package is to be updated
 
 
 ```bash
