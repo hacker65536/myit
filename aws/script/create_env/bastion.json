@@ -1,0 +1,22 @@
+[
+  {
+    "IpProtocol": "tcp",
+    "FromPort": 22,
+    "ToPort": 22,
+    "IpRanges": [
+      {
+        "CidrIp": "xxx.xxx.xxx.xxx/32"
+      }
+    ]
+  },
+  {
+    "IpProtocol": "-1",
+    "FromPort": 0,
+    "ToPort": 65535,
+    "IpRanges": [
+      {
+        "CidrIp": "10.0.0.0/16"
+      }
+    ]
+  }
+]
