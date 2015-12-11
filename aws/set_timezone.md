@@ -13,6 +13,13 @@ cp /etc/localtime /etc/localtime.org
 
 new
 ```bash
+cp /etc/sysconfig/clock /etc/sysconfig/config.org
+cat /etc/sysconfig/clock
+
+ZONE="UTC"
+UTC=true
+
+
 sed -i 's/ZONE\(.*\)/#ZONE\1\nZONE="Asia\/Tokyo"/' /etc/sysconfig/clock
 reboot
 ```
