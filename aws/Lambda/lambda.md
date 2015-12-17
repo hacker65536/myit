@@ -16,4 +16,4 @@ f(x)=x+2
 λ[入力].[出力]
 ```
 
-[ラムダ計算](http://www.slideshare.net/_yingtai/lambda-guide "ラムダ計算")
+スライド(λ記法、かりー化)[ラムダ計算](http://www.slideshare.net/_yingtai/lambda-guide "ラムダ計算")
