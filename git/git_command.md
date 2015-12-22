@@ -52,5 +52,13 @@ usericon > settings > ssh key
 
 ```bash
 git clone git@github.com:username/reponame.git
+cd reponame
+git config user.name "username"
+git config user.email "name@email.com"
+git config push.default simple 
+echo "#test" >> README.md
+git add .
+git commit -m "first commit"
+git push -u orgin master
 ```
 
