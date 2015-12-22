@@ -45,7 +45,7 @@ http://git-scm.com/docs/git-config
 * matching 旧仕様で、ローカル、リモートで同名のrepositoryであればすべてpush
 
 
-###using github
+###using github (linux cli)
 setup  pubkey to github.
 usericon > settings > ssh key
 
