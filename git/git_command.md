@@ -43,3 +43,14 @@ http://git-scm.com/docs/git-config
 * upstream カレントブランチに追跡ブランチを設定している場合追跡ブランチに対してpush。使用するケースはFork元を上流ブランチとし、remoteにupstreamを追加し(originと区別する場合)、Fork元からpullしての運用など
 * simple git2.0以降のデフォルト upstreamの設定がしていてかつ同名の場合はpush
 * matching 旧仕様で、ローカル、リモートで同名のrepositoryであればすべてpush
+
+
+###using github
+setup  pubkey to github.
+usericon > settings > ssh key
+
+
+```bash
+git clone git@github.com:username/reponame.git
+```
+
