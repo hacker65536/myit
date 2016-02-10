@@ -8,7 +8,7 @@ bold =`the font`
 ##registory
 `HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions`
 
-prompt
+prompt  
 `regedit /e "%userprofile%\desktop\putty-sessions.reg" HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions`
 
 https://github.com/brantb/solarized/tree/master/putty-colors-solarized
