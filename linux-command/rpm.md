@@ -11,7 +11,7 @@ __rpm {-q|--query} [select-options] [query-options]__
 
 PACKAGE SELECTION OPTIONS:  
 -a,--all
-- query all installed packages.
+- query all installed packages.  
 -f,--file FILE
 - query package owning FILE.
 
