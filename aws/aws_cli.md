@@ -22,8 +22,12 @@ use other version of python
 sudo /usr/local/bin/python2.7 awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 ```
 
-path
+path or symlink
 ```bash
-PATH=/usr/local/bin:$PATH
+PATH=/usr/local/bin/:$PATH
 export PATH
+```
+
+```bash
+mv /usr/bin/aws /usr/bin/aws.bak$(date '+%Y%m%d%H%M')
 ```
