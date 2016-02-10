@@ -16,6 +16,13 @@ PACKAGE SELECTION OPTIONS:
 -f,--file FILE  
 - query package owning FILE.
 
+
+PACKAGE QUERY OPTIONS:  
+
+-i,--info
+- Display package information, including name,verion,and description. --queryformat if one was specified.
+
+
 what package installed it?
 ```bash
 rpm -qf /etc/rc.d/init.d/docker
