@@ -29,5 +29,5 @@ export PATH
 ```
 
 ```bash
-mv /usr/bin/aws /usr/bin/aws.bak$(date '+%Y%m%d%H%M')
+mv /usr/bin/aws /usr/bin/aws.bak$(date '+%Y%m%d%H%M%Z')
 ```
