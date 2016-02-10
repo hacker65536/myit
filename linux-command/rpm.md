@@ -54,3 +54,9 @@ This package provides a unified command line interface to Amazon Web Services.
 
 For more information and documentation please visit http://aws.amazon.com/documentation/cli/
 ```
+
+find package
+```bash
+rpm -qa|grep aws-cli
+aws-cli-1.10.1-1.36.amzn1.noarch
+```
