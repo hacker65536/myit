@@ -9,7 +9,7 @@ The general form of an rpm query command is
 
 __rpm {-q|--query} [select-options] [query-options]__
 
-PACKAGE SELECTION OPTIONS:
+PACKAGE SELECTION OPTIONS:  
 -a,--all
 - query all installed packages.
 -f,--file FILE
