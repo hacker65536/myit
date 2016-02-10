@@ -29,6 +29,18 @@ export PATH
 ```
 
 ```bash
+aws --version
+```
+```
+aws-cli/1.10.1 Python/2.7.10 Linux/4.1.10-17.31.amzn1.x86_64 botocore/1.3.23
+```
+```bash
 mv /usr/bin/aws /usr/bin/aws.bak$(date '+%Y%m%d%H%M%Z')
 ln -s /usr/local/bin/aws /usr/bin/
+```
+```bash
+aws --version
+```
+```
+aws-cli/1.10.3 Python/2.7.10 Linux/4.1.10-17.31.amzn1.x86_64 botocore/1.3.25
 ```
