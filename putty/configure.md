@@ -2,8 +2,13 @@
 #putty configure
 
 ##color
-indicate bolded text by changing.
-bold =`the font` 
+indicate bolded text by changing.  
+bold =`the font`   
+https://github.com/brantb/solarized/tree/master/putty-colors-solarized
+
+##keep session
+`Keepalive=60`
+
 
 ##registory
 `HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions`
@@ -11,4 +16,4 @@ bold =`the font`
 prompt  
 `regedit /e "%userprofile%\desktop\putty-sessions.reg" HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions`
 
-https://github.com/brantb/solarized/tree/master/putty-colors-solarized
+
