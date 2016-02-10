@@ -1,6 +1,7 @@
 #aws command line interface
 
 ##how to update
+http://docs.aws.amazon.com/cli/latest/userguide/installing.html
 
 current version
 ```bash
@@ -19,4 +20,10 @@ sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 use other version of python
 ```bash
 sudo /usr/local/bin/python2.7 awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+```
+
+path
+```bash
+PATH=/usr/local/bin:$PATH
+export PATH
 ```
