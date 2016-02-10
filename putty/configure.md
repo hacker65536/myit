@@ -6,6 +6,9 @@ indicate bolded text by changing.
 bold =`the font`   
 https://github.com/brantb/solarized/tree/master/putty-colors-solarized
 
+##font
+Consolas,10-point
+
 ##keep session
 `Keepalive=60`
 
