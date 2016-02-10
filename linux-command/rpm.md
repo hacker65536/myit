@@ -25,12 +25,12 @@ PACKAGE QUERY OPTIONS:
 ##sample
 
 what package installed it?
-```bash
+```
 rpm -qf /etc/rc.d/init.d/docker
 docker-1.9.1-1.2.amzn1.x86_64
 ```
 package infomation
-```bash
+```
  rpm -qi aws-cli
 Name        : aws-cli
 Version     : 1.10.1
@@ -56,7 +56,7 @@ For more information and documentation please visit http://aws.amazon.com/docume
 ```
 
 find package
-```bash
+```
 rpm -qa|grep aws-cli
 aws-cli-1.10.1-1.36.amzn1.noarch
 ```
