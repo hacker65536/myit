@@ -23,11 +23,14 @@ sudo /usr/local/bin/python2.7 awscli-bundle/install -i /usr/local/aws -b /usr/lo
 ```
 
 path or symlink
+
+export 
 ```bash
 PATH=/usr/local/bin/:$PATH
 export PATH
 ```
 
+symlink
 ```bash
 aws --version
 ```
