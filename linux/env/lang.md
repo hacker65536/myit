@@ -4,5 +4,5 @@ show current lang
 cat /etc/sysconfig/i18n
 LANG=en_US.UTF-8
 ```
-numeronym  
+numeronym  = a number-based word.
 i18n=internationalisation=i nternationalisatio(18characters) n
