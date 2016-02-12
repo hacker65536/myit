@@ -8,6 +8,7 @@ report a snapshot of the current processes.
 
 ##option
 
+###SIMPLE PROCESS SELECTION
 a
 - Lift the BSD-style "only yourself" restriction, which is imposed upon the set of all
 processes when some BSD-style (without "-") options are used or when the ps
@@ -24,6 +25,38 @@ addition to the set of processes selected by other means. An alternate descripti
 is that this option causes ps to list all processes owned by you (same EUID as ps),
 or to list all processes when used together with the a option.
 
+T
+- Select all processes associated with this terminal. Identical to the t option without any argument.
+
+###PROCESS SELECTION BY LIST
+These options accept a single argument in the form of a blank-separated or comma-separated list. They can be used multiple times. For example: ps -p "1 2" -p 3,4
+
+-C cmdlist
+- Select by command name. this selects the processes whose executable name is given in cmdlist.
+
+U,-u,--user userlist
+- Select by effective user ID(EUID) or name. This selects the processes whose effective user name or ID is in userlist. the effective user ID describes the user whose file access permissions are userd by the process (see geteuid(2)).
+
+p,-p,--pid pidlist
+- Select by process ID
+
+q,-q,--quick-pid pidlist
+- Quick select by process ID.
+
+-s sesslist
+- Select by session ID.
+
+t,-t,--tty
+- Select by tty. Nearly identical to -t and --ty, but can also be used with an empty ttylist to indicate the terminal associated with ps. Using the T option is considered cleaner than using T with an empty ttylist.
+
+-123
+- Identical to --sid 123.
+
+123
+- Identical to --pid 123.
+
+###OUTPUT FORMAT CONTROL
+These options are used to choose the information displayed by ps. The output may differ by personality.
 
 ##examples
 
