@@ -58,6 +58,34 @@ t,-t,--tty
 ###OUTPUT FORMAT CONTROL
 These options are used to choose the information displayed by ps. The output may differ by personality.
 
+###OUTPUT MODIFIERS
+
+-H
+- Show process hierarchy(forest)
+
+f
+- ASCII-art process hierarchy(forest)
+
+e
+- Show the environment after the command.
+
+w,-w
+- Wide output. Use this option twice for unlimited width.
+
+###THREAD DISPLAY
+H
+- Show threads as if they were processes
+
+-L
+- Show threads, possibly with LWP and NLWP columns
+
+-T
+- Show threads, possibly with SPID column
+
+m,-m
+- Show threads after processes
+
+
 ##examples
 
 to see every process on the system using standard syntax:
