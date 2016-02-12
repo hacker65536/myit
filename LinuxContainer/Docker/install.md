@@ -116,3 +116,23 @@ curl http://localhost
                 <p>Your PHP application is now running on a container in Amazon ECS.</p>
                 <p>The container is running PHP version 5.3.10-1ubuntu3.21.</p>
 ```
+
+log in to your docker hub account.
+```bash
+docker login
+```
+verify that you have logged in correctly.
+```bash
+docker info
+```
+```
+Containers: 13
+Images: 33
+Server Version: 1.9.1
+Storage Driver: devicemapper
+
+--snip--
+
+Username: your-dockerhub-username
+Registry: https://index.docker.io/v1/
+```
