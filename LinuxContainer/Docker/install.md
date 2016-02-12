@@ -68,8 +68,8 @@ Step 1 : FROM ubuntu:12.04
 
 ---snip---
 
-Removing intermediate container 97f51808f010
-Successfully built 90a9e4833614
+Removing intermediate container 97f51808e010
+Successfully built 90a9e4833634
 ```
 
 
@@ -79,6 +79,6 @@ docker images
 ```
 ```
 REPOSITORY                      TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
-hacker65536/amazon-ecs-sample   latest              90a9e4833614        39 minutes ago      262.2 MB
+hacker65536/amazon-ecs-sample   latest              90a9e4833634        39 minutes ago      262.2 MB
 
 ```
