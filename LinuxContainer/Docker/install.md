@@ -80,8 +80,8 @@ show docker images
 docker images
 ```
 ```
-REPOSITORY                                  TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
-your-dockerhub-username/amazon-ecs-sample   latest              90a9e4833634        39 minutes ago      262.2 MB
+REPOSITORY                                  TAG        IMAGE ID         CREATED          VIRTUAL SIZE
+your-dockerhub-username/amazon-ecs-sample   latest     90a9e4833634     39 minutes ago   262.2 MB
 ```
 
 run the newly built image
