@@ -41,3 +41,21 @@ to see every process running as root (real & effective ID) in user format:
 ```bash
 ps -U root -u root u
 ```
+##tips
+```bash
+ ps auxfe|head -5
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         2  0.0  0.0      0     0 ?        S    Feb10   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    Feb10   0:00  \_ [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   Feb10   0:00  \_ [kworker/0:0H]
+root         6  0.0  0.0      0     0 ?        S    Feb10   0:03  \_ [kworker/u30:0]
+```
+
+```bash
+ ps auxf|head -5
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         2  0.0  0.0      0     0 ?        S    Feb10   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    Feb10   0:00  \_ [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   Feb10   0:00  \_ [kworker/0:0H]
+root         6  0.0  0.0      0     0 ?        S    Feb10   0:03  \_ [kworker/u30:0]
+```
