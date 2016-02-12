@@ -123,7 +123,7 @@ s
 
 l
 - is multi-threaded(using CLONE_THREAD, like NPTL pthreads do)
-+
+\+
 - is in the foreground process group
 
 ##examples
