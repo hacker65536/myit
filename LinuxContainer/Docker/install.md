@@ -78,6 +78,7 @@ Successfully built 90a9e4833614
 docker images
 ```
 ```
-REPOSITORY  TAG IMAGE ID  CREATED VIRTUAL SIZE
-your-dockerhub-username/amazon-ecs-sample latest  90a9e4833614  34 minutes ago  262.2 MB
+REPOSITORY                      TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+hacker65536/amazon-ecs-sample   latest              90a9e4833614        39 minutes ago      262.2 MB
+
 ```
