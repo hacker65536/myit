@@ -136,3 +136,27 @@ Storage Driver: devicemapper
 Username: your-dockerhub-username
 Registry: https://index.docker.io/v1/
 ```
+
+push the image
+```bash
+ docker push your-dockerhub-username/amazon-ecs-sample
+ ```
+ 
+ ```
+ The push refers to a repository [docker.io/your-dockerhub-username/amazon-ecs-sample] (len: 1)
+90a9e4833634: Pushed
+cca07078fd76: Pushed
+4d50ea71ae43: Pushed
+1516c95b3a35: Pushed
+b8064b1bc667: Pushed
+26f905111e23: Pushed
+1565573c5abf: Pushed
+e41a4b36cb3e: Pushed
+095ff12ac3d0: Pushed
+226e1f760063: Pushed
+fa582dfd2cc8: Pushed
+ce23f7861d68: Pushed
+2e95ee7a6bba: Pushed
+5f0ca2331640: Pushed
+latest: digest: sha256:594aac6bdfcd11406f749ea3c6aa368cbc74de04903e7d0d28cfa118b0584333 size: 24483
+```
