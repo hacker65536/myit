@@ -22,7 +22,7 @@ PACKAGE QUERY OPTIONS:
 -i,--info
 - Display package information, including name,verion,and description. --queryformat if one was specified.
 
-##sample
+##example
 
 what package installed it?
 ```
