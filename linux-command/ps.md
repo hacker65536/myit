@@ -6,8 +6,17 @@ report a snapshot of the current processes.
 >- 2   BSD options, which may be grouped and must not be used with a dash.
 >- 3   GNU long options, which are preceded by two dashes.
 
+##option
 
-#examples
+a
+- Lift the BSD-style "only yourself" restriction, which is imposed upon the set of all
+processes when some BSD-style (without "-") options are used or when the ps
+personality setting is BSD-like. The set of processes selected in this manner is in
+addition to the set of processes selected by other means. An alternate description
+is that this option causes ps to list all processes with a terminal (tty), or to
+list all processes when used together with the x option.
+
+##examples
 
 to see every process on the system using standard syntax:
 
