@@ -35,6 +35,7 @@ cd ecs-demo-php-simple-app
 cat Dockerfile
 ```
 
+Dockerfile
 ```
 FROM ubuntu:12.04
 
@@ -56,4 +57,27 @@ ENV APACHE_LOG_DIR /var/log/apache2
 EXPOSE 80
 
 CMD ["/usr/sbin/apache2", "-D",  "FOREGROUND"]
+```
+```bash
+docker build -t your-dockerhub-username/amazon-ecs-sample .
+```
+
+```
+Sending build context to Docker daemon   363 kB
+Step 1 : FROM ubuntu:12.04
+
+---snip---
+
+Removing intermediate container 97f51808f010
+Successfully built 90a9e4833614
+```
+
+
+
+```bash
+docker images
+```
+```
+REPOSITORY                                                   TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+your-dockerhub-username/amazon-ecs-sample                                latest              90a9e4833614        34 minutes ago      262.2 MB
 ```
