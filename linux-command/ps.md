@@ -120,9 +120,11 @@ Z
 For BSD formats and when the stat keyword is used, additional characters may be displayed:
 
 <
-- high-priority (not nice to other users)
+- high-priority (not nice to other users)  
+
 N
-- low-priority(nice to other users)
+- low-priority(nice to other users)  
+
 L
 - has pages locked into memory ( for real-time and custom IO)
 
