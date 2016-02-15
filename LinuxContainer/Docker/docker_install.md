@@ -160,3 +160,14 @@ ce23f7861d68: Pushed
 5f0ca2331640: Pushed
 latest: digest: sha256:594aac6bdfcd11406f749ea3c6aa368cbc74de04903e7d0d28cfa118b0584333 size: 24483
 ```
+
+delete container
+
+```bash
+docker rm CONTAINER [CONTAINER...]
+```
+
+dlete image
+```bash
+docker rmi IMAGE [IMAGE...]
+```
