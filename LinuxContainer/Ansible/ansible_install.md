@@ -10,6 +10,10 @@ Traceback (most recent call last):
     from ansible.runner import Runner
 ImportError: No module named ansible.runner
 ```
+
+```bash
+$ python --version
+```
 if python is dfferent version, use pip installation
 
 ```
