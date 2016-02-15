@@ -55,3 +55,13 @@ Installing collected packages: ansible
   Running setup.py install for ansible
 Successfully installed ansible-2.0.0.2
 ```
+show version
+```
+# ansible --version
+ansible 2.0.0.2
+  config file =
+  configured module search path = Default w/o overrides
+
+# python --version
+Python 2.7.10
+```
