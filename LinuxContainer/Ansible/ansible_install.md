@@ -16,7 +16,7 @@ $ python --version
 Python 2.7.10
 ```
 
-```bash
+```
 # alternatives --config python
 
 There are 2 programs which provide 'python'.
