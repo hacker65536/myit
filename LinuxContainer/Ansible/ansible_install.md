@@ -15,6 +15,19 @@ ImportError: No module named ansible.runner
 $ python --version
 Python 2.7.10
 ```
+
+```bash
+# alternatives --config python
+
+There are 2 programs which provide 'python'.
+
+  Selection    Command
+-----------------------------------------------
+*+ 1           /usr/bin/python2.7
+   2           /usr/bin/python2.6
+
+Enter to keep the current selection[+], or type selection number: 2
+```
 if python is dfferent version, use pip installation
 
 ```
