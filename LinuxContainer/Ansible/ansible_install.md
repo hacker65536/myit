@@ -28,6 +28,12 @@ There are 2 programs which provide 'python'.
 
 Enter to keep the current selection[+], or type selection number: 2
 ```
+```
+# ansible --version
+ansible 1.9.4
+  configured module search path = None
+```
+
 if python is dfferent version, use pip installation
 
 ```
