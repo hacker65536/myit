@@ -13,6 +13,7 @@ ImportError: No module named ansible.runner
 
 ```bash
 $ python --version
+Python 2.7.10
 ```
 if python is dfferent version, use pip installation
 
