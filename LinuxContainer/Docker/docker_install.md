@@ -37,7 +37,9 @@ attach container
 ```bash
 docker attach CONTAINERID or NAME
 ```
+suspend  
 
+`ctl+p > ctl+q`
 ##tutorial
 
 create a docker image and upload it to docker hub
