@@ -58,6 +58,14 @@ t,-t,--tty
 ###OUTPUT FORMAT CONTROL
 These options are used to choose the information displayed by ps. The output may differ by personality.
 
+- -F extra full format. See the -f option, which -F implies.
+- X Register format.
+- Z,-M Add a column of security data. Identical to -M. (for SE Linux)
+- j,-j (BSD) job control format.
+- -l long format. The -y option is often useful with this.
+- u display user-oriented format
+- v display virtual memory format
+
 ###OUTPUT MODIFIERS
 
 -H
