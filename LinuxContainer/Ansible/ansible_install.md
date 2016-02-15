@@ -65,3 +65,17 @@ ansible 2.0.0.2
 # python --version
 Python 2.7.10
 ```
+
+add host to `/etc/ansible/hosts`
+```bash
+echo "127.0.0.1" >> /etc/ansible/hosts
+```
+
+check host
+```bash
+$ ansible -i hosts 127.0.0.1 -m ping
+127.0.0.1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+```
