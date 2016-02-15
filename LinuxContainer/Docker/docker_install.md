@@ -24,6 +24,19 @@ show docker info
 docker info
 ```
 
+pull image
+```bash
+docker pull centos
+```
+
+run container
+```bash
+docker run -it -d centos /bin/bash
+```
+attach container
+```bash
+docker attach CONTAINERID or NAME
+```
 
 ##tutorial
 
