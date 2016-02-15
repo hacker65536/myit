@@ -4,7 +4,7 @@ yum install --enablerepo=epel ansible
 
 troubleshoot
 ```bash
-ansible --version
+$ ansible --version
 Traceback (most recent call last):
   File "/usr/bin/ansible", line 36, in <module>
     from ansible.runner import Runner
