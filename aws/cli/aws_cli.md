@@ -1,4 +1,12 @@
 #aws command line interface
+##install form other linxu
+
+
+```bash
+curl -s "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+python get-pip.py
+pip install awscli
+```
 
 ##how to update
 http://docs.aws.amazon.com/cli/latest/userguide/installing.html
