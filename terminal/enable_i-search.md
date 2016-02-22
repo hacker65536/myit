@@ -12,9 +12,13 @@ echo "stty stop undef" >> ~/.bashrc
 stty -a
 ```
 i-search will be works
+
+
+ctrl+r
 ```
 (reverse-i-search)`':
 ```
+ctrl+s
 ```
 (i-search)`':
 ```
