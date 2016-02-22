@@ -6,6 +6,8 @@
 curl -s "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 python get-pip.py
 pip install awscli
+
+aws --version
 ```
 
 ##how to update
@@ -13,7 +15,7 @@ http://docs.aws.amazon.com/cli/latest/userguide/installing.html
 
 current version
 ```bash
-aws version
+aws --verion
 ```
 ```
 aws-cli/1.9.1 Python/2.7.10 Linux/4.1.10-17.31.amzn1.x86_64 botocore/1.3.1
