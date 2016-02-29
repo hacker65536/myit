@@ -16,3 +16,6 @@ trust-server-names = on
 continue = on
 no_clobber = on
 ```
+
+#ref
+https://www.gnu.org/software/wget/manual/html_node/Wgetrc-Commands.html#Wgetrc-Commands
