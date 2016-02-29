@@ -13,6 +13,7 @@ ruby 2.0.0p648 (2015-12-16) [x86_64-linux]
 ```
 solution
 ```
- gem install --no-rdoc  chef
+gem install --no-rdoc  chef
 ```
-
+ref  
+https://github.com/pry/pry/issues/855
