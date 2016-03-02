@@ -21,6 +21,18 @@ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 # go version
 go version go1.6 linux/amd64
 ```
+```go
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, 世界")
+}
+```
+
 
 #installing from source
 
