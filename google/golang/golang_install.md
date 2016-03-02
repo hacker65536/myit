@@ -17,6 +17,7 @@ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 .  ~/.bashrc
 ```
 
+testcode
 ```
 # go version
 go version go1.6 linux/amd64
