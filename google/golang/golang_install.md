@@ -16,6 +16,9 @@ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 .  ~/.bashrc
 ```
 
+```bash
+go version
+```
 
 #installing from source
 
