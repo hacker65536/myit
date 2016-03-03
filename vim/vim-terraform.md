@@ -19,3 +19,16 @@ execute pathogen#infect()
 cd ~/.vim/bundle
 git clone https://github.com/hashivim/vim-terraform.git
 ```
+
+show script
+
+`:script`
+
+```
+--snip--
+ 26: /usr/share/vim/vim74/indent/tf.vim
+ 27: ~/.vim/bundle/vim-terraform/after/ftplugin/terraform.vim
+ 28: ~/.vim/bundle/vim-terraform/syntax/terraform.vim
+ 29: ~/.vim/bundle/vim-terraform/indent/terraform.vim
+ Press ENTER or type command to continue
+```
