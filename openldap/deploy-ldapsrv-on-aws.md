@@ -458,6 +458,11 @@ ldapadd -x -D cn=Manager,dc=testcompany,dc=com -w password -f sample-entry1.ldif
 ^1^2
 ```
 
+検索テスト
+
+```bash
+ldapsearch -x -D "uid=user1,ou=People,dc=testcompany,dc=com" -w test1 -b "ou=People,dc=testcompany,dc=com" -s sub "(uid=user1)"
+```
 
 #バックアップとリストア
 
