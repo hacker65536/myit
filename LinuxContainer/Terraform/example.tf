@@ -73,5 +73,5 @@ resource "aws_instance" "web" {
 
 resource "aws_key_pair" "deployer" {
   key_name = "deployer-key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2OFc4m2JO6XrzccLbQqwVUKb/POJqNRnVLfA0xFqtoOSDuBHb4yPO/symbIPziNPdqNplhvuIxC4U1Bq/bmvzkwVQvczwRKnL6U9b55eYxy1ME2TujCqyYqt+YoZoGG1vGg2W3vZ6lyygGjtRSmVz8n4QWnsN/Cf1N7VXL4+bRdZn6rMiF9u4YiIri00Sh7OBf4vE595k+5lCauPdIyduVh/YZJxR1KetxyBT80CwwSA4eVvqrvrjpzTfjSwluDHQDmvCF93Q9ltAIFHOMk8Rh3rg07TCRUES2/dZ8ICLBrRavGaa3slJKPXwvRRut8gv0FLL/pHCUtWKnd5AOWVP root@ip-10-1-0-245"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDbBSE/z361UxmjfaPfbewAPsgl0Snw7ioSzhgjV+nLVLXn8izD8NZXJvkZHYtywJxPs2QdFwD2hclYRi+4Er5tdomC5oprVOo8cRu8a/vZqseaSiUg/DibJ/Ud7pIgFqi78fKZs5RVGraYd+8ZeSdbvMXx63pB4a2KdSIgqMLZFEtjBh7oJfsLjo6/vt8jf7iXnin+eZvvxNpNTIeuladU7X3GR7MFb7uVQ5UGJLuWvlbcZpmrEKd+pMbPpMcCH+Q+AMvVXxBubZ7GCXcGkUWRD3En58m+koRfK3cT70rhC1E7impVf1VdtuALnqe/L+2nWtMCMxd81ucfSuBkL5TV"
 }
