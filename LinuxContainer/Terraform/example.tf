@@ -28,6 +28,9 @@ variable "aws_amis" {
 #------------provider aws 
 
 provider "aws" {
+        #use role of IAM
+        #access_key = "ACCESS_KEY_HERE"
+        #secret_key = "SECRET_KEY_HERE"
         region= "${var.aws_region}"
 }
 
