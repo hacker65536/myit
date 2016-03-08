@@ -10,3 +10,8 @@
 or
 
 `:a!` > paste > `ESC`
+
+.vimrc
+```vim
+set paste
+```
