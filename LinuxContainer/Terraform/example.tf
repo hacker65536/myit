@@ -1,3 +1,11 @@
+#Description
+#sample terraform
+# @hacker65536
+
+
+#------------variable
+
+#region = oregon
 variable "aws_region" {
         default = "us-west-2"
 }
@@ -7,6 +15,8 @@ variable "tagname" {
 variable "instancetype" {
         default = "t2.micro"
 }
+
+#Amazon Linux AMI 2015.09.2 (HVM), SSD Volume Type
 variable "aws_amis" {
         default = {
                 "us-east-1"= "ami-8fcee4e5"
@@ -15,14 +25,14 @@ variable "aws_amis" {
 }
 
 
-
+#------------provider aws 
 
 provider "aws" {
         region= "${var.aws_region}"
 }
 
 
-
+#------------resources
 
 resource "aws_vpc" "main" {
         cidr_block = "10.2.0.0/16"
