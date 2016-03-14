@@ -108,10 +108,10 @@ slappasswd -s password
 vim ldapconf_init_passwd.ldif
 ```
 ```
-dn:olcDatabase={0}config,cn=config
-changeType:modify
+dn: olcDatabase={0}config,cn=config
+changeType: modify
 add: olcRootPW
-olcRootPW:{SSHA}dx+bl9fhNGwRQYT3MIDejFVu8EfQYeuL
+olcRootPW: {SSHA}dx+bl9fhNGwRQYT3MIDejFVu8EfQYeuL
 ```
 
 簡易版
