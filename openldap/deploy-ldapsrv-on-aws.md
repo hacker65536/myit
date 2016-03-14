@@ -107,7 +107,7 @@ slappasswd -s password
 ```
 vim ldapconf_init_passwd.ldif
 ```
-```
+```ldif
 dn: olcDatabase={0}config,cn=config
 changeType: modify
 add: olcRootPW
