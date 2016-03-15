@@ -467,7 +467,14 @@ ldapsearch -x -D "uid=user1,ou=People,dc=testcompany,dc=com" -w test1 -b "ou=Peo
 
 ```bash
 yum install -y openssh-ldap
+ldapadd -Y EXTERNAL -H ldapi:// -f /usr/share/doc/openssh-ldap-6.6.1p1/openssh-lpk-openldap.ldif
+
+SASL/EXTERNAL authentication started
+SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth
+SASL SSF: 0
+adding new entry "cn=openssh-lpk,cn=schema,cn=config"
 ```
+
 
 mod.ldif
 ```ldap
@@ -480,12 +487,9 @@ add: sshPublicKey
 sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDxfydA6gk9DfodXzRjtupTMG8qCxP7dcFEb0D6OPsKCHS0ItirQnugXEMMsWMPg4ThE/x0efVAErV86PTF9OLzc8cBTgYgApLHVWxQemD38rAJ335p7f0yvfX3vp9bchj6FncuT28xmaKnad7MuzCmfGfqBEEe4gKXplzRvUkE+aaZrzCX+9x4pNgObOAkCTFnRFOdXXUppfpX1mvj2sR11CzUsd7eE4zvLHpnaZ8aA2Dm7dNFRM2tfaTYM1AHYC79M0SXPoOjdkV04N69dJp5pkvPJRK1TkquKy5WEiZ1Nr3GNfETrQ10EoYRPe3ll1BDiwBZ4b1VYNMsd8Up3f6N
 ```
 
-
-ldapadd -Y EXTERNAL -H ldapi:// -f /usr/share/doc/openssh-ldap-6.6.1p1/openssh-lpk-openldap.ldif
-SASL/EXTERNAL authentication started
-SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth
-SASL SSF: 0
-adding new entry "cn=openssh-lpk,cn=schema,cn=config"
+```
+ldapadd -x -D cn=Manager,dc=testcompany,dc=com -w password -f mod.ldif
+```
 
 
 
