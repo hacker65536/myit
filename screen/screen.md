@@ -35,6 +35,16 @@ screen -x <session name>
 * `W` copy word  
 * `]` paste  
 
+
+##edit window name
+
+C-z A
+
+##jump
+
+C-z [0-9]
+
+
 ##troubleshooting
 ```bash
 $ screen
