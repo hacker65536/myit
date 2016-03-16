@@ -14,7 +14,7 @@ group:      files sss ldap
 ```
 
 ```bash
-dapsearch -x -D "cn=Manager,dc=testcompany,dc=com" -w password "uid=user0"
+dapsearch -x -D "cn=Manager,dc=testcompany,dc=com" -w password "uid=user1"
 ldap_sasl_bind(SIMPLE): Can't contact LDAP server (-1)
 ```
 
