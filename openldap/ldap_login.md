@@ -61,5 +61,15 @@ result: 0 Success
 
 # numResponses: 2
 # numEntries: 1
+```
 
+```
+vim /etc/nslcd.conf
+```
+
+```
+uid nslcd
+gid ldap
+uri ldap://ldap.server.local
+base dc=testcompany,dc=com
 ```
