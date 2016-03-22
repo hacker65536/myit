@@ -1,7 +1,7 @@
 #generate key
 
 ```
-ssh-keygen -t rsa -N "" -f ~/.ssh/githubkey
+ssh-keygen -t rsa -N "" -f ~/.ssh/githubkey -C "your_email@youremail.com"
 ```
 
 settings-> SSH keys -> New SSH key
