@@ -1,11 +1,13 @@
-#generate key
+##generate key
 
 ```
 ssh-keygen -t rsa -N "" -f ~/.ssh/githubkey -C "your_email@youremail.com"
 ```
-
+##add key to web console of github
 settings-> SSH keys -> New SSH key
 
+
+##configure ssh
 ~/.ssh/config
 ```
 Host github.com
