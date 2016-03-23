@@ -17,7 +17,7 @@ http://docs.aws.amazon.com/cli/latest/userguide/installing.html
 
 current version
 ```bash
-aws --verion
+aws --version
 ```
 ```
 aws-cli/1.9.1 Python/2.7.10 Linux/4.1.10-17.31.amzn1.x86_64 botocore/1.3.1
