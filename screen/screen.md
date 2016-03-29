@@ -12,9 +12,9 @@ termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 #termcapinfo kterm-color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 # escape screen resize for kterm-color
 
+defscrollback 4000 
 
-scrollback 4000
-#defscrollback 4000
+#scrollback 4000 using current screent
 ```
 ##operation
 ```bash
