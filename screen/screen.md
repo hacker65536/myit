@@ -16,6 +16,10 @@ defscrollback 4000
 
 #scrollback 4000 using current screent
 ```
+
+`defscrollback 4000 `を設定し puttyの設定で　端末 > 高度な設定 > Alternate 端末画面への切り替えを無効にする(W)
+
+
 ##operation
 ```bash
 screen -ls
