@@ -14,6 +14,7 @@ termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
 
 scrollback 4000
+#defscrollback 4000
 ```
 ##operation
 ```bash
