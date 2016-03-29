@@ -133,3 +133,19 @@ service httpd start
 
 #shortcut
 [shortcutscript on gist](https://gist.github.com/hacker65536/8a8bf37a681bc904be7f)
+
+
+#troubleshooting
+
+```
+ bundle install --without development test
+/usr/share/ruby/vendor_ruby/2.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- io/console (LoadError)
+        from /usr/share/ruby/vendor_ruby/2.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /usr/local/share/ruby/gems/2.0/gems/bundler-1.11.2/lib/bundler/vendor/thor/lib/thor/shell/basic.rb:2:in `<top (re
+--snip--
+```
+
+```
+yum install -y ruby-devel
+gem install io-console
+```
