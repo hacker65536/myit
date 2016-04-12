@@ -3,6 +3,10 @@
 yum install -y git
 ```
 
+```bash
+yum install -y jq
+```
+
 
 ```bash
 
