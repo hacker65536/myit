@@ -29,3 +29,11 @@ defscrollback 4000
 #scrollback 4000 using current screent' 
 EOF
 ```
+
+```bash
+username=myname
+useremail=my@email
+git config --global user.name "$username"
+git config --global user.email "$useremail"
+git config --global push.default simple
+```
