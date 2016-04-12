@@ -20,4 +20,4 @@ formatoptions=crocql
 au FileType * setlocal formatoptions-=ro
 ```
 
-indent実行時一行目がずれる場合は`-=ro2`
+~~indent実行時一行目がずれる場合は`-=ro2`~~
