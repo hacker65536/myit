@@ -16,8 +16,8 @@ chmod 600 ~/.ssh/config
 
 ```bash
 printf 'escape \032\032' >> ~/.screenrc
-echo <<EOF >> ~/.screenrc
-# "^Z" is a control code.  input this code ctrl+v > ctrl+z 
+cat >> ~/.screenrc <<EOF 
+# "^Z" is a control code.  input this code type ctrl+v > ctrl+z 
 termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 # escape screen resize for xterm
 
