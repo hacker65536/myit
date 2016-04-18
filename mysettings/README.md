@@ -10,7 +10,8 @@ yum install -y jq
 
 ```bash
 
-echo "hostname github.com
+echo "host github.com
+hostname github.com
 user git
 identityfile ~/.ssh/githubkey
 StrictHostKeyChecking no" >> ~/.ssh/config
