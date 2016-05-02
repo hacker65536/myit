@@ -4,7 +4,7 @@ sh ~/install.sh
 rm -rf ~/install.sh
 ```
 
-
+`.vimrc`
 ```
  " Note: Skip initialization for vim-tiny or vim-small.
  if 0 | endif
