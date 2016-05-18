@@ -28,50 +28,48 @@ vim /var/named/chroot/etc/named.conf
 ```
 
 ```named
- # 動作全般に関する設定
+ # common
  options
  {
-     # バージョンを知られないように隠す設定
+     # hid version 
      version "unknown";
 
-     # 設定ファイルのディレクトリ （デフォルト）
-     # 下記設定の場合、chrootにより /var/named/chroot/var/named が設定される
+     
+     # this directory will be /var/named/chroot/var/named if using chroot 
      directory "/var/named";
 
-     # キャッシュ内容を保存するファイル(rndcで利用)
+     # cache file
      dump-file       "data/cache_dump.db";  
 
-     # 名前解決の回数などを統計データとして保存するファイル(rndcで利用)
+     # stats file
      statistics-file     "data/named_stats.txt";
 
-     # サーバ終了時にメモリ使用統計について出力するファイル(rndcで利用)
+     # memstats file
      memstatistics-file  "data/named_mem_stats.txt";
 
-     # サービスのListenポートとIP
+     # port and ip  of service 
      listen-on port 53 { any; };
      listen-on-v6 port 53    { ::1; };
 
-     # 問い合わせ元をローカルホストとローカルネットワークに限定します
-     allow-query             { localhost; 192.168.11.0/24; };
+     # only allow localnetwork
+     allow-query             { localhost; 192.168.0.0/24; };
+     allow-query-cache       { localhost; 192.168.0.0/24; };
 
-     # キャッシュを応答する先をローカルホストとローカルネットワークに限定します
-     allow-query-cache       { localhost; 192.168.11.0/24; };
-
-     # キャッシュサーバなので再帰問い合わせを許可します
+     # allow recursion 
      recursion yes;
 
-     # DNSSECは無効にします。（後で有効にします）
+     # disabble dnssec
      dnssec-enable no;
      dnssec-validation no;
-     dnssec-lookaside auto;  #autoを指定するとトラストアンカの設定が自動作成されます。
+     dnssec-lookaside auto;  
 
  
  };
 
- # ログ設定（デフォルト）
+ # log settings
  logging
  {
-         #デバック時のログ出力先 （主にrndc trace コマンドで利用）
+         #debug
          channel default_debug {
                  file "data/named.run";
                  severity dynamic;
@@ -81,17 +79,17 @@ vim /var/named/chroot/etc/named.conf
 #キャッシュサーバの設定
 view "localhost_resolver"
 {
-    #ローカルネットワークのみ利用可能にします
-    match-clients       { localhost; 192.168.11.0/24; };
+    #only allow localnetwork
+    match-clients       { localhost; 192.168.0.0/24; };
     recursion yes;
 
-    #ルートゾーンの設定
+    #root zone
     zone "." IN {
             type hint;
             file "/var/named/named.ca";
     };
     
-    #ローカルホストに名前解決に関する設定
+    #for local zone
     include "/etc/named.rfc1912.zones";
 };
 ```
