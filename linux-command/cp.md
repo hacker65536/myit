@@ -25,3 +25,12 @@ backup option
 * numbered, t : make numbered backups
 * existing, nil : numbered if numbered backup exist, simple otherwise
 * simple, never : always make simple backups
+
+```bash
+cp --suffix=_`date +%Y%m%d%H%M%S%N` -f long-long-long-file-name.txt{,}
+```
+
+
+```bash
+export SIMPLE_BACKUP_SUFFIX=_
+```
