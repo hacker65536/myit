@@ -34,3 +34,10 @@ cp --suffix=_`date +%Y%m%d%H%M%S%N` -f long-long-long-file-name.txt{,}
 ```bash
 export SIMPLE_BACKUP_SUFFIX=_
 ```
+```bash
+export SIMPLE_BACKUP_SUFFIX=numbered
+```
+
+```bash
+export SIMPLE_BACKUP_SUFFIX=.old
+```
