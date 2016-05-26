@@ -19,7 +19,8 @@
 ```
 
 ```
-# history | tail -10 | cut -d ' ' -f 6-
+# history | tail -10 | sed 's/^\s\+//g' |cut -d ' ' -f 3-
+
 cut -d ' ' -f 2- his
 cut -d ' ' -f 3- his
 cut -d ' ' -f 4- his
