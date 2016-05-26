@@ -1,5 +1,7 @@
 #cut
 
+* -d delimiter
+* -f fields
 
 ##example
 ```
@@ -16,7 +18,7 @@
    82  history | tail -10
 ```
 
-```bash
+```
 # history | tail -10 | cut -d ' ' -f 6-
 cut -d ' ' -f 2- his
 cut -d ' ' -f 3- his
