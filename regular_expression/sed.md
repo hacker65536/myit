@@ -27,8 +27,8 @@ sed -i 1,5d file
 sed -i 1,5\!d file
 ```
 
-3行目のみ出力
+3行目のみ出力　defaultでは全部出力されるので -n silent modeにしてから `p`で出力
 ```bash
 sed -n -e 3p file
 ```
-defaultでは全部出力されるので -n silent modeにしてから `p`で出力
+
