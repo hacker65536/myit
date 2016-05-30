@@ -1,3 +1,8 @@
+require
+```bash
+yum install -y git
+```
+
 ```bash
 cd
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > ~/install.sh
