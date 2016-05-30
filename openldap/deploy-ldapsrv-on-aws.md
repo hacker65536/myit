@@ -275,6 +275,8 @@ olcTLSCertificateKeyFile: /etc/openldap/certs/localhost.key
 ldapmodify -x -w password -D "cn=config" -f ldapconf_init_tls.ldif
 ```
 
+サービスの再起動を行わないと証明書のチェックが出来ない？
+
 証明書チェック
 
 ```bash
