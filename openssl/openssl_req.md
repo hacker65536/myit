@@ -1,6 +1,14 @@
 
 #openssl req
 
+3line
+```bash
+openssl genrsa 2048 > server.key
+openssl req -new -key server.key > server.csr
+openssl x509 -days 3652 -req -signkey server.key < server.csr > server.crt
+```
+
+
 oneliner
 
 ```bash
