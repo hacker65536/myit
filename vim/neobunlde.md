@@ -9,8 +9,8 @@ sh ~/install.sh
 rm -rf ~/install.sh
 ```
 
-`.vimrc`
-```
+`vim ~/.vimrc`
+```vim
  " Note: Skip initialization for vim-tiny or vim-small.
  if 0 | endif
 
