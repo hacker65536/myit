@@ -12,7 +12,7 @@ configure github
 git config --global github.user Username
 ```
 
-
+show list of gist
 ```vim
 :Gist -l
 ```
