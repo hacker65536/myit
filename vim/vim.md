@@ -48,3 +48,5 @@
 * i'
 * i`
 
+one time command in insert mode  
+ctrl+o
