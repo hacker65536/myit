@@ -1,3 +1,6 @@
+http://vim-jp.org/vimdoc-ja/insert.html#ins-completion
+
+
 install dict
 ```bash
 yum install words
