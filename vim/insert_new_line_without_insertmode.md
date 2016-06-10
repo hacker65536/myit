@@ -1,4 +1,4 @@
-```bash
+```vim
 nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 ```
 
