@@ -8,10 +8,12 @@ set paste
 ```
 
 ```vim
+" for dictionally
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 ```
 
 ```vim
+" without insertmode add new line
 nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 ```
 
