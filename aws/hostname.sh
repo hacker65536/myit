@@ -9,15 +9,15 @@
 #----------------------------
 
 hostfile='/tmp/ec2hostname'
-
+url="http://169.254.169.254/latest/dynamic/instance-identity/document"
 if [ -e $hostfile -a -s $hostfile ];then
 
   export PS1="[\u@$(cat $hostfile) \W]\$ "
 
 else
 
-  id=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document|/usr/local/bin/jq '.instanceId'|tr -d '"')
-  region=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | /usr/local/bin/jq '.region' | tr -d '"')
+  id=$(curl -s $url | jq -r '.instanceId')
+  region=$(curl -s $url | jq -r '.region' )
 
   /bin/ping example.com -w 3 >/dev/null 2>&1
 
@@ -47,7 +47,7 @@ else
     reg='ore';;
   esac
 
-  host=$(aws ec2 describe-tags --region "$region" --filters Name=key,Values=Name Name=resource-id,Values="$id" | /usr/local/bin/jq '.Tags[] .Value' | tr -d '"')
+  host=$(aws ec2 describe-tags --region "$region" --filters Name=key,Values=Name Name=resource-id,Values="$id" | jq -r '.Tags[] .Value' )
   if [ ! -z "$host" ];then
     echo "${reg}-${host}" > $hostfile
     chmod 777 $hostfile
