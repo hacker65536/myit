@@ -5,6 +5,7 @@ sudo echo "aaa" > /usr/local/src/test
 ```
 
 
+use 
 
 ```bash
 sudo sh -c "echo 'aaa' >> /usr/local/src/test"
