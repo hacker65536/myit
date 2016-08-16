@@ -26,8 +26,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R,NE,L]
 | Unhealthy threshold | 2      |
 | Healthy threshold   | 3      |
 
-`Ping Target` を ファイル等にした場合`HTTP:80/index.html`ですとステータスコード302を返してしまい、200以外ではELBからHealthとしてみられないために
-`OutOfService`となってしまう。
+`Ping Target` を `HTTP:80/index.html`のようにファイル等にするとステータスコード302を返してしまい、200以外ではELBからHealthとしてみられないために`OutOfService`となってしまう。
 その場合だと
 
 ```apache
