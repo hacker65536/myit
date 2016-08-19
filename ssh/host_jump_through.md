@@ -1,7 +1,7 @@
 
 `~/.ssh/config`
 
-```
+```sshconfig
 Host bastion
 	HostName 192.168.0.10
 
@@ -13,7 +13,7 @@ Host targetserver
 
 or
 
-```
+```sshconfig
 Host bastion
 	HostName 192.168.0.10
 
