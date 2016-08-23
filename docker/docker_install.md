@@ -182,7 +182,7 @@ delete container
 docker rm CONTAINER [CONTAINER...]
 ```
 
-dlete image
+delete image
 ```bash
 docker rmi IMAGE [IMAGE...]
 ```
