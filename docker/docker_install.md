@@ -15,7 +15,7 @@ start daemon
 ```bash
 sudo service docker start
 ```
-add the ec2-user to the docker group for execute commands without using sudo 
+add the ec2-user to the docker group for execute commands without using sudo  . require relogin
 ```bash
 sudo usermod -a -G docker ec2-user
 ```
