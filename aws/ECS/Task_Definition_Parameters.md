@@ -53,3 +53,28 @@ default: bridge
 
 hostモードはパフォーマンスが高いがhostのポートマッピングに依存するので同じコンテナinstanceの上に同じtaskを実行できない。
 
+Container Definitions
+-----------------
+
+**Standard Container Definition Parameters**
+
+name
+
+* type: string
+* required: yes
+
+コンテナ名。もし一つのtask definitionに複数のコンテナをリンクさせるなら、疎通させたいの別のコンテナのlinksにコンテナ名を入れる。
+255文字、数字、hyphen、アンダースコア。
+
+image
+
+* type: string
+* required: yes
+
+コンテナに使うイメージ名。この文字はDocker daemonに渡される。デフォルトではDocker Hub Registryに入っているイメージを使うことが可能。
+他のリポジトリを指定することも可能。(repository-url/image:tag)
+
+
+
+
+
