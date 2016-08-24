@@ -81,4 +81,8 @@ memory
 
 コンテナに提供されるハードリミット上限。もし指定されたメモリを超えようとするとコンテナはkillされる。`memory`、`memoryReservatio`nの一つまたは両方に0以外の値を指定しなければいけない。もし両方を指定する場合`memory`は`memoryReservation`より大きくしなければいけない。もし`memoryReservation`を設定するとコンテナが設置されているコンテナinstanceからその分減算される。でなければその分`memory`に使用される。
 
+Docker daemonはコンテナのために最小で4MiBを予約される。4MiBより小さいメモリを指定すべきではない。
 
+memoryReservation
+
+コンテナのための予約するメモリのソフトリミット。システムメモリが競合下にある場合、Dockerはこのメモリ値を維持しようとする。
