@@ -48,3 +48,8 @@ networkMode
 
 * type: string
 * required: no
+
+default: bridge
+
+hostモードはパフォーマンスが高いがhostのポートマッピングに依存するので同じコンテナinstanceの上に同じtaskを実行できない。
+
