@@ -74,7 +74,11 @@ image
 コンテナに使うイメージ名。この文字はDocker daemonに渡される。デフォルトではDocker Hub Registryに入っているイメージを使うことが可能。
 他のリポジトリを指定することも可能。(repository-url/image:tag)
 
+memory
 
+* type: integer
+* required: yes
 
+コンテナに提供されるハードリミット上限。もし指定されたメモリを超えようとするとコンテナはkillされる。`memory`、`memoryReservatio`nの一つまたは両方に0以外の値を指定しなければいけない。もし両方を指定する場合`memory`は`memoryReservation`より大きくしなければいけない。もし`memoryReservation`を設定するとコンテナが設置されているコンテナinstanceからその分減算される。でなければその分`memory`に使用される。
 
 
