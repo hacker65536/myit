@@ -1,3 +1,12 @@
+lsof - list open file
+====================
+
+
+
+* -p ProcessID
+* -c ProcessName
+* -u UserName
+* -i Internet Address
 
 
 ```bash
