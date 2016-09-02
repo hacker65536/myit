@@ -2,6 +2,7 @@
 ```bash
 man man
 ```
+The table below shows the section numbers of the manual followed by the types of pages they contain.
 
 1. Executable programs or shell commands
 2. System calls (functions provided by the kernel)
@@ -13,6 +14,8 @@ man man
 8. System administration commands (usually only for root)
 9. Kernel routines [Non standard]
 
+
+訳
 
 1. 実行プログラムかshell command
 2. system call
