@@ -1,12 +1,15 @@
 require homebrew
 
-
+install python
+------------
 デフォルトでもpythonは入っているがsystemのパーミッションに引っかかると色々エラーがでるのでpythonもbrew経由で入れる。
 これでpipも入る。
 ```bash
 brew install python
 ```
 
+check version
+-----------
 ```bash
 python --version
 ```
@@ -15,12 +18,17 @@ python --version
 pip --version
 ```
 
+
+install powerline
+-------------
 ```bash
 pip install powerline-status==2.4
 ```
 
 
-install fonts これがないところどころ文字化けする。
+install fonts 
+------------
+これがないところどころ文字化けする。
 ```bash
 cd ~/Desktop
 git clone https://github.com/powerline/fonts.git
@@ -28,17 +36,45 @@ git clone https://github.com/powerline/fonts.git
 ```
 
 download iterm2
-
+---------------
 https://www.iterm2.com/
 ```bash
 curl -O https://iterm2.com/downloads/stable/iTerm2-3_0_4.zip
 unzip iTerm2-3_0_4.zip
 ```
+Settings Fonts
+------------
+iTerm2->Preferences->Profiles->Text  
+Font-> Sauce Code Powerline   
+Non-ASCIIFont -> Sauce Code Powerline  
+
+実際の名前は`Source Code For Powerline`で、Search欄にSauceを入力しても出てこない。
+
+color scheme
+------------
+```bash
+git clone https://github.com/altercation/solarized.git
+```
+iTerm2->Preferences->Profiles->Colors
+
+Color Presets -> import -> iterm2-colors-solarized
+
+select Solarized Dark
+
+window
+-------
+iTerm2->Preferences->Profiles->Window
+
+* Transparency
+* Blur
+
+それぞれ少し設定すると見栄えが良くなる。
 
 
+失敗例
+------
 
-
-
+pip を以下の方法でいれてしまうと色々エラーがでる。
 
 ```bash
 curl -O https://bootstrap.pypa.io/get-pip.py
