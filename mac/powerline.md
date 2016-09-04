@@ -146,9 +146,3 @@ Collecting powerline
     ----------------------------------------
 Command "python setup.py egg_info" failed with error code 1 in /private/var/folders/rv/d69bl1ys56l_4xm2p7pwv5j93dms5f/T/pip-build-iGI2fg/powerline/
 ```
-
-```bash
-pip install --user git+git://github.com/powerline/powerline
-```
-
-
