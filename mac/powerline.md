@@ -29,6 +29,7 @@ pip install powerline-status==2.4
 install fonts 
 ------------
 これがないところどころ文字化けする。
+矢印代わりの三角形が？になる。
 ```bash
 cd ~/Desktop
 git clone https://github.com/powerline/fonts.git
@@ -85,6 +86,7 @@ set noshowmode
 
 install tmux
 ---------
+ステータス欄に色々表示される。
 ```bash
 brew install tmux
 ```
@@ -98,6 +100,7 @@ source "/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline
 
 zshrc
 -------
+zshにするとプロンプトが少しおしゃれになる。powerlineと似たスタイルになる。
 ~/.zshrc
 ```
 source .bashrc
@@ -109,10 +112,10 @@ finish
 ------------
 
 ```bash
-zsh
 tmux
+zsh
 ```
-
+powerline-damonによって色々情報が送られるのでgitのブランチの状態もステータスに表示される。
 
 
 
