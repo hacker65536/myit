@@ -96,11 +96,20 @@ run-shell "powerline-daemon -q"
 source "/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf"
 ```
 
+zshrc
+-------
+~/.zshrc
+```
+source .bashrc
+powerline-daemon -q
+. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+```
 
 finish
 ------------
 
 ```bash
+zsh
 tmux
 ```
 
