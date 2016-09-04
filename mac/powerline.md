@@ -83,6 +83,32 @@ set showtabline=2
 set noshowmode
 ```
 
+install tmux
+---------
+```bash
+brew install tmux
+```
+~.tmux.conf
+```
+set-option -g default-terminal screen-256color
+set -g terminal-overrides 'xterm:colors=256'
+run-shell "powerline-daemon -q"
+source "/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf"
+```
+
+
+finish
+------------
+
+```bash
+tmux
+```
+
+
+
+
+
+
 失敗例
 ------
 
