@@ -25,6 +25,20 @@ install powerline
 pip install powerline-status==2.4
 ```
 
+path check
+
+```bash
+powerline-daemon -h
+```
+
+もし通っていなければ
+
+.bash_profile
+```
+if [ -d "$HOME/Library/Python/2.7/bin" ]; then
+    PATH="$HOME/Library/Python/2.7/bin:$PATH"
+fi
+```
 
 install fonts 
 ------------
@@ -82,6 +96,11 @@ python del powerline_setup
 set laststatus=2
 set showtabline=2
 set noshowmode
+```
+
+vim 再インストール
+```
+brew install macvim --env-std --override-system-vim
 ```
 
 install tmux
