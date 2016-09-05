@@ -14,7 +14,7 @@ Scaling a Cluster
 CloudformationによりautoscalingされのでECSコンソールから操作ができる。それ以前だとECSコンソールからの操作はできない。しかし、マニュアル操作による
 autoscalingはできる
 
-Dleteing a Cluster
+Deleteing a Cluster
 ===================
 
 container instanceをクラスタから登録解除するとリソースに影響与えずにクラスタだけ削除できる？そうでない場合はcloudformationがstack
