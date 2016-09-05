@@ -109,3 +109,29 @@ note LVMコマンドでは GiB(2^30bytes) docker info コマンドでは GB(10^9
 
 * 1KB=1000B  
 * 1KiB=1024B
+
+```
+[ec2-user@ip-172-31-35-10 ~]$ sudo vgs
+  VG     #PV #LV #SN Attr   VSize  VFree
+  docker   1   1   0 wz--n- 22.00g 204.00m
+[ec2-user@ip-172-31-35-10 ~]$ sudo lvs
+  LV          VG     Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  docker-pool docker twi-aot--- 21.75g             1.45   0.55
+[ec2-user@ip-172-31-35-10 ~]$ docker info |grep "Data Space"
+ Data Space Used: 338.2 MB
+ Data Space Total: 23.35 GB
+ Data Space Available: 23.02 GB
+[ec2-user@ip-172-31-35-10 ~]$ lsblk
+NAME                                                                                         MAJ:MIN   RM  SIZE RO TYPE MOUNTPOINT
+xvda                                                                                         202:0      0    8G  0 disk
+└─xvda1                                                                                      202:1      0    8G  0 part /
+xvdcz                                                                                        202:26368  0   22G  0 disk
+└─xvdcz1                                                                                     202:26369  0   22G  0 part
+  ├─docker-docker--pool_tmeta                                                                253:0      0   24M  0 lvm
+  │ └─docker-docker--pool                                                                    253:2      0 21.8G  0 lvm
+  │   └─docker-202:1-263187-31b7ecfc42fda8d74f5e0d18a223d97e9f38e6c1fa5b281a3347d1dc671c3604 253:3      0   10G  0 dm
+  └─docker-docker--pool_tdata                                                                253:1      0 21.8G  0 lvm
+    └─docker-docker--pool                                                                    253:2      0 21.8G  0 lvm
+      └─docker-202:1-263187-31b7ecfc42fda8d74f5e0d18a223d97e9f38e6c1fa5b281a3347d1dc671c3604 253:3      0   10G  0 dm
+[ec2-user@ip-172-31-35-10 ~]$
+```
