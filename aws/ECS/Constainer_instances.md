@@ -78,15 +78,34 @@ Aamzon ECS-optimized AMIはAWSのエンジニアによってECSでテストさ�
 * ECS container agentのためのおすすめDockerバージョン(1.11.2)
 * 最新のecs-init(1.12.1-1)
 
+How to Launch the Latest Amazon ECS-optimized AMI
+---------------------------------------------
+
 
 | Region         | AMI Name                                | AMI ID       | EC2 console link |
 |----------------|-----------------------------------------|--------------|------------------|
-| us-east-1      | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-6bb2d67c | Launch instance  |
-| us-west-1      | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-70632110 | Launch instance  |
-| us-west-2      | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-2d1bce4d | Launch instance  |
-| eu-west-1      | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-078df974 | Launch instance  |
-| eu-central-1   | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-d3cf3ebc | Launch instance  |
-| ap-northeast-1 | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-2b6ba64a | Launch instance  |
-| ap-southeast-1 | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-55598036 | Launch instance  |
-| ap-southeast-2 | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-0e20176d | Launch instance  |
+| us-east-1      | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-6bb2d67c | [Launch instance](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-6bb2d67c)  |
+| us-west-1      | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-70632110 | [Launch instance](https://console.aws.amazon.com/ec2/v2/home?region=us-west-1#LaunchInstanceWizard:ami=ami-70632110)  |
+| us-west-2      | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-2d1bce4d | [Launch instance](https://console.aws.amazon.com/ec2/v2/home?region=us-west-1#LaunchInstanceWizard:ami=ami-2d1bce4d)  |
+| eu-west-1      | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-078df974 | [Launch instance](https://console.aws.amazon.com/ec2/v2/home?region=us-west-1#LaunchInstanceWizard:ami=ami-078df974)  |
+| eu-central-1   | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-d3cf3ebc | [Launch instance](https://console.aws.amazon.com/ec2/v2/home?region=us-west-1#LaunchInstanceWizard:ami=ami-d3cf3ebc)  |
+| ap-northeast-1 | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-2b6ba64a | [Launch instance](https://console.aws.amazon.com/ec2/v2/home?region=us-west-1#LaunchInstanceWizard:ami=ami-2b6ba64a)  |
+| ap-southeast-1 | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-55598036 | [Launch instance](https://console.aws.amazon.com/ec2/v2/home?region=us-west-1#LaunchInstanceWizard:ami=ami-55598036)  |
+| ap-southeast-2 | amzn-ami-2016.03.h-amazon-ecs-optimized | ami-0e20176d | [Launch instance](https://console.aws.amazon.com/ec2/v2/home?region=us-west-1#LaunchInstanceWizard:ami=ami-0e20176d)  |
 
+
+Storage configuration
+----------------------------
+Amazon ECS-optimized AMIはデフォルトでは30GiBのストレージがある(起動時に設定変更ができる)。このストレージはOSとdockerimageとmetaデータに使われる。下記でストレージの設定の説明を行う。
+
+2015.9以降のバージョンでは8GiBのボリュームをOSで使用する。残りの22GiBは /dev/vdczにマウントされる。このボリュームはLVMでdevicemapper経由でdockerから直接アクセスされる。`docker-storage-setup`がinstance起動時にDockerのためにLVMボリュームグループと論理領域を設定する。defaultでは`docker`という名のvolume groupを作成する。物理領域の/dev/xvdczをそのgroupに追加する。そして、論理ボリューム`docker-pool`を作成する。1%の領域をmetadataに使い残りの99%を全部使用する。
+
+note 2015.9.d->2016.03.a のバージョンのECS-optimized AMIは ボリュームグループの40%から論理領域を作成する。論理領域が60%になると20%増加する。
+
+###dockerに使用するストレージを決めるには
+LVM コマンド`vgs`か`lvs`、または`docker info`でサイズの確認ができる。
+
+note LVMコマンドでは GiB(2^30bytes) docker info コマンドでは GB(10^9 bytes)を表示する
+
+* 1KB=1000B  
+* 1KiB=1024B
