@@ -12,4 +12,7 @@ all of them are optional.
 | ECS_RESERVED_PORTS_UDP | [53, 123] | [] |
 | ECS_ENGINE_AUTH_TYPE | dockercfg \| docker | Null |
 | ECS_ENGINE_AUTH_DATA |Example (ECS_ENGINE_AUTH_TYPE=dockercfg):<br>{"https://index.docker.io/v1/":<br{"auth":"zq212MzEXAMPLE7o6T25Dk0i",<br>"email":"email@example.com"}}<br>Example (ECS_ENGINE_AUTH_TYPE=docker):<br >{"https://index.docker.io/v1/":<br>{"username":"my_name","password":"my_password",<br>"email":"email@example.com"}} | Null |
+| AWS_DEFAULT_REGION | us-east-1 | Taken from EC2 instance metadata. |
+| AWS_ACCESS_KEY_ID | AKIAIOSFODNN7EXAMPLE | Taken from EC2 instance metadata. |
+| AWS_SECRET_ACCESS_KEY | wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY | 	Taken from EC2 instance metadata. |
 | 
