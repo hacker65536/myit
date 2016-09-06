@@ -5,5 +5,11 @@ ecs.confg
 
 all of them are optional.
 
-* ECS_CLUSTER
-* 
+| Environment Key| Example Values | Default|
+|--------------- | ---------------| -------|
+| ECS_CLUSTER|  MyCluster| Default |
+| ECS_RESERVED_PORTS | [22, 80, 5000, 8080]| [22, 2375, 2376, 51678] |
+| ECS_RESERVED_PORTS_UDP | [53, 123] | [] |
+| ECS_ENGINE_AUTH_TYPE | dockercfg \| docker | Null |
+| ECS_ENGINE_AUTH_DATA |Example (ECS_ENGINE_AUTH_TYPE=dockercfg):<br>{"https://index.docker.io/v1/":<br{"auth":"zq212MzEXAMPLE7o6T25Dk0i",<br>"email":"email@example.com"}}<br>Example (ECS_ENGINE_AUTH_TYPE=docker):<br >{"https://index.docker.io/v1/":<br>{"username":"my_name","password":"my_password",<br>"email":"email@example.com"}} | Null |
+| 
