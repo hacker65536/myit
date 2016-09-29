@@ -48,3 +48,9 @@ docker logs --tail=5 CONTAINER ID
 docker logs --tail=5 -f CONTAINER ID
 ```
 
+指定した時間からのログ表示
+
+`--since 3h`　i.e. 1m30s  `--since`、`--follow`、`--tail`と同時に使える
+```
+docker logs --since 1m30s
+```
