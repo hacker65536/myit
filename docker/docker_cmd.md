@@ -52,5 +52,5 @@ docker logs --tail=5 -f CONTAINER ID
 
 `--since 3h`　i.e. 1m30s  `--since`、`--follow`、`--tail`と同時に使える
 ```
-docker logs --since 1m30s
+docker logs --since 1m30s CONTAINER ID
 ```
