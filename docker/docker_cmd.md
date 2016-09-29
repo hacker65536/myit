@@ -1,24 +1,14 @@
+##docker run
 
 コンテナの作成して起動(スナップショット)
 ```
 docker run -it ubuntu
 ```
 
-コンテナの起動
-```
-docker start CONTAINER ID
-```
+フォアグラウンド実行
 
-
-コンテナ削除
-```bash
- docker rm $(docker ps -a -q)
- ```
-
-不要なイメージの削除
-```bash
-docker rmi $(docker images | awk '/^<none>/ { print $3 }')
-```
+* `-i` Keep STDIN open even if not attached (もしattacheしてなくても STDINを openし続ける)
+* `-t` Allocate apseudo-tty
 
 バックグラウンド起動
 
@@ -26,6 +16,26 @@ docker rmi $(docker images | awk '/^<none>/ { print $3 }')
 ```
 docker run -i -t -d ubuntu /bin/bash
 ```
+
+##docker start
+
+コンテナの起動
+```
+docker start CONTAINER ID
+```
+
+##docker rm
+コンテナ削除
+```bash
+ docker rm $(docker ps -a -q)
+ ```
+##docker rmi
+不要なイメージの削除
+```bash
+docker rmi $(docker images | awk '/^<none>/ { print $3 }')
+```
+
+
 
 ##docker logs
 
