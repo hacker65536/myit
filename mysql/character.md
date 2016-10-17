@@ -26,6 +26,15 @@ mysql> show variables like '%collation%';
 +----------------------+-------------------+
 3 rows in set (0.00 sec)
 
+mysql> show create database wikidb;
++----------+-------------------------------------------------------------------+
+| Database | Create Database                                                   |
++----------+-------------------------------------------------------------------+
+| wikidb   | CREATE DATABASE `wikidb` /*!40100 DEFAULT CHARACTER SET latin1 */ |
++----------+-------------------------------------------------------------------+
+1 row in set (0.01 sec)
+
+
 mysql> select * from information_schema.schemata;
 +--------------+--------------------+----------------------------+------------------------+----------+
 | CATALOG_NAME | SCHEMA_NAME        | DEFAULT_CHARACTER_SET_NAME | DEFAULT_COLLATION_NAME | SQL_PATH |
