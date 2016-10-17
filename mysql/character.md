@@ -55,12 +55,12 @@ mysql> select * from information_schema.schemata;
 
 create parametergroup
 
-*characeter_set_client=utf8mb4
-*character_set_connection=utf8mb4
-*character_set_database=utf8mb4
-*character_set_results=utf8mb4
-*character_set_server=utf8mb4
-*collation_conncetion=utf8mb4_general_ci
+* characeter_set_client=utf8mb4
+* character_set_connection=utf8mb4
+* character_set_database=utf8mb4
+* character_set_results=utf8mb4
+* character_set_server=utf8mb4
+* collation_conncetion=utf8mb4_general_ci
 
 ```
 mysql> drop database wikidb;
