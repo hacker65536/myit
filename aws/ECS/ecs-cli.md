@@ -1,6 +1,7 @@
 
 https://github.com/aws/amazon-ecs-cli
 
+http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html
 #install 
 ```bash
 wget "https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest"
