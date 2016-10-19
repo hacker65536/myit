@@ -36,3 +36,6 @@ OPTIONS:
    --cfn-stack-name-prefix "amazon-ecs-cli-setup-"      [Optional] Specifies the prefix added to the AWS CloudFormation stack created on ecs-cli up. Format <prefix><cluster-name>.
 ```
 
+```
+ecs-cli configure -c <clustername>
+```
