@@ -43,3 +43,15 @@ http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_Configuration
 ecs-cli configure -c mycluster -r us-west-2
 INFO[0000] Saved ECS CLI configuration for cluster (mycluster)
 ```
+```
+cat ~/.ecs/config
+[ecs]
+cluster                     = mycluster
+aws_profile                 =
+region                      = us-west-2
+aws_access_key_id           =
+aws_secret_access_key       =
+compose-project-name-prefix = ecscompose-
+compose-service-name-prefix = ecscompose-service-
+cfn-stack-name-prefix       = amazon-ecs-cli-setup-
+```
