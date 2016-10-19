@@ -37,5 +37,6 @@ OPTIONS:
 ```
 
 ```
-ecs-cli configure -c <clustername>
+ecs-cli configure -c mycluster
+INFO[0000] Saved ECS CLI configuration for cluster (mycluster)
 ```
