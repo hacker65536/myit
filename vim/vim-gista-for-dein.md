@@ -31,3 +31,9 @@ $ vim file
 
 :Gista list
 ```
+
+ token path
+ 
+ ```
+ cat .cache/vim-gista/token/GitHub
+ ```
