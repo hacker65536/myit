@@ -20,5 +20,12 @@ let g:gista#client#default_username = "hacker65536"
 " if use github
 
 "let g:gista#client#use_git_config_github_username = "hacker65536"
-\
+```
+
+
+```
+vim file
+
+
+:Gista login
 ```
