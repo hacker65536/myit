@@ -5,8 +5,10 @@
 ## windows 
 
 1. puttyの設定
- 1.
-1. putty https://github.com/brantb/solarized/tree/master/putty-colors-solarized
+ 1. https://github.com/brantb/solarized/tree/master/putty-colors-solarized からregeditでカラースキーマ
+ 
+ 1. aa
+1. putty 
 2. 
 3. aa
 
