@@ -12,6 +12,28 @@ tic -o ~/.terminfo infocmp.ti
 ```
 
 
+```
+ sw_vers
+ProductName:	Mac OS X
+ProductVersion:	10.11.6
+BuildVersion:	15G1004
+
+
+infocmp >xterm.ti
+vim xterm.ti
+tic -o ~/.terminfo xterm.ti
+
+
+
+# asb off
+mv ~/.terminfo{,_bak}
+
+# asb on
+mv ~/.terminfo{_bak,}
+```
+
+
+
 ref
 
 http://srad.jp/~doda/journal/438524  
