@@ -24,8 +24,10 @@ let g:gista#client#default_username = "hacker65536"
 
 
 ```
-vim file
+$ vim file
 
 
 :Gista login
+
+:Gista list
 ```
