@@ -1,4 +1,11 @@
 
+show user list
+
+```mysql
+select user, host from mysql.user;
+```
+
+
 create user
 ```sql
 CREATE USER 'DBUSER'@'localhost' IDENTIFIED BY  'DBPASS';
@@ -19,6 +26,16 @@ FLUSH PRIVILEGES;
 
 ```sql
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.175.157' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
+```
+
+
+権限の確認
+
+```mysql
+show grants for 'ユーザー名'@'ホスト名'
+```
+
+
 ```
 
 削除
