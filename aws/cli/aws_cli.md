@@ -59,3 +59,23 @@ aws --version
 ```
 aws-cli/1.10.3 Python/2.7.10 Linux/4.1.10-17.31.amzn1.x86_64 botocore/1.3.25
 ```
+
+find aws_completer
+```
+find / -name aws_completer
+/usr/bin/aws_completer
+```
+
+
+bash
+```
+echo  "complete -C '/usr/local/bin/aws_completer' aws" > ~/.bashrc
+. ~/.bashrc
+```
+
+zsh
+```
+find / -name "aws_zsh_completer.sh"
+
+source /usr/local/bin/aws_zsh_completer.sh
+```
