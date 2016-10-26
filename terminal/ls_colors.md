@@ -12,6 +12,8 @@ code above to `~/.bashrc` or `~/.bash_profile`
 
 
 simplify
+
+named file `.dir_colors`
 ```
 dircolors -p > ~/.dir_colors
 vim ~/.dir_colors 
