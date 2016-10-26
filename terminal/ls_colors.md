@@ -10,4 +10,15 @@ eval "$(dircolors ~/.dircolors)"
 code above to `~/.bashrc` or `~/.bash_profile`
 
 
+
+simplify
+```
+dircolors -p > ~/.dir_colors
+vim ~/.dir_colors 
+
+#relogin
+```
+
+
+
 ![ls_dircolors](./ls_dircolors.png)
