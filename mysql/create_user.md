@@ -36,7 +36,7 @@ show grants for 'username'@'hostname';
 ```
 
 
-```
+
 
 削除
 ```sql
