@@ -21,6 +21,11 @@ vim ~/.dir_colors
 #relogin
 ```
 
+for all user
 
+```
+cp /etc/DIR_COLORS{,.org}
+sed -e 's/DIR 01;34\(.*\)/DIR 01;35\1/' -i /etc/DIR_COLORS
+```
 
 ![ls_dircolors](./ls_dircolors.png)
