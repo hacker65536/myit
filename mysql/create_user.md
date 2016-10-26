@@ -1,7 +1,7 @@
 
 show user list
 
-```mysql
+```sql
 select user, host from mysql.user;
 ```
 
@@ -31,7 +31,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.175.157' WITH GRANT OPTION MAX_QU
 
 権限の確認
 
-```mysql
+```sql
 show grants for 'ユーザー名'@'ホスト名'
 ```
 
