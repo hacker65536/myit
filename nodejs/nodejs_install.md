@@ -27,3 +27,17 @@ make install
 ```bash
 yum install --enablerepo=epel nodejs
 ```
+
+
+#nvm
+
+```bash
+git clone https://github.com/creationix/nvm
+./nvm/install.sh
+
+. ~/.bashrc
+
+nvm install v6.9
+nvm use 6.9
+```
+
