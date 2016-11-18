@@ -11,3 +11,7 @@ scrollbind
 ```
 :se scb
 ```
+
+change window
+
+`ctrl-w` + `x`
