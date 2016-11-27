@@ -40,4 +40,13 @@ git clone https://github.com/creationix/nvm
 nvm install v6.9
 nvm use 6.9
 ```
-
+#nodebrew
+```bash
+sudo yum install -y gcc gcc-c++
+curl -L git.io/nodebrew | perl - setup
+echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.bashrc
+.  ~/.bashrc
+nodebrew install v6.9.1
+nodebrew use v6.9.1
+node -v
+```
