@@ -451,6 +451,14 @@ done
 
 ```
 
+```
+sh generate-sample-entry2-ldif.sh  
+ls -1 sample*
+sample-entry1.ldif
+sample-entry2.ldif
+
+```
+
 
 反映  
 ```bash
