@@ -1,0 +1,4 @@
+
+```bash
+export HOSTFILE="~/.hosts"
+```
