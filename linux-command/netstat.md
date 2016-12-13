@@ -32,3 +32,26 @@ eth0            1      ff01::1
 docker0         1      ff02::1
 docker0         1      ff01::1
 ```
+
+* --interfaces=iface, -I=iface , -i
+ * Display a table of all network interfaces, or the specified iface.
+```bash
+$ netstat -i
+Kernel Interface table
+Iface       MTU Met    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
+docker0    1500   0        0      0      0      0        0      0      0      0 BMU
+eth0       9001   0    11391      0      0      0    10820      0      0      0 BMRU
+lo        65536   0        2      0      0      0        2      0      0      0 LRU
+```
+
+```bash
+$ netstat -I=docker0
+Kernel Interface table
+Iface       MTU Met    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
+docker0    1500   0        0      0      0      0        0      0      0      0 BMU
+
+$ netstat -I=eth0
+Kernel Interface table
+Iface       MTU Met    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
+eth0       9001   0    11446      0      0      0    10860      0      0      0 BMRU
+```
