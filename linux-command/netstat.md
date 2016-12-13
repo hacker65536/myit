@@ -55,3 +55,26 @@ Kernel Interface table
 Iface       MTU Met    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
 eth0       9001   0    11446      0      0      0    10860      0      0      0 BMRU
 ```
+
+* --masquerade, -M
+ * Display a list of masqueraded connections.
+
+this option is for ipchains. not support iptables.
+
+```bash
+$ netstat -M
+netstat: no support for `ip_masquerade' on this system.
+$ sudo iptables -L -n -t nat
+Chain PREROUTING (policy ACCEPT)
+target     prot opt source               destination
+
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+
+Chain POSTROUTING (policy ACCEPT)
+target     prot opt source               destination
+MASQUERADE  all  --  10.2.0.0/16          0.0.0.0/0
+```
