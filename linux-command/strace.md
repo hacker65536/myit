@@ -1,7 +1,12 @@
 #strace
 trace system calls and signals
 
+```bash
+rpm -qf /usr/bin/strace
+strace-4.8-11.16.amzn1.x86_64
+```
 
+## example
 ```bash
 strace echo "aaa"
 execve("/bin/echo", ["echo", "aaa"], [/* 35 vars */]) = 0
