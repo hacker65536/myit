@@ -13,3 +13,23 @@ set PATH ( ~/.bash_rc)
 ```
 export PATH=/usr/local/terraform/bin:$PATH
 ```
+
+from source
+
+```bash
+sudo yum install -y git aws-cli jq
+wget https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz
+tar zxvf go1.7.4.linux-amd64.tar.gz
+cat <<'EOF' >> ~/.bashrc
+
+export GOROOT=$HOME/go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=$HOME/dev
+export PATH=$GOPATH/bin:$PATH
+
+EOF
+
+. ~/.bashrc
+go get github.com/hashicorp/terraform
+terraform version
+```
