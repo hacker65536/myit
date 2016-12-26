@@ -1,0 +1,3 @@
+```vim
+:set mouse=
+```
