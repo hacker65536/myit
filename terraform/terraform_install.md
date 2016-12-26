@@ -36,5 +36,5 @@ go get github.com/hashicorp/terraform
 ```
 $ terraform version
 Terraform v0.8.3-dev
-
+```
 
