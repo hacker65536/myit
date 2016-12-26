@@ -31,5 +31,10 @@ EOF
 
 . ~/.bashrc
 go get github.com/hashicorp/terraform
-terraform version
 ```
+
+```
+$ terraform version
+Terraform v0.8.3-dev
+
+
