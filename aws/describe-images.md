@@ -1,4 +1,33 @@
 
+centos6 latest ?
+```
+aws ec2 describe-images --filters \
+Name=product-code,Values=6x5jmcajty9edm3f211pqjfn2 \
+Name=is-public,Values=true | \
+jq -r '.Images[]|.Name,.ImageId,.Public'
+
+CentOS Linux 6 x86_64 HVM EBS 1602-74e73035-3435-48d6-88e0-89cc02ad83ee-ami-21e6d54b.3
+ami-05cf2265
+true
+```
+
+
+centos7 latest ?
+```
+aws ec2 describe-images --filters \
+Name=product-code,Values=aw0evgkw8e5c1q413zgy5pjce \
+Name=is-public,Values=true | \
+jq -r '.Images[]|.Name,.ImageId,.Public'
+
+CentOS Linux 7 x86_64 HVM EBS 1602-b7ee8a69-ee97-4a49-9e68-afaee216db2e-ami-d7e1d2bd.3
+ami-d2c924b2
+true
+```
+
+
+
+
+
 ```bash
  aws ec2 describe-images --filters Name=name,Values="CentOS Linux 6*" |jq -r
 {
