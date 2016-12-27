@@ -78,6 +78,7 @@
 
 ```
 
+centos7
 
 ```
 aws ec2 describe-images --filters Name=name,Values="CentOS Linux 7*" \
@@ -87,4 +88,14 @@ CentOS Linux 7 x86_64 HVM EBS 1602-b7ee8a69-ee97-4a49-9e68-afaee216db2e-ami-d7e1
 ami-d2c924b2
 CentOS Linux 7 x86_64 HVM EBS 20150928_01-b7ee8a69-ee97-4a49-9e68-afaee216db2e-ami-69327e0c.2
 ami-d440a6e7
+```
+
+centos6
+
+```
+ aws ec2 describe-images --filters Name=name,Values="CentOS Linux 6*" Name=product-code,Values=6x5jmcajty9edm3f211pqjfn2 |jq -r '.Images[]|.Name,.ImageId'
+CentOS Linux 6 x86_64 HVM EBS 1602-74e73035-3435-48d6-88e0-89cc02ad83ee-ami-21e6d54b.3
+ami-05cf2265
+CentOS Linux 6 x86_64 HVM EBS 20150928_0-74e73035-3435-48d6-88e0-89cc02ad83ee-ami-2b35794e.2
+ami-1255b321
 ```
