@@ -60,3 +60,9 @@ find package
 rpm -qa|grep aws-cli
 aws-cli-1.10.1-1.36.amzn1.noarch
 ```
+
+
+show local package
+```
+rpm -qip amazon-ssm-agent.rpm
+```
