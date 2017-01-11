@@ -46,14 +46,14 @@ sudo yum -y install nginx
 sudo mkdir /etc/nginx/ssl
 cd /etc/nginx/ssl/
 sudo openssl req \
-> -batch \
-> -nodes \
-> -x509 \
-> -newkey rsa:2048 \
-> -days 3652 \
-> -subj "/C=JP/ST=Tokyo/L=Shibuya/O=mycompany/OU=infra/CN=mycompany.com" \
-> -keyout example.key \
-> -out example.crt
+ -batch \
+ -nodes \
+ -x509 \
+ -newkey rsa:2048 \
+ -days 3652 \
+ -subj "/C=JP/ST=Tokyo/L=Shibuya/O=mycompany/OU=infra/CN=mycompany.com" \
+ -keyout example.key \
+ -out example.crt
 ```
 
 /etc/nginx/conf.d/virtual.conf
