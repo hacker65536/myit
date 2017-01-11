@@ -112,3 +112,34 @@ access https://hostname/  to https://hostname/jenkins/
 JENKINS_ARGS="--prefix=/jenkins"
 ```
 
+
+# nignx+jenkins リバースプロキシーがおかしいエラーは下記でなくなる
+
+```
+upstream jenkins {
+  server 127.0.0.1:8080 fail_timeout=0;
+}
+
+server {
+  listen 80;
+  server_name jenkins.domain.tld;
+  return 301 https://$host$request_uri;
+}
+
+server {
+  listen 443 ssl;
+  server_name jenkins.domain.tld;
+
+  ssl_certificate /etc/nginx/ssl/server.crt;
+  ssl_certificate_key /etc/nginx/ssl/server.key;
+
+  location / {
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+    proxy_redirect          http:// https://;
+    proxy_pass              http://jenkins;
+  }
+}
+```
