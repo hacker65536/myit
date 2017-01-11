@@ -99,3 +99,16 @@ sudo service jenkins start
 
 
 
+
+##change url
+
+access https://hostname/  to https://hostname/jenkins/
+
+
+/etc/sysconfig/jenkins
+
+
+```
+JENKINS_ARGS="--prefix=/jenkins"
+```
+
