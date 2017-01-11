@@ -39,3 +39,63 @@ Description : Jenkins monitors executions of repeated jobs, such as building a s
             :     Kohsuke Kawaguchi <kk@kohsuke.org>
 
 ```
+
+ssl
+```
+sudo yum -y install nginx
+sudo mkdir /etc/nginx/ssl
+cd /etc/nginx/ssl/
+sudo openssl req \
+> -batch \
+> -nodes \
+> -x509 \
+> -newkey rsa:2048 \
+> -days 3652 \
+> -subj "/C=JP/ST=Tokyo/L=Shibuya/O=mycompany/OU=infra/CN=mycompany.com" \
+> -keyout example.key \
+> -out example.crt
+```
+
+/etc/nginx/conf.d/virtual.conf
+```
+
+# A virtual host using mix of IP-, name-, and port-based configuration
+#
+
+#server {
+#    listen       8000;
+#    listen       somename:8080;
+#    server_name  somename  alias  another.alias;
+
+#    location / {
+#        root   html;
+#        index  index.html index.htm;
+#    }
+#}
+
+server {
+    listen       443;
+#    listen       somename:8080;
+    server_name  somename  alias  another.alias;
+
+        ssl on;
+        ssl_certificate /etc/nginx/ssl/example.crt;
+        ssl_certificate_key /etc/nginx/ssl/example.key;
+        location / {
+         proxy_pass http://localhost:8080;
+
+        }
+}
+```
+
+```
+sudo chkconfig nginx on
+sudo chkconfig jenkins on
+sudo service nginx start
+sudo service jenkins start
+```
+
+
+
+
+
