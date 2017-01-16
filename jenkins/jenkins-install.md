@@ -130,8 +130,8 @@ server {
   listen 443 ssl;
   server_name jenkins.domain.tld;
 
-  ssl_certificate /etc/nginx/ssl/server.crt;
-  ssl_certificate_key /etc/nginx/ssl/server.key;
+  ssl_certificate /etc/nginx/ssl/example.crt;
+  ssl_certificate_key /etc/nginx/ssl/example.key;
 
   location / {
     proxy_set_header        Host $host;
