@@ -112,6 +112,10 @@ access https://hostname/  to https://hostname/jenkins/
 JENKINS_ARGS="--prefix=/jenkins"
 ```
 
+```bash
+sed -e 's:\(^JENKINS_ARGS="\).*:\1--prefix=/jenkins":' -i /etc/sysconfig/jenkins
+```
+
 
 # nignx+jenkins リバースプロキシーがおかしいエラーは下記でなくなる
 
