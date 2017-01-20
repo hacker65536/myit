@@ -11,9 +11,11 @@ myhostname = mail.domain.com
 myorigin = $mydomain
 inet_interfaces = all 
 
+
 mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
 
-mydestination = $myhostname, localhost.$mydomain, localhost
+# for virtualdomain
+#mydestination = $myhostname, localhost.$mydomain, localhost
 
 
 home_mailbox = Maildir/
