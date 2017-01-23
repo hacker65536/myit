@@ -2,7 +2,7 @@
 #installation of binary
 
 ```bash
-VERSION=1.6.3
+VERSION=1.7.4
 OS=linux
 ARCH=amd64
 
