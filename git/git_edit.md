@@ -9,7 +9,12 @@ E492: Not an editor command: Plug 'stephpy/vim-yaml'
 Press ENTER or type command to continue
 ```
 
-change editor
+change editor or set ENV
 ```
 git config --global core.editor "vim"
+```
+
+```
+echo 'export EDITOR="vim"' >> ~/.bashrc
+. ~/.bashrc
 ```
