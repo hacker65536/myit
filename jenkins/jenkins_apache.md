@@ -38,3 +38,29 @@ AllowEncodedSlashes NoDecode
 </VirtualHost>
 LDAPVerifyServerCert Off
 ```
+
+`RequestHeader unset Authorization`を付けないと、jenkinsにそのままAuthorizationが渡されて、jenkinsの認証をthroughしてしまう。
+ldap通ったあとにjenkinsの認証が始まるという理解。なので別のパスワードが問われているのにldapのパスワードを入れ続けても認証が弾かれて認証ループに陥る？
+
+
+`Header edit Location ^http https`はmovedなどの302が返ってきたときの`Location`がhttpsではなくhttpで返却されるのを書き換えてhttpsになるようにする設定
+
+```
+RequestHeader set X-Forwarded-Proto "https"
+RequestHeader set X-Forwarded-Port "443"
+```
+
+でも行ける？
+
+
+jenkinsの設定でこれをfalseにしておく必要がある？
+```diff
+9c9
+<   <useSecurity>true</useSecurity>
+---
+>   <useSecurity>false</useSecurity>
+93c93
+```
+
+参考
+http://akuwano.hatenablog.jp/entry/20130128/1359373111
