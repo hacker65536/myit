@@ -20,3 +20,8 @@ xcode cli
 ```
 xcode-select --install
 ```
+
+version 選択
+```
+sudo xcode-select --switch /Applications/Xcode.app
+```
