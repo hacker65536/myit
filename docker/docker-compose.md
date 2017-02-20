@@ -61,7 +61,7 @@ docker-compose rm
 
 individual case
 --------------
-[docker-compose-sample.yml](https://gist.github.com/hacker65536/0141ae9e74d2712a5b7233efb870aaef.js)
+[docker-compose-sample.yml](https://gist.githubusercontent.com/hacker65536/0141ae9e74d2712a5b7233efb870aaef/raw/587812a9a89e1f456619dac92156721b6a8f975b/docker-compose-sample.yml)
 
 ```
 $ docker images
