@@ -135,7 +135,7 @@ ERROR: Cannot create container for service db: network mywordpress_default not f
 ```
 $ docker network create mywordpress_default
 92966eac84ace497f54f6684bd5503a4f73a5987e40f466ce57e2e9dd90699a7
-``
+```
 
 ```
 $ docker network ls
@@ -146,4 +146,30 @@ NETWORK ID          NAME                  DRIVER              SCOPE
 f5c821146d06        none                  null                local
 ```
 
+```
+$ docker network inspect mywordpress_default
+[
+    {
+        "Name": "mywordpress_default",
+        "Id": "92966eac84ace497f54f6684bd5503a4f73a5987e40f466ce57e2e9dd90699a7",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1/16"
+                }
+            ]
+        },
+        "Internal": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {}
+    }
+]
+```
 
