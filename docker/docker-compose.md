@@ -173,3 +173,31 @@ $ docker network inspect mywordpress_default
 ]
 ```
 
+```
+$ docker-compose create
+Creating mywordpress_db_1
+Creating mywordpress_wordpress_1
+```
+
+```
+$ docker-compose ps
+         Name                        Command               State    Ports
+-------------------------------------------------------------------------
+mywordpress_db_1          docker-entrypoint.sh mysqld      Exit 0
+mywordpress_wordpress_1   docker-entrypoint.sh apach ...   Exit 0
+```
+
+```
+$ docker-compose start
+Starting db ... done
+Starting wordpress ... done
+```
+
+```
+$ docker-compose ps
+         Name                        Command               State          Ports
+---------------------------------------------------------------------------------------
+mywordpress_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
+mywordpress_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:8000->80/tcp
+```
+
