@@ -6,6 +6,14 @@ curl \
 -o /usr/local/bin/docker-compose
 ```
 
+```
+$ docker-compose version
+docker-compose version 1.11.1, build 7c5d5e4
+docker-py version: 2.0.2
+CPython version: 2.7.13
+OpenSSL version: OpenSSL 1.0.1t  3 May 2016
+```
+
 
 
 command
