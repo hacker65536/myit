@@ -8,7 +8,7 @@ git remote -v
 
 first
 ```
-git remote add git@github.com:username/repo.git
+git remote add origin git@github.com:username/repo.git
 ```
 
 
