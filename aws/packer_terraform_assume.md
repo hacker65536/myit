@@ -90,3 +90,12 @@ alias
 ```
 alias aws="aws --profile $profile"
 ```
+
+set assume_role creds to env
+-------
+
+```
+asu=$(aws sts assume-role --role-arn $(aws configure --profile $profile get role_arn) --role-session-name iam_user )
+
+$(paste -d"=" <(echo -e "AWS_SECRET_ACCESS_KEY\nAWS_SESSION_TOKEN\nAWS_ACCESS_KEY_ID") <(echo $asu | jq -r  '.Credentials| .SecretAccessKey , .SessionToken ,.AccessKeyId'  ) | paste <(echo -e "export\nexport\nexport") -)
+```
