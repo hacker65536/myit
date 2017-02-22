@@ -1,4 +1,4 @@
-pkginstall
+pkginstall for env
 ----------
 
 ```
@@ -33,11 +33,14 @@ EOF
 . ~/.bashrc
 ```
 
-
+go get terraform
+------------
 ```
 go get github.com/hashicorp/terraform
 ```
 
+go get packer
+------------
 ```
 go get github.com/mitchellh/packer
 ```
