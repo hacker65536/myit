@@ -53,19 +53,40 @@ default
 ```
 key=XXXXXXXX
 secret=XXXXXXXXXX
+region=us-west-2 # notice
 
 aws configure set aws_access_key_id $key
 aws configure set aws_secret_access_key $secret
+aws configure set region $region
 ```
 
 profile for assume
 ```
 profile=anotheraws
-region=us-west-2
 role_arn=arn:aws:iam::99999999999:role/crossAccount
+region=us-east-2  # notice
 
 aws configure --profile $profile set role_arn $role_arn
 !:0-4 region $region
 !:0-4 source_profile default
 ```
 
+
+operation with assume role
+---------
+
+explicitly
+```
+aws ec2 describe-vpcs --profile $profile
+```
+
+env 
+```
+export AWS_PROFILE=$profile
+aws ec2 describe-vpcs
+```
+
+alias
+```
+alias aws="aws --profile $profile"
+```
