@@ -44,3 +44,27 @@ go get packer
 ```
 go get github.com/mitchellh/packer
 ```
+
+
+set aws creds
+------------
+
+default 
+```
+key=XXXXXXXX
+secret=XXXXXXXXXX
+
+aws configure set aws_access_key_id $key
+aws configure set aws_secret_access_key $secret
+```
+
+profile for assume
+```
+awsacc=anotheraws
+role_arn=arn:aws:iam::99999999999:role/crossAccount
+
+aws configure --profile $awsacc set role_arn $role_arn
+aws configure --profile $awsacc set region us-west-2
+aws configure --profile $awsacc set source_profile default
+```
+
