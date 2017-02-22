@@ -99,3 +99,9 @@ asu=$(aws sts assume-role --role-arn $(aws configure --profile $profile get role
 
 $(paste -d"=" <(echo -e "AWS_SECRET_ACCESS_KEY\nAWS_SESSION_TOKEN\nAWS_ACCESS_KEY_ID") <(echo $asu | jq -r  '.Credentials| .SecretAccessKey , .SessionToken ,.AccessKeyId'  ) | paste <(echo -e "export\nexport\nexport") -)
 ```
+
+expire
+-----
+```
+unset AWS_SESSION_TOKEN AWS_SECRET_ACCESS_KEY AWS_ACCESS_KEY_ID
+```
