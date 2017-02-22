@@ -65,7 +65,7 @@ region=us-west-2
 role_arn=arn:aws:iam::99999999999:role/crossAccount
 
 aws configure --profile $profile set role_arn $role_arn
-aws configure --profile $profile set region $region
-aws configure --profile $profile set source_profile default
+!:0-4 region $region
+!:0-4 region source_profile default
 ```
 
