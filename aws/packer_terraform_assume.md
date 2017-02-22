@@ -14,6 +14,8 @@ export GOROOT=$HOME/go
 export GOPATH=$HOME/dev
 export PATH=$GOPATH/bin:$PATH:$GOROOT/bin
 EOF
+
+. ~/.bashrc
 ```
 
 
@@ -28,4 +30,14 @@ sudo pip install -U awscli
 cat <<'EOF' >> ~/.bashrc
 complete -C aws_completer aws
 EOF
+. ~/.bashrc
+```
+
+
+```
+go get github.com/hashicorp/terraform
+```
+
+```
+go get github.com/mitchellh/packer
 ```
