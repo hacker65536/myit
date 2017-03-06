@@ -1,5 +1,11 @@
 ```
 repoquery --requires --resolve php-mysql
+openssl-1:1.0.1k-15.96.amzn1.x86_64
+php-pdo-0:5.3.29-1.8.amzn1.x86_64
+glibc-0:2.17-157.169.amzn1.i686
+mysql55-libs-0:5.5.52-1.13.amzn1.x86_64
+zlib-0:1.2.8-7.18.amzn1.x86_64
+glibc-0:2.17-106.168.amzn1.x86_64
 ```
 
 
