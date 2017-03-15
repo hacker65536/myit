@@ -72,16 +72,16 @@ uidとgidはサーバ側に準じる
 
 insecureはrpcbindでのポート許可設定
 
-
+```
 chkconfig nfslock on
 chkconfig nfs on
 chkconfig rpcbind on
-
-
+```
+```
 service rpcbind start
 service nfslock start
 service nfs start
-
+```
 
 
 
