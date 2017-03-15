@@ -34,19 +34,22 @@ mountd:
 
 
 クライアント
-----------------------------------
-/etc/hosts.allow
 
+
+/etc/hosts.allow
+```
 ALL: 127.0.0.1
+```
 
 これがないと以下のエラーが出る
 
 NFS クォータを起動中: サービスを登録できません: RPC: 認証エラー; why = クライアントの信任が弱すぎます
 
+```
 rpc.rquotad: unable to register (RQUOTAPROG, RQUOTAVERS, udp). 　　 [失敗]
 
 NFS デーモンを起動中: [失敗]
-----------------------------------
+```
 
 
 上は必要なし
