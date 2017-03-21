@@ -64,3 +64,9 @@ docker logs --tail=5 -f CONTAINER ID
 ```
 docker logs --since 1m30s CONTAINER ID
 ```
+
+コンテナにログインする
+
+```
+docker exec -it influxdb bash
+```
