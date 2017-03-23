@@ -15,12 +15,13 @@ done
 
 pts/0
 ```bash
-$ tty
+]$ tty
 /dev/pts/0
 $ ps
   PID TTY          TIME CMD
-30335 pts/0    00:00:00 bash
-30365 pts/0    00:00:00 ps
+30514 pts/0    00:00:00 bash
+30566 pts/0    00:00:00 ps
+
 ```
 
 
@@ -30,6 +31,8 @@ $ tty
 /dev/pts/2
 $ ps
   PID TTY          TIME CMD
-30370 pts/2    00:00:00 bash
-30401 pts/2    00:00:00 ps
+30573 pts/2    00:00:00 bash
+30604 pts/2    00:00:00 ps
 ```
+
+
