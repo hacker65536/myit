@@ -88,10 +88,12 @@ $ pstree -s 3529 -p
 init(1)───sh(3529)───sleep(3540)
 ```
 
-examples 2
+
+
+example 2
 ----------------
 
-send SIGHUP to sshd
+### send SIGHUP to sshd
 
 pts/1
 ```
@@ -111,7 +113,29 @@ $ pstree -p -s 2458
 init(1)───sshd(2458)───sshd(3369)───sshd(3371)───bash(3372)───pstree(3653)
 ```
 
-send SIGHUP to ps of nohup
+
+### send SIGHUP to ps
+
+pts/1
+```
+$ sh sleep.sh  &
+[1] 3751
+```
+
+pts/0
+```
+$ pstree -p -s 2458
+init(1)───sshd(2458)─┬─sshd(3369)───sshd(3371)───bash(3372)───pstree(3754)
+                     └─sshd(3700)───sshd(3702)───bash(3703)───sh(3751)───sleep(3753)
+$ sudo kill -1 3751
+$ pstree -p -s 2458
+init(1)───sshd(2458)─┬─sshd(3369)───sshd(3371)───bash(3372)───pstree(3757)
+                     └─sshd(3700)───sshd(3702)───bash(3703)
+```
+
+
+
+### send SIGHUP to ps of nohup
 
 pts/1
 ```
