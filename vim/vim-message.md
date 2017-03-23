@@ -8,6 +8,8 @@ E297
 http://vim-jp.org/vimdoc-ja/message.html#E297
 
 
+### E297: Write error in swap file
+
 >これはたいていディスクが一杯のときに起こる。Vimがswap-fileにテキストを書き込
 むことができなかった。直接的には有害ではないが、Vimが不意に終了したとき、テキ
 ストが失われ、復活の可能性もなくなってしまうかもしれない。この問題が持続する場
