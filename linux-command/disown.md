@@ -1,6 +1,6 @@
 
 
-Continued from nohup(./nohup.md)
+Continued from [nohup](./nohup.md)
 
 pts/1
 ```
