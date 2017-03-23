@@ -15,24 +15,71 @@ done
 
 pts/0
 ```bash
-]$ tty
+$ tty
 /dev/pts/0
 $ ps
   PID TTY          TIME CMD
-30514 pts/0    00:00:00 bash
-30566 pts/0    00:00:00 ps
-
+ 3372 pts/0    00:00:00 bash
+ 3403 pts/0    00:00:00 ps
+$ pstree -s 3372 -p
+init(1)───sshd(2458)───sshd(3369)───sshd(3371)───bash(3372)───pstree(3405)
 ```
 
 
-pts/2
+pts/1
 ```bash
 $ tty
-/dev/pts/2
+/dev/pts/1
 $ ps
   PID TTY          TIME CMD
-30573 pts/2    00:00:00 bash
-30604 pts/2    00:00:00 ps
+ 3409 pts/1    00:00:00 bash
+ 3440 pts/1    00:00:00 ps
+$ pstree -s 3409 -p
+init(1)───sshd(2458)───sshd(3406)───sshd(3408)───bash(3409)───pstree(3441)
+
 ```
+
+pstree of sshd
+```
+$ pstree -s 2458 -p
+init(1)───sshd(2458)─┬─sshd(3369)───sshd(3371)───bash(3372)───pstree(3443)
+                     └─sshd(3406)───sshd(3408)───bash(3409)
+```
+
+
+execute sh from pts/1
+```
+$ sh sleep.sh &
+[1] 3466
+
+
+$ pstree -s 2458 -p
+init(1)───sshd(2458)─┬─sshd(3369)───sshd(3371)───bash(3372)
+                     └─sshd(3406)───sshd(3408)───bash(3409)─┬─pstree(3478)
+                                                            └─sh(3466)───sleep(3477)
+```
+
+
+use nohup from pts/1
+```
+$ nohup sh sleep.sh >nohup.out 2>&1 &
+[1] 3529
+$ pstree -s 2458 -p
+init(1)───sshd(2458)─┬─sshd(3369)───sshd(3371)───bash(3372)
+                     └─sshd(3406)───sshd(3408)───bash(3409)─┬─pstree(3532)
+                                                            └─sh(3529)───sleep(3531)
+$ exit
+```
+
+show ps from pts/0
+```
+$ pstree -s 2458 -p
+init(1)───sshd(2458)───sshd(3369)───sshd(3371)───bash(3372)───pstree(3535)
+
+
+$ pstree -s 3529 -p
+init(1)───sh(3529)───sleep(3540)
+```
+
 
 
