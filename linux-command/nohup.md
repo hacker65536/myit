@@ -1,4 +1,8 @@
 
+
+shell script
+--------------------
+
 sleep.sh
 ```bash
 #!/bin/bash
@@ -12,6 +16,9 @@ date
 
 done
 ```
+
+examples 1
+----------------
 
 pts/0
 ```bash
@@ -39,6 +46,7 @@ init(1)───sshd(2458)───sshd(3406)───sshd(3408)───bash(34
 
 ```
 
+
 pstree of sshd
 ```
 $ pstree -s 2458 -p
@@ -58,7 +66,6 @@ init(1)───sshd(2458)─┬─sshd(3369)───sshd(3371)───bash(33
                      └─sshd(3406)───sshd(3408)───bash(3409)─┬─pstree(3478)
                                                             └─sh(3466)───sleep(3477)
 ```
-
 
 use nohup from pts/1
 ```
@@ -81,5 +88,46 @@ $ pstree -s 3529 -p
 init(1)───sh(3529)───sleep(3540)
 ```
 
+examples 2
+----------------
+
+send SIGHUP to sshd
+
+pts/1
+```
+$ pstree -p -s 2458
+init(1)───sshd(2458)─┬─sshd(3369)───sshd(3371)───bash(3372)
+                     └─sshd(3602)───sshd(3604)───bash(3605)───pstree(3635)
+$ nohup sh sleep.sh >nohup.out 2>&1 &
+[1] 3636
+```
+
+pts/0
+```
+$ sudo kill -1 3602
+$ pstree -p -s 3636
+init(1)───sh(3636)───sleep(3642)
+$ pstree -p -s 2458
+init(1)───sshd(2458)───sshd(3369)───sshd(3371)───bash(3372)───pstree(3653)
+```
+
+send SIGHUP to ps of nohup
+
+pts/1
+```
+$ nohup sh sleep.sh >nohup.out 2>&1 &
+[1] 3733
+```
 
 
+pts/0
+```
+$ pstree -p -s 2458
+init(1)───sshd(2458)─┬─sshd(3369)───sshd(3371)───bash(3372)───pstree(3738)
+                     └─sshd(3700)───sshd(3702)───bash(3703)───sh(3733)───sleep(3735)
+
+$ sudo kill -1 3733
+$ pstree -p -s 2458
+init(1)───sshd(2458)─┬─sshd(3369)───sshd(3371)───bash(3372)───pstree(3743)
+                     └─sshd(3700)───sshd(3702)───bash(3703)───sh(3733)───sleep(3740)
+```
