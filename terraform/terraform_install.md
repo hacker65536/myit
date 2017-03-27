@@ -3,9 +3,9 @@
 
 ```
 cd /usr/local/src
-wget "https://releases.hashicorp.com/terraform/0.6.14/terraform_0.6.14_linux_amd64.zip"
+wget "https://releases.hashicorp.com/terraform/0.6.14/terraform_0.9.1_linux_amd64.zip"
 mkdir -p terraform/bin
-unzip -d terraform/bin terraform_0.6.14_linux_amd64.zip
+unzip -d terraform/bin terraform_0.9.1_linux_amd64.zip
 mv /usr/local/src/terraform /usr/local/
 ```
 
@@ -18,8 +18,8 @@ from source
 
 ```bash
 sudo yum install -y git aws-cli jq
-wget https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz
-tar zxvf go1.7.4.linux-amd64.tar.gz
+wget https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz
+tar zxvf go1.8.linux-amd64.tar.gz
 cat <<'EOF' >> ~/.bashrc
 
 export GOROOT=$HOME/go
@@ -35,6 +35,6 @@ go get github.com/hashicorp/terraform
 
 ```
 $ terraform version
-Terraform v0.8.3-dev
+Terraform v0.9.1-dev
 ```
 
