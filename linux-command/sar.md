@@ -67,3 +67,7 @@ else
         exec ${ENDIR}/sadc -F -L ${SADC_OPTIONS} $* -
 fi
 ```
+
+謎の`HISTORY -gt 28`
+
+https://www.ecoop.net/memo/archives/2009-03-30-1.html
