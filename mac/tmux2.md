@@ -1,5 +1,5 @@
 
-.tmux.conf
+.tmux.conf(for mac)
 ```
 unbind C-z
 set -g prefix C-z
@@ -31,3 +31,16 @@ set -g terminal-overrides 'xterm:colors=256'
 run-shell "powerline-daemon -q"
 source "/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf"
 ```
+
+
+.tmux.conf(linux)
+
+```
+unbind C-z
+set -g prefix C-z
+unbind C-b
+bind C-z send-prefix
+setw -g mode-keys vi
+```
+
+
