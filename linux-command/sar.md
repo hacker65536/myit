@@ -70,5 +70,5 @@ fi
 
 謎の`HISTORY -gt 28`
 
-https://www.ecoop.net/memo/archives/2009-03-30-1.html
+https://www.ecoop.net/memo/archives/2009-03-30-1.html  
 http://tetsuyai.hatenablog.com/entry/20120107/1325852491
