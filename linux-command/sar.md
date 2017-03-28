@@ -1,7 +1,7 @@
 # system admin reporter
 
 
-show time between 15:00  and 16:00
+display between 15:00 to 16:00
 
 ```
 $ sar -r -s 15:00:00 -e 16:00:00
