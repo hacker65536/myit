@@ -1,4 +1,4 @@
-#system admin reporter
+# system admin reporter
 
 `/etc/cron.d/sysstat`
 
