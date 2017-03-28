@@ -1,5 +1,14 @@
 # system admin reporter
 
+
+show time between 15:00  and 16:00
+
+```
+$ sar -r -s 15:00:00 -e 16:00:00
+```
+
+
+
 `/etc/cron.d/sysstat`
 
 ```crontab
@@ -9,10 +18,6 @@
 # Generate a daily summary of process accounting at 23:53
 53 23 * * * root /usr/lib64/sa/sa2 -A
 ```
-
-
-
-
 
 
 `/usr/lib64/sa/sa1`
