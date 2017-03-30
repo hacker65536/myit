@@ -60,3 +60,17 @@ u   utf-32le    ucs-4leと同じ
     default     'encoding' のデフォルト値を意味する。環境に依存する。
 ```
 
+## `fileencoding` `fenc`
+
+> 'fileencoding' と 'encoding' が異なるとき、ファイルの書き出しの際に文
+        字エンコーディングの変換が行われる。
+
+現在のfileencodingを確認する
+```vim
+:se fenc?
+```
+```vim
+  fileencoding= 
+```
+ない場合はencodingの値と同じになる
+
