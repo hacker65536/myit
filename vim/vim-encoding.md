@@ -88,3 +88,26 @@ u   utf-32le    ucs-4leと同じ
 $ file -i filename_cp932
 filename_cp932: text/plain; charset=unknown-8bit
 ```
+
+
+## `fileencodings` `fencs`
+
+> 値は、既存のファイルの編集を開始するときに考慮される文字エンコーディン
+        グのリストである。
+
+自動判別するエンコーディングリスト
+
+```vim
+:se fencs?
+```
+```vim
+fileencodings=ucs-bom,utf-8,latin1
+```
+
+
+
+種類を増やす
+`~/.vimrc`
+```vim
+:se fencs=iso-2022-jp,euc-jp,sjis,utf-8
+```
