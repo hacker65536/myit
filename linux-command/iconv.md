@@ -24,3 +24,5 @@ $ iconv -f utf-8 -t euc-jp vim_utf8 -o vim_euc
 $ file -i vim_euc
 vim_euc: text/plain; charset=iso-8859-1
 ```
+
+sjis=unknown-8bit
