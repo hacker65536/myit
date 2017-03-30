@@ -109,5 +109,21 @@ fileencodings=ucs-bom,utf-8,latin1
 種類を増やす
 `~/.vimrc`
 ```vim
-:se fencs=iso-2022-jp,euc-jp,sjis,utf-8
+se fencs=iso-2022-jp,euc-jp,sjis,utf-8
+```
+
+これでeuc,sjis,utf8,jisを自動で判別して開くようになる
+
+これが効いてない場合は文字コード指定してから開き直す
+
+```vim
+:e ++enc=cp932
+```
+or
+
+```vim
+:se fencs=cp932
+```
+```vim
+:e!
 ```
