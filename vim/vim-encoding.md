@@ -82,7 +82,7 @@ u   utf-32le    ucs-4leと同じ
 
 ```vim
 :wq filename_cp932
-``
+```
 
 ```bash
 $ file -i filename_cp932
