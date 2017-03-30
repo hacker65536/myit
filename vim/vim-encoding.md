@@ -4,6 +4,7 @@
 ```vim
 :se enc?
 ```
+or
 ```vim
 :set encoding?
 ```
