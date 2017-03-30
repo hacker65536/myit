@@ -8,7 +8,7 @@ or
 ```vim
 :set encoding?
 ```
-```
+```vim
 encoding=utf-8
 ```
 設定する
@@ -16,9 +16,9 @@ encoding=utf-8
 :se enc=cp932
 ```
 ```vim
-:se ecn?
+:se enc?
 ```
-```
+```vim
 encoding=cp932  
 ```
 
