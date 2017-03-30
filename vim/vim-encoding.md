@@ -11,10 +11,11 @@ or
 ```vim
 encoding=utf-8
 ```
-設定する
+sjisに設定する
 ```vim
 :se enc=cp932
 ```
+現在のエンコーディングを確認
 ```vim
 :se enc?
 ```
