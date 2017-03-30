@@ -74,3 +74,17 @@ u   utf-32le    ucs-4leと同じ
 ```
 ない場合はencodingの値と同じになる
 
+
+書き出し時のエンコーディングを指定する
+```vim
+:se fenc=cp932
+```
+
+```vim
+:wq filename_cp932
+``
+
+```bash
+$ file -i filename_cp932
+filename_cp932: text/plain; charset=unknown-8bit
+```
