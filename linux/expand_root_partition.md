@@ -477,3 +477,30 @@ Filesystem     Type   Size  Used Avail Use% Mounted on
 /dev/xvda1     ext4   7.8G  741M  6.7G  10% /
 tmpfs          tmpfs  498M     0  498M   0% /dev/shm
 ```
+
+resize
+```
+[centos@ip-172-31-7-102 ~]$ sudo growpart  /dev/xvda 1
+CHANGED: partition=1 start=2048 old: size=16775168 end=16777216 new: size=20962777,end=20964825
+
+[centos@ip-172-31-7-102 ~]$ lsblk
+NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0  10G  0 disk
+└─xvda1 202:1    0   8G  0 part /
+
+[centos@ip-172-31-7-102 ~]$ df -hT
+Filesystem     Type   Size  Used Avail Use% Mounted on
+/dev/xvda1     ext4   7.8G  741M  6.7G  10% /
+tmpfs          tmpfs  498M     0  498M   0% /dev/shm
+```
+```
+[centos@ip-172-31-7-102 ~]$ sudo resize2fs /dev/xvda1
+resize2fs 1.41.12 (17-May-2010)
+The filesystem is already 2096896 blocks long.  Nothing to do!
+
+[centos@ip-172-31-7-102 ~]$ df -hT
+Filesystem     Type   Size  Used Avail Use% Mounted on
+/dev/xvda1     ext4   7.8G  741M  6.7G  10% /
+tmpfs          tmpfs  498M     0  498M   0% /dev/shm
+
+```
