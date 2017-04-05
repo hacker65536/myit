@@ -27,7 +27,7 @@ example
 --------------------------------
 
 ### centos 7
-before modify volume
+
 
 ```
 [centos@ip-172-31-1-56 ~]$ cat /etc/redhat-release
@@ -35,7 +35,10 @@ CentOS Linux release 7.2.1511 (Core)
 
 [centos@ip-172-31-1-56 ~]$ uname -a
 Linux ip-172-31-1-56 3.10.0-327.10.1.el7.x86_64 #1 SMP Tue Feb 16 17:03:50 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+```
 
+before modify volume
+```
 [centos@ip-172-31-1-56 ~]$ lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0   8G  0 disk
@@ -72,14 +75,16 @@ tmpfs          tmpfs     100M     0  100M   0% /run/user/1000
 
 ### amzlinux
 
-before modify volume
+
 ```
 [ec2-user@ip-172-31-10-188 ~]$ cat /etc/system-release
 Amazon Linux AMI release 2017.03
 
 [ec2-user@ip-172-31-10-188 ~]$ uname -a
 Linux ip-172-31-10-188 4.9.17-8.31.amzn1.x86_64 #1 SMP Sat Apr 1 01:22:16 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
-
+```
+before modify volume
+```
 [ec2-user@ip-172-31-10-188 ~]$ lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0   8G  0 disk
@@ -108,7 +113,7 @@ tmpfs          tmpfs     497M     0  497M   0% /dev/shm
 
 
 ### ubuntu
-before
+
 ```
 ubuntu@ip-172-31-6-187:~$ lsb_release -a
 No LSB modules are available.
@@ -119,7 +124,9 @@ Codename:       xenial
 
 ubuntu@ip-172-31-6-187:~$ uname -a
 Linux ip-172-31-6-187 4.4.0-57-generic #78-Ubuntu SMP Fri Dec 9 23:50:32 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
-
+```
+before
+```
 ubuntu@ip-172-31-6-187:~$ lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0   8G  0 disk
