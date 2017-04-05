@@ -340,3 +340,93 @@ tmpfs          tmpfs     5.0M     0  5.0M   0% /run/lock
 tmpfs          tmpfs     496M     0  496M   0% /sys/fs/cgroup
 tmpfs          tmpfs     100M     0  100M   0% /run/user/1000
 ```
+resize
+```
+ubuntu@ip-172-31-6-187:~$ sudo growpart /dev/xvda 1
+CHANGED: partition=1 start=16065 old: size=16761118 end=16777183 new: size=20955422,end=20971487
+
+ubuntu@ip-172-31-6-187:~$ lsblk
+NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0  10G  0 disk
+└─xvda1 202:1    0  10G  0 part /
+
+ubuntu@ip-172-31-6-187:~$ df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+udev           devtmpfs  489M     0  489M   0% /dev
+tmpfs          tmpfs     100M  4.3M   95M   5% /run
+/dev/xvda1     ext4      7.8G  925M  6.5G  13% /
+tmpfs          tmpfs     496M     0  496M   0% /dev/shm
+tmpfs          tmpfs     5.0M     0  5.0M   0% /run/lock
+tmpfs          tmpfs     496M     0  496M   0% /sys/fs/cgroup
+tmpfs          tmpfs     100M     0  100M   0% /run/user/1000
+```
+```
+ubuntu@ip-172-31-6-187:~$ sudo resize2fs /dev/xvda1
+resize2fs 1.42.13 (17-May-2015)
+Filesystem at /dev/xvda1 is mounted on /; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/xvda1 is now 2619427 (4k) blocks long.
+
+ubuntu@ip-172-31-6-187:~$ df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+udev           devtmpfs  489M     0  489M   0% /dev
+tmpfs          tmpfs     100M  4.3M   95M   5% /run
+/dev/xvda1     ext4      9.8G  925M  8.4G  10% /
+tmpfs          tmpfs     496M     0  496M   0% /dev/shm
+tmpfs          tmpfs     5.0M     0  5.0M   0% /run/lock
+tmpfs          tmpfs     496M     0  496M   0% /sys/fs/cgroup
+tmpfs          tmpfs     100M     0  100M   0% /run/user/1000
+```
+
+
+check
+
+```
+ubuntu@ip-172-31-6-187:~$  for i in $(seq 8); do dd if=/dev/zero of=tempfile-${i} bs=100M count=10; done
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB, 1000 MiB) copied, 12.9034 s, 81.3 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB, 1000 MiB) copied, 16.5207 s, 63.5 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB, 1000 MiB) copied, 16.311 s, 64.3 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB, 1000 MiB) copied, 16.3967 s, 64.0 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB, 1000 MiB) copied, 16.3752 s, 64.0 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB, 1000 MiB) copied, 16.3845 s, 64.0 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB, 1000 MiB) copied, 16.3409 s, 64.2 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB, 1000 MiB) copied, 16.3972 s, 63.9 MB/s
+
+ubuntu@ip-172-31-6-187:~$ ls -l
+total 8192032
+-rw-rw-r-- 1 ubuntu ubuntu 1048576000 Apr  5 02:48 tempfile-1
+-rw-rw-r-- 1 ubuntu ubuntu 1048576000 Apr  5 02:48 tempfile-2
+-rw-rw-r-- 1 ubuntu ubuntu 1048576000 Apr  5 02:48 tempfile-3
+-rw-rw-r-- 1 ubuntu ubuntu 1048576000 Apr  5 02:48 tempfile-4
+-rw-rw-r-- 1 ubuntu ubuntu 1048576000 Apr  5 02:49 tempfile-5
+-rw-rw-r-- 1 ubuntu ubuntu 1048576000 Apr  5 02:49 tempfile-6
+-rw-rw-r-- 1 ubuntu ubuntu 1048576000 Apr  5 02:49 tempfile-7
+-rw-rw-r-- 1 ubuntu ubuntu 1048576000 Apr  5 02:50 tempfile-8
+
+ubuntu@ip-172-31-6-187:~$ df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+udev           devtmpfs  489M     0  489M   0% /dev
+tmpfs          tmpfs     100M  4.3M   95M   5% /run
+/dev/xvda1     ext4      9.8G  8.8G  512M  95% /
+tmpfs          tmpfs     496M     0  496M   0% /dev/shm
+tmpfs          tmpfs     5.0M     0  5.0M   0% /run/lock
+tmpfs          tmpfs     496M     0  496M   0% /sys/fs/cgroup
+tmpfs          tmpfs     100M     0  100M   0% /run/user/1000
+
+```
