@@ -111,6 +111,43 @@ tmpfs          tmpfs     497M     0  497M   0% /dev/shm
 /dev/xvda1     ext4      7.8G  970M  6.8G  13% /
 ```
 
+execute growpart and resize2fs
+```
+[ec2-user@ip-172-31-10-188 ~]$ sudo growpart /dev/xvda 1
+CHANGED: disk=/dev/xvda partition=1: start=4096 old: size=16773086,end=16777182 new: size=20967390,end=20971486
+
+[ec2-user@ip-172-31-10-188 ~]$ lsblk
+NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0  10G  0 disk
+└─xvda1 202:1    0  10G  0 part /
+
+[ec2-user@ip-172-31-10-188 ~]$ df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+devtmpfs       devtmpfs  488M   56K  488M   1% /dev
+tmpfs          tmpfs     497M     0  497M   0% /dev/shm
+/dev/xvda1     ext4      7.8G  970M  6.8G  13% /
+```
+
+
+```
+[ec2-user@ip-172-31-10-188 ~]$ sudo resize2fs /dev/xvda1
+resize2fs 1.42.12 (29-Aug-2014)
+Filesystem at /dev/xvda1 is mounted on /; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/xvda1 is now 2620923 (4k) blocks long.
+
+[ec2-user@ip-172-31-10-188 ~]$ df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+devtmpfs       devtmpfs  488M   56K  488M   1% /dev
+tmpfs          tmpfs     497M     0  497M   0% /dev/shm
+/dev/xvda1     ext4      9.8G  970M  8.7G  10% /
+
+[ec2-user@ip-172-31-10-188 ~]$ lsblk
+NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0  10G  0 disk
+└─xvda1 202:1    0  10G  0 part /
+```
+
 
 ### ubuntu
 
