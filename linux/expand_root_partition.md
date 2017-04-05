@@ -464,3 +464,16 @@ Filesystem     Type   Size  Used Avail Use% Mounted on
 /dev/xvda1     ext4   7.8G  741M  6.7G  10% /
 tmpfs          tmpfs  498M     0  498M   0% /dev/shm
 ```
+inprogress
+
+```
+[centos@ip-172-31-7-102 ~]$ lsblk
+NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0  10G  0 disk
+└─xvda1 202:1    0   8G  0 part /
+
+[centos@ip-172-31-7-102 ~]$ df -hT
+Filesystem     Type   Size  Used Avail Use% Mounted on
+/dev/xvda1     ext4   7.8G  741M  6.7G  10% /
+tmpfs          tmpfs  498M     0  498M   0% /dev/shm
+```
