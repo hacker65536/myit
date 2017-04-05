@@ -504,3 +504,17 @@ Filesystem     Type   Size  Used Avail Use% Mounted on
 tmpfs          tmpfs  498M     0  498M   0% /dev/shm
 
 ```
+need reboot
+```
+[centos@ip-172-31-7-102 ~]$ sudo reboot
+```
+```
+[centos@ip-172-31-7-102 ~]$ lsblk
+NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0  10G  0 disk
+└─xvda1 202:1    0  10G  0 part /
+[centos@ip-172-31-7-102 ~]$ df -hT
+Filesystem     Type   Size  Used Avail Use% Mounted on
+/dev/xvda1     ext4   9.8G  739M  8.5G   8% /
+tmpfs          tmpfs  498M     0  498M   0% /dev/shm
+```
