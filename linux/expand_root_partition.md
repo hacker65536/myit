@@ -148,6 +148,57 @@ xvda    202:0    0  10G  0 disk
 └─xvda1 202:1    0  10G  0 part /
 ```
 
+check
+
+```
+[ec2-user@ip-172-31-10-188 ~]$ for i in {0..7}
+> do
+> dd if=/dev/zero of=tempfile-${i} bs=100M count=10
+> done
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 13.0664 s, 80.2 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 15.773 s, 66.5 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 15.3285 s, 68.4 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 15.7831 s, 66.4 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 15.6766 s, 66.9 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 15.5918 s, 67.3 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 15.8019 s, 66.4 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 15.5962 s, 67.2 MB/s
+
+[ec2-user@ip-172-31-10-188 ~]$ ll
+total 8192032
+-rw-rw-r-- 1 ec2-user ec2-user 1048576000 Apr  5 02:19 tempfile-0
+-rw-rw-r-- 1 ec2-user ec2-user 1048576000 Apr  5 02:19 tempfile-1
+-rw-rw-r-- 1 ec2-user ec2-user 1048576000 Apr  5 02:19 tempfile-2
+-rw-rw-r-- 1 ec2-user ec2-user 1048576000 Apr  5 02:20 tempfile-3
+-rw-rw-r-- 1 ec2-user ec2-user 1048576000 Apr  5 02:20 tempfile-4
+-rw-rw-r-- 1 ec2-user ec2-user 1048576000 Apr  5 02:20 tempfile-5
+-rw-rw-r-- 1 ec2-user ec2-user 1048576000 Apr  5 02:21 tempfile-6
+-rw-rw-r-- 1 ec2-user ec2-user 1048576000 Apr  5 02:21 tempfile-7
+
+[ec2-user@ip-172-31-10-188 ~]$ df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+devtmpfs       devtmpfs  488M   56K  488M   1% /dev
+tmpfs          tmpfs     497M     0  497M   0% /dev/shm
+/dev/xvda1     ext4      9.8G  8.8G  882M  92% /
+```
+
+
 
 ### ubuntu
 
