@@ -28,7 +28,7 @@ example
 
 ### centos 7
 
-
+env
 ```
 [centos@ip-172-31-1-56 ~]$ cat /etc/redhat-release
 CentOS Linux release 7.2.1511 (Core)
@@ -167,7 +167,7 @@ tmpfs          tmpfs     100M     0  100M   0% /run/user/0
 
 ### amzlinux
 
-
+env
 ```
 [ec2-user@ip-172-31-10-188 ~]$ cat /etc/system-release
 Amazon Linux AMI release 2017.03
@@ -293,7 +293,7 @@ tmpfs          tmpfs     497M     0  497M   0% /dev/shm
 
 
 ### ubuntu
-
+env
 ```
 ubuntu@ip-172-31-6-187:~$ lsb_release -a
 No LSB modules are available.
@@ -517,4 +517,50 @@ xvda    202:0    0  10G  0 disk
 Filesystem     Type   Size  Used Avail Use% Mounted on
 /dev/xvda1     ext4   9.8G  739M  8.5G   8% /
 tmpfs          tmpfs  498M     0  498M   0% /dev/shm
+```
+
+check
+```
+[centos@ip-172-31-7-102 ~]$ for i in $(seq 8); do dd if=/dev/zero of=tempfile-${i} bs=100M count=10; done
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 13.2219 s, 79.3 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 15.9578 s, 65.7 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.1161 s, 65.1 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.0023 s, 65.5 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.1262 s, 65.0 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.1249 s, 65.0 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.1301 s, 65.0 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.1319 s, 65.0 MB/s
+
+[centos@ip-172-31-7-102 ~]$ ll
+total 8192032
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 06:14 tempfile-1
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 06:14 tempfile-2
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 06:14 tempfile-3
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 06:14 tempfile-4
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 06:15 tempfile-5
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 06:15 tempfile-6
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 06:15 tempfile-7
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 06:16 tempfile-8
+
+[centos@ip-172-31-7-102 ~]$ df -hT
+Filesystem     Type   Size  Used Avail Use% Mounted on
+/dev/xvda1     ext4   9.8G  8.6G  697M  93% /
+tmpfs          tmpfs  498M     0  498M   0% /dev/shm
+
 ```
