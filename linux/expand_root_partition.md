@@ -1,10 +1,10 @@
 
 modified volume
+---------------------
 
 
+### amzlinux
 
-amzlinux
---------------
 
 
 ```
@@ -14,8 +14,7 @@ sudo resize2fs /dev/xvda1
 
 
 
-centos7(xfs)
---------------------
+### centos7(xfs)
 
 ```
 sudo LANG=C growpart /dev/xvda 1
