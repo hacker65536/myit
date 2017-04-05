@@ -71,7 +71,99 @@ tmpfs          tmpfs     496M     0  496M   0% /sys/fs/cgroup
 tmpfs          tmpfs     100M     0  100M   0% /run/user/1000
 ```
 
+resize
+```
+[centos@ip-172-31-1-56 ~]$ sudo growpart /dev/xvda 1
+CHANGED: partition=1 start=2048 old: size=16775168 end=16777216 new: size=20962777,end=20964825
 
+[centos@ip-172-31-1-56 ~]$ lsblk
+NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0  10G  0 disk
+└─xvda1 202:1    0  10G  0 part /
+[centos@ip-172-31-1-56 ~]$ df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+/dev/xvda1     xfs       8.0G  877M  7.2G  11% /
+devtmpfs       devtmpfs  478M     0  478M   0% /dev
+tmpfs          tmpfs     496M     0  496M   0% /dev/shm
+tmpfs          tmpfs     496M   13M  484M   3% /run
+tmpfs          tmpfs     496M     0  496M   0% /sys/fs/cgroup
+tmpfs          tmpfs     100M     0  100M   0% /run/user/1000
+tmpfs          tmpfs     100M     0  100M   0% /run/user/0
+```
+
+```
+[centos@ip-172-31-1-56 ~]$ sudo xfs_growfs /dev/xvda1
+meta-data=/dev/xvda1             isize=256    agcount=4, agsize=524224 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=0        finobt=0
+data     =                       bsize=4096   blocks=2096896, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=0
+log      =internal               bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+data blocks changed from 2096896 to 2620347
+
+[centos@ip-172-31-1-56 ~]$ df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+/dev/xvda1     xfs        10G  877M  9.2G   9% /
+devtmpfs       devtmpfs  478M     0  478M   0% /dev
+tmpfs          tmpfs     496M     0  496M   0% /dev/shm
+tmpfs          tmpfs     496M   13M  484M   3% /run
+tmpfs          tmpfs     496M     0  496M   0% /sys/fs/cgroup
+tmpfs          tmpfs     100M     0  100M   0% /run/user/1000
+tmpfs          tmpfs     100M     0  100M   0% /run/user/0
+```
+
+check
+```
+[centos@ip-172-31-1-56 ~]$ for i in $(seq 8); do dd if=/dev/zero of=tempfile-${i} bs=100M count=10; done
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 12.6525 s, 82.9 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.5507 s, 63.4 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.3925 s, 64.0 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.413 s, 63.9 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.3888 s, 64.0 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.3792 s, 64.0 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.3631 s, 64.1 MB/s
+10+0 records in
+10+0 records out
+1048576000 bytes (1.0 GB) copied, 16.332 s, 64.2 MB/s
+
+[centos@ip-172-31-1-56 ~]$ ll
+total 8192000
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 02:31 tempfile-1
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 02:31 tempfile-2
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 02:32 tempfile-3
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 02:32 tempfile-4
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 02:32 tempfile-5
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 02:32 tempfile-6
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 02:33 tempfile-7
+-rw-rw-r--. 1 centos centos 1048576000 Apr  5 02:33 tempfile-8
+
+[centos@ip-172-31-1-56 ~]$ df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+/dev/xvda1     xfs        10G  8.7G  1.4G  87% /
+devtmpfs       devtmpfs  478M     0  478M   0% /dev
+tmpfs          tmpfs     496M     0  496M   0% /dev/shm
+tmpfs          tmpfs     496M   13M  484M   3% /run
+tmpfs          tmpfs     496M     0  496M   0% /sys/fs/cgroup
+tmpfs          tmpfs     100M     0  100M   0% /run/user/1000
+tmpfs          tmpfs     100M     0  100M   0% /run/user/0
+```
 
 ### amzlinux
 
