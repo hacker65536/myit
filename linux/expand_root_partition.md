@@ -430,3 +430,37 @@ tmpfs          tmpfs     496M     0  496M   0% /sys/fs/cgroup
 tmpfs          tmpfs     100M     0  100M   0% /run/user/1000
 
 ```
+
+### centos6
+
+env
+```
+[centos@ip-172-31-7-102 ~]$ cat /etc/redhat-release
+CentOS release 6.7 (Final)
+
+[centos@ip-172-31-7-102 ~]$ uname -a
+Linux ip-172-31-7-102 2.6.32-573.18.1.el6.x86_64 #1 SMP Tue Feb 9 22:46:17 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+require
+```
+[centos@ip-172-31-7-102 ~]$ sudo yum install -y epel-release
+
+[centos@ip-172-31-7-102 ~]$ sudo yum install --enablerepo=epel cloud-utils-growpart
+
+```
+
+
+
+before
+```
+[centos@ip-172-31-7-102 ~]$ lsblk
+NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0   8G  0 disk
+└─xvda1 202:1    0   8G  0 part /
+
+[centos@ip-172-31-7-102 ~]$ df -hT
+Filesystem     Type   Size  Used Avail Use% Mounted on
+/dev/xvda1     ext4   7.8G  741M  6.7G  10% /
+tmpfs          tmpfs  498M     0  498M   0% /dev/shm
+```
