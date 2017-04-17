@@ -47,8 +47,8 @@ Average:       0    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00
 ```
 
 ```
-$mpstat -I SUM
-$mpstat -I CPU
+$ mpstat -I SUM
+$ mpstat -I CPU
 ```
 
 ```
