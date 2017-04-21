@@ -24,3 +24,6 @@ colorscheme solarized
 
 
 `let g:solarized_termtrans=1`
+
+[before](./vim-solarized1.PNG)
+[after](./vim-solarized2.PNG)
