@@ -1,3 +1,12 @@
+
+
+
+```bash
+$ cd vim-colors-solarized/colors
+$ mv solarized.vim ~/.vim/colors/
+```
+
+
 ```vim
 let g:solarized_termcolors=16
 let g:solarized_termtrans=1
