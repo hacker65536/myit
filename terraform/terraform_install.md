@@ -2,17 +2,13 @@
 #install
 
 ```
-cd /usr/local/src
-wget "https://releases.hashicorp.com/terraform/0.6.14/terraform_0.9.1_linux_amd64.zip"
-mkdir -p terraform/bin
-unzip -d terraform/bin terraform_0.9.1_linux_amd64.zip
-mv /usr/local/src/terraform /usr/local/
+TERRAFORM_VERSION=0.9.3
+
+curl -O https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+unzip !$:t
+mv terraform /usr/local/bin/
 ```
 
-set PATH ( ~/.bash_rc)
-```
-export PATH=/usr/local/terraform/bin:$PATH
-```
 
 from source
 
