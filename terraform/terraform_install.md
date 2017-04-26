@@ -1,5 +1,5 @@
 
-# install
+## install terraform
 
 ```bash
 t_version=0.9.3
@@ -8,6 +8,9 @@ curl -O https://releases.hashicorp.com/terraform/${t_version}/terraform_${t_vers
 unzip !$:t
 mv terraform /usr/local/bin/
 ```
+## vim-terraform
+
+[vim-terraform](../vim/vim-terraform.md)
 
 
 from source
