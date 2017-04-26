@@ -1,5 +1,5 @@
 
-#first
+# first
 pathogen
 
 https://github.com/tpope/vim-pathogen
@@ -14,7 +14,7 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 execute pathogen#infect()
 ```
 
-#dl and settings
+# dl and settings
 ```
 cd ~/.vim/bundle
 git clone https://github.com/hashivim/vim-terraform.git
