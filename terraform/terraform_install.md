@@ -1,10 +1,10 @@
 
 # install
 
-```
-TERRAFORM_VERSION=0.9.3
+```bash
+t_version=0.9.3
 
-curl -O https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+curl -O https://releases.hashicorp.com/terraform/${t_version}/terraform_${t_version}_linux_amd64.zip
 unzip !$:t
 mv terraform /usr/local/bin/
 ```
