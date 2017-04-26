@@ -8,9 +8,7 @@ curl -O https://releases.hashicorp.com/terraform/${t_version}/terraform_${t_vers
 unzip !$:t
 mv terraform /usr/local/bin/
 ```
-## vim-terraform
 
-[vim-terraform](../vim/vim-terraform.md)
 
 
 from source
@@ -37,3 +35,6 @@ $ terraform version
 Terraform v0.9.1-dev
 ```
 
+## vim-terraform
+
+[vim-terraform](../vim/vim-terraform.md)
