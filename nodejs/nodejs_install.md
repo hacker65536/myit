@@ -50,3 +50,7 @@ nodebrew install v6.9.1
 nodebrew use v6.9.1
 node -v
 ```
+check version from remote
+```bash
+nodebrew ls-remote
+```
