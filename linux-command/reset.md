@@ -11,3 +11,15 @@ show terminal type
 reset -
 ```
 
+off window resize
+
+```
+shopt | grep checkwinsize
+checkwinsize    on
+```
+```
+shopt -s checkwinsize
+```
+```
+shopt -u checkwinsize
+```
