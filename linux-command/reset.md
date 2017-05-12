@@ -11,8 +11,12 @@ show terminal type
 reset -
 ```
 
+
+
+
 off window resize
 
+don't work
 ```
 shopt | grep checkwinsize
 checkwinsize    on
