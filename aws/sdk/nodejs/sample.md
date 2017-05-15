@@ -1,17 +1,15 @@
 
+assume role
 ```javascript
 var AWS = require('aws-sdk');
 
-//var myKey = 'myBucketKey';
-var creds = new AWS.SharedIniFileCredentials({profile: 'myprofile'});
 AWS.config.credentials = new AWS.TemporaryCredentials({
   RoleArn: 'arn:aws:iam::99999999999:role/RoleName',
 });
 
 
-
 //console.log(AWS.config.credentials);
-var s3 = new AWS.S3(AWS.config);
+var s3 = new AWS.S3();
 /**
  * @classdesc Abstract class representing a network connection.
  * @class
