@@ -1,9 +1,9 @@
-#cut
+# cut
 
 * -d delimiter
 * -f fields
 
-##example
+## example
 ```
 # history | tail -10
    73  cut -d ' ' -f 2 his
