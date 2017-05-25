@@ -2,7 +2,7 @@
 ```hcl
 # vim:set foldmethod=marker:
 
-/* {{{ */
+/* {{{ resource "aws_codepipeline"  */
 
 resource "aws_codepipeline" "cpl" {
   name     = "${terraform.env}-cpl"
