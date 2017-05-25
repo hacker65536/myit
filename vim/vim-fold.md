@@ -12,3 +12,7 @@ resource "aws_codepipeline" "cpl" {
 
 /* }}} */
 ```
+
+```vim
+:%foldclose
+```
