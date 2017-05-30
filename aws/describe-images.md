@@ -128,3 +128,50 @@ ami-05cf2265
 CentOS Linux 6 x86_64 HVM EBS 20150928_0-74e73035-3435-48d6-88e0-89cc02ad83ee-ami-2b35794e.2
 ami-1255b321
 ```
+
+### centos7
+```bash
+$ aws ec2 describe-images --filters "Name=image-id,Values=ami-f4533694"
+```
+```json
+{
+    "Images": [
+        {
+            "ProductCodes": [
+                {
+                    "ProductCodeId": "aw0evgkw8e5c1q413zgy5pjce",
+                    "ProductCodeType": "marketplace"
+                }
+            ],
+            "Name": "CentOS Linux 7 x86_64 HVM EBS 1704_01-b7ee8a69-ee97-4a49-9e68-afaee216db2e-ami-d52f5bc3.4",
+            "VirtualizationType": "hvm",
+            "Hypervisor": "xen",
+            "ImageOwnerAlias": "aws-marketplace",
+            "EnaSupport": false,
+            "ImageId": "ami-f4533694",
+            "State": "available",
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/sda1",
+                    "Ebs": {
+                        "DeleteOnTermination": false,
+                        "SnapshotId": "snap-0d602abbc11b7c685",
+                        "VolumeSize": 8,
+                        "VolumeType": "standard",
+                        "Encrypted": false
+                    }
+                }
+            ],
+            "Architecture": "x86_64",
+            "ImageLocation": "aws-marketplace/CentOS Linux 7 x86_64 HVM EBS 1704_01-b7ee8a69-ee97-4a49-9e68-afaee216db2e-ami-d52f5bc3.4",
+            "RootDeviceType": "ebs",
+            "OwnerId": "679593333241",
+            "RootDeviceName": "/dev/sda1",
+            "CreationDate": "2017-05-10T18:54:01.000Z",
+            "Public": true,
+            "ImageType": "machine",
+            "Description": "CentOS Linux 7 x86_64 HVM EBS 1704_01"
+        }
+    ]
+}
+```
