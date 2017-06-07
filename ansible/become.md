@@ -11,17 +11,17 @@ disable_root: False
 packer.json
 ```json
 "builders": [{
-"ssh_username": "root",
-"ssh_pty": "true",
+    "ssh_username": "root",
+    "ssh_pty": "true"
 }],
-  "provisioners": [{
-        "type": "ansible",
-        "playbook_file": "{{user `playbook_file`}}",
-        "use_sftp": "false",
-        "ansible_env_vars": [
-            "ANSIBLE_HOST_KEY_CHECKING=False"
-        ]
-    }]
+"provisioners": [{
+    "type": "ansible",
+    "playbook_file": "{{user `playbook_file`}}",
+    "use_sftp": "false",
+    "ansible_env_vars": [
+        "ANSIBLE_HOST_KEY_CHECKING=False"
+    ]
+}]
 ```
 
 
