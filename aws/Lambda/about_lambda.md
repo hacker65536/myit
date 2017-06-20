@@ -1,6 +1,6 @@
-#AWS Lambda
+# AWS Lambda
 
-##lambda
+## lambda
 λ=関数の定義と実行を抽象化した計算体系。ラムダ算法とも
 
 **関数の抽象化**
@@ -17,15 +17,8 @@ f(x)=x+2
 
 スライド(λ記法、かりー化)[ラムダ計算](http://www.slideshare.net/_yingtai/lambda-guide "ラムダ計算")
 
-##AWS Lambda
+## AWS Lambda
 
 以上を踏まえてAWS Lambda = awsが提供するクラウド関数と勝手に解釈
 
 実際の仕組みはコードの実行環境をAWSが提供するコンピューティングリソースに委ね、AWSの各イベントソース(サービス)に対してAWSLambdaがプルモデル(ポーリング)でイベントの発生を検知してlambda関数の呼び出しやイベントソースからAWSLambdaにイベントを発行してLambda関数を呼び出すプッシュモデルによってコードが実行、処理される
-
-
-
-
-
-
-
