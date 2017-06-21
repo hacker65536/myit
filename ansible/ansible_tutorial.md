@@ -7,6 +7,7 @@ cd !$
 cat <<'EOF' > ansible.cfg
 [defaults]
 remote_user=centos
+EOF
 ```
 
 ```bash
