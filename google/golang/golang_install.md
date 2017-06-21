@@ -47,7 +47,7 @@ func main() {
 ```
 
 
-#installing from source
+# installing from source
 
 https://golang.org/doc/install/source
 
