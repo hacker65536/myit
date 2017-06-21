@@ -1,9 +1,9 @@
 
 
-#SYNOPSIS
+# SYNOPSIS
 openssl command [ command_opts ] [ command_args ]
 
-##command
+## command
 
 - rsa RSAkey management.
 - req X.509 Certificate Signing Request(CSR) Manegement.
@@ -13,7 +13,7 @@ openssl command [ command_opts ] [ command_args ]
 
 ## example
 
-###generate csr
+### generate csr
 
 1 generate key  
 
@@ -25,21 +25,21 @@ openssl genrsa -des3 -out ./private.key 2048
 ```bash
 openssl req -new -key ./private.key -out ./mydomain.com.csr
 ```
-###remove pass phrase
+### remove pass phrase
 ```bash
 openssl rsa -in private.key -out private.key.withoutpass
 ```
 
-###info csr
+### info csr
 ```bash
 openssl req -noout -text -in mydomain.com.csr
 ```
 
-###info crt
+### info crt
 ```bash
 openssl x509 -noout -text -in mydomain.com.crt
 ```
-###info crt from https
+### info crt from https
 ```bash
 echo|openssl s_client -connect google.com:443 -showcerts
  ```
