@@ -10,7 +10,7 @@ ARCH=amd64
 
 ## Installing to a custom location
 ```
-curl -O https://storage.googleapis.com/golang/go$VERSION.$OS-$ARCH.tar.gz
+curl -s -O https://storage.googleapis.com/golang/go$VERSION.$OS-$ARCH.tar.gz
 tar zxvf !:t
 echo -e 'export GOROOT=$HOME/go\nexport PATH=$PATH:$GOROOT/bin' >> ~/.bashrc
 . ~/.bashrc
