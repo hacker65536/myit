@@ -1,14 +1,14 @@
 
-#installation of binary
+# installation of binary
 
 ```bash
-VERSION=1.7.4
+VERSION=1.8.3
 OS=linux
 ARCH=amd64
 ```
 
 
-##Installing to a custom location
+## Installing to a custom location
 ```
 curl -O https://storage.googleapis.com/golang/go$VERSION.$OS-$ARCH.tar.gz
 tar zxvf !:t
@@ -16,7 +16,7 @@ echo -e 'export GOROOT=$HOME/go\nexport PATH=$PATH:$GOROOT/bin' >> ~/.bashrc
 . ~/.bashrc
 ```
 
-##install to global env
+## install to global env
 ```
 cd /usr/local/src
 wget https://storage.googleapis.com/golang/go$VERSION.$OS-$ARCH.tar.gz
