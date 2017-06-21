@@ -10,6 +10,10 @@ git branch -a
 git branch --merged
 ```
 
+マージ済みブランチ削除
+```
+git branch --merged  | egrep -v '* master' | xargs git branch -d
+```
 
 リモートでブランチを削除したら　リモート追跡ブランチを削除
 ```
