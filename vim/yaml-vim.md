@@ -1,3 +1,5 @@
+https://github.com/avakhov/vim-yaml
+
 
 ~/.vim/after/ftplugin/yaml.vim
 
