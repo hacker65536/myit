@@ -7,7 +7,22 @@ generate key from gpg
 
 
 ```
-$ gpg --export username | base64 | tr -d '\n' > gpg_key
+NAME_REAL=myname
+cat <<EOF > gen-key-script
+Key-Type: 1
+Key-Length: 2048
+Subkey-Type: 1
+Subkey-Length: 2048
+Name-Real: $NAME_REAL
+Expire-Date: 0
+EOF
+```
+```
+gpg --batch --gen-key gen-key-script
+```
+
+```
+gpg --export myname | base64 | tr -d '\n' > gpg_key
 ```
 
 # terraform template
