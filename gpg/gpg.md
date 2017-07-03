@@ -106,3 +106,34 @@ pub   2048R/8A64A5AB 2017-07-03
 uid       [ultimate] username
 sub   2048R/F254A79E 2017-07-03
 ```
+## delete
+
+```
+gpg --delete-secret-key username
+gpg (GnuPG) 2.0.28; Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+
+sec  2048R/8A64A5AB 2017-07-03 username
+
+Delete this key from the keyring? (y/N) y
+This is a secret key! - really delete? (y/N) y
+```
+
+```
+gpg --delete-key username
+gpg (GnuPG) 2.0.28; Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+
+pub  2048R/8A64A5AB 2017-07-03 username
+
+Delete this key from the keyring? (y/N) y
+```
+```
+gpg --list-keys
+gpg: checking the trustdb
+gpg: no ultimately trusted keys found
+```
