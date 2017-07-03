@@ -96,15 +96,22 @@ gpg --batch --gen-key gen-key-script
 
 ## list
 ```
-gpg --list-keys
+$ gpg --list-keys
+/root/.gnupg/pubring.gpg
+------------------------
+pub   2048R/03B92C0E 2017-07-03
+uid       [ultimate] username
+sub   2048R/B10989B6 2017-07-03
+
+$ gpg --list-secret-keys
 gpg: checking the trustdb
 gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
 gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
-/root/.gnupg/pubring.gpg
+/root/.gnupg/secring.gpg
 ------------------------
-pub   2048R/8A64A5AB 2017-07-03
-uid       [ultimate] username
-sub   2048R/F254A79E 2017-07-03
+sec   2048R/03B92C0E 2017-07-03
+uid                  username
+ssb   2048R/B10989B6 2017-07-03
 ```
 ## delete
 
