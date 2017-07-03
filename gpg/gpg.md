@@ -1,5 +1,6 @@
 
 ## gen-key
+### interactive mode 
 ```
 $ gpg --gen-key
 gpg (GnuPG) 2.0.28; Copyright (C) 2015 Free Software Foundation, Inc.
@@ -72,4 +73,23 @@ pub   2048R/B71F7F4F 2017-07-03
 uid       [ultimate] test_user
 sub   2048R/F370DAAE 2017-07-03
 
+```
+
+### oneliner
+
+```bash
+NAME_REAL=username
+
+cat <<EOF > gen-key-script
+Key-Type: 1
+Key-Length: 2048
+Subkey-Type: 1
+Subkey-Length: 2048
+Name-Real: $NAME_REAL
+Expire-Date: 0
+EOF
+```
+
+```bash
+gpg --batch --gen-key gen-key-script
 ```
