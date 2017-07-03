@@ -93,3 +93,16 @@ EOF
 ```bash
 gpg --batch --gen-key gen-key-script
 ```
+
+## list
+```
+gpg --list-keys
+gpg: checking the trustdb
+gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+/root/.gnupg/pubring.gpg
+------------------------
+pub   2048R/8A64A5AB 2017-07-03
+uid       [ultimate] username
+sub   2048R/F254A79E 2017-07-03
+```
