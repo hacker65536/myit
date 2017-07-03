@@ -38,14 +38,14 @@ Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
 
 ```
 
-                                           lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk
-                                           x Enter passphrase                                    x
-                                           x                                                     x
-                                           x                                                     x
-                                           x Passphrase ________________________________________ x
-                                           x                                                     x
-                                           x       <OK>                             <Cancel>     x
-                                           mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj
+                  lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk
+                  x Enter passphrase                                    x
+                  x                                                     x
+                  x                                                     x
+                  x Passphrase ________________________________________ x
+                  x                                                     x
+                  x       <OK>                             <Cancel>     x
+                  mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj
 
 
 ```
