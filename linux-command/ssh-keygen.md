@@ -1,14 +1,12 @@
 
 
-show publickey
+generate publickey from private key
 ```
-ssh-keygent -y -f <private_key>
+ssh-keygent -y -f <private_key> | tee publickey
 ```
 
 
-fingerprint
+show fingerprint
 ```
-ssh-keygen -l -f ~/.ssh/id_rsa
-
-ssh-keygen -l -f ~/.ssh/id_rsa.pub
+ssh-keygen -lf publickey
 ```
