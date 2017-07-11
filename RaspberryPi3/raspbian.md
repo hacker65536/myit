@@ -23,3 +23,31 @@ $ diskutil list
 $ diskutil unmountDisk /dev/disk2
 Unmount of all volumes on disk2 was successful
 ```
+```
+$ sudo dd bs=1m if=2017-07-05-raspbian-jessie.img of=/dev/rdisk2
+dd: /dev/rdisk2: Invalid argument
+4445+1 records in
+4445+0 records out
+4660920320 bytes transferred in 217.195361 secs (21459576 bytes/sec)
+```
+
+rdisk2 is faster? 
+invalid argument...
+
+```
+$ sudo sh -c "wpa_passphrase [SSID] [PASSPHRASE] >> /etc/wpa_supplicant/wpa_supplicant.conf"
+```
+
+```
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=GB
+
+network={
+    ssid="home"
+    #psk="password"
+    psk=d04b98f48e8f8bcc15c6ae5ac050801cd6dcfd428fb5f9e65c4e16e7807340fa
+    scan_ssid=1
+}
+```
+if use wifi in stealth mode ,need set scan_ssid=1
