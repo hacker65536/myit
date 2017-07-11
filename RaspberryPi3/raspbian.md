@@ -19,3 +19,7 @@ $ diskutil list
    0:     FDisk_partition_scheme                        *32.0 GB    disk2
    1:             Windows_FAT_32 NO NAME                 32.0 GB    disk2s1
 ```
+```
+$ diskutil unmountDisk /dev/disk2
+Unmount of all volumes on disk2 was successful
+```
