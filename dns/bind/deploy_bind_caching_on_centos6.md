@@ -1,19 +1,19 @@
-#install
+# install
 
 yum install bind bind-chroot
 
-##ファイルコピー
+## ファイルコピー
 ```bash
 cd /usr/share/doc/bind-9.7.3/sample/
 cp -rp etc/* /var/named/chroot/etc
 cp -rp var/named/named* /var/named/chroot/var/named
 ```
-##権限変更
+## 権限変更
 ```bash
 chown -R root:named /var/named/chroot
 ```
 
-##フォルダ作成
+## フォルダ作成
 ```bash
 mkdir /var/named/chroot/var/named/dynamic
 mkdir /var/named/chroot/var/named/data
@@ -22,7 +22,7 @@ chown named:named /var/named/chroot/var/named/data
 mkdir /var/named/chroot/var/log/named
 chown named. /var/named/chroot/var/log/named
 ```
-##conf
+## conf
 ```bash
 vim /var/named/chroot/etc/named.conf
 ```
@@ -100,7 +100,7 @@ dnssec-validation no　にしないと信頼できないために引けなくな
 mv /etc/named.conf /etc/named.conf.org
 ln -s /var/named/chroot/etc/named.conf /etc/named.conf
 ```
-##SELINUX
+## SELINUX
 ```bash
 getsebool -a|grep named
 ```
@@ -110,7 +110,7 @@ named_write_master_zones --> off
 ```bash
 setsebool -P named_write_master_zones 1
 ```
-##起動
+## 起動
 ```bash
 chkconfig named on
 service named start
