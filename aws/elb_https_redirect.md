@@ -6,7 +6,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R,NE,L]
 ```
 
 
-##elb
+## elb
 
 
 | LB Protocol | LB Port | Instance Protocol | Instance Port | Cipher |     SSL Certificate    |
@@ -15,7 +15,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R,NE,L]
 |    HTTPS    |   443   |        HTTP       |       80      | Change | xxxxx-xxxx-xxx-xx(AMC) |
 
 
-###HealthCheck
+### HealthCheck
 
 
 | key | value|
