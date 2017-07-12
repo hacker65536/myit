@@ -1,5 +1,5 @@
 
-#flush cache
+# flush cache
 ```bash
 rndc flush
 
