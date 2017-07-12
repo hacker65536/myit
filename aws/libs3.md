@@ -1,36 +1,36 @@
-#aws s3 library for C/C++
+# aws s3 library for C/C++
 
-###become root from ec2-user 
+### become root from ec2-user 
 ```bash
 sudo su -
 ```
 
-###update yum
+### update yum
 ```bash
 yum update -y
 ```
 
-###restart
+### restart
 ```bash
 reboot
 ```
 
-###to become root 
+### to become root 
 ```bash
 sudo su -
 ```
 
-###install package necessary
+### install package necessary
 ```bash
 yum -y install git gcc libxml2-devel libcurl-devel
 ```
 
-###move to work dir
+### move to work dir
 ```bash
 cd /usr/local/src
 ```
 
-###git clone
+### git clone
 ```bash
 git clone https://github.com/bji/libs3.git
 ```
@@ -38,7 +38,7 @@ git clone https://github.com/bji/libs3.git
 cd /usr/local/src/libs3/
 ```
 
-###make install
+### make install
 ```bash
 make && make install
 ```
@@ -51,7 +51,7 @@ make && make install
     /usr/include/libs3.h: Installing header
 
 
-###access test
+### access test
 ```bash
 export S3_ACCESS_KEY_ID="your-key-id"
 export S3_SECRET_ACCESS_KEY="your-access-key"
@@ -71,7 +71,7 @@ companydocument                                             2014-04-14T05:23:30Z
 
 
 
-###install error
+### install error
 ```bash
 s3
 ```
