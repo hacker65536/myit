@@ -10,3 +10,6 @@ diff directory
 ```
 diff -rq dir1 dir2
 ```
+
+
+also see sdiff
