@@ -10,6 +10,9 @@ diff directory
 ```
 diff -rq dir1 dir2
 ```
-
+diff side by side
+```
+diff --side-by-side a.txt b.txt
+```
 
 also see sdiff
