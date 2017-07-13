@@ -363,7 +363,7 @@ DONE
 SSL3 alert write:warning:close notify
 ```
 
-##サンプルエントリー
+## サンプルエントリー
 
 ```
 dc=testcompany,dc=com
