@@ -1,21 +1,21 @@
-#環境
+# 環境
 ```bash
 uname -a
 Linux ip-10-1-1-6 3.14.27-25.47.amzn1.x86_64 #1 SMP Wed Dec 17 18:36:15 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
 ```
-##時間設定
+## 時間設定
 ```bash
 cp /etc/localtime /etc/localtime.org
 \cp -f /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 date
 ```
 
-##yum update
+## yum update
 ```bash
 yum -y update
 ```
 
-##サーバとクライアントをyumでインストール
+## サーバとクライアントをyumでインストール
 ```bash
 yum install -y openldap-servers openldap-clients
 ```
@@ -32,7 +32,7 @@ yum list installed 'openldap*'
     openldap-clients.x86_64                2.4.23-34.23.amzn1                    @amzn-main
     openldap-servers.x86_64                2.4.23-34.23.amzn1                    @amzn-main
 
-##ldapのlog設定
+## ldapのlog設定
 
 
 
@@ -70,7 +70,7 @@ rsyslogを再起動
 service rsyslog restart
 ```
 
-##設定
+## 設定
 DB_CONFIGをコピーと権限設定
 ```
 cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
@@ -473,7 +473,7 @@ ldapsearch -x -D "uid=user1,ou=People,dc=testcompany,dc=com" -w test1 -b "ou=Peo
 ```
 
 
-#ssh公開鍵認証
+# ssh公開鍵認証
 
 ```bash
 yum install -y openssh-ldap
@@ -503,7 +503,7 @@ ldapadd -x -D cn=Manager,dc=testcompany,dc=com -w password -f mod.ldif
 
 
 
-#バックアップとリストア
+# バックアップとリストア
 
 バックアップ  
 ```bash
