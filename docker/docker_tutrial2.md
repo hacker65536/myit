@@ -54,4 +54,29 @@ docker-machine create -d hyperv --hyperv-virtual-switch "myswitch" myvm2
 ![hyper-v virtual machine](/images/hyperv-v-vm.png)
 
 
+```
+
+C:\WINDOWS\system32>docker-machine ls
+NAME    ACTIVE   DRIVER   STATE     URL                                     SWARM   DOCKER        ERRORS
+myvm1   -        hyperv   Running   tcp://[fe80::215:5dff:fe82:b008]:2376           v17.06.0-ce
+myvm2   -        hyperv   Running   tcp://[fe80::215:5dff:fe82:b009]:2376           v17.06.0-ce
+
+C:\WINDOWS\system32>docker-machine ssh myvm1
+                        ##         .
+                  ## ## ##        ==
+               ## ## ## ## ##    ===
+           /"""""""""""""""""\___/ ===
+      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
+           \______ o           __/
+             \    \         __/
+              \____\_______/
+ _                 _   ____     _            _
+| |__   ___   ___ | |_|___ \ __| | ___   ___| | _____ _ __
+| '_ \ / _ \ / _ \| __| __) / _` |/ _ \ / __| |/ / _ \ '__|
+| |_) | (_) | (_) | |_ / __/ (_| | (_) | (__|   <  __/ |
+|_.__/ \___/ \___/ \__|_____\__,_|\___/ \___|_|\_\___|_|
+Boot2Docker version 17.06.0-ce, build HEAD : 0672754 - Thu Jun 29 00:06:31 UTC 2017
+Docker version 17.06.0-ce, build 02c1d87
+docker@myvm1:~$
+```
 
