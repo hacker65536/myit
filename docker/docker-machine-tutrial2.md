@@ -1,4 +1,5 @@
 
+## windows
 https://docs.docker.com/get-started/part4/
 
 1. Launch Hyper-V Manager
@@ -102,7 +103,7 @@ This node joined a swarm as a worker.
 ```
 
 
-awsの場合
+## aws
 
 https://docs.docker.com/machine/drivers/aws/#environment-variables
 
