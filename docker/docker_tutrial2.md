@@ -8,6 +8,7 @@ https://docs.docker.com/get-started/part4/
 
 ![virtual switch](/images/hyperv-vswitch.png)
 
+内部だとIPv6で割り振られるので外部(external)をチェック
 
 
 ```
@@ -55,12 +56,13 @@ docker-machine create -d hyperv --hyperv-virtual-switch "myswitch" myvm2
 
 
 ```
-
 C:\WINDOWS\system32>docker-machine ls
 NAME    ACTIVE   DRIVER   STATE     URL                                     SWARM   DOCKER        ERRORS
 myvm1   -        hyperv   Running   tcp://[fe80::215:5dff:fe82:b008]:2376           v17.06.0-ce
 myvm2   -        hyperv   Running   tcp://[fe80::215:5dff:fe82:b009]:2376           v17.06.0-ce
+```
 
+```
 C:\WINDOWS\system32>docker-machine ssh myvm1
                         ##         .
                   ## ## ##        ==
