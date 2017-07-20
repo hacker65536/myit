@@ -24,7 +24,7 @@ docker run -i -t -d ubuntu /bin/bash
 docker start CONTAINER ID
 ```
 
-##docker rm
+## docker rm
 コンテナ削除
 ```bash
  docker rm $(docker ps -a -q)
