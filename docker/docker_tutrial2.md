@@ -86,3 +86,17 @@ Docker version 17.06.0-ce, build 02c1d87
 docker@myvm1:~$
 ```
 
+```
+C:\WINDOWS\system32>docker-machine ssh myvm1 "docker swarm init"
+Swarm initialized: current node (e8sciyoscpbm8frfd8gbfrqmk) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-12al7htdw6y982v93n346lct2xtptfml0lbezhah2os63041ye-bjaumt74ow9wi2hu3dk78ek0p 192.168.130.103:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+
+
+C:\WINDOWS\system32>docker-machine ssh myvm2 "docker swarm join --token SWMTKN-1-12al7htdw6y982v93n346lct2xtptfml0lbezhah2os63041ye-bjaumt74ow9wi2hu3dk78ek0p 192.168.130.103:2377"
+This node joined a swarm as a worker.
+```
