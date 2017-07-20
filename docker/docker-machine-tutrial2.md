@@ -101,6 +101,9 @@ C:\WINDOWS\system32>docker-machine ssh myvm2 "docker swarm join --token SWMTKN-1
 This node joined a swarm as a worker.
 ```
 
+
+awsの場合
+
 https://docs.docker.com/machine/drivers/aws/#environment-variables
 
 
