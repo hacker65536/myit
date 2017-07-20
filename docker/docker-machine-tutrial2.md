@@ -138,6 +138,7 @@ ubuntu@aws01:~$ uname -r
 ```
 
 ubuntu-xenial-docker - ami-12f2d377
+
 これだと動くが
 
 ```
