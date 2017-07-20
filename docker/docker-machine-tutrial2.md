@@ -100,3 +100,56 @@ To add a manager to this swarm, run 'docker swarm join-token manager' and follow
 C:\WINDOWS\system32>docker-machine ssh myvm2 "docker swarm join --token SWMTKN-1-12al7htdw6y982v93n346lct2xtptfml0lbezhah2os63041ye-bjaumt74ow9wi2hu3dk78ek0p 192.168.130.103:2377"
 This node joined a swarm as a worker.
 ```
+
+https://docs.docker.com/machine/drivers/aws/#environment-variables
+
+
+defaultのami(ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20161221 (ami-fcc19b99))
+はバージョンが古い？
+
+
+
+```
+Last login: Thu Jul 20 08:55:12 2017 from 172.31.38.241
+ubuntu@aws01:~$ sudo systemctl start docker.service
+Job for docker.service failed because the control process exited with error code. See "systemctl status docker.service" and "journalctl -xe" for details.
+ubuntu@aws01:~$ systemctl status docker.service
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+  Drop-In: /etc/systemd/system/docker.service.d
+           └─10-machine.conf
+   Active: inactive (dead) (Result: exit-code) since Thu 2017-07-20 09:06:46 UTC; 4s ago
+     Docs: https://docs.docker.com
+  Process: 1477 ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:2376 -H unix:///var/run/docker.sock --storage-driver aufs --tlsverify --tlscacert /etc/docker/ca.pem --tlscert /etc/docker/server.pem --tlskey /etc/do
+ Main PID: 1477 (code=exited, status=1/FAILURE)
+
+Jul 20 09:06:46 aws01 systemd[1]: docker.service: Main process exited, code=exited, status=1/FAILURE
+Jul 20 09:06:46 aws01 systemd[1]: Failed to start Docker Application Container Engine.
+Jul 20 09:06:46 aws01 systemd[1]: docker.service: Unit entered failed state.
+Jul 20 09:06:46 aws01 systemd[1]: docker.service: Failed with result 'exit-code'.
+Jul 20 09:06:46 aws01 systemd[1]: docker.service: Service hold-off time over, scheduling restart.
+Jul 20 09:06:46 aws01 systemd[1]: Stopped Docker Application Container Engine.
+Jul 20 09:06:46 aws01 systemd[1]: docker.service: Start request repeated too quickly.
+Jul 20 09:06:46 aws01 systemd[1]: Failed to start Docker Application Container Engine.
+ubuntu@aws01:~$ uname -a
+Linux aws01 4.4.0-57-generic #78-Ubuntu SMP Fri Dec 9 23:50:32 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+ubuntu@aws01:~$ uname -r
+4.4.0-57-generic
+```
+
+ubuntu-xenial-docker - ami-12f2d377
+これだと動くが
+
+```
+$ docker-machine rm aws01
+About to remove aws01
+WARNING: This action will delete both local reference and remote instance.
+Are you sure? (y/n): y
+Error removing host "aws01": unexpected EOF
+[ec2-user@ip-172-31-38-241 docker]$ docker-machine ls
+NAME    ACTIVE   DRIVER      STATE   URL   SWARM   DOCKER    ERRORS
+aws01   -        amazonec2   Error                 Unknown
+aws02   -        amazonec2   Error                 Unknown
+```
+
+きれいに消せない
