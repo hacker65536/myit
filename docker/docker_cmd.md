@@ -1,4 +1,4 @@
-##docker run
+## docker run
 
 コンテナの作成して起動(スナップショット)
 ```
@@ -17,7 +17,7 @@ docker run -it ubuntu
 docker run -i -t -d ubuntu /bin/bash
 ```
 
-##docker start
+## docker start
 
 コンテナの起動
 ```
@@ -29,7 +29,7 @@ docker start CONTAINER ID
 ```bash
  docker rm $(docker ps -a -q)
  ```
-##docker rmi
+## docker rmi
 不要なイメージの削除
 ```bash
 docker rmi $(docker images | awk '/^<none>/ { print $3 }')
@@ -37,7 +37,7 @@ docker rmi $(docker images | awk '/^<none>/ { print $3 }')
 
 
 
-##docker logs
+## docker logs
 
 コンテナ実行時から現在に至るまでのログ表示
 ```
