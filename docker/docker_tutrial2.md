@@ -58,8 +58,12 @@ docker-machine create -d hyperv --hyperv-virtual-switch "myswitch" myvm2
 ```
 C:\WINDOWS\system32>docker-machine ls
 NAME    ACTIVE   DRIVER   STATE     URL                                     SWARM   DOCKER        ERRORS
-myvm1   -        hyperv   Running   tcp://[fe80::215:5dff:fe82:b008]:2376           v17.06.0-ce
-myvm2   -        hyperv   Running   tcp://[fe80::215:5dff:fe82:b009]:2376           v17.06.0-ce
+
+C:\WINDOWS\system32>docker-machine ls
+NAME    ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER        ERRORS
+myvm1   -        hyperv   Running   tcp://192.168.130.103:2376           v17.06.0-ce
+myvm2   -        hyperv   Running   tcp://192.168.130.86:2376            v17.06.0-ce
+
 ```
 
 ```
