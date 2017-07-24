@@ -90,3 +90,12 @@ $ ip link
 72: veth84ae5d6@if71: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP mode DEFAULT group default
     link/ether 4e:6f:08:61:c2:1b brd ff:ff:ff:ff:ff:ff link-netnsid 7
 ```
+
+```
+$ ip link show dev eth0
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 0a:f8:65:65:1e:e5 brd ff:ff:ff:ff:ff:ff
+$ ip link show dev docker0
+3: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default
+    link/ether 02:42:51:6d:84:c6 brd ff:ff:ff:ff:ff:ff
+```
