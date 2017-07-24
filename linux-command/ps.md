@@ -1,4 +1,4 @@
-#ps
+# ps
 report a snapshot of the current processes.
 
 >This version of ps accepts several kinds of options:
@@ -6,9 +6,9 @@ report a snapshot of the current processes.
 >- 2   BSD options, which may be grouped and must not be used with a dash.
 >- 3   GNU long options, which are preceded by two dashes.
 
-##option
+## option
 
-###SIMPLE PROCESS SELECTION
+### SIMPLE PROCESS SELECTION
 a
 - Lift the BSD-style "only yourself" restriction, which is imposed upon the set of all
 processes when some BSD-style (without "-") options are used or when the ps
@@ -28,7 +28,7 @@ or to list all processes when used together with the a option.
 T
 - Select all processes associated with this terminal. Identical to the t option without any argument.
 
-###PROCESS SELECTION BY LIST
+### PROCESS SELECTION BY LIST
 These options accept a single argument in the form of a blank-separated or comma-separated list. They can be used multiple times. For example: ps -p "1 2" -p 3,4
 
 -C cmdlist
@@ -55,7 +55,7 @@ t,-t,--tty
 123
 - Identical to --pid 123.
 
-###OUTPUT FORMAT CONTROL
+### OUTPUT FORMAT CONTROL
 These options are used to choose the information displayed by ps. The output may differ by personality.
 
 - -F extra full format. See the -f option, which -F implies.
@@ -66,7 +66,7 @@ These options are used to choose the information displayed by ps. The output may
 - u display user-oriented format
 - v display virtual memory format
 
-###OUTPUT MODIFIERS
+### OUTPUT MODIFIERS
 
 -H
 - Show process hierarchy(forest)
@@ -80,7 +80,7 @@ e
 w,-w
 - Wide output. Use this option twice for unlimited width.
 
-###THREAD DISPLAY
+### THREAD DISPLAY
 H
 - Show threads as if they were processes
 
@@ -93,7 +93,7 @@ H
 m,-m
 - Show threads after processes
 
-###PROCESS STATE CODES
+### PROCESS STATE CODES
 Here are the different values that the s, stat and state output specifiers (header "STAT" or "S") will display to describe the state of a process.
 
 D
@@ -137,7 +137,7 @@ l
 +
 - is in the foreground process group
 
-##examples
+## examples
 
 to see every process on the system using standard syntax:
 
@@ -171,7 +171,7 @@ to see every process running as root (real & effective ID) in user format:
 ```bash
 ps -U root -u root u
 ```
-##tips
+## tips
 ```bash
  ps auxfe|head -5
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
