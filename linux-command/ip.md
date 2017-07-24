@@ -1,5 +1,6 @@
 ip
 ===========
+ref https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print_ja4.pdf
 
 query
 * addr 
@@ -8,6 +9,7 @@ query
 * maddr
 * neigh
 * help 
+
 
 
 ```
