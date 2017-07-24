@@ -99,3 +99,91 @@ $ ip link show dev docker0
 3: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default
     link/ether 02:42:51:6d:84:c6 brd ff:ff:ff:ff:ff:ff
 ```
+
+```
+$ ip route
+default via 172.31.32.1 dev eth0
+169.254.169.254 dev eth0
+172.17.0.0/16 dev docker0  proto kernel  scope link  src 172.17.0.1
+172.18.0.0/16 dev docker_gwbridge  proto kernel  scope link  src 172.18.0.1
+172.31.32.0/20 dev eth0  proto kernel  scope link  src 172.31.38.241
+```
+```
+]$ ip maddr
+1:      lo
+        inet  224.0.0.1
+        inet6 ff02::1
+        inet6 ff01::1
+2:      eth0
+        link  33:33:00:00:00:01
+        link  01:00:5e:00:00:01
+        link  33:33:ff:65:1e:e5
+        link  33:33:00:00:02:02
+        inet  224.0.0.1
+        inet6 ff02::202
+        inet6 ff02::1:ff65:1ee5
+        inet6 ff02::1
+        inet6 ff01::1
+3:      docker0
+        link  33:33:00:00:00:01
+        link  01:00:5e:00:00:01
+        link  33:33:ff:6d:84:c6
+        inet  224.0.0.1
+        inet6 ff02::1:ff6d:84c6
+        inet6 ff02::1
+        inet6 ff01::1
+16:     docker_gwbridge
+        link  33:33:00:00:00:01
+        link  01:00:5e:00:00:01
+        link  33:33:ff:01:df:36
+        inet  224.0.0.1
+        inet6 ff02::1:ff01:df36
+        inet6 ff02::1
+        inet6 ff01::1
+18:     vetha4c00c0
+        link  33:33:00:00:00:01
+        link  01:00:5e:00:00:01
+        link  33:33:ff:51:86:81
+        inet  224.0.0.1
+        inet6 ff02::1:ff51:8681
+        inet6 ff02::1
+        inet6 ff01::1
+58:     veth70920fc
+        link  33:33:00:00:00:01
+        link  01:00:5e:00:00:01
+        link  33:33:ff:47:47:90
+        inet  224.0.0.1
+        inet6 ff02::1:ff47:4790
+        inet6 ff02::1
+        inet6 ff01::1
+60:     vethdcc24b4
+        link  33:33:00:00:00:01
+        link  01:00:5e:00:00:01
+        link  33:33:ff:49:91:76
+        inet  224.0.0.1
+        inet6 ff02::1:ff49:9176
+        inet6 ff02::1
+        inet6 ff01::1
+62:     veth17552ac
+        link  33:33:00:00:00:01
+        link  01:00:5e:00:00:01
+        link  33:33:ff:70:44:8d
+        inet  224.0.0.1
+        inet6 ff02::1:ff70:448d
+        inet6 ff02::1
+        inet6 ff01::1
+72:     veth84ae5d6
+        link  33:33:00:00:00:01
+        link  01:00:5e:00:00:01
+        link  33:33:ff:61:c2:1b
+        inet  224.0.0.1
+        inet6 ff02::1:ff61:c21b
+        inet6 ff02::1
+        inet6 ff01::1
+```
+
+```
+$ ip neigh
+172.31.32.1 dev eth0 lladdr 0a:47:f2:6f:a2:cd REACHABLE
+169.254.169.254 dev eth0 lladdr 0a:47:f2:6f:a2:cd REACHABLE
+```
