@@ -2,16 +2,45 @@ lsof - list open file
 ====================
 
 
-
+option
 * -p ProcessID
 * -c ProcessName
 * -u UserName
 * -i Internet Address
 
 
+
+
+fields
+* COMMAND 
+* PID
+* TID Thread ID
+* USER
+* FD file discripter
+ * cwd 
+ * txt
+ * mem 
+ * mmap memory mapping device
+ * X/u/w/r  discripter number/readwrite/write/read
+* TYPE 
+ * REG
+ * DIR
+ * FIFO
+ * CHR device file
+ * unix unix domain socket
+ * IPv4
+ * IPv6
+* DEVICE
+* SIZE/OFF
+* NODE
+* NAME 
+ 
 ```bash
 lsof -p <the num of proc>
 ```
+
+
+
 ```bash
 sudo lsof -p $(pgrep -n docker)
 COMMAND    PID USER   FD   TYPE             DEVICE SIZE/OFF   NODE NAME
@@ -39,7 +68,9 @@ docker-co 2514 root   22u  FIFO             202,81      0t0 264177 /run/containe
 
 ```
 
-
+```bash
+lsof -c <COMMAND>
+```
 ```bash
 sudo lsof -c docker
 COMMAND    PID USER   FD   TYPE             DEVICE SIZE/OFF       NODE NAME
@@ -90,4 +121,9 @@ docker-co 2514 root   16u  FIFO             202,81      0t0     264123 /run/cont
 docker-co 2514 root   18u  FIFO             202,81      0t0     264144 /run/containerd/77b5a76fa444882c7158556cb8777d7c84c725bdebe85817fe006f0e1decb421/init/control (deleted)
 docker-co 2514 root   22u  FIFO             202,81      0t0     264177 /run/containerd/528186e81b7fa6157738481219bf1672cf39a04db259567b8b529456462a1a0a/init/control (deleted)
 
+```
+
+exclude
+```bash
+lsof -c ^<COMMAND>
 ```
