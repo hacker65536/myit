@@ -36,3 +36,8 @@ git log --grep="comment"
 ```
 git log --merges
 ```
+
+all branch
+```
+git log --all
+```
