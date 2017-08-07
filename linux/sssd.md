@@ -61,13 +61,15 @@ sssd            0:off   1:off   2:off   3:on    4:on    5:on    6:off
 
 ## edit sshd
 
+
+amzlinux or centos7 
+```
+AuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys
+AuthorizedKeysCommandUser root
+```
+
 centos6 
 ```
 AuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys
 AuthorizedKeysCommandRunAs root
-```
-
-amzlinux or centos7 
-```
-AuthorizedKeysCommandUser root
 ```
