@@ -59,6 +59,8 @@ chkconfig --list sssd
 sssd            0:off   1:off   2:off   3:on    4:on    5:on    6:off
 ```
 
+## edit sshd
+
 centos6 
 ```
 AuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys
