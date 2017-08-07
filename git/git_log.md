@@ -41,3 +41,8 @@ all branch
 ```
 git log --all
 ```
+
+
+```
+git log --stat
+```
