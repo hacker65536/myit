@@ -1,3 +1,10 @@
+
+## docker group
+
+```
+sudo usermod -a -G docker ec2-user
+```
+
 ## docker run
 
 コンテナの作成して起動(スナップショット)
