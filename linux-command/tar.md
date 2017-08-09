@@ -46,3 +46,10 @@ EXAMPLES
        tar -xf archive.tar
               # Extract all files from archive.tar.
 ```
+
+
+specify dir
+```
+mkdir tmp
+tar xf archive.tar.gz -C tmp
+```
