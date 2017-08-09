@@ -27,3 +27,8 @@ EOF
 
 yum install grafana
 ```
+## start service
+
+```
+service grafana-server start
+```
