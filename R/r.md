@@ -1,1 +1,4 @@
 
+```
+yum install R
+```
