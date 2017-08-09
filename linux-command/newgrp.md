@@ -1,5 +1,5 @@
 
-add user to group,and change change immediately without relogin
+add user to group,and change group immediately without relogin
 
 ```
 usermod -a -G docker USER
