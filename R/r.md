@@ -68,7 +68,6 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 Type 'q()' to quit R.
 
 > df <- read.csv("sample-data.csv",header=T,row.names=1)
-> df <- read.csv("sample-data.csv",header=T,row.names=1)
 > df[1,]
   年齢 血圧 肺活量 性別 病気 体重
 1   22  110   4300    M    1   79
