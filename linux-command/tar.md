@@ -24,11 +24,15 @@ tar cfzv dir.tar.gz dir/
 
 
 
-`c` create new archive
+`c` create new archive   
+`x` extract,get  
+`t` list  
 
-`x` extract,get
 
-`t` list
+`a` auto--compress  
+`J` .xz  
+`j` .bg2  
+`z` .gz  
 
 
 ```
