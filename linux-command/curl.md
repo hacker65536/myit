@@ -21,9 +21,17 @@ curl -s http://fileuri
 
 
 `-S` --show-error
+```bash
+curl -S http://fileuri
+```
+
+`-L` --location
+```
+curl -L http://fileuri-redirect
+```
 
 
 ```bash
 # 
-curl -sS -O http://fileuri
+curl -sSLO http://fileuri
 ```
