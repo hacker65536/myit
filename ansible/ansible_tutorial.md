@@ -4,9 +4,14 @@ cd !$
 ```
 
 ```bash
+touch ansible_log
+```
+```
 cat <<'EOF' > ansible.cfg
 [defaults]
 remote_user=centos
+host_key_checking = False
+log_path=ansible_log
 EOF
 ```
 
