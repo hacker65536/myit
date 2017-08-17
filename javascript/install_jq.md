@@ -1,26 +1,26 @@
 
 
-#install jq
+# install jq
 
-##environment
+## environment
 
 ```bash
 uname -a
 Linux ip-10-0-0-232 3.14.27-25.47.amzn1.x86_64 #1 SMP Wed Dec 17 18:36:15 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
 ```
-##set timezone
+## set timezone
 ```bash
 cp /etc/localtime /etc/localtime.org
 \cp -f /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 ```
 
-##yum update
+## yum update
 
 ```bash
 yum update -y
 ```
 
-##require
+## require
 
 latest version(2015/02/22) require bison 3.x ,but amzlinux have 2.4.1
 dont use bison or update bison 3.x from source ,or use previous version `3e1baf59167d6e7d836ec39d353eec1022331a6d`
@@ -33,7 +33,7 @@ optional
 yum install -y flex bison oniguruma-devel valgrind
 ```
 
-###previous version
+### previous version
 
 ```bash
 yum install -y oniguruma-devel
@@ -47,7 +47,7 @@ make
 make install
 ```
 
-###latest version(2015/02/22)
+### latest version(2015/02/22)
 ```bash
 yum remove bison
 cd /usr/local/src/
