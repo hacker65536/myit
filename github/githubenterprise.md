@@ -46,3 +46,4 @@ aws ec2 run-instances \
   --key-name key_pair \
   --subnet-id subnet-xxxxxxx\
   --region us-east-2
+```
