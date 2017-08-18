@@ -37,3 +37,12 @@ ami-e99eb88c	GitHub Enterprise 2.9.7
 ami-28d8f94d	GitHub Enterprise 2.9.8
 ami-ad1939c8	GitHub Enterprise 2.9.9
 ```
+```
+aws ec2 run-instances \
+  --security-group-ids sg-xxxxxxx\
+  --instance-type r3.xlarge \
+  --image-id ami-fa18389f \
+  --block-device-mappings '[{"DeviceName":"/dev/xvdf","Ebs":{"VolumeSize":100,"VolumeType":"gp2"}}]' \
+  --key-name key_pair \
+  --subnet-id subnet-xxxxxxx\
+  --region us-east-2
