@@ -36,7 +36,7 @@ docker start CONTAINER ID
 コンテナ削除
 ```bash
  docker rm $(docker ps -a -q)
- docker rm $(docker ps -aq -f status=exited)
+ docker rm -v $(docker ps -aq -f status=exited)
  ```
 ## docker rmi
 不要なイメージの削除
