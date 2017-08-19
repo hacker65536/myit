@@ -36,6 +36,10 @@ docker start CONTAINER ID
 コンテナ削除
 ```bash
  docker rm $(docker ps -a -q)
+ 
+ # rm -v, --volumes   Remove the volumes associated with the container
+ # ps -f, --filter filter   Filter output based on conditions provided
+ 
  docker rm -v $(docker ps -aq -f status=exited)
  ```
 ## docker rmi
