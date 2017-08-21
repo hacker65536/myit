@@ -9,6 +9,12 @@ Options:
       --help   Print usage
 ```
 
+
+```
+$ docker run -d -P --name port-test identidock
+ ```
+
+
 ```
 $ docker port port-test
 9090/tcp -> 0.0.0.0:32769
