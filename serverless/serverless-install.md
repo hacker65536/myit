@@ -67,3 +67,20 @@ Stack Outputs
 HelloLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:000039619500:function:my-service-dev-hello:1
 ServerlessDeploymentBucketName: my-service-dev-serverlessdeploymentbucket-700unicyx4rf
 ```
+
+```
+[ec2-user@ip-172-31-38-241 my-service]$ sls invoke -f hello
+{
+    "statusCode": 200,
+    "body": "{\"message\":\"Go Serverless v1.0! Your function executed successfully!\",\"input\":{}}"
+}
+```
+
+```
+[ec2-user@ip-172-31-38-241 my-service]$ aws lambda invoke --function-name my-service-dev-hello --region us-east-1 --profile myprofile output
+{
+    "StatusCode": 200
+}
+[ec2-user@ip-172-31-38-241 my-service]$ cat output
+{"statusCode":200,"body":"{\"message\":\"Go Serverless v1.0! Your function executed successfully!\",\"input\":{}}"}
+```
