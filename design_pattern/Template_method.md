@@ -1,9 +1,9 @@
-#Template method
+# Template method
 
-##relevant pattern
+## relevant pattern
 - Factory method
 
-##UML(Class diagram)
+## UML(Class diagram)
 
 |Class| *AbstractClass* |
 |-------|--------|
