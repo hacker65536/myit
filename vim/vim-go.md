@@ -4,7 +4,7 @@ git clone https://github.com/fatih/vim-go.git ~/.vim/plugged/vim-go
 ```
 
 ```
-cat <'EOF' >> ~/.vimrc
+cat <<'EOF' >> ~/.vimrc
 call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 call plug#end()
