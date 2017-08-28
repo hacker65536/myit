@@ -8,15 +8,15 @@ pip install --user awslogs
 
 show list of groups
 ```
-awslogs groups --profile myprf --region us-west-2
+awslogs groups --profile myprf --aws-region us-west-2
 ```
 
 show list of streams
 ```
-awslogs streams /var/log/nginx/access_log --profile myprf --region us-west-2
+awslogs streams /var/log/nginx/access_log --profile myprf --aws-region us-west-2
 ``` 
 
 get log
 ```
-awslogs get  /var/log/nginx/access_log --profile myprf --region us-west-2
+awslogs get  /var/log/nginx/access_log --profile myprf --aws-region us-west-2
 ``` 
