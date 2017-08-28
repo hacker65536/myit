@@ -25,7 +25,7 @@ $ echo $PATH
 
 ```
 $ sudo mkdir -p /opt/bin
-$ sudo mv docker-compose-Linux-x86_64 /usr/local/bin/docker-compose
+$ sudo mv docker-compose-Linux-x86_64 /opt/bin/docker-compose
 $ sudo chmod +x !$
 $ docker-compose --version
 docker-compose version 1.15.0, build e12f3b9
