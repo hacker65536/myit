@@ -1,8 +1,8 @@
 
-require bash_completion
+require bash-completion
 
 ```
-yum install -y --enablerepo=epel bash_comletion
+sudo yum install -y --enablerepo=epel bash-completion
 ```
 
 
