@@ -1,12 +1,12 @@
-#Docker installation
+# Docker installation
 
-##env
+## env
 ```bash
 uname -r
 4.1.10-17.31.amzn1.x86_64
 ```
 
-##install
+## install
 ```bash
 sudo yum install -y docker
 ```
@@ -43,7 +43,7 @@ docker attach CONTAINERID or NAME
 suspend  
 
 `ctl+p > ctl+q`
-##tutorial
+## tutorial
 
 create a docker image and upload it to docker hub
 
