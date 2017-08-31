@@ -148,3 +148,26 @@ log_stream_name = {instance_id}
 initial_position = start_of_file
 log_group_name = /var/log/messages
 ```
+
+
+for httpd
+```
+[/var/log/httpd/access_log]
+log_group_name = /var/log/httpd/access_log
+log_stream_name ={instance_id}_httpd_access
+datetime_format = %b %d %H:%M:%S
+file = /var/log/httpd/access_log
+initial_position = start_of_file
+buffer_duration = 5000
+
+
+
+
+[/etc/httpd/logs/error_log]
+log_group_name = var/log/httpd//error_log
+log_stream_name = {instance_id}_httpd_error
+datetime_format = [%a %b %d %H:%M:%S %Y]
+file = /etc/httpd/logs/error_log
+initial_position = start_of_file
+buffer_duration = 5000
+```
