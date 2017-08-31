@@ -173,3 +173,37 @@ buffer_duration = 5000
 ```
 service awslogs restart
 ```
+
+```
+tail -10 /var/log/awslogs.log
+```
+
+```
+aws logs get-log-events --log-group-name /var/log/httpd/access_log --log-stream-name i-0a0bc18e477e6af93_httpd_access 
+{
+    "nextForwardToken": "f/33544437833675484539481076648850149556420982990450196483",
+    "events": [
+        {
+            "ingestionTime": 1504184621212,
+            "timestamp": 1504184615135,
+            "message": "182.22.59.22 - - [31/Aug/2017:13:00:16 +0000] \"GET / HTTP/1.1\" 403 4891 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36\""
+        },
+        {
+            "ingestionTime": 1504184621212,
+            "timestamp": 1504184615135,
+            "message": "182.22.59.22 - - [31/Aug/2017:13:00:17 +0000] \"GET /icons/apache_pb2.gif HTTP/1.1\" 200 4234 \"http://13.58.211.21/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36\""
+        },
+        {
+            "ingestionTime": 1504184621212,
+            "timestamp": 1504184615135,
+            "message": "182.22.59.22 - - [31/Aug/2017:13:00:17 +0000] \"GET /icons/poweredby.png HTTP/1.1\" 200 3412 \"http://13.58.211.21/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36\""
+        },
+        {
+            "ingestionTime": 1504184621212,
+            "timestamp": 1504184615135,
+            "message": "182.22.59.22 - - [31/Aug/2017:13:00:17 +0000] \"GET /favicon.ico HTTP/1.1\" 404 209 \"http://13.58.211.21/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36\""
+        }
+    ],
+    "nextBackwardToken": "b/33544437833675484539481076648850149556420982990450196480"
+}
+```
