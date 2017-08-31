@@ -169,3 +169,7 @@ file = /var/log/httpd/error_log
 initial_position = start_of_file
 buffer_duration = 5000
 ```
+
+```
+service awslogs restart
+```
