@@ -18,6 +18,7 @@ sudo service docker start
 add the ec2-user to the docker group for execute commands without using sudo .
 ```bash
 sudo usermod -a -G docker ec2-user
+newgrp docker
 ```
 log out and log back in again to pick up the new docker group permissions.
 
