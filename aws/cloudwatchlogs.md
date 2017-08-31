@@ -161,13 +161,11 @@ initial_position = start_of_file
 buffer_duration = 5000
 
 
-
-
-[/etc/httpd/logs/error_log]
-log_group_name = var/log/httpd//error_log
+[/var/log/httpd/error_log]
+log_group_name = /var/log/httpd/error_log
 log_stream_name = {instance_id}_httpd_error
 datetime_format = [%a %b %d %H:%M:%S %Y]
-file = /etc/httpd/logs/error_log
+file = /var/log/httpd/error_log
 initial_position = start_of_file
 buffer_duration = 5000
 ```
