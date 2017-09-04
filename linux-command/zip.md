@@ -11,6 +11,12 @@ zip -d archvie.zip mydir/index.js
 ```
 
 
+add specify file
+
+```
+zip archvie.zip -i mydir/index.js
+```
+
 add file to archive without info of path
 
 ```
