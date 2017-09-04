@@ -9,7 +9,7 @@ ComputedPropertyName[Yield] :
 [ AssignmentExpression[In, ?Yield] ]
 ```
 
-```json
+```js
 var thetop = 'top';
 <something>.stop().animate(
     { [thetop] : 10 }, 10
