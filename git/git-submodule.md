@@ -162,6 +162,4 @@ other
 
 
 
-サブモジュールに入ってmodify -> commit を行った後は`git push origin HEAD:<BRANCH>`を行う  
-サブモジュールの中ではcommit idに対してdetatchしているので、HEADの移動はしない  
-ブランチではなくCOMMIT IDだから
+submodule内での更新に気をつけるのは、fix-branch作成して、pushすべきbranchにmergeを行い、親ディレクトリでcommit ,pushを行う
