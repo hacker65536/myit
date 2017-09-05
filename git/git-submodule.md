@@ -132,3 +132,36 @@ To git@github.com:hacker65536/submodule.git
    67be384..ac0c5bf  master -> master
 
 ```
+
+
+1. `git submodule add https://github.com/aaaa/bbbb.git`
+2. `git submodule init bbbb`
+3. `git submoduel update`
+4. `cd bbbb`
+6. `git checkout -b fixbranch`
+7. `touch file`
+8. `git add .`
+9. `git commit -m"fix"`
+10. `git checkout master`
+11. `git pull`
+12. `git merge fixbranch`
+13. `git push`
+14. `git branch -d fixbranch`
+15. `cd ..`
+16. `git add bbbb`
+17. `git commit -m "update bbbb"`
+18. `git push`
+
+
+
+other 
+
+1. `git submodule init bbbb`
+2. `git pull`
+3. `git submodule udpate`
+
+
+
+サブモジュールに入ってmodify -> commit を行った後は`git push origin HEAD:<BRANCH>`を行う  
+サブモジュールの中ではcommit idに対してdetatchしているので、HEADの移動はしない  
+ブランチではなくCOMMIT IDだから
