@@ -16,3 +16,14 @@ move to next point of conflict `]c`
 ```
 :diffg <RE/BA/LO>
 ```
+
+
+```
+rm animals.txt.orig
+```
+
+or
+
+```
+git config --global mergetool.keepBackup false
+```
