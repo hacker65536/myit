@@ -7,6 +7,24 @@ git status -s -uno
 
 https://git-scm.com/docs/git-status
 
+
+>where PATH1 is the path in the HEAD, and the " -> PATH2" part is shown only when PATH1 corresponds to a different path in the index/worktree (i.e. the file is renamed). The XY is a two-letter status code.
+
+' ' = unmodified
+
+M = modified
+
+A = added
+
+D = deleted
+
+R = renamed
+
+C = copied
+
+U = updated but unmerged
+
+
 ```
 X          Y     Meaning
 -------------------------------------------------
