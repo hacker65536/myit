@@ -22,6 +22,8 @@ cd !$:r:r
 running as a daemon
 ```
 ./bin/elasticsearch -d -p pid
+
+kill `cat pid`
 ```
 
 
