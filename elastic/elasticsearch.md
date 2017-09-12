@@ -2,8 +2,8 @@
 
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-targz.html
-5.6.0 require java8
 
+5.6.0 require java8
 
 install java8
 ```
