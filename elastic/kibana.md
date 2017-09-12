@@ -26,3 +26,12 @@ kibana started
 $ ps aux|grep [k]ibana
 kibana    6619  9.6  1.6 1190452 128916 pts/0  Sl   05:39   0:02 /usr/share/kibana/bin/../node/bin/node --no-warnings /usr/share/kibana/bin/../src/cli -c /etc/kibana/kibana.yml
 ```
+
+
+configure access from remote
+
+/etc/kibana/kibana.yml
+```
+#server.host: "localhost"
+server.host: "172.31.1.1"
+```
