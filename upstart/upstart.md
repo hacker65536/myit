@@ -64,3 +64,17 @@ tty (/dev/tty6) start/running, process 2765
 update-motd stop/waiting
 
 ```
+
+
+```
+sudo tee /etc/init/testjob.conf > /dev/null <<'EOF'
+description "A test job file for experimenting with Upstart"
+author "Your Name"
+start on runlevel [2345]
+exec echo Test Job ran at  `date` >> /var/log/testjob.log
+EOF
+```
+
+```
+init-checkconf /etc/init/testjob.conf
+```
