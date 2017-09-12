@@ -214,3 +214,40 @@ elasticsearch1 exited with code 78
 elastic_elasticsearch2_1   /bin/bash bin/es-docker   Exit 78
 elasticsearch1             /bin/bash bin/es-docker   Exit 78
 ```
+
+```
+elasticsearch2_1  | [2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+```
+```
+sudo tee -a /etc/sysctl.conf > /dev/null <<'EOF'
+# for elasticsearch cluster on docker
+vm.max_map_count=262144
+EOF
+```
+```
+sudo sysctl -p | grep vm.max_map_count 
+```
+
+temporary
+```
+sudo sysctl -w vm.max_map_count=262144
+```
+```
+elasticsearch2_1  | [1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65536]
+```
+
+add following to docker-compose.yml
+```
+ulimits:
+    nofile:
+       soft: 65536
+       hard: 65536
+```       
+
+```
+$ docker-compose ps
+          Name                     Command           State                Ports
+---------------------------------------------------------------------------------------------
+elastic_elasticsearch2_1   /bin/bash bin/es-docker   Up      9200/tcp, 9300/tcp
+elasticsearch1             /bin/bash bin/es-docker   Up      0.0.0.0:9200->9200/tcp, 9300/tcp
+```
