@@ -16,3 +16,12 @@ resource "aws_codepipeline" "cpl" {
 ```vim
 :%foldclose
 ```
+
+* zr Reduce folding
+* zR open all folds
+* zm fold more
+* zM close all folds
+
+
+
+* zR <-> zM
