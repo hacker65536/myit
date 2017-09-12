@@ -30,7 +30,21 @@ kill `cat pid`
 check elasticsearch is running
 
 ```
-curl -XGET 'localhost:9200/?pretty'
+$ curl -XGET 'localhost:9200/?pretty'
+{
+  "name" : "vnEqLgm",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "XIJ4NZGBRby4T9avtmzdTA",
+  "version" : {
+    "number" : "5.6.0",
+    "build_hash" : "781a835",
+    "build_date" : "2017-09-07T03:09:58.087Z",
+    "build_snapshot" : false,
+    "lucene_version" : "6.6.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+
 ```
 
 
