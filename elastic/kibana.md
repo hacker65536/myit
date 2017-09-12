@@ -31,7 +31,7 @@ kibana    6619  9.6  1.6 1190452 128916 pts/0  Sl   05:39   0:02 /usr/share/kiba
 configure access from remote
 
 /etc/kibana/kibana.yml
-```
+```yml
 #server.host: "localhost"
 server.host: "172.31.1.1"
 ```
