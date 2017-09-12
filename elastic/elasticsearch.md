@@ -78,3 +78,139 @@ CONTAINER ID        IMAGE                                                 COMMAN
 curl -u elastic:changeme  http://127.0.0.1:9200/_cat/health
 1505187934 03:45:34 docker-cluster yellow 1 1 5 5 0 0 5 0 - 50.0%
 ```
+
+docker-compose.yml
+```yml
+version: '2'
+services:
+  elasticsearch1:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.6.0
+    container_name: elasticsearch1
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    mem_limit: 1g
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - esnet
+  elasticsearch2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.6.0
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.zen.ping.unicast.hosts=elasticsearch1"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    mem_limit: 1g
+    volumes:
+      - esdata2:/usr/share/elasticsearch/data
+    networks:
+      - esnet
+
+volumes:
+  esdata1:
+    driver: local
+  esdata2:
+    driver: local
+
+networks:
+  esnet:
+ ```
+ 
+ ```
+ docker-compose up
+ ```
+ have an error
+ ```
+ [ec2-user@ip-172-31-40-124 elastic]$ docker-compose up
+Creating network "elastic_esnet" with the default driver
+Creating elasticsearch1 ...
+Creating elastic_elasticsearch2_1 ...
+Creating elasticsearch1
+Creating elastic_elasticsearch2_1 ... done
+Attaching to elasticsearch1, elastic_elasticsearch2_1
+elasticsearch1    | [2017-09-12T03:54:56,711][INFO ][o.e.n.Node               ] [] initializing ...
+elasticsearch2_1  | [2017-09-12T03:54:56,821][INFO ][o.e.n.Node               ] [] initializing ...
+elasticsearch1    | [2017-09-12T03:54:56,836][INFO ][o.e.e.NodeEnvironment    ] [RaXwWEU] using [1] data paths, mounts [[/usr/share/elasticsearch/data (/dev/xvda1)]], net usable_space [6gb], net total_space [7.7gb], spins? [possibly], types [ext4]
+elasticsearch1    | [2017-09-12T03:54:56,837][INFO ][o.e.e.NodeEnvironment    ] [RaXwWEU] heap size [494.9mb], compressed ordinary object pointers [true]
+elasticsearch1    | [2017-09-12T03:54:56,838][INFO ][o.e.n.Node               ] node name [RaXwWEU] derived from node ID [RaXwWEUgTTyeEeh3XyuGUA]; set [node.name] to override
+elasticsearch1    | [2017-09-12T03:54:56,839][INFO ][o.e.n.Node               ] version[5.6.0], pid[1], build[781a835/2017-09-07T03:09:58.087Z], OS[Linux/4.9.43-17.38.amzn1.x86_64/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/1.8.0_141/25.141-b16]
+elasticsearch1    | [2017-09-12T03:54:56,839][INFO ][o.e.n.Node               ] JVM arguments [-Xms2g, -Xmx2g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -Djdk.io.permissionsUseCanonicalPath=true, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j.skipJansi=true, -XX:+HeapDumpOnOutOfMemoryError, -Des.cgroups.hierarchy.override=/, -Xms512m, -Xmx512m, -Des.path.home=/usr/share/elasticsearch]
+elasticsearch2_1  | [2017-09-12T03:54:56,945][INFO ][o.e.e.NodeEnvironment    ] [mZVjhK5] using [1] data paths, mounts [[/usr/share/elasticsearch/data (/dev/xvda1)]], net usable_space [6gb], net total_space [7.7gb], spins? [possibly], types [ext4]
+elasticsearch2_1  | [2017-09-12T03:54:56,946][INFO ][o.e.e.NodeEnvironment    ] [mZVjhK5] heap size [494.9mb], compressed ordinary object pointers [true]
+elasticsearch2_1  | [2017-09-12T03:54:56,947][INFO ][o.e.n.Node               ] node name [mZVjhK5] derived from node ID [mZVjhK5ATYm2HHuiL5Pjdg]; set [node.name] to override
+elasticsearch2_1  | [2017-09-12T03:54:56,947][INFO ][o.e.n.Node               ] version[5.6.0], pid[1], build[781a835/2017-09-07T03:09:58.087Z], OS[Linux/4.9.43-17.38.amzn1.x86_64/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/1.8.0_141/25.141-b16]
+elasticsearch2_1  | [2017-09-12T03:54:56,948][INFO ][o.e.n.Node               ] JVM arguments [-Xms2g, -Xmx2g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -Djdk.io.permissionsUseCanonicalPath=true, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j.skipJansi=true, -XX:+HeapDumpOnOutOfMemoryError, -Des.cgroups.hierarchy.override=/, -Xms512m, -Xmx512m, -Des.path.home=/usr/share/elasticsearch]
+elasticsearch1    | [2017-09-12T03:54:59,651][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded module [aggs-matrix-stats]
+elasticsearch1    | [2017-09-12T03:54:59,651][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded module [ingest-common]
+elasticsearch1    | [2017-09-12T03:54:59,651][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded module [lang-expression]
+elasticsearch1    | [2017-09-12T03:54:59,651][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded module [lang-groovy]
+elasticsearch1    | [2017-09-12T03:54:59,652][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded module [lang-mustache]
+elasticsearch1    | [2017-09-12T03:54:59,652][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded module [lang-painless]
+elasticsearch1    | [2017-09-12T03:54:59,652][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded module [parent-join]
+elasticsearch1    | [2017-09-12T03:54:59,652][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded module [percolator]
+elasticsearch1    | [2017-09-12T03:54:59,652][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded module [reindex]
+elasticsearch1    | [2017-09-12T03:54:59,652][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded module [transport-netty3]
+elasticsearch1    | [2017-09-12T03:54:59,652][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded module [transport-netty4]
+elasticsearch1    | [2017-09-12T03:54:59,652][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded plugin [ingest-geoip]
+elasticsearch1    | [2017-09-12T03:54:59,653][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded plugin [ingest-user-agent]
+elasticsearch1    | [2017-09-12T03:54:59,653][INFO ][o.e.p.PluginsService     ] [RaXwWEU] loaded plugin [x-pack]
+elasticsearch2_1  | [2017-09-12T03:54:59,778][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded module [aggs-matrix-stats]
+elasticsearch2_1  | [2017-09-12T03:54:59,778][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded module [ingest-common]
+elasticsearch2_1  | [2017-09-12T03:54:59,778][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded module [lang-expression]
+elasticsearch2_1  | [2017-09-12T03:54:59,778][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded module [lang-groovy]
+elasticsearch2_1  | [2017-09-12T03:54:59,778][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded module [lang-mustache]
+elasticsearch2_1  | [2017-09-12T03:54:59,778][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded module [lang-painless]
+elasticsearch2_1  | [2017-09-12T03:54:59,778][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded module [parent-join]
+elasticsearch2_1  | [2017-09-12T03:54:59,778][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded module [percolator]
+elasticsearch2_1  | [2017-09-12T03:54:59,778][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded module [reindex]
+elasticsearch2_1  | [2017-09-12T03:54:59,778][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded module [transport-netty3]
+elasticsearch2_1  | [2017-09-12T03:54:59,779][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded module [transport-netty4]
+elasticsearch2_1  | [2017-09-12T03:54:59,779][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded plugin [ingest-geoip]
+elasticsearch2_1  | [2017-09-12T03:54:59,779][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded plugin [ingest-user-agent]
+elasticsearch2_1  | [2017-09-12T03:54:59,779][INFO ][o.e.p.PluginsService     ] [mZVjhK5] loaded plugin [x-pack]
+elasticsearch1    | [2017-09-12T03:55:03,500][INFO ][o.e.x.m.j.p.l.CppLogMessageHandler] [controller/55] [Main.cc@128] controller (64 bit): Version 5.6.0 (Build 93aea61f57f7d8) Copyright (c) 2017 Elasticsearch BV
+elasticsearch1    | [2017-09-12T03:55:03,529][INFO ][o.e.d.DiscoveryModule    ] [RaXwWEU] using discovery type [zen]
+elasticsearch2_1  | [2017-09-12T03:55:03,958][INFO ][o.e.x.m.j.p.l.CppLogMessageHandler] [controller/54] [Main.cc@128] controller (64 bit): Version 5.6.0 (Build 93aea61f57f7d8) Copyright (c) 2017 Elasticsearch BV
+elasticsearch2_1  | [2017-09-12T03:55:04,044][INFO ][o.e.d.DiscoveryModule    ] [mZVjhK5] using discovery type [zen]
+elasticsearch1    | [2017-09-12T03:55:05,754][INFO ][o.e.n.Node               ] initialized
+elasticsearch1    | [2017-09-12T03:55:05,754][INFO ][o.e.n.Node               ] [RaXwWEU] starting ...
+elasticsearch2_1  | [2017-09-12T03:55:05,955][INFO ][o.e.n.Node               ] initialized
+elasticsearch2_1  | [2017-09-12T03:55:05,955][INFO ][o.e.n.Node               ] [mZVjhK5] starting ...
+elasticsearch1    | [2017-09-12T03:55:06,267][INFO ][o.e.t.TransportService   ] [RaXwWEU] publish_address {172.18.0.3:9300}, bound_addresses {[::]:9300}
+elasticsearch1    | [2017-09-12T03:55:06,294][INFO ][o.e.b.BootstrapChecks    ] [RaXwWEU] bound or publishing to a non-loopback or non-link-local address, enforcing bootstrap checks
+elasticsearch1    | ERROR: [2] bootstrap checks failed
+elasticsearch1    | [1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65536]
+elasticsearch1    | [2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+elasticsearch1    | [2017-09-12T03:55:06,313][INFO ][o.e.n.Node               ] [RaXwWEU] stopping ...
+elasticsearch2_1  | [2017-09-12T03:55:06,438][INFO ][o.e.t.TransportService   ] [mZVjhK5] publish_address {172.18.0.2:9300}, bound_addresses {[::]:9300}
+elasticsearch2_1  | [2017-09-12T03:55:06,464][INFO ][o.e.b.BootstrapChecks    ] [mZVjhK5] bound or publishing to a non-loopback or non-link-local address, enforcing bootstrap checks
+elasticsearch2_1  | ERROR: [2] bootstrap checks failed
+elasticsearch2_1  | [1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65536]
+elasticsearch2_1  | [2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+elasticsearch2_1  | [2017-09-12T03:55:06,485][INFO ][o.e.n.Node               ] [mZVjhK5] stopping ...
+elasticsearch1    | [2017-09-12T03:55:06,569][INFO ][o.e.n.Node               ] [RaXwWEU] stopped
+elasticsearch1    | [2017-09-12T03:55:06,569][INFO ][o.e.n.Node               ] [RaXwWEU] closing ...
+elasticsearch1    | [2017-09-12T03:55:06,589][INFO ][o.e.n.Node               ] [RaXwWEU] closed
+elasticsearch2_1  | [2017-09-12T03:55:06,597][INFO ][o.e.n.Node               ] [mZVjhK5] stopped
+elasticsearch2_1  | [2017-09-12T03:55:06,597][INFO ][o.e.n.Node               ] [mZVjhK5] closing ...
+elasticsearch2_1  | [2017-09-12T03:55:06,658][INFO ][o.e.n.Node               ] [mZVjhK5] closed
+elastic_elasticsearch2_1 exited with code 78
+elasticsearch1 exited with code 78
+[ec2-user@ip-172-31-40-124 elastic]$ docker-compose ps
+          Name                     Command            State    Ports
+--------------------------------------------------------------------
+elastic_elasticsearch2_1   /bin/bash bin/es-docker   Exit 78
+elasticsearch1             /bin/bash bin/es-docker   Exit 78
+```
