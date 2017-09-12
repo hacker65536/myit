@@ -1,5 +1,7 @@
 # elasticsearch install
 
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-targz.html
 5.6.0 require java8
 
 
@@ -17,6 +19,9 @@ cd !$:r:r
 ./bin/elasticsearch
 ```
 
+
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
 
 docker (unnecessary java8)
 ```
