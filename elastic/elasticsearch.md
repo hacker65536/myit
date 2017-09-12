@@ -73,3 +73,8 @@ $ docker ps
 CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                              NAMES
 891c26b8ce7d        docker.elastic.co/elasticsearch/elasticsearch:5.6.0   "/bin/bash bin/es-..."   18 seconds ago      Up 17 seconds       0.0.0.0:9200->9200/tcp, 9300/tcp   laughing_shannon
 ```
+
+```
+curl -u elastic:changeme  http://127.0.0.1:9200/_cat/health
+1505187934 03:45:34 docker-cluster yellow 1 1 5 5 0 0 5 0 - 50.0%
+```
