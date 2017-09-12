@@ -251,3 +251,8 @@ $ docker-compose ps
 elastic_elasticsearch2_1   /bin/bash bin/es-docker   Up      9200/tcp, 9300/tcp
 elasticsearch1             /bin/bash bin/es-docker   Up      0.0.0.0:9200->9200/tcp, 9300/tcp
 ```
+
+```
+$ curl -u elastic:changeme  http://127.0.0.1:9200/_cat/health
+1505193271 05:14:31 docker-cluster green 2 2 8 4 0 0 0 0 - 100.0%
+```
