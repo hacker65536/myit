@@ -13,7 +13,7 @@ input mailaddress and password
 access to netstrage
 ----------------
 
-ストレージグループの作成はakamaiに依頼？
+ストレージグループの作成はakamaiに事前に依頼(なのか？)
 
 
 ```
