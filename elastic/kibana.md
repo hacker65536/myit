@@ -38,3 +38,12 @@ server.host: "172.31.1.1"
 ```
 sudo service kibana restart
 ```
+
+
+docker (The images are shipped with X-Pack installed.)
+
+https://github.com/elastic/kibana-docker/tree/5.6
+
+```
+docker pull docker.elastic.co/kibana/kibana:5.6.0
+```
