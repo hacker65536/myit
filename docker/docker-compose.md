@@ -10,7 +10,10 @@ $ docker-compose --version
 docker-compose version 1.11.2, build dfed245
 ```
 
-
+pip
+```
+pip install docker-compose
+```
 
 command
 -----------------
