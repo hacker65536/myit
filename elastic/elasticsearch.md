@@ -19,6 +19,11 @@ cd !$:r:r
 ./bin/elasticsearch
 ```
 
+running as a daemon
+```
+./bin/elasticsearch -d -p pid
+```
+
 
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
