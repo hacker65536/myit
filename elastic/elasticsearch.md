@@ -27,6 +27,12 @@ kill `cat pid`
 ```
 
 
+check elasticsearch is running
+
+```
+curl -XGET 'localhost:9200/?pretty'
+```
+
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
 
