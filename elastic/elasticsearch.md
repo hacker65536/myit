@@ -1,5 +1,6 @@
 # elasticsearch install
 
+from source
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-targz.html
 
@@ -46,6 +47,47 @@ $ curl -XGET 'localhost:9200/?pretty'
 }
 
 ```
+
+rpm
+```
+rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+sudo tee -a /etc/yum.repos.d/elasticsearch.repo > /dev/null <<'EOF'
+[elasticsearch-5.x]
+name=Elasticsearch repository for 5.x packages
+baseurl=https://artifacts.elastic.co/packages/5.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md
+EOF
+```
+```
+sudo yum isntall -y elasticsearch
+sudo chkconfig --add elasticsearch
+```
+
+```
+sudo service elasticsearch start
+Starting elasticsearch: Elasticsearch requires at least Java 8 but your Java version from /usr/bin/java does not meet this requirement
+                                                           [FAILED]
+```
+
+install java8
+```
+sudo yum install java-1.8.0
+sudo alternatives --set java  /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/bin/java
+```
+
+run
+```
+$ sudo service elasticsearch start
+Starting elasticsearch:                                    [  OK  ]
+$ ps aux|grep elast
+498       6463  100 30.4 5768532 2332624 ?     Sl   05:34   0:13 /usr/bin/java -Xms2g -Xmx2g -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+AlwaysPreTouch -server -Xss1m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djna.nosys=true -Djdk.io.permissionsUseCanonicalPath=true -Dio.netty.noUnsafe=true -Dio.netty.noKeySetOptimization=true -Dio.netty.recycler.maxCapacityPerThread=0 -Dlog4j.shutdownHookEnabled=false -Dlog4j2.disable.jmx=true -Dlog4j.skipJansi=true -XX:+HeapDumpOnOutOfMemoryError -Des.path.home=/usr/share/elasticsearch -cp /usr/share/elasticsearch/lib/* org.elasticsearch.bootstrap.Elasticsearch -p /var/run/elasticsearch/elasticsearch.pid -d -Edefault.path.logs=/var/log/elasticsearch -Edefault.path.data=/var/lib/elasticsearch -Edefault.path.conf=/etc/elasticsearch
+ec2-user  6517  0.0  0.0 110468  2128 pts/0    S+   05:34   0:00 grep --color=auto elast
+```
+
 
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
