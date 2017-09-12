@@ -35,3 +35,6 @@ configure access from remote
 #server.host: "localhost"
 server.host: "172.31.1.1"
 ```
+```
+sudo service kibana restart
+```
