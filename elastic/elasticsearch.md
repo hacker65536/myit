@@ -256,3 +256,10 @@ elasticsearch1             /bin/bash bin/es-docker   Up      0.0.0.0:9200->9200/
 $ curl -u elastic:changeme  http://127.0.0.1:9200/_cat/health
 1505193271 05:14:31 docker-cluster green 2 2 8 4 0 0 0 0 - 100.0%
 ```
+
+```
+$ docker stats
+CONTAINER           CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+1e2a86a323a0        0.39%               901 MiB / 1 GiB     87.99%              1.74 MB / 1.72 MB   0 B / 2.78 MB       0
+66e88b3de688        0.34%               912.9 MiB / 1 GiB   89.15%              1.73 MB / 1.74 MB   434 kB / 2.47 MB    0
+```
