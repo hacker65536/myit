@@ -17,3 +17,9 @@ EOF
 ```
 sudo yum install logstash
 ```
+
+amazon ami
+```
+sudo /usr/share/logstash/bin/system-install
+Successfully created system startup script for Logstash
+```
