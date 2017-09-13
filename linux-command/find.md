@@ -1,4 +1,10 @@
 
+
+
+* -exec command ; 
+* -exec command {} + 
+
+
 * -type c file is of type c
 * -type f regular file
 * -type l symbolic link
