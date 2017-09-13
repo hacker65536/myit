@@ -16,3 +16,10 @@ logから変更したファイルを確認
 git log --stat 
 git log --stat --oneline # simplified 
 ```
+
+
+commitの差分確認
+-------------
+```
+git diff SHA^..SHA
+```
