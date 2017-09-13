@@ -1,5 +1,5 @@
 
-
+* -depth 
 
 * -exec command ; 
 * -exec command {} + 
