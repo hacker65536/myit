@@ -14,5 +14,5 @@ logから変更したファイルを確認
 --------------
 ```
 git log --stat 
-git log --stat --oneline
+git log --stat --oneline # simplified 
 ```
