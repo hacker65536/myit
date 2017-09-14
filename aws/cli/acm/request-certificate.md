@@ -39,3 +39,19 @@ https://ap-northeast-1.certificates.amazon.com/approvals?code=00000000-0000-0000
 
 
 
+```bash
+#!/bin/bash
+
+
+validationdomain="mydomain.com"
+# get namespace from environament
+pushd ../route53/
+subdomain=$(terraform workspace show)
+popd
+domain="*.${subdomain}.${validationdomain}"
+
+
+
+#echo $subdomain
+aws acm request-certificate --domain-name ${domain} --domain-validation-options DomainName=${domain},ValidationDomain=${validationdomain}
+```
