@@ -1,4 +1,6 @@
 
+http://powerline.readthedocs.io/en/master/installation.html
+
 
 for amzlinux
 ```
