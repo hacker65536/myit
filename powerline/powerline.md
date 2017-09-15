@@ -36,3 +36,13 @@ EOF
 ```
 chmod +x ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 ```
+
+vimrc
+
+```
+cat <<'EOF' >> ~/.vimrc
+set  rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
+EOF
+```
