@@ -47,3 +47,8 @@ set laststatus=2
 set t_Co=256
 EOF
 ```
+
+windows putty
+
+download font from  
+https://github.com/powerline/fonts/tree/master/DejaVuSansMono
