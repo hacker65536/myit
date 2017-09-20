@@ -16,4 +16,4 @@ set -o histexpand
 echo aaa
 echo !$
 ```
-this is work well
+this work well
