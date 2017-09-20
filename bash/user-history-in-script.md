@@ -21,6 +21,7 @@ this dont work
 
 set -o history
 set -o histexpand
+# or set -H
 echo aaa
 echo !$
 ```
