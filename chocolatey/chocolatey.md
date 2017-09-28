@@ -1,6 +1,9 @@
 
 # cocolatey
 
+package manager for windows  
+likely homebrew 
+
 ## install
 
 https://chocolatey.org/
