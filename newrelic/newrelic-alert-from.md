@@ -60,3 +60,22 @@ terraform apply
 
 ![newrelic alert0](./newlic_alert_ss0.png)
 ![newrelic alert1](./newlic_alert_ss1.png)
+
+
+trouble shoot
+-----------------
+```
+Error applying plan:
+
+1 error(s) occurred:
+
+* newrelic_alert_condition.foo: 1 error(s) occurred:
+
+* newrelic_alert_condition.foo: `condition_scope` must be `application` or `instance`.
+```
+
+```
+1 error(s) occurred:
+
+* newrelic_alert_condition.foo: expected term.0.duration to be one of [5 10 15 30 60 120], got 6
+```
