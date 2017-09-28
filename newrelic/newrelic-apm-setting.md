@@ -7,7 +7,7 @@ sudo newrelic-install install #type api_key
 ```
 
 
-``
+```
 vim -R  /etc/php.d/newrelic.ini
 ```
 
