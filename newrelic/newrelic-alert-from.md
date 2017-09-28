@@ -20,6 +20,7 @@ resource "newrelic_alert_condition" "foo" {
 
   name        = "foo"
   type        = "apm_app_metric"
+  condition_scope = "application"
   entities    = ["12345"]                             # You can look this up in New Relic
   metric      = "apdex"
   runbook_url = "https://docs.example.com/my-runbook"
