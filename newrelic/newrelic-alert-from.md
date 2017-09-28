@@ -51,3 +51,12 @@ resource "newrelic_alert_policy_channel" "alert_email" {
   channel_id = "${newrelic_alert_channel.email.id}"
 }
 ```
+
+```
+terraform init
+terraform plan
+terraform apply
+```
+
+![newrelic alert0](./newlic_alert_ss0.png)
+![newrelic alert1](./newlic_alert_ss1.png)
