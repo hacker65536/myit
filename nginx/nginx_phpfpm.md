@@ -47,7 +47,7 @@ listen.acl_users = apache,nginx
 
 ```
 mkdir -p /var/www
-echo -n "<?php\nphpinfo();" >/var/www/index.php
+echo -e "<?php\nphpinfo();" >/var/www/index.php
 ```
 
 ```
