@@ -36,9 +36,20 @@ hostname -i
 172.31.23.50
 ```
 
+/etc/php-fpm.d/www.conf
+
 ```ini
 ;listen = 127.0.0.1:9000
 listen = 0.0.0.0:9000
 listen.acl_users = apache,nginx
 ;listen.allowed_clients = 127.0.0.1
+```
+
+```
+mkdir -p /var/www
+echo -n "<?php\nphpinfo();" >/var/www/index.php
+```
+
+```
+service php-fpm restart
 ```
