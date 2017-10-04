@@ -1,6 +1,7 @@
 
 
 nginx server
+------------
 ```
 yum install -y nginx
 ```
@@ -20,5 +21,24 @@ yum install -y nginx
 ```
 
 ```
-service nginx reload
+service nginx start
+```
+
+
+php-fpm
+-------------------
+
+```
+yum install -y php56-fpm
+```
+```
+hostname -i
+172.31.23.50
+```
+
+```ini
+;listen = 127.0.0.1:9000
+listen = 0.0.0.0:9000
+listen.acl_users = apache,nginx
+;listen.allowed_clients = 127.0.0.1
 ```
