@@ -42,4 +42,11 @@ Oct 04 11:13:21 ip-172-31-38-84 systemd[1]: Started NTP client/server.
 Oct 04 11:13:26 ip-172-31-38-84 chronyd[9302]: Selected source 45.33.84.208
 ```
 
-
+lines
+```
+journalctl -n 100
+```
+boot message
+```
+journalctl -b 
+```
