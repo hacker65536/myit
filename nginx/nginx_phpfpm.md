@@ -53,3 +53,7 @@ echo -e "<?php\nphpinfo();" >/var/www/index.php
 ```
 service php-fpm restart
 ```
+
+
+
+access to http&#58;//<nignxglobalip/index.php
