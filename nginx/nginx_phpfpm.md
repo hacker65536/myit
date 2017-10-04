@@ -56,4 +56,4 @@ service php-fpm restart
 
 
 
-access to http&#58;//<nignxglobalip/index.php
+access to http&#58;//<nignxglobalip>/index.php
