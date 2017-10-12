@@ -294,4 +294,20 @@ http {
 }
 ```
 
+`cat /etc/nginx/conf.d/virtual.conf`
+```nginxconf
+#
+# A virtual host using mix of IP-, name-, and port-based configuration
+#
 
+#server {
+#    listen       8000;
+#    listen       somename:8080;
+#    server_name  somename  alias  another.alias;
+
+#    location / {
+#        root   html;
+#        index  index.html index.htm;
+#    }
+#}
+```
