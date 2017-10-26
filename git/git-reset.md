@@ -14,3 +14,13 @@ git add .
 git commit --amend
 ```
 
+localでmergeしたりとcommitをすすめてしまった場合
+```bash
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+```
+```
+git reset --hard origin/master
+```
