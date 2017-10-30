@@ -30,8 +30,12 @@ php composer.phar require aws/aws-sdk-php
 // Include the SDK using the Composer autoloader
 require 'vendor/autoload.php';
 
-$s3 = new Aws\S3\S3Client([
+$client = new Aws\Ec2\Ec2Client([
     'version' => 'latest',
     'region'  => 'us-east-1'
 ]);
+
+$result = $client->describeVpcs();
+var_dump($result);
+
 ```
