@@ -130,3 +130,25 @@ You are logged in as: xxxxxx@xxxxxxxxxxxxxx
 
 - Pick project [4] xxxxxxxxxxxxx
 - specify a zone  [4] asia-northeast1-a
+
+
+apis&reference
+-------------
+
+https://cloud.google.com/sdk/gcloud/reference/?hl=ja
+
+
+```
+gcloud app describe
+
+authDomain: gmail.com
+codeBucket: staging.testproject-1111111.appspot.com
+defaultBucket: testproject-1111111.appspot.com
+defaultHostname: testproject-1111111.appspot.com
+featureSettings: {}
+gcrDomain: us.gcr.io
+id: testproject-1111111
+locationId: us-central
+name: apps/testproject-1111111
+servingStatus: SERVING
+```
