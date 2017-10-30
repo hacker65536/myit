@@ -91,7 +91,7 @@ if [ -f '/home/ec2-user/google-cloud-sdk/completion.bash.inc' ]; then source '/h
 ```
 
 append
-```
+```bash
 export CLOUDSDK_PYTHON=/usr/bin/python2.7
 ```
 
