@@ -24,7 +24,7 @@ curl -sSL https://getcomposer.org/installer | php
 php composer.phar require aws/aws-sdk-php
 ```
 
-
+vpcs.php
 ```php
 <?php
 // Include the SDK using the Composer autoloader
@@ -38,4 +38,9 @@ $client = new Aws\Ec2\Ec2Client([
 $result = $client->describeVpcs();
 var_dump($result);
 
+```
+
+
+```
+php vpcs.php
 ```
