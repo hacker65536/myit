@@ -1,0 +1,41 @@
+execute pathogen#infect()
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
+
+".vimrc
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" for jsx
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+se nu
+se nowrap
+
+"
+"hi DiffAdd      gui=none    guifg=NONE          guibg=#bada9f
+"hi DiffChange   gui=none    guifg=NONE          guibg=#e5d5ac
+"hi DiffDelete   gui=bold    guifg=#ff8080       guibg=#ffb0b0
+"hi DiffText     gui=none    guifg=NONE          guibg=#8cbee2
+"
+"highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
+"highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
+"highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
+"highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
+"
+hi DiffAdd    ctermfg=black ctermbg=2
+hi DiffChange ctermfg=black ctermbg=3
+hi DiffDelete ctermfg=black ctermbg=6
+hi DiffText   ctermfg=black ctermbg=7
+" Powerline
+"
+"
+set  rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
