@@ -90,6 +90,12 @@ if [ -f '/home/ec2-user/google-cloud-sdk/path.bash.inc' ]; then source '/home/ec
 if [ -f '/home/ec2-user/google-cloud-sdk/completion.bash.inc' ]; then source '/home/ec2-user/google-cloud-sdk/completion.bash.inc'; fi
 ```
 
+append
+```
+export CLOUDSDK_PYTHON=/usr/bin/python2.7
+```
+
+
 ```
 exec -l $SHELL
 ```
