@@ -139,7 +139,7 @@ https://cloud.google.com/sdk/gcloud/reference/?hl=ja
 
 
 ```
-gcloud app describe
+$ gcloud app describe
 
 authDomain: gmail.com
 codeBucket: staging.testproject-1111111.appspot.com
