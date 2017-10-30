@@ -1,8 +1,21 @@
 
+
+http://docs.aws.amazon.com/aws-sdk-php/v3/guide/
+
+require
+--------------
+ `PHP >= 5.5.0`
+
+### optimal
+
+- cURL 7.16.2
+- OPCache
+- uninstall xdebug
+- use comoser classmap autoloader 
+
 from composer
+----------------
 
-
-require php
 
 ```
 mkdir awssdkphp
