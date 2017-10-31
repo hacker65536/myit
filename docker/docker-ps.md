@@ -22,6 +22,7 @@ latest container ID
 docker ps -ql
 ```
 
+show size
 ```
 docker ps -s
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES                 SIZE
