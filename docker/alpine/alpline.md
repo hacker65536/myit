@@ -73,3 +73,15 @@ Executing mkinitfs-3.0.5-r1.post-install
 (52/52) Installing .builddeps (0)
 Executing busybox-1.24.2-r13.trigger
 ```
+
+dockerfile (e.g.
+```Dockerfile
+FROM python:2.7-alpine
+RUN apk add --no-cache --virtual .builddeps alpine-sdk && \
+    pip install locustio pyzmq  && \
+    apk del .builddeps && \
+    mkdir /locust
+Add locustfile.py /locust/locustfile.py
+EXPOSE 5557 5558 8089
+ENTRYPOINT ["/usr/local/bin/locust", "-f", "/locust/locustfile.py"]
+```
