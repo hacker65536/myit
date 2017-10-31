@@ -21,3 +21,11 @@ latest container ID
 ```
 docker ps -ql
 ```
+
+```
+docker ps -s
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES                 SIZE
+d300aa18e0a2        nginx               "nginx -g 'daemon ..."   7 seconds ago       Up 6 seconds        80/tcp              flamboyant_thompson   2 B (virtual 107 MB)
+```
+
+writable size (virtual read-only size)
