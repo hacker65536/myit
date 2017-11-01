@@ -54,3 +54,8 @@ Add locustfile.py /locust/locustfile.py
 EXPOSE 5557 5558 8089
 ENTRYPOINT ["/usr/local/bin/locust", "-f", "/locust/locustfile.py"]
 ```
+
+```
+docker build . -t customlocust
+docker run -d -p 8089:8089 customlocust -H http://xxxxxxxx.us-east-2.elb.amazonaws.com
+```
