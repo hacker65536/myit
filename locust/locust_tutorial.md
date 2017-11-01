@@ -44,3 +44,13 @@ access http://127.0.0.1:8089
 docker 
 -----------
 
+```Dockerfile
+FROM python:2.7-alpine
+RUN apk add --no-cache --virtual .builddeps alpine-sdk && \
+    pip install locustio pyzmq  && \
+    apk del .builddeps && \
+    mkdir /locust
+Add locustfile.py /locust/locustfile.py
+EXPOSE 5557 5558 8089
+ENTRYPOINT ["/usr/local/bin/locust", "-f", "/locust/locustfile.py"]
+```
