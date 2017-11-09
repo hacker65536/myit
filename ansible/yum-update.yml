@@ -1,0 +1,6 @@
+# http://docs.ansible.com/ansible/latest/yum_module.html
+
+- name: yum update
+  yum: name='*' state=latest
+  
+  
