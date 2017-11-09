@@ -25,7 +25,7 @@ CONTAINER           CPU %               MEM USAGE / LIMIT   MEM %               
 66e88b3de688        0.76%               914.7 MiB / 1 GiB   89.33%              2.18 MB / 2.15 MB   434 kB / 2.99 MB    0
 ```
 
-show cotianername
+show contianername
 ```
 $ docker stats $(docker ps --format={{.Names}})
 ```
