@@ -62,3 +62,11 @@ Journal backup:           inode blocks
 - Check interval: 0 (<none>)
 
 
+
+maximum mount count -> 0 (-1)
+check interval -> 0 
+```
+tune2fs -c 0 -i 0 /dev/xvda1
+```
+
+
