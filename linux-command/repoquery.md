@@ -5,6 +5,19 @@
 yum -y install yum-utils
 ```
 
+```bash
+rpm -ql
+```
+
+like as this command.  
+"rpm" command can only use for the local package that are installed or downloaded.  
+"repoquery" can give information from yum repositories without install package.
+
+## options
+
+- -i show general information about package similarly to "rpm -qi"
+- -l list files in package.
+- -s show package source rpm name.
 
 ## example
 ```
@@ -20,20 +33,6 @@ yum -y install yum-utils
 /usr/bin/repo-rss
 ...
 ```
-
-```bash
-rpm -ql
-```
-
-like as this command.  
-"rpm" command can only use for the local package that are installed or downloaded.  
-"repoquery" can give information from yum repositories without install package.
-
-## options
-
-- -i show general information about package similarly to "rpm -qi"
-- -l list files in package.
-- -s show package source rpm name.
 
 
 ```
