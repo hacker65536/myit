@@ -1,5 +1,8 @@
 
 `StrictHostKeyChecking no`
+- ask(default)
+- yes
+- no
 
 
 sshconfig
@@ -14,3 +17,4 @@ command
 ```
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null servername.com
 ```
+
