@@ -1,4 +1,9 @@
 ```
+$docker run -d php:5-fpm-alpine
+$ docker exec -it $(docker ps -q ) sh
+/var/www/html # php -i
+```
+```
 phpinfo()
 PHP Version => 5.6.32
 
