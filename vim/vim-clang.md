@@ -2,6 +2,7 @@ https://github.com/justmao945/vim-clang
 
 
 ```bash
+sudo yum install clang
 cd ~/.vim/bundle; git clone https://github.com/justmao945/vim-clang.git
 
 cat <<'EOF' >> ~/.vimrc
