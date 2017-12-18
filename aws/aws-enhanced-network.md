@@ -12,7 +12,7 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html
   
   
 
- c4
+## c4
 ```
 [centos@ip-172-31-2-23 ~]$ cat /etc/centos-release
 CentOS Linux release 7.4.1708 (Core)
@@ -145,7 +145,7 @@ Cannot get wake-on-lan settings: Operation not permitted
 
 
 
-c5
+## c5
 ```
 [centos@ip-172-31-8-163 ~]$ cat /etc/centos-release
 CentOS Linux release 7.4.1708 (Core)
@@ -265,7 +265,7 @@ Cannot get wake-on-lan settings: Operation not permitted
 ```
 
 
-change type
+## change type
 ```
 [centos@ip-172-31-8-163 ~]$ curl http://169.254.169.254/latest/meta-data/instance-type;echo
 c4.xlarge
