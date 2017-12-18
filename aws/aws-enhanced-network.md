@@ -10,7 +10,9 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html
 - Elastic Network Adapter (ENA)
   - C5, F1, G3, H1, I3, M5, P2, P3, R4, X1, and m4.16xlarge
   
-  
+
+only HVM
+
 
 ## c4
 ```
