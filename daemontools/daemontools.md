@@ -57,4 +57,8 @@ TimeoutSec=0
 [Install]
 WantedBy=multi-user.target
 EOF
+
+systemctl enable daemontools
+systemctl start daemontools
+```
 ```
