@@ -4,13 +4,13 @@ https://cr.yp.to/daemontools/install.html
 yum install -y patch gcc
 ```
 
-```
+```bash
 mkdir -p /package
 chmod 1755 /package
 cd /package
 ```
 
-```
+```bash
 curl -SsL -O https://cr.yp.to/daemontools/daemontools-0.76.tar.gz
 tar zxvf !$:t
 cd admin/daemontools-0.76/
