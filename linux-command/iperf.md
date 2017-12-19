@@ -14,8 +14,8 @@ server
 -----------------------------------------------------------
 Server listening on 5201
 -----------------------------------------------------------
-Accepted connection from 18.216.22.139, port 41654
-[  5] local 172.31.7.232 port 5201 connected to 18.216.22.139 port 41656
+Accepted connection from 11.11.11.11, port 41654
+[  5] local 172.31.7.232 port 5201 connected to 11.11.11.11 port 41656
 [ ID] Interval           Transfer     Bandwidth
 [  5]   0.00-1.00   sec  9.25 MBytes  77.6 Mbits/sec
 [  5]   1.00-2.00   sec  20.9 MBytes   175 Mbits/sec
@@ -40,9 +40,9 @@ Server listening on 5201
 
 clietn
 ```
-[root@ip-172-31-15-69 ~]# iperf3 -c 52.89.38.202
-Connecting to host 52.89.38.202, port 5201
-[  4] local 172.31.15.69 port 41656 connected to 52.89.38.202 port 5201
+[root@ip-172-31-15-69 ~]# iperf3 -c 22.22.22.22
+Connecting to host 22.22.22.22, port 5201
+[  4] local 172.31.15.69 port 41656 connected to 22.22.22.22 port 5201
 [ ID] Interval           Transfer     Bandwidth       Retr  Cwnd
 [  4]   0.00-1.00   sec  12.6 MBytes   106 Mbits/sec    0   3.00 MBytes
 [  4]   1.00-2.00   sec  21.2 MBytes   178 Mbits/sec    0   3.00 MBytes
