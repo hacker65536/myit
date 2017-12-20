@@ -21,3 +21,20 @@ gcloud beta container --project "gke-pj-test" clusters create "cluster-2" \
 --subnetwork "default" \
 --enable-legacy-authorization
 ```
+
+too early
+```
+Welcome to Cloud Shell! Type "help" to get started.
+myname@gke-pj-test:~$ gcloud container clusters get-credentials cluster-2 --zone us-central1-a --project gke-pj-test
+Fetching cluster endpoint and auth data.
+WARNING: cluster cluster-1 is not running. The kubernetes API may not be available.
+```
+
+success
+```
+kubeconfig entry generated for cluster-1.
+myname@gke-pj-test:~$ gcloud container clusters get-credentials cluster-2 --zone us-central1-a --project gke-pj-test
+Fetching cluster endpoint and auth data.
+kubeconfig entry generated for cluster-1.
+myname@gke-pj-test:~$
+```
