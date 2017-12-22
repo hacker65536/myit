@@ -8,6 +8,7 @@ like tail -f
 journalctl -f
 ```
 
+unitname
 ```
 journalctl -u unitname
 ```
