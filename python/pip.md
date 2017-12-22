@@ -1,4 +1,9 @@
 
+version
+```
+pip -V
+```
+
 package list
 ```
 pip list
