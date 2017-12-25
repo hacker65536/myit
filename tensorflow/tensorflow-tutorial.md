@@ -1,12 +1,15 @@
 
 https://www.katacoda.com/basiafusinska/courses/tensorflow-getting-started/tensorflow-core
 
-```
- docker exec -it $(docker ps -q -f ancestor=tensorflow/tensorflow) bash
+```bash
+$ docker exec -it $(docker ps -q -f ancestor=tensorflow/tensorflow) bash
 root@85b43d28a0fc:/notebooks# python
 Python 2.7.12 (default, Nov 20 2017, 18:23:56)
 [GCC 5.4.0 20160609] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
+```
+
+```python
 >>> import tensorflow as tf
 >>> input1 = tf.constant(2.0)
 >>> input2 = tf.constant(5.0)
