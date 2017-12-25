@@ -48,7 +48,9 @@ set t_Co=256
 EOF
 ```
 
-windows putty
+if use putty(windows)
 
 download font from  
 https://github.com/powerline/fonts/tree/master/DejaVuSansMono
+
+window -> Appearance -> Font settings -> DejaVu Sans Mono for Powerline
