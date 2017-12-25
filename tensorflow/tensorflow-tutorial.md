@@ -9,7 +9,7 @@ Python 2.7.12 (default, Nov 20 2017, 18:23:56)
 Type "help", "copyright", "credits" or "license" for more information.
 ```
 
-```python
+```
 >>> import tensorflow as tf
 >>> input1 = tf.constant(2.0)
 >>> input2 = tf.constant(5.0)
