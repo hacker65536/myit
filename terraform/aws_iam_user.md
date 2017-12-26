@@ -22,7 +22,7 @@ gpg --batch --gen-key gen-key-script
 ```
 
 ```
-gpg --export myname | base64 | tr -d '\n' > gpg_key
+gpg --export $NAME_REAL | base64 | tr -d '\n' > gpg_key
 ```
 
 # terraform template
