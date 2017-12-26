@@ -73,5 +73,5 @@ output "iam_id" {
 
 
 ```
-terraform output iam_secret | base64 -d | gpg -d
+terraform output iam_secret | base64 -d | gpg -d 2>/dev/null ;echo
 ```
