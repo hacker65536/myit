@@ -90,7 +90,7 @@ EOF
 
 
 ```
-sudo yum isntall -y elasticsearch
+sudo yum install -y elasticsearch
 sudo chkconfig --add elasticsearch
 ```
 
