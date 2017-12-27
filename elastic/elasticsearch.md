@@ -91,7 +91,18 @@ EOF
 
 ```
 sudo yum install -y elasticsearch
+```
+
+```
 sudo chkconfig --add elasticsearch
+# or 
+sudo systemctl enable elasticsearch
+```
+
+```
+sudo service elasticsearch start
+# or
+sudo systemctl start elasticsearch
 ```
 
 ```
@@ -115,6 +126,11 @@ $ ps aux|grep elast
 ec2-user  6517  0.0  0.0 110468  2128 pts/0    S+   05:34   0:00 grep --color=auto elast
 ```
 
+```
+sudo journalctl -u elasticsearch 
+# or
+sudo journalctl -f
+```
 
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
