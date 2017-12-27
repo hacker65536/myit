@@ -56,9 +56,12 @@ rpm
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html
 
-5
 ```
 rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+```
+
+5
+```
 sudo tee -a /etc/yum.repos.d/elasticsearch.repo > /dev/null <<'EOF'
 [elasticsearch-5.x]
 name=Elasticsearch repository for 5.x packages
