@@ -57,7 +57,7 @@ rpm
 https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html
 
 ```
-rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+sudo rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
 ```
 
 5
