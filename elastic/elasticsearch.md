@@ -1,10 +1,9 @@
 
-
-
-
-
-https://www.elastic.co/downloads/elasticsearch
 ## elasticsearch install
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html#install-elasticsearch
+
+
 from source
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-targz.html
