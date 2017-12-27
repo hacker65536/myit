@@ -53,6 +53,10 @@ $ curl -XGET 'localhost:9200/?pretty'
 ```
 
 rpm
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html
+
+5
 ```
 rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
 sudo tee -a /etc/yum.repos.d/elasticsearch.repo > /dev/null <<'EOF'
@@ -66,6 +70,22 @@ autorefresh=1
 type=rpm-md
 EOF
 ```
+
+6
+```
+sudo tee -a /etc/yum.repos.d/elasticsearch.repo > /dev/null <<'EOF'
+[elasticsearch-6.x]
+name=Elasticsearch repository for 6.x packages
+baseurl=https://artifacts.elastic.co/packages/6.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md
+EOF
+```
+
+
 ```
 sudo yum isntall -y elasticsearch
 sudo chkconfig --add elasticsearch
