@@ -46,3 +46,8 @@ git log --all
 ```
 git log --stat
 ```
+
+
+```
+git log --reverse
+```
