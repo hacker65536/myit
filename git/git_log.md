@@ -37,6 +37,11 @@ git log --grep="comment"
 git log --merges
 ```
 
+```
+git log --reverse
+```
+
+
 all branch
 ```
 git log --all
@@ -48,6 +53,3 @@ git log --stat
 ```
 
 
-```
-git log --reverse
-```
