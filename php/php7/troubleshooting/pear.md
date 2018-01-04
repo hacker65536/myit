@@ -22,6 +22,10 @@ Amazon Linux release 2.0 (2017.12) LTS Release Candidate
 ```
 
 ```
+sudo yum install php-pear
+```
+
+```
 $ pecl install zip
 PHP Parse error:  syntax error, unexpected 'new' (T_NEW) in /usr/share/pear/PEAR/Frontend.php on line 91
 ```
