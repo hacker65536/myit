@@ -22,3 +22,23 @@ gpgcheck=0
 enabled=1
 EOF
 ```
+```
+sudo bash -c 'cat <<"EOF" > /etc/yum.repos.d/nginx.repo
+[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/7/$basearch/
+gpgcheck=0
+enabled=1
+EOF'
+```
+
+```
+yum install nginx
+```
+
+```
+$ sudo yum list installed nginx
+Loaded plugins: langpacks, update-motd
+Installed Packages
+nginx.x86_64                               1:1.12.2-1.el7_4.ngx                               @nginx
+```
