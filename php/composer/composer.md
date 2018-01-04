@@ -11,6 +11,10 @@ php -r "unlink('composer-setup.php');"
 ```
 
 ```
+curl -sS https://getcomposer.org/installer | php
+```
+
+```
 curl -sS https://getcomposer.org/installer | php -- --install-dir=bin
 ```
 
