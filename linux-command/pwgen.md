@@ -6,7 +6,7 @@ yum install pwgen
 
 [pw_length] [num_pw]
 ```
-pwgen 12 1
+pwgen -sy 16 1
 ```
 
 - -y symbols
