@@ -28,3 +28,6 @@ systemctl kill --singnal=9 <service>
 systemctl start/stop/restart/status/reload <service>
 ```
 
+```
+systemctl list-unit-files |grep enabled
+```
