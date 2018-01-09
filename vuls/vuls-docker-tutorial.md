@@ -2,15 +2,15 @@
 https://github.com/future-architect/vuls/tree/master/setup/docker
 
 
-# step 1
+# step 1 mkdir
 ```
 mkdir vuls
 cd !$
 ```
 
-# step 2
+# step 2 fetch NVD
 ```
-for i in `seq 2016 $(date +"%Y")`; do \
+for i in `seq 2002 $(date +"%Y")`; do \
     docker run --rm -it \
     -v $PWD:/vuls \
     -v $PWD/go-cve-dictionary-log:/var/log/vuls \
@@ -19,7 +19,7 @@ for i in `seq 2016 $(date +"%Y")`; do \
 ```  
 
 
-# step 2
+# step 2 fetch OVAL
 
 ```
 docker run --rm -it \
@@ -28,7 +28,7 @@ docker run --rm -it \
     vuls/goval-dictionary fetch-redhat 5 6 7
 ```
 
-# step 3
+# step 3 ssh-key
 
 ```
 $ ls id_rsa
@@ -36,7 +36,7 @@ id_rsa
 ```
 be ready
 
-# step 4
+# step 4 configuration
 ```
 cat <<'EOF' > config.toml
 [servers]
@@ -52,7 +52,7 @@ EOF
 
 
 
-# step 5
+# step 5 configtest
 ```
 docker run --rm -it\
     -v $PWD:/vuls \
@@ -64,7 +64,7 @@ docker run --rm -it\
 
 need `--ssh-native-insecure` beacuse  default use `StrictHostKeyChecking=yes`
 
-# step 6
+# step 6 scan
 ```
 docker run --rm -it\
     -v $PWD:/vuls \
@@ -76,7 +76,7 @@ docker run --rm -it\
     -config=./config.toml # path to config.toml in docker
 ```
 
-# step 7
+# step 7 report
 ```
 docker run --rm -it \
     -v $PWD:/vuls \
@@ -90,7 +90,7 @@ docker run --rm -it \
 ```
 
 
-# step 8
+# step 8 report with web
 ```
 docker run -dt \
     -v $PWD:/vuls \
