@@ -99,3 +99,23 @@ docker run -dt \
 ```
 
 check web:5111
+
+
+# step 9 tui
+```
+docker run --rm -it \
+    -v $PWD:/vuls \
+    -v $PWD/vuls-log:/var/log/vuls \
+    --entrypoint=bash \
+    vuls/vuls
+```
+
+```
+# vuls tui
+```
+tab, ctrl+j, ctrl+k, ctrl+u, ctrl+d, ctrl+c
+
+
+https://github.com/future-architect/vuls#step10-tui
+
+https://github.com/future-architect/vuls#usage-tui
