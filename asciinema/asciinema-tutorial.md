@@ -27,6 +27,8 @@ root@6689517d99a1:~# asciinema rec
 get token to connect 
 ```
 asciinema auth
+```
+```
 Open the following URL in a browser to register your API token and assign any recorded asciicasts to your profile:
 https://asciinema.org/connect/xxxxxxxxxx-a22b-4c6d-a571-xxxxxxxxxxxx
 ```
