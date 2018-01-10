@@ -1,4 +1,8 @@
-
+## pip
+```
+yum install python3 -y
+sudo pip3 install asciinema
+```
 
 ## running in  docker 
 default command run in acontainer is `asciinema rec`
