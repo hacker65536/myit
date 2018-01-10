@@ -26,3 +26,22 @@ asciinema auth
 Open the following URL in a browser to register your API token and assign any recorded asciicasts to your profile:
 https://asciinema.org/connect/xxxxxxxxxx-a22b-4c6d-a571-xxxxxxxxxxxx
 ```
+
+
+https://asciinema.org/docs/config
+
+sample config
+```
+[api]
+token = <your-api-token-here>
+url = https://asciinema.example.com
+
+[record]
+command = /bin/bash -l
+maxwait = 2
+yes = true
+quiet = true
+
+[play]
+maxwait = 1
+```
