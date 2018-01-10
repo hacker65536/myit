@@ -11,6 +11,8 @@ default command run in acontainer is `asciinema rec`
 docker pull asciinema/asciinema
 docker run --rm -ti -v "$HOME/.config/asciinema":/root/.config/asciinema asciinema/asciinema
 ```
+Ctrl-D or type "exit" to finish.
+
 
 manually start 
 ```
@@ -19,10 +21,6 @@ root@6689517d99a1:~# apt-get install somepackage
 root@6689517d99a1:~# asciinema rec
 ```
 
-```
-~ Asciicast recording started.
-~ Hit Ctrl-D or type "exit" to finish.
-```
 
 get token to connect 
 ```
