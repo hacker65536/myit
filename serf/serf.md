@@ -1,35 +1,35 @@
 
 
-amzlinux2
+test on amzlinux2
 
 require golang
-```
+```bash
 sudo amazon-linux-extras install golang1.9
 ```
 
-install
-```
+install serf
+```bash
 go get -u github.com/hashicorp/serf/cmd/serf
 ```
 
-path
-```
+set path
+```bash
 export PATH=$HOME/go/bin:$PATH
 ```
 
 start agent
-```
+```bash
 serf agent &
 ```
 
 
 join node (other node x n)
-```
+```bash
 serf agent join 172.31.16.172 &
 ```
 
 list members
-```
+```bash
 serf members
 ```
 
@@ -82,4 +82,33 @@ Event 'test' dispatched! Coalescing enabled: true
 other node
 ```
 2018/01/11 11:25:46 [INFO] agent: Received event: user-event: test
+```
+
+
+eventual consistency
+```
+$ serf agent &
+==> Starting Serf agent...
+==> Starting Serf agent RPC...
+==> Serf agent running!
+         Node name: 'ip-172-31-24-109.us-east-2.compute.internal'
+         Bind addr: '0.0.0.0:7946'
+          RPC addr: '127.0.0.1:7373'
+         Encrypted: false
+          Snapshot: false
+           Profile: lan
+
+==> Log data will now stream in as it occurs:
+
+    2018/01/11 11:44:56 [INFO] agent: Serf agent starting
+    2018/01/11 11:44:56 [INFO] serf: EventMemberJoin: ip-172-31-24-109.us-east-2.compute.internal 172.31.24.109
+    2018/01/11 11:44:57 [INFO] agent: Received event: member-join
+    2018/01/11 11:45:06 [INFO] serf: EventMemberJoin: ip-172-31-16-76.us-east-2.compute.internal 172.31.16.76
+    2018/01/11 11:45:06 [INFO] serf: EventMemberJoin: ip-172-31-30-156.us-east-2.compute.internal 172.31.30.156
+    2018/01/11 11:45:06 [INFO] serf: EventMemberJoin: ip-172-31-28-172.us-east-2.compute.internal 172.31.28.172
+    2018/01/11 11:45:06 [INFO] agent: Received event: user-event: test
+    2018/01/11 11:45:06 [INFO] agent: Received event: user-event: test2
+    2018/01/11 11:45:06 [INFO] agent: Received event: user-event: test
+    2018/01/11 11:45:06 [INFO] agent: Received event: user-event: test
+    2018/01/11 11:45:07 [INFO] agent: Received event: member-join
 ```
