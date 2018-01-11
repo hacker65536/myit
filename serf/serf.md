@@ -2,7 +2,7 @@
 
 test on amzlinux2
 
-require golang
+install golang
 ```bash
 sudo amazon-linux-extras install golang1.9
 ```
@@ -30,10 +30,8 @@ serf agent join 172.31.16.172 &
 
 list members
 ```bash
-serf members
-```
+$ serf members
 
-```
     2018/01/11 11:22:31 [INFO] agent.ipc: Accepted client: 127.0.0.1:59120
 ip-172-31-28-172.us-east-2.compute.internal  172.31.28.172:7946  alive
 ip-172-31-26-62.us-east-2.compute.internal   172.31.26.62:7946   alive
