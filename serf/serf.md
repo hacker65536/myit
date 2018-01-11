@@ -49,7 +49,7 @@ $ pkill serf
     2018/01/11 11:23:32 [INFO] agent: requesting serf shutdown
     2018/01/11 11:23:32 [WARN] serf: Shutdown without a Leave
     2018/01/11 11:23:32 [INFO] agent: shutdown complete
-[1]+  Exit 1                  ./go/bin/serf agent -join=172.31.28.172
+[1]+  Exit 1                  ./go/bin/serf agent -join=172.31.26.62
 ```
 
 other node
