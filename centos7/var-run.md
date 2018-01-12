@@ -1,3 +1,7 @@
+
+
+`/var/run` = `/run` = `tmpfs`
+
 ```
 [root@ip-172-31-45-123 ~]# df -T
 Filesystem     Type     1K-blocks    Used Available Use% Mounted on
