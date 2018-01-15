@@ -49,3 +49,15 @@ prefix default = C-b
 >tmux may be controlled from an attached client by using a key combination of a prefix key,
      ‘C-b’ (Ctrl-b) by default, followed by a command key.
 
+ctrl list
+
+- c create a new window
+- w choose the current window interactively
+- & 
+- n Change to the next window
+- p Change to the previous window
+- l Move to the previously selected window
+- ' Prompt for a window index to select.
+- . Prompt for an index to move the current window.
+- , Rename the current window
+- f Prompt to search for text in open windows
