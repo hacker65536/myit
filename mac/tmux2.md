@@ -44,3 +44,8 @@ setw -g mode-keys vi
 ```
 
 
+prefix default = C-b
+
+>tmux may be controlled from an attached client by using a key combination of a prefix key,
+     ‘C-b’ (Ctrl-b) by default, followed by a command key.
+
