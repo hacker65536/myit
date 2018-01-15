@@ -45,3 +45,31 @@ Swarm: active
  Manager Addresses:
   172.31.5.102:2377
 ```
+
+node 2
+```
+# docker swarm join --token SWMTKN-1-3whwma0awzf8g9t5uubeevl3jtj54nd50jebzi12osjpxtbh7d-1mflhndrtly24a6v947wj00z5 172.31.5.102:2377
+This node joined a swarm as a worker.
+
+# docker info | grep -A 5 "Swarm"
+Swarm: active
+ NodeID: oln41yj4jove1x1efmwqyxgsh
+ Is Manager: false
+ Node Address: 172.31.13.112
+ Manager Addresses:
+  172.31.5.102:2377
+```
+
+node 3
+```
+# docker swarm join --token SWMTKN-1-3whwma0awzf8g9t5uubeevl3jtj54nd50jebzi12osjpxtbh7d-1mflhndrtly24a6v947wj00z5 172.31.5.102:2377
+This node joined a swarm as a worker.
+
+# docker info | grep -A 5 "Swarm"
+Swarm: active
+ NodeID: uyo30tbbhsafa2i0c63mo85mt
+ Is Manager: false
+ Node Address: 172.31.0.250
+ Manager Addresses:
+  172.31.5.102:2377
+```
