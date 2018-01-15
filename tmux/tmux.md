@@ -90,3 +90,10 @@ PREFIX : resize-pane -R 20 (Resizes the current pane right by 20 cells)
 PREFIX : resize-pane -t 2 20 (Resizes the pane with the id of 2 down by 20 cells)
 PREFIX : resize-pane -t -L 20 (Resizes the pane with the id of 2 left by 20 cells)
 ```
+
+
+join-pane
+``
+:join-pane -t : dst-pane
+:join-pane -s : src-pane
+```
