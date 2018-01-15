@@ -3,9 +3,9 @@
 
 
 ```
-node 1 172.31.5.102
-node 2 172.31.13.112
-node 3 172.31.0.250
+node 1 172.31.5.102/18.218.109.44
+node 2 172.31.13.112/18.218.157.71
+node 3 172.31.0.250/18.217.205.185
 ```
 
 
@@ -104,4 +104,43 @@ xcu2g822iict        swarmapp.1          nginx:latest        ip-172-31-5-102.us-e
 # docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
 132a76d887a4        nginx:latest        "nginx -g 'daemon ..."   3 minutes ago       Up 3 minutes        80/tcp              swarmapp.1.xcu2g822iictraa25pry51aq7
+```
+
+```
+$ curl -s 18.218.109.44
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+```
+
+
+```
+# same contents
+$ curl -s 18.218.157.71
+```
+```
+# same contents
+$ curl -s 18.217.205.185
 ```
