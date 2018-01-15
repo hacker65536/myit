@@ -9,7 +9,7 @@ node 3 172.31.0.250
 ```
 
 
-node 1
+node 1 (manager)
 ```
 # docker swarm init --advertise-addr $(hostname -i)
 Swarm initialized: current node (x1vw7z5yfvl63slmdbfxc4w2t) is now a manager.
@@ -72,4 +72,36 @@ Swarm: active
  Node Address: 172.31.0.250
  Manager Addresses:
   172.31.5.102:2377
+```
+
+node 1
+```
+# docker node ls
+ID                            HOSTNAME                                      STATUS              AVAILABILITY        MANAGER STATUS
+oln41yj4jove1x1efmwqyxgsh     ip-172-31-13-112.us-east-2.compute.internal   Ready               Active
+uyo30tbbhsafa2i0c63mo85mt     ip-172-31-0-250.us-east-2.compute.internal    Ready               Active
+x1vw7z5yfvl63slmdbfxc4w2t *   ip-172-31-5-102.us-east-2.compute.internal    Ready               Active              Leader
+```
+
+create service
+```
+# docker service create --replicas 1 --name swarmapp -p 80:80 nginx:latest
+wr03yy28ejjmko5a6ycpjmwxc
+Since --detach=false was not specified, tasks will be created in the background.
+In a future release, --detach=false will become the default.
+```
+```
+# docker service ls
+ID                  NAME                MODE                REPLICAS            IMAGE               PORTS
+wr03yy28ejjm        swarmapp            replicated          1/1                 nginx:latest        *:80->80/tcp
+```
+```
+# docker service ps swarmapp
+ID                  NAME                IMAGE               NODE                                         DESIRED STATE       CURRENT STATE           ERROR               PORTS
+xcu2g822iict        swarmapp.1          nginx:latest        ip-172-31-5-102.us-east-2.compute.internal   Running             Running 3 minutes ago 
+```
+```
+# docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+132a76d887a4        nginx:latest        "nginx -g 'daemon ..."   3 minutes ago       Up 3 minutes        80/tcp              swarmapp.1.xcu2g822iictraa25pry51aq7
 ```
