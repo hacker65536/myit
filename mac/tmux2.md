@@ -53,7 +53,7 @@ ctrl list
 
 - c create a new window
 - w choose the current window interactively
-- & 
+- & Kill the current window
 - n Change to the next window
 - p Change to the previous window
 - l Move to the previously selected window
