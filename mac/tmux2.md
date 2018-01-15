@@ -41,6 +41,8 @@ set -g prefix C-z
 unbind C-b
 bind C-z send-prefix
 setw -g mode-keys vi
+set -g mode-mouse on
+set -g mouse-resize-pane on
 ```
 
 
