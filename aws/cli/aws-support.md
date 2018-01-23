@@ -1,4 +1,6 @@
 
+
+security group list  
 ```bash
 for id in $(aws support describe-trusted-advisor-checks --region us-east-1  --language en | jq -c -r  '.checks[] | select(   select(.category=="security") | ( .name | contains("Security Groups")) )| .id')
 do
