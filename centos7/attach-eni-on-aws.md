@@ -177,6 +177,25 @@ rtt min/avg/max/mdev = 0.234/0.269/0.319/0.038 ms
 ```
 
 
+再起動時にruleが失われるので、systemdにset
 
+```
+cat <<EOF > /etc/systemd/system/add-rule-for-eni.service
+[Unit]
+Description=add a routing rule for eni
+After=network.target
 
+[Service]
+Type=simple
+ExecStart=/usr/sbin/ip rule add from $ip2 lookup 10001
 
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+systemdで有効化
+```
+systemctl daemon-reload
+systemctl enable add-rule-for-eni
+```
