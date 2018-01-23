@@ -154,7 +154,27 @@ default via 172.31.16.1 dev eth1 metric 10001
 ```
 
 
+別のホストからping
+```
+[ec2-user@ip-172-31-31-101 ~]$ ping -c 3 172.31.26.107
+PING 172.31.26.107 (172.31.26.107) 56(84) bytes of data.
+64 bytes from 172.31.26.107: icmp_seq=1 ttl=64 time=0.306 ms
+64 bytes from 172.31.26.107: icmp_seq=2 ttl=64 time=0.350 ms
+64 bytes from 172.31.26.107: icmp_seq=3 ttl=64 time=0.277 ms
 
+--- 172.31.26.107 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2031ms
+rtt min/avg/max/mdev = 0.277/0.311/0.350/0.030 ms
+[ec2-user@ip-172-31-31-101 ~]$ ping -c 3 172.31.23.31
+PING 172.31.23.31 (172.31.23.31) 56(84) bytes of data.
+64 bytes from 172.31.23.31: icmp_seq=1 ttl=64 time=0.319 ms
+64 bytes from 172.31.23.31: icmp_seq=2 ttl=64 time=0.234 ms
+64 bytes from 172.31.23.31: icmp_seq=3 ttl=64 time=0.255 ms
+
+--- 172.31.23.31 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2031ms
+rtt min/avg/max/mdev = 0.234/0.269/0.319/0.038 ms
+```
 
 
 
