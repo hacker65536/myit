@@ -2,7 +2,7 @@
 初期状態
 
 ```
-[root@ip-172-31-23-31 ~]# ip a
+[root@ip-172-31-3-229 ~]# ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -10,16 +10,16 @@
     inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP qlen 1000
-    link/ether 02:ae:17:54:2d:a0 brd ff:ff:ff:ff:ff:ff
-    inet 172.31.23.31/20 brd 172.31.31.255 scope global dynamic eth0
-       valid_lft 3517sec preferred_lft 3517sec
-    inet6 fe80::ae:17ff:fe54:2da0/64 scope link
+    link/ether 02:9e:2d:ed:b4:04 brd ff:ff:ff:ff:ff:ff
+    inet 172.31.3.229/20 brd 172.31.15.255 scope global dynamic eth0
+       valid_lft 3473sec preferred_lft 3473sec
+    inet6 fe80::9e:2dff:feed:b404/64 scope link
        valid_lft forever preferred_lft forever
 ```
 
 attach直後の状態
 ```
-[root@ip-172-31-23-31 ~]# ip a
+[root@ip-172-31-3-229 ~]# ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -27,28 +27,15 @@ attach直後の状態
     inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP qlen 1000
-    link/ether 02:ae:17:54:2d:a0 brd ff:ff:ff:ff:ff:ff
-    inet 172.31.23.31/20 brd 172.31.31.255 scope global dynamic eth0
-       valid_lft 3516sec preferred_lft 3516sec
-    inet6 fe80::ae:17ff:fe54:2da0/64 scope link
+    link/ether 02:9e:2d:ed:b4:04 brd ff:ff:ff:ff:ff:ff
+    inet 172.31.3.229/20 brd 172.31.15.255 scope global dynamic eth0
+       valid_lft 3351sec preferred_lft 3351sec
+    inet6 fe80::9e:2dff:feed:b404/64 scope link
        valid_lft forever preferred_lft forever
 3: eth1: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN qlen 1000
-    link/ether 02:d6:86:57:67:12 brd ff:ff:ff:ff:ff:ff
+    link/ether 02:47:82:a5:13:52 brd ff:ff:ff:ff:ff:ff
 ```
 
-
-
-
-down状態の確認は以下の方が正しい
-```
-[root@ip-172-31-23-31 ~]# find /sys/class/net/eth*
-/sys/class/net/eth0
-/sys/class/net/eth1
-[root@ip-172-31-23-31 ~]# cat /sys/class/net/eth1/operstate
-down
-[root@ip-172-31-23-31 ~]# cat /sys/class/net/eth0/operstate
-up
-```
 
 
 interface,gateway,macaddress,local-ipv4,cidrの取得方法は他にもあるが便宜上下記の方法で取得を行う
@@ -85,6 +72,12 @@ default via ${gw} dev ${if} metric 10001
 ${cidr} dev ${if} proto kernel scope link src ${ip2} table 10001
 EOF
 ```
+ruleの設定を行う
+```
+cat <<EOF > /etc/sysconfig/network-scripts/rule-${if}
+from $ip2 lookup 10001
+EOF
+```
 
 
 ifup
@@ -92,7 +85,7 @@ ifup
 [root@ip-172-31-23-31 ~]# ifup ${if}
 
 Determining IP information for eth1... done.
-[root@ip-172-31-23-31 ~]# ip a
+[root@ip-172-31-3-229 ~]# ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -100,39 +93,24 @@ Determining IP information for eth1... done.
     inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP qlen 1000
-    link/ether 02:ae:17:54:2d:a0 brd ff:ff:ff:ff:ff:ff
-    inet 172.31.23.31/20 brd 172.31.31.255 scope global dynamic eth0
-       valid_lft 2763sec preferred_lft 2763sec
-    inet6 fe80::ae:17ff:fe54:2da0/64 scope link
+    link/ether 02:9e:2d:ed:b4:04 brd ff:ff:ff:ff:ff:ff
+    inet 172.31.3.229/20 brd 172.31.15.255 scope global dynamic eth0
+       valid_lft 3074sec preferred_lft 3074sec
+    inet6 fe80::9e:2dff:feed:b404/64 scope link
        valid_lft forever preferred_lft forever
 3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP qlen 1000
-    link/ether 02:d6:86:57:67:12 brd ff:ff:ff:ff:ff:ff
-    inet 172.31.26.107/20 brd 172.31.31.255 scope global dynamic eth1
-       valid_lft 3587sec preferred_lft 3587sec
-    inet6 fe80::d6:86ff:fe57:6712/64 scope link
+    link/ether 02:47:82:a5:13:52 brd ff:ff:ff:ff:ff:ff
+    inet 172.31.2.113/20 brd 172.31.15.255 scope global dynamic eth1
+       valid_lft 3571sec preferred_lft 3571sec
+    inet6 fe80::47:82ff:fea5:1352/64 scope link
        valid_lft forever preferred_lft forever
-
 ```
 
 
-rule設定
-```
-[root@ip-172-31-23-31 ~]# ip rule add from $ip2 lookup 10001
-```
 
 設定の確認
 ```
-[root@ip-172-31-23-31 ~]# ip r
-default via 172.31.16.1 dev eth0
-default via 172.31.16.1 dev eth1 metric 10001
-172.31.16.0/20 dev eth0 proto kernel scope link src 172.31.23.31
-172.31.16.0/20 dev eth1 proto kernel scope link src 172.31.26.107
-[root@ip-172-31-23-31 ~]# ip rule
-0:      from all lookup local
-32765:  from 172.31.26.107 lookup 10001
-32766:  from all lookup main
-32767:  from all lookup default
-[root@ip-172-31-23-31 ~]# ip a
+[root@ip-172-31-3-229 ~]# ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -140,62 +118,49 @@ default via 172.31.16.1 dev eth1 metric 10001
     inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP qlen 1000
-    link/ether 02:ae:17:54:2d:a0 brd ff:ff:ff:ff:ff:ff
-    inet 172.31.23.31/20 brd 172.31.31.255 scope global dynamic eth0
-       valid_lft 2618sec preferred_lft 2618sec
-    inet6 fe80::ae:17ff:fe54:2da0/64 scope link
+    link/ether 02:9e:2d:ed:b4:04 brd ff:ff:ff:ff:ff:ff
+    inet 172.31.3.229/20 brd 172.31.15.255 scope global dynamic eth0
+       valid_lft 3532sec preferred_lft 3532sec
+    inet6 fe80::9e:2dff:feed:b404/64 scope link
        valid_lft forever preferred_lft forever
 3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP qlen 1000
-    link/ether 02:d6:86:57:67:12 brd ff:ff:ff:ff:ff:ff
-    inet 172.31.26.107/20 brd 172.31.31.255 scope global dynamic eth1
-       valid_lft 3442sec preferred_lft 3442sec
-    inet6 fe80::d6:86ff:fe57:6712/64 scope link
+    link/ether 02:47:82:a5:13:52 brd ff:ff:ff:ff:ff:ff
+    inet 172.31.2.113/20 brd 172.31.15.255 scope global dynamic eth1
+       valid_lft 3534sec preferred_lft 3534sec
+    inet6 fe80::47:82ff:fea5:1352/64 scope link
        valid_lft forever preferred_lft forever
+[root@ip-172-31-3-229 ~]# ip r
+default via 172.31.0.1 dev eth0
+default via 172.31.0.1 dev eth1 metric 10001
+172.31.0.0/20 dev eth0 proto kernel scope link src 172.31.3.229
+172.31.0.0/20 dev eth1 proto kernel scope link src 172.31.2.113
+[root@ip-172-31-3-229 ~]# ip rule
+0:	from all lookup local
+32765:	from 172.31.2.113 lookup 10001
+32766:	from all lookup main
+32767:	from all lookup default
 ```
 
 
 別のホストからping
 ```
-[ec2-user@ip-172-31-31-101 ~]$ ping -c 3 172.31.26.107
-PING 172.31.26.107 (172.31.26.107) 56(84) bytes of data.
-64 bytes from 172.31.26.107: icmp_seq=1 ttl=64 time=0.306 ms
-64 bytes from 172.31.26.107: icmp_seq=2 ttl=64 time=0.350 ms
-64 bytes from 172.31.26.107: icmp_seq=3 ttl=64 time=0.277 ms
+[root@ip-172-31-38-241 ~]# ping -c 3 172.31.3.229
+PING 172.31.3.229 (172.31.3.229) 56(84) bytes of data.
+64 bytes from 172.31.3.229: icmp_seq=1 ttl=64 time=1.12 ms
+64 bytes from 172.31.3.229: icmp_seq=2 ttl=64 time=1.11 ms
+64 bytes from 172.31.3.229: icmp_seq=3 ttl=64 time=1.10 ms
 
---- 172.31.26.107 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2031ms
-rtt min/avg/max/mdev = 0.277/0.311/0.350/0.030 ms
-[ec2-user@ip-172-31-31-101 ~]$ ping -c 3 172.31.23.31
-PING 172.31.23.31 (172.31.23.31) 56(84) bytes of data.
-64 bytes from 172.31.23.31: icmp_seq=1 ttl=64 time=0.319 ms
-64 bytes from 172.31.23.31: icmp_seq=2 ttl=64 time=0.234 ms
-64 bytes from 172.31.23.31: icmp_seq=3 ttl=64 time=0.255 ms
+--- 172.31.3.229 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 1.103/1.114/1.124/0.039 ms
+[root@ip-172-31-38-241 ~]# ping -c 3 172.31.2.113
+PING 172.31.2.113 (172.31.2.113) 56(84) bytes of data.
+64 bytes from 172.31.2.113: icmp_seq=1 ttl=64 time=1.13 ms
+64 bytes from 172.31.2.113: icmp_seq=2 ttl=64 time=1.10 ms
+64 bytes from 172.31.2.113: icmp_seq=3 ttl=64 time=1.10 ms
 
---- 172.31.23.31 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2031ms
-rtt min/avg/max/mdev = 0.234/0.269/0.319/0.038 ms
+--- 172.31.2.113 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 1.105/1.113/1.131/0.040 ms
 ```
 
-
-再起動時にruleが失われるので、systemdにset
-
-```
-cat <<EOF > /etc/systemd/system/add-rule-for-eni.service
-[Unit]
-Description=add a routing rule for eni
-After=network.target
-
-[Service]
-Type=simple
-ExecStart=/usr/sbin/ip rule add from $ip2 lookup 10001
-
-[Install]
-WantedBy=multi-user.target
-EOF
-```
-
-systemdで有効化
-```
-systemctl daemon-reload
-systemctl enable add-rule-for-eni
-```
