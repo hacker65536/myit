@@ -207,3 +207,39 @@ fn main() {
 EOF
 ```
 
+```
+$ rustc main.rs
+$ ./main
+Hello, world!
+```
+
+
+cargo
+--------
+
+```
+[ec2-user@ip-172-31-17-61 ~]$ cargo new hello_world --bin
+     Created binary (application) `hello_world` project
+     
+[ec2-user@ip-172-31-17-61 ~]$ tree hello_world/
+hello_world/
+├── Cargo.toml
+└── src
+    └── main.rs
+
+1 directory, 2 files
+```
+
+```
+[ec2-user@ip-172-31-17-61 ~]$ cat hello_world/Cargo.toml
+[package]
+name = "hello_world"
+version = "0.1.0"
+authors = ["ec2-user"]
+
+[dependencies]
+[ec2-user@ip-172-31-17-61 ~]$ cat hello_world/src/main.rs
+fn main() {
+    println!("Hello, world!");
+}
+```
