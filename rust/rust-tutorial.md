@@ -83,6 +83,70 @@ To configure your current shell run source $HOME/.cargo/env
 rustc 1.23.0 (766bd11c8 2018-01-01)
 ```
 
+
+amazon-linux-extras
+
+```
+[ec2-user@ip-172-31-17-61 ~]$ sudo amazon-linux-extras install rust1
+  0  ansible2   disabled  [ =2.4.2 ]
+  1  emacs   disabled  [ =25.3 ]
+  2  memcached1.5   disabled  [ =1.5.1 ]
+  3  nginx1.12   disabled  [ =1.12.2 ]
+  4  postgresql9.6   disabled  [ =9.6.6 ]
+  5  python3   disabled  [ =3.6.2 ]
+  6  redis4.0   disabled  [ =4.0.5 ]
+  7  R3.4   disabled  [ =3.4.3 ]
+  8  rust1=latest  enabled  [ =1.22.1 ]
+  9  vim   disabled  [ =8.0 ]
+ 10  golang1.9   disabled  [ =1.9.2 ]
+ 11  ruby2.4   disabled  [ =2.4.2 ]
+ 12  nano   disabled  [ =2.9.1 ]
+ 13  php7.2   disabled  [ =7.2.0 ]
+ 14  lamp-mariadb10.2-php7.2   disabled  [ =10.2.10_7.2.0 ]
+```
+```
+[ec2-user@ip-172-31-17-61 ~]$ sudo yum history
+Loaded plugins: langpacks, priorities, update-motd
+ID     | Command line             | Date and time    | Action(s)      | Altered
+-------------------------------------------------------------------------------
+     1 | install -q -y cargo rust | 2018-01-24 03:25 | Install        |   19
+history list
+[ec2-user@ip-172-31-17-61 ~]$ sudo yum history info 1
+Loaded plugins: langpacks, priorities, update-motd
+Transaction ID : 1
+Begin time     : Wed Jan 24 03:25:53 2018
+Begin rpmdb    : 412:e121aa5cbb6238b98eb2f1b333e451b29c509776
+End time       :            03:26:04 2018 (11 seconds)
+End rpmdb      : 431:a04acb4a7b0e1e35c5e119b6e3f085cf9e839d49
+User           : EC2 Default User <ec2-user>
+Return-Code    : Success
+Command Line   : install -q -y cargo rust
+Transaction performed with:
+    Installed     rpm-4.11.3-25.amzn2.0.1.x86_64 installed
+    Installed     yum-3.4.3-154.amzn2.0.1.noarch installed
+Packages Altered:
+    Install     cargo-0.23.0-1.1.amzn2.x86_64            @amzn2extra-rust1
+    Dep-Install cpp-7.2.1-2.amzn2.0.2.x86_64             @amzn2-core
+    Dep-Install gcc-7.2.1-2.amzn2.0.2.x86_64             @amzn2-core
+    Dep-Install glibc-devel-2.25-10.amzn2.0.1.x86_64     @amzn2-core
+    Dep-Install glibc-headers-2.25-10.amzn2.0.1.x86_64   @amzn2-core
+    Dep-Install http-parser-2.7.1-5.amzn2.x86_64         @amzn2-core
+    Dep-Install kernel-headers-4.9.76-38.79.amzn2.x86_64 @amzn2-core
+    Dep-Install libatomic-7.2.1-2.amzn2.0.2.x86_64       @amzn2-core
+    Dep-Install libcilkrts-7.2.1-2.amzn2.0.2.x86_64      @amzn2-core
+    Dep-Install libgit2-0.24.6-2.amzn2.x86_64            @amzn2extra-rust1
+    Dep-Install libitm-7.2.1-2.amzn2.0.2.x86_64          @amzn2-core
+    Dep-Install libmpc-1.0.1-3.amzn2.x86_64              @amzn2-core
+    Dep-Install libmpx-7.2.1-2.amzn2.0.2.x86_64          @amzn2-core
+    Dep-Install libquadmath-7.2.1-2.amzn2.0.2.x86_64     @amzn2-core
+    Dep-Install libsanitizer-7.2.1-2.amzn2.0.2.x86_64    @amzn2-core
+    Dep-Install llvm3.9-libs-3.9.1-7.amzn2.x86_64        @amzn2extra-rust1
+    Dep-Install mpfr-3.1.1-4.amzn2.x86_64                @amzn2-core
+    Install     rust-1.22.1-1.1.amzn2.x86_64             @amzn2extra-rust1
+    Dep-Install rust-std-static-1.22.1-1.1.amzn2.x86_64  @amzn2extra-rust1
+history info
+```
+
 uninstalling
 ----------
 ```
