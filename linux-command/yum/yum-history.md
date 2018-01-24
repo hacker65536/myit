@@ -1,3 +1,6 @@
+
+https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/6/html/deployment_guide/sec-yum-transaction_history
+
 ```
 $ sudo yum history
 Loaded plugins: langpacks, priorities, update-motd
