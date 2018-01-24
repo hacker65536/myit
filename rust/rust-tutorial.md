@@ -243,3 +243,32 @@ fn main() {
     println!("Hello, world!");
 }
 ```
+
+```
+[ec2-user@ip-172-31-17-61 ~]$ cd hello_world/
+[ec2-user@ip-172-31-17-61 hello_world]$ cargo build
+   Compiling hello_world v0.1.0 (file:///home/ec2-user/hello_world)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.27 secs
+[ec2-user@ip-172-31-17-61 hello_world]$ cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs
+     Running `target/debug/hello_world`
+Hello, world!
+[ec2-user@ip-172-31-17-61 hello_world]$ tree
+.
+├── Cargo.lock
+├── Cargo.toml
+├── src
+│   └── main.rs
+└── target
+    └── debug
+        ├── build
+        ├── deps
+        │   └── hello_world-52f63d9040e30e53
+        ├── examples
+        ├── hello_world
+        ├── hello_world.d
+        ├── incremental
+        └── native
+
+8 directories, 6 files
+```
