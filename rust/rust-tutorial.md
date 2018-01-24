@@ -105,3 +105,37 @@ info: removing rustup binaries
 info: rustup is uninstalled
 ```
 
+create a project file
+------------
+```
+$ mkdir ~/projects
+$ cd ~/projects
+$ mkdir hello_world
+$ cd hello_world
+```
+```
+[ec2-user@ip-172-31-28-192 ~]$ mkdir ~/projects
+[ec2-user@ip-172-31-28-192 ~]$ cd !$
+cd ~/projects
+[ec2-user@ip-172-31-28-192 projects]$ mkdir hello_world
+[ec2-user@ip-172-31-28-192 projects]$ cd !$
+cd hello_world
+[ec2-user@ip-172-31-28-192 hello_world]$
+```
+
+writing and running a rust program
+----------
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+
+```
+cat << EOF > main.rs
+fn main() {
+    println!("Hello, world!");
+}
+EOF
+```
+
