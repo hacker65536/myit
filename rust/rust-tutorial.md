@@ -79,6 +79,8 @@ environment variable. Next time you log in this will be done automatically.
 
 To configure your current shell run source $HOME/.cargo/env
 [ec2-user@ip-172-31-28-192 ~]$ source $HOME/.cargo/env
+[ec2-user@ip-172-31-28-192 ~]$ rustc --version
+rustc 1.23.0 (766bd11c8 2018-01-01)
 ```
 
 uninstalling
