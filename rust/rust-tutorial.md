@@ -78,7 +78,28 @@ To get started you need Cargo's bin directory ($HOME/.cargo/bin) in your PATH
 environment variable. Next time you log in this will be done automatically.
 
 To configure your current shell run source $HOME/.cargo/env
-[ec2-user@ip-172-31-28-192 ~]$ export PATH=$HOME/.cargo/env:$PATH
+[ec2-user@ip-172-31-28-192 ~]$ source $HOME/.cargo/env
 ```
 
+uninstalling
+----------
+```
+rustup self uninstall
+```
+```
+[ec2-user@ip-172-31-28-192 ~]$ rustup self uninstall
+
+
+Thanks for hacking in Rust!
+
+This will uninstall all Rust toolchains and data, and remove $HOME/.cargo/bin
+from your PATH environment variable.
+
+Continue? (y/N) y
+
+info: removing rustup home
+info: removing cargo home
+info: removing rustup binaries
+info: rustup is uninstalled
+```
 
