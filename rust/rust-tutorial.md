@@ -146,6 +146,10 @@ Packages Altered:
     Dep-Install rust-std-static-1.22.1-1.1.amzn2.x86_64  @amzn2extra-rust1
 history info
 ```
+```
+[ec2-user@ip-172-31-17-61 ~]$ rustc --version
+rustc 1.22.1
+```
 
 uninstalling
 ----------
