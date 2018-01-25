@@ -17,7 +17,7 @@ Vault v0.9.1 ('87b6919dea55da61d7cd444b2442cabb8ede8ab1')
 ```
 
 ```
-vault server -dev
+$ vault server -dev
 ==> Vault server configuration:
 
                      Cgo: disabled
