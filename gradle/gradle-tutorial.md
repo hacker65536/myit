@@ -99,6 +99,29 @@ https://gradle.com/s/XXXXXXXXX
 
 ````
 
-access https://gradle.com/s/XXXXXXXXX
+access to  https://gradle.com/s/XXXXXXXXX
 
+```
+yum install -y java-devel
+```
 
+```
+# ./gradlew build --scan
+Starting a Gradle Daemon, 1 incompatible Daemon could not be reused, use --status for details
+Download https://jcenter.bintray.com/junit/junit/4.12/junit-4.12.pom
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom
+Download https://jcenter.bintray.com/junit/junit/4.12/junit-4.12.jar
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+
+BUILD SUCCESSFUL in 13s
+4 actionable tasks: 4 executed
+
+Publishing a build scan to scans.gradle.com requires accepting the Terms of Service defined at https://scans.gradle.com/terms-of-service. Do you accept these terms? [yes, no]
+yes
+Gradle Cloud Services license agreement accepted.
+
+Publishing build scan...
+https://gradle.com/s/YYYYYYYYYYYYYY
+```
+access to https://gradle.com/s/YYYYYYYYYYYYYY
