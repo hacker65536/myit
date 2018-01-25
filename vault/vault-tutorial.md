@@ -138,3 +138,12 @@ Success! Deleted 'secret/foo' if it existed.
 $ vault read -format=json secret/foo
 No value found at secret/foo
 ```
+
+```
+$ vault mounts
+Path        Type       Accessor            Plugin  Default TTL  Max TTL  Force No Cache  Replication Behavior  Seal Wrap  Description
+cubbyhole/  cubbyhole  cubbyhole_8af58a83  n/a     n/a          n/a      false           local                 false      per-token private secret storage
+identity/   identity   identity_8b10e976   n/a     n/a          n/a      false           replicated            false      identity store
+secret/     kv         kv_356b57cc         n/a     system       system   false           replicated            false      key/value secret storage
+sys/        system     system_c8d3503a     n/a     n/a          n/a      false           replicated            false      system endpoints used for control, policy and debugging
+```
