@@ -102,3 +102,29 @@ Cluster ID: 82174fe7-e6d1-2c8e-f514-5be8f3db4daa
 
 High-Availability Enabled: false
 ```
+
+```
+$ vault write secret/foo value=bar
+Success! Data written to: secret/foo
+```
+```
+$ vault read secret/foo
+Key                     Value
+---                     -----
+refresh_interval        768h0m0s
+value                   bar
+```
+
+```
+$ vault read -format=json secret/foo
+{
+        "request_id": "e10b09cc-5182-a00d-68fa-8c4ed75edf21",
+        "lease_id": "",
+        "lease_duration": 2764800,
+        "renewable": false,
+        "data": {
+                "value": "bar"
+        },
+        "warnings": null
+}
+```
