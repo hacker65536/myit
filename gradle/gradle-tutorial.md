@@ -125,3 +125,38 @@ Publishing build scan...
 https://gradle.com/s/YYYYYYYYYYYYYY
 ```
 access to https://gradle.com/s/YYYYYYYYYYYYYY
+
+
+```
+# cat build.gradle
+plugins {
+    id 'com.gradle.build-scan' version '1.11'  // added
+    id 'java'
+}
+
+// new block
+buildScan { 
+    licenseAgreementUrl = 'https://gradle.com/terms-of-service'
+    licenseAgree = 'yes'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:23.0'
+    testCompile 'junit:junit:4.12'
+}
+```
+
+ommit interact
+```
+# ./gradlew build --scan
+
+BUILD SUCCESSFUL in 1s
+4 actionable tasks: 4 up-to-date
+
+Publishing build scan...
+https://gradle.com/s/e4hh23si6czjw
+```
