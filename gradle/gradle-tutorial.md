@@ -127,6 +127,9 @@ https://gradle.com/s/YYYYYYYYYYYYYY
 access to https://gradle.com/s/YYYYYYYYYYYYYY
 
 
+
+
+ommit interact
 ```
 # cat build.gradle
 plugins {
@@ -150,7 +153,6 @@ dependencies {
 }
 ```
 
-ommit interact
 ```
 # ./gradlew build --scan
 
