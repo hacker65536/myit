@@ -160,5 +160,5 @@ BUILD SUCCESSFUL in 1s
 4 actionable tasks: 4 up-to-date
 
 Publishing build scan...
-https://gradle.com/s/e4hh23si6czjw
+https://gradle.com/s/ZZZZZZZZZ
 ```
