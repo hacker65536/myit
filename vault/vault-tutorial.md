@@ -128,3 +128,13 @@ $ vault read -format=json secret/foo
         "warnings": null
 }
 ```
+
+```
+$ vault delete secret/foo
+Success! Deleted 'secret/foo' if it existed.
+```
+
+```
+$ vault read -format=json secret/foo
+No value found at secret/foo
+```
