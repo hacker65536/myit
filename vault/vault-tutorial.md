@@ -85,3 +85,20 @@ Root Token: 7c68676b-ee0e-a4c5-81d0-863bfd81dcbc
 2018/01/25 06:36:23.483994 [INFO ] core: post-unseal setup complete
 2018/01/25 06:36:23.486348 [INFO ] expiration: lease restore complete
 ```
+
+other terminal
+```
+$ export VAULT_ADDR='http://127.0.0.1:8200'
+$ vault status
+Seal Type: shamir
+Sealed: false
+Key Shares: 1
+Key Threshold: 1
+Unseal Progress: 0
+Unseal Nonce:
+Version: 0.9.1
+Cluster Name: vault-cluster-d52df269
+Cluster ID: 82174fe7-e6d1-2c8e-f514-5be8f3db4daa
+
+High-Availability Enabled: false
+```
