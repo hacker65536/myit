@@ -20,6 +20,8 @@ domains
 https://www.amazon.com/Certified-Solutions-Architect-Official-Study-ebook/dp/B01M6W6WYD/ref=mt_kindle?_encoding=UTF8&me=
 
 
+white paper
+-----------
 - [Architecting for the Cloud: AWS Best Practices](https://d0.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf)
 - [AWS Security Best Practices ](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Best_Practices.pdf?refid=em_)
 - [Amazon Web Services: Overview of Security Processes](http://d0.awsstatic.com/whitepapers/Security/AWS%20Security%20Whitepaper.pdf)
