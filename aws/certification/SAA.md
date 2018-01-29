@@ -30,3 +30,13 @@ white paper
 - [Backup and Recovery Approaches Using AWS](https://d0.awsstatic.com/whitepapers/Backup_Archive_and_Restore_Approaches_Using_AWS.pdf)
 - [Amazon Virtual Private Cloud Connectivity Options](http://media.amazonwebservices.com/AWS_Amazon_VPC_Connectivity_Options.pdf)
 - [How AWS Pricing Works](http://d0.awsstatic.com/whitepapers/aws_pricing_overview.pdf)
+
+
+faq
+------
+- [Amazon EC2](https://aws.amazon.com/ec2/faqs/)
+- [Amazon S3](https://aws.amazon.com/s3/faqs/)
+- [Amazon VPC](https://aws.amazon.com/vpc/faqs/)
+- [Amazon Route 53](https://aws.amazon.com/route53/faqs/)
+- [Amazon RDS](https://aws.amazon.com/rds/faqs/)
+- [Amazon SQS](https://aws.amazon.com/sqs/faqs/)
