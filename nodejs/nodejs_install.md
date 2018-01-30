@@ -37,8 +37,9 @@ git clone https://github.com/creationix/nvm
 
 . ~/.bashrc
 
-nvm install v6.9
-nvm use 6.9
+nvm ls-remote
+nvm install v8.9.4
+nvm use 8.9.4
 ```
 # nodebrew
 ```bash
