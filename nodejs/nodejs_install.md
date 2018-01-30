@@ -32,8 +32,7 @@ yum install --enablerepo=epel nodejs
 # nvm
 
 ```bash
-git clone https://github.com/creationix/nvm
-./nvm/install.sh
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 
 . ~/.bashrc
 
