@@ -1,8 +1,22 @@
 
 https://puppet.com/docs/puppet/5.3/architecture.html
 
+
+agent/master architecture
+
+
+master 172.31.3.96  
+agent  172.31.9.22
+
+
+
+
+
+repository
+
+master/agent 
 ```
-sudo rpm -Uvh https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm
+rpm -Uvh https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm
 ```
 
 ```
@@ -26,7 +40,7 @@ gpgcheck=1
 ```
 
 
-install server
+install server / master 
 
 ```
 yum install -y puppetserver
@@ -36,13 +50,13 @@ yum install -y puppetserver
 # yum history info 1
 Loaded plugins: langpacks, priorities, update-motd
 Transaction ID : 1
-Begin time     : Fri Jan 26 03:50:38 2018
+Begin time     : Wed Jan 31 11:22:37 2018
 Begin rpmdb    : 413:a10ed8705b012cc150092e07d689fc82744639b1
-End time       :            03:50:55 2018 (17 seconds)
+End time       :            11:22:54 2018 (17 seconds)
 End rpmdb      : 423:0dd1052aeac81edab3903c227fecf3c2da1440d8
 User           : EC2 Default User <ec2-user>
 Return-Code    : Success
-Command Line   : install puppetserver
+Command Line   : install -y puppetserver
 Transaction performed with:
     Installed     rpm-4.11.3-25.amzn2.0.1.x86_64 installed
     Installed     yum-3.4.3-154.amzn2.0.1.noarch installed
@@ -63,7 +77,7 @@ history info
 ```
 
 
-install agent(node)
+install agent / agent 
 ```
 yum install -y puppet-agent
 ```
@@ -72,25 +86,38 @@ yum install -y puppet-agent
 # yum history info
 Loaded plugins: langpacks, priorities, update-motd
 Transaction ID : 1
-Begin time     : Fri Jan 26 03:48:26 2018
+Begin time     : Wed Jan 31 11:23:59 2018
 Begin rpmdb    : 413:a10ed8705b012cc150092e07d689fc82744639b1
-End time       :            03:48:33 2018 (7 seconds)
+End time       :            11:24:05 2018 (6 seconds)
 End rpmdb      : 414:8d5e9b684249d5acfac4b3176e063b2627abb215
 User           : EC2 Default User <ec2-user>
 Return-Code    : Success
-Command Line   : install puppet-agent
+Command Line   : install -y puppet-agent
 Transaction performed with:
     Installed     rpm-4.11.3-25.amzn2.0.1.x86_64 installed
     Installed     yum-3.4.3-154.amzn2.0.1.noarch installed
 Packages Altered:
     Install puppet-agent-5.3.3-1.el7.x86_64 @puppet5
 history info
+
 ```
 
-allocate memory
-`/etc/sysconfig/puppetserver`
+allocate memory / master 
 
-`-Xms1g -Xmx1g`
+to change size of memory ,if using small size instance 
+
+```
+# diff <(cat /etc/sysconfig/puppetserver) <(sed 's/Xms2g -Xmx2g/Xms1g -Xmx1g/' /etc/sysconfig/puppetserver)
+9c9
+< JAVA_ARGS="-Xms2g -Xmx2g -Djruby.logger.class=com.puppetlabs.jruby_utils.jruby.Slf4jLogger"
+---
+> JAVA_ARGS="-Xms1g -Xmx1g -Djruby.logger.class=com.puppetlabs.jruby_utils.jruby.Slf4jLogger"
+```
+
+```
+sed -e 's/Xms2g -Xmx2g/Xms1g -Xmx1g/' -i /etc/sysconfig/puppetserver
+```
+
 ```
 ###########################################
 # Init settings for puppetserver
@@ -126,32 +153,105 @@ START_TIMEOUT=300
 # Maximum number of seconds that can expire for a service reload attempt before
 # the result of the attempt is interpreted as a failure.
 RELOAD_TIMEOUT=120
-
 ```
 
-
-client
+start service / master
 ```
-[root@ip-172-31-15-147 ~]# puppet agent --server=ip-172-31-10-155.us-east-2.compute.internal --no-daemonize --verbose
+systemctl start puppetserver
+```
+```
+# journalctl -u puppetserver
+-- Logs begin at Wed 2018-01-31 11:16:28 UTC, end at Wed 2018-01-31 11:35:15 UTC. --
+Jan 31 11:34:07 ip-172-31-3-96.us-east-2.compute.internal systemd[1]: Starting puppetserver Service.
+Jan 31 11:35:08 ip-172-31-3-96.us-east-2.compute.internal systemd[1]: Started puppetserver Service.
+```
+
+cert list / master  
+
+https://puppet.com/docs/puppetserver/5.1/services_master_puppetserver.html#certificate-authority-service
+
+```
+# puppet cert list --all
++ "ip-172-31-3-96.us-east-2.compute.internal" (SHA256) 17:89:50:8F:D2:2C:E1:DA:63:5A:54:7A:0B:86:D0:08:99:96:67:F4:B6:BB:21:F7:4A:45:58:FA:A5:80:35:72 (alt names: "DNS:puppet", "DNS:ip-172-31-3-96.us-east-2.compute.internal")
+```
+
+agent test / agent
+```
+# puppet agent --test --server ip-172-31-3-96.us-east-2.compute.internal
 Info: Caching certificate for ca
 Info: csr_attributes file loading from /etc/puppetlabs/puppet/csr_attributes.yaml
-Info: Creating a new SSL certificate request for ip-172-31-15-147.us-east-2.compute.internal
-Info: Certificate Request fingerprint (SHA256): F0:EB:0A:1A:92:43:55:0F:24:8D:DE:9A:9B:7E:86:9F:BB:00:7F:82:42:21:3D:5B:78:C9:94:AF:F5:75:96:CD
+Info: Creating a new SSL certificate request for ip-172-31-9-22.us-east-2.compute.internal
+Info: Certificate Request fingerprint (SHA256): 68:A2:0C:12:91:72:50:C0:38:85:7F:F0:3D:B5:E9:6C:35:E1:08:15:F5:80:45:AC:8F:A4:49:86:09:48:FC:BE
 Info: Caching certificate for ca
+Exiting; no certificate found and waitforcert is disabled
 ```
 
-master
+show request / master
 ```
-[root@ip-172-31-10-155 ~]# puppet cert --list --all
-  "ip-172-31-15-147.us-east-2.compute.internal" (SHA256) F0:EB:0A:1A:92:43:55:0F:24:8D:DE:9A:9B:7E:86:9F:BB:00:7F:82:42:21:3D:5B:78:C9:94:AF:F5:75:96:CD
-+ "ip-172-31-10-155.us-east-2.compute.internal" (SHA256) E8:0C:73:AB:6C:04:75:08:81:83:D2:CC:00:6E:CC:5A:C1:B4:E1:28:5F:CD:27:4C:4D:31:E4:A0:25:69:48:2E (alt names: "DNS:puppet", "DNS:ip-172-31-10-155.us-east-2.compute.internal")
+# puppet cert list
+  "ip-172-31-9-22.us-east-2.compute.internal" (SHA256) 68:A2:0C:12:91:72:50:C0:38:85:7F:F0:3D:B5:E9:6C:35:E1:08:15:F5:80:45:AC:8F:A4:49:86:09:48:FC:BE
 ```
 
-master
+sign cert / master
 ```
-[root@ip-172-31-10-155 ~]# puppet cert sign ip-172-31-15-147.us-east-2.compute.internal
+# puppet cert sign ip-172-31-9-22.us-east-2.compute.internal
 Signing Certificate Request for:
-  "ip-172-31-15-147.us-east-2.compute.internal" (SHA256) F0:EB:0A:1A:92:43:55:0F:24:8D:DE:9A:9B:7E:86:9F:BB:00:7F:82:42:21:3D:5B:78:C9:94:AF:F5:75:96:CD
-Notice: Signed certificate request for ip-172-31-15-147.us-east-2.compute.internal
-Notice: Removing file Puppet::SSL::CertificateRequest ip-172-31-15-147.us-east-2.compute.internal at '/etc/puppetlabs/puppet/ssl/ca/requests/ip-172-31-15-147.us-east-2.compute.internal.pem'
+  "ip-172-31-9-22.us-east-2.compute.internal" (SHA256) 68:A2:0C:12:91:72:50:C0:38:85:7F:F0:3D:B5:E9:6C:35:E1:08:15:F5:80:45:AC:8F:A4:49:86:09:48:FC:BE
+Notice: Signed certificate request for ip-172-31-9-22.us-east-2.compute.internal
+Notice: Removing file Puppet::SSL::CertificateRequest ip-172-31-9-22.us-east-2.compute.internal at '/etc/puppetlabs/puppet/ssl/ca/requests/ip-172-31-9-22.us-east-2.compute.internal.pem'
+```
+
+show cert list /master
+```
+# puppet cert list --all
++ "ip-172-31-3-96.us-east-2.compute.internal" (SHA256) 17:89:50:8F:D2:2C:E1:DA:63:5A:54:7A:0B:86:D0:08:99:96:67:F4:B6:BB:21:F7:4A:45:58:FA:A5:80:35:72 (alt names: "DNS:puppet", "DNS:ip-172-31-3-96.us-east-2.compute.internal")
++ "ip-172-31-9-22.us-east-2.compute.internal" (SHA256) 88:0A:6E:36:76:67:04:7F:07:57:6D:70:1A:D6:08:26:29:3B:AE:B1:31:58:AC:CA:F7:C0:F6:01:2C:6C:52:A6
+```
+
+retry test / agent
+```
+# puppet agent --test --server ip-172-31-3-96.us-east-2.compute.internal
+Info: Caching certificate for ip-172-31-9-22.us-east-2.compute.internal
+Info: Caching certificate_revocation_list for ca
+Info: Caching certificate for ip-172-31-9-22.us-east-2.compute.internal
+Info: Using configured environment 'production'
+Info: Retrieving pluginfacts
+Info: Retrieving plugin
+Info: Caching catalog for ip-172-31-9-22.us-east-2.compute.internal
+Info: Applying configuration version '1517400135'
+Info: Creating state file /opt/puppetlabs/puppet/cache/state/state.yaml
+Notice: Applied catalog in 0.01 seconds
+```
+
+manifests / master
+```
+cat << EOF > /etc/puppetlabs/code/environments/production/manifests/site.pp
+node 'ip-172-31-9-22.us-east-2.compute.internal' {
+          package { 'httpd' :
+          ensure => installed,
+                   }
+}
+EOF
+```
+
+apply configuration from manifests of master / agent
+```
+# yum list installed "httpd*"
+Loaded plugins: langpacks, priorities, update-motd
+Error: No matching Packages to list
+
+# puppet agent --test --server ip-172-31-3-96.us-east-2.compute.internal
+Info: Using configured environment 'production'
+Info: Retrieving pluginfacts
+Info: Retrieving plugin
+Info: Caching catalog for ip-172-31-9-22.us-east-2.compute.internal
+Info: Applying configuration version '1517400509'
+Notice: /Stage[main]/Main/Node[ip-172-31-9-22.us-east-2.compute.internal]/Package[httpd]/ensure: created
+Notice: Applied catalog in 2.12 seconds
+
+# yum list installed "httpd*"
+Loaded plugins: langpacks, priorities, update-motd
+Installed Packages
+httpd.x86_64                                2.4.6-67.amzn2.6.1                           @amzn2-core
+httpd-tools.x86_64                          2.4.6-67.amzn2.6.1                           @amzn2-core
 ```
