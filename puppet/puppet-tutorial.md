@@ -99,7 +99,6 @@ Transaction performed with:
 Packages Altered:
     Install puppet-agent-5.3.3-1.el7.x86_64 @puppet5
 history info
-
 ```
 
 allocate memory / master 
