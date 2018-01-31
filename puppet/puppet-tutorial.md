@@ -250,3 +250,11 @@ Installed Packages
 httpd.x86_64                                2.4.6-67.amzn2.6.1                           @amzn2-core
 httpd-tools.x86_64                          2.4.6-67.amzn2.6.1                           @amzn2-core
 ```
+
+
+
+ref
+--------
+https://puppet.com/docs  
+https://mag.osdn.jp/14/02/03/090000/3  
+https://www.digitalocean.com/community/tutorials/how-to-install-puppet-4-in-a-master-agent-setup-on-ubuntu-14-04  
