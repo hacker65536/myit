@@ -12,9 +12,7 @@ agent  172.31.9.22
 
 
 
-repository
-
-master/agent 
+install repository / master and agent 
 ```
 rpm -Uvh https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm
 ```
@@ -198,7 +196,7 @@ Notice: Signed certificate request for ip-172-31-9-22.us-east-2.compute.internal
 Notice: Removing file Puppet::SSL::CertificateRequest ip-172-31-9-22.us-east-2.compute.internal at '/etc/puppetlabs/puppet/ssl/ca/requests/ip-172-31-9-22.us-east-2.compute.internal.pem'
 ```
 
-show cert list /master
+show cert list / master
 ```
 # puppet cert list --all
 + "ip-172-31-3-96.us-east-2.compute.internal" (SHA256) 17:89:50:8F:D2:2C:E1:DA:63:5A:54:7A:0B:86:D0:08:99:96:67:F4:B6:BB:21:F7:4A:45:58:FA:A5:80:35:72 (alt names: "DNS:puppet", "DNS:ip-172-31-3-96.us-east-2.compute.internal")
