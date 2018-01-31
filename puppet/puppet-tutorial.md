@@ -146,3 +146,12 @@ master
   "ip-172-31-15-147.us-east-2.compute.internal" (SHA256) F0:EB:0A:1A:92:43:55:0F:24:8D:DE:9A:9B:7E:86:9F:BB:00:7F:82:42:21:3D:5B:78:C9:94:AF:F5:75:96:CD
 + "ip-172-31-10-155.us-east-2.compute.internal" (SHA256) E8:0C:73:AB:6C:04:75:08:81:83:D2:CC:00:6E:CC:5A:C1:B4:E1:28:5F:CD:27:4C:4D:31:E4:A0:25:69:48:2E (alt names: "DNS:puppet", "DNS:ip-172-31-10-155.us-east-2.compute.internal")
 ```
+
+master
+```
+[root@ip-172-31-10-155 ~]# puppet cert sign ip-172-31-15-147.us-east-2.compute.internal
+Signing Certificate Request for:
+  "ip-172-31-15-147.us-east-2.compute.internal" (SHA256) F0:EB:0A:1A:92:43:55:0F:24:8D:DE:9A:9B:7E:86:9F:BB:00:7F:82:42:21:3D:5B:78:C9:94:AF:F5:75:96:CD
+Notice: Signed certificate request for ip-172-31-15-147.us-east-2.compute.internal
+Notice: Removing file Puppet::SSL::CertificateRequest ip-172-31-15-147.us-east-2.compute.internal at '/etc/puppetlabs/puppet/ssl/ca/requests/ip-172-31-15-147.us-east-2.compute.internal.pem'
+```
