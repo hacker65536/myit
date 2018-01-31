@@ -20,9 +20,7 @@ rpm -Uvh https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm
 ```
 
 ```
-# cat /etc/yum.repos.d/
-amzn2-core.repo  puppet5.repo
-[root@ip-172-31-15-147 ~]# cat /etc/yum.repos.d/puppet5.repo
+# cat /etc/yum.repos.d/puppet5.repo
 [puppet5]
 name=Puppet 5 Repository el 7 - $basearch
 baseurl=http://yum.puppetlabs.com/puppet5/el/7/$basearch
