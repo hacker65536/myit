@@ -258,3 +258,4 @@ ref
 https://puppet.com/docs  
 https://mag.osdn.jp/14/02/03/090000/3  
 https://www.digitalocean.com/community/tutorials/how-to-install-puppet-4-in-a-master-agent-setup-on-ubuntu-14-04  
+https://qiita.com/hitokuno/items/95903e38aa02fcc0da6a  
