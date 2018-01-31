@@ -128,3 +128,20 @@ START_TIMEOUT=300
 RELOAD_TIMEOUT=120
 
 ```
+
+
+client
+````
+[root@ip-172-31-15-147 ~]# puppet agent --server=ip-172-31-10-155.us-east-2.compute.internal --no-daemonize --verbose
+Info: Caching certificate for ca
+Info: csr_attributes file loading from /etc/puppetlabs/puppet/csr_attributes.yaml
+Info: Creating a new SSL certificate request for ip-172-31-15-147.us-east-2.compute.internal
+Info: Certificate Request fingerprint (SHA256): F0:EB:0A:1A:92:43:55:0F:24:8D:DE:9A:9B:7E:86:9F:BB:00:7F:82:42:21:3D:5B:78:C9:94:AF:F5:75:96:CD
+Info: Caching certificate for ca
+```
+
+```
+[root@ip-172-31-10-155 ~]# puppet cert --list --all
+  "ip-172-31-15-147.us-east-2.compute.internal" (SHA256) F0:EB:0A:1A:92:43:55:0F:24:8D:DE:9A:9B:7E:86:9F:BB:00:7F:82:42:21:3D:5B:78:C9:94:AF:F5:75:96:CD
++ "ip-172-31-10-155.us-east-2.compute.internal" (SHA256) E8:0C:73:AB:6C:04:75:08:81:83:D2:CC:00:6E:CC:5A:C1:B4:E1:28:5F:CD:27:4C:4D:31:E4:A0:25:69:48:2E (alt names: "DNS:puppet", "DNS:ip-172-31-10-155.us-east-2.compute.internal")
+```
