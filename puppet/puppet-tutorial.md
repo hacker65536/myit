@@ -131,7 +131,7 @@ RELOAD_TIMEOUT=120
 
 
 client
-````
+```
 [root@ip-172-31-15-147 ~]# puppet agent --server=ip-172-31-10-155.us-east-2.compute.internal --no-daemonize --verbose
 Info: Caching certificate for ca
 Info: csr_attributes file loading from /etc/puppetlabs/puppet/csr_attributes.yaml
@@ -140,6 +140,7 @@ Info: Certificate Request fingerprint (SHA256): F0:EB:0A:1A:92:43:55:0F:24:8D:DE
 Info: Caching certificate for ca
 ```
 
+master
 ```
 [root@ip-172-31-10-155 ~]# puppet cert --list --all
   "ip-172-31-15-147.us-east-2.compute.internal" (SHA256) F0:EB:0A:1A:92:43:55:0F:24:8D:DE:9A:9B:7E:86:9F:BB:00:7F:82:42:21:3D:5B:78:C9:94:AF:F5:75:96:CD
