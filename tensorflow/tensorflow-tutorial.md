@@ -2,6 +2,10 @@
 https://www.katacoda.com/basiafusinska/courses/tensorflow-getting-started/tensorflow-core
 
 ```bash
+$ docker run -d -it -p 8888:8888 tensorflow/tensorflow
+```
+
+```bash
 $ docker exec -it $(docker ps -q -f ancestor=tensorflow/tensorflow) bash
 root@85b43d28a0fc:/notebooks# python
 Python 2.7.12 (default, Nov 20 2017, 18:23:56)
