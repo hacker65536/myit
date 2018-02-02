@@ -4,10 +4,20 @@ https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatc
 
 
 
+
 require
 - ssm
 - role
 
+ssm
+-----------------
+
+amzlinux running default
+
+install to centos rhel,ubunt
+```
+rpm -Uvh https://s3-us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm 
+```
 
 role
 -----------------
