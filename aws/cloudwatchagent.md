@@ -39,7 +39,7 @@ configure
 ------------------
 https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html
 
-from wizard
+from wizard (first time)
 
 ```
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
@@ -279,5 +279,22 @@ Successfully put config to parameter store agent-config-linux.
 Program exits now.
 ```
 
+start cloudwatch agent
+-------------
 
-
+```
+# sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c ssm:agent-config-linux -s
+/opt/aws/amazon-cloudwatch-agent/bin/config-downloader --output-file /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json --download-source ssm:agent-config-linux --mode ec2 --config /opt/aws/amazon-cloudwatch-agent/etc/common-config.toml
+Start configuration validation...
+/opt/aws/amazon-cloudwatch-agent/bin/config-translator --input /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json --output /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.toml --mode ec2 --config /opt/aws/amazon-cloudwatch-agent/etc/common-config.toml
+Valid Json input schema.
+Configuration validation first phase succeeded
+/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent -schematest -config /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.toml
+Configuration validation second phase succeeded
+Configuration validation succeeded
+amazon-cloudwatch-agent start/running, process 23268
+```
+- -s restart=true
+- -a action=
+- -c config_location
+- -m mode
