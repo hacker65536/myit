@@ -84,7 +84,7 @@ using run command(ssm - cli)
 ```
 aws ssm send-command \
 --document-name "AWS-ConfigureAWSPackage" \
---instance-ids "i-07e0a9abd9425f9ee" \
+--instance-ids "i-xxxxxxxxxxxxx" \
 --parameters '{"action":["Install"],"version":["latest"],"name":["AmazonCloudWatchAgent"]}' \
 --timeout-seconds 600 --region us-east-2
 ```
