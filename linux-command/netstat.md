@@ -78,3 +78,79 @@ Chain POSTROUTING (policy ACCEPT)
 target     prot opt source               destination
 MASQUERADE  all  --  10.2.0.0/16          0.0.0.0/0
 ```
+
+
+all Show  both listening and non-listening (for TCP this means established connections) sockets
+```
+netstat -a
+```
+
+tcp connection
+```
+netstat -at
+```
+
+udp connection
+```
+netstat -au
+```
+
+withtout reverse dns lookup
+```
+netstat -ant
+```
+
+list all listening conditions 
+```
+netstat -l
+```
+
+list only listening tcp ports
+```
+netstat -tl
+```
+
+display summary statistics
+```
+netstat -s
+```
+
+display statistics tcp
+```
+netstat -st
+```
+
+displays domain name where possible for IP address  
+(print routing information from FIB (forwarding information base))
+```
+netstat -F
+```
+
+-n --numeric-hosts --numeric-ports
+```
+netstat -n
+```
+
+
+ipv6 (https://qiita.com/fetaro/items/d5164ba8271114d8a0c8)
+```
+# netstat -tnlp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      1/systemd
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      3435/sshd
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      3284/master
+tcp6       0      0 :::111                  :::*                    LISTEN      1/systemd
+tcp6       0      0 :::80                   :::*                    LISTEN      9098/httpd
+tcp6       0      0 :::22                   :::*                    LISTEN      3435/sshd
+```
+```
+# lsof -i:80
+COMMAND  PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+httpd   9098   root    4u  IPv6  69635      0t0  TCP *:http (LISTEN)
+httpd   9099 apache    4u  IPv6  69635      0t0  TCP *:http (LISTEN)
+httpd   9100 apache    4u  IPv6  69635      0t0  TCP *:http (LISTEN)
+httpd   9101 apache    4u  IPv6  69635      0t0  TCP *:http (LISTEN)
+httpd   9102 apache    4u  IPv6  69635      0t0  TCP *:http (LISTEN)
+httpd   9103 apache    4u  IPv6  69635      0t0  TCP *:http (LISTEN)
+```
