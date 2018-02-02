@@ -9,6 +9,68 @@ require
 - role
 
 
+role
+-----------------
+
+for ssm
+```
+arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
+```
+
+for cloudwatchagent
+
+CloudWatchAgentAdminPolicy
+
+if need to save configuration to parameter store  
+`ssm:PutParameter`
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "CloudWatchAgentAdminPolicy",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "cloudwatch:PutMetricData",
+                "ec2:DescribeTags",
+                "logs:DescribeLogStreams",
+                "logs:CreateLogGroup",
+                "logs:PutLogEvents",
+                "ssm:GetParameter",
+                "ssm:PutParameter"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+CloudWatchAgentServerPolicy
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "CloudWatchAgentServerPolicy",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "cloudwatch:PutMetricData",
+                "ec2:DescribeTags",
+                "logs:DescribeLogStreams",
+                "logs:CreateLogGroup",
+                "logs:PutLogEvents",
+                "ssm:GetParameter"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+
 install
 -----------------
 
