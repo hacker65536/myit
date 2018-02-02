@@ -106,6 +106,8 @@ from wizard (first time)
 ```
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
 ```
+- 
+
 
 ```
 On which OS are you planning to use the agent?
