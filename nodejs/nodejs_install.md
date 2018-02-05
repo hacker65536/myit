@@ -54,3 +54,32 @@ check version from remote
 ```bash
 nodebrew ls-remote
 ```
+
+# anyenv
+
+install anyenv
+```
+git clone https://github.com/riywo/anyenv ~/.anyenv
+echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(anyenv init -)"' >> ~/.bashrc
+exec $SHELL -l
+```
+```
+anyenv install ndenv
+exec $SHELL -l
+```
+```
+$ anyenv version
+ndenv: system (set by /home/ec2-user/.anyenv/envs/ndenv/version)
+```
+```
+$ ndenv install -l
+```
+```
+$ ndenv install v9.5.0
+Downloading node-v9.5.0-linux-x64.tar.gz...
+-> https://nodejs.org/dist/v9.5.0/node-v9.5.0-linux-x64.tar.gz
+Installing node-v9.5.0-linux-x64...
+Installed node-v9.5.0-linux-x64 to /home/ec2-user/.anyenv/envs/ndenv/versions/v9.5.0
+```
+
