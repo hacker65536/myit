@@ -83,3 +83,11 @@ Installing node-v9.5.0-linux-x64...
 Installed node-v9.5.0-linux-x64 to /home/ec2-user/.anyenv/envs/ndenv/versions/v9.5.0
 ```
 
+```
+ndenv global v9.5.0
+```
+
+```
+$ node -v
+v9.5.0
+```
