@@ -112,6 +112,59 @@ example json
 }
 ```
 
+or 
+
+get-launch-template-data
+```
+$ aws ec2 get-launch-template-data --instance-id i-xxxxxxxxxxxx
+{
+    "LaunchTemplateData": {
+        "Monitoring": {},
+        "ImageId": "ami-xxxxxxx",
+        "KeyName": "xxxxxxx",
+        "BlockDeviceMappings": [
+            {
+                "DeviceName": "/dev/sda1",
+                "Ebs": {
+                    "DeleteOnTermination": true
+                }
+            }
+        ],
+        "EbsOptimized": true,
+        "Placement": {
+            "Tenancy": "default",
+            "GroupName": "",
+            "AvailabilityZone": "us-east-2a"
+        },
+        "IamInstanceProfile": {
+            "Arn": "arn:aws:iam::xxxxxxx:instance-profile/xxxxxxx"
+        },
+        "InstanceType": "c4.large",
+        "NetworkInterfaces": [
+            {
+                "Description": "",
+                "NetworkInterfaceId": "eni-xxxxxxx",
+                "PrivateIpAddresses": [
+                    {
+                        "Primary": true,
+                        "PrivateIpAddress": "172.31.0.144"
+                    }
+                ],
+                "SubnetId": "subnet-xxxxxxx",
+                "Groups": [
+                    "sg-xxxxxxx"
+                ],
+                "Ipv6Addresses": [],
+                "PrivateIpAddress": "172.31.0.144"
+            }
+        ]
+    }
+}
+
+
+```
+
+create  
 template name bust be between 3 and 125 characters,  and may contain letters, numbers, and the following characters: ( ) . / _.
 ```
 $ aws ec2 create-launch-template --launch-template-name my_template --launch-template-data file://template.json
@@ -128,6 +181,7 @@ $ aws ec2 create-launch-template --launch-template-name my_template --launch-tem
 
 ```
 
+describe
 ```
 $ aws ec2 describe-launch-templates
 {
@@ -147,4 +201,15 @@ $ aws ec2 describe-launch-templates
 update 
 ```
 $ aws ec2 create-launch-template-version --launch-template-name my_template --launch-template-data file://template.json
+```
+
+
+specify default version
+```
+$ aws ec2 modify-launch-template --launch-template-name my_template --default-version 2
+```
+
+run-instance
+```
+$ aws ec2 run-instances --launch-template LaunchTemplateName=my_template,Version=5 --image-id ami-710e2414
 ```
