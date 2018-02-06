@@ -112,6 +112,39 @@ example json
 }
 ```
 
+template name bust be between 3 and 125 characters,  and may contain letters, numbers, and the following characters: ( ) . / _.
 ```
-aws ec2 create-launch-template --launch-template-name my-template --launch-template-data file://template.json
+$ aws ec2 create-launch-template --launch-template-name my_template --launch-template-data file://template.json
+{
+    "LaunchTemplate": {
+        "LatestVersionNumber": 1,
+        "LaunchTemplateId": "lt-xxxxxxxxxx",
+        "LaunchTemplateName": "my_template",
+        "DefaultVersionNumber": 1,
+        "CreatedBy": "arn:aws:sts::xxxxxxxxxx:assumed-role/XXXXX/botocore-session-xxxxxxxxxx",
+        "CreateTime": "2018-02-06T09:38:39.000Z"
+    }
+}
+
+```
+
+```
+$ aws ec2 describe-launch-templates
+{
+    "LaunchTemplates": [
+        {
+            "LatestVersionNumber": 3,
+            "LaunchTemplateId": "lt-xxxxxxxxxxxxxx",
+            "LaunchTemplateName": "my-template",
+            "DefaultVersionNumber": 1,
+            "CreatedBy": "arn:aws:sts::-----------------------",
+            "CreateTime": "2018-01-30T02:12:50.000Z"
+        }
+    ]
+}
+```
+
+update 
+```
+$ aws ec2 create-launch-template-version --launch-template-name my_template --launch-template-data file://template.json
 ```
