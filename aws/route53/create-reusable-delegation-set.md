@@ -60,7 +60,7 @@ $ aws route53 create-hosted-zone \
 
 delete hosted zone
 ```
-$ aws route53 delete-hosted-zone --id xxxxxxxx
+$ aws route53 delete-hosted-zone --id xxxxxxxxxx
 {
     "ChangeInfo": {
         "Status": "PENDING",
