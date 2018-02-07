@@ -72,5 +72,5 @@ $ aws route53 delete-hosted-zone --id xxxxxxxx
 
 delete reusable delegation set
 ```
-$ aws route53 delete-reusable-delegation-set --id xxxxxxxxxxxxxx
+$ aws route53 delete-reusable-delegation-set --id yyyyyyyyyy
 ```
