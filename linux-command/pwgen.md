@@ -1,6 +1,6 @@
 
 ```
-yum install pwgen
+yum install --enablerepo=epel pwgen 
 ```
 
 
