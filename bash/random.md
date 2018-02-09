@@ -16,11 +16,11 @@ echo $((RANDOM % 10 + 1))
 90<>100
 ```
 shuf -i90-100 -n1
-echo $((RANDOM % 10 + 90))
+echo $((RANDOM % 10 + 90)) #90 <> 99
 ```
 
 40<>190
 ```
 shuf -i40-190 -n1
-echo $((RANDOM % 150 + 40))
+echo $((RANDOM % 150 + 40)) #40 <> 189
 ```
