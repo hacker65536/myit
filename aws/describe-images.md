@@ -1,4 +1,13 @@
 
+https://wiki.centos.org/Cloud/AWS
+
+
+| CentOS Version/Marketplace Link | Includes Updates | Virtualization Type | Product Code              |
+|---------------------------------|------------------|---------------------|---------------------------|
+| [CentOS-7 x86_64](https://aws.amazon.com/marketplace/pp/B00O7WM7QW)                 | Yes              | HVM                 | aw0evgkw8e5c1q413zgy5pjce |
+| [CentOS-6 x86_64](https://aws.amazon.com/marketplace/pp/B00NQAYLWO)                 | Yes              | HVM                 | 6x5jmcajty9edm3f211pqjfn2 |
+
+
 centos6 latest ?
 ```
 aws ec2 describe-images --filters \
