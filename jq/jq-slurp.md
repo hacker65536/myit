@@ -31,6 +31,26 @@ $ for i in {1..5}; do echo '{"num":'$RANDOM'}'; done | jq 'sort_by(.num)|.[]' -s
   }
 ]
 ```
+```
+for i in {1..5}; do echo '{"num":'$RANDOM'}'; done | jq 'sort_by(.num)' -s
+[
+  {
+    "num": 913
+  },
+  {
+    "num": 4343
+  },
+  {
+    "num": 19186
+  },
+  {
+    "num": 25534
+  },
+  {
+    "num": 25577
+  }
+]
+```
 
 ```
 for i in {1..5}; do echo '{"num":'$RANDOM'}'; done | jq 'sort_by(.num)|.[]' -s
