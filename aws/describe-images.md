@@ -121,7 +121,7 @@ ami-e1496384
 ```
 
 
-amazon linux
+amazon linux latest
 ---------------
 ```
 $ aws ec2 describe-images --filters \
@@ -178,7 +178,7 @@ jq -s -r '.[0].ImageId'
 ami-f63b1193
 ```
 
-amazon linux 2
+amazon linux 2 latest
 --------------
 ```
 $ aws ec2 describe-images --filters \
