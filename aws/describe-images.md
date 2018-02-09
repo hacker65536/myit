@@ -177,3 +177,60 @@ jq '.[] | sort_by(.CreationDate) | reverse | .[] | select(  (.Name | (contains("
 jq -s -r '.[0].ImageId'
 ami-f63b1193
 ```
+
+amazon linux 2
+--------------
+```
+$ aws ec2 describe-images --filters \
+Name=owner-id,Values=137112412989 \
+Name=is-public,Values=true \
+Name=virtualization-type,Values=hvm \
+Name=root-device-type,Values=ebs \
+Name=block-device-mapping.volume-type,Values=gp2 | \
+jq '.[] | sort_by(.CreationDate) | reverse | .[] | select( .Name | contains("amzn2") )' | \
+jq -s -r '.[0]'
+{
+  "VirtualizationType": "hvm",
+  "Description": "Amazon Linux 2 LTS Candidate AMI 2017.12.0.20180115 x86_64 HVM GP2",
+  "Hypervisor": "xen",
+  "ImageOwnerAlias": "amazon",
+  "EnaSupport": true,
+  "SriovNetSupport": "simple",
+  "ImageId": "ami-710e2414",
+  "State": "available",
+  "BlockDeviceMappings": [
+    {
+      "DeviceName": "/dev/xvda",
+      "Ebs": {
+        "Encrypted": false,
+        "DeleteOnTermination": true,
+        "VolumeType": "gp2",
+        "VolumeSize": 8,
+        "SnapshotId": "snap-0848a83c5d862ba5d"
+      }
+    }
+  ],
+  "Architecture": "x86_64",
+  "ImageLocation": "amazon/amzn2-ami-hvm-2017.12.0.20180115-x86_64-gp2",
+  "RootDeviceType": "ebs",
+  "OwnerId": "137112412989",
+  "RootDeviceName": "/dev/xvda",
+  "CreationDate": "2018-01-16T19:06:49.000Z",
+  "Public": true,
+  "ImageType": "machine",
+  "Name": "amzn2-ami-hvm-2017.12.0.20180115-x86_64-gp2"
+}
+```
+
+image id
+```
+$ aws ec2 describe-images --filters \
+Name=owner-id,Values=137112412989 \
+Name=is-public,Values=true \
+Name=virtualization-type,Values=hvm \
+Name=root-device-type,Values=ebs \
+Name=block-device-mapping.volume-type,Values=gp2 | \
+jq '.[] | sort_by(.CreationDate) | reverse | .[] | select( .Name | contains("amzn2") )' | \
+jq -s -r '.[0].ImageId'
+ami-710e2414
+```
