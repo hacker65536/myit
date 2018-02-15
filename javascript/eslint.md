@@ -14,6 +14,8 @@ env:
   node: true
 extends: 'eslint:recommended'
 rules:
+  no-console:
+    - off
   indent:
     - error
     - 4
@@ -21,8 +23,8 @@ rules:
     - error
     - unix
   quotes:
-    - error
-    - double
+    - warn
+    - single
   semi:
     - error
     - always
