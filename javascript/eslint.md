@@ -4,7 +4,6 @@ https://eslint.org/docs/user-guide/getting-started
 ```
 npm install eslint
 ./node_modules/.bin/eslint --init
-
 ```
 
 ```
