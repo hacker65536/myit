@@ -35,3 +35,7 @@ Resources:
     Type: AWS::Serverless::Function
 Transform: AWS::Serverless-2016-10-31
 ```
+
+```
+aws cloudformation deploy --template-file /home/ec2-user/environment/project/serverless-output.yaml --stack-name <STACK NAME> --capabilities CAPABILITY_IAM
+```
