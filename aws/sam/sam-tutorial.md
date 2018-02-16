@@ -10,7 +10,7 @@ Resources:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: index.handler
-      Runtime: nodojs6.10
+      Runtime: nodejs6.10
 ```
 
 on cloud9
@@ -31,7 +31,7 @@ Resources:
     Properties:
       CodeUri: s3://<bucketname>/21534bac4e62ea3c441a2c19d0a4387
       Handler: index.handler
-      Runtime: nodojs6.10
+      Runtime: nodejs6.10
     Type: AWS::Serverless::Function
 Transform: AWS::Serverless-2016-10-31
 ```
