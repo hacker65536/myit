@@ -35,6 +35,15 @@ EOF
 
 ```
 ./collect_data.sh --account $account_name
+```
+
+cp config and fix name
+```
+cp config.json.demo config.json
+```
+
+
+```
 python cloudmapper.py prepare --account $account_name
 python cloudmapper.py serve --public
 ```
