@@ -15,7 +15,7 @@ cd !$:t:r
 ```
 account_name=my_account
 mkdir -p $account_name
-cat <<EOF> describe-regions.json
+cat <<EOF> ${account_name}/describe-regions.json
 {
     "Regions": [
         {
