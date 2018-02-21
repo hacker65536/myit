@@ -13,7 +13,8 @@ cd !$:t:r
 
 みたいリージョンのみを限定する
 ```
-mkdir -p <account_name>
+account_name=my_account
+mkdir -p $account_name
 cat <<EOF> describe-regions.json
 {
     "Regions": [
@@ -33,7 +34,7 @@ EOF
 ```
 
 ```
-./collect_data.sh --account <account_name>
-python cloudmapper.py prepare --account <account_name>
+./collect_data.sh --account $account_name
+python cloudmapper.py prepare --account $account_name
 python cloudmapper.py serve --public
 ```
