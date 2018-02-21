@@ -2,14 +2,14 @@
 https://github.com/duo-labs/cloudmapper
 
 
-
+download
 ```
 git clone https://github.com/duo-labs/cloudmapper.git
 cd !$:t:r
 ```
 
 
-みたいリージョンのみを限定する
+デフォルトでは全リージョンを見るので多い場合はリージョンを限定する
 ```
 account_name=my_account
 mkdir -p $account_name
@@ -45,3 +45,4 @@ cp config.json.demo config.json
 python cloudmapper.py prepare --account $account_name
 python cloudmapper.py serve --public
 ```
+起動したサーバを http://host:8000でアクセスする
