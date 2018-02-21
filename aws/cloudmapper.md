@@ -2,8 +2,6 @@
 https://github.com/duo-labs/cloudmapper
 
 
-require pyjq netaddr etc
-
 
 ```
 git clone https://github.com/duo-labs/cloudmapper.git
