@@ -38,3 +38,10 @@ restart
 ```
 systemctl restart rundeckd
 ```
+
+```
+# netstat -plunt |grep java
+tcp6       0      0 :::4440                 :::*                    LISTEN      30344/java
+```
+
+access to http://myhost:4440
