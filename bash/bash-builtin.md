@@ -1,0 +1,23 @@
+https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html
+
+- alias
+- bind
+- builtin
+- caller
+- command
+- declare
+- echo
+- enable
+- help
+- let
+- local
+- logout
+- mapfile
+- printf
+- read
+- readarray
+- source
+- type
+- typeset
+- ulimit
+- unalias
