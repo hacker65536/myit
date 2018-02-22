@@ -22,7 +22,7 @@ $ virtualenv my_env
 New python executable in /home/ec2-user/project/my_env/bin/python2.7
 Also creating executable in /home/ec2-user/project/my_env/bin/python
 Installing setuptools, pip, wheel...done.
-
+```
 ```
 $ source my_env/bin/activate
 ```
