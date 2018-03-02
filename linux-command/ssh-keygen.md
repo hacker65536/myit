@@ -1,4 +1,4 @@
-create key
+create key (no passphrase no comment)
 ```
 ssh-keygen -t rsa -b 4096 -N "" -f keyfile -C ""
 ```
