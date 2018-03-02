@@ -29,3 +29,8 @@ systemctl start mysqld
 Jan 05 05:39:54 ip-172-31-34-252 systemd[1]: Starting MySQL Server...
 Jan 05 05:40:14 ip-172-31-34-252 systemd[1]: Started MySQL Server.
 ```
+
+show password
+```
+grep password /var/log/mysqld.log | awk '{print $NF}'
+```
