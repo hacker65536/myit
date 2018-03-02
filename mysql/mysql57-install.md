@@ -32,5 +32,35 @@ Jan 05 05:40:14 ip-172-31-34-252 systemd[1]: Started MySQL Server.
 
 show password
 ```
-grep password /var/log/mysqld.log | awk '{print $NF}'
+defpw=$(grep "temporary password" /var/log/mysqld.log | awk '{print $NF}')
+echo $defpw
+```
+
+```
+$ mysql_config_editor set --login-path=local --host=localhost --user=root --password
+Enter password:
+```
+```
+$ mysql_config_editor print --all
+[local]
+user = root
+password = *****
+host = localhost
+```
+
+```
+# mysql --login-path=local
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 7
+Server version: 5.7.21
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
 ```
