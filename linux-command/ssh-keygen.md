@@ -1,4 +1,7 @@
-
+create key
+```
+ssh-keygen -t rsa -b 4096 -N "" -f keyfile -C ""
+```
 
 generate publickey from private key
 ```
