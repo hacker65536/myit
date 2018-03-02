@@ -13,3 +13,8 @@ show fingerprint
 ```
 ssh-keygen -lf publickey -E md5/sha256
 ```
+
+aws fingerprint
+```
+openssl pkey -in key_pair -pubout -outform DER | openssl md5 -c
+```
