@@ -27,9 +27,10 @@ alternatives --install /usr/bin/python python /usr/bin/python3.6 2
 
 configure python
 ```
-alternatives --config python
+# intercative
+alternatives --config python 
 
-# or oneliner
+# nonintercative
 alternatives --set python /usr/bin/python2.6
 python --version # Python 2.6.6
 
