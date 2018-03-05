@@ -25,6 +25,19 @@ alternatives --install /usr/bin/python python /usr/bin/python2.6 1
 alternatives --install /usr/bin/python python /usr/bin/python3.6 2
 ```
 
+configure python
+```
+alternatives --config python
+
+# or oneliner
+alternatives --set python /usr/bin/python2.6
+python --version # Python 2.6.6
+
+alternatives --set python /usr/bin/python3.6
+python --version # Python 3.6.4
+```
+
+
 remove config
 ```
 alternatives --remove python /usr/bin/python2.6
