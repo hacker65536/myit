@@ -7,3 +7,7 @@ yum install !$:t
 
 
 
+```
+$ scala -version
+Scala code runner version 2.11.7 -- Copyright 2002-2013, LAMP/EPFL
+```
