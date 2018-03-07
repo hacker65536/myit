@@ -35,7 +35,7 @@ curl -L http://fileuri-redirect
 curl -sSLO http://fileuri
 ```
 
--I head only
+`-I`  --head (fetch the headers only)
 ```bash
 # curl -I www.yahoo.co.jp
 HTTP/1.1 301 Redirect
