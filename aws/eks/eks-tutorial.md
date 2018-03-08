@@ -211,3 +211,48 @@ ip-10-0-120-146.us-west-2.compute.internal   Ready     45s       v1.7.10-eks.1
 ip-10-0-149-175.us-west-2.compute.internal   Ready     50s       v1.7.10-eks.1
 ```
 
+dns add on
+```
+curl -O https://amazon-eks.s3-us-west-2.amazonaws.com/1.7.10/0.1/dns.yaml
+sed -e "s/REPLACE_WITH_MASTER_ENDPOINT_HOST/${endpoint#https://}/" -i dns.yaml
+kubectl create --validate=false -f dns.yaml
+```
+
+
+launch a guest book app
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.7.10/examples/guestbook-go/redis-master-controller.json
+replicationcontroller "redis-master" created
+```
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.7.10/examples/guestbook-go/redis-master-service.json
+service "redis-master" created
+```
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.7.10/examples/guestbook-go/redis-slave-controller.json
+replicationcontroller "redis-slave" created
+```
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.7.10/examples/guestbook-go/redis-slave-service.json
+service "redis-slave" created
+```
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.7.10/examples/guestbook-go/guestbook-controller.json
+replicationcontroller "guestbook" created
+```
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.7.10/examples/guestbook-go/guestbook-service.json
+service "guestbook" created
+```
+
+```
+kubectl get services -o wide
+NAME           CLUSTER-IP     EXTERNAL-IP                                                              PORT(S)          AGE       SELECTOR
+guestbook      10.100.0.102   eradfa237228f11afbfec027d23b86f8-786966601.us-west-2.elb.amazonaws.com   3000:30375/TCP   3m        app=guestbook
+kubernetes     10.100.0.1     <none>                                                                   443/TCP          1h        <none>
+redis-master   10.100.0.239   <none>                                                                   6379/TCP         5m        app=redis,role=master
+redis-slave    10.100.0.53    <none>                                                                   6379/TCP         4m        app=redis,role=slave
+```
+
+
+
