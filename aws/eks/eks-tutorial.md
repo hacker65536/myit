@@ -104,3 +104,14 @@ AVAILABLE COMMANDS
 
                                                                          EKS()
 ```
+
+
+create IAM user fo eks
+
+- poweruser( arn:aws:iam::aws:policy/PowerUserAccess )
+- iam:passorle
+
+create eks cluster 
+```
+aws eks create-cluster --cluster-name eks-preview --role-arn arn:aws:iam::000000000:role/eks-vpc-EksServiceRole-IYV0CUEAAN4W --vpc-id vpc-ec214c95
+```
