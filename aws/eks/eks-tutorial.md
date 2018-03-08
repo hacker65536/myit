@@ -197,5 +197,17 @@ data:
         - system:nodes
         - system:node-proxier
 ```
+apply
+```
+kubectl apply -f aws-auth-cm.yaml
+configmap "aws-auth" created
+```
 
+```
+kubectl get nodes
+NAME                                         STATUS    AGE       VERSION
+ip-10-0-110-217.us-west-2.compute.internal   Ready     48s       v1.7.10-eks.1
+ip-10-0-120-146.us-west-2.compute.internal   Ready     45s       v1.7.10-eks.1
+ip-10-0-149-175.us-west-2.compute.internal   Ready     50s       v1.7.10-eks.1
+```
 
