@@ -255,4 +255,40 @@ redis-slave    10.100.0.53    <none>                                            
 ```
 
 
+```
+curl http://eradfa237228f11afbfec027d23b86f8-786966601.us-west-2.elb.amazonaws.com:3000/
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta content="width=device-width" name="viewport">
+    <link href="style.css" rel="stylesheet">
+    <title>Guestbook</title>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Guestbook</h1>
+    </div>
 
+    <div id="guestbook-entries">
+      <p>Waiting for database connection...</p>
+    </div>
+
+    <div>
+      <form id="guestbook-form">
+        <input autocomplete="off" id="guestbook-entry-content" type="text">
+        <a href="#" id="guestbook-submit">Submit</a>
+      </form>
+    </div>
+
+    <div>
+      <p><h2 id="guestbook-host-address"></h2></p>
+      <p><a href="env">/env</a>
+      <a href="info">/info</a></p>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
