@@ -1,6 +1,7 @@
 
 create vpc from cloudformation
 
+`https://amazon-eks.s3-us-west-2.amazonaws.com/1.7.10/0.1/vpc_cloudformation.yml`
 
 resources
 ```bash
@@ -113,5 +114,88 @@ create IAM user fo eks
 
 create eks cluster 
 ```
-aws eks create-cluster --cluster-name eks-preview --role-arn arn:aws:iam::000000000:role/eks-vpc-EksServiceRole-IYV0CUEAAN4W --vpc-id vpc-ec214c95
+clustername=eks-preview
+aws eks create-cluster --cluster-name $clustername --role-arn arn:aws:iam::000000000:role/eks-vpc-EksServiceRole-IYV0CUEAAN4W --vpc-id vpc-ec214c95
 ```
+endpoint
+```
+endpoint=$(aws eks describe-cluster --cluster-name $custername --query cluster.masterEndpoint | jq -r '.')
+echo $endpoint
+https://730EFE7BFA284AC792550879C1B2041D.sk1.us-west-2.eks.amazonaws.com
+```
+
+create config
+```
+mkdir -p ~/.kube
+cat <<EOF > ~/.kube/config-eks-preview
+apiVersion: v1
+clusters:
+- cluster:
+    server: $endpoint
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    user: aws
+  name: aws
+current-context: aws
+kind: Config
+preferences: {}
+users:
+- name: aws
+  user:
+    auth-provider:
+      config:
+        cluster-id: $clustername
+      name: aws
+EOF
+```
+
+```
+export KUBECONFIG=$KUBECONFIG:~/.kube/config-eks-preview
+```
+
+```
+kubectl get nodes
+No resources found.
+```
+
+create workernode from cloudformation
+
+`https://amazon-eks.s3-us-west-2.amazonaws.com/1.7.10/0.1/nodegroup_cloudformation.yml`
+
+```
+$ aws cloudformation describe-stack-resources --stack-name eks-preview-worker-nodes |jq -c '.[][]|[.LogicalResourceId,.PhysicalResourceId]'
+["NodeGroup","eks-preview-worker-nodes-NodeGroup-O06IFOJI6EMV"]
+["NodeInstanceProfile","eks-preview-worker-nodes-NodeInstanceProfile-141G8BC5RWJT1"]
+["NodeInstanceRole","eks-preview-worker-nodes-NodeInstanceRole-1E97EK7WH11XU"]
+["NodeLaunchConfig","eks-preview-worker-nodes-NodeLaunchConfig-1BRG188TN73KK"]
+["NodeSecurityGroup","sg-99270ae6"]
+["NodeSecurityGroupIngress","NodeSecurityGroupIngress"]
+["Subnet01","subnet-50419229"]
+["Subnet01RouteTableAssociation","rtbassoc-19cc0663"]
+["Subnet02","subnet-a88578e3"]
+["Subnet02RouteTableAssociation","rtbassoc-4dc20837"]
+```
+
+download AWS authenticator configuration map and edit
+```
+curl -O https://amazon-eks.s3-us-west-2.amazonaws.com/1.7.10/0.1/aws-auth-cm.yaml
+```
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: default
+data:
+  mapRoles: |
+    - rolearn: <ARN of instance role (not instance profile)>
+      username: aws:{{AccountID}}:instance:{{SessionName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
+        - system:node-proxier
+```
+
+
