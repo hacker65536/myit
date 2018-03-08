@@ -292,3 +292,25 @@ curl http://eradfa237228f11afbfec027d23b86f8-786966601.us-west-2.elb.amazonaws.c
   </body>
 </html>
 ```
+
+```
+kubectl get  all
+NAME                    READY     STATUS    RESTARTS   AGE
+po/guestbook-btmj9      1/1       Running   0          9m
+po/guestbook-cps6g      1/1       Running   0          9m
+po/guestbook-sdv4l      1/1       Running   0          9m
+po/redis-master-5cf7v   1/1       Running   0          10m
+po/redis-slave-dsh24    1/1       Running   0          9m
+po/redis-slave-lsgvg    1/1       Running   0          9m
+
+NAME              DESIRED   CURRENT   READY     AGE
+rc/guestbook      3         3         3         9m
+rc/redis-master   1         1         1         10m
+rc/redis-slave    2         2         2         9m
+
+NAME               CLUSTER-IP     EXTERNAL-IP        PORT(S)          AGE
+svc/guestbook      10.100.0.102   eradfa237228f...   3000:30375/TCP   8m
+svc/kubernetes     10.100.0.1     <none>             443/TCP          1h
+svc/redis-master   10.100.0.239   <none>             6379/TCP         10m
+svc/redis-slave    10.100.0.53    <none>             6379/TCP         9m
+```
