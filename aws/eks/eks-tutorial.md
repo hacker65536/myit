@@ -254,7 +254,9 @@ redis-master   10.100.0.239   <none>                                            
 redis-slave    10.100.0.53    <none>                                                                   6379/TCP         4m        app=redis,role=slave
 ```
 
+access the guestbook from browser 
 
+check the app
 ```
 curl http://eradfa237228f11afbfec027d23b86f8-786966601.us-west-2.elb.amazonaws.com:3000/
 <!DOCTYPE html>
@@ -293,6 +295,7 @@ curl http://eradfa237228f11afbfec027d23b86f8-786966601.us-west-2.elb.amazonaws.c
 </html>
 ```
 
+get all
 ```
 kubectl get  all
 NAME                    READY     STATUS    RESTARTS   AGE
@@ -314,3 +317,19 @@ svc/kubernetes     10.100.0.1     <none>             443/TCP          1h
 svc/redis-master   10.100.0.239   <none>             6379/TCP         10m
 svc/redis-slave    10.100.0.53    <none>             6379/TCP         9m
 ```
+
+```
+aws cloudtrail lookup-events --lookup-attributes AttributeKey=Username,AttributeValue=<ROLE_ID> | jq '.[][]|.EventName'
+"AuthorizeSecurityGroupIngress"
+"RegisterInstancesWithLoadBalancer"
+"CreateSecurityGroup"
+"ConfigureHealthCheck"
+"AuthorizeSecurityGroupIngress"
+"ModifyLoadBalancerAttributes"
+"CreateTags"
+"CreateLoadBalancer"
+```
+
+https://github.com/aws/amazon-vpc-cni-k8s
+
+
