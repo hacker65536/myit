@@ -22,3 +22,8 @@ uninstall
 ```
 pip uninstall <package>
 ```
+
+version list
+```
+pip install ansible==
+```
