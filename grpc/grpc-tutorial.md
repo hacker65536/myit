@@ -2,7 +2,7 @@
 require git docker
 
 
-install git docker node
+install git docker
 ------------
 ```
 yum install -y git docker 
