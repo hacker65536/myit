@@ -1,5 +1,5 @@
 
-require node git docker
+require git docker
 
 
 install git docker node
@@ -12,13 +12,6 @@ yum install -y git docker
 systemctl start docker
 ```
 
-
-https://github.com/riywo/anyenv
-
-```
-ndenv install v6.6.0
-ndenv global v6.6.0
-```
 
 download grpc sample
 ---------
