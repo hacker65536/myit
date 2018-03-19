@@ -226,6 +226,9 @@ docker exec -it $(docker ps -q -f name=grpcnginx) sh
 ```
 vim /etc/nginx/nginx.conf
 ```
+
+docker ps
+---------
 ```
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                NAMES
 8e211adfd09d        grpc/node           "node node/dynamic..."   4 minutes ago       Up 4 minutes        50051/tcp            grpcnode
