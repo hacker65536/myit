@@ -1803,3 +1803,25 @@ PHPINIDir (mod_php5.c)
         Directory containing the php.ini file
         Allowed in *.conf only outside <Directory>, <Files>, <Location>, or <If>
 ```
+
+```
+# httpd -t -D DUMP_RUN_CFG
+ServerRoot: "/etc/httpd"
+Main DocumentRoot: "/var/www/html"
+Main ErrorLog: "/etc/httpd/logs/error_log"
+Mutex proxy: using_defaults
+Mutex authn-socache: using_defaults
+Mutex default: dir="/var/run/httpd/" mechanism=default
+Mutex mpm-accept: using_defaults
+Mutex cache-socache: using_defaults
+Mutex authdigest-opaque: using_defaults
+Mutex watchdog-callback: using_defaults
+Mutex proxy-balancer-shm: using_defaults
+Mutex rewrite-map: using_defaults
+Mutex authdigest-client: using_defaults
+Mutex lua-ivm-shm: using_defaults
+PidFile: "/var/run/httpd/httpd.pid"
+Define: DUMP_RUN_CFG
+User: name="apache" id=48 not_used
+Group: name="apache" id=48 not_used
+```
