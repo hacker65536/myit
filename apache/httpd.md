@@ -217,3 +217,7 @@ Loaded Modules:
 # service httpd configtest
 Syntax OK
 ```
+```
+# httpd -t
+Syntax OK
+```
