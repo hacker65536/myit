@@ -1,8 +1,8 @@
 
-require git docker
+require git docker node
 
 
-install git docker
+install git docker node
 ------------
 ```
 yum install -y git docker 
@@ -11,7 +11,16 @@ yum install -y git docker
 ```
 systemctl start docker
 ```
-
+```
+git clone https://github.com/riywo/anyenv ~/.anyenv
+echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(anyenv init -)"' >> ~/.bashrc
+exec $SHELL -l
+anyenv install ndenv
+exec $SHELL -l
+ndenv install v6.6.0
+ndenv global v6.6.0
+```
 
 download grpc sample
 ---------
