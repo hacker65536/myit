@@ -129,7 +129,7 @@ access to https://gradle.com/s/YYYYYYYYYYYYYY
 
 
 
-ommit interact
+omit interact
 ```
 # cat build.gradle
 plugins {
