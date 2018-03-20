@@ -228,6 +228,9 @@ docker exec -it $(docker ps -q -f name=grpcnginx) sh
 ```
 vim /etc/nginx/nginx.conf
 ```
+```
+docker kill -s HUP $(docker ps -q -f name=grpcnginx)
+```
 
 docker ps
 ---------
