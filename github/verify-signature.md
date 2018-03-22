@@ -2,8 +2,8 @@
 2. settings
 3. webhooks
 4. input server address to Payload URL
-5. set application/json to Content type 
-6. set custom secret to Secret
+5. select application/json to Content type 
+6. input MY_SECRET(custom secret) to Secret
 
 
 
