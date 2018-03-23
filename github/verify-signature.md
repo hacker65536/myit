@@ -1,3 +1,7 @@
+https://developer.github.com/webhooks/securing/
+
+https://tools.ietf.org/html/rfc2104
+
 1. repostitory => settings => webhooks
 4. input node server address to Payload URL
 5. select application/json to Content type 
