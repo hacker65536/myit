@@ -30,6 +30,8 @@ sed -e 's/DIR 01;34\(.*\)/DIR 01;35\1/' -i /etc/DIR_COLORS
 
 ![ls_dircolors](./ls_dircolors.png)
 
+
+this is better than above
 https://github.com/seebi/dircolors-solarized/blob/master/dircolors.ansi-dark
 ```
 DIR 34
