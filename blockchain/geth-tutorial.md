@@ -95,7 +95,7 @@ instance: Geth/v1.8.4-unstable-80449719/linux-amd64/go1.9.2
 ```
 > eth.getBlock(0)
 ```
-```json
+```js
 {
   difficulty: 16384,
   extraData: "0x",
