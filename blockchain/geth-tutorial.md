@@ -227,3 +227,16 @@ check account balances
 > web3.fromWei(eth.getBalance(eth.accounts[0]),"ether")
 290
 ```
+
+send transaction (unlock and send)
+-----
+```
+> personal.unlockAccount(eth.accounts[0])
+Unlock account 0xcc50215c5c6b8d87a29eb01efa56ae351ace519c
+Passphrase:
+true
+
+> eth.sendTransaction({from: eth.accounts[0], to: eth.accounts[1], value: web3.toWei(5, "ether")})
+"0xda4b02e0ec2be529b461ad037bb8c40d99fa35bd25bd706e3a313b20e9832a95"
+```
+
