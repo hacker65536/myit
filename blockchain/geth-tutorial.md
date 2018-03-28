@@ -92,6 +92,8 @@ instance: Geth/v1.8.4-unstable-80449719/linux-amd64/go1.9.2
 >
 ```
 
+get block
+--------
 ```
 > eth.getBlock(0)
 ```
@@ -118,4 +120,49 @@ instance: Geth/v1.8.4-unstable-80449719/linux-amd64/go1.9.2
   transactionsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
   uncles: []
 }
+```
+
+show account
+----------
+```
+> eth.accounts
+[]
+```
+
+create account and show list
+---------
+```
+> personal.newAccount("pwduser1")
+"0xcc50215c5c6b8d87a29eb01efa56ae351ace519c"
+> personal.newAccount("pwduser2")
+"0x6fd5b390a815234141865124d6e03b99cc7ff279"
+> eth.accounts
+["0xcc50215c5c6b8d87a29eb01efa56ae351ace519c", "0x6fd5b390a815234141865124d6e03b99cc7ff279"]
+```
+
+coinbase
+------
+```
+> eth.coinbase
+"0xcc50215c5c6b8d87a29eb01efa56ae351ace519c"
+```
+
+
+mining start and stop
+-----
+```
+> miner.start()
+null
+> eth.mining
+true
+```
+```
+> eth.blockNumber
+8
+```
+```
+> miner.stop()
+true
+> eth.mining
+false
 ```
