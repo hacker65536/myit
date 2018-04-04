@@ -49,3 +49,10 @@ Content-Type: text/html
 Content-Language: en
 Content-Length: 6794
 ```
+
+
+cookie
+```
+curl -c cookie.txt -d "id=mymail@gmail.com" -d "password=mypassword" https://login.somesite.org/
+curl -b cookie.txt -O http://download.somesite.com/file.zip
+```
