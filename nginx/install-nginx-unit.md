@@ -110,4 +110,7 @@ EOF
 ```
 
 ```
-curl localhost:8300
+# curl localhost:8300 && date
+2018-04-16 04:29:23
+Mon Apr 16 04:29:23 UTC 2018
+```
