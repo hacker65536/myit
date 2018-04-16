@@ -28,7 +28,7 @@ yum install -y unit
 install additional module packages
 
 ```
-yum install unit-php unit-python unit-go unit-perl
+yum install -y unit-php unit-python unit-go unit-perl
 ```
 
 ```
