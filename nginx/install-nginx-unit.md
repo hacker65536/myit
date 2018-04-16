@@ -34,16 +34,21 @@ yum install unit-php unit-python unit-go unit-perl
 ```
 systemctl start unit
 ```
+
 ```
-# ps aux|grep uni[t]
-root      3562  0.0  0.1  20596  1268 ?        Ss   03:29   0:00 unit: main [/usr/sbin/unitd]
-nobody    3564  0.0  0.0  20596   248 ?        S    03:29   0:00 unit: controller
-nobody    3565  0.0  0.0  20596   252 ?        S    03:29   0:00 unit: router
-```
-```
-# journalctl -u unit
--- Logs begin at Mon 2018-04-16 03:17:38 UTC, end at Mon 2018-04-16 03:30:01 UTC. --
+# systemctl status unit
+● unit.service - NGINX Unit
+   Loaded: loaded (/usr/lib/systemd/system/unit.service; disabled; vendor preset: disabled)
+   Active: active (running) since Mon 2018-04-16 03:29:56 UTC; 4min 6s ago
+  Process: 3561 ExecStart=/usr/sbin/unitd $UNITD_OPTIONS (code=exited, status=0/SUCCESS)
+ Main PID: 3562 (unitd)
+   CGroup: /system.slice/unit.service
+           ├─3562 unit: main [/usr/sbin/unitd]
+           ├─3564 unit: controller
+           └─3565 unit: router
+
 Apr 16 03:29:56 ip-172-31-29-117.us-east-2.compute.internal systemd[1]: Starting NGINX Unit...
-Apr 16 03:29:56 ip-172-31-29-117.us-east-2.compute.internal unitd[3561]: 2018/04/16 03:29:56 [info]
+Apr 16 03:29:56 ip-172-31-29-117.us-east-2.compute.internal unitd[3561]: 2018/04/16 03:29:56 [inf...
 Apr 16 03:29:56 ip-172-31-29-117.us-east-2.compute.internal systemd[1]: Started NGINX Unit.
+Hint: Some lines were ellipsized, use -l to show in full.
 ```
