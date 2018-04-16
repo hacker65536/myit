@@ -216,3 +216,37 @@ PATH    /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
 # curl localhost:8300
 2018-04-16 04:49:00
 ```
+
+integration with nginx
+-----------
+
+install nginx
+
+```
+# amazon-linux-extras install nginx1.12
+```
+
+edit /etc/nginx/nginx.conf
+```nginx
+#http block
+upstream unit_backend {
+       server 127.0.0.1:8300;
+}
+
+#----------
+
+#server block
+location ~ \.php$ {
+    proxy_pass http://unit_backend;
+    proxy_set_header Host $host;
+}
+```
+
+```
+systemctl start nginx
+```
+
+```
+# curl localhost/index.php
+2018-04-16 05:14:00
+```
