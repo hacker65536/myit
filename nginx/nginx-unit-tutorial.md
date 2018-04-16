@@ -3,7 +3,6 @@ nginx-unit
 =============
 
 Amazon linux 2
---------
 
 ```
 # cat /etc/system-release
