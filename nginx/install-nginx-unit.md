@@ -52,3 +52,55 @@ Apr 16 03:29:56 ip-172-31-29-117.us-east-2.compute.internal unitd[3561]: 2018/04
 Apr 16 03:29:56 ip-172-31-29-117.us-east-2.compute.internal systemd[1]: Started NGINX Unit.
 Hint: Some lines were ellipsized, use -l to show in full.
 ```
+
+
+ref http://unit.nginx.org/configuration/
+```
+cat <<'EOF'> start.json
+{
+    "listeners": {
+        "*:8300": {
+            "application": "blogs"
+        }
+    },
+
+    "applications": {
+        "blogs": {
+            "type": "php",
+            "processes": 20,
+            "root": "/www/blogs/scripts",
+            "index": "index.php"
+        }
+    }
+}
+EOF
+```
+```
+mkdir -p /www/blogs/scripts
+```
+```
+# curl -X PUT -d @./start.json  --unix-socket /run/control.unit.sock http://localhost/
+{
+        "success": "Reconfiguration done."
+}
+```
+
+```
+# curl --unix-socket /run/control.unit.sock http://localhost/
+{
+        "listeners": {
+                "*:8300": {
+                        "application": "blogs"
+                }
+        },
+
+        "applications": {
+                "blogs": {
+                        "type": "php",
+                        "processes": 20,
+                        "root": "/www/blogs/scripts",
+                        "index": "index.php"
+                }
+        }
+}
+```
