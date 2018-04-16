@@ -1,5 +1,5 @@
 
-install nginx-unit
+nginx-unit
 =============
 
 Amazon linux 2
