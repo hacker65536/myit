@@ -79,7 +79,7 @@ EOF
 mkdir -p /www/blogs/scripts
 cat <<'EOF' > /www/blogs/scripts/index.php
 <?php
-echo "test" . date();
+echo date('Y-m-d H:i:s).PHP_EOL;
 EOF
 ```
 ```
@@ -109,3 +109,5 @@ EOF
 }
 ```
 
+```
+curl localhost:8300
