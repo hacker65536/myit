@@ -77,6 +77,10 @@ EOF
 ```
 ```
 mkdir -p /www/blogs/scripts
+cat <<'EOF' > /www/blogs/scripts/index.php
+<?php
+echo "test" . date();
+EOF
 ```
 ```
 # curl -X PUT -d @./start.json  --unix-socket /run/control.unit.sock http://localhost/
