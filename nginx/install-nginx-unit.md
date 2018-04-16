@@ -152,7 +152,8 @@ php and python
 curl -X PUT -d @./start.json  --unix-socket /run/control.unit.sock http://localhost/
 ```
 ```
-# curl --unix-socket /run/control.unit.sock http://localhost/applications/blogs                                {
+# curl --unix-socket /run/control.unit.sock http://localhost/applications/blogs
+{
         "type": "php",
         "processes": 20,
         "root": "/www/blogs/scripts",
