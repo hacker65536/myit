@@ -109,4 +109,4 @@ jupyter notebook --generate-config
 jupyter notebook
 ```
 
-access http://<host>:8888/
+access http://\<host\>:8888/
