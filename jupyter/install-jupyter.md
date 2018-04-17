@@ -94,3 +94,13 @@ The HTML pages are in build/html.
 
 Build finished. The HTML pages are in build/html.
 ```
+
+http://jupyter-notebook.readthedocs.io/en/latest/public_server.html
+
+```
+pip install jupyter
+```
+
+```
+jupyter notebook --generate-config
+```
