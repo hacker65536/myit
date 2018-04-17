@@ -104,3 +104,9 @@ pip install jupyter
 ```
 jupyter notebook --generate-config
 ```
+
+```
+jupyter notebook
+```
+
+access http://<host>:8888/
