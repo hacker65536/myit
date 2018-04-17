@@ -75,3 +75,9 @@ For this change to become active, you have to open a new terminal.
 
 Thank you for installing Miniconda3!
 ```
+
+```
+$ bash -l
+$ conda --version
+conda 4.4.10
+```
