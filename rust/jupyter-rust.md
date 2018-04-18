@@ -1,5 +1,7 @@
 install rust
+
 install jupyter
+
 install libzmq
 
 ```
