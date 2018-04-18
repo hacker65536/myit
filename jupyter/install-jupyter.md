@@ -51,6 +51,14 @@ Out[2]: 'sha1:46320bc265ad:086e0af382f33913bb37696df4570a276fb3bbd7'
 c.NotebookApp.password = u'sha1:67c9e60bb8b6:9ffede0825894254b2e042ea597d771089e11aed'
 ```
 
+### allow host
+
+.jupyter/jupyter_notebook_config.py
+```
+c.NotebookApp.ip = '*'
+```
+
+exmaple
 ```
 # Set options for certfile, ip, password, and toggle off
 # browser auto-opening
@@ -64,3 +72,5 @@ c.NotebookApp.open_browser = False
 # It is a good idea to set a known, fixed port for server access
 c.NotebookApp.port = 9999
 ```
+
+
