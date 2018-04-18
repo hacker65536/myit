@@ -7,24 +7,26 @@ pip3 install jupyter
 ```
 
 
+run server public
+--------------
 http://jupyter-notebook.readthedocs.io/en/stable/public_server.html
 
 
-generate config
---------
+### generate config
+
 ```
 jupyter notebook --generate-config
 ```
 
-set password (auto)
+### set password 
+auto
 ```
 $ jupyter notebook password
 Enter password:
 Verify password:
 [NotebookPasswordApp] Wrote hashed password to /home/ec2-user/.jupyter/jupyter_notebook_config.json
 ```
-
-set password(man)
+man
 ```
 $ ipython
 Python 2.7.14 (default, Mar 16 2018, 18:20:07)
