@@ -16,6 +16,7 @@ make check && make install && sudo ldconfig
 ```
 
 ```
-cat /etc/ld.so.conf.d/local.conf
+cat <<'EOF' >> /etc/ld.so.conf.d/local.conf
 /usr/local/lib
+EOF
 ```
