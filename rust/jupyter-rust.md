@@ -36,10 +36,13 @@ jupyter notebook --allow-root
 ```
 
 
+install kernel
+---------
 
-install libzmq
+ref https://github.com/m0riiiii/jupyter-rust-kernel
 
 ```
-pkg-config --cflags --libs libzmq
--DZMQ_BUILD_DRAFT_API=1 -I/usr/local/include  -L/usr/local/lib -lzmq
+git clone https://github.com/m0riiiii/jupyter-rust-kernel.git
+cd jupyter-rust-kernel.git
+sh install.sh
 ```
