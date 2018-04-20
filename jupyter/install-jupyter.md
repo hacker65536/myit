@@ -57,6 +57,10 @@ c.NotebookApp.password = u'sha1:67c9e60bb8b6:9ffede0825894254b2e042ea597d771089e
 ```
 c.NotebookApp.ip = '*'
 ```
+or
+```
+sed -e "s/#\(c.NotebookApp.ip .*\)/c.NotebookApp.ip = '*'/" -i .jupyter/jupyter_notebook_config.py
+```
 
 ### exmaple
 ```
@@ -73,4 +77,9 @@ c.NotebookApp.open_browser = False
 c.NotebookApp.port = 9999
 ```
 
+run jupyter
+------
 
+```
+jupyter notebook 
+```
