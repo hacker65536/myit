@@ -57,3 +57,21 @@ Check out some of the other files in this directory:
   ./readme          <-- this file
   ./security-notes
 ```
+
+
+test
+--------
+
+```
+mkdir ipfs
+cd !$
+echo "hello world" >hello
+ipfs add hello
+```
+```
+added QmT78zSuBmuS4z925WZfrqQ1qHaJ56DQaTfyMUF7F8ff5o hello
+```
+```
+$ ipfs cat QmT78zSuBmuS4z925WZfrqQ1qHaJ56DQaTfyMUF7F8ff5o
+hello world
+```
