@@ -152,3 +152,7 @@ $ ipfs swarm peers
 --snip---
 ```
 
+publish IPNS
+---------
+
+TODO
