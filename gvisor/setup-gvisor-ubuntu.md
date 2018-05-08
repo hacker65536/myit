@@ -117,3 +117,48 @@ root@5885ce2b72c6:/# echo hello
 hello
 root@5885ce2b72c6:/#
 ```
+
+
+debug
+------------
+```
+$ sudo docker run --rm --runtime=runsc hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/engine/userguide/
+```
+
+```
+$ ls -lah /tmp/runsc/
+total 88K
+drwxr-xr-x  2 root root 4.0K May  8 10:01 .
+drwxrwxrwt 13 root root 4.0K May  8 10:02 ..
+-rw-r--r--  1 root root 6.2K May  8 09:39 runsc.log.20180508-093940.669159.create
+-rw-r--r--  1 root root  15K May  8 09:39 runsc.log.20180508-093940.674994.gofer
+-rw-r--r--  1 root root  27K May  8 09:39 runsc.log.20180508-093940.679256.boot
+-rw-r--r--  1 root root 1.9K May  8 09:39 runsc.log.20180508-093940.692328.state
+-rw-r--r--  1 root root 3.1K May  8 09:39 runsc.log.20180508-093940.697848.start
+-rw-r--r--  1 root root 1.9K May  8 09:39 runsc.log.20180508-093940.825924.state
+-rw-r--r--  1 root root 1.6K May  8 09:39 runsc.log.20180508-093940.831826.kill
+-rw-r--r--  1 root root 1.9K May  8 09:39 runsc.log.20180508-093940.847808.state
+-rw-r--r--  1 root root 1.6K May  8 09:39 runsc.log.20180508-093940.872758.kill
+-rw-r--r--  1 root root 1.6K May  8 09:39 runsc.log.20180508-093940.877457.delete
+```
