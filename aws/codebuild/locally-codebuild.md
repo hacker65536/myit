@@ -133,10 +133,128 @@ Archive:  artifacts/artifacts.zip
 inspect
 -----------
 
+master ?
 ```
 $ docker ps -a
 CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS                      PORTS                     NAMES
 98b88bde0fad        aws/codebuild/java:openjdk-8   "sh -c 'while [ ! ..."   22 minutes ago      Exited (0) 22 minutes ago                             agentresources_build_1
 6050961813c6        amazon/aws-codebuild-local     "local_build.sh"         22 minutes ago      Up 22 minutes               0.0.0.0:32771->3000/tcp   agentresources_agent_1
 2f398895d7f7        amazon/aws-codebuild-local     "local_build.sh"         22 minutes ago      Up 22 minutes                                         wonderful_kirch
+```
+
+```
+$ docker exec -it 2f398895d7f7 bash
+bash-4.2# cd agent-resources/
+bash-4.2# ls
+bin  docker-compose.yml  local-build-config.yml  start
+bash-4.2# cat docker-compose.yml
+version: '2'
+
+services:
+  agent:
+    image: ${LOCAL_AGENT_IMAGE}
+    ports:
+     - "3000"
+    volumes:
+     - source_volume:/codebuild/input
+     - user_volume:/codebuild/output:ro
+     - ${CODEBUILD_LOCAL_SOURCE_DIRECTORY}:/codebuild/local:ro     # Mount this to pass the build data yml file which local-CTS will use to return build info.
+    environment:
+     - CODEBUILD_LOCAL_BUILD=true                                  # Go-agent attempts to connect to local CTS
+     - AWS_ACCESS_KEY_ID=key                                       # Prevent going to EC2 instance metadata.
+     - AWS_SECRET_ACCESS_KEY=secret                                # Prevent going to EC2 instance metadata.
+     - CODEBUILD_LOCAL_ECS_AGENT_ACCESS_KEY=
+     - CODEBUILD_LOCAL_ECS_AGENT_SECRET_KEY=
+     - CODEBUILD_LOCAL_ECS_AGENT_SESSION_TOKEN=
+     - CODEBUILD_CONTAINER_TOKENS=12345
+     - AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=/credentials
+     - CODEBUILD_REGION=us-west-2                                  # Provides region to use for CTS connection in BMR
+     - CODEBUILD_CTS_ENDPOINT=http://localhost:8100
+     - CODEBUILD_LOCAL_ECS_AGENT=true
+     - CODEBUILD_GOLANG_AGENT=true
+     - CODEBUILD_LOCAL_BUILD_DATA_FILE=/LocalBuild/agent-resources/local-build-config.yml
+     - IS_INNER_CONTAINER=true
+  build:
+    image: ${IMAGE_FOR_CODEBUILD_LOCAL_BUILD}
+    command: sh -c "while [ ! -f /codebuild/readonly/bin/executor.done ]; do sleep 1; done && /codebuild/readonly/bin/executor"
+    volumes:
+     - source_volume:/codebuild/readonly:ro
+     - user_volume:/codebuild/output
+     - ${CODEBUILD_LOCAL_ARTIFACTS_DIRECTORY}:/codebuild/output/artifacts
+    environment:
+     - CODEBUILD_AGENT_PORT=http://BMR:3000
+     - CODEBUILD_AUTH_TOKEN=12345
+    links:
+     - "agent:BMR"
+volumes:
+  source_volume:
+    driver: local
+  user_volume:
+    driver: local
+```
+```
+bash-4.2# env | sort
+ARTIFACTS=/home/ec2-user/artifacts
+DIND_COMMIT=3b5fac462d21ca164b3778647420016315289034
+DOCKER_BUCKET=download.docker.com
+DOCKER_CHANNEL=stable
+DOCKER_COMPOSE_VERSION=1.16.1
+DOCKER_SHA256=a9e90a73c3cdfbf238f148e1ec0eaff5eb181f92f35bdd938fd7dab18e1c4647
+DOCKER_VERSION=17.09.0-ce
+HOME=/root
+HOSTNAME=2f398895d7f7
+IMAGE_NAME=aws/codebuild/java:openjdk-8
+IS_INNER_CONTAINER=false
+OLDPWD=/LocalBuild
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PWD=/LocalBuild/agent-resources
+SHLVL=1
+SOURCE=/home/ec2-user/sample-web-app
+TERM=xterm
+_=/usr/bin/env
+```
+
+agent
+```
+$ docker exec -it 6050961813c6 bash
+
+bash-4.2# env | sort
+AWS_ACCESS_KEY_ID=key
+AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=/credentials
+AWS_SECRET_ACCESS_KEY=secret
+CODEBUILD_CONTAINER_TOKENS=12345
+CODEBUILD_CTS_ENDPOINT=http://localhost:8100
+CODEBUILD_GOLANG_AGENT=true
+CODEBUILD_LOCAL_BUILD=true
+CODEBUILD_LOCAL_BUILD_DATA_FILE=/LocalBuild/agent-resources/local-build-config.yml
+CODEBUILD_LOCAL_ECS_AGENT=true
+CODEBUILD_LOCAL_ECS_AGENT_ACCESS_KEY=
+CODEBUILD_LOCAL_ECS_AGENT_SECRET_KEY=
+CODEBUILD_LOCAL_ECS_AGENT_SESSION_TOKEN=
+CODEBUILD_REGION=us-west-2
+DIND_COMMIT=3b5fac462d21ca164b3778647420016315289034
+DOCKER_BUCKET=download.docker.com
+DOCKER_CHANNEL=stable
+DOCKER_COMPOSE_VERSION=1.16.1
+DOCKER_SHA256=a9e90a73c3cdfbf238f148e1ec0eaff5eb181f92f35bdd938fd7dab18e1c4647
+DOCKER_VERSION=17.09.0-ce
+HOME=/root
+HOSTNAME=6050961813c6
+IS_INNER_CONTAINER=true
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PWD=/LocalBuild
+SHLVL=1
+TERM=xterm
+_=/usr/bin/env
+
+bash-4.2# cd agent-resources/
+bash-4.2# ls -la
+total 16
+drwxr-xr-x 1 root root   29 May  8 03:22 .
+drwxr-xr-x 1 root root   29 May  3 18:19 ..
+drwxr-xr-x 2 root root  206 May  3 18:19 bin
+-rw-r--r-- 1 root root    3 May  8 03:22 build-agent.pid
+-rw-r--r-- 1 root root 1840 May  3 18:10 docker-compose.yml
+-rw-r--r-- 1 root root  403 Apr 30 17:46 local-build-config.yml
+-rwxr-xr-x 1 root root  707 Apr 30 17:46 start
 ```
