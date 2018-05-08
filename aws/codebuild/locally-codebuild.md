@@ -128,3 +128,15 @@ Archive:  artifacts/artifacts.zip
 ---------                     -------
  10938403                     1 file
 ```
+
+
+inspect
+-----------
+
+```
+$ docker ps -a
+CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS                      PORTS                     NAMES
+98b88bde0fad        aws/codebuild/java:openjdk-8   "sh -c 'while [ ! ..."   22 minutes ago      Exited (0) 22 minutes ago                             agentresources_build_1
+6050961813c6        amazon/aws-codebuild-local     "local_build.sh"         22 minutes ago      Up 22 minutes               0.0.0.0:32771->3000/tcp   agentresources_agent_1
+2f398895d7f7        amazon/aws-codebuild-local     "local_build.sh"         22 minutes ago      Up 22 minutes                                         wonderful_kirch
+```
