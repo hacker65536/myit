@@ -53,8 +53,8 @@ chmod +x !$:t
 ```
 export PATH="$PATH:$HOME/bin"
 ```
-```
-bazel version
+```console
+$ bazel version
 Build label: 0.13.0
 Build target: bazel-out/k8-opt/bin/src/main/java/com/google/devtools/build/lib/bazel/BazelServer_deploy.jar
 Build time: Mon Oct 18 21:33:40 +50297 (1525078013620)
