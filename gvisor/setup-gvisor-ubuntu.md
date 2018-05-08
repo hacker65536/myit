@@ -9,7 +9,7 @@ http://cloud-images.ubuntu.com/locator/ec2/
 
 install docker-ce =>18
 ----------
-```
+```bash
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic test"
@@ -17,7 +17,7 @@ sudo apt update
 sudo apt install -y docker-ce
 ```
 
-```
+```console
 $ sudo docker version
 
 Client:
@@ -72,7 +72,7 @@ git clone https://gvisor.googlesource.com/gvisor gvisor
 cd !$
 ```
 
-```
+```console
 $ bazel build runsc
 Starting local Bazel server and connecting to it...
 ...........
@@ -87,8 +87,8 @@ INFO: Build completed successfully, 664 total actions
 
 config
 -------
-```
-sudo sh -c 'cat <<EOF > /etc/docker/daemon.json
+```console
+$ sudo sh -c 'cat <<EOF > /etc/docker/daemon.json
 {
     "runtimes": {
         "runsc": {
@@ -100,7 +100,7 @@ EOF
 '
 ```
 
-```
+```console
 $ ps aux|grep [d]ocker
 root      3448  0.1  1.5 720008 63760 ?        Ssl  07:55   0:01 /usr/bin/dockerd -H fd://
 root      3465  0.3  0.5 555016 24136 ?        Ssl  07:55   0:03 docker-containerd --config /var/run/docker/containerd/containerd.toml
@@ -111,7 +111,7 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
 
-```
+```console
 $ sudo docker run --rm --runtime=runsc -it ubuntu /bin/bash
 root@5885ce2b72c6:/# echo hello
 hello
@@ -121,7 +121,7 @@ root@5885ce2b72c6:/#
 
 debug
 ------------
-```
+```console
 $ sudo docker run --rm --runtime=runsc hello-world
 
 Hello from Docker!
@@ -146,7 +146,7 @@ For more examples and ideas, visit:
  https://docs.docker.com/engine/userguide/
 ```
 
-```
+```console
 $ ls -lah /tmp/runsc/
 total 88K
 drwxr-xr-x  2 root root 4.0K May  8 10:01 .
