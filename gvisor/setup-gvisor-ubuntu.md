@@ -84,3 +84,36 @@ INFO: Elapsed time: 234.541s, Critical Path: 48.53s
 INFO: 648 processes: 638 linux-sandbox, 10 local.
 INFO: Build completed successfully, 664 total actions
 ```
+
+config
+-------
+```
+sudo sh -c 'cat <<EOF > /etc/docker/daemon.json
+{
+    "runtimes": {
+        "runsc": {
+            "path": "/usr/local/bin/runsc"
+        }
+    }
+}
+EOF
+'
+```
+
+```
+$ ps aux|grep [d]ocker
+root      3448  0.1  1.5 720008 63760 ?        Ssl  07:55   0:01 /usr/bin/dockerd -H fd://
+root      3465  0.3  0.5 555016 24136 ?        Ssl  07:55   0:03 docker-containerd --config /var/run/docker/containerd/containerd.toml
+```
+
+```
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+```
+$ sudo docker run --rm --runtime=runsc -it ubuntu /bin/bash
+root@5885ce2b72c6:/# echo hello
+hello
+root@5885ce2b72c6:/#
+```
