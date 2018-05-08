@@ -30,3 +30,9 @@ d300aa18e0a2        nginx               "nginx -g 'daemon ..."   7 seconds ago  
 ```
 
 writable size (virtual read-only size)
+
+
+full info
+```
+docker ps -a --no-trunc
+```
