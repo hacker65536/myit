@@ -61,7 +61,10 @@ EOF
 ```
 
 ```
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock -e "IMAGE_NAME=aws/codebuild/java:openjdk-8" -e "ARTIFACTS=/home/ec2-user/artifacts" -e "SOURCE=/home/ec2-user/sample-web-app" amazon/aws-codebuild-local
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock \
+-e "IMAGE_NAME=aws/codebuild/java:openjdk-8" \
+-e "ARTIFACTS=/home/ec2-user/artifacts" \
+-e "SOURCE=/home/ec2-user/sample-web-app" amazon/aws-codebuild-local
 ```
 
 ```
