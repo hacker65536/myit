@@ -1,3 +1,5 @@
+https://docs.npmjs.com/
+
 ```console
 $ npm config list
 ; cli configs
