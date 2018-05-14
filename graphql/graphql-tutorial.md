@@ -23,7 +23,7 @@ added 53 packages in 1.517s
 
 
 ```console
-cat <<'EOF' > server.js
+$ cat <<'EOF' > server.js
 var express = require('express');
 var graphqlHTTP = require('express-graphql');
 var { buildSchema } = require('graphql');
@@ -51,4 +51,8 @@ app.use('/graphql', graphqlHTTP({
 app.listen(4000);
 console.log('Running a GraphQL API server at localhost:4000/graphql');
 EOF
+```
+
+```console
+$ node server.js
 ```
