@@ -60,9 +60,6 @@ Running a GraphQL API server at localhost:4000/graphql
 
 access to http://localhost:4000/graphql or
 ```console
-$ curl -X POST \
--H "Content-Type: application/json" \
--d '{"query": "{ hello }"}' \
-http://localhost:4000/graphql
+$ curl -X POST -H "Content-Type: application/json" -d '{"query": "{ hello }"}' http://localhost:4000/graphql
 {"data":{"hello":"Hello world!"}}
 ```
