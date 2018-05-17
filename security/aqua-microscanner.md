@@ -36,7 +36,7 @@ RUN ./microscanner <TOKEN>
 
 
 ```console
-docker build -t myapp .
+$ docker build -t myapp .
 Sending build context to Docker daemon  71.85MB
 Step 1/5 : FROM alpine
 latest: Pulling from library/alpine
