@@ -247,3 +247,55 @@ Removing intermediate container 2af9bdb90c04
 Successfully built a6b92ec8e67a
 Successfully tagged myapp:latest
 ```
+
+
+amazlinux
+```
+---snip-----
+    {
+      "resource": {
+        "format": "rpm",
+        "name": "aws-cli",
+        "version": "1.14.9-1.48.amzn1",
+        "arch": "noarch",
+        "cpe": "pkg:/amzn:2017.09:aws-cli:1.14.9-1.48.amzn1",
+        "license": "ASL 2.0",
+        "name_hash": "980f5e020af2822c36c71d560c5c5af4"
+      },
+      "scan_error": "unknown/unsupported operating system"
+    },
+    {
+      "resource": {
+        "format": "rpm",
+        "name": "unzip",
+        "version": "6.0-4.10.amzn1",
+        "arch": "x86_64",
+        "cpe": "pkg:/amzn:2017.09:unzip:6.0-4.10.amzn1",
+        "license": "BSD",
+        "name_hash": "0a342b59ecdcede0571340b9ed11633f"
+      },
+      "scan_error": "unknown/unsupported operating system"
+    }
+  ],
+  "image_assurance_results": {
+    "checks_performed": [
+      {
+        "policy_id": 1,
+        "policy_name": "Default",
+        "control": "max_severity",
+        "maximum_severity_allowed": "high"
+      }
+    ]
+  },
+  "vulnerability_summary": {},
+  "scan_options": {},
+  "partial_results": true,
+  "initiating_user": "token",
+  "data_date": 1520221957
+}
+Removing intermediate container f93a49612689
+ ---> 1afd03426297
+Successfully built 1afd03426297
+Successfully tagged myapp:latest
+```
+:persevere:
