@@ -249,7 +249,7 @@ Successfully tagged myapp:latest
 ```
 
 
-amazlinux
+amazonlinux
 ```
 ---snip-----
     {
