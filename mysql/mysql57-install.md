@@ -1,6 +1,7 @@
 
 https://dev.mysql.com/downloads/repo/yum/
 
+http://repo.mysql.com/
 ```
 curl -SsLO https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
 yum install -y !$:t
