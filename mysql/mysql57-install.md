@@ -37,7 +37,7 @@ defpw=$(grep "temporary password" /var/log/mysqld.log | awk '{print $NF}')
 echo $defpw
 ```
 
-```
+```console
 $ mysql_config_editor set --login-path=local --host=localhost --user=root --password
 Enter password:
 ```
@@ -64,4 +64,30 @@ owners.
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql>
+```
+
+```
+mysql> show databases;
+ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.
+```
+
+```
+yum install -y --enablerepo=epel pwgen
+```
+
+```console
+$ pwgen -y 16 1
+Ovi3Oosh6So/r9ee
+```
+
+```console
+mysql> set password for root@localhost=password('Ovi3Oosh6So/r9ee');
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+```
+
+'SET PASSWORD FOR <user> = PASSWORD('<plaintext_password>')' is deprecated and will be removed in a future release. Please use SET PASSWORD FOR <user> = '<plaintext_password>' instead
+
+```console
+$ mysql_config_editor set --login-path=local --host=localhost --user=root --password
+Enter password:
 ```
