@@ -18,3 +18,19 @@ openldap.x86_64                                  2.4.44-5.amzn2                 
 openldap-clients.x86_64                          2.4.44-5.amzn2                          @amzn2-core
 openldap-servers.x86_64                          2.4.44-5.amzn2                          @amzn2-core
 ```
+
+
+```console
+$ sudo cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
+$ sudo chown ldap. /var/lib/ldap/DB_CONFIG
+```
+```console
+$ sudo systemctl start slapd
+$ ps aux|grep slap[d]
+ldap      3549  0.0  2.6 429500 26996 ?        Ssl  03:06   0:00 /usr/sbin/slapd -u ldap -h ldapi:/// ldap:///
+```
+```console
+$ sudo netstat -plunt|grep $(pgrep slapd)
+tcp        0      0 0.0.0.0:389             0.0.0.0:*               LISTEN      3549/slapd
+tcp6       0      0 :::389                  :::*                    LISTEN      3549/slapd
+```
