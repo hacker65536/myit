@@ -54,5 +54,5 @@ journalctl -b
 
 no pager
 ```
-journalctl -u slapd --no-parge
+journalctl -u slapd --no-pager
 ```
