@@ -51,3 +51,8 @@ boot message
 ```
 journalctl -b 
 ```
+
+no pager
+```
+journalctl -u slapd --no-parge
+```
