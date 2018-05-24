@@ -40,3 +40,8 @@ COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
 slapd   3549 ldap    8u  IPv4  23173      0t0  TCP *:ldap (LISTEN)
 slapd   3549 ldap    9u  IPv6  23174      0t0  TCP *:ldap (LISTEN)
 ```
+
+```console
+$ pstree -p 3549
+slapd(3549)───{slapd}(3550)
+```
