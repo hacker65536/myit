@@ -34,3 +34,9 @@ $ sudo netstat -plunt|grep $(pgrep slapd)
 tcp        0      0 0.0.0.0:389             0.0.0.0:*               LISTEN      3549/slapd
 tcp6       0      0 :::389                  :::*                    LISTEN      3549/slapd
 ```
+```console
+$ sudo lsof -i:389
+COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+slapd   3549 ldap    8u  IPv4  23173      0t0  TCP *:ldap (LISTEN)
+slapd   3549 ldap    9u  IPv6  23174      0t0  TCP *:ldap (LISTEN)
+```
