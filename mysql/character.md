@@ -1,5 +1,5 @@
 
-##default 
+## default 
 
 ```
 mysql> show variables like '%char%';
@@ -51,7 +51,7 @@ mysql> select * from information_schema.schemata;
 
 ```
 
-##change
+## change
 
 create parametergroup
 
@@ -113,5 +113,12 @@ mysql> show variables like '%char%';
 | character_sets_dir       | /rdsdbbin/mariadb-10.0.24.R1/share/charsets/ |
 +--------------------------+----------------------------------------------+
 8 rows in set (0.00 sec)
+```
+
+
+or
+```
+mysql> set global character_set_server=utf8, session character_set_server=utf8;
+mysql> set global character_set_database=utf8, SESSION character_set_database=utf8
 ```
 
