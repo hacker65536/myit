@@ -119,14 +119,14 @@ mysql> show variables like '%char%';
 +--------------------------------------+----------------------------+
 9 rows in set (0.00 sec)
 ```
-
+set and restart
 ```
 [mysqld]
 character-set-server=utf8
 collation-server=utf8_general_ci
 ```
 
-```
+```console
 mysql> show variables like '%char%';
 +--------------------------------------+----------------------------+
 | Variable_name                        | Value                      |
