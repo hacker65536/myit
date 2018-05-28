@@ -143,3 +143,23 @@ mysql> show variables like '%char%';
 +--------------------------------------+----------------------------+
 9 rows in set (0.00 sec)
 ```
+
+install mecab
+```console
+$ cd
+$ sudo yum install -y gcc-c++
+$ curl -SsL -o mecab-0.996.tar.gz "https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7cENtOXlicTFaRUE"
+$ tar zxvf mecab-0.996.tar.gz
+$ cd !$:r:r
+$ ./configuremake check
+$ make
+$ make check
+$ sudo make install
+```
+```
+$ cd
+$ curl -SsL -o mecab-ipadic-2.7.0-20070801.tar.gz "https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7MWVlSDBCSXZMTXM"
+$ tar zxvf !:3
+$ cd !$:r:r
+
+
