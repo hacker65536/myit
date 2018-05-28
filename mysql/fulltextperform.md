@@ -144,7 +144,9 @@ mysql> show variables like '%char%';
 9 rows in set (0.00 sec)
 ```
 
-install mecab
+install mecab  
+https://dev.mysql.com/doc/refman/5.7/en/fulltext-search-mecab.html
+
 ```console
 $ cd
 $ sudo yum install -y gcc-c++
@@ -156,10 +158,30 @@ $ make
 $ make check
 $ sudo make install
 ```
-```
+```console
 $ cd
 $ curl -SsL -o mecab-ipadic-2.7.0-20070801.tar.gz "https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7MWVlSDBCSXZMTXM"
 $ tar zxvf !:3
 $ cd !$:r:r
+$ ./configure --with-charset=utf8
+$ make
+$ sudo make install
+$ ls -la /usr/local/etc/mecabrc
+-rw-r--r-- 1 root root 295 May 28 03:57 /usr/local/etc/mecabrc
+```
+```
+[mysqld]
+loose-mecab-rc-file=/usr/local/etc/mecabrc
+```
+```console
+mysql> install plugin mecab SONAME 'libpluginmecab.so';
+Query OK, 0 rows affected (0.00 sec)
 
-
+mysql> show status like'%mecab%';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| mecab_charset | utf8  |
++---------------+-------+
+1 row in set (0.00 sec)
+```
