@@ -49,7 +49,7 @@ slapd(3549)───{slapd}(3550)
 config
 ---------
 
-gen password and set password
+### gen password and set password
 
 ```console
 $ sudo yum install -y expect
@@ -68,3 +68,11 @@ EOF
 unset spw
 ```
 
+```
+$ ldapadd -Y EXTERNAL -H ldapi:// -f ldap_init_passwd.ldif
+SASL/EXTERNAL authentication started
+SASL username: gidNumber=1000+uidNumber=1000,cn=peercred,cn=external,cn=auth
+SASL SSF: 0
+modifying entry "olcDatabase={0}config,cn=config"
+ldap_modify: Insufficient access (50)
+```
