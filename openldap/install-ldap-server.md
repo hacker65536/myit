@@ -45,3 +45,26 @@ slapd   3549 ldap    9u  IPv6  23174      0t0  TCP *:ldap (LISTEN)
 $ pstree -p 3549
 slapd(3549)───{slapd}(3550)
 ```
+
+config
+---------
+
+gen password and set password
+
+```console
+$ sudo yum install -y expect
+```
+```console
+$ pw=$(mkpasswd -l 12 -s 0);spw=$(slappasswd -s $pw);echo $pw; unset pw
+0Yostrd8krFg
+```
+```
+cat <<EOF > ldap_init_passwd.ldif
+dn: olcDatabase={0}config,cn=config
+changeType: modify
+add: olcRootPW
+olcRootPW: ${spw}
+EOF
+unset spw
+```
+
