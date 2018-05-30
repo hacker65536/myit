@@ -69,10 +69,9 @@ unset spw
 ```
 
 ```
-$ ldapadd -Y EXTERNAL -H ldapi:// -f ldap_init_passwd.ldif
+$ sudo ldapadd -Y EXTERNAL -H ldapi:// -f ldap_init_passwd.ldif
 SASL/EXTERNAL authentication started
 SASL username: gidNumber=1000+uidNumber=1000,cn=peercred,cn=external,cn=auth
 SASL SSF: 0
 modifying entry "olcDatabase={0}config,cn=config"
-ldap_modify: Insufficient access (50)
 ```
