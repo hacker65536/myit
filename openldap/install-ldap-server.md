@@ -55,7 +55,7 @@ config
 $ sudo yum install -y expect
 ```
 ```console
-$ pw=$(mkpasswd -l 12 -s 0);spw=$(slappasswd -s $pw);echo $pw; unset pw
+$ pw=$(mkpasswd -l 12 -s 0);spw=$(slappasswd -s $pw);echo $pw;
 0Yostrd8krFg
 ```
 ```
