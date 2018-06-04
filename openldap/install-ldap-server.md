@@ -75,3 +75,31 @@ SASL username: gidNumber=1000+uidNumber=1000,cn=peercred,cn=external,cn=auth
 SASL SSF: 0
 modifying entry "olcDatabase={0}config,cn=config"
 ```
+
+```
+cat <<EOF>ldapconf_init_suffix.ldif
+dn: olcDatabase={1}monitor,cn=config
+changetype: modify
+replace: olcAccess
+olcAccess: {0}to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth"
+  read by dn.base="cn=Manager,dc=testcompany,dc=com" read by * none
+
+dn: olcDatabase={2}bdb,cn=config
+changetype: modify
+replace: olcSuffix
+olcSuffix: dc=testcompany,dc=com
+
+dn: olcDatabase={2}bdb,cn=config
+changetype: modify
+replace: olcRootDN
+olcRootDN: cn=Manager,dc=testcompany,dc=com
+
+dn: olcDatabase={2}bdb,cn=config
+changetype: modify
+add: olcRootPW
+olcRootPW: ${spw}
+EOF
+```
+```
+ldapmodify -x -D "cn=config" -w password -f ldapconf_init_suffix.ldif
+```
