@@ -99,6 +99,13 @@ add: olcRootPW
 olcRootPW: ${spw}
 EOF
 ```
-```
-ldapmodify -x -D "cn=config" -w password -f ldapconf_init_suffix.ldif
+```console
+$ ldapmodify -x -D "cn=config" -w ${pw} -f ldapconf_init_suffix.ldif
+modifying entry "olcDatabase={1}monitor,cn=config"
+
+modifying entry "olcDatabase={2}hdb,cn=config"
+
+modifying entry "olcDatabase={2}hdb,cn=config"
+
+modifying entry "olcDatabase={2}hdb,cn=config"
 ```
