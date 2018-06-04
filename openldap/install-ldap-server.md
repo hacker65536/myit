@@ -65,7 +65,6 @@ changeType: modify
 add: olcRootPW
 olcRootPW: ${spw}
 EOF
-unset spw
 ```
 
 ```
