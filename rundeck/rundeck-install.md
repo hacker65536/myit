@@ -1,11 +1,14 @@
-http://rundeck.org/
+install rundeck
+===================
 
+https://www.rundeck.com/open-source
+
+
+require
+------------
 ```console
 $ sudo yum install -y java-1.8.0-openjdk
-$ sudo alternatives --set java  /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/bin/java
-/usr/lib/jvm/jre-1.8.0-openjdk.x86_64/bin/java has not been configured as an alternative for java
 ```
-
 ```console
 $ java -version
 openjdk version "1.8.0_171"
@@ -13,12 +16,26 @@ OpenJDK Runtime Environment (build 1.8.0_171-b10)
 OpenJDK 64-Bit Server VM (build 25.171-b10, mixed mode)
 ```
 
+install
+------
+
 ```console
 $ sudo yum install -y http://repo.rundeck.org/latest.rpm
 $ sudo yum install -y rundeck 
 ```
+```console
+$ sudo yum list installed "rundeck*"
+Loaded plugins: langpacks, priorities, update-motd
+Installed Packages
+rundeck.noarch                                2.11.3-1.54.GA                          @rundeck-release-bintray
+rundeck-config.noarch                         2.11.3-1.54.GA                          @rundeck-release-bintray
+rundeck-repo.noarch                           4-0                                     installed
+```
 
-change serverURL if dont using localhost
+allow external access
+-----------
+
+`/etc/rundeck/rundeck-config.properties`
 ```ini
 #loglevel.default is the default log level for jobs: ERROR,WARN,INFO,VERBOSE,DEBUG
 loglevel.default=INFO
@@ -32,6 +49,8 @@ dataSource.dbCreate = update
 dataSource.url = jdbc:h2:file:/var/lib/rundeck/data/rundeckdb;MVCC=true
 ```
 
+to
+
 ```console
 $ diff <(sudo sed -e 's/localhost/'$(curl -Ss checkip.amazonaws.com)'/' /etc/rundeck/rundeck-config.properties) <(sudo cat /etc/rundeck/rundeck-config.properties)
 8c8
@@ -42,19 +61,21 @@ $ diff <(sudo sed -e 's/localhost/'$(curl -Ss checkip.amazonaws.com)'/' /etc/run
 $ sudo sed -e 's/localhost/'$(curl -Ss checkip.amazonaws.com)'/' -i /etc/rundeck/rundeck-config.properties
 ```
 
-start
 ```console
 $ sudo systemctl start rundeckd
 $ journalctl -u rundeckd --no-pager
--- Logs begin at Thu 2018-05-24 02:26:05 UTC, end at Tue 2018-05-29 05:55:21 UTC. --
-May 29 05:55:21 ip-172-31-27-49.us-east-2.compute.internal systemd[1]: Starting SYSV: rundeckd, providing rundeckd...
-May 29 05:55:21 ip-172-31-27-49.us-east-2.compute.internal rundeckd[20754]: Starting rundeckd: [  OK  ]
-May 29 05:55:21 ip-172-31-27-49.us-east-2.compute.internal systemd[1]: Started SYSV: rundeckd, providing rundeckd.
+-- Logs begin at Tue 2018-06-05 01:36:08 UTC, end at Tue 2018-06-05 03:38:51 UTC. --
+Jun 05 03:38:51 ip-172-31-22-250.us-east-2.compute.internal systemd[1]: Starting SYSV: rundeckd, providing rundeckd...
+Jun 05 03:38:51 ip-172-31-22-250.us-east-2.compute.internal rundeckd[3583]: Starting rundeckd: [  OK  ]
+Jun 05 03:38:51 ip-172-31-22-250.us-east-2.compute.internal systemd[1]: Started SYSV: rundeckd, providing rundeckd.
 ```
 
-```
-# netstat -plunt |grep java
-tcp6       0      0 :::4440                 :::*                    LISTEN      30344/java
+```console
+$ sudo netstat -plunt | grep [j]ava
+tcp6       0      0 :::4440                 :::*                    LISTEN      3594/java
 ```
 
-access to http://myhost:4440
+configure
+-----
+
+
