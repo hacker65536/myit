@@ -78,4 +78,137 @@ tcp6       0      0 :::4440                 :::*                    LISTEN      
 configure
 -----
 
+### ldap only
+http://rundeck.org/docs/administration/authenticating-users.html#ldap
 
+`/etc/rundeck/jaas-ldap.conf`
+```
+ldap {
+    com.dtolabs.rundeck.jetty.jaas.JettyCachingLdapLoginModule sufficient
+      debug="true" # <---
+      contextFactory="com.sun.jndi.ldap.LdapCtxFactory"
+      providerUrl="ldap://server:389"  # <---
+      bindDn="cn=Manager,dc=testcompany,dc=com"
+      bindPassword="secret"
+      authenticationMethod="simple"
+      forceBindingLogin="true" # <---
+      userBaseDn="ou=People,dc=testcompany,dc=com"
+      userRdnAttribute="uid"
+      userIdAttribute="uid"
+      userPasswordAttribute="userPassword"
+      userObjectClass="posixAccount"
+      roleBaseDn="ou=Group,dc=testcompany,dc=com"
+      roleNameAttribute="cn"
+      roleUsernameMemberAttribute="memberUid"
+      roleMemberAttribute="memberUid"
+      roleObjectClass="posixGroup"
+      cacheDurationMillis="300000"
+      supplementalRoles="user"
+      reportStatistics="true"
+      timeoutRead="10000"
+      timeoutConnect="20000"
+      nestedGroups="false";
+};
+```
+
+add to the top of `/etc/rundeck/profile`
+```ini
+LOGIN_MODULE="ldap"
+JAAS_CONF="/etc/rundeck/jaas-ldap.conf"
+```
+
+### multiauth ldap and file
+
+`/etc/rundeck/jaas-multiauth.conf`
+```
+multiauth  {
+    com.dtolabs.rundeck.jetty.jaas.JettyCachingLdapLoginModule sufficient
+      debug="true" # <---
+      contextFactory="com.sun.jndi.ldap.LdapCtxFactory"
+      providerUrl="ldap://server:389"  # <---
+      bindDn="cn=Manager,dc=testcompany,dc=com"
+      bindPassword="secret"
+      authenticationMethod="simple"
+      forceBindingLogin="true" # <---
+      userBaseDn="ou=People,dc=testcompany,dc=com"
+      userRdnAttribute="uid"
+      userIdAttribute="uid"
+      userPasswordAttribute="userPassword"
+      userObjectClass="posixAccount"
+      roleBaseDn="ou=Group,dc=testcompany,dc=com"
+      roleNameAttribute="cn"
+      roleUsernameMemberAttribute="memberUid"
+      roleMemberAttribute="memberUid"
+      roleObjectClass="posixGroup"
+      cacheDurationMillis="300000"
+      supplementalRoles="user"
+      reportStatistics="true"
+      timeoutRead="10000"
+      timeoutConnect="20000"
+      nestedGroups="false";
+      
+   org.eclipse.jetty.jaas.spi.PropertyFileLoginModule required
+      debug="true"
+      file="/etc/rundeck/realm.properties";
+};
+```
+
+add to the top of `/etc/rundeck/profile`
+```ini
+LOGIN_MODULE="multiauth"
+JAAS_CONF="/etc/rundeck/jaas-multiauth.conf"
+```
+
+### add user with propertyfilelogin
+
+generate password
+```console
+$ java -cp /var/lib/rundeck/bootstrap/jetty-all-9.0.7.v20131107.jar org.eclipse.jetty.util.security.Password username password
+password
+OBF:1v2j1uum1xtv1zej1zer1xtn1uvk1v1v
+MD5:5f4dcc3b5aa765d61d8327deb882cf99
+CRYPT:usjRS48E8ZADM
+```
+
+add to `realm.properties`
+```
+username: MD5:5f4dcc3b5aa765d61d8327deb882cf99,group1,group2
+```
+
+### acl
+`/etc/rundeck/somegroup.aclpolicy`
+```
+description: isao, limited access.
+context:
+  project: 'testproject' # all projects
+for:
+  resource:
+    - allow: '*' # allow read/create all kinds
+  adhoc:
+    - allow: '*' # allow read/running/killing adhoc jobs
+  job:
+    - allow: '*' # allow read/write/delete/run/kill of all jobs
+  node:
+    - allow: '*' # allow read/run for all nodes
+by:
+  group: somegroup
+
+
+---
+description: Admin, all access.
+context:
+  application: 'rundeck'
+for:
+  project:
+    - match:
+        name: 'testproject'
+      allow: '*' # allow view/admin of all projects
+  project_acl:
+    - match:
+        name: 'testproject'
+      allow: '*' # allow admin of all project-level ACL policies
+  storage:
+    - allow: '*' # allow read/create/update/delete for all /keys/* storage content
+by:
+  group: somegroup
+```
