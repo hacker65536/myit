@@ -172,7 +172,7 @@ CRYPT:usjRS48E8ZADM
 
 add to `realm.properties`
 ```
-username: MD5:5f4dcc3b5aa765d61d8327deb882cf99,group1,group2
+username: MD5:5f4dcc3b5aa765d61d8327deb882cf99,group1,group2,somegroup
 ```
 
 ### acl
