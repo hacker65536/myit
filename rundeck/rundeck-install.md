@@ -176,6 +176,10 @@ username: MD5:5f4dcc3b5aa765d61d8327deb882cf99,group1,group2
 ```
 
 ### acl
+
+http://rundeck.org/docs/administration/access-control-policy.html#project-scope-resources-and-actions  
+http://rundeck.org/docs/administration/access-control-policy.html#application-scope-resources-and-actions
+
 `/etc/rundeck/somegroup.aclpolicy`
 ```
 description: isao, limited access.
