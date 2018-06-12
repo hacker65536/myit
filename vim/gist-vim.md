@@ -4,7 +4,7 @@ install from pathogen
 ------------------
 install pathogen and settings
 ```console
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+$ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 ```
 ~/.vimrc
@@ -21,8 +21,8 @@ $ git clone https://github.com/mattn/webapi-vim ~/.vim/bundle/webapi-vim
 
 configure github
 -----------------
-```bash
-git config --global github.user Username
+```console
+$ git config --global github.user Username
 ```
 
 
@@ -38,7 +38,8 @@ let g:gist_update_on_write = 2
 ```
 
 
-sample
+usage
+---------
 show list of gist
 
 ```vim
@@ -47,9 +48,8 @@ show list of gist
 
 
 
-
-
 if using neobundle
+---------
 ```vim
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 ```
