@@ -1,3 +1,5 @@
+https://asciinema.org/docs/installation
+
 ## pip
 ```
 yum install python3 -y
