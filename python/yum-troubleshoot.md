@@ -1,3 +1,6 @@
+
+## amazonlinux2 + python3.7
+
 ```console
 $ sudo yum search pip
   File "/bin/yum", line 30
