@@ -58,3 +58,42 @@ Exiting on user cancel
 $ sudo sed -e '1s/.*/#!\/usr\/bin\/python2/g' -i /usr/libexec/urlgrabber-ext-down
 ```
 
+```
+$ python --version
+Python 3.7.0b3
+$ sudo yum install python2-pip
+Loaded plugins: langpacks, priorities, update-motd
+Resolving Dependencies
+--> Running transaction check
+---> Package python2-pip.noarch 0:9.0.3-1.amzn2.0.1 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================================
+ Package                  Arch                Version                        Repository               Size
+===========================================================================================================
+Installing:
+ python2-pip              noarch              9.0.3-1.amzn2.0.1              amzn2-core              1.9 M
+
+Transaction Summary
+===========================================================================================================
+Install  1 Package
+
+Total download size: 1.9 M
+Installed size: 8.3 M
+Is this ok [y/d/N]: y
+Downloading packages:
+python2-pip-9.0.3-1.amzn2.0.1.noarch.rpm                                            | 1.9 MB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : python2-pip-9.0.3-1.amzn2.0.1.noarch                                                    1/1
+  Verifying  : python2-pip-9.0.3-1.amzn2.0.1.noarch                                                    1/1
+
+Installed:
+  python2-pip.noarch 0:9.0.3-1.amzn2.0.1
+
+Complete!
+```
