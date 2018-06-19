@@ -72,7 +72,7 @@ configure
 $ python --version
 Python 2.7.14
 $ whereis python
-python: /usr/bin/python /usr/bin/python2.7 /usr/bin/python3.7 /usr/bin/python3.7m /usr/lib/python2.7                                       /usr/lib/python3.7 /usr/lib64/python2.7 /usr/lib64/python3.7 /etc/python /usr/include/python2.7 /us                                      r/include/python3.7m /usr/share/man/man1/python.1.gz
+python: /usr/bin/python /usr/bin/python2.7 /usr/bin/python3.7 /usr/bin/python3.7m /usr/lib/python2.7 /usr/lib/python3.7 /usr/lib64/python2.7 /usr/lib64/python3.7 /etc/python /usr/include/python2.7 /usr/include/python3.7m /usr/share/man/man1/python.1.gz
 $ alternatives --config python
 ```
 ```console
