@@ -141,4 +141,24 @@ install heptio-authenticator-aws for eks
 ```console
 $ curl -SsL -O https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/bin/linux/amd64/heptio-authenticator-aws
 $ chmod +x !$:t
-$ mv !$ $HOME/bin/
+$ mv !$ $HOME/.local/bin/
+$ heptio-authenticator-aws help
+A tool to authenticate to Kubernetes using AWS IAM credentials
+
+Usage:
+  heptio-authenticator-aws [command]
+
+Available Commands:
+  help        Help about any command
+  init        Pre-generate certificate, private key, and kubeconfig files for the server.
+  server      Run a webhook validation server suitable that validates tokens using AWS IAM
+  token       Authenticate using AWS IAM and get token for Kubernetes
+  verify      Verify a token for debugging purpose
+
+Flags:
+  -i, --cluster-id ID     Specify the cluster ID, a unique-per-cluster identifier for your heptio-authenticator-aws installation.
+  -c, --config filename   Load configuration from filename
+  -h, --help              help for heptio-authenticator-aws
+
+Use "heptio-authenticator-aws [command] --help" for more information about a command.
+```
