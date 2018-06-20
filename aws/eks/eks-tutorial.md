@@ -6,20 +6,24 @@ requirement
 - jq 
 - aws-cli (1.15.32+)
 
+install jq
 ```console
 $ sudo yum install -y jq
 ```
+install pip
 ```console
 $ sudo yum install -y python-pip 
 ```
+install latest awscli
 ```console
 $ pip install --user -U awscli
 ```
+configure path
 ```console
 $ echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 $ bash -l
 ```
-
+show version of awscli
 ```console
 $ aws --version
 aws-cli/1.15.41 Python/2.7.14 Linux/4.14.33-59.37.amzn2.x86_64 botocore/1.10.41
