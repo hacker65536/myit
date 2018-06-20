@@ -51,18 +51,22 @@ https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-rol
 ```console
 $ aws configure --profile default set role_arn <arn:aws:iam:000000000000:role/ROLE_NAME>
 $ aws configure --profile default set source_profile <default>
-$ aws configure --profile default set role_session_name <MYNAME>
+$ aws configure --profile default set role_session_name <SESSION_NAME>
 ```
 ```console
 $ aws sts get-caller-identity --query 'Account'
-"000000000000"
+{
+    "Account": "000000000000",
+    "UserId": "AWOBJKF2PW5EU64TL3LQA:MYNAME",
+    "Arn": "arn:aws:sts::000000000000:assumed-role/ROLE_NAME/SESSION_NAME"
+}
 ```
 
 
 
 create role for eks
 ```console
-$ role_name=eks-test-role
+$ myenv=ekstmp
 $ trust_relationship=$(echo '{
   "Version": "2012-10-17",
   "Statement": {
@@ -72,7 +76,7 @@ $ trust_relationship=$(echo '{
   }
 }
 ' | jq -c -M .)
-$ aws iam create-role --role-name "${role_name}" --assume-role-policy-document "${trust_relationship}"
+$ aws iam create-role --role-name "${myenv}-role" --assume-role-policy-document "${trust_relationship}"
 {
     "Role": {
         "AssumeRolePolicyDocument": {
@@ -89,7 +93,7 @@ $ aws iam create-role --role-name "${role_name}" --assume-role-policy-document "
         "CreateDate": "2018-06-15T10:52:48.282Z",
         "RoleName": "eks-test-role",
         "Path": "/",
-        "Arn": "arn:aws:iam::000000000000:role/eks-test-role"
+        "Arn": "arn:aws:iam::000000000000:role/ekstmp-role"
     }
 }
 $ aws iam attach-role-policy !:3 !:4 --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
@@ -97,31 +101,31 @@ $ ^Cluster^Service
 ```
 
 
-create vpc for eks
+create vpc from cf for eks
 ```console
 $ aws cloudformation create-stack \
---stack-name ekstest \
+--stack-name ${myenv} \
 --template-url https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/amazon-eks-vpc-sample.yaml
 {
-    "StackId": "arn:aws:cloudformation:us-west-2:000000000000:stack/ekstest/87a4a900-7075-11e8-9253-50a686be73f2"
+    "StackId": "arn:aws:cloudformation:us-west-2:000000000000:stack/ekstmp/87a4a900-7075-11e8-9253-50a686be73f2"
 }
 ```
 
 show list of resources
 ```console
-$ aws cloudformation describe-stack-resources --stack-name ekstest | jq -c -S '.[][]| [.ResourceType,.PhysicalResourceId]'
-["AWS::EC2::SecurityGroup","sg-db2271aa"]
-["AWS::EC2::InternetGateway","igw-7b8dd81d"]
-["AWS::EC2::Route","ekste-Route-ITPQIUOCMT6C"]
-["AWS::EC2::RouteTable","rtb-1497716f"]
-["AWS::EC2::Subnet","subnet-b8e58bc1"]
-["AWS::EC2::SubnetRouteTableAssociation","rtbassoc-9d041ee7"]
-["AWS::EC2::Subnet","subnet-2e8e0565"]
-["AWS::EC2::SubnetRouteTableAssociation","rtbassoc-12071d68"]
-["AWS::EC2::Subnet","subnet-d2cf8b88"]
-["AWS::EC2::SubnetRouteTableAssociation","rtbassoc-eb011b91"]
-["AWS::EC2::VPC","vpc-f4d6c28d"]
-["AWS::EC2::VPCGatewayAttachment","ekste-VPCGa-1DH1ZA6ROGXVS"]
+$ aws cloudformation describe-stack-resources --stack-name ${myenv} | jq -c -S '.[][]| [.ResourceType,.PhysicalResourceId]'
+["AWS::EC2::SecurityGroup","sg-08390e79"]
+["AWS::EC2::InternetGateway","igw-020a5c64"]
+["AWS::EC2::Route","ekstm-Route-7N3YKKHA2V8J"]
+["AWS::EC2::RouteTable","rtb-47fe123c"]
+["AWS::EC2::Subnet","subnet-c56802bc"]
+["AWS::EC2::SubnetRouteTableAssociation","rtbassoc-ed43ae90"]
+["AWS::EC2::Subnet","subnet-256cf86e"]
+["AWS::EC2::SubnetRouteTableAssociation","rtbassoc-dd46aba0"]
+["AWS::EC2::Subnet","subnet-cbaced91"]
+["AWS::EC2::SubnetRouteTableAssociation","rtbassoc-2b42af56"]
+["AWS::EC2::VPC","vpc-94e3f3ed"]
+["AWS::EC2::VPCGatewayAttachment","ekstm-VPCGa-AONQ2OFW94FS"]
 ```
 
 install kubectl for eks
