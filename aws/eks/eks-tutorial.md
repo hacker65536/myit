@@ -132,9 +132,7 @@ install kubectl for eks
 ```console
 $ curl -SsL -O https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/bin/linux/amd64/kubectl
 $ chmod +x !$:t
-$ mv !$ $HOME/bin/ 
-$ echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
-$ bash -l
+$ mv !$ $HOME/.local/bin/
 $ kubectl version --short --client
 Client Version: v1.10.3
 ```
