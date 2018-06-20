@@ -1,10 +1,30 @@
 https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html
 
 
-require
+requirement
+----------
+- jq 
+- aws-cli (1.15.32+)
 
-- jq
-- aws-cli
+```console
+$ sudo yum install -y jq
+```
+```console
+$ sudo yum install -y python-pip 
+```
+```console
+$ pip install --user -U awscli
+```
+```console
+$ echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+$ bash -l
+```
+
+```console
+$ aws --version
+aws-cli/1.15.41 Python/2.7.14 Linux/4.14.33-59.37.amzn2.x86_64 botocore/1.10.41
+```
+
 
 
 create role for eks
