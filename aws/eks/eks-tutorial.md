@@ -46,6 +46,18 @@ secret_key     ****************BBBB shared-credentials-file
     region                us-west-2      config-file    ~/.aws/config
 ```
 
+if using cross account  
+https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
+```console
+$ aws configure --profile default set role_arn <arn:aws:iam:000000000000:role/ROLE_NAME>
+$ aws configure --profile default set source_profile <default>
+$ aws configure --profile default set role_session_name <MYNAME>
+```
+```console
+$ aws sts get-caller-identity --query 'Account'
+"000000000000"
+```
+
 
 
 create role for eks
