@@ -1,7 +1,7 @@
 https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html
 
 
-requirement
+preparation
 ----------
 - jq 
 - aws-cli (1.15.32+)
@@ -27,6 +27,23 @@ show version of awscli
 ```console
 $ aws --version
 aws-cli/1.15.41 Python/2.7.14 Linux/4.14.33-59.37.amzn2.x86_64 botocore/1.10.41
+```
+
+aws configure (create user permitted to do operation needed privileges of admin)
+```console
+$ aws configure --profile default set aws_access_key_id <AWS_ACCESS_KEY_ID>
+$ aws configure --profile default set aws_secret_access_key <AWS_SECRET_ACCESS_KEY>
+$ aws configure --profile default set region us-west-2
+```
+
+```console
+$ aws configure list --profile default
+      Name                    Value             Type    Location
+      ----                    -----             ----    --------
+   profile                  default           manual    --profile
+access_key     ****************AAAA shared-credentials-file
+secret_key     ****************BBBB shared-credentials-file
+    region                us-west-2      config-file    ~/.aws/config
 ```
 
 
