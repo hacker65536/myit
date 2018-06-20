@@ -1,6 +1,12 @@
 https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html
 
 
+require
+
+- jq
+- aws-cli
+
+
 create role for eks
 ```console
 $ role_name=eks-test-role
