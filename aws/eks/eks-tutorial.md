@@ -162,3 +162,35 @@ Flags:
 
 Use "heptio-authenticator-aws [command] --help" for more information about a command.
 ```
+
+create eks cluster 
+```console
+$ role=$(aws iam get-role --role-name "${myenv}-role" --query Role.Arn | jq -r .)
+$ subnetids=$(aws cloudformation describe-stack-resources --stack-name ${myenv} --query 'StackResources[?ResourceType==`AWS::EC2::Subnet`]' | jq  -r 'map(.PhysicalResourceId)|@csv' |tr -d '"')
+$ sg=$(aws cloudformation describe-stack-resources --stack-name ${myenv} --query 'StackResources[?ResourceType==`AWS::EC2::SecurityGroup`]' | jq -r '.[].PhysicalResourceId')
+```
+```console
+$ aws eks create-cluster --name ${myenv} --role-arn "$role" --resources-vpc-config subnetIds=${subnetids},securityGroupIds=$sg
+{
+    "cluster": {
+        "status": "CREATING",
+        "name": "ekstmp",
+        "certificateAuthority": {},
+        "roleArn": "arn:aws:iam::000000000000:role/ekstmp-role",
+        "resourcesVpcConfig": {
+            "subnetIds": [
+                "subnet-c56802bc",
+                "subnet-256cf86e",
+                "subnet-cbaced91"
+            ],
+            "vpcId": "vpc-94e3f3ed",
+            "securityGroupIds": [
+                "sg-08390e79"
+            ]
+        },
+        "version": "1.10",
+        "arn": "arn:aws:eks:us-west-2:000000000000:cluster/ekstmp",
+        "createdAt": 1529560916.597
+    }
+}
+```
