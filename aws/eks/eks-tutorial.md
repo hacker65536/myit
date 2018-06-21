@@ -166,7 +166,7 @@ Use "heptio-authenticator-aws [command] --help" for more information about a com
 create eks cluster 
 ```console
 $ role=$(aws iam get-role --role-name "${myenv}-role" --query Role.Arn | jq -r .)
-$ subnetids=$(aws cloudformation describe-stack-resources --stack-name ${myenv} --query 'StackResources[?ResourceType==`AWS::EC2::Subnet`]' | jq  -r 'map(.PhysicalResourceId)|@csv' |tr -d '"')
+$ subnetids=$(aws cloudformation describe-stack-resources --stack-name ${myenv} --query 'StackResources[?ResourceType==`AWS::EC2::Subnet`]' | jq -r 'map(.PhysicalResourceId)|@csv' |tr -d '"')
 $ sg=$(aws cloudformation describe-stack-resources --stack-name ${myenv} --query 'StackResources[?ResourceType==`AWS::EC2::SecurityGroup`]' | jq -r '.[].PhysicalResourceId')
 ```
 ```console
