@@ -113,7 +113,9 @@ $ aws cloudformation create-stack \
 
 show list of resources
 ```console
-$ aws cloudformation describe-stack-resources --stack-name ${myenv} | jq -c -S '.[][]| [.ResourceType,.PhysicalResourceId]'
+$ aws cloudformation describe-stack-resources \
+--stack-name ${myenv} | \
+jq -c -S '.[][]| [.ResourceType,.PhysicalResourceId]'
 ["AWS::EC2::SecurityGroup","sg-08390e79"]
 ["AWS::EC2::InternetGateway","igw-020a5c64"]
 ["AWS::EC2::Route","ekstm-Route-7N3YKKHA2V8J"]
