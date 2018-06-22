@@ -73,3 +73,14 @@ centos6
 AuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys
 AuthorizedKeysCommandRunAs root
 ```
+
+
+troubleshoot
+
+`sssd_default.log`
+```
+Unable to retrieve machine hostname  File name too long
+```
+```
+hostname
+```
