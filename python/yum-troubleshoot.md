@@ -100,3 +100,20 @@ Installed:
 
 Complete!
 ```
+
+configure amazon-linux-extras
+```console
+$ amazon-linux-extras
+/usr/bin/python: No module named amazon_linux_extras
+$ python --version
+Python 3.7.0b3
+```
+
+/usr/bin/amazon-linux-extras
+```sh
+if test "$ENVROOT"; then
+        PATH=$ENVROOT:$PATH
+fi
+py=$(command -v python2)
+exec env PYTHONIOENCODING=UTF-8 $py -m amazon_linux_extras "$@"
+```
