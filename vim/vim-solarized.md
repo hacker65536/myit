@@ -27,3 +27,8 @@ colorscheme solarized
 
 ![before](./vim-solarized1.PNG)
 ![after](./vim-solarized2.PNG)
+
+or
+```
+export TERM=xterm-256color
+```
