@@ -117,3 +117,7 @@ fi
 py=$(command -v python2)
 exec env PYTHONIOENCODING=UTF-8 $py -m amazon_linux_extras "$@"
 ```
+/usr/bin/repoquery
+```
+#!/usr/bin/python2 -tt
+```
