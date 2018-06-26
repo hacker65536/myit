@@ -43,3 +43,11 @@ pip install --user ansible
 
 https://github.com/eliben/pycparser/issues/251
 https://github.com/pypa/setuptools/issues/1257
+
+
+
+sudo pip not command found
+
+```
+ln -s /usr/local/bin/pip /usr/bin/pip
+```
