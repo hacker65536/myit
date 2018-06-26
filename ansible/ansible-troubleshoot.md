@@ -32,8 +32,14 @@ error
              *p_printable_filename = PyText_AsUTF8(s);
 ```
 
+python3.7
 ```
 sudo pip install -U pip
 sudo pip install -U setuptools
 pip install --user ansible
 ```
+
+
+
+https://github.com/eliben/pycparser/issues/251
+https://github.com/pypa/setuptools/issues/1257
