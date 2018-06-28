@@ -24,8 +24,8 @@ mysql-community-server.x86_64                       5.7.20-1.el7                
 mysql57-community-release.noarch                    el7-11                        installed
 ```
 
-```
-systemctl start mysqld
+```console
+$ sudo systemctl start mysqld
 ```
 
 ```
