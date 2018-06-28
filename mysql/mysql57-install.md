@@ -1,9 +1,13 @@
 
 https://dev.mysql.com/downloads/repo/yum/
+https://dev.mysql.com/doc/refman/5.7/en/linux-installation-yum-repo.html
 
+
+list  
 http://repo.mysql.com/
+
 ```
-curl -SsLO https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+curl -SsLO http://repo.mysql.com/mysql57-community-release-el7.rpm
 yum install -y !$:t
 yum install -y mysql-server
 ```
