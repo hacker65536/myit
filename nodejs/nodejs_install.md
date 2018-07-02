@@ -1,5 +1,8 @@
 # node.js
 
+https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora
+
+
 version v0.10.36  
 ## env
 ```bash
