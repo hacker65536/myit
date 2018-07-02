@@ -92,6 +92,11 @@ Query OK, 0 rows affected, 1 warning (0.00 sec)
 'SET PASSWORD FOR <user> = PASSWORD('<plaintext_password>')' is deprecated and will be removed in a future release. Please use SET PASSWORD FOR <user> = '<plaintext_password>' instead
 
 ```console
+mysql> set password for root@localhost='Ovi3Oosh6So/r9ee';
+Query OK, 0 rows affected (0.01 sec)
+```
+
+```console
 $ mysql_config_editor set --login-path=local --host=localhost --user=root --password
 Enter password:
 ```
