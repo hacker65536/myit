@@ -20,7 +20,7 @@ client
 https://docs.aws.amazon.com/efs/latest/ug/gs-step-three-connect-to-ec2-instance.html
 
 ```console
-sudo yum install -y amazon-efs-utils
+$ sudo yum install -y amazon-efs-utils
 ```
 
 need configure vpc dhcp option set enable hostname
