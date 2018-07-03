@@ -45,3 +45,8 @@ tmpfs                                      1.9G     0  1.9G   0% /sys/fs/cgroup
 tmpfs                                      376M     0  376M   0% /run/user/1000
 fs-fcf85535.efs.us-east-2.amazonaws.com:/  8.0E     0  8.0E   0% /mnt/efs
 ```
+
+
+c4.large
+
+300-800Mbps
