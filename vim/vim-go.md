@@ -29,3 +29,12 @@ install dependencies
 ```vim
 :GoInstallBinaries
 ```
+
+
+usage
+---
+`:GoRun` `:GoBuild` `:GoBuild!` `:GoInstall` `:GoTest`
+
+```vim
+let g:go_list_type = "quickfix"
+```
