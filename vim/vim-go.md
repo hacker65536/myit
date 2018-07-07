@@ -1,5 +1,7 @@
 
 https://github.com/fatih/vim-go
+https://vimawesome.com/plugin/vim-go-sparks-fly
+
 
 vim-plug
 ----
@@ -17,7 +19,6 @@ call plug#end()
 EOF
 ```
 
-https://vimawesome.com/plugin/vim-go-sparks-fly
 
 pathogen
 ----
