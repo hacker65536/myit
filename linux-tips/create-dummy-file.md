@@ -20,6 +20,7 @@ $ dd if=/dev/urandom of=1GBdummyfilernd1 bs=64M count=16 iflag=fullblock
 16+0 records out
 1073741824 bytes (1.1 GB) copied, 5.79177 s, 185 MB/s
 ```
+if without iflag
 >dd: warning: partial read (33554431 bytes); suggest iflag=fullblock
 
 
