@@ -7,6 +7,31 @@ http://www.ex-parrot.com/pdw/iftop/
 $ sudo yum install -y --enablerepo=epel iftop
 ```
 
+```console
+sudo iftop -i eth0 -B -P -n -N
+```
+
+text mode
+```console
+$ sudo iftop -i eth0 -B -P -n -N -t
+interface: eth0
+IP address is: 172.31.42.21
+MAC address is: 0a:18:fa:ff:75:36
+Listening on eth0
+   # Host name (port/service if enabled)            last 2s   last 10s   last 40s cumulative
+--------------------------------------------------------------------------------------------
+   1 172.31.42.21:22                          =>        60B        60B        60B       120B
+     xx.xx.xx.xxx:44504                       <=        60B        60B        60B       120B
+--------------------------------------------------------------------------------------------
+Total send rate:                                        60B        60B        60B
+Total receive rate:                                     60B        60B        60B
+Total send and receive rate:                           120B       120B       120B
+--------------------------------------------------------------------------------------------
+Peak rate (sent/received/total):                        60B        60B       120B
+Cumulative (sent/received/total):                      120B       120B       240B
+============================================================================================
+```
+
 option
 ----
 
