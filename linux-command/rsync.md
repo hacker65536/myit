@@ -22,7 +22,7 @@ option
 - -z --compress compress file data during the transfer
   --compress-level=NUM
 - -v --verbose
-
+- --bwlimit=KBPS limit I/O bandwidth; KBytes per second
 
 
 ref  
