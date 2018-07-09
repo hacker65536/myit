@@ -33,3 +33,10 @@ real    0m14.642s
 user    0m14.041s
 sys     0m0.600s
 ```
+
+```
+$ ls -l 1GBdummyfile*
+-rw-rw-r-- 1 ec2-user ec2-user    1042082 Jul  9 04:57 1GBdummyfile.gz
+-rw-rw-r-- 1 ec2-user ec2-user 1073915563 Jul  9 04:56 1GBdummyfilernd1.gz
+-rw-rw-r-- 1 ec2-user ec2-user  816139154 Jul  9 04:59 1GBdummyfilernd2.gz
+```
