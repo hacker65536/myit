@@ -23,6 +23,7 @@ option
   --compress-level=NUM
 - -v --verbose
 - --bwlimit=KBPS limit I/O bandwidth; KBytes per second
+- --append w/old data in file checksum
 
 
 ref  
