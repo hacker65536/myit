@@ -16,6 +16,12 @@ option
 - -H --hard-links preserve hard links
 - -A --acls preserve ACLs (implies -p)
 - -X --xattrs preserve extended attributes
+- -P same as --partial --progress
+  - --partial  keep partially transferred files
+  - --progress show progress during transfer
+- -z --compress compress file data during the transfer
+  --compress-level=NUM
+- -v --verbose
 
 
 
