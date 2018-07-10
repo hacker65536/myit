@@ -6,7 +6,7 @@ before install from source
 
 prepare
 
-set lua path
+require lua path ,if install from source
 ```console
 $ sysbench \
 --db-driver=mysql \
