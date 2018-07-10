@@ -249,3 +249,16 @@ users:
         # - name: AWS_PROFILE
         #   value: "<aws-profile>"
 ```
+
+```console
+$ export KUBECONFIG=$KUBECONFIG:~/.kube/config-ekstmp
+$ echo $KUBECONFIG
+:/home/ec2-user/.kube/config-ekstmp
+```
+
+
+```console
+$ kubectl get svc
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   19d
+```
