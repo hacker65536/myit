@@ -210,3 +210,42 @@ $ aws eks describe-cluster --name ${myenv} --query cluster.certificateAuthority.
 "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnp
 --snip--uWHBvR2FWVXcvY043V1ZVN2NRaQptSitIaEROc2ppdmxXRVdVU1BLcnFQVUNYWWwxQlBCN3RZVVNBMG9zNWxqTDJ0dWhUa3lTMVJvVURwWT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
 ```
+
+
+
+```
+$ aws iam get-role --role-name ${myenv}-role --query 'Role.Arn'
+"arn:aws:iam::000000000000:role/ekstmp-role"
+```
+
+```yaml
+apiVersion: v1
+clusters:
+- cluster:
+    server: <endpoint-url>
+    certificate-authority-data: <base64-encoded-ca-cert>
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    user: aws
+  name: aws
+current-context: aws
+kind: Config
+preferences: {}
+users:
+- name: aws
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      command: heptio-authenticator-aws
+      args:
+        - "token"
+        - "-i"
+        - "<cluster-name>"
+        # - "-r"
+        # - "<role-arn>"
+      # env:
+        # - name: AWS_PROFILE
+        #   value: "<aws-profile>"
+```
