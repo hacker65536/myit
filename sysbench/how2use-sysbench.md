@@ -1,10 +1,8 @@
 
-before install from source
-
-
 
 
 prepare
+---------
 
 require lua path ,if install from source
 ```console
@@ -79,4 +77,54 @@ MariaDB [testdb]> select * from sbtest1 limit 5;
 |  5 | 4999 | 44257470806-17967007152-32809666989-26174672567-29883439075-95767161284-94957565003-35708767253-53935174705-16168070783 | 34551750492-67990399350-81179284955-79299808058-21257255869 |
 +----+------+-------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------+
 5 rows in set (0.00 sec)
+```
+
+
+benchmark
+--------
+
+```console
+$ sysbench --db-driver=mysql \
+--mysql-host=localhost \
+--mysql-user=testdbuser \
+--mysql-password=password \
+--mysql-db=testdb \
+/usr/local/share/sysbench/oltp_read_write.lua run
+sysbench 1.1.0-a4938af (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            52780
+        write:                           15080
+        other:                           7540
+        total:                           75400
+    transactions:                        3770   (376.98 per sec.)
+    queries:                             75400  (7539.57 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      376.9784
+    time elapsed:                        10.0006s
+    total number of events:              3770
+
+Latency (ms):
+         min:                                    2.07
+         avg:                                    2.65
+         max:                                    7.64
+         95th percentile:                        2.97
+         sum:                                 9988.03
+
+Threads fairness:
+    events (avg/stddev):           3770.0000/0.00
+    execution time (avg/stddev):   9.9880/0.00
 ```
