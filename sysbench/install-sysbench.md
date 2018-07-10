@@ -46,7 +46,19 @@ Error: Package: sysbench-1.0.15-1.el6.x86_64 (akopytov_sysbench)
  You could try using --skip-broken to work around the problem
  You could try running: rpm -Va --nofiles --nodigest
 ```
+```console
+$ sudo find / -name 'libmysqlclient*'
+/usr/lib64/libmysqlclient.so
+/usr/lib64/libmysqlclient.so.18
+/usr/lib64/libmysqlclient_r.so
+```
 
+```console
+$ ls -la /usr/lib64/libmysqlclient*
+lrwxrwxrwx 1 root root 13 Jul 10 01:42 /usr/lib64/libmysqlclient_r.so -> libmariadb.so
+lrwxrwxrwx 1 root root 13 Jul 10 01:42 /usr/lib64/libmysqlclient.so -> libmariadb.so
+lrwxrwxrwx 1 root root 15 Jul  2 06:52 /usr/lib64/libmysqlclient.so.18 -> libmariadb.so.3
+```
 
 from source
 
