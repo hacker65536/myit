@@ -1,5 +1,11 @@
+
+```console
+$ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ```
-$ yum install -y --enablerepo=epel pbzip2
+
+
+```console
+$ sudo yum install -y --enablerepo=epel pbzip2
 ```
 
 ```
