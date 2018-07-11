@@ -13,14 +13,14 @@ https://www.percona.com/doc/percona-xtrabackup/LATEST/index.html
 | Streaming and encryption formats                                 | Open source                                                                 | Proprietary                                  |
 | Supported MySQL flavors                                          | MySQL,Percona Server,MariaDB,Percona XtraDB Cluster, MariaDB Galera Cluster | MySQL                                        |
 | Supported operating systems                                      | Linux                                                                       | Linux, Solaris, Windows, OSX,FreeBSD         |
-| Non-Blocking InnoDB Backups                                      | Yes                                                                         | Yes                                          |
+| Non-Blocking InnoDB Backups(*)                                      | Yes                                                                         | Yes                                          |
 | Blocking MyISAM backups                                          | yes                                                                         | yes                                          |
 | Incremental backups                                              | Yes                                                                         |                                              |
-| Fast incremental backups                                         | yes                                                                         |                                              |
+| Fast incremental backups(*)                                         | yes                                                                         |                                              |
 | Incremental backups with archived logs feature in Percona Server | yes                                                                         |                                              |
 | Incremental backups with REDO log only                           |                                                                             | yes                                          |
 | Backup locks                                                     | yes                                                                         |                                              |
-| Encrypted backups                                                | yes                                                                         | yes                                          |
+| Encrypted backups                                                | yes                                                                         | yes(*)                                          |
 | streaming backups                                                | yes                                                                         | yes                                          |
 | Parallel compression                                             | yes                                                                         | yes                                          |
 | parallel encryption                                              | yes                                                                         | yes                                          |
@@ -28,15 +28,15 @@ https://www.percona.com/doc/percona-xtrabackup/LATEST/index.html
 | parallel copy-back                                               |                                                                             | yes                                          |
 | partial backups                                                  | yes                                                                         | yes                                          |
 | partial backups of individual partitions                         | yes                                                                         |                                              |
-| Throttling                                                       | yes                                                                         | yes                                          |
+| Throttling(*)                                                       | yes                                                                         | yes                                          |
 | Backup image validation                                          |                                                                             | yes                                          |
 | point-in-time recovry support                                    | yes                                                                         | yes                                          |
 | safe slave backups                                               | yes                                                                         |                                              |
-| compact backups                                                  | yes                                                                         |                                              |
+| compact backups(*)                                                  | yes                                                                         |                                              |
 | buffer pool state backups                                        | yes                                                                         |                                              |
-| individual tables export                                         | yes                                                                         | yes                                          |
+| individual tables export                                         | yes                                                                         | yes(*)                                          |
 | individual partitions export                                     | yes                                                                         |                                              |
-| Restoring tables to ad different server                          | yes                                                                         | yes                                          |
+| Restoring tables to ad different server(*)                          | yes                                                                         | yes                                          |
 | Data & index file statistics                                     | yes                                                                         |                                              |
 | InnoDB secondary indexes defragmentation                         | yes                                                                         |                                              |
 | rsync support to minimize lock time                              | yes                                                                         |                                              |
