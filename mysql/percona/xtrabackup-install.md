@@ -1,8 +1,11 @@
+xtrabackup install
+===============
 
-https://www.percona.com/downloads/percona-release/redhat/latest/
+https://www.percona.com/doc/percona-xtrabackup/LATEST/installation/yum_repo.html
 
 install repo
 -------
+https://www.percona.com/downloads/percona-release/redhat/latest/
 
 ```
 $ sudo yum install https://www.percona.com/redir/downloads/percona-release/redhat/latest/percona-release-0.1-6.noarch.rpm
