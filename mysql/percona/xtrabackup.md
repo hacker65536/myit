@@ -183,3 +183,16 @@ xtrabackup version 2.4.12 based on MySQL server 5.7.19 Linux (x86_64) (revision 
 ```
 # systemctl start mariadb
 ```
+
+
+ref
+-------
+
+https://www.percona.com/doc/percona-xtrabackup/LATEST/howtos/recipes_xbk_full.html  
+https://www.percona.com/doc/percona-xtrabackup/LATEST/howtos/recipes_xbk_inc.html  
+https://www.percona.com/doc/percona-xtrabackup/LATEST/xtrabackup_bin/xbk_option_reference.html  
+
+notice  
+document of xtrabackup had no mention of --no-lock ,but this option is available
+
+https://www.percona.com/doc/percona-xtrabackup/LATEST/innobackupex/innobackupex_option_reference.html#cmdoption-innobackupex-no-lock
