@@ -1,10 +1,15 @@
 
 https://www.percona.com/downloads/percona-release/redhat/latest/
+
+install repo
+-------
+
 ```
 $ sudo yum install https://www.percona.com/redir/downloads/percona-release/redhat/latest/percona-release-0.1-6.noarch.rpm
 ```
 
-```
+if using amazonlinux2 $releasever = 2
+```console
 $ sudo yum install percona-xtrabackup-24
 Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
 amzn2-core                                                                   | 2.4 kB  00:00:00
@@ -13,12 +18,22 @@ http://repo.percona.com/release/2/RPMS/noarch/repodata/repomd.xml: [Errno 14] HT
 Trying other mirror.
 ```
 
-
------
-
-
-directly
-
+change to 7
 ```console
-$ sudo yum install https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.12/binary/redhat/7/x86_64/percona-xtrabackup-24-2.4.12-1.el7.x86_64.rpm
+sed -e 's/$releasever/7/g' -i /etc/yum.repos.d/percona-release.repo
 ```
+```console
+$ sudo yum list | grep xtrabackup
+percona-xtrabackup.x86_64               2.3.10-1.el7                  percona-release-x86_64
+percona-xtrabackup-22.x86_64            2.2.13-1.el7                  percona-release-x86_64
+percona-xtrabackup-22-debuginfo.x86_64  2.2.13-1.el7                  percona-release-x86_64
+percona-xtrabackup-24.x86_64            2.4.12-1.el7                  percona-release-x86_64
+percona-xtrabackup-24-debuginfo.x86_64  2.4.12-1.el7                  percona-release-x86_64
+percona-xtrabackup-debuginfo.x86_64     2.3.10-1.el7                  percona-release-x86_64
+percona-xtrabackup-test.x86_64          2.3.10-1.el7                  percona-release-x86_64
+percona-xtrabackup-test-22.x86_64       2.2.13-1.el7                  percona-release-x86_64
+percona-xtrabackup-test-24.x86_64       2.4.12-1.el7                  percona-release-x86_64
+```
+
+
+
