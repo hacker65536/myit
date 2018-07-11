@@ -193,6 +193,6 @@ https://www.percona.com/doc/percona-xtrabackup/LATEST/howtos/recipes_xbk_inc.htm
 https://www.percona.com/doc/percona-xtrabackup/LATEST/xtrabackup_bin/xbk_option_reference.html  
 
 notice  
-document of xtrabackup had no mention of --no-lock ,but this option is available
+document of xtrabackup had no mention of `--no-lock` ,but this option is available
 
 https://www.percona.com/doc/percona-xtrabackup/LATEST/innobackupex/innobackupex_option_reference.html#cmdoption-innobackupex-no-lock
