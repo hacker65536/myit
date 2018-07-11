@@ -13,14 +13,14 @@ https://www.percona.com/doc/percona-xtrabackup/LATEST/index.html
 | Streaming and encryption formats                                 | Open source                                                                 | Proprietary                                  |
 | Supported MySQL flavors                                          | MySQL,Percona Server,MariaDB,Percona XtraDB Cluster, MariaDB Galera Cluster | MySQL                                        |
 | Supported operating systems                                      | Linux                                                                       | Linux, Solaris, Windows, OSX,FreeBSD         |
-| Non-Blocking InnoDB Backups(*)                                      | Yes                                                                         | Yes                                          |
+| Non-Blocking InnoDB Backups(*)                                   | Yes                                                                         | Yes                                          |
 | Blocking MyISAM backups                                          | yes                                                                         | yes                                          |
 | Incremental backups                                              | Yes                                                                         |                                              |
-| Fast incremental backups(*)                                         | yes                                                                         |                                              |
+| Fast incremental backups(*)                                      | yes                                                                         |                                              |
 | Incremental backups with archived logs feature in Percona Server | yes                                                                         |                                              |
 | Incremental backups with REDO log only                           |                                                                             | yes                                          |
-| Backup locks                                                     | yes                                                                         |                                              |
-| Encrypted backups                                                | yes                                                                         | yes(*)                                          |
+| Backup locks(*)                                                  | yes                                                                         |                                              |
+| Encrypted backups                                                | yes                                                                         | yes(*)                                       |
 | streaming backups                                                | yes                                                                         | yes                                          |
 | Parallel compression                                             | yes                                                                         | yes                                          |
 | parallel encryption                                              | yes                                                                         | yes                                          |
@@ -28,15 +28,15 @@ https://www.percona.com/doc/percona-xtrabackup/LATEST/index.html
 | parallel copy-back                                               |                                                                             | yes                                          |
 | partial backups                                                  | yes                                                                         | yes                                          |
 | partial backups of individual partitions                         | yes                                                                         |                                              |
-| Throttling(*)                                                       | yes                                                                         | yes                                          |
+| Throttling(*)                                                    | yes                                                                         | yes                                          |
 | Backup image validation                                          |                                                                             | yes                                          |
 | point-in-time recovry support                                    | yes                                                                         | yes                                          |
 | safe slave backups                                               | yes                                                                         |                                              |
-| compact backups(*)                                                  | yes                                                                         |                                              |
+| compact backups(*)                                               | yes                                                                         |                                              |
 | buffer pool state backups                                        | yes                                                                         |                                              |
-| individual tables export                                         | yes                                                                         | yes(*)                                          |
+| individual tables export                                         | yes                                                                         | yes(*)                                       |
 | individual partitions export                                     | yes                                                                         |                                              |
-| Restoring tables to ad different server(*)                          | yes                                                                         | yes                                          |
+| Restoring tables to ad different server(*)                       | yes                                                                         | yes                                          |
 | Data & index file statistics                                     | yes                                                                         |                                              |
 | InnoDB secondary indexes defragmentation                         | yes                                                                         |                                              |
 | rsync support to minimize lock time                              | yes                                                                         |                                              |
@@ -49,6 +49,14 @@ https://www.percona.com/doc/percona-xtrabackup/LATEST/index.html
 | External graphical user interfaces to backup/recovery            | manda Recovery Manager for MySQL                                            | MySQL Workbench,MySQL Enterprise Monitor     |
 
 
+- InnoDB tables are still locked while copying non-InnoDB data.
+- Fast incremental backups are supported for Percona Server with XtraDB changed page tracking enabled.
+- Percona XtraBackup supports encryption with any kinds of backups. MySQL Enterprise Backup only supports encryption for single-file backups.
+- Percona XtraBackup performs throttling based on the number of IO operations per second. MySQL Enterprise Backup supports a configurable sleep time between operations.
+- Percona XtraBackup skips secondary index pages and recreates them when a compact backup is prepared. MySQL Enterprise Backup skips unused pages and reinserts on the prepare stage.
+- Percona XtraBackup can export individual tables even from a full backup, regardless of the InnoDB version. MySQL Enterprise Backup uses InnoDB 5.6 transportable tablespaces only when performing a partial backup.
+- Tables exported with Percona XtraBackup can be imported into Percona Server 5.1, 5.5 or 5.6+, or MySQL 5.6+. Transportable tablespaces created with MySQL Enterprise Backup can only be imported to Percona Server 5.6+, MySQL 5.6+ or MariaDB 10.0+.
+- Backup locks is a lightweight alternative to FLUSH TABLES WITH READ LOCK available in Percona Server 5.6+. Percona XtraBackup uses them automatically to copy non-InnoDB data to avoid blocking DML queries that modify InnoDB tables.
 
 restore 
 ---------
