@@ -36,4 +36,27 @@ percona-xtrabackup-test-24.x86_64       2.4.12-1.el7                  percona-re
 ```
 
 
+install percona-xtrabackup-24
+-----
 
+```console
+$ sudo yum install percona-xtrabackup-24
+```
+
+```
+$ sudo yum list installed "*xtrabackup*"
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+4 packages excluded due to repository priority protections
+Installed Packages
+percona-xtrabackup-24.x86_64             2.4.12-1.el7             @percona-release-x86_64
+```
+
+```console
+$ repoquery -lf percona-xtrabackup-24 | grep bin | sort -u
+/usr/bin/innobackupex
+/usr/bin/xbcloud
+/usr/bin/xbcloud_osenv
+/usr/bin/xbcrypt
+/usr/bin/xbstream
+/usr/bin/xtrabackup
+```
