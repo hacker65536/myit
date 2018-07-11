@@ -23,7 +23,7 @@ Trying other mirror.
 
 change to 7
 ```console
-sed -e 's/$releasever/7/g' -i /etc/yum.repos.d/percona-release.repo
+$ sudo sed -e 's/$releasever/7/g' -i /etc/yum.repos.d/percona-release.repo
 ```
 ```console
 $ sudo yum list | grep xtrabackup
