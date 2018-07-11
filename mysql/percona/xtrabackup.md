@@ -153,11 +153,33 @@ restore
 https://www.percona.com/doc/percona-xtrabackup/LATEST/backup_scenarios/full_backup.html#restoring-a-backup
 
 
-```console
-$ pbzip2 -cd xxxx.xtrabackup.xxxx.gz | xbstream -x -C /data/backups/
+```
+# systemctl stop mariadb
+```
+```
+# mv /var/lib/mysql/ /var/lib/mysql_bak
+```
+```
+# xtrabackup --copy-back --target-dir=/data/backups/
+xtrabackup: recognized server arguments: --datadir=/var/lib/mysql
+xtrabackup: recognized client arguments: --datadir=/var/lib/mysql --copy-back=1 --target-dir=/data/backups/
+xtrabackup version 2.4.12 based on MySQL server 5.7.19 Linux (x86_64) (revision id: 170eb8c)
+180711 10:40:13 [01] Copying ibdata1 to /var/lib/mysql/ibdata1
+180711 10:40:13 [01]        ...done
+180711 10:40:13 [01] Copying ./inc1/ibdata1.meta to /var/lib/mysql/inc1/ibdata1.meta
+180711 10:40:13 [01]        ...done
+---snip---
+180711 10:40:13 [01]        ...done
+180711 10:40:13 [01] Copying ./ib_buffer_pool to /var/lib/mysql/ib_buffer_pool
+180711 10:40:13 [01]        ...done
+180711 10:40:13 [01] Copying ./xtrabackup_info to /var/lib/mysql/xtrabackup_info
+180711 10:40:13 [01]        ...done
+180711 10:40:13 completed OK!
+```
+```
+# chown -R mysql. /var/lib/mysql
 ```
 
-
-```console
-$ sudo xtrabackup --copy-back -target-dir=/data/backups/
+```
+# systemctl start mariadb
 ```
