@@ -3,7 +3,6 @@ https://www.percona.com/doc/percona-xtrabackup/LATEST/innobackupex/streaming_bac
 https://www.percona.com/doc/percona-xtrabackup/LATEST/index.html
 
 
-
 | features                                                         | XtraBackup                                                                  | MySQL Enterprise backup                      |
 |------------------------------------------------------------------|-----------------------------------------------------------------------------|----------------------------------------------|
 | License                                                          | GPL                                                                         | Proprietary                                  |
@@ -45,6 +44,8 @@ https://www.percona.com/doc/percona-xtrabackup/LATEST/index.html
 | Backup to tape media managers                                    |                                                                             | yes                                          |
 | Cloud backups support                                            |                                                                             | Amazon S3                                    |
 | External graphical user interfaces to backup/recovery            | manda Recovery Manager for MySQL                                            | MySQL Workbench,MySQL Enterprise Monitor     |
+
+
 
 restore 
 ---------
