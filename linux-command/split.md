@@ -11,10 +11,10 @@ $ md5sum 100MBdummyfilernd1
 c1c6af3e926c31a4ce225b82d15a9f8c  100MBdummyfilernd1
 ```
 
-```
+```console
 $ split -b 10MB -d 100MBdummyfilernd1 100MBfile-
 ```
-```
+```console
 $ ls -la 100MBfile*
 -rw-rw-r-- 1 ec2-user ec2-user 10000000 Jul 12 10:58 100MBfile-00
 -rw-rw-r-- 1 ec2-user ec2-user 10000000 Jul 12 10:58 100MBfile-01
@@ -29,10 +29,10 @@ $ ls -la 100MBfile*
 -rw-rw-r-- 1 ec2-user ec2-user  4857600 Jul 12 10:58 100MBfile-10
 ```
 
-```
+```console
 $ cat 100MBfile* > 100MBfile
 ```
-```
+```console
 $ md5sum 100MBfile
 c1c6af3e926c31a4ce225b82d15a9f8c  100MBfile
 ```
