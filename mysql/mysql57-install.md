@@ -1,6 +1,8 @@
 
-https://dev.mysql.com/downloads/repo/yum/
-https://dev.mysql.com/doc/refman/5.7/en/linux-installation-yum-repo.html
+
+
+https://dev.mysql.com/downloads/repo/yum/  
+https://dev.mysql.com/doc/refman/5.7/en/linux-installation-yum-repo.html  
 
 
 list  
