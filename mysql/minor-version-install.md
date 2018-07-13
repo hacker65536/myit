@@ -35,5 +35,6 @@ $ sudo yum install \
 mysql-community-server-0:5.6.36-2.el7.x86_64 \
 mysql-community-client-0:5.6.36-2.el7.x86_64 \
 mysql-community-common-0:5.6.36-2.el7.x86_64 \
+mysql-community-devel-0:5.6.36-2.el7.x86_64 \
 mysql-community-libs-0:5.6.36-2.el7.x86_64
 ```
