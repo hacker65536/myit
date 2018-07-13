@@ -63,3 +63,7 @@ $ repoquery -lf percona-xtrabackup-24 | grep bin | sort -u
 /usr/bin/xbstream
 /usr/bin/xtrabackup
 ```
+
+```console
+$ yum-config-manager --disable percona-release-x86_64
+```
