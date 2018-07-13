@@ -7,7 +7,7 @@ $ yum install https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.r
 $ yum-config-manager --disable mysql80-community
 ```
 ```
-$ yum-config-manager --enablerepo mysql56-community
+$ yum-config-manager --enable mysql56-community
 ```
 
 if installed 
