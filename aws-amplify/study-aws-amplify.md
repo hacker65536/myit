@@ -77,3 +77,4 @@ You can now view my-app in the browser.
 Note that the development build is not optimized.
 To create a production build, use npm run build.
 ```
+![](./my-app.png)
