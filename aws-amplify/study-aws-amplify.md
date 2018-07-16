@@ -105,3 +105,11 @@ $ sudo npm install -g awsmobile-cli
 + awsmobile-cli@1.1.4
 added 201 packages in 12.848s
 ```
+
+```console
+$ sudo npm install -g yarn
+/usr/bin/yarn -> /usr/lib/node_modules/yarn/bin/yarn.js
+/usr/bin/yarnpkg -> /usr/lib/node_modules/yarn/bin/yarn.js
++ yarn@1.7.0
+added 1 package in 1.015s
+```
