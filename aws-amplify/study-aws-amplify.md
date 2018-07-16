@@ -88,3 +88,20 @@ npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
 + aws-amplify@1.0.0
 added 28 packages in 14.169s
 ```
+
+```console
+$ sudo npm install -g awsmobile-cli
+/usr/bin/awsmobile -> /usr/lib/node_modules/awsmobile-cli/bin/awsmobile
+/usr/bin/awsmobile-start -> /usr/lib/node_modules/awsmobile-cli/bin/awsmobile-start
+/usr/bin/awsmobile-init -> /usr/lib/node_modules/awsmobile-cli/bin/awsmobile-init
+/usr/bin/awsmobile-pull -> /usr/lib/node_modules/awsmobile-cli/bin/awsmobile-pull
+/usr/bin/awsmobile-push -> /usr/lib/node_modules/awsmobile-cli/bin/awsmobile-push
+/usr/bin/awsmobile-delete -> /usr/lib/node_modules/awsmobile-cli/bin/awsmobile-delete
+/usr/bin/awsmobile-publish -> /usr/lib/node_modules/awsmobile-cli/bin/awsmobile-publish
+/usr/bin/awsmobile-console -> /usr/lib/node_modules/awsmobile-cli/bin/awsmobile-console
+/usr/bin/awsmobile-configure -> /usr/lib/node_modules/awsmobile-cli/bin/awsmobile-configure
+/usr/bin/awsmobile-features -> /usr/lib/node_modules/awsmobile-cli/bin/awsmobile-features
+/usr/bin/awsmobile-run -> /usr/lib/node_modules/awsmobile-cli/bin/awsmobile-run
++ awsmobile-cli@1.1.4
+added 201 packages in 12.848s
+```
