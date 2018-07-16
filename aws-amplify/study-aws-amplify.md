@@ -78,3 +78,13 @@ Note that the development build is not optimized.
 To create a production build, use npm run build.
 ```
 ![](./my-app.png)
+
+```console
+$ npm install --save aws-amplify
+npm WARN ajv-keywords@3.2.0 requires a peer of ajv@^6.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.4 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.4: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
++ aws-amplify@1.0.0
+added 28 packages in 14.169s
+```
