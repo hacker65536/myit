@@ -60,3 +60,20 @@ We suggest that you begin by typing:
 
 Happy hacking!
 ```
+
+```console
+$ cd my-app
+$ npm start
+```
+
+```console
+Compiled successfully!
+
+You can now view my-app in the browser.
+
+  Local:            http://localhost:3000/
+  On Your Network:  http://172.31.37.47:3000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+```
