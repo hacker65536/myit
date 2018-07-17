@@ -977,3 +977,66 @@ Success! your project is now initialized with awsmobilejs
 
 Happy coding with awsmobile!
 ```
+
+myapp_hosting_MOBILEHUB
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::myapp-hosting-mobilehub-1201504177"
+            ]
+        }
+    ]
+}
+```
+
+myapp_mobileanalytics_MOBILEHUB
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "mobileanalytics:PutEvents"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "mobiletargeting:UpdateEndpoint"
+            ],
+            "Resource": [
+                "arn:aws:mobiletargeting:*:000000000000:apps/53634fd552824879803cf69b7f111121*"
+            ]
+        }
+    ]
+}
+````
+
+myapp_signin_MOBILEHUB
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cognito-identity:GetId"
+            ],
+            "Resource": [
+                "arn:aws:cognito-identity:*:*:identityPool/us-east-2:428f4b2b-35f4-47d4-8c30-697808dda674"
+            ]
+        }
+    ]
+}
+```
