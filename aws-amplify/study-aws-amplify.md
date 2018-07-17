@@ -1040,3 +1040,41 @@ myapp_signin_MOBILEHUB
     ]
 }
 ```
+
+```console
+$ awsmobile features
+
+? select features:  user-signin, user-files, analytics, hosting
+enabled: user-files, user-signin
+backend awsmobile project enabled features:
+analytics, hosting, user-files, user-signin
+```
+
+```console
+$ awsmobile push
+
+checking the backend contents
+   generating backend project content
+   done
+backend build artifacts are saved at:
+/home/ec2-user/my-app/awsmobilejs/.awsmobile/backend-build
+
+preparing for backend project update: my-app-2018-07-17-08-30-44
+done
+
+updating backend project: my-app-2018-07-17-08-30-44
+
+Successfully updated the backend awsmobile project: my-app-2018-07-17-08-30-44
+
+retrieving the latest backend awsmobile project information
+awsmobile project's details logged at:
+    awsmobilejs/#current-backend-info/backend-details.json
+awsmobile project's specifications logged at:
+    awsmobilejs/#current-backend-info/mobile-hub-project.yml
+awsmobile project's access information logged at:
+    awsmobilejs/#current-backend-info/aws-exports.js
+awsmobile project's access information copied to:
+    src/aws-exports.js
+contents in #current-backend-info/ is synchronized with the latest in the aws cloud
+
+```
