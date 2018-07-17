@@ -997,7 +997,7 @@ myapp_hosting_MOBILEHUB
 ```
 
 myapp_mobileanalytics_MOBILEHUB
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
