@@ -1049,6 +1049,12 @@ enabled: user-files, user-signin
 backend awsmobile project enabled features:
 analytics, hosting, user-files, user-signin
 ```
+```console
+$ awsmobile user-signin enable 
+$ ^signin^files
+$ ^user-files^analytics
+$ ^analytics^hosting
+```
 
 ```console
 $ awsmobile push
@@ -1076,5 +1082,34 @@ awsmobile project's access information logged at:
 awsmobile project's access information copied to:
     src/aws-exports.js
 contents in #current-backend-info/ is synchronized with the latest in the aws cloud
+```
 
+enable user-signin
+```javascript
+import Amplify from 'aws-amplify';
+import React, { Component } from 'react';
+import { withAuthenticator } from 'aws-amplify-react';
+import aws_exports from './aws-exports';
+import logo from './logo.svg';
+import './App.css';
+
+Amplify.configure(aws_exports);
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+      </div>
+    );
+  }
+}
+
+//export default App;
+export default withAuthenticator(App);
 ```
