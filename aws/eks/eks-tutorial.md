@@ -262,3 +262,10 @@ $ kubectl get svc
 NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   19d
 ```
+
+get ami-id(amz2)
+```console
+$ ami=$(aws ec2 describe-images --filters Name=owner-id,Values=137112412989 Name=is-public,Values=true Name=virtualization-type,Values=hvm Name=root-device-type,Values=ebs Name=name,Values=*amzn2* | jq  '.[] | sort_by(.CreationDate) | reverse | .[] | select( (.Description | (contains("Candidate")|not)) and   (.Description | (contains("Minimal")|not))  )' | jq -s -r '.[0].ImageId')
+$ echo $ami
+ami-a9d09ed1
+```
