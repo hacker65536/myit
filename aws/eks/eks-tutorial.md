@@ -269,3 +269,9 @@ $ ami=$(aws ec2 describe-images --filters Name=owner-id,Values=137112412989 Name
 $ echo $ami
 ami-a9d09ed1
 ```
+create key pair
+```console
+$ aws ec2 create-key-pair --key-name ${myenv}-key | jq .KeyMaterial -r > ${myenv}-key_pair
+$ chmod 600 !$
+```
+
