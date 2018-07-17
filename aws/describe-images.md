@@ -238,7 +238,13 @@ ami-710e2414
 amazonlinux 2 GA
 --------------
 ```console
-$  aws ec2 describe-images --filters Name=owner-id,Values=137112412989 Name=is-public,Values=true Name=virtualization-type,Values=hvm Name=root-device-type,Values=ebs  | jq  '.[] | sort_by(.CreationDate) | reverse | .[] | select( (.Name | contains("amzn2"))  and (.Description | (contains("Candidate")|not)))' | jq -s
+$  aws ec2 describe-images \
+--filters \
+Name=owner-id,Values=137112412989 \
+Name=is-public,Values=true \
+Name=virtualization-type,Values=hvm \
+Name=root-device-type,Values=ebs \
+| jq  '.[] | sort_by(.CreationDate) | reverse | .[] | select( (.Name | contains("amzn2"))  and (.Description | (contains("Candidate")|not)))' | jq -s
 [
   {
     "Architecture": "x86_64",
