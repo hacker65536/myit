@@ -276,3 +276,36 @@ $ aws ec2 create-key-pair --key-name ${myenv}-key | jq .KeyMaterial -r > ${myenv
 $ chmod 600 !$
 ```
 
+parameters
+
+```console
+$ params=$(echo '
+  {
+    "ClusterName": "",
+    "ClusterControlPlaneSecurityGroup": "",
+    "NodeGroupName": "",
+    "NodeAutoScalingGroupMinSize": 1,
+    "NodeAutoScalingGroupMaxSize": 3,
+    "NodeInstanceType": "t2.medium",
+    "NodeImageId": "",
+    "KeyName": "",
+    "VpcId": "",
+    "Subnets": ""
+  }
+' | jq "
+.ClusterName=\"${myenv}\" |
+.ClusterControlPlaneSecurityGroup=\"${sg}\" |
+.NodeGroupName=\"${myenv}-nodes\" |
+.NodeImageId=\"${ami}\" |
+.KeyName=\"${myenv}-key\" |
+.VpcId=\"${vpcid}\" |
+.Subnets=\"${subnetids}\" 
+" | jq -c -s -r '.')
+```
+
+```console
+$ aws cloudformation create-stack \
+--stack-name ${myenv}-worker-nodes \
+--parameters ${params} \
+--template-url https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/amazon-eks-nodegroup.yaml
+```
