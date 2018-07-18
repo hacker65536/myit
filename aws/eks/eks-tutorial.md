@@ -279,28 +279,39 @@ $ chmod 600 !$
 parameters
 
 ```console
-$ params=$(echo '
+$ params=$(cat <<EOF | jq -r -c '.'
+[
   {
-    "ClusterName": "",
-    "ClusterControlPlaneSecurityGroup": "",
-    "NodeGroupName": "",
-    "NodeAutoScalingGroupMinSize": 1,
-    "NodeAutoScalingGroupMaxSize": 3,
-    "NodeInstanceType": "t2.medium",
-    "NodeImageId": "",
-    "KeyName": "",
-    "VpcId": "",
-    "Subnets": ""
+    "ParameterKey": "ClusterName",
+    "ParameterValue": "${myenv}"
+  },
+  {
+    "ParameterKey": "ClusterControlPlaneSecurityGroup",
+    "ParameterValue": "${sg}"
+  },
+  {
+    "ParameterKey": "NodeGroupName",
+    "ParameterValue": "${myenv}-nodes"
+  },
+  {
+    "ParameterKey": "NodeImageId",
+    "ParameterValue": "${ami}"
+  },
+  {
+    "ParameterKey": "KeyName",
+    "ParameterValue": "${myenv}-key"
+  },
+  {
+    "ParameterKey": "VpcId",
+    "ParameterValue": "${vpcid}"
+  },
+  {
+    "ParameterKey": "Subnets",
+    "ParameterValue": "${subnetids}"
   }
-' | jq "
-.ClusterName=\"${myenv}\" |
-.ClusterControlPlaneSecurityGroup=\"${sg}\" |
-.NodeGroupName=\"${myenv}-nodes\" |
-.NodeImageId=\"${ami}\" |
-.KeyName=\"${myenv}-key\" |
-.VpcId=\"${vpcid}\" |
-.Subnets=\"${subnetids}\" 
-" | jq -c -s -r '.')
+]
+EOF
+)
 ```
 
 ```console
