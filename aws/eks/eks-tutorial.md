@@ -318,5 +318,6 @@ EOF
 $ aws cloudformation create-stack \
 --stack-name ${myenv}-worker-nodes \
 --parameters ${params} \
+--capabilities CAPABILITY_IAM \
 --template-url https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/amazon-eks-nodegroup.yaml
 ```
