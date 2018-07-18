@@ -352,4 +352,7 @@ data:
         - system:nodes
 ```        
 
-
+```console
+$ kubectl apply -f aws-auth-cm.yaml
+configmap "aws-auth" created
+```
