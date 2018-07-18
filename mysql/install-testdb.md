@@ -2,12 +2,40 @@
 https://github.com/datacharmer/test_db
 
 
+git clone
+-----------
 ```console 
 $ git clone https://github.com/datacharmer/test_db.git
 $ du -msh !$:t:r
 237M     test_db
 ```
 
+configure mysql
+------------
+install repo
+```console
+$ sudo yum install https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+```
+specify version
+```console
+$ sudo yum-config-manager --enable mysql56-community 
+$ sudo yum-config-manager --disable mysql80-community
+```
+install mysql
+```console
+$ sudo yum install \
+mysql-community-server-0:5.6.36-2.el7.x86_64 \
+mysql-community-client-0:5.6.36-2.el7.x86_64 \
+mysql-community-common-0:5.6.36-2.el7.x86_64 \
+mysql-community-devel-0:5.6.36-2.el7.x86_64 \
+mysql-community-libs-0:5.6.36-2.el7.x86_64
+```
+
+install data
+--------------
+```console
+$ cd test_db
+```
 
 ```console
 $ mysql -u root -t < employees.sql
