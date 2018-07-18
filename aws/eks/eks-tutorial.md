@@ -322,6 +322,21 @@ $ aws cloudformation create-stack \
 --template-url https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/amazon-eks-nodegroup.yaml
 ```
 
+```console
+$ aws cloudformation describe-stack-resources \
+> --stack-name ${myenv}-worker-nodes | \
+> jq -c -S '.[][]| [.ResourceType,.PhysicalResourceId]'
+["AWS::EC2::SecurityGroupIngress","ClusterControlPlaneSecurityGroupIngress"]
+["AWS::EC2::SecurityGroupEgress","ekstmp-worker-nodes-ControlPlaneEgressToNodeSecurityGroup-Q4VWRK2JGQ6D"]
+["AWS::AutoScaling::AutoScalingGroup","ekstmp-worker-nodes-NodeGroup-HJPQKX29DG"]
+["AWS::IAM::InstanceProfile","ekstmp-worker-nodes-NodeInstanceProfile-6THXFNGMHQEZ"]
+["AWS::IAM::Role","ekstmp-worker-nodes-NodeInstanceRole-1SSSVGA7YDJ86"]
+["AWS::AutoScaling::LaunchConfiguration","ekstmp-worker-nodes-NodeLaunchConfig-1LVAXY5J8XV59"]
+["AWS::EC2::SecurityGroup","sg-d81d83a8"]
+["AWS::EC2::SecurityGroupIngress","NodeSecurityGroupFromControlPlaneIngress"]
+["AWS::EC2::SecurityGroupIngress","NodeSecurityGroupIngress"]
+```
+
 ```yaml
 apiVersion: v1
 kind: ConfigMap
@@ -336,3 +351,5 @@ data:
         - system:bootstrappers
         - system:nodes
 ```        
+
+
