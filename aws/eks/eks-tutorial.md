@@ -264,11 +264,48 @@ NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   19d
 ```
 
-get ami-id(amz2)
+get ami-id(eks optimize)
 ```console
-$ ami=$(aws ec2 describe-images --filters Name=owner-id,Values=137112412989 Name=is-public,Values=true Name=virtualization-type,Values=hvm Name=root-device-type,Values=ebs Name=name,Values=*amzn2* | jq  '.[] | sort_by(.CreationDate) | reverse | .[] | select( (.Description | (contains("Candidate")|not)) and   (.Description | (contains("Minimal")|not))  )' | jq -s -r '.[0].ImageId')
+$ aws ec2 describe-images --image-id ami-73a6e20b
+{
+    "Images": [
+        {
+            "VirtualizationType": "hvm",
+            "Description": "Kubernetes Worker AMI with AmazonLinux2 image",
+            "Hypervisor": "xen",
+            "EnaSupport": true,
+            "SriovNetSupport": "simple",
+            "ImageId": "ami-73a6e20b",
+            "State": "available",
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/xvda",
+                    "Ebs": {
+                        "Encrypted": false,
+                        "DeleteOnTermination": true,
+                        "VolumeType": "gp2",
+                        "VolumeSize": 20,
+                        "SnapshotId": "snap-01d7262bcf617a3b2"
+                    }
+                }
+            ],
+            "Architecture": "x86_64",
+            "ImageLocation": "602401143452/eks-worker-v20",
+            "RootDeviceType": "ebs",
+            "OwnerId": "602401143452",
+            "RootDeviceName": "/dev/xvda",
+            "CreationDate": "2018-06-04T06:02:17.000Z",
+            "Public": true,
+            "ImageType": "machine",
+            "Name": "eks-worker-v20"
+        }
+    ]
+}
+```
+```console
+$ ami=$(aws ec2 describe-images --filters Name=owner-id,Values=602401143452 Name=is-public,Values=true Name=virtualization-type,Values=hvm Name=root-device-type,Values=ebs Name=name,Values=*eks-worker* | jq  '.[] | sort_by(.CreationDate) | reverse | .[] | select( (.Description | (contains("Candidate")|not)) and   (.Description | (contains("Minimal")|not))  )' | jq -s -r '.[0].ImageId')
 $ echo $ami
-ami-a9d09ed1
+ami-73a6e20b
 ```
 create key pair
 ```console
