@@ -214,19 +214,26 @@ $ aws eks create-cluster --name ${myenv} --role-arn "$role" --resources-vpc-conf
     }
 }
 ```
+
+```console
+$ aws eks describe-cluster --name ${myenv} --query cluster.status
+"CREATING"
+```
+wait a bit
 ```console
 $ aws eks describe-cluster --name ${myenv} --query cluster.status
 "ACTIVE"
 ```
 ```console
 $ aws eks describe-cluster --name ${myenv} --query cluster.endpoint
-"https://2CA0A15B60C0B8EBCDA1E41E9493E030.sk1.us-west-2.eks.amazonaws.com"
+"https://7BA864A09EED630B9D611FCF9CAB689B.yl4.us-west-2.eks.amazonaws.com"
 ```
 
 ```console
 $ aws eks describe-cluster --name ${myenv} --query cluster.certificateAuthority.data
-"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnp
---snip--uWHBvR2FWVXcvY043V1ZVN2NRaQptSitIaEROc2ppdmxXRVdVU1BLcnFQVUNYWWwxQlBCN3RZVVNBMG9zNWxqTDJ0dWhUa3lTMVJvVURwWT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
+"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2l
+--snip--
+wVFNxUER6aWRvT0RXMGc0MGVTR0dsMGxNaGpmdC9TOD0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
 ```
 
 
