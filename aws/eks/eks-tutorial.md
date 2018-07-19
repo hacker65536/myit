@@ -46,7 +46,7 @@ secret_key     ****************BBBB shared-credentials-file
     region                us-west-2      config-file    ~/.aws/config
 ```
 
-if using cross account  
+if using cross account add following
 https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
 ```console
 $ aws configure --profile default set role_arn <arn:aws:iam:000000000000:role/ROLE_NAME>
@@ -54,7 +54,7 @@ $ aws configure --profile default set source_profile <default>
 $ aws configure --profile default set role_session_name <SESSION_NAME>
 ```
 ```console
-$ aws sts get-caller-identity --query 'Account'
+$ aws sts get-caller-identity # --query 'Account'
 {
     "Account": "000000000000",
     "UserId": "AWOBJKF2PW5EU64TL3LQA:MYNAME",
