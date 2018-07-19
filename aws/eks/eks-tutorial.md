@@ -519,8 +519,13 @@ Last login: Thu Jul 19 06:12:03 2018 from ec2-000-000-000-000.us-east-2.compute.
 
 https://aws.amazon.com/amazon-linux-2/
 ```
-
+```console
+$ yum list installed "docker*"
+Loaded plugins: priorities, update-motd
+Installed Packages
+docker.x86_64                                   17.06.2ce-1.102.amzn2                                    @amzn2-core
 ```
+```console
 $ docker ps -a
 CONTAINER ID        IMAGE                                                              COMMAND                  CREATED             STATUS                      PORTS               NAMES
 44ba5991e712        7e6390decb99                                                       "/bin/sh -c /app/i..."   35 minutes ago      Up 35 minutes                                   k8s_aws-node_aws-node-t8xwl_kube-system_a7d9de1c-8b19-11e8-86f2-02a1729be59a_1
@@ -528,4 +533,11 @@ CONTAINER ID        IMAGE                                                       
 34b53e80bbc4        602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni        "/bin/sh -c /app/i..."   36 minutes ago      Exited (1) 35 minutes ago                       k8s_aws-node_aws-node-t8xwl_kube-system_a7d9de1c-8b19-11e8-86f2-02a1729be59a_0
 3d306b111d93        602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/pause-amd64:3.1   "/pause"                 36 minutes ago      Up 36 minutes                                   k8s_POD_aws-node-t8xwl_kube-system_a7d9de1c-8b19-11e8-86f2-02a1729be59a_0
 1b81e126d958        602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/pause-amd64:3.1   "/pause"                 36 minutes ago      Up 36 minutes                                   k8s_POD_kube-proxy-6z78g_kube-system_a7d9f05d-8b19-11e8-86f2-02a1729be59a_0
+```
+```console
+$ docker images
+REPOSITORY                                                     TAG                 IMAGE ID            CREATED             SIZE
+602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/pause-amd64   3.1                 9e462c010bf3        6 weeks ago         742kB
+602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni    1.0.0               7e6390decb99        6 weeks ago         347MB
+602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/kube-proxy    v1.10.3             c6fc6eef666a        7 weeks ago         96.9MB
 ```
