@@ -582,3 +582,7 @@ kubernetes     ClusterIP      10.100.0.1       <none>                           
 redis-master   ClusterIP      10.100.221.180   <none>                                                                    6379/TCP         2m        app=redis,role=master
 redis-slave    ClusterIP      10.100.75.37     <none>                                                                    6379/TCP         2m        app=redis,role=slave
 ```
+
+![](eks-guestbook-ss1.png)
+![](eks-guestbook-ss2.png)
+![](eks-guestbook-ss3.png)
