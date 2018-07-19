@@ -432,15 +432,15 @@ $ aws cloudformation create-stack \
 
 ```console
 $ aws cloudformation describe-stack-resources \
-> --stack-name ${myenv}-worker-nodes | \
-> jq -c -S '.[][]| [.ResourceType,.PhysicalResourceId]'
+--stack-name ${myenv}-worker-nodes | \
+jq -c -S '.[][]| [.ResourceType,.PhysicalResourceId]'
 ["AWS::EC2::SecurityGroupIngress","ClusterControlPlaneSecurityGroupIngress"]
-["AWS::EC2::SecurityGroupEgress","ekstmp-worker-nodes-ControlPlaneEgressToNodeSecurityGroup-CKW309EGGR2D"]
-["AWS::AutoScaling::AutoScalingGroup","ekstmp-worker-nodes-NodeGroup-1XG3M5O6E1S9Z"]
-["AWS::IAM::InstanceProfile","ekstmp-worker-nodes-NodeInstanceProfile-2W489MWFNHXY"]
-["AWS::IAM::Role","ekstmp-worker-nodes-NodeInstanceRole-1M2DZNMD8XSGY"]
-["AWS::AutoScaling::LaunchConfiguration","ekstmp-worker-nodes-NodeLaunchConfig-F4RK5O8S5GXX"]
-["AWS::EC2::SecurityGroup","sg-a9bc25d9"]
+["AWS::EC2::SecurityGroupEgress","ekstmp-worker-nodes-ControlPlaneEgressToNodeSecurityGroup-1P1PQJQJWJCGZ"]
+["AWS::AutoScaling::AutoScalingGroup","ekstmp-worker-nodes-NodeGroup-1NPLSMJTSU5IL"]
+["AWS::IAM::InstanceProfile","ekstmp-worker-nodes-NodeInstanceProfile-1T8R9RFNVSIS2"]
+["AWS::IAM::Role","ekstmp-worker-nodes-NodeInstanceRole-1TV58NBJG4VS"]
+["AWS::AutoScaling::LaunchConfiguration","ekstmp-worker-nodes-NodeLaunchConfig-2MJBB6DSV35R"]
+["AWS::EC2::SecurityGroup","sg-923c5be2"]
 ["AWS::EC2::SecurityGroupIngress","NodeSecurityGroupFromControlPlaneIngress"]
 ["AWS::EC2::SecurityGroupIngress","NodeSecurityGroupIngress"]
 ```
