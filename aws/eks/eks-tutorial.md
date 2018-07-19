@@ -26,7 +26,7 @@ $ bash -l
 show version of awscli
 ```console
 $ aws --version
-aws-cli/1.15.41 Python/2.7.14 Linux/4.14.33-59.37.amzn2.x86_64 botocore/1.10.41
+aws-cli/1.15.61 Python/2.7.14 Linux/4.14.33-59.37.amzn2.x86_64 botocore/1.10.60
 ```
 
 aws configure (create user permitted to do operation needed privileges of admin)
