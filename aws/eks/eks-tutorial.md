@@ -107,27 +107,27 @@ $ aws cloudformation create-stack \
 --stack-name ${myenv} \
 --template-url https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/amazon-eks-vpc-sample.yaml
 {
-    "StackId": "arn:aws:cloudformation:us-west-2:000000000000:stack/ekstmp/87a4a900-7075-11e8-9253-50a686be73f2"
+    "StackId": "arn:aws:cloudformation:us-west-2:000000000000:stack/ekstmp/b90e07a0-8b02-11e8-83cb-503ac9316861"
 }
 ```
 
 show list of resources
 ```console
 $ aws cloudformation describe-stack-resources \
---stack-name ${myenv} | \
-jq -c -S '.[][]| [.ResourceType,.PhysicalResourceId]'
-["AWS::EC2::SecurityGroup","sg-08390e79"]
-["AWS::EC2::InternetGateway","igw-020a5c64"]
-["AWS::EC2::Route","ekstm-Route-7N3YKKHA2V8J"]
-["AWS::EC2::RouteTable","rtb-47fe123c"]
-["AWS::EC2::Subnet","subnet-c56802bc"]
-["AWS::EC2::SubnetRouteTableAssociation","rtbassoc-ed43ae90"]
-["AWS::EC2::Subnet","subnet-256cf86e"]
-["AWS::EC2::SubnetRouteTableAssociation","rtbassoc-dd46aba0"]
-["AWS::EC2::Subnet","subnet-cbaced91"]
-["AWS::EC2::SubnetRouteTableAssociation","rtbassoc-2b42af56"]
-["AWS::EC2::VPC","vpc-94e3f3ed"]
-["AWS::EC2::VPCGatewayAttachment","ekstm-VPCGa-AONQ2OFW94FS"]
+> --stack-name ${myenv} | \
+> jq -c -S '.[][]| [.ResourceType,.PhysicalResourceId]'
+["AWS::EC2::SecurityGroup","sg-8a5c38fa"]
+["AWS::EC2::InternetGateway","igw-d73d19b1"]
+["AWS::EC2::Route","ekstm-Route-SM139PSVYR5Q"]
+["AWS::EC2::RouteTable","rtb-b4be76cf"]
+["AWS::EC2::Subnet","subnet-e268289b"]
+["AWS::EC2::SubnetRouteTableAssociation","rtbassoc-e8b71095"]
+["AWS::EC2::Subnet","subnet-41c4a60a"]
+["AWS::EC2::SubnetRouteTableAssociation","rtbassoc-f3b0178e"]
+["AWS::EC2::Subnet","subnet-2bc29071"]
+["AWS::EC2::SubnetRouteTableAssociation","rtbassoc-d9a700a4"]
+["AWS::EC2::VPC","vpc-ff24ce87"]
+["AWS::EC2::VPCGatewayAttachment","ekstm-VPCGa-GD97KJ7Y3Q8T"]
 ```
 
 install kubectl for eks
