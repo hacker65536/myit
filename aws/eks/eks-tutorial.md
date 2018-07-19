@@ -199,18 +199,18 @@ $ aws eks create-cluster --name ${myenv} --role-arn "$role" --resources-vpc-conf
         "roleArn": "arn:aws:iam::000000000000:role/ekstmp-role",
         "resourcesVpcConfig": {
             "subnetIds": [
-                "subnet-c56802bc",
-                "subnet-256cf86e",
-                "subnet-cbaced91"
+                "subnet-e268289b",
+                "subnet-41c4a60a",
+                "subnet-2bc29071"
             ],
-            "vpcId": "vpc-94e3f3ed",
+            "vpcId": "vpc-ff24ce87",
             "securityGroupIds": [
-                "sg-08390e79"
+                "sg-8a5c38fa"
             ]
         },
         "version": "1.10",
         "arn": "arn:aws:eks:us-west-2:000000000000:cluster/ekstmp",
-        "createdAt": 1529560916.597
+        "createdAt": 1531971069.818
     }
 }
 ```
