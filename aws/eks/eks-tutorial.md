@@ -444,7 +444,9 @@ jq -c -S '.[][]| [.ResourceType,.PhysicalResourceId]'
 ["AWS::EC2::SecurityGroupIngress","NodeSecurityGroupFromControlPlaneIngress"]
 ["AWS::EC2::SecurityGroupIngress","NodeSecurityGroupIngress"]
 ```
-
+```console
+$ curl -SsLO https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/aws-auth-cm.yaml
+```
 ```yaml
 apiVersion: v1
 kind: ConfigMap
@@ -459,6 +461,15 @@ data:
         - system:bootstrappers
         - system:nodes
 ```        
+```console
+$ instancerole=$(aws cloudformation describe-stack-resources --stack-name ${myenv}-worker-nodes --query 'StackResources[?ResourceType==`AWS::IAM::Role`]' | jq -r '.[].PhysicalResourceId')
+$ echo $instancerole
+ekstmp-worker-nodes-NodeInstanceRole-1TV58NBJG4VS
+```
+
+```console
+$ sed -e 's/\(- rolearn: \).*/\1'$instancerole'/' -i aws-auth-cm.yaml
+```
 
 ```console
 $ kubectl apply -f aws-auth-cm.yaml
