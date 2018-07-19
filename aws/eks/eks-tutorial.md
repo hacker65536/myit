@@ -547,27 +547,30 @@ $ exit
 
 launch a guest book app
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-master-controller.json
+$ url=https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go
+```
+```console
+$ kubectl apply -f $url/redis-master-controller.json
 replicationcontroller "redis-master" created
 ```
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-master-service.json
+$ kubectl apply -f $url/redis-master-service.json
 service "redis-master" created
 ```
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-slave-controller.json
+$ kubectl apply -f $url/redis-slave-controller.json
 replicationcontroller "redis-slave" created
 ```
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-slave-service.json
+$ kubectl apply -f $url/redis-slave-service.json
 service "redis-slave" created
 ```
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/guestbook-controller.json
+$ kubectl apply -f $url/guestbook-controller.json
 replicationcontroller "guestbook" created
 ```
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/guestbook-service.json
+$ kubectl apply -f $url/guestbook-service.json
 service "guestbook" created
 ```
 
