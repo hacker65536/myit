@@ -466,9 +466,15 @@ $ instancerole=$(aws cloudformation describe-stack-resources --stack-name ${myen
 $ echo $instancerole
 ekstmp-worker-nodes-NodeInstanceRole-1TV58NBJG4VS
 ```
+``console
+$ rolearn=$(aws iam get-role --role-name $instancerole | jq -r '.[].Arn')
+echo $rolearn
+arn:aws:iam::000000000000:role/ekstmp-worker-nodes-NodeInstanceRole-1TV58NBJG4VS
+```
+
 
 ```console
-$ sed -e 's/\(- rolearn: \).*/\1'$instancerole'/' -i aws-auth-cm.yaml
+$ sed -e 's/\(- rolearn: \).*/\1'$rolearn'/' -i aws-auth-cm.yaml
 ```
 
 ```console
