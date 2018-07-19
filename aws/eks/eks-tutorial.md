@@ -497,3 +497,28 @@ ip-192-168-167-230.us-west-2.compute.internal   Ready     <none>    30s       v1
 ip-192-168-115-3.us-west-2.compute.internal   Ready     <none>    30s       v1.10.3
 ip-192-168-201-77.us-west-2.compute.internal   Ready     <none>    30s       v1.10.3
 ```
+
+
+log in to worker
+```console
+$ asg=$(aws cloudformation describe-stack-resources --stack-name ${myenv}-worker-nodes --query 'StackResources[?ResourceType==`AWS::AutoScaling::AutoScalingGroup`]' | jq -r '.[].PhysicalResourceId')
+$ echo $asg
+ekstmp-worker-nodes-NodeGroup-1NPLSMJTSU5IL
+```
+```console
+$ instanceid=$(aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names ekstmp-worker-nodes-NodeGroup-1NPLSMJTSU5IL | jq -r '.[][].Instances[0].InstanceId')
+```
+```console
+$ workerip0=$(aws ec2 describe-instances --instance-ids  $instanceid --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
+$ ssh -i ${myenv}-key_pair -l ec2-user $workerip0
+```
+
+```
+$ docker ps -a
+CONTAINER ID        IMAGE                                                              COMMAND                  CREATED             STATUS                      PORTS               NAMES
+44ba5991e712        7e6390decb99                                                       "/bin/sh -c /app/i..."   13 minutes ago      Up 13 minutes                                   k8s_aws-node_aws-node-t8xwl_kube-system_a7d9de1c-8b19-11e8-86f2-02a1729be59a_1
+34b091d84503        602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/kube-proxy        "/bin/sh -c 'kube-..."   14 minutes ago      Up 14 minutes                                   k8s_kube-proxy_kube-proxy-6z78g_kube-system_a7d9f05d-8b19-11e8-86f2-02a1729be59a_0
+34b53e80bbc4        602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni        "/bin/sh -c /app/i..."   14 minutes ago      Exited (1) 13 minutes ago                       k8s_aws-node_aws-node-t8xwl_kube-system_a7d9de1c-8b19-11e8-86f2-02a1729be59a_0
+3d306b111d93        602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/pause-amd64:3.1   "/pause"                 14 minutes ago      Up 14 minutes                                   k8s_POD_aws-node-t8xwl_kube-system_a7d9de1c-8b19-11e8-86f2-02a1729be59a_0
+1b81e126d958        602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/pause-amd64:3.1   "/pause"                 14 minutes ago      Up 14 minutes                                   k8s_POD_kube-proxy-6z78g_kube-system_a7d9f05d-8b19-11e8-86f2-02a1729be59a_0
+```
