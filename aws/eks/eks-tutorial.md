@@ -168,10 +168,27 @@ Use "heptio-authenticator-aws [command] --help" for more information about a com
 create eks cluster 
 ```console
 $ role=$(aws iam get-role --role-name "${myenv}-role" --query Role.Arn | jq -r .)
-$ subnetids=$(aws cloudformation describe-stack-resources --stack-name ${myenv} --query 'StackResources[?ResourceType==`AWS::EC2::Subnet`]' | jq -r 'map(.PhysicalResourceId)|@csv' |tr -d '"')
-$ sg=$(aws cloudformation describe-stack-resources --stack-name ${myenv} --query 'StackResources[?ResourceType==`AWS::EC2::SecurityGroup`]' | jq -r '.[].PhysicalResourceId')
-$ vpcid=$(aws cloudformation describe-stack-resources --stack-name ${myenv} --query 'StackResources[?ResourceType==`AWS::EC2::VPC`]' | jq -r '.[].PhysicalResourceId')
+$ echo $role
+arn:aws:iam::000000000000:role/ekstmp-role
 ```
+
+```console
+$ subnetids=$(aws cloudformation describe-stack-resources --stack-name ${myenv} --query 'StackResources[?ResourceType==`AWS::EC2::Subnet`]' | jq -r 'map(.PhysicalResourceId)|@csv' |tr -d '"')
+$ echo $subnetids
+subnet-e268289b,subnet-41c4a60a,subnet-2bc29071
+```
+
+```console
+$ sg=$(aws cloudformation describe-stack-resources --stack-name ${myenv} --query 'StackResources[?ResourceType==`AWS::EC2::SecurityGroup`]' | jq -r '.[].PhysicalResourceId')
+$ echo $sg
+sg-8a5c38fa
+```
+```console
+$ vpcid=$(aws cloudformation describe-stack-resources --stack-name ${myenv} --query 'StackResources[?ResourceType==`AWS::EC2::VPC`]' | jq -r '.[].PhysicalResourceId')
+$ echo $vpcid
+vpc-ff24ce87
+```
+
 ```console
 $ aws eks create-cluster --name ${myenv} --role-arn "$role" --resources-vpc-config subnetIds=${subnetids},securityGroupIds=$sg
 {
