@@ -425,6 +425,9 @@ $ aws cloudformation create-stack \
 --parameters ${params} \
 --capabilities CAPABILITY_IAM \
 --template-url https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/amazon-eks-nodegroup.yaml
+{
+    "StackId": "arn:aws:cloudformation:us-west-2:000000000000:stack/ekstmp-worker-nodes/e2a14760-8b13-11e8-9ca3-500c32c86cd1"
+}
 ```
 
 ```console
