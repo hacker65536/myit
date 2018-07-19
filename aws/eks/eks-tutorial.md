@@ -466,7 +466,8 @@ $ instancerole=$(aws cloudformation describe-stack-resources --stack-name ${myen
 $ echo $instancerole
 ekstmp-worker-nodes-NodeInstanceRole-1TV58NBJG4VS
 ```
-``console
+
+```console
 $ rolearn=$(aws iam get-role --role-name $instancerole | jq -r '.[].Arn')
 echo $rolearn
 arn:aws:iam::000000000000:role/ekstmp-worker-nodes-NodeInstanceRole-1TV58NBJG4VS
@@ -474,10 +475,24 @@ arn:aws:iam::000000000000:role/ekstmp-worker-nodes-NodeInstanceRole-1TV58NBJG4VS
 
 
 ```console
-$ sed -e 's/\(- rolearn: \).*/\1'$rolearn'/' -i aws-auth-cm.yaml
+$ sed -e 's,\(- rolearn: \).*,\1'$rolearn',' -i aws-auth-cm.yaml
 ```
 
 ```console
 $ kubectl apply -f aws-auth-cm.yaml
 configmap "aws-auth" created
+```
+
+```console
+$ kubectl get nodes --watch
+NAME                                            STATUS     ROLES     AGE       VERSION
+ip-192-168-115-3.us-west-2.compute.internal     NotReady   <none>    16s       v1.10.3
+ip-192-168-167-230.us-west-2.compute.internal   NotReady   <none>    16s       v1.10.3
+ip-192-168-201-77.us-west-2.compute.internal    NotReady   <none>    15s       v1.10.3
+ip-192-168-167-230.us-west-2.compute.internal   Ready     <none>    20s       v1.10.3
+ip-192-168-115-3.us-west-2.compute.internal   Ready     <none>    20s       v1.10.3
+ip-192-168-201-77.us-west-2.compute.internal   Ready     <none>    20s       v1.10.3
+ip-192-168-167-230.us-west-2.compute.internal   Ready     <none>    30s       v1.10.3
+ip-192-168-115-3.us-west-2.compute.internal   Ready     <none>    30s       v1.10.3
+ip-192-168-201-77.us-west-2.compute.internal   Ready     <none>    30s       v1.10.3
 ```
