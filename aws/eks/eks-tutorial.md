@@ -499,7 +499,7 @@ ip-192-168-201-77.us-west-2.compute.internal   Ready     <none>    30s       v1.
 ```
 
 
-log in to worker
+log in to a one of workers
 ```console
 $ asg=$(aws cloudformation describe-stack-resources --stack-name ${myenv}-worker-nodes --query 'StackResources[?ResourceType==`AWS::AutoScaling::AutoScalingGroup`]' | jq -r '.[].PhysicalResourceId')
 $ echo $asg
