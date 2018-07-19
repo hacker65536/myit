@@ -225,23 +225,33 @@ $ aws eks describe-cluster --name ${myenv} --query cluster.status
 "ACTIVE"
 ```
 ```console
-$ aws eks describe-cluster --name ${myenv} --query cluster.endpoint
+$ endp=$(aws eks describe-cluster --name ${myenv} --query cluster.endpoint| jq -r .)
+$ echo $endp
 "https://7BA864A09EED630B9D611FCF9CAB689B.yl4.us-west-2.eks.amazonaws.com"
 ```
 
 ```console
-$ aws eks describe-cluster --name ${myenv} --query cluster.certificateAuthority.data
-"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2l
+$ cert=$(aws eks describe-cluster --name ${myenv} --query cluster.certificateAuthority.data | jq -r .)
+$ echo $cert
+LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2l
 --snip--
-wVFNxUER6aWRvT0RXMGc0MGVTR0dsMGxNaGpmdC9TOD0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
+wVFNxUER6aWRvT0RXMGc0MGVTR0dsMGxNaGpmdC9TOD0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
 ```
 
 
+```
+$ rolearn=$(aws iam get-role --role-name ${myenv}-role --query 'Role.Arn' | jq -r .)
+$ echo $rolearn
+arn:aws:iam::000000000000:role/ekstmp-role
+```
 
+```console
+$ mkdir -p ~/.kube
 ```
-$ aws iam get-role --role-name ${myenv}-role --query 'Role.Arn'
-"arn:aws:iam::000000000000:role/ekstmp-role"
+```console
+$ touch !$/config-${myenv}
 ```
+
 
 ```yaml
 apiVersion: v1
@@ -273,6 +283,40 @@ users:
       # env:
         # - name: AWS_PROFILE
         #   value: "<aws-profile>"
+```
+
+```console
+$ cat <<EOF > !$
+apiVersion: v1
+clusters:
+- cluster:
+    server: $endp
+    certificate-authority-data: $cert
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    user: aws
+  name: aws
+current-context: aws
+kind: Config
+preferences: {}
+users:
+- name: aws
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      command: heptio-authenticator-aws
+      args:
+        - "token"
+        - "-i"
+        - "${myenv}"
+        # - "-r"
+        # - "<role-arn>"
+      # env:
+        # - name: AWS_PROFILE
+        #   value: "<aws-profile>"
+EOF
 ```
 
 ```console
