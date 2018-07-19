@@ -483,6 +483,7 @@ $ kubectl apply -f aws-auth-cm.yaml
 configmap "aws-auth" created
 ```
 
+wait for those become ready
 ```console
 $ kubectl get nodes --watch
 NAME                                            STATUS     ROLES     AGE       VERSION
