@@ -541,3 +541,41 @@ REPOSITORY                                                     TAG              
 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni    1.0.0               7e6390decb99        6 weeks ago         347MB
 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/kube-proxy    v1.10.3             c6fc6eef666a        7 weeks ago         96.9MB
 ```
+```console
+$ exit
+```
+
+launch a guest book app
+```console
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-master-controller.json
+replicationcontroller "redis-master" created
+```
+```console
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-master-service.json
+service "redis-master" created
+```
+```console
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-slave-controller.json
+replicationcontroller "redis-slave" created
+```
+```console
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-slave-service.json
+service "redis-slave" created
+```
+```console
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/guestbook-controller.json
+replicationcontroller "guestbook" created
+```
+```console
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/guestbook-service.json
+service "guestbook" created
+```
+
+```console
+$ kubectl get services -o wide
+NAME           TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)          AGE       SELECTOR
+guestbook      LoadBalancer   10.100.101.238   a7d4cfcb18b2011e8822506dc11b5345-1295579803.us-west-2.elb.amazonaws.com   3000:30491/TCP   2m        app=guestbook
+kubernetes     ClusterIP      10.100.0.1       <none>                                                                    443/TCP          3h        <none>
+redis-master   ClusterIP      10.100.221.180   <none>                                                                    6379/TCP         2m        app=redis,role=master
+redis-slave    ClusterIP      10.100.75.37     <none>                                                                    6379/TCP         2m        app=redis,role=slave
+```
