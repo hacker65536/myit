@@ -1,0 +1,212 @@
+
+https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-master-controller.json
+```json
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"redis-master",
+      "labels":{
+         "app":"redis",
+         "role":"master"
+      }
+   },
+   "spec":{
+      "replicas":1,
+      "selector":{
+         "app":"redis",
+         "role":"master"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+               "app":"redis",
+               "role":"master"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"redis-master",
+                  "image":"redis:2.8.23",
+                  "ports":[
+                     {
+                        "name":"redis-server",
+                        "containerPort":6379
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}
+```
+
+
+https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-master-service.json
+```json
+{
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"redis-master",
+      "labels":{
+         "app":"redis",
+         "role":"master"
+      }
+   },
+   "spec":{
+      "ports": [
+        {
+          "port":6379,
+          "targetPort":"redis-server"
+        }
+      ],
+      "selector":{
+         "app":"redis",
+         "role":"master"
+      }
+   }
+}
+```
+
+https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-slave-controller.json
+```json
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"redis-slave",
+      "labels":{
+         "app":"redis",
+         "role":"slave"
+      }
+   },
+   "spec":{
+      "replicas":2,
+      "selector":{
+         "app":"redis",
+         "role":"slave"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+               "app":"redis",
+               "role":"slave"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"redis-slave",
+                  "image":"kubernetes/redis-slave:v2",
+                  "ports":[
+                     {
+                        "name":"redis-server",
+                        "containerPort":6379
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}
+```
+
+https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-slave-service.json
+```json
+{
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"redis-slave",
+      "labels":{
+         "app":"redis",
+         "role":"slave"
+      }
+   },
+   "spec":{
+      "ports": [
+        {
+          "port":6379,
+          "targetPort":"redis-server"
+        }
+      ],
+      "selector":{
+         "app":"redis",
+         "role":"slave"
+      }
+   }
+}
+```
+
+https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/guestbook-controller.json
+```json
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"guestbook",
+      "labels":{
+         "app":"guestbook"
+      }
+   },
+   "spec":{
+      "replicas":3,
+      "selector":{
+         "app":"guestbook"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+               "app":"guestbook"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"guestbook",
+                  "image":"k8s.gcr.io/guestbook:v3",
+                  "ports":[
+                     {
+                        "name":"http-server",
+                        "containerPort":3000
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}
+```
+
+https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/guestbook-service.json
+```json
+{
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"guestbook",
+      "labels":{
+         "app":"guestbook"
+      }
+   },
+   "spec":{
+      "ports": [
+         {
+           "port":3000,
+           "targetPort":"http-server"
+         }
+      ],
+      "selector":{
+         "app":"guestbook"
+      },
+      "type": "LoadBalancer"
+   }
+}
+```
+
+
