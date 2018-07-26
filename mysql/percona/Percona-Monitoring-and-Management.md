@@ -4,7 +4,7 @@ https://www.percona.com/software/database-tools/percona-monitoring-and-managemen
 
 ## install from docker
 
-https://www.percona.com/doc/percona-monitoring-and-management/deploy/server/docker.setting-up.html
+https://www.percona.com/doc/percona-monitoring-and-management/deploy/server/docker.html
 
 ```console
 $ docker pull percona/pmm-server:latest
