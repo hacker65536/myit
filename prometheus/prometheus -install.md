@@ -1,8 +1,13 @@
+# prometheus
 
-## quick
+https://prometheus.io/docs/prometheus/latest/getting_started/
+
+
+## install from source
+https://prometheus.io/download/
 
 ```
-curl -sSLO https://github.com/prometheus/prometheus/releases/download/v2.0.0-beta.0/prometheus-2.0.0-beta.0.linux-amd64.tar.gz
+curl -SsLO https://github.com/prometheus/prometheus/releases/download/v2.3.2/prometheus-2.3.2.linux-amd64.tar.gz
 tar xf !$:t
 cd !$:r:r
 ```
