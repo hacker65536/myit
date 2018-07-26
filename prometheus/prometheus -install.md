@@ -18,7 +18,9 @@ cd !$:r:r
 
 http://host:9090
 
-## using docker
+http://host:9090/metrics
+
+## run from docker
 
 ```
 docker run -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus
@@ -28,3 +30,8 @@ or
 ```
 docker run -p 9090:9090 -v /prometheus-data   prom/prometheus -config.file=/prometheus-data/prometheus.yml
 ```
+
+## Using the expression browser
+
+input `prometheus_target_interval_length_seconds` into Expression field and press Enter
+
