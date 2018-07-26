@@ -2,6 +2,9 @@
 
 https://www.percona.com/software/database-tools/percona-monitoring-and-management
 
+## doc
+https://www.percona.com/doc/percona-monitoring-and-management/index.html
+
 ## install from docker
 
 https://www.percona.com/doc/percona-monitoring-and-management/deploy/server/docker.html
@@ -29,3 +32,16 @@ $ docker run -d \
    --restart always \
    percona/pmm-server:latest
 ```
+
+## Connecting to an Amazon RDS DB instance
+
+https://www.percona.com/doc/percona-monitoring-and-management/amazon-rds.html
+
+instance role needed a plicy of `arn:aws:iam::aws:policy/AmazonRDSReadOnlyAccess` 
+
+Menu
+ - Query Analytics
+   - Add an AWS RDS MySQL or Aurora MySQL Instance
+   
+   
+   
