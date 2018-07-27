@@ -610,7 +610,7 @@ $ echo $asg
 ekstmp-worker-nodes-NodeGroup-1NPLSMJTSU5IL
 ```
 ```console
-$ instanceid=$(aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names ekstmp-worker-nodes-NodeGroup-1NPLSMJTSU5IL | jq -r '.[][].Instances[0].InstanceId')
+$ instanceid=$(aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names $asg | jq -r '.[][].Instances[0].InstanceId')
 ```
 ```console
 $ workerip0=$(aws ec2 describe-instances --instance-ids  $instanceid --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
