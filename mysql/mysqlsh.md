@@ -120,4 +120,33 @@ mysql> show tables
 4 rows in set (0.00 sec)
 ```
 
-## 
+## mysqlsh
+command list
+```
+The following shell commands are available:
+
+ - \                   Start multi-line input when in SQL mode.
+ - \connect    (\c)    Connects the shell to a MySQL server and assigns the
+                       global session.
+ - \exit               Exits the MySQL Shell, same as \quit.
+ - \help       (\?,\h) Prints help information about a specific topic.
+ - \history            View and edit command line history.
+ - \js                 Switches to JavaScript processing mode.
+ - \nowarnings (\w)    Don't show warnings after every statement.
+ - \option             Allows working with the available shell options.
+ - \py                 Switches to Python processing mode.
+ - \quit       (\q)    Exits the MySQL Shell.
+ - \reconnect          Reconnects the global session.
+ - \rehash             Refresh the autocompletion cache.
+ - \source     (\.)    Loads and executes a script from a file.
+ - \sql                Switches to SQL processing mode.
+ - \status     (\s)    Print information about the current global session.
+ - \use        (\u)    Sets the active schema.
+ - \warnings   (\W)    Show warnings after every statement.
+```
+
+```
+ MySQL  localhost:33060+ ssl  information_schema  JS > session
+<Session:root@localhost>
+
+```
