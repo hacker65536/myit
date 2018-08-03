@@ -225,4 +225,4 @@ Fetching table and column names from `world_x` for auto-completion... Press ^C t
 +-------------------+
 4 rows in set (0.0012 sec)
 ```
-```
+
