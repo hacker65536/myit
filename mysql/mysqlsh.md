@@ -148,5 +148,36 @@ The following shell commands are available:
 ```
  MySQL  localhost:33060+ ssl  information_schema  JS > session
 <Session:root@localhost>
+ MySQL  localhost:33060+ ssl  information_schema  JS > \status
+MySQL Shell version 8.0.12
 
+Session type:                 X
+Connection Id:                25
+Default schema:
+Current schema:               information_schema
+Current user:                 root@localhost
+SSL:                          Cipher in use: DHE-RSA-AES128-GCM-SHA256 TLSv1.2
+Using delimiter:              ;
+Server version:               8.0.12 MySQL Community Server - GPL
+Protocol version:             X protocol
+Client library:               8.0.12
+Connection:                   localhost via TCP/IP
+TCP port:                     33060
+Server characterset:          utf8mb4
+Schema characterset:          utf8
+Client characterset:          utf8mb4
+Conn. characterset:           utf8mb4
+Uptime:                       1 hour 38 min 35.0000 sec
+```
+
+```mysqlsh
+ MySQL  localhost:33060+ ssl  JS > session.getSchemas();
+[
+    <Schema:information_schema>,
+    <Schema:mysql>,
+    <Schema:performance_schema>,
+    <Schema:sys>,
+    <Schema:testdb>,
+    <Schema:world_x>
+]
 ```
