@@ -131,5 +131,27 @@ mysql> select * from world_x.city limit 5;
 |  5 | Amsterdam      | NLD         | Noord-Holland | {"Population": 731200}  |
 +----+----------------+-------------+---------------+-------------------------+
 5 rows in set (0.01 sec)
+
+mysql> update world_x.city set CountryCode='ABC' where ID=1;
+ERROR 1142 (42000): UPDATE command denied to user 'read'@'localhost' for table 'city'
 ```
+
+
+```
+$ mysql -u rw -p
+mysql> update world_x.city set CountryCode='ABC' where ID=1;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from world_x.city limit 5;
++----+----------------+-------------+---------------+-------------------------+
+| ID | Name           | CountryCode | District      | Info                    |
++----+----------------+-------------+---------------+-------------------------+
+|  1 | Kabul          | ABC         | Kabol         | {"Population": 1780000} |
+|  2 | Qandahar       | AFG         | Qandahar      | {"Population": 237500}  |
+|  3 | Herat          | AFG         | Herat         | {"Population": 186800}  |
+|  4 | Mazar-e-Sharif | AFG         | Balkh         | {"Population": 127800}  |
+|  5 | Amsterdam      | NLD         | Noord-Holland | {"Population": 731200}  |
++----+----------------+-------------+---------------+-------------------------+
+5 rows in set (0.00 sec)
 ```
