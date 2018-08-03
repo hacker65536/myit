@@ -1,5 +1,8 @@
 # mysql role
 
+https://dev.mysql.com/doc/refman/8.0/en/roles.html
+
+
 require mysql 8.0+
 
 ```
