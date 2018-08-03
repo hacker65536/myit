@@ -103,3 +103,33 @@ mysql> show grants for 'dev'@'localhost' using 'developer';
 +----------------------------------------------------------+
 3 rows in set (0.00 sec)
 ```
+
+```
+mysql> set default role all to 'dev'@'localhost', 'read'@'localhost' , 'rw'@'localhost';
+Query OK, 0 rows affected (0.05 sec)
+```
+
+
+```
+$ mysql -u read -p
+mysql> select current_role();
++----------------+
+| current_role() |
++----------------+
+| `read`@`%`     |
++----------------+
+1 row in set (0.01 sec)
+
+mysql> select * from world_x.city limit 5;
++----+----------------+-------------+---------------+-------------------------+
+| ID | Name           | CountryCode | District      | Info                    |
++----+----------------+-------------+---------------+-------------------------+
+|  1 | Kabul          | AFG         | Kabol         | {"Population": 1780000} |
+|  2 | Qandahar       | AFG         | Qandahar      | {"Population": 237500}  |
+|  3 | Herat          | AFG         | Herat         | {"Population": 186800}  |
+|  4 | Mazar-e-Sharif | AFG         | Balkh         | {"Population": 127800}  |
+|  5 | Amsterdam      | NLD         | Noord-Holland | {"Population": 731200}  |
++----+----------------+-------------+---------------+-------------------------+
+5 rows in set (0.01 sec)
+```
+```
