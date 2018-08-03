@@ -207,3 +207,22 @@ Uptime:                       1 hour 38 min 35.0000 sec
 +----+----------------+-------------+---------------+-------------------------+
 10 rows in set (0.0005 sec)
 ```
+```
+MySQL  localhost:33060+ ssl  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  localhost:33060+ ssl  SQL > use world_x
+Default schema set to `world_x`.
+Fetching table and column names from `world_x` for auto-completion... Press ^C to stop.
+
+ MySQL  localhost:33060+ ssl  world_x  SQL > show tables;
++-------------------+
+| Tables_in_world_x |
++-------------------+
+| city              |
+| country           |
+| countryinfo       |
+| countrylanguage   |
++-------------------+
+4 rows in set (0.0012 sec)
+```
+```
