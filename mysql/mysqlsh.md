@@ -180,4 +180,30 @@ Uptime:                       1 hour 38 min 35.0000 sec
     <Schema:testdb>,
     <Schema:world_x>
 ]
+ MySQL  localhost:33060+ ssl  JS > db=session.getSchema("world_x")
+<Schema:world_x>
+ MySQL  localhost:33060+ ssl  JS > db.getTables()
+[
+    <Table:city>,
+    <Table:country>,
+    <Table:countrylanguage>
+]
+ MySQL  localhost:33060+ ssl  JS > tbl=db.getTable("city")
+<Table:city>
+ MySQL  localhost:33060+ ssl  JS > tbl.select().limit(10)
++----+----------------+-------------+---------------+-------------------------+
+| ID | Name           | CountryCode | District      | Info                    |
++----+----------------+-------------+---------------+-------------------------+
+|  1 | Kabul          | AFG         | Kabol         | {"Population": 1780000} |
+|  2 | Qandahar       | AFG         | Qandahar      | {"Population": 237500}  |
+|  3 | Herat          | AFG         | Herat         | {"Population": 186800}  |
+|  4 | Mazar-e-Sharif | AFG         | Balkh         | {"Population": 127800}  |
+|  5 | Amsterdam      | NLD         | Noord-Holland | {"Population": 731200}  |
+|  6 | Rotterdam      | NLD         | Zuid-Holland  | {"Population": 593321}  |
+|  7 | Haag           | NLD         | Zuid-Holland  | {"Population": 440900}  |
+|  8 | Utrecht        | NLD         | Utrecht       | {"Population": 234323}  |
+|  9 | Eindhoven      | NLD         | Noord-Brabant | {"Population": 201843}  |
+| 10 | Tilburg        | NLD         | Noord-Brabant | {"Population": 193238}  |
++----+----------------+-------------+---------------+-------------------------+
+10 rows in set (0.0005 sec)
 ```
