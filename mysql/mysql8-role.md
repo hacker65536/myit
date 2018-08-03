@@ -91,3 +91,15 @@ mysql> show grants for 'rw'@'localhost';
 +--------------------------------------------------+
 2 rows in set (0.00 sec)
 ```
+
+```
+mysql> show grants for 'dev'@'localhost' using 'developer';
++----------------------------------------------------------+
+| Grants for dev@localhost                                 |
++----------------------------------------------------------+
+| GRANT USAGE ON *.* TO `dev`@`localhost`                  |
+| GRANT ALL PRIVILEGES ON `world_x`.* TO `dev`@`localhost` |
+| GRANT `developer`@`%` TO `dev`@`localhost`               |
++----------------------------------------------------------+
+3 rows in set (0.00 sec)
+```
