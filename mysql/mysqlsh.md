@@ -64,6 +64,17 @@ mysql> SHOW PLUGINS;
 | mysqlx_cache_cleaner       | ACTIVE   | AUDIT              | NULL    | GPL     |
 +----------------------------+----------+--------------------+---------+---------+
 43 rows in set (0.0006 sec)
+```
+or
+
+```
+mysql> select * from information_schema.plugins where plugin_name = 'mysqlx';
++-------------+----------------+---------------+-------------+---------------------+----------------+------------------------+---------------+--------------------+----------------+-------------+
+| PLUGIN_NAME | PLUGIN_VERSION | PLUGIN_STATUS | PLUGIN_TYPE | PLUGIN_TYPE_VERSION | PLUGIN_LIBRARY | PLUGIN_LIBRARY_VERSION | PLUGIN_AUTHOR | PLUGIN_DESCRIPTION | PLUGIN_LICENSE | LOAD_OPTION |
++-------------+----------------+---------------+-------------+---------------------+----------------+------------------------+---------------+--------------------+----------------+-------------+
+| mysqlx      | 1.0            | ACTIVE        | DAEMON      | 80012.0             | NULL           | NULL                   | Oracle Corp   | X Plugin for MySQL | GPL            | ON          |
++-------------+----------------+---------------+-------------+---------------------+----------------+------------------------+---------------+--------------------+----------------+-------------+
+1 row in set (0.0007 sec)
 
 ```
 ## sample
