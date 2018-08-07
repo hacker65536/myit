@@ -8,6 +8,7 @@ https://github.com/altercation/vim-colors-solarized
 ```bash
 $ git clone https://github.com/altercation/vim-colors-solarized.git
 $ cd vim-colors-solarized/colors
+$ mkdir -p ~/.vim/colors/
 $ mv solarized.vim ~/.vim/colors/
 ```
 
