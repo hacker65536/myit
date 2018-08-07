@@ -1,7 +1,12 @@
 
+https://github.com/altercation/vim-colors-solarized
+
+
+
 
 
 ```bash
+$ git clone https://github.com/altercation/vim-colors-solarized.git
 $ cd vim-colors-solarized/colors
 $ mv solarized.vim ~/.vim/colors/
 ```
