@@ -225,7 +225,7 @@ $ cdk diff
      └─ New value: {"ServerSideEncryptionConfiguration":[{"ServerSideEncryptionByDefault":{"SSEAlgorithm":"aws:kms"}}]}
 ```
 
-```
+```console
 $ cdk deploy
  ⏳  Starting deployment of stack hello-cdk...
 [0/2] Tue Aug 07 2018 10:55:19 GMT+0000 (Coordinated Universal Time)  UPDATE_IN_PROGRESS  [AWS::S3::Bucket] MyFirstBucketB8884501
@@ -233,4 +233,11 @@ $ cdk deploy
 [1/2] Tue Aug 07 2018 10:55:41 GMT+0000 (Coordinated Universal Time)  UPDATE_COMPLETE_CLEANUP_IN_PROGRESS  [AWS::CloudFormation::Stack] hello-cdk
 [2/2] Tue Aug 07 2018 10:55:42 GMT+0000 (Coordinated Universal Time)  UPDATE_COMPLETE     [AWS::CloudFormation::Stack] hello-cdk
  ✅  Deployment of stack hello-cdk completed successfully, it has ARN arn:aws:cloudformation:us-east-2:xxxxxxxxxx:stack/hello-cdk/bd868410-9a2f-11e8-b99d-0aa0cd9d9f9c
+```
+
+```console
+$ cdk destroy
+Are you sure you want to delete: hello-cdk (y/n)? y
+ ⏳  Starting destruction of stack hello-cdk...
+ ✅  Stack hello-cdk successfully destroyed.
 ```
