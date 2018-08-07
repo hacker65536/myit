@@ -189,4 +189,48 @@ $ cdk deploy
 [3/4] Tue Aug 07 2018 10:51:29 GMT+0000 (Coordinated Universal Time)  DELETE_COMPLETE     [AWS::CloudFormation::WaitConditionHandle] WaitCondition
 [4/4] Tue Aug 07 2018 10:51:30 GMT+0000 (Coordinated Universal Time)  UPDATE_COMPLETE     [AWS::CloudFormation::Stack] hello-cdk
  ✅  Deployment of stack hello-cdk completed successfully, it has ARN arn:aws:cloudformation:us-east-2:xxxxxxxxxx:stack/hello-cdk/bd868410-9a2f-11e8-b99d-0aa0cd9d9f9c
- ```
+```
+
+index.js
+```js
+const cdk = require('@aws-cdk/cdk');
+const s3 = require('@aws-cdk/aws-s3');
+
+class MyStack extends cdk.Stack {
+    constructor(parent, id, props) {
+        super(parent, id, props);
+
+        new s3.Bucket(this, 'MyFirstBucket', {
+            versioned: true,
+            encryption: s3.BucketEncryption.KmsManaged
+        });
+    }
+}
+
+class MyApp extends cdk.App {
+    constructor(argv) {
+        super(argv);
+
+        new MyStack(this, 'hello-cdk');
+    }
+}
+
+process.stdout.write(new MyApp(process.argv).run());
+```
+
+```console
+$ cdk diff
+[~] 🛠 Updating MyFirstBucketB8884501 (type: AWS::S3::Bucket)
+ └─ [+] .BucketEncryption:
+     └─ New value: {"ServerSideEncryptionConfiguration":[{"ServerSideEncryptionByDefault":{"SSEAlgorithm":"aws:kms"}}]}
+```
+
+```
+$ cdk deploy
+ ⏳  Starting deployment of stack hello-cdk...
+[0/2] Tue Aug 07 2018 10:55:19 GMT+0000 (Coordinated Universal Time)  UPDATE_IN_PROGRESS  [AWS::S3::Bucket] MyFirstBucketB8884501
+[1/2] Tue Aug 07 2018 10:55:40 GMT+0000 (Coordinated Universal Time)  UPDATE_COMPLETE     [AWS::S3::Bucket] MyFirstBucketB8884501
+[1/2] Tue Aug 07 2018 10:55:41 GMT+0000 (Coordinated Universal Time)  UPDATE_COMPLETE_CLEANUP_IN_PROGRESS  [AWS::CloudFormation::Stack] hello-cdk
+[2/2] Tue Aug 07 2018 10:55:42 GMT+0000 (Coordinated Universal Time)  UPDATE_COMPLETE     [AWS::CloudFormation::Stack] hello-cdk
+ ✅  Deployment of stack hello-cdk completed successfully, it has ARN arn:aws:cloudformation:us-east-2:xxxxxxxxxx:stack/hello-cdk/bd868410-9a2f-11e8-b99d-0aa0cd9d9f9c
+```
