@@ -1,6 +1,5 @@
+https://awslabs.github.io/aws-cdk/versions/0.8.0/
 
-
-install aws-cdk
 
 ```console
 $ sudo npm install -g aws-cdk
@@ -13,6 +12,7 @@ updated 1 package in 9.293s
 $ cdk --version
 0.8.0 (build bb95676)
 ```
+
 
 ```
 $ mkdir hello-cdk
