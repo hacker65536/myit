@@ -6,7 +6,7 @@ require
 ```console
 $ sudo yum install perl-ExtUtils-MakeMaker
 $ sudo yum install perl-DBI
-$ sudo yum install perl-DBD-MySQ
+$ sudo yum install perl-DBD-MySQL
 ```
 
 ```console
