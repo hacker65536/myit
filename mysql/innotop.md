@@ -7,6 +7,7 @@ require
 $ sudo yum install perl-ExtUtils-MakeMaker
 $ sudo yum install perl-DBI
 $ sudo yum install perl-DBD-MySQ
+```
 
 ```console
 $ git clone https://github.com/innotop/innotop.git
