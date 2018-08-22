@@ -47,9 +47,6 @@ Menu
    
 ## enable iframe embed 
 
-```console
-```
-
 ```nginx
 # cat /etc/nginx/conf.d/pmm-ssl.conf
 ssl_protocols                   TLSv1 TLSv1.1 TLSv1.2;
@@ -67,7 +64,10 @@ resolver_timeout                3s;
 add_header                      Strict-Transport-Security "max-age=63072000; includeSubDomains";
 
 # CWE-693, CWE-16
-#add_header                     X-Frame-Options DENY;
+
+# comment out X-Frame-Options DENY
+#add_header                     X-Frame-Options DENY;   
+
 add_header                      X-Content-Type-Options nosniff;
 add_header                      X-XSS-Protection "1; mode=block";
 
