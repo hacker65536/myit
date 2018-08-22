@@ -47,6 +47,16 @@ Menu
    
 ## enable iframe embed 
 
+```console
+$ docker ps
+CONTAINER ID        IMAGE                       COMMAND                CREATED             STATUS              PORTS                         NAMES
+0aa407221158        percona/pmm-server:latest   "/opt/entrypoint.sh"   13 minutes ago      Up 13 minutes       0.0.0.0:80->80/tcp, 443/tcp   pmm-server
+```
+```console
+$ docker exec -it 0aa407221158 bash
+```
+
+edit nginx conf
 ```nginx
 # cat /etc/nginx/conf.d/pmm-ssl.conf
 ssl_protocols                   TLSv1 TLSv1.1 TLSv1.2;
@@ -74,4 +84,8 @@ add_header                      X-XSS-Protection "1; mode=block";
 # CWE-524, CWE-525
 add_header                      Cache-control "no-store";
 add_header                      Pragma "no-cache";
+```
+
+```
+$ docker kill -s HUP 0aa407221158
 ```
