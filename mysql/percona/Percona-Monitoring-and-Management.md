@@ -5,6 +5,10 @@ https://www.percona.com/software/database-tools/percona-monitoring-and-managemen
 ## doc
 https://www.percona.com/doc/percona-monitoring-and-management/index.html
 
+## source
+
+https://github.com/percona/pmm-server
+
 ## install from docker
 
 https://www.percona.com/doc/percona-monitoring-and-management/deploy/server/docker.html
