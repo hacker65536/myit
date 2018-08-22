@@ -56,7 +56,7 @@ CONTAINER ID        IMAGE                       COMMAND                CREATED  
 $ docker exec -it 0aa407221158 bash
 ```
 
-edit nginx conf
+edit `X-Frame-Options`
 ```nginx
 # cat /etc/nginx/conf.d/pmm-ssl.conf
 ssl_protocols                   TLSv1 TLSv1.1 TLSv1.2;
