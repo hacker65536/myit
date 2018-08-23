@@ -150,6 +150,8 @@ $ docker start pmm-server
 ## restore
 https://www.percona.com/doc/percona-monitoring-and-management/deploy/server/docker.restoring.html
 
+note updating in console , you'll specify before version
+
 ```console
 $ docker stop pmm-server
 ```
