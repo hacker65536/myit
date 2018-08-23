@@ -140,7 +140,7 @@ $ tree -L 3
 10 directories, 2 files
 ```
 ```console
-aws s3 sync ./pmm-data-backup s3://<BUCKET>/pmm-data-backup/
+$ aws s3 sync ./pmm-data-backup s3://<BUCKET>/pmm-data-backup/
 ```
 
 ```console
