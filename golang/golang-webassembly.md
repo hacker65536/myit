@@ -68,7 +68,7 @@ func main() {
 $ go1.11beta1 run server.go
 ```
 
-http://<HOSTIP>:8080/wasm_exec.html
+http://&gt;HOSTIP&gt;:8080/wasm_exec.html
 
 open Developer tools(shift + ctrl + I) and click `Run` 
 
