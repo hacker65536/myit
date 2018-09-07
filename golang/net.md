@@ -85,3 +85,7 @@ listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
         0x0000:  0001 0800 0604 0002 0617 4ec4 ae1a ac1f  ..........N.....
         0x0010:  17bf 0620 60b6 93c0 ac1f 1635            ....`......5
 ```
+
+```
+panic: Error 1205: Lock wait timeout exceeded; try restarting transaction
+```
