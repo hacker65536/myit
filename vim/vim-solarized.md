@@ -5,11 +5,9 @@ https://github.com/altercation/vim-colors-solarized
 
 
 
-```bash
-$ git clone https://github.com/altercation/vim-colors-solarized.git
-$ cd vim-colors-solarized/colors
+```console
 $ mkdir -p ~/.vim/colors/
-$ mv solarized.vim ~/.vim/colors/
+$ curl -LSs -o ~/.vim/colors/solarized.vim https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 ```
 
 
