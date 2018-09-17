@@ -21,7 +21,7 @@ call plug#end()
 pathogen
 ----
 ```consle
-$ cd ~/.vim/bundle && git clone https://github.com/fatih/vim-go
+$ git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
 ```
 
 install dependencies
