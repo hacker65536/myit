@@ -5,7 +5,8 @@ https://stackoverflow.com/questions/15375992/vim-difference-between-t-co-256-and
 
 
 - putty
-connection -> data -> terminal-type string  => xterm-256color
+
+`connection -> data -> terminal-type string`  => `xterm-256color`
 
 - tmux 
 
