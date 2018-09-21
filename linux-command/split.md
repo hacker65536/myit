@@ -36,3 +36,7 @@ $ cat 100MBfile* > 100MBfile
 $ md5sum 100MBfile
 c1c6af3e926c31a4ce225b82d15a9f8c  100MBfile
 ```
+
+```
+$ split -n 40 -a 3 -d --additional-suffix=.sql one.sql
+```
