@@ -64,3 +64,31 @@ namespace myApp
     }
 }
 ```
+```console
+$ docker run --rm microsoft/dotnet dotnet --info
+.NET Core SDK (reflecting any global.json):
+ Version:   2.1.402
+ Commit:    3599f217f4
+
+Runtime Environment:
+ OS Name:     debian
+ OS Version:  9
+ OS Platform: Linux
+ RID:         debian.9-x64
+ Base Path:   /usr/share/dotnet/sdk/2.1.402/
+
+Host (useful for support):
+  Version: 2.1.4
+  Commit:  85255dde3e
+
+.NET Core SDKs installed:
+  2.1.402 [/usr/share/dotnet/sdk]
+
+.NET Core runtimes installed:
+  Microsoft.AspNetCore.All 2.1.4 [/usr/share/dotnet/shared/Microsoft.AspNetCore.All]
+  Microsoft.AspNetCore.App 2.1.4 [/usr/share/dotnet/shared/Microsoft.AspNetCore.App]
+  Microsoft.NETCore.App 2.1.4 [/usr/share/dotnet/shared/Microsoft.NETCore.App]
+
+To install additional .NET Core runtimes or SDKs:
+  https://aka.ms/dotnet-download
+```
