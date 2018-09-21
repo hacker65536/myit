@@ -39,6 +39,22 @@ HTTPS を構成する方法の詳細については、https://go.microsoft.com/f
 正常に復元されました。
 ```
 
+`Program.cs`
+```cs
+using System;
+
+namespace csharpstudy
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}
+```
+
 ```console
 > dotnet run
 Hello World!
