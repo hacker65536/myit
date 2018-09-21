@@ -37,3 +37,9 @@ HTTPS を構成する方法の詳細については、https://go.microsoft.com/f
   C:\Users\username\Documents\csharpstudy\csharpstudy.csproj の復元が 157.76 ms で完了しました。
 
 正常に復元されました。
+```
+
+```console
+> dotnet run
+Hello World!
+```
