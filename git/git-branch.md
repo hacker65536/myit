@@ -19,3 +19,8 @@ git branch --merged  | egrep -v '* master' | xargs git branch -d
 ```
 git fetch --prune
 ```
+
+tracking
+```
+git branch --set-upstream-to=origin/master master
+```
