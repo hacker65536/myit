@@ -37,9 +37,8 @@ EOF
 ```
 
 ```bash
-username=myname
-useremail=my@email
-git config --global user.name "$username"
-git config --global user.email "$useremail"
-git config --global push.default simple
+username=hacker65536
+useremail=s.hacker65536@gmail.com
+git config --local user.name "$username"
+git config --local user.email "$useremail"
 ```
