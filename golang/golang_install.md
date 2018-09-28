@@ -53,3 +53,12 @@ func main() {
 
 https://golang.org/doc/install/source
 
+# install from yum repo
+
+https://go-repo.io/
+
+```console
+rpm --import https://mirror.go-repo.io/centos/RPM-GPG-KEY-GO-REPO
+curl -s https://mirror.go-repo.io/centos/go-repo.repo | tee /etc/yum.repos.d/go-repo.repo
+yum install golang
+```
