@@ -1,4 +1,4 @@
-symlincぽいmount
+symlinkぽいmount
 
 ```
 # /usr/local/src の下になにもない
