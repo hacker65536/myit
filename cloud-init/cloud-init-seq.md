@@ -229,3 +229,19 @@ cloud-init = cloudinit.cmd.main:main
 263         self._reset()
 264         return ds
 ```
+```
+209     def _restore_from_checked_cache(self, existing):
+210         if existing not in ("check", "trust"):
+211             raise ValueError("Unexpected value for existing: %s" % existing)
+212
+213         ds = self._restore_from_cache()
+214         if not ds:
+215             return (None, "no cache found")
+```
+```
+182     def _restore_from_cache(self):
+183         # We try to restore from a current link and static path
+184         # by using the instance link, if purge_cache was called
+185         # the file wont exist.
+186         return _pkl_load(self.paths.get_ipath_cur('obj_pkl'))
+```
