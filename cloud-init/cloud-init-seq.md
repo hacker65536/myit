@@ -358,6 +358,63 @@ cloud-init = cloudinit.cmd.main:main
 557                " via packages %s that matches dependencies %s"),
 558               cfg_list, pkg_list, depends)
 ```
+`/usr/lib/python2.7/site-packages/cloudinit/stages.py`
+```
+ 74     @property
+ 75     def distro(self):
+ 76         if not self._distro:
+ 77             # Try to find the right class to use
+ 78             system_config = self._extract_cfg('system')
+ 79             distro_name = system_config.pop('distro', 'ubuntu')
+ 80             distro_cls = distros.fetch(distro_name)
+ 81             LOG.debug("Using distro class %s", distro_cls)
+ 82             self._distro = distro_cls(distro_name, system_config, self.paths)
+ 83             # If we have an active datasource we need to adjust
+ 84             # said datasource and move its distro/system config
+ 85             # from whatever it was to a new set...
+ 86             if self.datasource is not NULL_DATA_SOURCE:
+ 87                 self.datasource.distro = self._distro
+ 88                 self.datasource.sys_cfg = system_config
+ 89         return self._distro
+ 90
+ 91     @property
+ 92     def cfg(self):
+ 93         return self._extract_cfg('restricted')
+ 94
+ 95     def _extract_cfg(self, restriction):
+ 96         # Ensure actually read
+ 97         self.read_cfg()
+ 98         # Nobody gets the real config
+ 99         ocfg = copy.deepcopy(self._cfg)
+100         if restriction == 'restricted':
+101             ocfg.pop('system_info', None)
+102         elif restriction == 'system':
+103             ocfg = util.get_cfg_by_path(ocfg, ('system_info',), {})
+104         elif restriction == 'paths':
+105             ocfg = util.get_cfg_by_path(ocfg, ('system_info', 'paths'), {})
+106         if not isinstance(ocfg, (dict)):
+107             ocfg = {}
+108         return ocfg
+```
+
+`/etc/cloud/cloud.cfg`
+```
+ 66 system_info:
+ 67   # This will affect which distro class gets used
+ 68   distro: amazon
+ 69   distro_short: amzn
+ 70   default_user:
+ 71     name: ec2-user
+ 72     lock_passwd: true
+ 73     gecos: EC2 Default User
+ 74     groups: [wheel, adm, systemd-journal]
+ 75     sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+ 76     shell: /bin/bash
+ 77   paths:
+ 78     cloud_dir: /var/lib/cloud
+ 79     templates_dir: /etc/cloud/templates
+ 80   ssh_svcname: sshd
+```
 
 ```
  55 Oct 10 00:52:37 cloud-init[3038]: DataSourceEc2.py[DEBUG]: strict_mode: warn, cloud_platform=AWS
