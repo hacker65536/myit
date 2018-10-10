@@ -210,24 +210,7 @@ cloud-init = cloudinit.cmd.main:main
 244             myrep.description = desc
 245             self.ds_restored = bool(ds)
 246             LOG.debug(myrep.description)
-247
-248         if not ds:
-249             util.del_file(self.paths.instance_link)
-250             (cfg_list, pkg_list) = self._get_datasources()
-251             # Deep copy so that user-data handlers can not modify
-252             # (which will affect user-data handlers down the line...)
-253             (ds, dsname) = sources.find_source(self.cfg,
-254                                                self.distro,
-255                                                self.paths,
-256                                                copy.deepcopy(self.ds_deps),
-257                                                cfg_list,
-258                                                pkg_list, self.reporter)
-259             LOG.info("Loaded datasource %s - %s", dsname, ds)
-260         self.datasource = ds
-261         # Ensure we adjust our path members datasource
-262         # now that we have one (thus allowing ipath to be used)
-263         self._reset()
-264         return ds
+
 ```
 ```
 209     def _restore_from_checked_cache(self, existing):
@@ -268,3 +251,93 @@ cloud-init = cloudinit.cmd.main:main
  53 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Read 37 bytes from /sys/class/dmi/id/product_serial
  54 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: dmi data /sys/class/dmi/id/product_serial returned ec23e5e6-3996-d6a8-c001-0cafdb88a415
 ```
+
+`/usr/lib/python2.7/site-packages/cloudinit/stages.py`
+```
+247
+248         if not ds:
+249             util.del_file(self.paths.instance_link)
+250             (cfg_list, pkg_list) = self._get_datasources()
+251             # Deep copy so that user-data handlers can not modify
+252             # (which will affect user-data handlers down the line...)
+253             (ds, dsname) = sources.find_source(self.cfg,
+254                                                self.distro,
+255                                                self.paths,
+256                                                copy.deepcopy(self.ds_deps),
+257                                                cfg_list,
+258                                                pkg_list, self.reporter)
+259             LOG.info("Loaded datasource %s - %s", dsname, ds)
+260         self.datasource = ds
+261         # Ensure we adjust our path members datasource
+262         # now that we have one (thus allowing ipath to be used)
+263         self._reset()
+264         return ds
+```
+```
+199     def _get_datasources(self):
+200         # Any config provided???
+201         pkg_list = self.cfg.get('datasource_pkg_list') or []
+202         # Add the defaults at the end
+203         for n in ['', type_utils.obj_name(sources)]:
+204             if n not in pkg_list:
+205                 pkg_list.append(n)
+206         cfg_list = self.cfg.get('datasource_list') or []
+207         return (cfg_list, pkg_list)
+```
+
+`/usr/lib/python2.7/site-packages/cloudinit/settings.py`
+```
+ 20 CFG_BUILTIN = {
+ 21     'datasource_list': [
+ 22         'NoCloud',
+ 23         'ConfigDrive',
+ 24         'OpenNebula',
+ 25         'DigitalOcean',
+ 26         'Azure',
+ 27         'AltCloud',
+ 28         'OVF',
+ 29         'MAAS',
+ 30         'GCE',
+ 31         'OpenStack',
+ 32         'AliYun',
+ 33         'Ec2',
+ 34         'CloudSigma',
+ 35         'CloudStack',
+ 36         'SmartOS',
+ 37         'Bigstep',
+ 38         'Scaleway',
+ 39         'Hetzner',
+ 40         'IBMCloud',
+ 41         # At the end to act as a 'catch' when none of the above work...
+ 42         'None',
+ 43     ],
+ 44     'def_log_file': '/var/log/cloud-init.log',
+ 45     'log_cfgs': [],
+ 46     'syslog_fix_perms': ['syslog:adm', 'root:adm', 'root:wheel'],
+ 47     'system_info': {
+ 48         'paths': {
+ 49             'cloud_dir': '/var/lib/cloud',
+ 50             'templates_dir': '/etc/cloud/templates/',
+ 51         },
+ 52         'distro': 'ubuntu',
+ 53         'network': {'renderers': None},
+ 54     },
+ 55     'vendor_data': {'enabled': True, 'prefix': []},
+ 56 }
+ 57
+```
+
+`/usr/lib/python2.7/site-packages/cloudinit/type_utils.py`
+```
+def obj_name(obj):
+    if isinstance(obj, _NAME_TYPES):
+        return six.text_type(obj.__name__)
+    else:
+        if not hasattr(obj, '__class__'):
+            return repr(obj)
+        else:
+            return obj_name(obj.__class__)
+```
+
+
+`/usr/lib/python2.7/site-packages/cloudinit/sources/__init__.py`
