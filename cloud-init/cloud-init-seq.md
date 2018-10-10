@@ -324,3 +324,17 @@ cloud-init = cloudinit.cmd.main:main
 
 
 `/usr/lib/python2.7/site-packages/cloudinit/sources/__init__.py`
+```
+523 def find_source(sys_cfg, distro, paths, ds_deps, cfg_list, pkg_list, reporter):
+524     ds_list = list_sources(cfg_list, ds_deps, pkg_list)
+525     ds_names = [type_utils.obj_name(f) for f in ds_list]
+526     mode = "network" if DEP_NETWORK in ds_deps else "local"
+527     LOG.debug("Searching for %s data source in: %s", mode, ds_names)
+```
+```
+554 def list_sources(cfg_list, depends, pkg_list):
+555     src_list = []
+556     LOG.debug(("Looking for data source in: %s,"
+557                " via packages %s that matches dependencies %s"),
+558               cfg_list, pkg_list, depends)
+```
