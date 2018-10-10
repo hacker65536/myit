@@ -329,14 +329,15 @@ cloud-init = cloudinit.cmd.main:main
 
 `/usr/lib/python2.7/site-packages/cloudinit/type_utils.py`
 ```
-def obj_name(obj):
-    if isinstance(obj, _NAME_TYPES):
-        return six.text_type(obj.__name__)
-    else:
-        if not hasattr(obj, '__class__'):
-            return repr(obj)
-        else:
-            return obj_name(obj.__class__)
+ 33 def obj_name(obj):
+ 34     if isinstance(obj, _NAME_TYPES):
+ 35         return six.text_type(obj.__name__)
+ 36     else:
+ 37         if not hasattr(obj, '__class__'):
+ 38             return repr(obj)
+ 39         else:
+ 40             return obj_name(obj.__class__)
+ 41
 ```
 
 
