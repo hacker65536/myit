@@ -64,6 +64,8 @@ WantedBy=cloud-init.target
 
 ```console
 # cat /usr/bin/cloud-init
+```
+```python
 #!/usr/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'cloud-init==18.2','console_scripts','cloud-init'
 __requires__ = 'cloud-init==18.2'
@@ -78,7 +80,7 @@ if __name__ == '__main__':
     )
 ```
 
-```
+```console
 # cat /usr/lib/python2.7/site-packages/cloud_init-18.2-py2.7.egg-info/entry_points.txt
 [console_scripts]
 cloud-init = cloudinit.cmd.main:main
