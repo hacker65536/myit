@@ -1,4 +1,4 @@
-```
+```console
 # systemd-analyze critical-chain
 The time after the unit is active or started is printed after the "@" character.
 The time the unit takes to start is printed after the "+" character.
@@ -26,7 +26,7 @@ graphical.target @10.330s
                                       └─-.slice
 ```
 
-```
+```console
 # ls -la /etc/systemd/system/cloud-init.target.wants/
 total 0
 drwxr-xr-x  2 root root 119 Oct  7 22:17 .
@@ -37,7 +37,7 @@ lrwxrwxrwx  1 root root  48 Oct  7 22:17 cloud-init-local.service -> /usr/lib/sy
 lrwxrwxrwx  1 root root  42 Oct  7 22:17 cloud-init.service -> /usr/lib/systemd/system/cloud-init.service
 ```
 
-```
+```console
 # cat /usr/lib/systemd/system/cloud-init-local.service
 [Unit]
 Description=Initial cloud-init job (pre-networking)
@@ -62,7 +62,7 @@ StandardOutput=journal+console
 WantedBy=cloud-init.target
 ```
 
-```
+```console
 # cat /usr/bin/cloud-init
 #!/usr/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'cloud-init==18.2','console_scripts','cloud-init'
