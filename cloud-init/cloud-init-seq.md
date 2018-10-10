@@ -180,3 +180,52 @@ cloud-init = cloudinit.cmd.main:main
 303             LOG.debug("Execution continuing, no previous run detected that"
 304                       " would allow us to stop early.")
 ```
+
+
+```
+241     init = stages.Init(ds_deps=deps, reporter=args.reporter)
+```
+```
+321     # Stage 5
+322     try:
+323         init.fetch(existing=existing)
+```
+
+`/usr/lib/python2.7/site-packages/cloudinit/stages.py`
+```
+347     def fetch(self, existing="check"):
+348         return self._get_data_source(existing=existing)
+```
+```
+234     def _get_data_source(self, existing):
+235         if self.datasource is not NULL_DATA_SOURCE:
+236             return self.datasource
+237
+238         with events.ReportEventStack(
+239                 name="check-cache",
+240                 description="attempting to read from cache [%s]" % existing,
+241                 parent=self.reporter) as myrep:
+242
+243             ds, desc = self._restore_from_checked_cache(existing)
+244             myrep.description = desc
+245             self.ds_restored = bool(ds)
+246             LOG.debug(myrep.description)
+247
+248         if not ds:
+249             util.del_file(self.paths.instance_link)
+250             (cfg_list, pkg_list) = self._get_datasources()
+251             # Deep copy so that user-data handlers can not modify
+252             # (which will affect user-data handlers down the line...)
+253             (ds, dsname) = sources.find_source(self.cfg,
+254                                                self.distro,
+255                                                self.paths,
+256                                                copy.deepcopy(self.ds_deps),
+257                                                cfg_list,
+258                                                pkg_list, self.reporter)
+259             LOG.info("Loaded datasource %s - %s", dsname, ds)
+260         self.datasource = ds
+261         # Ensure we adjust our path members datasource
+262         # now that we have one (thus allowing ipath to be used)
+263         self._reset()
+264         return ds
+```
