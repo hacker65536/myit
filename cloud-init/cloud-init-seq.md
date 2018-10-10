@@ -112,7 +112,7 @@ cloud-init = cloudinit.cmd.main:main
  22 Oct 10 00:52:35 cloud-init[2662]: handlers.py[DEBUG]: finish: init-local: SUCCESS: searching for local datasources
 ```
 
-`15` 
+output from /usr/lib/python2.7/site-packages/cloudinit/cmd/main.py
 ```
 280     mode = sources.DSMODE_LOCAL if args.local else sources.DSMODE_NETWORK
 ```
