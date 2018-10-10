@@ -285,46 +285,28 @@ cloud-init = cloudinit.cmd.main:main
 207         return (cfg_list, pkg_list)
 ```
 
-`/usr/lib/python2.7/site-packages/cloudinit/settings.py`
+`/etc/cloud/cloud.cfg`
 ```
- 20 CFG_BUILTIN = {
- 21     'datasource_list': [
- 22         'NoCloud',
- 23         'ConfigDrive',
- 24         'OpenNebula',
- 25         'DigitalOcean',
- 26         'Azure',
- 27         'AltCloud',
- 28         'OVF',
- 29         'MAAS',
- 30         'GCE',
- 31         'OpenStack',
- 32         'AliYun',
- 33         'Ec2',
- 34         'CloudSigma',
- 35         'CloudStack',
- 36         'SmartOS',
- 37         'Bigstep',
- 38         'Scaleway',
- 39         'Hetzner',
- 40         'IBMCloud',
- 41         # At the end to act as a 'catch' when none of the above work...
- 42         'None',
- 43     ],
- 44     'def_log_file': '/var/log/cloud-init.log',
- 45     'log_cfgs': [],
- 46     'syslog_fix_perms': ['syslog:adm', 'root:adm', 'root:wheel'],
- 47     'system_info': {
- 48         'paths': {
- 49             'cloud_dir': '/var/lib/cloud',
- 50             'templates_dir': '/etc/cloud/templates/',
- 51         },
- 52         'distro': 'ubuntu',
- 53         'network': {'renderers': None},
- 54     },
- 55     'vendor_data': {'enabled': True, 'prefix': []},
- 56 }
- 57
+  1 # WARNING: Modifications to this file may be overridden by files in
+  2 # /etc/cloud/cloud.cfg.d
+  3
+  4 users:
+  5  - default
+  6
+  7 disable_root: true
+  8 ssh_pwauth:   false
+  9
+ 10 mount_default_fields: [~, ~, 'auto', 'defaults,nofail', '0', '2']
+ 11 resize_rootfs: noblock
+ 12 resize_rootfs_tmp: /dev
+ 13 ssh_deletekeys:   false
+ 14 ssh_genkeytypes:  ~
+ 15 syslog_fix_perms: ~
+ 16
+ 17 datasource_list: [ Ec2, None ]
+ 18 repo_upgrade: security
+ 19 repo_upgrade_exclude:
+
 ```
 
 `/usr/lib/python2.7/site-packages/cloudinit/type_utils.py`
