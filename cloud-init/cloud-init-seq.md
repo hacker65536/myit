@@ -111,3 +111,32 @@ cloud-init = cloudinit.cmd.main:main
  21 Oct 10 00:52:35 cloud-init[2662]: util.py[DEBUG]: cloud-init mode 'init' took 0.058 seconds (0.06)
  22 Oct 10 00:52:35 cloud-init[2662]: handlers.py[DEBUG]: finish: init-local: SUCCESS: searching for local datasources
 ```
+
+`15` 
+```
+280     mode = sources.DSMODE_LOCAL if args.local else sources.DSMODE_NETWORK
+```
+```
+335         if mode == sources.DSMODE_LOCAL:
+336             LOG.debug("No local datasource found")
+337         else:
+338             util.logexc(LOG, ("No instance datasource found!"
+339                               " Likely bad things to come!"))
+```
+```
+356     if mode == sources.DSMODE_LOCAL:
+357         # Before network comes up, set any configured hostname to allow
+358         # dhcp clients to advertize this hostname to any DDNS services
+359         # LP: #1746455.
+360         _maybe_set_hostname(init, stage='local', retry_stage='network')
+361     init.apply_network_config(bring_up=bool(mode != sources.DSMODE_LOCAL))
+362
+363     if mode == sources.DSMODE_LOCAL:
+364         if init.datasource.dsmode != mode:
+365             LOG.debug("[%s] Exiting. datasource %s not in local mode.",
+366                       mode, init.datasource)
+367             return (init.datasource, [])
+368         else:
+369             LOG.debug("[%s] %s is in local mode, will apply init modules now.",
+370                       mode, init.datasource)
+```
