@@ -61,3 +61,25 @@ StandardOutput=journal+console
 [Install]
 WantedBy=cloud-init.target
 ```
+
+```
+# cat /usr/bin/cloud-init
+#!/usr/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'cloud-init==18.2','console_scripts','cloud-init'
+__requires__ = 'cloud-init==18.2'
+import re
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(
+        load_entry_point('cloud-init==18.2', 'console_scripts', 'cloud-init')()
+    )
+```
+
+```
+# cat /usr/lib/python2.7/site-packages/cloud_init-18.2-py2.7.egg-info/entry_points.txt
+[console_scripts]
+cloud-init = cloudinit.cmd.main:main
+```
