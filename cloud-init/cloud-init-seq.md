@@ -330,6 +330,26 @@ cloud-init = cloudinit.cmd.main:main
 525     ds_names = [type_utils.obj_name(f) for f in ds_list]
 526     mode = "network" if DEP_NETWORK in ds_deps else "local"
 527     LOG.debug("Searching for %s data source in: %s", mode, ds_names)
+528
+529     for name, cls in zip(ds_names, ds_list):
+530         myrep = events.ReportEventStack(
+531             name="search-%s" % name.replace("DataSource", ""),
+532             description="searching for %s data from %s" % (mode, name),
+533             message="no %s data found from %s" % (mode, name),
+534             parent=reporter)
+535         try:
+536             with myrep:
+537                 LOG.debug("Seeing if we can get any data from %s", cls)
+538                 s = cls(sys_cfg, distro, paths)
+539                 if s.get_data():
+540                     myrep.message = "found %s data from %s" % (mode, name)
+541                     return (s, type_utils.obj_name(cls))
+542         except Exception:
+543             util.logexc(LOG, "Getting data from %s failed", cls)
+544
+545     msg = ("Did not find any data source,"
+546            " searched classes: (%s)") % (", ".join(ds_names))
+547     raise DataSourceNotFoundException(msg)
 ```
 ```
 554 def list_sources(cfg_list, depends, pkg_list):
