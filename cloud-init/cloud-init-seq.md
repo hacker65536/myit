@@ -122,21 +122,14 @@ output from /usr/lib/python2.7/site-packages/cloudinit/cmd/main.py
 337         else:
 338             util.logexc(LOG, ("No instance datasource found!"
 339                               " Likely bad things to come!"))
-```
-```
-356     if mode == sources.DSMODE_LOCAL:
-357         # Before network comes up, set any configured hostname to allow
-358         # dhcp clients to advertize this hostname to any DDNS services
-359         # LP: #1746455.
-360         _maybe_set_hostname(init, stage='local', retry_stage='network')
-361     init.apply_network_config(bring_up=bool(mode != sources.DSMODE_LOCAL))
-362
-363     if mode == sources.DSMODE_LOCAL:
-364         if init.datasource.dsmode != mode:
-365             LOG.debug("[%s] Exiting. datasource %s not in local mode.",
-366                       mode, init.datasource)
-367             return (init.datasource, [])
-368         else:
-369             LOG.debug("[%s] %s is in local mode, will apply init modules now.",
-370                       mode, init.datasource)
+340         if not args.force:
+341             init.apply_network_config(bring_up=not args.local)
+342             LOG.debug("[%s] Exiting without datasource in local mode", mode)
+343             if mode == sources.DSMODE_LOCAL:
+344                 return (None, [])
+345             else:
+346                 return (None, ["No instance datasource found."])
+347         else:
+348             LOG.debug("[%s] barreling on in force mode without datasource",
+349                       mode)
 ```
