@@ -245,3 +245,26 @@ cloud-init = cloudinit.cmd.main:main
 185         # the file wont exist.
 186         return _pkl_load(self.paths.get_ipath_cur('obj_pkl'))
 ```
+
+`/var/log/cloud-init.log`
+```
+ 36 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Attempting to remove /var/lib/cloud/instance
+ 37 Oct 10 00:52:37 cloud-init[3038]: stages.py[DEBUG]: Using distro class <class 'cloudinit.distros.amazon.Distro'>
+ 38 Oct 10 00:52:37 cloud-init[3038]: __init__.py[DEBUG]: Looking for data source in: ['Ec2', 'None'], via packages ['', u'cloudinit.sources'] that matches dependencies ['FILESYSTEM', 'NETWORK']
+ 39 Oct 10 00:52:37 cloud-init[3038]: __init__.py[DEBUG]: Searching for network data source in: [u'DataSourceEc2', u'DataSourceNone']
+ 40 Oct 10 00:52:37 cloud-init[3038]: handlers.py[DEBUG]: start: init-network/search-Ec2: searching for network data from DataSourceEc2
+ 41 Oct 10 00:52:37 cloud-init[3038]: __init__.py[DEBUG]: Seeing if we can get any data from <class 'cloudinit.sources.DataSourceEc2.DataSourceEc2'>
+ 42 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Reading from /sys/hypervisor/uuid (quiet=False)
+ 43 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Read 37 bytes from /sys/hypervisor/uuid
+ 44 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Running command ['systemd-detect-virt', '--quiet', '--container'] with allowed return codes [0] (shell=False, capture=True)
+ 45 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Running command ['running-in-container'] with allowed return codes [0] (shell=False, capture=True)
+ 46 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Running command ['lxc-is-container'] with allowed return codes [0] (shell=False, capture=True)
+ 47 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Reading from /proc/1/environ (quiet=False)
+ 48 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Read 0 bytes from /proc/1/environ
+ 49 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Reading from /proc/self/status (quiet=False)
+ 50 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Read 1298 bytes from /proc/self/status
+ 51 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: querying dmi data /sys/class/dmi/id/product_serial
+ 52 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Reading from /sys/class/dmi/id/product_serial (quiet=False)
+ 53 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Read 37 bytes from /sys/class/dmi/id/product_serial
+ 54 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: dmi data /sys/class/dmi/id/product_serial returned ec23e5e6-3996-d6a8-c001-0cafdb88a415
+```
