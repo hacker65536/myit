@@ -150,3 +150,33 @@ cloud-init = cloudinit.cmd.main:main
  34 Oct 10 00:52:37 cloud-init[3038]: stages.py[DEBUG]: no cache found
  35 Oct 10 00:52:37 cloud-init[3038]: handlers.py[DEBUG]: finish: init-network/check-cache: SUCCESS: no cache found
 ```
+
+
+ `/usr/lib/python2.7/site-packages/cloudinit/cmd/main.py`
+```
+280     mode = sources.DSMODE_LOCAL if args.local else sources.DSMODE_NETWORK
+281
+282     if mode == sources.DSMODE_NETWORK:
+283         existing = "trust"
+284         sys.stderr.write("%s\n" % (netinfo.debug_info()))
+285         LOG.debug(("Checking to see if files that we need already"
+286                    " exist from a previous run that would allow us"
+287                    " to stop early."))
+288         # no-net is written by upstart cloud-init-nonet when network failed
+289         # to come up
+290         stop_files = [
+291             os.path.join(path_helper.get_cpath("data"), "no-net"),
+292         ]
+293         existing_files = []
+294         for fn in stop_files:
+295             if os.path.isfile(fn):
+296                 existing_files.append(fn)
+297
+298         if existing_files:
+299             LOG.debug("[%s] Exiting. stop file %s existed",
+300                       mode, existing_files)
+301             return (None, [])
+302         else:
+303             LOG.debug("Execution continuing, no previous run detected that"
+304                       " would allow us to stop early.")
+```
