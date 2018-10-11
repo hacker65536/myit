@@ -758,6 +758,76 @@ ec23e5e6-3996-d6a8-c001-0cafdb88a415
 2627         logexc(LOG, "failed read of %s", dmi_key_path)
 2628         return None
 ```
+```
+348     def _crawl_metadata(self):
+349         """Crawl metadata service when available.
+350
+351         @returns: True on success, False otherwise.
+352         """
+353         if not self.wait_for_metadata_service():
+354             return False
+355         api_version = self.get_metadata_api_version()
+356         try:
+357             self.userdata_raw = ec2.get_instance_userdata(
+358                 api_version, self.metadata_address)
+359             self.metadata = ec2.get_instance_metadata(
+360                 api_version, self.metadata_address)
+361             if self.cloud_platform == Platforms.AWS:
+362                 self.identity = ec2.get_instance_identity(
+363                     api_version, self.metadata_address).get('document', {})
+364         except Exception:
+365             util.logexc(
+366                 LOG, "Failed reading from metadata address %s",
+367                 self.metadata_address)
+368             return False
+369         return True
+
+```
+```
+161     def wait_for_metadata_service(self):
+162         mcfg = self.ds_cfg
+163
+164         url_params = self.get_url_params()
+165         if url_params.max_wait_seconds <= 0:
+166             return False
+167
+168         # Remove addresses from the list that wont resolve.
+169         mdurls = mcfg.get("metadata_urls", self.metadata_urls)
+170         filtered = [x for x in mdurls if util.is_resolvable_url(x)]
+171
+172         if set(filtered) != set(mdurls):
+173             LOG.debug("Removed the following from metadata urls: %s",
+174                       list((set(mdurls) - set(filtered))))
+175
+176         if len(filtered):
+177             mdurls = filtered
+178         else:
+179             LOG.warning("Empty metadata url list! using default list")
+180             mdurls = self.metadata_urls
+181
+182         urls = []
+183         url2base = {}
+184         for url in mdurls:
+185             cur = '{0}/{1}/meta-data/instance-id'.format(
+186                 url, self.min_metadata_version)
+187             urls.append(cur)
+188             url2base[cur] = url
+189
+190         start_time = time.time()
+191         url = uhelp.wait_for_url(
+192             urls=urls, max_wait=url_params.max_wait_seconds,
+193             timeout=url_params.timeout_seconds, status_cb=LOG.warn)
+194
+195         if url:
+196             self.metadata_address = url2base[url]
+197             LOG.debug("Using metadata source: '%s'", self.metadata_address)
+198         else:
+199             LOG.critical("Giving up on md from %s after %s seconds",
+200                          urls, int(time.time() - start_time))
+201
+202         return bool(url)
+```
+
 
 ```
  55 Oct 10 00:52:37 cloud-init[3038]: DataSourceEc2.py[DEBUG]: strict_mode: warn, cloud_platform=AWS
