@@ -619,6 +619,141 @@ System Information
 ec23e5e6-3996-d6a8-c001-0cafdb88a415
 ```
 
+`/usr/lib/python2.7/site-packages/cloudinit/util.py`
+```
+2649 def read_dmi_data(key):
+2650     """
+2651     Wrapper for reading DMI data.
+2652
+2653     If running in a container return None.  This is because DMI data is
+2654     assumed to be not useful in a container as it does not represent the
+2655     container but rather the host.
+2656
+2657     This will do the following (returning the first that produces a
+2658     result):
+2659         1) Use a mapping to translate `key` from dmidecode naming to
+2660            sysfs naming and look in /sys/class/dmi/... for a value.
+2661         2) Use `key` as a sysfs key directly and look in /sys/class/dmi/...
+2662         3) Fall-back to passing `key` to `dmidecode --string`.
+2663
+2664     If all of the above fail to find a value, None will be returned.
+2665     """
+2666
+2667     if is_container():
+2668         return None
+2669
+2670     syspath_value = _read_dmi_syspath(key)
+2671     if syspath_value is not None:
+2672         return syspath_value
+2673
+2674     # running dmidecode can be problematic on some arches (LP: #1243287)
+2675     uname_arch = os.uname()[4]
+2676     if not (uname_arch == "x86_64" or
+2677             (uname_arch.startswith("i") and uname_arch[2:] == "86") or
+2678             uname_arch == 'aarch64' or
+2679             uname_arch == 'amd64'):
+2680         LOG.debug("dmidata is not supported on %s", uname_arch)
+2681         return None
+2682
+2683     dmidecode_path = which('dmidecode')
+2684     if dmidecode_path:
+2685         return _call_dmidecode(key, dmidecode_path)
+2686
+2687     LOG.warning("did not find either path %s or dmidecode command",
+2688                 DMI_SYS_PATH)
+2689     return None
+```
+
+```
+2115 def is_container():
+2116     """
+2117     Checks to see if this code running in a container of some sort
+2118     """
+2119
+2120     for helper in CONTAINER_TESTS:
+2121         try:
+2122             # try to run a helper program. if it returns true/zero
+2123             # then we're inside a container. otherwise, no
+2124             subp(helper)
+2125             return True
+2126         except (IOError, OSError):
+2127             pass
+2128
+2129     # this code is largely from the logic in
+2130     # ubuntu's /etc/init/container-detect.conf
+2131     try:
+2132         # Detect old-style libvirt
+2133         # Detect OpenVZ containers
+2134         pid1env = get_proc_env(1)
+2135         if "container" in pid1env:
+2136             return True
+2137         if "LIBVIRT_LXC_UUID" in pid1env:
+2138             return True
+2139     except (IOError, OSError):
+2140         pass
+```
+```
+  77 # Helper utils to see if running in a container
+  78 CONTAINER_TESTS = (['systemd-detect-virt', '--quiet', '--container'],
+  79                    ['running-in-container'],
+  80                    ['lxc-is-container'])
+```
+```
+2160 def get_proc_env(pid):
+2161     """
+2162     Return the environment in a dict that a given process id was started with.
+2163     """
+2164
+2165     env = {}
+2166     fn = os.path.join("/proc/", str(pid), "environ")
+2167     try:
+2168         contents = load_file(fn)
+2169         toks = contents.split("\x00")
+2170         for tok in toks:
+2171             if tok == "":
+2172                 continue
+2173             (name, val) = tok.split("=", 1)
+2174             if name:
+2175                 env[name] = val
+2176     except (IOError, OSError):
+2177         pass
+2178     return env
+```
+
+```
+2598 def _read_dmi_syspath(key):
+2599     """
+2600     Reads dmi data with from /sys/class/dmi/id
+2601     """
+2602     if key not in DMIDECODE_TO_DMI_SYS_MAPPING:
+2603         return None
+2604     mapped_key = DMIDECODE_TO_DMI_SYS_MAPPING[key]
+2605     dmi_key_path = "{0}/{1}".format(DMI_SYS_PATH, mapped_key)
+2606     LOG.debug("querying dmi data %s", dmi_key_path)
+2607     try:
+2608         if not os.path.exists(dmi_key_path):
+2609             LOG.debug("did not find %s", dmi_key_path)
+2610             return None
+2611
+2612         key_data = load_file(dmi_key_path, decode=False)
+2613         if not key_data:
+2614             LOG.debug("%s did not return any data", dmi_key_path)
+2615             return None
+2616
+2617         # uninitialized dmi values show as all \xff and /sys appends a '\n'.
+2618         # in that event, return a string of '.' in the same length.
+2619         if key_data == b'\xff' * (len(key_data) - 1) + b'\n':
+2620             key_data = b""
+2621
+2622         str_data = key_data.decode('utf8').strip()
+2623         LOG.debug("dmi data %s returned %s", dmi_key_path, str_data)
+2624         return str_data
+2625
+2626     except Exception:
+2627         logexc(LOG, "failed read of %s", dmi_key_path)
+2628         return None
+```
+
 ```
  55 Oct 10 00:52:37 cloud-init[3038]: DataSourceEc2.py[DEBUG]: strict_mode: warn, cloud_platform=AWS
  56 Oct 10 00:52:38 cloud-init[3038]: util.py[DEBUG]: Resolving URL: http://169.254.169.254 took 0.073 seconds
