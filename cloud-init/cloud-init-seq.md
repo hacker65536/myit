@@ -788,7 +788,7 @@ ec23e5e6-3996-d6a8-c001-0cafdb88a415
 369         return True
 
 ```
-``/usr/lib/python2.7/site-packages/cloudinit/sources/DataSourceEc2.py`
+`/usr/lib/python2.7/site-packages/cloudinit/sources/DataSourceEc2.py`
 ```
 161     def wait_for_metadata_service(self):
 162         mcfg = self.ds_cfg
