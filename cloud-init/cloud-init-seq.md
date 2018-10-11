@@ -415,6 +415,204 @@ cloud-init = cloudinit.cmd.main:main
  79     templates_dir: /etc/cloud/templates
  80   ssh_svcname: sshd
 ```
+`/usr/lib/python2.7/site-packages/cloudinit/sources/DataSourceEc2.py`
+```
+ 72     def __init__(self, sys_cfg, distro, paths):
+ 73         super(DataSourceEc2, self).__init__(sys_cfg, distro, paths)
+ 74         self.metadata_address = None
+ 75         self.seed_dir = os.path.join(paths.seed_dir, "ec2")
+```
+`/usr/lib/python2.7/site-packages/cloudinit/sources/__init__.py`
+```
+137     def get_data(self):
+138         """Datasources implement _get_data to setup metadata and userdata_raw.
+139
+140         Minimally, the datasource should return a boolean True on success.
+141         """
+142         return_value = self._get_data()
+143         json_file = os.path.join(self.paths.run_dir, INSTANCE_JSON_FILE)
+144         if not return_value:
+145             return return_value
+146
+147         instance_data = {
+148             'ds': {
+149                 'meta-data': self.metadata,
+150                 'user-data': self.get_userdata_raw_text(),
+151                 'vendor-data': self.get_vendordata_raw()}}
+152         if hasattr(self, 'network_json'):
+153             network_json = getattr(self, 'network_json')
+154             if network_json != UNSET:
+155                 instance_data['ds']['network_json'] = network_json
+156         if hasattr(self, 'ec2_metadata'):
+157             ec2_metadata = getattr(self, 'ec2_metadata')
+158             if ec2_metadata != UNSET:
+159                 instance_data['ds']['ec2_metadata'] = ec2_metadata
+160         instance_data.update(
+161             self._get_standardized_metadata())
+162         try:
+163             # Process content base64encoding unserializable values
+164             content = util.json_dumps(instance_data)
+165             # Strip base64: prefix and return base64-encoded-keys
+166             processed_data = process_base64_metadata(json.loads(content))
+167         except TypeError as e:
+168             LOG.warning('Error persisting instance-data.json: %s', str(e))
+169             return return_value
+170         except UnicodeDecodeError as e:
+171             LOG.warning('Error persisting instance-data.json: %s', str(e))
+172             return return_value
+173         write_json(json_file, processed_data, mode=0o600)
+174         return return_value
+```
+
+`/usr/lib/python2.7/site-packages/cloudinit/sources/DataSourceEc2.py`
+```
+ 81     def _get_data(self):
+ 82         seed_ret = {}
+ 83         if util.read_optional_seed(seed_ret, base=(self.seed_dir + "/")):
+ 84             self.userdata_raw = seed_ret['user-data']
+ 85             self.metadata = seed_ret['meta-data']
+ 86             LOG.debug("Using seeded ec2 data from %s", self.seed_dir)
+ 87             self._cloud_platform = Platforms.SEEDED
+ 88             return True
+ 89
+ 90         strict_mode, _sleep = read_strict_mode(
+ 91             util.get_cfg_by_path(self.sys_cfg, STRICT_ID_PATH,
+ 92                                  STRICT_ID_DEFAULT), ("warn", None))
+ 93
+ 94         LOG.debug("strict_mode: %s, cloud_platform=%s",
+ 95                   strict_mode, self.cloud_platform)
+ 96         if strict_mode == "true" and self.cloud_platform == Platforms.UNKNOWN:
+ 97             return False
+ 98         elif self.cloud_platform == Platforms.NO_EC2_METADATA:
+ 99             return False
+100
+101         if self.perform_dhcp_setup:  # Setup networking in init-local stage.
+102             if util.is_FreeBSD():
+103                 LOG.debug("FreeBSD doesn't support running dhclient with -sf")
+104                 return False
+105             try:
+106                 with EphemeralDHCPv4(self.fallback_interface):
+107                     return util.log_time(
+108                         logfunc=LOG.debug, msg='Crawl of metadata service',
+109                         func=self._crawl_metadata)
+110             except NoDHCPLeaseError:
+111                 return False
+112         else:
+113             return self._crawl_metadata()
+```
+```
+285     @property
+286     def cloud_platform(self):  # TODO rename cloud_name
+287         if self._cloud_platform is None:
+288             self._cloud_platform = identify_platform()
+289         return self._cloud_platform
+290
+291     def activate(self, cfg, is_new_instance):
+292         if not is_new_instance:
+293             return
+294         if self.cloud_platform == Platforms.UNKNOWN:
+295             warn_if_necessary(
+296                 util.get_cfg_by_path(cfg, STRICT_ID_PATH, STRICT_ID_DEFAULT),
+297                 cfg)
+```
+
+```
+465 def identify_platform():
+466     # identify the platform and return an entry in Platforms.
+467     data = _collect_platform_data()
+468     checks = (identify_aws, identify_brightbox, lambda x: Platforms.UNKNOWN)
+469     for checker in checks:
+470         try:
+471             result = checker(data)
+472             if result:
+473                 return result
+474         except Exception as e:
+475             LOG.warning("calling %s with %s raised exception: %s",
+476                         checker, data, e)
+```
+```
+479 def _collect_platform_data():
+480     """Returns a dictionary of platform info from dmi or /sys/hypervisor.
+481
+482     Keys in the dictionary are as follows:
+483        uuid: system-uuid from dmi or /sys/hypervisor
+484        uuid_source: 'hypervisor' (/sys/hypervisor/uuid) or 'dmi'
+485        serial: dmi 'system-serial-number' (/sys/.../product_serial)
+486
+487     On Ec2 instances experimentation is that product_serial is upper case,
+488     and product_uuid is lower case.  This returns lower case values for both.
+489     """
+490     data = {}
+491     try:
+492         uuid = util.load_file("/sys/hypervisor/uuid").strip()
+493         data['uuid_source'] = 'hypervisor'
+494     except Exception:
+495         uuid = util.read_dmi_data('system-uuid')
+496         data['uuid_source'] = 'dmi'
+497
+498     if uuid is None:
+499         uuid = ''
+500     data['uuid'] = uuid.lower()
+501
+502     serial = util.read_dmi_data('system-serial-number')
+503     if serial is None:
+504         serial = ''
+505
+506     data['serial'] = serial.lower()
+507
+508     return data
+```
+
+`/usr/lib/python2.7/site-packages/cloudinit/util.py`
+```
+1331 def load_file(fname, read_cb=None, quiet=False, decode=True):
+1332     LOG.debug("Reading from %s (quiet=%s)", fname, quiet)
+1333     ofh = six.BytesIO()
+1334     try:
+1335         with open(fname, 'rb') as ifh:
+1336             pipe_in_out(ifh, ofh, chunk_cb=read_cb)
+1337     except IOError as e:
+1338         if not quiet:
+1339             raise
+1340         if e.errno != ENOENT:
+1341             raise
+1342     contents = ofh.getvalue()
+1343     LOG.debug("Read %s bytes from %s", len(contents), fname)
+1344     if decode:
+1345         return decode_binary(contents)
+1346     else:
+1347         return contents
+```
+```console
+# dmidecode
+# dmidecode 3.0
+Getting SMBIOS data from sysfs.
+SMBIOS 2.7 present.
+11 structures occupying 359 bytes.
+Table at 0x000EB01F.
+
+Handle 0x0000, DMI type 0, 24 bytes
+BIOS Information
+        Vendor: Xen
+        Version: 4.2.amazon
+        Release Date: 08/24/2006
+        Address: 0xE8000
+        Runtime Size: 96 kB
+        ROM Size: 64 kB
+        Characteristics:
+                PCI is supported
+                EDD is supported
+                Targeted content distribution is supported
+        BIOS Revision: 4.2
+
+Handle 0x0100, DMI type 1, 27 bytes
+System Information
+        Manufacturer: Xen
+        Product Name: HVM domU
+        Version: 4.2.amazon
+        Serial Number: ec23e5e6-3996-d6a8-c001-0cafdb88a415
+        UUID: EC23E5E6-3996-D6A8-C001-0CAFDB88A415
+```
 
 ```
  55 Oct 10 00:52:37 cloud-init[3038]: DataSourceEc2.py[DEBUG]: strict_mode: warn, cloud_platform=AWS
