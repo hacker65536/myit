@@ -1024,3 +1024,26 @@ ec23e5e6-3996-d6a8-c001-0cafdb88a415
 301         raise excps[-1]
 302     return None  # Should throw before this...
 ```
+```
+142 def get_instance_userdata(api_version='latest',
+143                           metadata_address='http://169.254.169.254',
+144                           ssl_details=None, timeout=5, retries=5):
+145     ud_url = url_helper.combine_url(metadata_address, api_version)
+146     ud_url = url_helper.combine_url(ud_url, 'user-data')
+147     user_data = ''
+148     try:
+149         # It is ok for userdata to not exist (thats why we are stopping if
+150         # NOT_FOUND occurs) and just in that case returning an empty string.
+151         exception_cb = functools.partial(_skip_retry_on_codes,
+152                                          SKIP_USERDATA_CODES)
+153         response = url_helper.read_file_or_url(
+154             ud_url, ssl_details=ssl_details, timeout=timeout,
+155             retries=retries, exception_cb=exception_cb)
+156         user_data = response.contents
+157     except url_helper.UrlError as e:
+158         if e.code not in SKIP_USERDATA_CODES:
+159             util.logexc(LOG, "Failed fetching userdata from url %s", ud_url)
+160     except Exception:
+161         util.logexc(LOG, "Failed fetching userdata from url %s", ud_url)
+162     return user_data
+```
