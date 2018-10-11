@@ -250,6 +250,11 @@ cloud-init = cloudinit.cmd.main:main
  52 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Reading from /sys/class/dmi/id/product_serial (quiet=False)
  53 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: Read 37 bytes from /sys/class/dmi/id/product_serial
  54 Oct 10 00:52:37 cloud-init[3038]: util.py[DEBUG]: dmi data /sys/class/dmi/id/product_serial returned ec23e5e6-3996-d6a8-c001-0cafdb88a415
+ 55 Oct 10 00:52:37 cloud-init[3038]: DataSourceEc2.py[DEBUG]: strict_mode: warn, cloud_platform=AWS
+ 56 Oct 10 00:52:38 cloud-init[3038]: util.py[DEBUG]: Resolving URL: http://169.254.169.254 took 0.073 seconds
+ 57 Oct 10 00:52:38 cloud-init[3038]: util.py[DEBUG]: Resolving URL: http://instance-data.:8773 took 0.003 seconds
+ 58 Oct 10 00:52:38 cloud-init[3038]: DataSourceEc2.py[DEBUG]: Removed the following from metadata urls: ['http://instance-data.:8773']
+
 ```
 
 `/usr/lib/python2.7/site-packages/cloudinit/stages.py`
