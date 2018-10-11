@@ -788,6 +788,7 @@ ec23e5e6-3996-d6a8-c001-0cafdb88a415
 369         return True
 
 ```
+``/usr/lib/python2.7/site-packages/cloudinit/sources/DataSourceEc2.py`
 ```
 161     def wait_for_metadata_service(self):
 162         mcfg = self.ds_cfg
@@ -883,20 +884,3 @@ ec23e5e6-3996-d6a8-c001-0cafdb88a415
 1199                     func=is_resolvable,
 1200                     args=(urlparse.urlparse(url).hostname,))
 ```
-
-```
- 55 Oct 10 00:52:37 cloud-init[3038]: DataSourceEc2.py[DEBUG]: strict_mode: warn, cloud_platform=AWS
- 56 Oct 10 00:52:38 cloud-init[3038]: util.py[DEBUG]: Resolving URL: http://169.254.169.254 took 0.073 seconds
- 57 Oct 10 00:52:38 cloud-init[3038]: util.py[DEBUG]: Resolving URL: http://instance-data.:8773 took 0.003 seconds
- 58 Oct 10 00:52:38 cloud-init[3038]: DataSourceEc2.py[DEBUG]: Removed the following from metadata urls: ['http://instance-data.:8773']
- 59 Oct 10 00:52:38 cloud-init[3038]: url_helper.py[DEBUG]: [0/1] open 'http://169.254.169.254/2009-04-04/meta-data/instance-id' with {'url': 'http://169.254.169.254/2009-04-04/meta-data/instance-id', 'headers': {'User-Agent': 'Cloud-I    nit/18.2-72.amzn2.0.6'}, 'allow_redirects': True, 'method': 'GET', 'timeout': 50.0} configuration
- 60 Oct 10 00:52:38 cloud-init[3038]: url_helper.py[DEBUG]: Read from http://169.254.169.254/2009-04-04/meta-data/instance-id (200, 19b) after 1 attempts
- 61 Oct 10 00:52:38 cloud-init[3038]: DataSourceEc2.py[DEBUG]: Using metadata source: 'http://169.254.169.254'
- 62 Oct 10 00:52:38 cloud-init[3038]: url_helper.py[DEBUG]: [0/1] open 'http://169.254.169.254/2016-09-02/meta-data/instance-id' with {'url': 'http://169.254.169.254/2016-09-02/meta-data/instance-id', 'headers': {'User-Agent': 'Cloud-I    nit/18.2-72.amzn2.0.6'}, 'allow_redirects': True, 'method': 'GET'} configuration
- 63 Oct 10 00:52:38 cloud-init[3038]: url_helper.py[DEBUG]: Read from http://169.254.169.254/2016-09-02/meta-data/instance-id (200, 19b) after 1 attempts
- 64 Oct 10 00:52:38 cloud-init[3038]: DataSourceEc2.py[DEBUG]: Found preferred metadata version 2016-09-02
- 65 Oct 10 00:52:38 cloud-init[3038]: url_helper.py[DEBUG]: [0/6] open 'http://169.254.169.254/2016-09-02/user-data' with {'url': 'http://169.254.169.254/2016-09-02/user-data', 'headers': {'User-Agent': 'Cloud-Init/18.2-72.amzn2.0.6'},     'allow_redirects': True, 'method': 'GET', 'timeout': 5.0} configuration
- 66 Oct 10 00:52:38 cloud-init[3038]: url_helper.py[DEBUG]: [0/6] open 'http://169.254.169.254/2016-09-02/meta-data/' with {'url': 'http://169.254.169.254/2016-09-02/meta-data/', 'headers': {'User-Agent': 'Cloud-Init/18.2-72.amzn2.0.6'    }, 'allow_redirects': True, 'method': 'GET', 'timeout': 5.0} configuration
- 67 Oct 10 00:52:38 cloud-init[3038]: url_helper.py[DEBUG]: Read from http://169.254.169.254/2016-09-02/meta-data/ (200, 263b) after 1 attempts
- 68 Oct 10 00:52:38 cloud-init[3038]: url_helper.py[DEBUG]: [0/6] open 'http://169.254.169.254/2016-09-02/meta-data/block-device-mapping/' with {'url': 'http://169.254.169.254/2016-09-02/meta-data/block-device-mapping/', 'headers': {'U    ser-Agent': 'Cloud-Init/18.2-72.amzn2.0.6'}, 'allow_redirects': True, 'method': 'GET', 'timeout': 5.0} configuration
- ```
