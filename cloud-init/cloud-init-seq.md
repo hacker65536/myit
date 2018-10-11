@@ -1024,6 +1024,7 @@ ec23e5e6-3996-d6a8-c001-0cafdb88a415
 301         raise excps[-1]
 302     return None  # Should throw before this...
 ```
+`/usr/lib/python2.7/site-packages/cloudinit/ec2_utils.py`
 ```
 142 def get_instance_userdata(api_version='latest',
 143                           metadata_address='http://169.254.169.254',
