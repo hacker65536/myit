@@ -614,6 +614,11 @@ System Information
         UUID: EC23E5E6-3996-D6A8-C001-0CAFDB88A415
 ```
 
+```console
+# cat /sys/hypervisor/uuid
+ec23e5e6-3996-d6a8-c001-0cafdb88a415
+```
+
 ```
  55 Oct 10 00:52:37 cloud-init[3038]: DataSourceEc2.py[DEBUG]: strict_mode: warn, cloud_platform=AWS
  56 Oct 10 00:52:38 cloud-init[3038]: util.py[DEBUG]: Resolving URL: http://169.254.169.254 took 0.073 seconds
