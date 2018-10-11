@@ -827,7 +827,57 @@ ec23e5e6-3996-d6a8-c001-0cafdb88a415
 201
 202         return bool(url)
 ```
+`/usr/lib/python2.7/site-packages/cloudinit/sources/__init__.py`
+```
+181     def get_url_params(self):
+182         """Return the Datasource's prefered url_read parameters.
+183
+184         Subclasses may override url_max_wait, url_timeout, url_retries.
+185
+186         @return: A URLParams object with max_wait_seconds, timeout_seconds,
+187             num_retries.
+188         """
+189         max_wait = self.url_max_wait
+190         try:
+191             max_wait = int(self.ds_cfg.get("max_wait", self.url_max_wait))
+192         except ValueError:
+193             util.logexc(
+194                 LOG, "Config max_wait '%s' is not an int, using default '%s'",
+195                 self.ds_cfg.get("max_wait"), max_wait)
+196
+197         timeout = self.url_timeout
+198         try:
+199             timeout = max(
+200                 0, int(self.ds_cfg.get("timeout", self.url_timeout)))
+201         except ValueError:
+202             timeout = self.url_timeout
+203             util.logexc(
+204                 LOG, "Config timeout '%s' is not an int, using default '%s'",
+205                 self.ds_cfg.get('timeout'), timeout)
+206
+207         retries = self.url_retries
+208         try:
+209             retries = int(self.ds_cfg.get("retries", self.url_retries))
+210         except Exception:
+211             util.logexc(
+212                 LOG, "Config retries '%s' is not an int, using default '%s'",
+213                 self.ds_cfg.get('retries'), retries)
+214
+215         return URLParams(max_wait, timeout, retries)
+```
+`/usr/lib/python2.7/site-packages/cloudinit/sources/DataSourceEc2.py`
+```
+ 52     metadata_urls = ["http://169.254.169.254", "http://instance-data.:8773"]
+```
 
+`/usr/lib/python2.7/site-packages/cloudinit/util.py`
+```
+1196 def is_resolvable_url(url):
+1197     """determine if this url is resolvable (existing or ip)."""
+1198     return log_time(logfunc=LOG.debug, msg="Resolving URL: " + url,
+1199                     func=is_resolvable,
+1200                     args=(urlparse.urlparse(url).hostname,))
+```
 
 ```
  55 Oct 10 00:52:37 cloud-init[3038]: DataSourceEc2.py[DEBUG]: strict_mode: warn, cloud_platform=AWS
