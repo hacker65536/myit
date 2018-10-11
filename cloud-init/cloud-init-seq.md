@@ -884,3 +884,143 @@ ec23e5e6-3996-d6a8-c001-0cafdb88a415
 1199                     func=is_resolvable,
 1200                     args=(urlparse.urlparse(url).hostname,))
 ```
+
+`/usr/lib/python2.7/site-packages/cloudinit/sources/DataSourceEc2.py`
+```
+121     def get_metadata_api_version(self):
+122         """Get the best supported api version from the metadata service.
+123
+124         Loop through all extended support metadata versions in order and
+125         return the most-fully featured metadata api version discovered.
+126
+127         If extended_metadata_versions aren't present, return the datasource's
+128         min_metadata_version.
+129         """
+130         # Assumes metadata service is already up
+131         for api_ver in self.extended_metadata_versions:
+132             url = '{0}/{1}/meta-data/instance-id'.format(
+133                 self.metadata_address, api_ver)
+134             try:
+135                 resp = uhelp.readurl(url=url)
+136             except uhelp.UrlError as e:
+137                 LOG.debug('url %s raised exception %s', url, e)
+138             else:
+139                 if resp.code == 200:
+140                     LOG.debug('Found preferred metadata version %s', api_ver)
+141                     return api_ver
+142                 elif resp.code == 404:
+143                     msg = 'Metadata api version %s not present. Headers: %s'
+144                     LOG.debug(msg, api_ver, resp.headers)
+145         return self.min_metadata_version
+```
+
+```
+ 59     extended_metadata_versions = ['2016-09-02']
+```
+`/usr/lib/python2.7/site-packages/cloudinit/url_helper.py`
+```
+199 def readurl(url, data=None, timeout=None, retries=0, sec_between=1,
+200             headers=None, headers_cb=None, ssl_details=None,
+201             check_status=True, allow_redirects=True, exception_cb=None,
+202             session=None, infinite=False):
+203     url = _cleanurl(url)
+204     req_args = {
+205         'url': url,
+206     }
+207     req_args.update(_get_ssl_args(url, ssl_details))
+208     req_args['allow_redirects'] = allow_redirects
+209     req_args['method'] = 'GET'
+210     if timeout is not None:
+211         req_args['timeout'] = max(float(timeout), 0)
+212     if data:
+213         req_args['method'] = 'POST'
+214     # It doesn't seem like config
+215     # was added in older library versions (or newer ones either), thus we
+216     # need to manually do the retries if it wasn't...
+217     if CONFIG_ENABLED:
+218         req_config = {
+219             'store_cookies': False,
+220         }
+221         # Don't use the retry support built-in
+222         # since it doesn't allow for 'sleep_times'
+223         # in between tries....
+224         # if retries:
+225         #     req_config['max_retries'] = max(int(retries), 0)
+226         req_args['config'] = req_config
+227     manual_tries = 1
+228     if retries:
+229         manual_tries = max(int(retries) + 1, 1)
+230
+231     def_headers = {
+232         'User-Agent': 'Cloud-Init/%s' % (version.version_string()),
+233     }
+234     if headers:
+235         def_headers.update(headers)
+236     headers = def_headers
+237
+238     if not headers_cb:
+239         def _cb(url):
+240             return headers
+241         headers_cb = _cb
+242     if data:
+243         req_args['data'] = data
+244     if sec_between is None:
+245         sec_between = -1
+246
+247     excps = []
+248     # Handle retrying ourselves since the built-in support
+249     # doesn't handle sleeping between tries...
+250     # Infinitely retry if infinite is True
+251     for i in count() if infinite else range(0, manual_tries):
+252         req_args['headers'] = headers_cb(url)
+253         filtered_req_args = {}
+254         for (k, v) in req_args.items():
+255             if k == 'data':
+256                 continue
+257             filtered_req_args[k] = v
+258         try:
+259             LOG.debug("[%s/%s] open '%s' with %s configuration", i,
+260                       "infinite" if infinite else manual_tries, url,
+261                       filtered_req_args)
+262
+263             if session is None:
+264                 session = requests.Session()
+265
+266             with session as sess:
+267                 r = sess.request(**req_args)
+268
+269             if check_status:
+270                 r.raise_for_status()
+271             LOG.debug("Read from %s (%s, %sb) after %s attempts", url,
+272                       r.status_code, len(r.content), (i + 1))
+273             # Doesn't seem like we can make it use a different
+274             # subclass for responses, so add our own backward-compat
+275             # attrs
+276             return UrlResponse(r)
+277         except exceptions.RequestException as e:
+278             if (isinstance(e, (exceptions.HTTPError)) and
+279                hasattr(e, 'response') and  # This appeared in v 0.10.8
+280                hasattr(e.response, 'status_code')):
+281                 excps.append(UrlError(e, code=e.response.status_code,
+282                                       headers=e.response.headers,
+283                                       url=url))
+284             else:
+285                 excps.append(UrlError(e, url=url))
+286                 if SSL_ENABLED and isinstance(e, exceptions.SSLError):
+287                     # ssl exceptions are not going to get fixed by waiting a
+288                     # few seconds
+289                     break
+290             if exception_cb and not exception_cb(req_args.copy(), excps[-1]):
+291                 # if an exception callback was given, it should return True
+292                 # to continue retrying and False to break and re-raise the
+293                 # exception
+294                 break
+295             if (infinite and sec_between > 0) or \
+296                (i + 1 < manual_tries and sec_between > 0):
+297                 LOG.debug("Please wait %s seconds while we wait to try again",
+298                           sec_between)
+299                 time.sleep(sec_between)
+300     if excps:
+301         raise excps[-1]
+302     return None  # Should throw before this...
+```
