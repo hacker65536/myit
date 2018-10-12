@@ -163,6 +163,36 @@ cloud-init = cloudinit.cmd.main:main
 239     else:
 240         w_msg = welcome_format("%s-local" % (name))
 241     init = stages.Init(ds_deps=deps, reporter=args.reporter)
+242     # Stage 1
+243     init.read_cfg(extract_fns(args))
+244     # Stage 2
+245     outfmt = None
+246     errfmt = None
+247     try:
+248         early_logs.append((logging.DEBUG, "Closing stdin."))
+249         util.close_stdin()
+250         (outfmt, errfmt) = util.fixup_output(init.cfg, name)
+251     except Exception:
+252         msg = "Failed to setup output redirection!"
+253         util.logexc(LOG, msg)
+254         print_exc(msg)
+255         early_logs.append((logging.WARN, msg))
+256     if args.debug:
+257         # Reset so that all the debug handlers are closed out
+258         LOG.debug(("Logging being reset, this logger may no"
+259                    " longer be active shortly"))
+260         logging.resetLogging()
+261     logging.setupLogging(init.cfg)
+262     apply_reporting_cfg(init.cfg)
+263
+264     # Any log usage prior to setupLogging above did not have local user log
+265     # config applied.  We send the welcome message now, as stderr/out have
+266     # been redirected and log now configured.
+267     welcome(name, msg=w_msg)
+268
+269     # re-play early log messages before logging was setup
+270     for lvl, msg in early_logs:
+271         LOG.log(lvl, msg)
 ```
 
 この時点では `name = init`  `args = --local`が渡されている
@@ -217,4 +247,6 @@ cloud-init = cloudinit.cmd.main:main
 `/var/log/cloud-init.log`に1行目が出力される
 ```
   1 Oct 10 00:52:35 cloud-init[2662]: util.py[DEBUG]: Cloud-init v. 18.2-72.amzn2.0.6 running 'init-local' at Wed, 10 Oct 2018 00:52:35 +0000. Up 5.33 seconds.
+  2 Oct 10 00:52:35 cloud-init[2662]: main.py[DEBUG]: No kernel command line url found.
+  3 Oct 10 00:52:35 cloud-init[2662]: main.py[DEBUG]: Closing stdin.
 ```
