@@ -219,3 +219,46 @@ $ snek --type fancy
                                                      ':..___.:'
 
 ```
+
+
+```console
+$ mkdir cute_snek
+$ cd !$
+```
+
+```console
+$ cat <<'EOF' > cute_snek.py
+cute_snek = r"""
+                    /^\/^\
+                  _|__|  O|
+         \/     /~     \_/ \
+          \____|__________/  \
+                 \_______      \
+                         `\     \                 \
+                           |     |                  \
+                          /      /                    \
+                         /     /                       \
+                       /      /                         \ \
+                      /     /                            \  \
+                    /     /             _----_            \   \
+                   /     /           _-~      ~-_         |   |
+                  (      (        _-~    _--_    ~-_     _/   |
+                   \      ~-____-~    _-~    ~-_    ~-_-~    /
+                     ~-_           _-~          ~-_       _-~
+                        ~--______-~                ~-___-~
+"""
+```
+
+```console
+$ cat <<'EOF' > setup.py
+from setuptools import setup
+
+setup(
+    name='cute_snek',
+    entry_points={
+        'snek_types': [
+            'cute = cute_snek:cute_snek',
+        ],
+    }
+)
+```
