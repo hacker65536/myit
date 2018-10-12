@@ -33,32 +33,28 @@ graphical.target @10.330s
 - basic.targetより後に呼ばれている
 
 ```console
-$ ls -la /etc/systemd/system/cloud-init.target.wants/cloud-init.service
-lrwxrwxrwx 1 root root 42 Oct  7 22:17 /etc/systemd/system/cloud-init.target.wants/cloud-init.service -> /usr/lib/systemd/system/cloud-init.service
+$ ls -la /etc/systemd/system/cloud-init.target.wants/cloud-init-local.service
+lrwxrwxrwx 1 root root 48 Oct  7 22:17 /etc/systemd/system/cloud-init.target.wants/cloud-init-local.service -> /usr/lib/systemd/system/cloud-init-local.service
 ```
 
-実態は`/usr/lib/systemd/system/cloud-init.service`である
+実態は`/usr/lib/systemd/system/cloud-init-local.service`である
 
 中身  
 ```console
-$ cat /usr/lib/systemd/system/cloud-init.service
+$ cat /usr/lib/systemd/system/cloud-init-local.service
 [Unit]
-Description=Initial cloud-init job (metadata service crawler)
-DefaultDependencies=no
-Wants=cloud-init-local.service
-Wants=sshd-keygen.service
-Wants=sshd.service
-After=cloud-init-local.service
-After=systemd-networkd-wait-online.service
-After=network.service
-Before=network-online.target
-Before=sshd-keygen.service
-Before=sshd.service
-Before=systemd-user-sessions.service
+Description=Initial cloud-init job (pre-networking)
+Wants=network-pre.target
+After=systemd-remount-fs.service
+Before=NetworkManager.service
+Before=network-pre.target
+Before=shutdown.target
+RequiresMountsFor=/var/lib/cloud
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/cloud-init init
+ExecStart=/usr/bin/cloud-init init --local
+ExecStart=/bin/touch /run/cloud-init/network-config-ready
 RemainAfterExit=yes
 TimeoutSec=0
 
@@ -69,8 +65,9 @@ StandardOutput=journal+console
 WantedBy=cloud-init.target
 ```
 
-`/usr/bin/cloud-init init`が呼ばれている  
-そして中身
+`/usr/bin/cloud-init init --local`が実行されている
+
+`/usr/bin/cloud-init`の中身
 ```console
 $ cat /usr/bin/cloud-init
 ```
