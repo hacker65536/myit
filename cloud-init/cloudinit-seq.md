@@ -133,3 +133,88 @@ cloud-init = cloudinit.cmd.main:main
 ```
 
 `argparse`[show](https://docs.python.jp/3/library/argparse.html)を利用して引数からサブコマンドへのパースを行っている
+
+```
+214 def main_init(name, args):
+215     deps = [sources.DEP_FILESYSTEM, sources.DEP_NETWORK]
+216     if args.local:
+217         deps = [sources.DEP_FILESYSTEM]
+218
+219     early_logs = [attempt_cmdline_url(
+220         path=os.path.join("%s.d" % CLOUD_CONFIG,
+221                           "91_kernel_cmdline_url.cfg"),
+222         network=not args.local)]
+223
+224     # Cloud-init 'init' stage is broken up into the following sub-stages
+225     # 1. Ensure that the init object fetches its config without errors
+226     # 2. Setup logging/output redirections with resultant config (if any)
+227     # 3. Initialize the cloud-init filesystem
+228     # 4. Check if we can stop early by looking for various files
+229     # 5. Fetch the datasource
+230     # 6. Connect to the current instance location + update the cache
+231     # 7. Consume the userdata (handlers get activated here)
+232     # 8. Construct the modules object
+233     # 9. Adjust any subsequent logging/output redirections using the modules
+234     #    objects config as it may be different from init object
+235     # 10. Run the modules for the 'init' stage
+236     # 11. Done!
+237     if not args.local:
+238         w_msg = welcome_format(name)
+239     else:
+240         w_msg = welcome_format("%s-local" % (name))
+241     init = stages.Init(ds_deps=deps, reporter=args.reporter)
+```
+
+この時点では `name = init`  `args = --local`が渡されている
+
+
+```
+ 77 def welcome(action, msg=None):
+ 78     if not msg:
+ 79         msg = welcome_format(action)
+ 80     util.multi_log("%s\n" % (msg),
+ 81                    console=False, stderr=True, log=LOG)
+ 82     return msg
+ 83
+ 84
+ 85 def welcome_format(action):
+ 86     return WELCOME_MSG_TPL.format(
+ 87         version=version.version_string(),
+ 88         uptime=util.uptime(),
+ 89         timestamp=util.time_rfc2822(),
+ 90         action=action)
+```
+
+`/usr/lib/python2.7/site-packages/cloudinit/util.py`
+```
+ 538 def multi_log(text, console=True, stderr=True,
+ 539               log=None, log_level=logging.DEBUG):
+ 540     if stderr:
+ 541         sys.stderr.write(text)
+ 542     if console:
+ 543         conpath = "/dev/console"
+ 544         if os.path.exists(conpath):
+ 545             with open(conpath, 'w') as wfh:
+ 546                 wfh.write(text)
+ 547                 wfh.flush()
+ 548         else:
+ 549             # A container may lack /dev/console (arguably a container bug).  If
+ 550             # it does not exist, then write output to stdout.  this will result
+ 551             # in duplicate stderr and stdout messages if stderr was True.
+ 552             #
+ 553             # even though upstart or systemd might have set up output to go to
+ 554             # /dev/console, the user may have configured elsewhere via
+ 555             # cloud-config 'output'.  If there is /dev/console, messages will
+ 556             # still get there.
+ 557             sys.stdout.write(text)
+ 558     if log:
+ 559         if text[-1] == "\n":
+ 560             log.log(log_level, text[:-1])
+ 561         else:
+ 562             log.log(log_level, text)
+```
+
+`/var/log/cloud-init.log`に1行目が出力される
+```
+  1 Oct 10 00:52:35 cloud-init[2662]: util.py[DEBUG]: Cloud-init v. 18.2-72.amzn2.0.6 running 'init-local' at Wed, 10 Oct 2018 00:52:35 +0000. Up 5.33 seconds.
+```
