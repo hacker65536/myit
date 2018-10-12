@@ -93,7 +93,7 @@ entrypointの確認
 ```console
 $ cat /usr/lib/python2.7/site-packages/cloud_init-18.2-py2.7.egg-info/entry_points.txt
 ```
-```
+```ini
 [console_scripts]
 cloud-init = cloudinit.cmd.main:main
 ```
