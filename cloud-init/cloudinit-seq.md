@@ -88,3 +88,12 @@ if __name__ == '__main__':
         load_entry_point('cloud-init==18.2', 'console_scripts', 'cloud-init')()
     )
 ```
+
+entrypointの確認
+```console
+$ cat /usr/lib/python2.7/site-packages/cloud_init-18.2-py2.7.egg-info/entry_points.txt
+```
+```
+[console_scripts]
+cloud-init = cloudinit.cmd.main:main
+```
