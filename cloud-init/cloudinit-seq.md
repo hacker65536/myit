@@ -97,3 +97,39 @@ $ cat /usr/lib/python2.7/site-packages/cloud_init-18.2-py2.7.egg-info/entry_poin
 [console_scripts]
 cloud-init = cloudinit.cmd.main:main
 ```
+
+`/usr/lib/python2.7/site-packages/cloudinit/cmd/main.py`
+
+```
+885 if __name__ == '__main__':
+886     if 'TZ' not in os.environ:
+887         os.environ['TZ'] = ":/etc/localtime"
+888     main(sys.argv)
+```
+`init --local`を引数としてmain関数に渡す
+
+
+
+```
+713 def main(sysv_args=None):
+714     if not sysv_args:
+715         sysv_args = sys.argv
+716     parser = argparse.ArgumentParser(prog=sysv_args[0])
+717     sysv_args = sysv_args[1:]
+718
+719     # Top level args
+720     parser.add_argument('--version', '-v', action='version',
+721                         version='%(prog)s ' + (version.version_string()))
+---
+742     parser_init = subparsers.add_parser('init',
+743                                         help=('initializes cloud-init and'
+744                                               ' performs initial modules'))
+745     parser_init.add_argument("--local", '-l', action='store_true',
+746                              help="start in local mode (default: %(default)s)",
+747                              default=False)
+748     # This is used so that we can know which action is selected +
+749     # the functor to use to run this subcommand
+750     parser_init.set_defaults(action=('init', main_init))
+```
+
+`argparse`[show](https://docs.python.jp/3/library/argparse.html)を利用して引数からサブコマンドへのパースを行っている
