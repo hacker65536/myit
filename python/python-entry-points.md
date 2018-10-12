@@ -287,7 +287,7 @@ Finished processing dependencies for cute-snek==0.0.0
 ```
 
 `setup.py`
-```pytyon
+```python
 from setuptools import setup
 
 setup(
@@ -308,7 +308,7 @@ setup(
 ```
 
 `snek.py`
-```pytyon
+```python
 """Print an ASCII Snek.
 
 Usage:
