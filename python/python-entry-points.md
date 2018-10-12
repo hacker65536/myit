@@ -264,3 +264,24 @@ setup(
 )
 EOF
 ```
+
+```console
+$ sudo python setup.py  develop
+running develop
+running egg_info
+creating cute_snek.egg-info
+writing cute_snek.egg-info/PKG-INFO
+writing top-level names to cute_snek.egg-info/top_level.txt
+writing dependency_links to cute_snek.egg-info/dependency_links.txt
+writing entry points to cute_snek.egg-info/entry_points.txt
+writing manifest file 'cute_snek.egg-info/SOURCES.txt'
+reading manifest file 'cute_snek.egg-info/SOURCES.txt'
+writing manifest file 'cute_snek.egg-info/SOURCES.txt'
+running build_ext
+Creating /usr/lib/python2.7/site-packages/cute-snek.egg-link (link to .)
+Adding cute-snek 0.0.0 to easy-install.pth file
+
+Installed /home/ec2-user/py/cute_snek
+Processing dependencies for cute-snek==0.0.0
+Finished processing dependencies for cute-snek==0.0.0
+```
