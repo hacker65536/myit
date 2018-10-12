@@ -356,3 +356,78 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+```console
+$ sudo python setup.py develop
+running develop
+running egg_info
+writing requirements to snek.egg-info/requires.txt
+writing snek.egg-info/PKG-INFO
+writing top-level names to snek.egg-info/top_level.txt
+writing dependency_links to snek.egg-info/dependency_links.txt
+writing entry points to snek.egg-info/entry_points.txt
+reading manifest file 'snek.egg-info/SOURCES.txt'
+writing manifest file 'snek.egg-info/SOURCES.txt'
+running build_ext
+Creating /usr/lib/python2.7/site-packages/snek.egg-link (link to .)
+snek 0.0.0 is already the active version in easy-install.pth
+Installing snek script to /usr/bin
+
+Installed /home/ec2-user/py
+Processing dependencies for snek==0.0.0
+Searching for docopt==0.6.2
+Best match: docopt 0.6.2
+Processing docopt-0.6.2-py2.7.egg
+docopt 0.6.2 is already the active version in easy-install.pth
+
+Using /usr/lib/python2.7/site-packages/docopt-0.6.2-py2.7.egg
+Finished processing dependencies for snek==0.0.0
+```
+
+```console
+$ snek
+    --..,_                     _,.--.
+       `'.'.                .'`__ o  `;__.
+          '.'.            .'.'`  '---'`  `
+            '.`'--....--'`.'
+              `'--....--'`
+
+```
+```console
+$ snek --type fancy
+                          _,..,,,_
+                     '``````^~"-,_`"-,_
+       .-~c~-.                    `~:. ^-.
+   `~~~-.c    ;                      `:.  `-,     _.-~~^^~:.
+         `.   ;      _,--~~~~-._       `:.   ~. .~          `.
+          .` ;'   .:`           `:       `:.   `    _.:-,.    `.
+        .' .:   :'    _.-~^~-.    `.       `..'   .:      `.    '
+       :  .' _:'   .-'        `.    :.     .:   .'`.        :    ;
+       :  `-'   .:'             `.    `^~~^`   .:.  `.      ;    ;
+        `-.__,-~                  ~-.        ,' ':    '.__.`    :'
+                                     ~--..--'     ':.         .:'
+                                                     ':..___.:'
+
+```
+```console
+$ snek --type cute
+
+                    /^\/^\
+                  _|__|  O|
+         \/     /~     \_/ \
+          \____|__________/  \
+                 \_______      \
+                         `\     \                 \
+                           |     |                  \
+                          /      /                    \
+                         /     /                       \
+                       /      /                         \ \
+                      /     /                            \  \
+                    /     /             _----_            \   \
+                   /     /           _-~      ~-_         |   |
+                  (      (        _-~    _--_    ~-_     _/   |
+                   \      ~-____-~    _-~    ~-_    ~-_-~    /
+                     ~-_           _-~          ~-_       _-~
+                        ~--______-~                ~-___-~
+
+```
