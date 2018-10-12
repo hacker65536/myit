@@ -42,6 +42,8 @@ lrwxrwxrwx 1 root root 48 Oct  7 22:17 /etc/systemd/system/cloud-init.target.wan
 中身  
 ```console
 $ cat /usr/lib/systemd/system/cloud-init-local.service
+```
+```
 [Unit]
 Description=Initial cloud-init job (pre-networking)
 Wants=network-pre.target
