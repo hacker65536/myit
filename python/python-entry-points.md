@@ -285,3 +285,74 @@ Installed /home/ec2-user/py/cute_snek
 Processing dependencies for cute-snek==0.0.0
 Finished processing dependencies for cute-snek==0.0.0
 ```
+
+`setup.py`
+```pytyon
+from setuptools import setup
+
+setup(
+    name='snek',
+    install_requires=[
+    'docopt',
+    ],
+    entry_points={
+        'console_scripts': [
+            'snek = snek:main',
+        ],
+        'snek_types': [
+           'normal = snek:normal_snek',
+           'fancy = snek:fancy_snek',
+        ],
+    }
+)
+```
+
+`snek.py`
+```pytyon
+"""Print an ASCII Snek.
+
+Usage:
+    snek [--type=TYPE]
+
+"""
+import docopt
+import pkg_resources
+
+normal_snek = """\
+    --..,_                     _,.--.
+       `'.'.                .'`__ o  `;__.
+          '.'.            .'.'`  '---'`  `
+            '.`'--....--'`.'
+              `'--....--'`
+"""
+
+fancy_snek = """\
+                          _,..,,,_
+                     '``````^~"-,_`"-,_
+       .-~c~-.                    `~:. ^-.
+   `~~~-.c    ;                      `:.  `-,     _.-~~^^~:.
+         `.   ;      _,--~~~~-._       `:.   ~. .~          `.
+          .` ;'   .:`           `:       `:.   `    _.:-,.    `.
+        .' .:   :'    _.-~^~-.    `.       `..'   .:      `.    '
+       :  .' _:'   .-'        `.    :.     .:   .'`.        :    ;
+       :  `-'   .:'             `.    `^~~^`   .:.  `.      ;    ;
+        `-.__,-~                  ~-.        ,' ':    '.__.`    :'
+                                     ~--..--'     ':.         .:'
+                                                     ':..___.:'
+"""
+
+def get_sneks():
+     sneks = {}
+     for entry_point in pkg_resources.iter_entry_points('snek_types'):
+         sneks[entry_point.name] = entry_point.load()
+     return sneks
+
+
+def main():
+    args = docopt.docopt(__doc__)
+    snek_type = args['--type'] or 'normal'
+    print(get_sneks()[snek_type])
+
+if __name__ == '__main__':
+    main()
+```
