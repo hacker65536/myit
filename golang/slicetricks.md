@@ -185,3 +185,33 @@ func main() {
 */
 ```
 https://play.golang.org/p/7WoCL7tXFNV
+
+
+### delete
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	//         0  1  2  3  4  5  6  7  8  9
+	fmt.Println(a)
+	// [1 2 3 4 5 6 7 8 9 10]
+
+	//delete "7"
+
+	fmt.Println(a[:6])
+	// [1 2 3 4 5 6]
+	fmt.Println(a[6+1:])
+	// [8 9 10]
+
+	a = append(a[:6], a[6+1:]...)
+
+	fmt.Println(a)
+}
+```
+https://play.golang.org/p/gfzqNB2bXAQ
