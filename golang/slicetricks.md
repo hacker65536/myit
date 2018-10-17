@@ -240,17 +240,23 @@ func main() {
 	fmt.Println(a[6+1:])
 	// [8 9 10]
 
-	//fmt.Println(copy(a[6:], a[6+1:]))
-	// 3
+	a = a[:6+copy(a[6:], a[6+1:])]
 
-	copy(a[6:], a[6+1:])
-
-	fmt.Println(a[6:])
-	// [8 9 10 10]
-	fmt.Println(a[:9])
-	// [1 2 3 4 5 6 8 9 10]
 	fmt.Println(a)
-	// [1 2 3 4 5 6 8 9 10 10]
+
+	/*
+		//fmt.Println(copy(a[6:], a[6+1:]))
+		// 3
+
+		copy(a[6:], a[6+1:])
+
+		fmt.Println(a[6:])
+		// [8 9 10 10]
+		fmt.Println(a[:9])
+		// [1 2 3 4 5 6 8 9 10]
+		fmt.Println(a)
+		// [1 2 3 4 5 6 8 9 10 10]
+	*/
 }
 ```
-https://play.golang.org/p/zKZfla9ZAwW
+https://play.golang.org/p/CMYoz_Wv_AG
