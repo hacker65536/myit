@@ -77,7 +77,7 @@ https://play.golang.org/p/ieJXgWIC0DY
 
 
 compare
-```
+```go
 package main
 
 import (
@@ -113,3 +113,40 @@ not nil
 */
 ```
 https://play.golang.org/p/2K-SP3WONdj
+
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	a := []int{}
+	fmt.Println(a)
+
+	b := append([]int(nil), a...)
+
+	fmt.Println(b)
+
+	if a == nil {
+		fmt.Println("nil")
+	} else {
+		fmt.Println("not nil")
+	}
+
+	if b == nil {
+		fmt.Println("nil")
+	} else {
+		fmt.Println("not nil")
+	}
+}
+/*
+[]
+[]
+not nil
+nil
+*/
+```
+https://play.golang.org/p/IryIdKaVb-b
