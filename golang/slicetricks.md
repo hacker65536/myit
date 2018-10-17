@@ -151,7 +151,7 @@ nil
 ```
 https://play.golang.org/p/IryIdKaVb-b
 
-### cut
+### Cut
 
 ```go
 package main
@@ -187,7 +187,7 @@ func main() {
 https://play.golang.org/p/7WoCL7tXFNV
 
 
-### delete
+### Delete
 ```go
 package main
 
@@ -215,3 +215,42 @@ func main() {
 }
 ```
 https://play.golang.org/p/gfzqNB2bXAQ
+
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	//         0  1  2  3  4  5  6  7  8  9
+	//fmt.Println(a)
+	// [1 2 3 4 5 6 7 8 9 10]
+
+	//delete "7"
+
+	fmt.Println(a[:6])
+	// [1 2 3 4 5 6]
+	fmt.Println(a[6:])
+	// [7 8 9 10]
+	fmt.Println(a[6+1:])
+	// [8 9 10]
+
+	//fmt.Println(copy(a[6:], a[6+1:]))
+	// 3
+
+	copy(a[6:], a[6+1:])
+
+	fmt.Println(a[6:])
+	// [8 9 10 10]
+	fmt.Println(a[:9])
+	// [1 2 3 4 5 6 8 9 10]
+	fmt.Println(a)
+	// [1 2 3 4 5 6 8 9 10 10]
+}
+```
+https://play.golang.org/p/zKZfla9ZAwW
