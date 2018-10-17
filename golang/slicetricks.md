@@ -150,3 +150,38 @@ nil
 */
 ```
 https://play.golang.org/p/IryIdKaVb-b
+
+### cut
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	//         0  1  2  3  4  5  6  7  8  9
+	fmt.Println(a)
+	// [1 2 3 4 5 6 7 8 9 10]
+
+	fmt.Println(a[:3])
+	// [1 2 3]
+
+	fmt.Println(a[4:])
+	// [5 6 7 8 9 10]
+
+	a = append(a[:3], a[4:]...)
+
+	fmt.Println(a)
+}
+/*
+[1 2 3 4 5 6 7 8 9 10]
+[1 2 3]
+[5 6 7 8 9 10]
+[1 2 3 5 6 7 8 9 10]
+*/
+```
+https://play.golang.org/p/7WoCL7tXFNV
