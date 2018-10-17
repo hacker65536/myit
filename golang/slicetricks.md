@@ -71,5 +71,6 @@ func main() {
 	fmt.Println(a)
 	fmt.Println(b)
 }
+//see https://github.com/go101/go101/wiki
 ```
 https://play.golang.org/p/ieJXgWIC0DY
