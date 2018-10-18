@@ -1,7 +1,7 @@
 ## generate key
 
 ```
-ssh-keygen -t rsa -N "" -f ~/.ssh/githubkey -C "your_email@youremail.com"
+$ ssh-keygen -t rsa -N "" -f ~/.ssh/githubkey -C "your_email@youremail.com"
 ```
 ## add key to web console of github
 settings-> SSH keys -> New SSH key
@@ -17,5 +17,5 @@ Host github.com
 ```
 
 ```bash
-git clone git@github.com:myname/myrepo.git
+$ git clone git@github.com:myname/myrepo.git
 ```
