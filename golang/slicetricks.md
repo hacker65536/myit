@@ -260,3 +260,35 @@ func main() {
 }
 ```
 https://play.golang.org/p/CMYoz_Wv_AG
+
+delete without preserving order
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	//         0  1  2  3  4  5  6  7  8  9
+	//fmt.Println(a)
+	// [1 2 3 4 5 6 7 8 9 10]
+
+	//delete "7"
+
+	fmt.Println(a[6])
+	// 7
+	fmt.Println(a[len(a)-1])
+	// 10
+
+	a[6] = a[len(a)-1]
+	fmt.Println(a[6])
+	// 10
+
+	a = a[:len(a)-1]
+	fmt.Println(a)
+}
+```
+https://play.golang.org/p/pd3wW5rnXRi
