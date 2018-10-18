@@ -1,10 +1,12 @@
 ## generate key
 
 ```
-$ ssh-keygen -t rsa -N "" -f ~/.ssh/githubkey -C "your_email@youremail.com"
+$ email=your_email@youremail.com
+$ ssh-keygen -t rsa -N "" -f ~/.ssh/githubkey -C $email
 ```
 ## add key to web console of github
-settings-> SSH keys -> New SSH key
+
+github.com-> settings-> SSH keys -> New SSH key
 
 
 ## configure ssh
@@ -18,4 +20,16 @@ Host github.com
 
 ```bash
 $ git clone git@github.com:myname/myrepo.git
+```
+
+## configure directory
+
+```console
+$ email=s.hacker65536@gmail.com
+$ name=shacker
+$ cd workdir
+$ git init
+$ git config --local user.email $email
+$ git config --local user.name $name
+$ git remote add origin git@github.com:hacker65536/$(basename $(pwd)).git
 ```
