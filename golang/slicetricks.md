@@ -289,6 +289,7 @@ func main() {
 
 	a = a[:len(a)-1]
 	fmt.Println(a)
+	// [1 2 3 4 5 6 10 8 9]
 }
 ```
 https://play.golang.org/p/pd3wW5rnXRi
