@@ -24,6 +24,7 @@ $ git clone git@github.com:myname/myrepo.git
 
 ## configure directory
 
+first 
 ```console
 $ email=s.hacker65536@gmail.com
 $ name=shacker
@@ -31,5 +32,8 @@ $ cd workdir
 $ git init
 $ git config --local user.email $email
 $ git config --local user.name $name
+$ git add README.md # create master branch
+$ git commit -m "init" # create master branch
 $ git remote add origin git@github.com:hacker65536/$(basename $(pwd)).git
+$ git push -u origin master
 ```
