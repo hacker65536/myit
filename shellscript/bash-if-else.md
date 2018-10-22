@@ -2,6 +2,19 @@
 
 ### String Comparison
 - [ ] -z STR   if the string `is null` retruns `true`
+
+in spite of declare
+```bash
+if [[ "$empty" == "" ]]
+then
+        echo "empty"
+fi
+
+if [[ -z "$empty" ]]
+then
+        echo "empty"
+fi
+```
 - [ ] -n STR   if the string  `is not null` returns `true`
 - [ ] STR1 = STR2 if the strings are `equal` retruns `true`
 - [ ] STR1 != STR2 if the strings `are not equal` retruns `true`
