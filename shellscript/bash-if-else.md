@@ -1,12 +1,12 @@
 
 
-###String Comparison
+### String Comparison
 - [ ] -z STR   if the string `is null` retruns `true`
 - [ ] -n STR   if the string  `is not null` returns `true`
 - [ ] STR1 = STR2 if the strings are `equal` retruns `true`
 - [ ] STR1 != STR2 if the strings `are not equal` retruns `true`
 
-###File Conditionals
+### File Conditionals
 - [ ] -d FILE if the file is a `directory`
 - [ ] -e FILE if the file `exists`
 - [ ] -f FILE if the provided string is a file
@@ -17,7 +17,7 @@
 - [ ] -g 
 
 
-###Numeric Comparison
+### Numeric Comparison
 　|　|mean
 ---|---|:---:
  -eq | == |equal
