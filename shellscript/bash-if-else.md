@@ -18,7 +18,7 @@ fi
 - [ ] -n STR   if the string  `is not null` returns `true`
 - [ ] STR1 = STR2 if the strings are `equal` retruns `true`
 - [ ] STR1 != STR2 if the strings `are not equal` retruns `true`
-- [ ] -v ENV if environament variable exist
+- [ ] -v true if the shell variable varname is set
 
 ### File Conditionals
 - [ ] -d FILE if the file is a `directory`
