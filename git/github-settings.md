@@ -35,5 +35,6 @@ $ git config --local user.name $name
 $ git add README.md # create master branch
 $ git commit -m "init" # create master branch
 $ git remote add origin git@github.com:hacker65536/$(basename $(pwd)).git
+$ # git remote set-url origin git@github.com:hacker65536/$(basename $(pwd)).git
 $ git push -u origin master
 ```
