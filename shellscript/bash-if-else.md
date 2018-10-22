@@ -3,7 +3,7 @@
 ### String Comparison
 - [ ] -z STR   if the string `is null` retruns `true`
 
-in spite of declare
+regardless of declaration
 ```bash
 if [[ "$empty" == "" ]]
 then
