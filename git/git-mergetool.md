@@ -15,7 +15,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 git mergetool animals.txt
 ```
 
-move to next point of conflict `]c`
+move to next point of conflict `]c` or `[c`
 
 
 ```
