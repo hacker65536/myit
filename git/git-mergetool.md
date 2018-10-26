@@ -1,3 +1,8 @@
+https://gist.github.com/karenyyng/f19ff75c60f18b4b8149
+
+```console
+$ git config merge.tool vimdiff
+```
 
 ```
 Auto-merging animals.txt
