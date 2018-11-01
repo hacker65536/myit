@@ -8,8 +8,18 @@ sort
 ```
 
 ```console
-$ echo  '[{"foobar":"mysql","aa":"cc"},{"foobar":"aa","abb":"cc"},{"blarp":"aa"}]' | \
-jq '.[]| select(.foobar)|select(.foobar|contains("my"))'
+$ echo  '[{"foobar":"mysql","aa":"cc"},{"foobar":"sqlserver","abb":"cc"},{"blarp":"aa"}]' | \
+jq '.[]| select(.foobar)| select (.foobar|contains("sql"))'
+{
+  "foobar": "mysql",
+  "aa": "cc"
+}
+{
+  "foobar": "sqlserver",
+  "abb": "cc"
+}
+$ echo  '[{"foobar":"mysql","aa":"cc"},{"foobar":"sqlserver","abb":"cc"},{"blarp":"aa"}]' | \
+jq '.[]| select(.foobar)| select (.foobar|contains("my"))'
 {
   "foobar": "mysql",
   "aa": "cc"
