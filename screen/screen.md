@@ -20,6 +20,7 @@ defscrollback 4000
 
 ## enalbe mouse scroll
 
+`defscrollback 4000 `
 putty 
 - japanese  
 端末 > 高度な設定 > Alternate 端末画面への切り替えを無効にする(W)  
@@ -55,7 +56,7 @@ screen -x <session name>
 
 C-z A
 
-##jump
+### jump
 
 C-z [0-9]
 
