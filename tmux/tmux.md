@@ -93,7 +93,7 @@ PREFIX : resize-pane -t -L 20 (Resizes the pane with the id of 2 left by 20 cell
 
 
 join-pane
-``
+```
 :join-pane -t : dst-pane
 :join-pane -s : src-pane
 ```
