@@ -21,6 +21,8 @@ defscrollback 4000
 端末 > 高度な設定 > Alternate 端末画面への切り替えを無効にする(W)  
 これでマウスによるスクロールが可能になる。
 
+terminal -> Features -> disable switching to alternate terminal screen
+
 ##operation
 ```bash
 screen -ls
