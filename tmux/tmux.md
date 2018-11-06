@@ -97,3 +97,27 @@ join-pane
 :join-pane -t : dst-pane
 :join-pane -s : src-pane
 ```
+
+
+## 2.7 install
+https://github.com/tmux/tmux/wiki  
+
+https://github.com/tmux/tmux/releases/download/2.7/tmux-2.7.tar.gz
+```console 
+$ uname -r
+4.14.62-70.117.amzn2.x86_64
+```
+require
+```console
+$ sudo yum install ncurses-devel libevent-devel
+```
+install
+```console
+$ curl -LSsO https://github.com/tmux/tmux/releases/download/2.7/tmux-2.7.tar.gz
+$ tar zxvf !$:t
+$ cd !$:r:r
+$ ./configure
+$ make
+$ sudo make install
+```
+
