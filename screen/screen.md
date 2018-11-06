@@ -1,4 +1,4 @@
-## settings
+## configure
 ```bash
 vim ~/.screenrc
 ```
@@ -9,21 +9,25 @@ escape ^Z^Z
 termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 # escape screen resize for xterm
 
-#termcapinfo kterm-color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
 # escape screen resize for kterm-color
+#termcapinfo kterm-color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
+
+# scrollback 4000 using current screen
 defscrollback 4000 
-
-#scrollback 4000 using current screent
 ```
 
-`defscrollback 4000 `を設定し puttyの設定で  
-端末 > 高度な設定 > Alternate 端末画面への切り替えを無効にする(W)  
-これでマウスによるスクロールが可能になる。
+## enalbe mouse scroll
 
+putty 
+- japanese  
+端末 > 高度な設定 > Alternate 端末画面への切り替えを無効にする(W)  
+
+- english  
 terminal -> Features -> disable switching to alternate terminal screen
 
-##operation
+## operation
 ```bash
 screen -ls
 ```
@@ -36,7 +40,7 @@ screen -r <process number>
 screen -x <session name>
 ```
 
-##copy and  paste
+### copy and  paste
 
 * `ctrl+z` change mode for screen cmd  
 * `[` copy mode start  
@@ -47,7 +51,7 @@ screen -x <session name>
 * `]` paste  
 
 
-##edit window name
+### edit window name
 
 C-z A
 
@@ -56,7 +60,7 @@ C-z A
 C-z [0-9]
 
 
-##troubleshooting
+### troubleshooting
 ```bash
 $ screen
 Cannot open your terminal '/dev/pts/1' - please check.
