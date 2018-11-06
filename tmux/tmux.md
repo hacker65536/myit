@@ -122,7 +122,8 @@ $ sudo make install
 ```
 
 
- paste with mouse
+paste with mouse
+ 
 https://unix.stackexchange.com/questions/318281/how-to-copy-and-paste-with-a-mouse-with-tmux
 
 ```
