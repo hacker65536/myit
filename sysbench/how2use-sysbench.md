@@ -22,6 +22,8 @@
 
 prepare
 ---------
+- --tables=N [1]
+- --table-size=N [10000]
 
 require lua path ,if install from source
 ```console
