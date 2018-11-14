@@ -44,7 +44,38 @@ mysql options:
   --mysql-ignore-errors=[LIST,...] list of errors to ignore, or "all" [1213,1020,1205]
   --mysql-dry-run[=on|off]         Dry run, pretend that all MySQL client API calls are successful without executing them [off]
 ```
+Pseudo-Random Numbers
+----------
+```
+Pseudo-Random Numbers Generator options:
+  --rand-type=STRING   random numbers distribution {uniform, gaussian, special, pareto, zipfian} to use by default [special]
+  --rand-seed=N        seed for random number generator. When 0, the current time is used as an RNG seed. [0]
+  --rand-spec-iter=N   number of iterations for the special distribution [12]
+  --rand-spec-pct=N    percentage of the entire range where 'special' values will fall in the special distribution [1]
+  --rand-spec-res=N    percentage of 'special' values to use for the special distribution [75]
+  --rand-pareto-h=N    shape parameter for the Pareto distribution [0.2]
+  --rand-zipfian-exp=N shape parameter (exponent, theta) for the Zipfian distribution [0.8]
+```
+log options
+-----------
 
+```
+Log options:
+  --verbosity=N verbosity level {5 - debug, 0 - only critical messages} [3]
+
+  --percentile=N       percentile to calculate in latency statistics (1-100). Use the special value of 0 to disable percentile calculations [95]
+  --histogram[=on|off] print latency histogram in report [off]
+```
+
+general database option
+-------------
+```
+General database options:
+
+  --db-driver=STRING  specifies database driver to use ('help' to get list of available drivers) [mysql]
+  --db-ps-mode=STRING prepared statements usage mode {auto, disable} [auto]
+  --db-debug[=on|off] print database-specific debug information [off]
+```
 tests
 ------
 - fileio
@@ -111,39 +142,9 @@ mutex options:
 ```
 
 
-Pseudo-Random Numbers
-----------
-```
-Pseudo-Random Numbers Generator options:
-  --rand-type=STRING   random numbers distribution {uniform, gaussian, special, pareto, zipfian} to use by default [special]
-  --rand-seed=N        seed for random number generator. When 0, the current time is used as an RNG seed. [0]
-  --rand-spec-iter=N   number of iterations for the special distribution [12]
-  --rand-spec-pct=N    percentage of the entire range where 'special' values will fall in the special distribution [1]
-  --rand-spec-res=N    percentage of 'special' values to use for the special distribution [75]
-  --rand-pareto-h=N    shape parameter for the Pareto distribution [0.2]
-  --rand-zipfian-exp=N shape parameter (exponent, theta) for the Zipfian distribution [0.8]
-```
 
-log options
------------
 
-```
-Log options:
-  --verbosity=N verbosity level {5 - debug, 0 - only critical messages} [3]
 
-  --percentile=N       percentile to calculate in latency statistics (1-100). Use the special value of 0 to disable percentile calculations [95]
-  --histogram[=on|off] print latency histogram in report [off]
-```
-
-general database option
--------------
-```
-General database options:
-
-  --db-driver=STRING  specifies database driver to use ('help' to get list of available drivers) [mysql]
-  --db-ps-mode=STRING prepared statements usage mode {auto, disable} [auto]
-  --db-debug[=on|off] print database-specific debug information [off]
-```
 
 prepare
 ---------
