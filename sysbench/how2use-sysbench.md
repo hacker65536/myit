@@ -230,8 +230,9 @@ MariaDB [testdb]> select * from sbtest1 limit 5;
 benchmark 
 --------
 
+cpu test 
 ```console
-sysbench --config-file=config  --mysql-host=mysql5641 cpu  run
+$ sysbench --config-file=config  --mysql-host=mysql5641 cpu  run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
 Running the test with following options:
@@ -264,4 +265,79 @@ Threads fairness:
     events (avg/stddev):           8538.0000/0.00
     execution time (avg/stddev):   9.9932/0.00
 
+```
+
+memory
+```
+$ sysbench --config-file=config  --mysql-host=mysql5641 memory  run
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Running memory speed test with the following options:
+  block size: 1KiB
+  total size: 102400MiB
+  operation: write
+  scope: global
+
+Initializing worker threads...
+
+Threads started!
+
+Total operations: 8271480 (827143.22 per second)
+
+8077.62 MiB transferred (807.76 MiB/sec)
+
+
+Throughput:
+    events/s (eps):                      827143.2238
+    time elapsed:                        10.0001s
+    total number of events:              8271480
+
+Latency (ms):
+         min:                                    0.00
+         avg:                                    0.00
+         max:                                    0.36
+         95th percentile:                        0.00
+         sum:                                 3383.99
+
+Threads fairness:
+    events (avg/stddev):           8271480.0000/0.00
+    execution time (avg/stddev):   3.3840/0.00
+
+```
+
+threads
+```
+$ sysbench --config-file=config  --mysql-host=mysql5641 threads run
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+
+Throughput:
+    events/s (eps):                      2433.8180
+    time elapsed:                        10.0003s
+    total number of events:              24339
+
+Latency (ms):
+         min:                                    0.40
+         avg:                                    0.41
+         max:                                    0.53
+         95th percentile:                        0.45
+         sum:                                 9979.97
+
+Threads fairness:
+    events (avg/stddev):           24339.0000/0.00
+    execution time (avg/stddev):   9.9800/0.00
 ```
