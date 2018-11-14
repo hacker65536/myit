@@ -43,20 +43,35 @@ mysql options
 tests
 ------
 - fileio
-  - file-num
-  - file-total-size
-  - file-test-mode
-  - file-io-mode
-  - file-async-backlog
-  - file-extra-flags
-  - file-fsync-freq
-  - file-fsync-all
-  - file-fsync-end
-  - file-fsync-mode
-  - file-erged-requests
-  - file-rw-ratio
+```
+# sysbench fileio help
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+fileio options:
+  --file-num=N                  number of files to create [128]
+  --file-block-size=N           block size to use in all IO operations [16384]
+  --file-total-size=SIZE        total size of files to create [2G]
+  --file-test-mode=STRING       test mode {seqwr, seqrewr, seqrd, rndrd, rndwr, rndrw}
+  --file-io-mode=STRING         file operations mode {sync,async,mmap} [sync]
+  --file-async-backlog=N        number of asynchronous operatons to queue per thread [128]
+  --file-extra-flags=[LIST,...] list of additional flags to use to open files {sync,dsync,direct} []
+  --file-fsync-freq=N           do fsync() after this number of requests (0 - don't use fsync()) [100]
+  --file-fsync-all[=on|off]     do fsync() after each write operation [off]
+  --file-fsync-end[=on|off]     do fsync() at the end of test [on]
+  --file-fsync-mode=STRING      which method to use for synchronization {fsync, fdatasync} [fsync]
+  --file-merged-requests=N      merge at most this number of IO requests if possible (0 - don't merge) [0]
+  --file-rw-ratio=N             reads/writes ratio for combined test [1.5]
+
+
+```
 - cpu
-  - cpu-max-prime
+```
+# sysbench cpu help
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+cpu options:
+  --cpu-max-prime=N upper limit for primes generator [10000]
+```
 - memory
   - memory-block-size
   - memory-total-size
