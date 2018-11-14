@@ -1,44 +1,49 @@
 
 ## help
 
-options
+general options
 ---------
--  --threads=N                     number of threads to use [1]
--  --events=N                      limit for total number of events [0]
--  --time=N                        limit for total execution time in seconds [10]
--  --warmup-time=N                 execute events for this many seconds with statistics disabled before the actual benchmark run with statistics enabled [0]
--  --forced-shutdown=STRING        number of seconds to wait after the --time limit before forcing shutdown, or 'off' to disable [off]
--  --thread-stack-size=SIZE        size of stack per thread [64K]
--  --thread-init-timeout=N         wait time in seconds for worker threads to initialize [30]
--  --rate=N                        average transactions rate. 0 for unlimited rate [0]
--  --report-interval=N             periodically report intermediate statistics with a specified interval in seconds. 0 disables intermediate reports [0]
--  --report-checkpoints=[LIST,...] dump full statistics and reset all counters at specified points in time. The argument is a list of comma-separated values representing the amount of time in seconds elapsed from start of test when report checkpoint(s) must be performed. Report checkpoints are off by default. []
--  --debug[=on|off]                print more debugging info [off]
--  --validate[=on|off]             perform validation checks where possible [off]
--  --help[=on|off]                 print help and exit [off]
--  --version[=on|off]              print version and exit [off]
--  --config-file=FILENAME          File containing command line options
--  --luajit-cmd=STRING             perform LuaJIT control command. This option is equivalent to 'luajit -j'. See LuaJIT documentation for more information
+```
+General options:
+  --threads=N                     number of threads to use [1]
+  --events=N                      limit for total number of events [0]
+  --time=N                        limit for total execution time in seconds [10]
+  --warmup-time=N                 execute events for this many seconds with statistics disabled before the actual benchmark run with statistics enabled [0]
+  --forced-shutdown=STRING        number of seconds to wait after the --time limit before forcing shutdown, or 'off' to disable [off]
+  --thread-stack-size=SIZE        size of stack per thread [64K]
+  --thread-init-timeout=N         wait time in seconds for worker threads to initialize [30]
+  --rate=N                        average transactions rate. 0 for unlimited rate [0]
+  --report-interval=N             periodically report intermediate statistics with a specified interval in seconds. 0 disables intermediate reports [0]
+  --report-checkpoints=[LIST,...] dump full statistics and reset all counters at specified points in time. The argument is a list of comma-separated values representing the amount of time in seconds elapsed from start of test when report checkpoint(s) must be performed. Report checkpoints are off by default. []
+  --debug[=on|off]                print more debugging info [off]
+  --validate[=on|off]             perform validation checks where possible [off]
+  --help[=on|off]                 print help and exit [off]
+  --version[=on|off]              print version and exit [off]
+  --config-file=FILENAME          File containing command line options
+  --luajit-cmd=STRING             perform LuaJIT control command. This option is equivalent to 'luajit -j'. See LuaJIT documentation for more information
+```
 
 
 mysql options
 ------------
-
-- --mysql-host=[LIST,...]          MySQL server host [localhost]
-- --mysql-port=[LIST,...]          MySQL server port [3306]
-- --mysql-socket=[LIST,...]        MySQL socket
-- --mysql-user=STRING              MySQL user [sbtest]
-- --mysql-password=STRING          MySQL password []
-- --mysql-db=STRING                MySQL database name [sbtest]
-- --mysql-ssl[=on|off]             use SSL connections, if available in the client library [off]
-- --mysql-ssl-key=STRING           path name of the client private key file
-- --mysql-ssl-ca=STRING            path name of the CA file
-- --mysql-ssl-cert=STRING          path name of the client public key certificate file
-- --mysql-ssl-cipher=STRING        use specific cipher for SSL connections []
-- --mysql-compression[=on|off]     use compression, if available in the client library [off]
-- --mysql-debug[=on|off]           trace all client library calls [off]
-- --mysql-ignore-errors=[LIST,...] list of errors to ignore, or "all" [1213,1020,1205]
-- --mysql-dry-run[=on|off]         Dry run, pretend that all MySQL client API calls are successful without executing them [off]
+```
+mysql options:
+  --mysql-host=[LIST,...]          MySQL server host [localhost]
+  --mysql-port=[LIST,...]          MySQL server port [3306]
+  --mysql-socket=[LIST,...]        MySQL socket
+  --mysql-user=STRING              MySQL user [sbtest]
+  --mysql-password=STRING          MySQL password []
+  --mysql-db=STRING                MySQL database name [sbtest]
+  --mysql-ssl[=on|off]             use SSL connections, if available in the client library [off]
+  --mysql-ssl-key=STRING           path name of the client private key file
+  --mysql-ssl-ca=STRING            path name of the CA file
+  --mysql-ssl-cert=STRING          path name of the client public key certificate file
+  --mysql-ssl-cipher=STRING        use specific cipher for SSL connections []
+  --mysql-compression[=on|off]     use compression, if available in the client library [off]
+  --mysql-debug[=on|off]           trace all client library calls [off]
+  --mysql-ignore-errors=[LIST,...] list of errors to ignore, or "all" [1213,1020,1205]
+  --mysql-dry-run[=on|off]         Dry run, pretend that all MySQL client API calls are successful without executing them [off]
+```
 
 tests
 ------
@@ -108,21 +113,37 @@ mutex options:
 
 Pseudo-Random Numbers
 ----------
-- --rand-type=STRING   random numbers distribution {uniform, gaussian, special, pareto, zipfian} to use by default [special]
-- --rand-seed=N        seed for random number generator. When 0, the current time is used as an RNG seed. [0]
-- --rand-spec-iter=N   number of iterations for the special distribution [12]
-- --rand-spec-pct=N    percentage of the entire range where 'special' values will fall in the special distribution [1]
-- --rand-spec-res=N    percentage of 'special' values to use for the special distribution [75]
-- --rand-pareto-h=N    shape parameter for the Pareto distribution [0.2]
-- --rand-zipfian-exp=N shape parameter (exponent, theta) for the Zipfian distribution [0.8]
+```
+Pseudo-Random Numbers Generator options:
+  --rand-type=STRING   random numbers distribution {uniform, gaussian, special, pareto, zipfian} to use by default [special]
+  --rand-seed=N        seed for random number generator. When 0, the current time is used as an RNG seed. [0]
+  --rand-spec-iter=N   number of iterations for the special distribution [12]
+  --rand-spec-pct=N    percentage of the entire range where 'special' values will fall in the special distribution [1]
+  --rand-spec-res=N    percentage of 'special' values to use for the special distribution [75]
+  --rand-pareto-h=N    shape parameter for the Pareto distribution [0.2]
+  --rand-zipfian-exp=N shape parameter (exponent, theta) for the Zipfian distribution [0.8]
+```
 
 log options
 -----------
 
-- --verbosity=N verbosity level {5 - debug, 0 - only critical messages} [3]
-- --percentile=N       percentile to calculate in latency statistics (1-100). Use the special value of 0 to disable percentile calculations [95]
-- --histogram[=on|off] print latency histogram in report [off]
+```
+Log options:
+  --verbosity=N verbosity level {5 - debug, 0 - only critical messages} [3]
 
+  --percentile=N       percentile to calculate in latency statistics (1-100). Use the special value of 0 to disable percentile calculations [95]
+  --histogram[=on|off] print latency histogram in report [off]
+```
+
+general database option
+-------------
+```
+General database options:
+
+  --db-driver=STRING  specifies database driver to use ('help' to get list of available drivers) [mysql]
+  --db-ps-mode=STRING prepared statements usage mode {auto, disable} [auto]
+  --db-debug[=on|off] print database-specific debug information [off]
+```
 
 prepare
 ---------
