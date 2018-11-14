@@ -43,10 +43,34 @@ mysql options
 tests
 ------
 - fileio
+  - file-num
+  - file-total-size
+  - file-test-mode
+  - file-io-mode
+  - file-async-backlog
+  - file-extra-flags
+  - file-fsync-freq
+  - file-fsync-all
+  - file-fsync-end
+  - file-fsync-mode
+  - file-erged-requests
+  - file-rw-ratio
 - cpu
+  - cpu-max-prime
 - memory
+  - memory-block-size
+  - memory-total-size
+  - memory-scope
+  - memory-hugetlb
+  - memory-oper
+  - memory-access-mode
 - threads
+  - thread-yields
+  - thread-locks
 - mutex
+  - mutex-num
+  - mutex-locks
+  - mutex-loops
 
 
 Pseudo-Random Numbers
