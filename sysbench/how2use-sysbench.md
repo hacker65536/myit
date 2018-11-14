@@ -268,7 +268,7 @@ Threads fairness:
 ```
 
 memory
-```
+```console
 $ sysbench --config-file=config  --mysql-host=mysql5641 memory  run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
@@ -311,7 +311,7 @@ Threads fairness:
 ```
 
 threads
-```
+```console
 $ sysbench --config-file=config  --mysql-host=mysql5641 threads run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
