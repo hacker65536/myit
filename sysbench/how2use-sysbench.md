@@ -73,19 +73,37 @@ cpu options:
   --cpu-max-prime=N upper limit for primes generator [10000]
 ```
 - memory
-  - memory-block-size
-  - memory-total-size
-  - memory-scope
-  - memory-hugetlb
-  - memory-oper
-  - memory-access-mode
+```
+# sysbench memory help
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+memory options:
+  --memory-block-size=SIZE    size of memory block for test [1K]
+  --memory-total-size=SIZE    total size of data to transfer [100G]
+  --memory-scope=STRING       memory access scope {global,local} [global]
+  --memory-hugetlb[=on|off]   allocate memory from HugeTLB pool [off]
+  --memory-oper=STRING        type of memory operations {read, write, none} [write]
+  --memory-access-mode=STRING memory access mode {seq,rnd} [seq]
+```
 - threads
-  - thread-yields
-  - thread-locks
+```
+# sysbench threads help
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+threads options:
+  --thread-yields=N number of yields to do per request [1000]
+  --thread-locks=N  number of locks per thread [8]
+```
 - mutex
-  - mutex-num
-  - mutex-locks
-  - mutex-loops
+```
+# sysbench mutex help
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+mutex options:
+  --mutex-num=N   total size of mutex array [4096]
+  --mutex-locks=N number of mutex locks to do per thread [50000]
+  --mutex-loops=N number of empty loops to do outside mutex lock [10000]
+```
 
 
 Pseudo-Random Numbers
