@@ -433,7 +433,67 @@ Threads fairness:
 
 ```
 
+```
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_read_only.lua run
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            20972
+        write:                           0
+        other:                           2996
+        total:                           23968
+    transactions:                        1498   (149.77 per sec.)
+    queries:                             23968  (2396.39 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      149.7741
+    time elapsed:                        10.0017s
+    total number of events:              1498
+
+Latency (ms):
+         min:                                    5.36
+         avg:                                    6.67
+         max:                                  103.82
+         95th percentile:                        7.17
+         sum:                                 9997.38
+
+Threads fairness:
+    events (avg/stddev):           1498.0000/0.00
+    execution time (avg/stddev):   9.9974/0.00
+
+```
+```sql
+BEGIN
+SELECT c FROM sbtest1 WHERE id=4988
+SELECT c FROM sbtest1 WHERE id=4986
+SELECT c FROM sbtest1 WHERE id=4997
+SELECT c FROM sbtest1 WHERE id=5167
+SELECT c FROM sbtest1 WHERE id=5018
+SELECT c FROM sbtest1 WHERE id=6054
+SELECT c FROM sbtest1 WHERE id=3882
+SELECT c FROM sbtest1 WHERE id=5236
+SELECT c FROM sbtest1 WHERE id=5021
+SELECT c FROM sbtest1 WHERE id=5004
+SELECT c FROM sbtest1 WHERE id BETWEEN 5049 AND 5148
+SELECT SUM(k) FROM sbtest1 WHERE id BETWEEN 5001 AND 5100
+SELECT c FROM sbtest1 WHERE id BETWEEN 4556 AND 4655 ORDER BY c
+SELECT DISTINCT c FROM sbtest1 WHERE id BETWEEN 4277 AND 4376 ORDER BY c
+COMMIT
+```
+
+read write 
 ```console
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_read_write.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
