@@ -348,7 +348,6 @@ bulk insert
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/bulk_insert.lua cleanup
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/bulk_insert.lua prepare
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/bulk_insert.lua run
-
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
 Running the test with following options:
@@ -363,33 +362,37 @@ Threads started!
 SQL statistics:
     queries performed:
         read:                            0
-        write:                           77
+        write:                           71
         other:                           0
-        total:                           77
-    transactions:                        2336967 (232922.07 per sec.)
-    queries:                             77     (7.67 per sec.)
+        total:                           71
+    transactions:                        2162217 (215019.74 per sec.)
+    queries:                             71     (7.06 per sec.)
     ignored errors:                      0      (0.00 per sec.)
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      232922.0737
-    time elapsed:                        10.0333s
-    total number of events:              2336967
+    events/s (eps):                      215019.7395
+    time elapsed:                        10.0559s
+    total number of events:              2162217
 
 Latency (ms):
          min:                                    0.00
          avg:                                    0.00
-         max:                                  301.30
+         max:                                  214.59
          95th percentile:                        0.00
-         sum:                                 8008.60
+         sum:                                 8194.16
 
 Threads fairness:
-    events (avg/stddev):           2336967.0000/0.00
-    execution time (avg/stddev):   8.0086/0.00
+    events (avg/stddev):           2162217.0000/0.00
+    execution time (avg/stddev):   8.1942/0.00
+
+```
+```sql
+
 ```
 
 delete
-```
+```console
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_delete.lua cleanup
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_delete.lua prepare
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_delete.lua run
@@ -407,31 +410,80 @@ Threads started!
 SQL statistics:
     queries performed:
         read:                            0
-        write:                           867
-        other:                           2891
-        total:                           3758
-    transactions:                        3758   (375.77 per sec.)
-    queries:                             3758   (375.77 per sec.)
+        write:                           791
+        other:                           2647
+        total:                           3438
+    transactions:                        3438   (343.71 per sec.)
+    queries:                             3438   (343.71 per sec.)
     ignored errors:                      0      (0.00 per sec.)
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      375.7705
-    time elapsed:                        10.0008s
-    total number of events:              3758
+    events/s (eps):                      343.7094
+    time elapsed:                        10.0026s
+    total number of events:              3438
 
 Latency (ms):
-         min:                                    1.64
-         avg:                                    2.66
-         max:                                   64.98
-         95th percentile:                        4.18
-         sum:                                 9991.11
+         min:                                    1.79
+         avg:                                    2.91
+         max:                                  105.93
+         95th percentile:                        4.65
+         sum:                                 9992.75
 
 Threads fairness:
-    events (avg/stddev):           3758.0000/0.00
-    execution time (avg/stddev):   9.9911/0.00
+    events (avg/stddev):           3438.0000/0.00
+    execution time (avg/stddev):   9.9927/0.00
+```
+```sql
+DELETE FROM sbtest1 WHERE id=5019
+```
+
+insert
+```console
+$ sysbench --config-file=config --mysql-host=tmysql5641 /usr/local/share/sysbench/oltp_insert.lua run
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           2470
+        other:                           0
+        total:                           2470
+    transactions:                        2470   (246.96 per sec.)
+    queries:                             2470   (246.96 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      246.9553
+    time elapsed:                        10.0018s
+    total number of events:              2470
+
+Latency (ms):
+         min:                                    2.44
+         avg:                                    4.04
+         max:                                   86.90
+         95th percentile:                        4.57
+         sum:                                 9990.67
+
+Threads fairness:
+    events (avg/stddev):           2470.0000/0.00
+    execution time (avg/stddev):   9.9907/0.00
 
 ```
+```sql
+INSERT INTO sbtest1 (id, k, c, pad) VALUES (0, 5045, '09907829551-81540821263-82436641028-37878078580-57846378466-07571873890-77281530200-25999924814-96246294466-43911582712', '88766381672-90722517099-73913324552-14786728825-14225856551')
+```
+
 
 point select
 ```console
