@@ -344,7 +344,7 @@ Threads fairness:
 
 
 bulk insert
-```
+```console
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/bulk_insert.lua cleanup
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/bulk_insert.lua prepare
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/bulk_insert.lua run
@@ -657,7 +657,7 @@ INSERT INTO sbtest1 (id, k, c, pad) VALUES (5021, 4979, '65917376282-89901252315
 COMMIT
 ```
 update index
-```
+```console
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_update_index.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
@@ -703,7 +703,7 @@ UPDATE sbtest1 SET k=k+1 WHERE id=5040
 
 
 update non index
-```
+```console
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_update_non_index.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
