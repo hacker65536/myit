@@ -341,3 +341,50 @@ Threads fairness:
     events (avg/stddev):           24339.0000/0.00
     execution time (avg/stddev):   9.9800/0.00
 ```
+
+
+bulk insert
+```
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/bulk_insert.lua cleanup
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/bulk_insert.lua prepare
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/bulk_insert.lua run
+
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           77
+        other:                           0
+        total:                           77
+    transactions:                        2336967 (232922.07 per sec.)
+    queries:                             77     (7.67 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      232922.0737
+    time elapsed:                        10.0333s
+    total number of events:              2336967
+
+Latency (ms):
+         min:                                    0.00
+         avg:                                    0.00
+         max:                                  301.30
+         95th percentile:                        0.00
+         sum:                                 8008.60
+
+Threads fairness:
+    events (avg/stddev):           2336967.0000/0.00
+    execution time (avg/stddev):   8.0086/0.00
+```
+```
