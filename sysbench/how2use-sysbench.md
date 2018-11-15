@@ -433,7 +433,54 @@ Threads fairness:
 
 ```
 
+```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_point_select.lua run
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            25962
+        write:                           0
+        other:                           0
+        total:                           25962
+    transactions:                        25962  (2596.10 per sec.)
+    queries:                             25962  (2596.10 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      2596.0960
+    time elapsed:                        10.0004s
+    total number of events:              25962
+
+Latency (ms):
+         min:                                    0.28
+         avg:                                    0.38
+         max:                                   53.71
+         95th percentile:                        0.42
+         sum:                                 9965.88
+
+Threads fairness:
+    events (avg/stddev):           25962.0000/0.00
+    execution time (avg/stddev):   9.9659/0.00
+
 ```
+```sql
+SELECT c FROM sbtest1 WHERE id=5006
+```
+
+read only
+
+```console
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_read_only.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
