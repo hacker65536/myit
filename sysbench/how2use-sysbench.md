@@ -432,3 +432,51 @@ Threads fairness:
     execution time (avg/stddev):   9.9911/0.00
 
 ```
+
+
+```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/select_random_ranges.lua run
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            6075
+        write:                           0
+        other:                           0
+        total:                           6075
+    transactions:                        6075   (607.44 per sec.)
+    queries:                             6075   (607.44 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      607.4438
+    time elapsed:                        10.0009s
+    total number of events:              6075
+
+Latency (ms):
+         min:                                    0.87
+         avg:                                    1.64
+         max:                                   69.23
+         95th percentile:                        1.93
+         sum:                                 9979.20
+
+Threads fairness:
+    events (avg/stddev):           6075.0000/0.00
+    execution time (avg/stddev):   9.9792/0.00
+```
+
+```sql
+SELECT count(k)
+          FROM sbtest1
+          WHERE k BETWEEN 5043 AND 5048 OR k BETWEEN 5034 AND 5039 OR k BETWEEN 5039 AND 5044 OR k BETWEEN 5013 AND 5018 OR k BETWEEN 5478 AND 5483 OR k BETWEEN 5009 AND 5014 OR k BETWEEN 5021 AND 5026 OR k BETWEEN 4983 AND 4988 OR k BETWEEN 5014 AND 5019 OR k BETWEEN 3117 AND 3122
+```
