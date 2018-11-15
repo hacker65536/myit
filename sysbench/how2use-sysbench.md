@@ -432,6 +432,70 @@ Threads fairness:
     execution time (avg/stddev):   9.9911/0.00
 
 ```
+
+
+```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_read_write.lua run
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            10416
+        write:                           2976
+        other:                           1488
+        total:                           14880
+    transactions:                        744    (74.37 per sec.)
+    queries:                             14880  (1487.35 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      74.3673
+    time elapsed:                        10.0044s
+    total number of events:              744
+
+Latency (ms):
+         min:                                   10.65
+         avg:                                   13.44
+         max:                                  223.57
+         95th percentile:                       15.27
+         sum:                                10000.99
+
+Threads fairness:
+    events (avg/stddev):           744.0000/0.00
+    execution time (avg/stddev):   10.0010/0.00
+```
+```sql
+BEGIN
+SELECT c FROM sbtest1 WHERE id=5005
+SELECT c FROM sbtest1 WHERE id=5029
+SELECT c FROM sbtest1 WHERE id=5048
+SELECT c FROM sbtest1 WHERE id=4942
+SELECT c FROM sbtest1 WHERE id=5023
+SELECT c FROM sbtest1 WHERE id=5017
+SELECT c FROM sbtest1 WHERE id=5016
+SELECT c FROM sbtest1 WHERE id=4998
+SELECT c FROM sbtest1 WHERE id=5030
+SELECT c FROM sbtest1 WHERE id=4892
+SELECT c FROM sbtest1 WHERE id BETWEEN 4986 AND 5085
+SELECT SUM(k) FROM sbtest1 WHERE id BETWEEN 4987 AND 5086
+SELECT c FROM sbtest1 WHERE id BETWEEN 4869 AND 4968 ORDER BY c
+SELECT DISTINCT c FROM sbtest1 WHERE id BETWEEN 5013 AND 5112 ORDER BY c
+UPDATE sbtest1 SET k=k+1 WHERE id=4997
+UPDATE sbtest1 SET c='45847993275-68238059760-00590830180-98768376885-67088347674-47173809116-52982377839-16284708776-10715060105-17887469858' WHERE id=5042
+DELETE FROM sbtest1 WHERE id=5021
+INSERT INTO sbtest1 (id, k, c, pad) VALUES (5021, 4979, '65917376282-89901252315-69549110513-10757781438-99918078973-41543264141-60132123829-06714691868-86882031053-95408194639', '57773943075-67471779271-74723336571-05607374676-83152566532')
+COMMIT
+```
 update index
 ```
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_update_index.lua run
