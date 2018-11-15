@@ -387,4 +387,48 @@ Threads fairness:
     events (avg/stddev):           2336967.0000/0.00
     execution time (avg/stddev):   8.0086/0.00
 ```
+
+delete
+```
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_delete.lua cleanup
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_delete.lua prepare
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_delete.lua run
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           867
+        other:                           2891
+        total:                           3758
+    transactions:                        3758   (375.77 per sec.)
+    queries:                             3758   (375.77 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      375.7705
+    time elapsed:                        10.0008s
+    total number of events:              3758
+
+Latency (ms):
+         min:                                    1.64
+         avg:                                    2.66
+         max:                                   64.98
+         95th percentile:                        4.18
+         sum:                                 9991.11
+
+Threads fairness:
+    events (avg/stddev):           3758.0000/0.00
+    execution time (avg/stddev):   9.9911/0.00
+
 ```
