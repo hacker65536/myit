@@ -433,6 +433,57 @@ Threads fairness:
 
 ```
 
+
+```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_write_only.lua run
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           5996
+        other:                           2998
+        total:                           8994
+    transactions:                        1499   (149.80 per sec.)
+    queries:                             8994   (898.80 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      149.8004
+    time elapsed:                        10.0066s
+    total number of events:              1499
+
+Latency (ms):
+         min:                                    5.10
+         avg:                                    6.67
+         max:                                  145.14
+         95th percentile:                        8.28
+         sum:                                10001.44
+
+Threads fairness:
+    events (avg/stddev):           1499.0000/0.00
+    execution time (avg/stddev):   10.0014/0.00
+
+```
+```sql
+BEGIN
+UPDATE sbtest1 SET k=k+1 WHERE id=3480
+UPDATE sbtest1 SET c='87602219299-18523541232-48476893109-66875972790-20627346504-12893144313-75185454029-98410561353-00243411128-24658156167' WHERE id=5016
+DELETE FROM sbtest1 WHERE id=4983
+INSERT INTO sbtest1 (id, k, c, pad) VALUES (4983, 5017, '74502161637-75090792897-65543500932-65560090618-88659145231-25722976779-32011585253-26144577349-78200470333-76497274172', '53197481292-71239331039-13746065412-22988746219-34318133427')
+COMMIT
+```
+
 select random points
 
 ```console
