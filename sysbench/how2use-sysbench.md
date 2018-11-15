@@ -433,6 +433,56 @@ Threads fairness:
 
 ```
 
+select random points
+
+```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/select_random_points.lua run
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            6135
+        write:                           0
+        other:                           0
+        total:                           6135
+    transactions:                        6135   (613.42 per sec.)
+    queries:                             6135   (613.42 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      613.4184
+    time elapsed:                        10.0013s
+    total number of events:              6135
+
+Latency (ms):
+         min:                                    0.61
+         avg:                                    1.63
+         max:                                  127.23
+         95th percentile:                        1.89
+         sum:                                 9986.57
+
+Threads fairness:
+    events (avg/stddev):           6135.0000/0.00
+    execution time (avg/stddev):   9.9866/0.00
+```
+```sql
+SELECT id, k, c, pad
+          FROM sbtest1
+          WHERE k IN (5076, 4990, 4994, 4987, 4978, 5217, 4998, 5185, 5016, 4983)
+
+```
+
+select random rnages
 
 ```console
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/select_random_ranges.lua run
