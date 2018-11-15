@@ -432,6 +432,51 @@ Threads fairness:
     execution time (avg/stddev):   9.9911/0.00
 
 ```
+update index
+```
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_update_index.lua run
+sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           2478
+        other:                           0
+        total:                           2478
+    transactions:                        2478   (246.21 per sec.)
+    queries:                             2478   (246.21 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      246.2052
+    time elapsed:                        10.0648s
+    total number of events:              2478
+
+Latency (ms):
+         min:                                    2.43
+         avg:                                    4.06
+         max:                                  144.63
+         95th percentile:                        5.28
+         sum:                                10057.17
+
+Threads fairness:
+    events (avg/stddev):           2478.0000/0.00
+    execution time (avg/stddev):   10.0572/0.00
+```
+```sql
+UPDATE sbtest1 SET k=k+1 WHERE id=5040
+```
+
 
 update non index
 ```
