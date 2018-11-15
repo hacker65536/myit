@@ -433,6 +433,7 @@ Threads fairness:
 
 ```
 
+point select
 ```console
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_point_select.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
