@@ -871,6 +871,8 @@ UPDATE sbtest1 SET c='27525676978-93232338281-86023712542-81034864104-7019889683
 ```
 
 
+write only
+
 ```console
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_write_only.lua cleanup
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_write_only.lua prepare
