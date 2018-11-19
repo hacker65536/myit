@@ -1004,7 +1004,7 @@ SELECT id, k, c, pad
 
 ```
 
-select random rnages
+select random ranges
 
 ```console
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/select_random_ranges.lua cleanup
