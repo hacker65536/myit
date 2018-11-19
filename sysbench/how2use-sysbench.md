@@ -445,12 +445,28 @@ Threads fairness:
     events (avg/stddev):           3438.0000/0.00
     execution time (avg/stddev):   9.9927/0.00
 ```
+```
+mysql> show create table sbtest1\G
+*************************** 1. row ***************************
+       Table: sbtest1
+Create Table: CREATE TABLE `sbtest1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `k` int(11) NOT NULL DEFAULT '0',
+  `c` char(120) NOT NULL DEFAULT '',
+  `pad` char(60) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `k_1` (`k`)
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1
+1 row in set (0.01 sec)
+```
 ```sql
 DELETE FROM sbtest1 WHERE id=5019
 ```
 
 insert
 ```console
+$ sysbench --config-file=config --mysql-host=tmysql5641 /usr/local/share/sysbench/oltp_insert.lua cleanup
+$ sysbench --config-file=config --mysql-host=tmysql5641 /usr/local/share/sysbench/oltp_insert.lua prepare
 $ sysbench --config-file=config --mysql-host=tmysql5641 /usr/local/share/sysbench/oltp_insert.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
@@ -491,6 +507,20 @@ Threads fairness:
     execution time (avg/stddev):   9.9907/0.00
 
 ```
+```
+mysql> show create table sbtest1\G
+*************************** 1. row ***************************
+       Table: sbtest1
+Create Table: CREATE TABLE `sbtest1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `k` int(11) NOT NULL DEFAULT '0',
+  `c` char(120) NOT NULL DEFAULT '',
+  `pad` char(60) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `k_1` (`k`)
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1
+1 row in set (0.00 sec)
+```
 ```sql
 INSERT INTO sbtest1 (id, k, c, pad) VALUES (0, 5045, '09907829551-81540821263-82436641028-37878078580-57846378466-07571873890-77281530200-25999924814-96246294466-43911582712', '88766381672-90722517099-73913324552-14786728825-14225856551')
 ```
@@ -498,6 +528,8 @@ INSERT INTO sbtest1 (id, k, c, pad) VALUES (0, 5045, '09907829551-81540821263-82
 
 point select
 ```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_point_select.lua cleanup
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_point_select.lua prepare
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_point_select.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
@@ -538,6 +570,20 @@ Threads fairness:
     execution time (avg/stddev):   9.9659/0.00
 
 ```
+```
+mysql> show create table sbtest1\G
+*************************** 1. row ***************************
+       Table: sbtest1
+Create Table: CREATE TABLE `sbtest1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `k` int(11) NOT NULL DEFAULT '0',
+  `c` char(120) NOT NULL DEFAULT '',
+  `pad` char(60) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `k_1` (`k`)
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1
+1 row in set (0.00 sec)
+```
 ```sql
 SELECT c FROM sbtest1 WHERE id=5006
 ```
@@ -545,6 +591,8 @@ SELECT c FROM sbtest1 WHERE id=5006
 read only
 
 ```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_read_only.lua cleanup
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_read_only.lua run
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_read_only.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
@@ -585,6 +633,20 @@ Threads fairness:
     execution time (avg/stddev):   9.9974/0.00
 
 ```
+```
+mysql> show create table sbtest1\G
+*************************** 1. row ***************************
+       Table: sbtest1
+Create Table: CREATE TABLE `sbtest1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `k` int(11) NOT NULL DEFAULT '0',
+  `c` char(120) NOT NULL DEFAULT '',
+  `pad` char(60) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `k_1` (`k`)
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1
+1 row in set (0.00 sec)
+```
 ```sql
 BEGIN
 SELECT c FROM sbtest1 WHERE id=4988
@@ -606,6 +668,8 @@ COMMIT
 
 read write 
 ```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_read_write.lua cleanup
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_read_write.lua prepare
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_read_write.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
@@ -645,6 +709,20 @@ Threads fairness:
     events (avg/stddev):           744.0000/0.00
     execution time (avg/stddev):   10.0010/0.00
 ```
+```
+mysql> show create table sbtest1\G
+*************************** 1. row ***************************
+       Table: sbtest1
+Create Table: CREATE TABLE `sbtest1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `k` int(11) NOT NULL DEFAULT '0',
+  `c` char(120) NOT NULL DEFAULT '',
+  `pad` char(60) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `k_1` (`k`)
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1
+1 row in set (0.00 sec)
+```
 ```sql
 BEGIN
 SELECT c FROM sbtest1 WHERE id=5005
@@ -669,6 +747,8 @@ COMMIT
 ```
 update index
 ```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_update_index.lua cleanup
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_update_index.lua prepare
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_update_index.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
@@ -708,6 +788,20 @@ Threads fairness:
     events (avg/stddev):           2478.0000/0.00
     execution time (avg/stddev):   10.0572/0.00
 ```
+```
+mysql> show create table sbtest1\G
+*************************** 1. row ***************************
+       Table: sbtest1
+Create Table: CREATE TABLE `sbtest1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `k` int(11) NOT NULL DEFAULT '0',
+  `c` char(120) NOT NULL DEFAULT '',
+  `pad` char(60) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `k_1` (`k`)
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1
+1 row in set (0.00 sec)
+```
 ```sql
 UPDATE sbtest1 SET k=k+1 WHERE id=5040
 ```
@@ -715,6 +809,8 @@ UPDATE sbtest1 SET k=k+1 WHERE id=5040
 
 update non index
 ```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_update_non_index.lua cleanup
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_update_non_index.lua prepare
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_update_non_index.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
@@ -755,12 +851,29 @@ Threads fairness:
     execution time (avg/stddev):   9.9945/0.00
 
 ```
+```
+mysql> show create table sbtest1\G
+*************************** 1. row ***************************
+       Table: sbtest1
+Create Table: CREATE TABLE `sbtest1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `k` int(11) NOT NULL DEFAULT '0',
+  `c` char(120) NOT NULL DEFAULT '',
+  `pad` char(60) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `k_1` (`k`)
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1
+1 row in set (0.00 sec)
+
+```
 ```sql
 UPDATE sbtest1 SET c='27525676978-93232338281-86023712542-81034864104-70198896832-02822878273-23908830751-94640676193-34689125445-67219715451' WHERE id=4979
 ```
 
 
 ```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_write_only.lua cleanup
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_write_only.lua prepare
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/oltp_write_only.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
@@ -801,6 +914,20 @@ Threads fairness:
     execution time (avg/stddev):   10.0014/0.00
 
 ```
+```
+mysql> show create table sbtest1\G
+*************************** 1. row ***************************
+       Table: sbtest1
+Create Table: CREATE TABLE `sbtest1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `k` int(11) NOT NULL DEFAULT '0',
+  `c` char(120) NOT NULL DEFAULT '',
+  `pad` char(60) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `k_1` (`k`)
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1
+1 row in set (0.00 sec)
+```
 ```sql
 BEGIN
 UPDATE sbtest1 SET k=k+1 WHERE id=3480
@@ -813,6 +940,8 @@ COMMIT
 select random points
 
 ```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/select_random_points.lua cleanup
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/select_random_points.lua prepare
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/select_random_points.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
@@ -852,6 +981,20 @@ Threads fairness:
     events (avg/stddev):           6135.0000/0.00
     execution time (avg/stddev):   9.9866/0.00
 ```
+```
+mysql> show create table sbtest1\G
+*************************** 1. row ***************************
+       Table: sbtest1
+Create Table: CREATE TABLE `sbtest1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `k` int(11) NOT NULL DEFAULT '0',
+  `c` char(120) NOT NULL DEFAULT '',
+  `pad` char(60) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `k_1` (`k`)
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1
+1 row in set (0.00 sec)
+```
 ```sql
 SELECT id, k, c, pad
           FROM sbtest1
@@ -862,6 +1005,8 @@ SELECT id, k, c, pad
 select random rnages
 
 ```console
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/select_random_ranges.lua cleanup
+$ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/select_random_ranges.lua prepare
 $ sysbench --config-file=config --mysql-host=mysql5641 /usr/local/share/sysbench/select_random_ranges.lua run
 sysbench 1.1.0-5cd1244 (using bundled LuaJIT 2.1.0-beta3)
 
@@ -901,7 +1046,20 @@ Threads fairness:
     events (avg/stddev):           6075.0000/0.00
     execution time (avg/stddev):   9.9792/0.00
 ```
-
+```
+mysql> show create table sbtest1\G
+*************************** 1. row ***************************
+       Table: sbtest1
+Create Table: CREATE TABLE `sbtest1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `k` int(11) NOT NULL DEFAULT '0',
+  `c` char(120) NOT NULL DEFAULT '',
+  `pad` char(60) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `k_1` (`k`)
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1
+1 row in set (0.00 sec)
+```
 ```sql
 SELECT count(k)
           FROM sbtest1
