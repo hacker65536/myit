@@ -387,8 +387,19 @@ Threads fairness:
     execution time (avg/stddev):   8.1942/0.00
 
 ```
+```
+mysql> show create table sbtest1\G
+*************************** 1. row ***************************
+       Table: sbtest1
+Create Table: CREATE TABLE `sbtest1` (
+  `id` int(11) NOT NULL,
+  `k` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+1 row in set (0.00 sec)
+```
 ```sql
-
+-- too huge
 ```
 
 delete
