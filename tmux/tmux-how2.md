@@ -54,3 +54,8 @@ synchronize panes
 ```console
 $ tmux set-window-option synchronize-panes on (off)
 ```
+
+vim syntaxhighlight
+```console
+$ export TERM=xterm-256color
+```
