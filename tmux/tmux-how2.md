@@ -47,3 +47,10 @@ split horizontal window
 split vertical window  
 `C-z -> "`
 
+move between windows  
+`C-z -> o`
+
+synchronize panes  
+```console
+$ tmux set-window-option synchronize-panes on (off)
+```
