@@ -28,6 +28,15 @@ mysession: 1 windows (created Mon Nov 19 01:52:34 2018) [121x41]
 detach  
 `C-z -> d `
 
+attach
+```console
+$ tmux a ( or at or attach
+```
+attach with session name
+```console
+$ tmux a -s sessionname
+```
+
 
 create  window   
 `C-z -> c`
