@@ -27,3 +27,17 @@ $ mkdir -p ~/go/{bin,pkg,src}
 $ echo 'export GOPATH="$HOME/go"' >> ~/.bashrc
 $ echo 'export PATH="$PATH:${GOPATH//://bin:}/bin"' >> ~/.bashrc
 ```
+
+set tmux
+```console
+$ sudo yum install ncurses-devel libevent-devel
+$ curl -LSsO https://github.com/tmux/tmux/releases/download/2.7/tmux-2.7.tar.gz
+$ tar zxvf !$:t
+$ cd !$:r:r
+$ ./configure
+$ make
+$ sudo make install
+$ cd ..
+$ rm -rf tmux-2.7*
+```
+```
