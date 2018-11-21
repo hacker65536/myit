@@ -48,4 +48,4 @@ $ cp !$:t/dircolors.256dark ~/.dir_colors
 $ echo "export TERM=xterm-256color" >> ~/.bashrc
 $ bash -l
 ```
-
+![](.dircolors-solarized.PNG)
