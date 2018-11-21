@@ -49,4 +49,3 @@ $ echo "export TERM=xterm-256color" >> ~/.bashrc
 $ bash -l
 ```
 
-```
