@@ -30,4 +30,10 @@ if &term == "screen"
   set t_Co=256
 endif
 ```
+
+- mac
+```
+TODO
+```
+
 https://github.com/segaleran/eran-dotfiles/blob/master/bin/terminalcolors.py
