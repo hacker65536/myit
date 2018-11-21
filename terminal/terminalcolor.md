@@ -19,6 +19,11 @@ set -g default-terminal "screen-256color"
 term "screen-256color"
 ```
 
+- bash
+```
+export TERM=xterm-256color
+```
+
 - vim
 ```vim
 if &term == "screen"
