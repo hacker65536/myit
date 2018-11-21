@@ -59,11 +59,11 @@ https://go-repo.io/
 
 amazonlinux2
 
-```
-sudo rpm --import https://mirror.go-repo.io/centos/RPM-GPG-KEY-GO-REPO
-curl -s https://mirror.go-repo.io/centos/go-repo.repo | sudo tee /etc/yum.repos.d/go-repo.repo
-sudo sed -e 's/\$releasever/7/' -i /etc/yum.repos.d/go-repo.repo  #amzlinu2
-sudo yum install gcc # before install golang 1.11 from outside of amzn2-core
-sudo yum install golang --disablerepo=amzn2-core,amzn2extra-golang1.9 --enablerepo=go-repo
+```console 
+$ sudo rpm --import https://mirror.go-repo.io/centos/RPM-GPG-KEY-GO-REPO
+$ curl -s https://mirror.go-repo.io/centos/go-repo.repo | sudo tee /etc/yum.repos.d/go-repo.repo
+$ sudo sed -e 's/\$releasever/7/' -i /etc/yum.repos.d/go-repo.repo  #amzlinu2
+$ sudo yum install gcc # before install golang 1.11 from outside of amzn2-core
+$ sudo yum install golang --disablerepo=amzn2-core,amzn2extra-golang1.9 --enablerepo=go-repo
 ```
 
