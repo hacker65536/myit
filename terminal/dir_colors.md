@@ -36,3 +36,17 @@ https://github.com/seebi/dircolors-solarized/blob/master/dircolors.ansi-dark
 ```
 DIR 34
 ```
+
+
+## better way
+
+https://github.com/seebi/dircolors-solarized
+
+```console
+$ git clone  https://github.com/seebi/dircolors-solarized
+$ cp !$:t/dircolors.256dark ~/.dir_colors
+$ echo "export TERM=xterm-256color" >> ~/.bashrc
+$ bash -l
+```
+
+```
