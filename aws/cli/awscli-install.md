@@ -17,7 +17,7 @@ $ whereis aws
 aws: /usr/bin/aws /home/ec2-user/.local/bin/aws /home/ec2-user/.local/bin/aws.cmd
 ```
 
-packages of both
+both packages
 ```
 $ sudo yum info awscli
 Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
