@@ -11,3 +11,5 @@ nmap <F8> :TagbarToggle<CR>
 ```
 
 if using mac [system preferences] -> [Keyboard] -> check Use F1,F2,etc, keys as standard function keys
+
+![](./vim-tagbar.png)
