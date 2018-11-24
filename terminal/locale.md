@@ -1,9 +1,9 @@
-
+error massage
 ```
 bash: warning: setlocale: LC_CTYPE: cannot change locale (en_us.UTF-8)
 ```
 
-reason
+situation
 
 local mac
 ```
@@ -17,7 +17,16 @@ LC_NUMERIC="en_us.UTF-8"
 LC_TIME="en_us.UTF-8"
 LC_ALL=
 ```
+`/etc/ssh/ssh_config`
+```
+Host *
+        SendEnv LANG LC_*
+```
 
+```console
+$ cat ~/.bash_profile
+export LANG="en_us.UTF-8"
+```
 
 remote amzlinux2
 ```
@@ -39,4 +48,13 @@ LC_TELEPHONE="en_us.UTF-8"
 LC_MEASUREMENT="en_us.UTF-8"
 LC_IDENTIFICATION="en_us.UTF-8"
 LC_ALL=
+```
+
+solve
+
+local mac
+```
+$ cat ~/.bash_profile
+export LANG="en_us.UTF-8"
+export LC_ALL=en_US.UTF-8
 ```
