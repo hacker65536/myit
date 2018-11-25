@@ -109,7 +109,20 @@ ec2-user  3352  0.1  0.2 128196  2368 ?        Ss   08:48   0:00 gpg-agent --dae
 ```
 
 ```console
+$ gpg -k
+/home/ec2-user/.gnupg/pubring.gpg
+---------------------------------
+pub   4096R/13BE5F85 2018-11-25
+uid                  hacker65536 (I'll be SUPER HACKER) <s.hacker65536@gmail.com>
+sub   4096R/92D97B88 2018-11-25
 
+$ gpg -K
+/home/ec2-user/.gnupg/secring.gpg
+---------------------------------
+sec   4096R/13BE5F85 2018-11-25
+uid                  hacker65536 (I'll be SUPER HACKER) <s.hacker65536@gmail.com>
+ssb   4096R/92D97B88 2018-11-25
+```
 ### oneliner
 
 ```bash
