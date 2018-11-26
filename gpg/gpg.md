@@ -127,7 +127,7 @@ uid                  hacker65536 (I'll be the SUPER HACKER) <s.hacker65536@gmail
 ssb   4096R/98463E46 2018-11-26
 ```
 
-export pubkey
+export public key
 ```console
 $ gpg -a -o pub --export hacker65536
 ```
@@ -154,9 +154,33 @@ MBkdS9EbUiaTiJgt1YJKLWeYilaTeY+REua8MFlPPb05XkKF26tqMP2daNakaBwo
 =foJx
 -----END PGP PUBLIC KEY BLOCK-----
 ```
-export seckey
+export secret key
+```console
+$ gpg -a -o sec --export-secret-keys hacker65536
 ```
-$ gpg -a -o sec --export-secret hacker65536
+
+```console
+$ head sec; tail sec
+-----BEGIN PGP PRIVATE KEY BLOCK-----
+Version: GnuPG v2.0.22 (GNU/Linux)
+
+lQc+BFv7kn0BEADD+gLTcJ4++SWSf3Kpp5fWy5HEt1SZCBnPcz63Hc04LUgFsgk3
+4WbjDJr8m4kRdAgp0H62ef/UwFiOP8kbtgY6fAEccFxz8Hd33B3jA2aW6u/vXoUM
+Ib/HnTEcXYGWHhMkcWlrP3qja4LOyUvlBVWMQ6ZlPjzHf7pU473TFoaDWAMME1VA
+KpF5lkffl61OgjAhSE2Q8XLqYMih4FchO13FKvE5SkFb6tCS36TRhBViQnPDqGip
+QJe2hB2qA+LBO0fQSFcOwyKFk4ow8+CO9BgmuxJx1brCaB5nmYOdtg4qq0URIxmx
+aiKfGd5CR0v0NBaAqtYUDw9XQbKsORHx7yU2HzAHcx0DxmUtwQ1GP7FyB5dcUo9c
+yBWOTq3DlLYhrFZxV4io19rYsX8pC6KagjrnTNuC3Eyf2+QCyTaNWMiqNzxjxMlP
+61BOw3QRttAdfokIb9DZwxjpT0j1pAvfwG9yamVyiqtU2zPf5ytEoiGPAewRPp2p
+pJVxUhKROaECirlJjrvX7kCPz7+3YmmesWp5ZpqT4THV6xG+wR+HezusAcpGo35d
+J5cZOZmJ6wJ71GPBsrNve7qwSwbY/FBLO2RkK/Y+cM+d6vdbpQCNYSvww9tJE5lp
+5ASMcp/aVjR2prTFEVw8PvOmczbVA8dP7aLx3EN9uYENmrz4Jm91JPYMTH82m5kw
+d9Z0YWwRH+sjh3qMFnvo/y115Qsw7spccFcBOLfk7QDhl3HLxGfmeeq7q/aBLzc3
+L3F2CFkLrgkWVi3By8SKJKZFMBkdS9EbUiaTiJgt1YJKLWeYilaTeY+REua8MFlP
+Pb05XkKF26tqMP2daNakaBwo1qQ+kq3MICuLfUxygKZwBKGzhgZq/XirZ1fA851E
+lCM=
+=vSB8
+-----END PGP PRIVATE KEY BLOCK-----
 ```
 
 ### oneliner
