@@ -16,9 +16,6 @@ $ ps aux|grep [g]pg-agent
 
 
 ## gen-key
-### interactive mode 
-
-
 ```
 $ gpg --gen-key
 gpg (GnuPG) 2.0.22; Copyright (C) 2013 Free Software Foundation, Inc.
@@ -182,6 +179,40 @@ lCM=
 =vSB8
 -----END PGP PRIVATE KEY BLOCK-----
 ```
+
+import (remote)
+
+```console
+$ gpg --import pub
+gpg: directory `/home/ec2-user/.gnupg' created
+gpg: new configuration file `/home/ec2-user/.gnupg/gpg.conf' created
+gpg: WARNING: options in `/home/ec2-user/.gnupg/gpg.conf' are not yet active during this run
+gpg: keyring `/home/ec2-user/.gnupg/secring.gpg' created
+gpg: keyring `/home/ec2-user/.gnupg/pubring.gpg' created
+gpg: /home/ec2-user/.gnupg/trustdb.gpg: trustdb created
+gpg: key 8B8884B7: public key "hacker65536 (I'll be the SUPER HACKER) <s.hacker65536@gmail.com>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1  (RSA: 1)
+```
+```console
+$ gpg -k
+/home/ec2-user/.gnupg/pubring.gpg
+---------------------------------
+pub   4096R/8B8884B7 2018-11-26
+uid                  hacker65536 (I'll be the SUPER HACKER) <s.hacker65536@gmail.com>
+sub   4096R/98463E46 2018-11-26
+```
+
+fingerprint
+```console
+$ gpg --fingerprint hacker65536
+pub   4096R/8B8884B7 2018-11-26
+      Key fingerprint = C159 943E 840B 72A6 75BB  9E52 5B9D B570 8B88 84B7
+uid                  hacker65536 (I'll be the SUPER HACKER) <s.hacker65536@gmail.com>
+sub   4096R/98463E46 2018-11-26
+```
+```console
+
 
 ### oneliner
 
