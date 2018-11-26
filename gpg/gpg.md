@@ -115,7 +115,7 @@ uid                  hacker65536 (I'll be the SUPER HACKER) <s.hacker65536@gmail
 sub   4096R/98463E46 2018-11-26
 ```
 show  private key
-```
+```console
 $ gpg -K
 /home/ec2-user/.gnupg/secring.gpg
 ---------------------------------
