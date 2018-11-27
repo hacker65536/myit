@@ -1,6 +1,9 @@
 
 
 ### max_prepared_stmt_count
+
+https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count
+
 - system variable max_prepared_stmt_count
 - scope global
 - dynamic 
