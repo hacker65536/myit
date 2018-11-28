@@ -46,7 +46,7 @@ function sysbench.report_json(stat)
         stat.latency_min,
         stat.latency_avg,
         stat.latency_max,
-        stat.latency_pct ,
+        stat.latency_pct,
         stat.latency_sum
    ))
 end
