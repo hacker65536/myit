@@ -79,4 +79,4 @@ mysql> show status like 'Prepared_stmt_count';
 ```
 
 
-(threads * tables * 5 ) + threads = Prepared_stmt_count
+(threads * tables * 5) + threads = Prepared_stmt_count
