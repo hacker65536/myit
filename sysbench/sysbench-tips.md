@@ -77,3 +77,6 @@ mysql> show status like 'Prepared_stmt_count';
 +---------------------+-------+
 1 row in set (0.00 sec)
 ```
+
+
+(threads * tables * 5 ) + threads = Prepared_stmt_count
