@@ -14,9 +14,7 @@ set number relativenumber
 
 
 enable disable toggle
-```
-:set number norelativenumber
-```
+
 
 ```
 " turn absolute line numbers on
