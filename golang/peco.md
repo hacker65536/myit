@@ -1,8 +1,10 @@
 https://github.com/peco/peco
 
 ```console
-$ go get github.com/peco/peco
-$ cd $GOPATH/src/!$
+$ mkdir -p $GOPATH/src/github.com/peco
+$ cd !$
+$ git clone https://github.com/peco/peco
+$ cd !$:t
 $ make build 
 ```
 ```
@@ -13,6 +15,8 @@ go build -o releases/peco_linux_amd64/peco cmd/peco/peco.go
 ```
 ```console
 $ ls -la releases/peco_linux_amd64/peco
+-rwxrwxr-x 1 ec2-user ec2-user 4531350 Nov 29 02:28 releases/peco_linux_amd64/peco
+
 $ mv releases/peco_linux_amd64/peco $GOPATH/bin
 ```
 
