@@ -15,3 +15,6 @@ $ aws rds-data execute-sql --db-cluster-or-instance-arn arn:aws:rds:us-east-1:12
 --sql-statements "select * from mytable" --region us-east-1 --no-verify-ssl \
 --endpoint-url https://rds-data.us-east-1.amazonaws.com --profile myprofile
 ```      
+
+
+https://github.com/aws-samples/amazon-rds-data-api-demo
