@@ -5,6 +5,7 @@ https://developers.google.com/sheets/api/quickstart/go
 
 go https://developers.google.com/sheets/api/quickstart/go and click `ENABLE THE GOOGLE SHEETS API` button or go https://console.cloud.google.com/apis/credentials/oauthclient and do on instructions.
 
+move credentials.json to working derectory.
 ## step2 prepare the workspace
 
 ```
