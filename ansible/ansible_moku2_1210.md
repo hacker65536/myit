@@ -755,3 +755,44 @@ PING 172.17.99.63 (172.17.99.63) 56(84) bytes of data.
 3 packets transmitted, 2 received, 33% packet loss, time 2001ms
 rtt min/avg/max/mdev = 1.878/2.045/2.212/0.167 ms
 ```
+```
+[student18@ansible networking-workshop]$ cat ~/networking-workshop/1.4-router_configs/host-routes.yml
+---
+- name: add route on ansible
+  hosts: ansible
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: add route to 172.17.0.0/16 subnet on ansible node
+      lineinfile:
+        path: /etc/sysconfig/network-scripts/route-eth0
+        line: "172.17.0.0/16 via {{hostvars['rtr1']['private_ip']}}"
+        create: yes
+      notify: "restart network"
+
+  handlers:
+    - name: restart network
+      systemd:
+        state: restarted
+        name: network
+
+- name: add route on host1
+  hosts: host1
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: add route to 172.16.0.0/16 subnet on host1 node
+      lineinfile:
+        path: /etc/sysconfig/network-scripts/route-eth0
+        line: "172.16.0.0/16 via {{hostvars['rtr2']['private_ip']}}"
+        create: yes
+      notify: "restart network"
+
+  handlers:
+    - name: restart network
+      systemd:
+        state: restarted
+        name: network
+```
