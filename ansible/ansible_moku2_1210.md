@@ -180,3 +180,32 @@ rtr2 | SUCCESS => {
     "changed": false
 }
 ```
+```
+$ ansible routers -m ios_command -a 'commands="show ip int br"' -c network_cli
+rtr1 | SUCCESS => {
+    "changed": false,
+    "stdout": [
+        "Interface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet1       172.16.148.0    YES DHCP   up                    up      \nVirtualPortGroup0      192.168.35.101  YES TFTP   up                    up"
+    ],
+    "stdout_lines": [
+        [
+            "Interface              IP-Address      OK? Method Status                Protocol",
+            "GigabitEthernet1       172.16.148.0    YES DHCP   up                    up      ",
+            "VirtualPortGroup0      192.168.35.101  YES TFTP   up                    up"
+        ]
+    ]
+}
+rtr2 | SUCCESS => {
+    "changed": false,
+    "stdout": [
+        "Interface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet1       172.17.23.141   YES DHCP   up                    up      \nVirtualPortGroup0      192.168.35.101  YES TFTP   up                    up"
+    ],
+    "stdout_lines": [
+        [
+            "Interface              IP-Address      OK? Method Status                Protocol",
+            "GigabitEthernet1       172.17.23.141   YES DHCP   up                    up      ",
+            "VirtualPortGroup0      192.168.35.101  YES TFTP   up                    up"
+        ]
+    ]
+}
+```
