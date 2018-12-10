@@ -389,3 +389,165 @@ ansible ansible_host=3.0.90.222 ansible_ssh_user=ec2-user private_ip=172.16.50.1
       ios_config:
         backup: yes
 ```
+
+```
+[student18@ansible networking-workshop]$ ansible-playbook backup.yml
+
+PLAY [backup router configurations] *********************************************************
+
+TASK [gather ios_facts] *********************************************************************
+ok: [rtr2]
+ok: [rtr1]
+
+TASK [debug] ********************************************************************************
+ok: [rtr1] => {
+    "msg": {
+        "ansible_facts": {
+            "ansible_net_all_ipv4_addresses": [
+                "172.16.148.0",
+                "192.168.35.101"
+            ],
+            "ansible_net_all_ipv6_addresses": [],
+            "ansible_net_filesystems": [
+                "bootflash:"
+            ],
+            "ansible_net_filesystems_info": {
+                "bootflash:": {
+                    "spacefree_kb": 6897196,
+                    "spacetotal_kb": 7712284
+                }
+            },
+            "ansible_net_gather_subset": [
+                "hardware",
+                "default",
+                "interfaces"
+            ],
+            "ansible_net_hostname": "ip-172-16-148-0",
+            "ansible_net_image": "boot:packages.conf",
+            "ansible_net_interfaces": {
+                "GigabitEthernet1": {
+                    "bandwidth": 1000000,
+                    "description": null,
+                    "duplex": "Full",
+                    "ipv4": [
+                        {
+                            "address": "172.16.148.0",
+                            "subnet": "16"
+                        }
+                    ],
+                    "lineprotocol": "up ",
+                    "macaddress": "0217.9eb2.ef88",
+                    "mediatype": "Virtual",
+                    "mtu": 1500,
+                    "operstatus": "up",
+                    "type": "CSR vNIC"
+                },
+                "VirtualPortGroup0": {
+                    "bandwidth": 750000,
+                    "description": null,
+                    "duplex": null,
+                    "ipv4": [
+                        {
+                            "address": "192.168.35.101",
+                            "subnet": "24"
+                        }
+                    ],
+                    "lineprotocol": "up ",
+                    "macaddress": "001e.bd3c.eabd",
+                    "mediatype": null,
+                    "mtu": 1500,
+                    "operstatus": "up",
+                    "type": "Virtual Port Group"
+                }
+            },
+            "ansible_net_memfree_mb": 1861599,
+            "ansible_net_memtotal_mb": 2180876,
+            "ansible_net_model": "CSR1000V",
+            "ansible_net_serialnum": "9QB2MMBDHFT",
+            "ansible_net_version": "16.09.01"
+        },
+        "changed": false,
+        "failed": false
+    }
+}
+ok: [rtr2] => {
+    "msg": {
+        "ansible_facts": {
+            "ansible_net_all_ipv4_addresses": [
+                "172.17.23.141",
+                "192.168.35.101"
+            ],
+            "ansible_net_all_ipv6_addresses": [],
+            "ansible_net_filesystems": [
+                "bootflash:"
+            ],
+            "ansible_net_filesystems_info": {
+                "bootflash:": {
+                    "spacefree_kb": 6897204,
+                    "spacetotal_kb": 7712284
+                }
+            },
+            "ansible_net_gather_subset": [
+                "hardware",
+                "default",
+                "interfaces"
+            ],
+            "ansible_net_hostname": "ip-172-17-23-141",
+            "ansible_net_image": "boot:packages.conf",
+            "ansible_net_interfaces": {
+                "GigabitEthernet1": {
+                    "bandwidth": 1000000,
+                    "description": null,
+                    "duplex": "Full",
+                    "ipv4": [
+                        {
+                            "address": "172.17.23.141",
+                            "subnet": "16"
+                        }
+                    ],
+                    "lineprotocol": "up ",
+                    "macaddress": "02f4.ba49.121e",
+                    "mediatype": "Virtual",
+                    "mtu": 1500,
+                    "operstatus": "up",
+                    "type": "CSR vNIC"
+                },
+                "VirtualPortGroup0": {
+                    "bandwidth": 750000,
+                    "description": null,
+                    "duplex": null,
+                    "ipv4": [
+                        {
+                            "address": "192.168.35.101",
+                            "subnet": "24"
+                        }
+                    ],
+                    "lineprotocol": "up ",
+                    "macaddress": "001e.4942.bcbd",
+                    "mediatype": null,
+                    "mtu": 1500,
+                    "operstatus": "up",
+                    "type": "Virtual Port Group"
+                }
+            },
+            "ansible_net_memfree_mb": 1861444,
+            "ansible_net_memtotal_mb": 2180876,
+            "ansible_net_model": "CSR1000V",
+            "ansible_net_serialnum": "9MR1BGDXDEQ",
+            "ansible_net_version": "16.09.01"
+        },
+        "changed": false,
+        "failed": false
+    }
+}
+
+TASK [Backup configuration] *****************************************************************
+ok: [rtr1]
+ok: [rtr2]
+
+PLAY RECAP **********************************************************************************
+rtr1                       : ok=3    changed=0    unreachable=0    failed=0
+rtr2                       : ok=3    changed=0    unreachable=0    failed=0
+
+```
+
