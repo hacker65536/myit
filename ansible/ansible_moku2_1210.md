@@ -706,3 +706,41 @@ rtr2                       : ok=1    changed=1    unreachable=0    failed=0
       when:
         - '"rtr2" in inventory_hostname'
 ```
+
+```
+[student18@ansible networking-workshop]$ ansible-playbook router_configs.yml
+
+PLAY [Router Configurations] ****************************************************************
+
+TASK [Static route from R1 to R2] ***********************************************************
+skipping: [rtr2]
+changed: [rtr1]
+
+TASK [configure name servers] ***************************************************************
+skipping: [rtr2] => (item=8.8.8.8)
+skipping: [rtr2] => (item=8.8.4.4)
+changed: [rtr1] => (item=8.8.8.8)
+changed: [rtr1] => (item=8.8.4.4)
+
+TASK [enable GigabitEthernet1 interface] ****************************************************
+skipping: [rtr1]
+changed: [rtr2]
+
+TASK [dhcp configuration for GigabitEthernet1] **********************************************
+skipping: [rtr1]
+ok: [rtr2]
+
+TASK [Static route from R2 to R1] ***********************************************************
+skipping: [rtr1]
+changed: [rtr2]
+
+TASK [configure name servers] ***************************************************************
+skipping: [rtr1] => (item=8.8.8.8)
+skipping: [rtr1] => (item=8.8.4.4)
+changed: [rtr2] => (item=8.8.8.8)
+changed: [rtr2] => (item=8.8.4.4)
+
+PLAY RECAP **********************************************************************************
+rtr1                       : ok=2    changed=2    unreachable=0    failed=0
+rtr2                       : ok=4    changed=3    unreachable=0    failed=0
+```
