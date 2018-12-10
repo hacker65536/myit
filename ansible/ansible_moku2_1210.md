@@ -628,3 +628,21 @@ PING 172.17.99.63 (172.17.99.63) 56(84) bytes of data.
     when:
       - '"rtr2" in inventory_hostname'
 ```
+
+```
+[student18@ansible networking-workshop]$ ansible-playbook gre.yml
+
+PLAY [Configure GRE Tunnel between rtr1 and rtr2] *******************************************
+
+TASK [create tunnel interface to R2] ********************************************************
+skipping: [rtr2]
+changed: [rtr1]
+
+TASK [create tunnel interface to R1] ********************************************************
+skipping: [rtr1]
+changed: [rtr2]
+
+PLAY RECAP **********************************************************************************
+rtr1                       : ok=1    changed=1    unreachable=0    failed=0
+rtr2                       : ok=1    changed=1    unreachable=0    failed=0
+```
