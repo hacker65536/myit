@@ -565,3 +565,29 @@ drwxr-xr-x. 12 student18 student18 4096 Dec 10 11:29 ..
 
 playbook: backup.yml
 ```
+
+## Exercise 1.3 
+
+```
+[student18@host1 ~]$ hostname -I
+172.17.99.63
+[student18@host1 ~]$ curl checkip.amazonaws.com
+18.136.202.135
+```
+
+```
+[student18@ansible networking-workshop]$ ping -c 3 18.136.202.135
+PING 18.136.202.135 (18.136.202.135) 56(84) bytes of data.
+64 bytes from 18.136.202.135: icmp_seq=1 ttl=63 time=0.621 ms
+64 bytes from 18.136.202.135: icmp_seq=2 ttl=63 time=0.505 ms
+64 bytes from 18.136.202.135: icmp_seq=3 ttl=63 time=0.564 ms
+
+--- 18.136.202.135 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2000ms
+rtt min/avg/max/mdev = 0.505/0.563/0.621/0.051 ms
+[student18@ansible networking-workshop]$ ping -c 3 172.17.99.63
+PING 172.17.99.63 (172.17.99.63) 56(84) bytes of data.
+
+--- 172.17.99.63 ping statistics ---
+3 packets transmitted, 0 received, 100% packet loss, tim
+```
