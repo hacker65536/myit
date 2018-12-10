@@ -209,3 +209,28 @@ rtr2 | SUCCESS => {
     ]
 }
 ```
+```
+[student18@ansible ~]$ ansible routers -m ios_command -a 'commands="show banner motd"' -c network_cli
+rtr1 | SUCCESS => {
+    "changed": false,
+    "stdout": [
+        ""
+    ],
+    "stdout_lines": [
+        [
+            ""
+        ]
+    ]
+}
+rtr2 | SUCCESS => {
+    "changed": false,
+    "stdout": [
+        ""
+    ],
+    "stdout_lines": [
+        [
+            ""
+        ]
+    ]
+}
+```
