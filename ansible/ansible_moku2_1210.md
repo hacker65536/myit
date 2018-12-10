@@ -796,3 +796,68 @@ rtt min/avg/max/mdev = 1.878/2.045/2.212/0.167 ms
         state: restarted
         name: network
 ```
+```
+[student18@ansible ~]$ mkdir -p ~/test/roles
+[student18@ansible test]$ cd !$
+[student18@ansible roles]$ ansible-galaxy init system
+- system was created successfully
+[student18@ansible roles]$ ansible-galaxy init interface
+- interface was created successfully
+[student18@ansible roles]$ ansible-galaxy init static_route
+- static_route was created successfully
+[student18@ansible roles]$ tree
+.
+├── interface
+│   ├── defaults
+│   │   └── main.yml
+│   ├── files
+│   ├── handlers
+│   │   └── main.yml
+│   ├── meta
+│   │   └── main.yml
+│   ├── README.md
+│   ├── tasks
+│   │   └── main.yml
+│   ├── templates
+│   ├── tests
+│   │   ├── inventory
+│   │   └── test.yml
+│   └── vars
+│       └── main.yml
+├── static_route
+│   ├── defaults
+│   │   └── main.yml
+│   ├── files
+│   ├── handlers
+│   │   └── main.yml
+│   ├── meta
+│   │   └── main.yml
+│   ├── README.md
+│   ├── tasks
+│   │   └── main.yml
+│   ├── templates
+│   ├── tests
+│   │   ├── inventory
+│   │   └── test.yml
+│   └── vars
+│       └── main.yml
+└── system
+    ├── defaults
+    │   └── main.yml
+    ├── files
+    ├── handlers
+    │   └── main.yml
+    ├── meta
+    │   └── main.yml
+    ├── README.md
+    ├── tasks
+    │   └── main.yml
+    ├── templates
+    ├── tests
+    │   ├── inventory
+    │   └── test.yml
+    └── vars
+        └── main.yml
+
+27 directories, 24 files
+```
