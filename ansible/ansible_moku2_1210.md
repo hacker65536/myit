@@ -551,3 +551,17 @@ rtr2                       : ok=3    changed=0    unreachable=0    failed=0
 
 ```
 
+```
+[student18@ansible networking-workshop]$ ls -la backup
+total 20
+drwxrwxr-x.  2 student18 student18   84 Dec 10 11:29 .
+drwxr-xr-x. 12 student18 student18 4096 Dec 10 11:29 ..
+-rw-rw-r--.  1 student18 student18 4335 Dec 10 11:29 rtr1_config.2018-12-10@11:29:51
+-rw-rw-r--.  1 student18 student18 4336 Dec 10 11:29 rtr2_config.2018-12-10@11:29:51
+```
+
+```
+[student18@ansible networking-workshop]$ ansible-playbook backup.yml --syntax-check
+
+playbook: backup.yml
+```
