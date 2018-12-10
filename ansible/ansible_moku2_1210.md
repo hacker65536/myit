@@ -234,3 +234,43 @@ rtr2 | SUCCESS => {
     ]
 }
 ```
+```
+[student18@ansible ~]$ ansible routers -m ios_banner -a 'banner=motd text="Ansible is awesome!" state=present' -c network_cli
+rtr2 | CHANGED => {
+    "changed": true,
+    "commands": [
+        "banner motd @\nAnsible is awesome!\n@"
+    ]
+}
+rtr1 | CHANGED => {
+    "changed": true,
+    "commands": [
+        "banner motd @\nAnsible is awesome!\n@"
+    ]
+}
+```
+```
+[student18@ansible ~]$ ansible routers -m ios_command -a 'commands="show banner motd"' -c network_cli
+rtr1 | SUCCESS => {
+    "changed": false,
+    "stdout": [
+        "Ansible is awesome!"
+    ],
+    "stdout_lines": [
+        [
+            "Ansible is awesome!"
+        ]
+    ]
+}
+rtr2 | SUCCESS => {
+    "changed": false,
+    "stdout": [
+        "Ansible is awesome!"
+    ],
+    "stdout_lines": [
+        [
+            "Ansible is awesome!"
+        ]
+    ]
+}
+```
