@@ -15,7 +15,7 @@ student18-rtr2 ansible_host=52.77.212.166 ansible_user=student18 ansible_ssh_pas
 student18-host1 ansible_host=18.136.202.135 ansible_user=student18 ansible_ssh_pass=red123hat
 ```
 
-## processing
+## Exercise 1.1 Running Ad-hoc commands
 
 ```
 [student18@ansible ~]$ ls -la
@@ -311,4 +311,81 @@ rtr2 | SUCCESS => {
         ]
     ]
 }
+```
+
+## Exercise 1.2 Backing up Configurations
+
+```
+[student18@ansible ~]$ cd ~/networking-workshop/
+[student18@ansible networking-workshop]$ ansible --version
+ansible 2.7.4
+  config file = /home/student18/.ansible.cfg
+  configured module search path = [u'/home/student18/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 2.7.5 (default, May  3 2017, 07:55:04) [GCC 4.8.5 20150623 (Red Hat 4.8.5-14)]
+```
+
+```
+[student18@ansible networking-workshop]$ cat ~/.ansible.cfg
+[defaults]
+connection = smart
+timeout = 60
+deprecation_warnings = False
+inventory = /home/student18/networking-workshop/lab_inventory/hosts
+host_key_checking = False
+private_key_file = /home/student18/.ssh/aws-private.pem
+```
+```
+[student18@ansible networking-workshop]$ cat ~/networking-workshop/lab_inventory/hosts
+[all:vars]
+ansible_user=student18
+ansible_ssh_pass=red123hat
+ansible_port=22
+
+[routers:children]
+cisco
+
+[cisco]
+rtr1 ansible_host=3.0.100.243 ansible_ssh_user=ec2-user private_ip=172.16.148.0 ansible_network_os=ios
+rtr2 ansible_host=52.77.212.166 ansible_ssh_user=ec2-user private_ip=172.17.23.141 ansible_network_os=ios
+
+
+[cisco:vars]
+ansible_ssh_user=ec2-user
+ansible_network_os=ios
+
+
+[dc1]
+rtr1
+
+[dc2]
+rtr2
+
+[hosts]
+host1 ansible_host=18.136.202.135 ansible_ssh_user=ec2-user private_ip=172.17.99.63
+
+[control]
+ansible ansible_host=3.0.90.222 ansible_ssh_user=ec2-user private_ip=172.16.50.135
+```
+
+```yml
+
+---
+- name: backup router configurations
+  hosts: routers
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: gather ios_facts
+      ios_facts:
+      register: version
+
+    - debug:
+        msg: "{{version}}"
+
+    - name: Backup configuration
+      ios_config:
+        backup: yes
 ```
