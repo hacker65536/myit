@@ -566,7 +566,7 @@ drwxr-xr-x. 12 student18 student18 4096 Dec 10 11:29 ..
 playbook: backup.yml
 ```
 
-## Exercise 1.3 
+## Exercise 1.3 Creating a GRE Tunnel
 
 ```
 [student18@host1 ~]$ hostname -I
@@ -590,4 +590,41 @@ PING 172.17.99.63 (172.17.99.63) 56(84) bytes of data.
 
 --- 172.17.99.63 ping statistics ---
 3 packets transmitted, 0 received, 100% packet loss, tim
+```
+
+
+```yml
+---
+- name: Configure GRE Tunnel between rtr1 and rtr2
+  hosts: routers
+  gather_facts: no
+  connection: network_cli
+  vars:
+     #Variables can be manually set like this:
+     #rtr1_public_ip: "34.236.147.137"
+     #rtr2_public_ip: "54.209.50.0"
+     #or reference dynamically variables tied to the host directly
+     #in this case, its grabbing this from the inventory under lab_inventory
+     rtr1_public_ip: "{{hostvars['rtr1']['ansible_host']}}"
+     rtr2_public_ip: "{{hostvars['rtr2']['ansible_host']}}"
+  tasks:
+  - name: create tunnel interface to R2
+    ios_config:
+      lines:
+        - 'ip address 10.0.0.1 255.255.255.0'
+        - 'tunnel source GigabitEthernet1'
+        - 'tunnel destination {{rtr2_public_ip}}'
+      parents: interface Tunnel 0
+    when:
+      - '"rtr1" in inventory_hostname'
+
+  - name: create tunnel interface to R1
+    ios_config:
+      lines:
+        - 'ip address 10.0.0.2 255.255.255.0'
+        - 'tunnel source GigabitEthernet1'
+        - 'tunnel destination {{rtr1_public_ip}}'
+      parents: interface Tunnel 0
+    when:
+      - '"rtr2" in inventory_hostname'
 ```
