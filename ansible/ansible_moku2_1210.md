@@ -274,3 +274,41 @@ rtr2 | SUCCESS => {
     ]
 }
 ```
+```
+[student18@ansible ~]$ ansible routers -m ios_banner -a 'banner=motd state=absent' -c network_cli
+rtr2 | CHANGED => {
+    "changed": true,
+    "commands": [
+        "no banner motd"
+    ]
+}
+rtr1 | CHANGED => {
+    "changed": true,
+    "commands": [
+        "no banner motd"
+    ]
+}
+[student18@ansible ~]$ ansible routers -m ios_command -a 'commands="show banner motd"' -c network_cli
+rtr1 | SUCCESS => {
+    "changed": false,
+    "stdout": [
+        ""
+    ],
+    "stdout_lines": [
+        [
+            ""
+        ]
+    ]
+}
+rtr2 | SUCCESS => {
+    "changed": false,
+    "stdout": [
+        ""
+    ],
+    "stdout_lines": [
+        [
+            ""
+        ]
+    ]
+}
+```
