@@ -744,3 +744,14 @@ PLAY RECAP *********************************************************************
 rtr1                       : ok=2    changed=2    unreachable=0    failed=0
 rtr2                       : ok=4    changed=3    unreachable=0    failed=0
 ```
+
+```
+[student18@ansible networking-workshop]$ ping -c 3 172.17.99.63
+PING 172.17.99.63 (172.17.99.63) 56(84) bytes of data.
+64 bytes from 172.17.99.63: icmp_seq=2 ttl=62 time=2.21 ms
+64 bytes from 172.17.99.63: icmp_seq=3 ttl=62 time=1.87 ms
+
+--- 172.17.99.63 ping statistics ---
+3 packets transmitted, 2 received, 33% packet loss, time 2001ms
+rtt min/avg/max/mdev = 1.878/2.045/2.212/0.167 ms
+```
