@@ -861,3 +861,39 @@ rtt min/avg/max/mdev = 1.878/2.045/2.212/0.167 ms
 
 27 directories, 24 files
 ```
+
+```
+[student18@ansible test]$ ansible-playbook deploy_network.yml
+
+PLAY [Deploy the Router configurations] *****************************************************
+
+TASK [system : gather ios_facts] ************************************************************
+ok: [rtr2]
+ok: [rtr1]
+
+TASK [system : configure name servers] ******************************************************
+changed: [rtr1] => (item=8.8.8.8)
+changed: [rtr2] => (item=8.8.8.8)
+changed: [rtr2] => (item=8.8.4.4)
+changed: [rtr1] => (item=8.8.4.4)
+
+TASK [interface : enable GigabitEthernet1 interface if compliant on r2] *********************
+skipping: [rtr1]
+ok: [rtr2]
+
+TASK [interface : dhcp configuration for GigabitEthernet1] **********************************
+skipping: [rtr1]
+ok: [rtr2]
+
+TASK [static_route : Static route from R1 to R2] ********************************************
+skipping: [rtr2]
+ok: [rtr1]
+
+TASK [static_route : Static route from R2 to R1] ********************************************
+skipping: [rtr1]
+ok: [rtr2]
+
+PLAY RECAP **********************************************************************************
+rtr1                       : ok=3    changed=1    unreachable=0    failed=0
+rtr2                       : ok=5    changed=1    unreachable=0    failed=0
+```
