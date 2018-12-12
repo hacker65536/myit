@@ -111,3 +111,11 @@ $ cat /lib/systemd/system/user@.service.d/timeout.conf
 [Service]
 TimeoutStopSec=5
 ```
+```console
+$ grep -r systemd /etc/pam.d/*
+/etc/pam.d/common-session:session       optional        pam_systemd.so
+/etc/pam.d/runuser-l:-session   optional        pam_systemd.so
+/etc/pam.d/systemd-user:# This file is part of systemd.
+/etc/pam.d/systemd-user:# Used by systemd --user instances.
+/etc/pam.d/systemd-user:session optional pam_systemd.so
+```
