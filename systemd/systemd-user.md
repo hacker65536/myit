@@ -205,7 +205,7 @@ Trying to run as user instance, but $XDG_RUNTIME_DIR is not set.
 
 ```
 # /lib/systemd/systemd --user &
-[1] 10199
+[1] 10496
 Startup finished in 2ms.
 ```
 
@@ -215,15 +215,15 @@ Startup finished in 2ms.
     State: running
      Jobs: 0 queued
    Failed: 0 units
-    Since: Wed 2018-12-12 08:53:38 UTC; 3min 33s ago
+    Since: Wed 2018-12-12 08:58:14 UTC; 16s ago
    CGroup: /user.slice/user-1000.slice/session-4.scope
            ├─10304 sshd: ec2-user [priv
            ├─10322 sshd: ec2-user@pts/0
            ├─10323 -bash
-           ├─10407 /lib/systemd/systemd --user
            ├─10459 sudo su -
            ├─10460 su -
            ├─10461 -bash
-           ├─10485 systemctl --user status
-           └─10486 less
+           ├─10496 /lib/systemd/systemd --user
+           ├─10498 systemctl --user status
+           └─10499 less
 ```
