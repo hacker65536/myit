@@ -178,3 +178,52 @@ session  required pam_limits.so
 @include common-session-noninteractive
 session optional pam_systemd.so
 ```
+
+## amazon linux 2
+
+```
+$ cat /etc/system-release
+Amazon Linux release 2 (Karoo)
+```
+
+```
+$ sudo su -
+Last login: Wed Dec 12 08:41:57 UTC 2018 on pts/0
+```
+```
+# systemctl --user
+Failed to get D-Bus connection: Connection refused
+```
+```
+# /lib/systemd/systemd --user
+Trying to run as user instance, but $XDG_RUNTIME_DIR is not set.
+```
+```
+# mkdir -p /run/user/0
+# export XDG_RUNTIME_DIR=/run/user/0
+```
+
+```
+# /lib/systemd/systemd --user &
+[1] 10199
+Startup finished in 2ms.
+```
+
+```
+# systemctl --user status
+● ip-10-0-0-24.us-west-2.compute.internalmy.local
+    State: running
+     Jobs: 0 queued
+   Failed: 0 units
+    Since: Wed 2018-12-12 08:53:38 UTC; 3min 33s ago
+   CGroup: /user.slice/user-1000.slice/session-4.scope
+           ├─10304 sshd: ec2-user [priv
+           ├─10322 sshd: ec2-user@pts/0
+           ├─10323 -bash
+           ├─10407 /lib/systemd/systemd --user
+           ├─10459 sudo su -
+           ├─10460 su -
+           ├─10461 -bash
+           ├─10485 systemctl --user status
+           └─10486 less
+```
