@@ -9,7 +9,7 @@ http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/
 install
 -----------
 
-## Using rustup (recommended)
+### Using rustup (recommended)
 
 ```
 curl https://sh.rustup.rs -sSf | sh
@@ -84,7 +84,7 @@ $ echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc
 
 
 
-## amazon-linux-extras
+### amazon-linux-extras
 
 ```
 $ sudo amazon-linux-extras
