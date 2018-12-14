@@ -84,7 +84,7 @@ $ echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc
 
 
 
-amazon-linux-extras
+## amazon-linux-extras
 
 ```
 $ sudo amazon-linux-extras
