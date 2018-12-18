@@ -99,3 +99,10 @@ Successfully installed awscli botocore-1.12.48 prompt-toolkit-2.0.7 ruamel.order
 $ aws --version
 aws-cli/2.0.0dev0 Python/2.7.14 Linux/4.14.77-81.59.amzn2.x86_64 botocore/1.12.48
 ```
+```console
+$ pip uninstall awscli
+Uninstalling awscli-2.0.0.dev0:
+  /home/ec2-user/.local/lib/python2.7/site-packages/awscli.egg-link
+Proceed (y/n)? y
+  Successfully uninstalled awscli-2.0.0.dev0
+```
