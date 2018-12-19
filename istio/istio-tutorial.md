@@ -227,3 +227,23 @@ servicegraph             ClusterIP      10.19.251.41    <none>          8088/TCP
 tracing                  ClusterIP      10.19.251.246   <none>          80/TCP                                                                                                                    2m
 zipkin                   ClusterIP      10.19.243.95    <none>          9411/TCP                                                                                                                  2m
 ```
+
+```
+$ kubectl get pods -n istio-system
+NAME                                      READY     STATUS      RESTARTS   AGE
+grafana-774bf8cb47-k97k2                  1/1       Running     0          3m
+istio-citadel-cb5b884db-bhszq             1/1       Running     0          3m
+istio-cleanup-secrets-6dtvp               0/1       Completed   0          4m
+istio-egressgateway-7bbd674db4-jxkrb      1/1       Running     0          4m
+istio-galley-5b494c7f5-mt7d5              1/1       Running     0          4m
+istio-grafana-post-install-vcxtk          0/1       Completed   2          4m
+istio-ingressgateway-5bf6c54577-jpchf     1/1       Running     0          3m
+istio-pilot-76c4dd545b-zbqpm              2/2       Running     0          3m
+istio-policy-5455647857-bs2bp             2/2       Running     0          3m
+istio-security-post-install-d2jd6         0/1       Completed   2          4m
+istio-sidecar-injector-7f4c7db98c-v9fbl   1/1       Running     0          3m
+istio-telemetry-74645487c9-99f2z          2/2       Running     0          3m
+istio-tracing-ff94688bb-dmrzd             1/1       Running     0          3m
+prometheus-f556886b8-2lxdk                1/1       Running     0          3m
+servicegraph-b5cb7dcdd-vqhcj              1/1       Running     0          3m
+```
