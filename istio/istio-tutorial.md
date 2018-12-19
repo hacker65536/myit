@@ -260,3 +260,33 @@ deployment.extensions "reviews-v3" created
 service "productpage" created
 deployment.extensions "productpage-v1" created
 ```
+```
+$ kubectl get services
+NAME          TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+details       ClusterIP   10.19.243.107   <none>        9080/TCP   45s
+kubernetes    ClusterIP   10.19.240.1     <none>        443/TCP    14m
+productpage   ClusterIP   10.19.249.203   <none>        9080/TCP   42s
+ratings       ClusterIP   10.19.248.75    <none>        9080/TCP   44s
+reviews       ClusterIP   10.19.251.4     <none>        9080/TCP   43s
+```
+```
+$ kubectl get pods
+NAME                              READY     STATUS    RESTARTS   AGE
+details-v1-7cbb4f55dd-92mb5       2/2       Running   0          1m
+productpage-v1-68f984bc98-jftc7   2/2       Running   0          1m
+ratings-v1-b6797d7dd-jcxq2        2/2       Running   0          1m
+reviews-v1-7fd69f69f-b8r2d        2/2       Running   0          1m
+reviews-v2-f7b45b5c6-tmzx5        2/2       Running   0          1m
+reviews-v3-77cfc9cdfc-9zk89       2/2       Running   0          1m
+```
+
+```
+$ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+gateway.networking.istio.io "bookinfo-gateway" created
+virtualservice.networking.istio.io "bookinfo" created
+```
+```
+$ kubectl get svc istio-ingressgateway -n istio-system
+NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                                                                                                                   AGE
+istio-ingressgateway   LoadBalancer   10.19.255.206   35.225.94.105   80:31380/TCP,443:31390/TCP,31400:31400/TCP,15011:31944/TCP,8060:30472/TCP,853:31734/TCP,15030:31039/TCP,15031:32683/TCP   6m
+```
