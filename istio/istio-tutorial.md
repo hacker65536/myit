@@ -290,3 +290,15 @@ $ kubectl get svc istio-ingressgateway -n istio-system
 NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                                                                                                                   AGE
 istio-ingressgateway   LoadBalancer   10.19.255.206   35.225.94.105   80:31380/TCP,443:31390/TCP,31400:31400/TCP,15011:31944/TCP,8060:30472/TCP,853:31734/TCP,15030:31039/TCP,15031:32683/TCP   6m
 ```
+```
+$ export GATEWAY_URL=35.225.94.105:80
+```
+```
+$ curl -I http://${GATEWAY_URL}/productpage
+HTTP/1.1 200 OK
+content-type: text/html; charset=utf-8
+content-length: 4415
+server: envoy
+date: Wed, 19 Dec 2018 16:25:39 GMT
+x-envoy-upstream-service-time: 1194
+```
