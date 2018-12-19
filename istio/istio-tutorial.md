@@ -302,3 +302,5 @@ server: envoy
 date: Wed, 19 Dec 2018 16:25:39 GMT
 x-envoy-upstream-service-time: 1194
 ```
+
+![](./bookinfo.png)
