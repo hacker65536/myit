@@ -52,16 +52,18 @@ $ cat <<'EOF' > brokernodegroupinfo.json
 EOF
 ```
 
+create cluster
 ```
 $ aws kafka create-cluster --cluster-name "AWSKafkaTutorialCluster" --broker-node-group-info file://brokernodegroupinfo.json --kafka-version "1.1.1" --number-of-broker-nodes 3 --enhanced-monitoring PER_TOPIC_PER_BROKER --region us-east-1
 {
     "ClusterName": "AWSKafkaTutorialCluster",
     "State": "CREATING",
-    "ClusterArn": "arn:aws:kafka:us-east-1:00000000000:cluster/AWSKafkaTutorialCluster/695a012b-bcd6-4303-8881-12d2ed8c93ca-3"
+    "ClusterArn": "arn:aws:kafka:us-east-1:000000000000:cluster/AWSKafkaTutorialCluster/695a012b-bcd6-4303-8881-12d2ed8c93ca-3"
 }
 
 ```
 
+list cluster ( describe cluster)
 
 ```
 $ aws kafka list-clusters --region us-east-1
@@ -70,88 +72,86 @@ $ aws kafka list-clusters --region us-east-1
         {
             "EncryptionInfo": {
                 "EncryptionAtRest": {
-                    "DataVolumeKMSKeyId": "arn:aws:kms:us-east-1:00000000000:key/62a5472d-220f-4e5b-83f6                                                    -b77efbf590db"
+                    "DataVolumeKMSKeyId": "arn:aws:kms:us-east-1:000000000000:key/62a5472d-220f-4e5b-83f6-b77efbf590db"
                 }
             },
             "BrokerNodeGroupInfo": {
                 "BrokerAZDistribution": "DEFAULT",
                 "ClientSubnets": [
-                    "subnet-01ad79740c7fee660",
-                    "subnet-0a58d7ad670064788",
-                    "subnet-03c40c593b8b5e512"
+                    "subnet-06a2d2cc65904730a",
+                    "subnet-046e4a852221481c0",
+                    "subnet-0506f88aace00a7ac"
                 ],
                 "StorageInfo": {
                     "EbsStorageInfo": {
                         "VolumeSize": 1000
                     }
                 },
+                "SecurityGroups": [
+                    "sg-0697e8daaeb72b651"
+                ],
                 "InstanceType": "kafka.m5.large"
             },
-            "ClusterName": "kafkatest",
+            "ClusterName": "AWSKafkaTutorialCluster",
             "CurrentBrokerSoftwareInfo": {
                 "KafkaVersion": "1.1.1"
             },
-            "CreationTime": "2018-12-18T03:46:39.486Z",
+            "CreationTime": "2018-12-19T02:12:41.726Z",
             "NumberOfBrokerNodes": 3,
-            "ZookeeperConnectString": "10.0.2.150:2181,10.0.0.211:2181,10.0.1.172:2181",
+            "ZookeeperConnectString": "10.0.3.7:2181,10.0.4.178:2181,10.0.5.62:2181",
             "State": "ACTIVE",
             "CurrentVersion": "K13V1IB3VIYZZH",
-            "ClusterArn": "arn:aws:kafka:us-east-1:00000000000:cluster/kafkatest/34bb4335-effd-4323-bf41                                                    -eca034cf1dbd-3",
-            "EnhancedMonitoring": "DEFAULT"
+            "ClusterArn": "arn:aws:kafka:us-east-1:000000000000:cluster/AWSKafkaTutorialCluster/695a012b-bcd6-4303-8881-12d2ed8c93ca-3",
+            "EnhancedMonitoring": "PER_TOPIC_PER_BROKER"
         }
     ]
 }
 ```
 
+
+setup client
+
 ```
-$ aws kafka list-nodes --cluster-arn arn:aws:kafka:us-east-1:000000000:cluster/kafkatest/34bb4335-effd-4323-bf41-eca034cf1dbd-3 --region us-east-1
+$ sudo yum install -y java
+```
+
+```
+$ wget ftp://apache.mirrors.tds.net/pub/apache.org/kafka/1.1.1/kafka_2.11-1.1.1.tgz
+$ tar zxvf !$:t
+$ cd !$:r
+```
+
+create topic
+```
+$ bin/kafka-topics.sh --create --zookeeper 10.0.3.7:2181,10.0.4.178:2181,10.0.5.62:2181 --replication-factor 3 --partitions 1 --topic AWSKafkaTutorialTopic
+Created topic "AWSKafkaTutorialTopic".
+```
+
+get bootstrap brokers
+```
+$ aws kafka get-bootstrap-brokers --region us-east-1 --cluster-arn arn:aws:kafka:us-east-1:000000000000:cluster/AWSKafkaTutorialCluster/695a012b-bcd6-4303-8881-12d2ed8c93ca-3
 {
-    "NodeInfoList": [
-        {
-            "AddedToClusterTime": "2018-12-18T03:54:25.268Z",
-            "NodeType": "BROKER",
-            "BrokerNodeInfo": {
-                "AttachedENIId": "eni-071add57baf4cfac8",
-                "CurrentBrokerSoftwareInfo": {
-                    "KafkaVersion": "1.1.1"
-                },
-                "BrokerId": "3",
-                "ClientVpcIpAddress": "10.0.1.72",
-                "ClientSubnet": "subnet-0a58d7ad670064788"
-            },
-            "NodeARN": "arn:aws:kafka:us-east-1:000000000:broker/kafkatest/34bb4335-effd-4323-bf41-eca034cf1dbd-3/251a1ee6-c237-4489-942c-0bb59048cec8",
-            "InstanceType": "m5.large"
-        },
-        {
-            "AddedToClusterTime": "2018-12-18T03:54:25.227Z",
-            "NodeType": "BROKER",
-            "BrokerNodeInfo": {
-                "AttachedENIId": "eni-0fa183ffef177a135",
-                "CurrentBrokerSoftwareInfo": {
-                    "KafkaVersion": "1.1.1"
-                },
-                "BrokerId": "1",
-                "ClientVpcIpAddress": "10.0.2.211",
-                "ClientSubnet": "subnet-03c40c593b8b5e512"
-            },
-            "NodeARN": "arn:aws:kafka:us-east-1:000000000:broker/kafkatest/34bb4335-effd-4323-bf41-eca034cf1dbd-3/6d57f9e2-03f0-4165-8c7d-42b9799c55c7",
-            "InstanceType": "m5.large"
-        },
-        {
-            "AddedToClusterTime": "2018-12-18T03:54:25.252Z",
-            "NodeType": "BROKER",
-            "BrokerNodeInfo": {
-                "AttachedENIId": "eni-0080bc57619c82cf2",
-                "CurrentBrokerSoftwareInfo": {
-                    "KafkaVersion": "1.1.1"
-                },
-                "BrokerId": "2",
-                "ClientVpcIpAddress": "10.0.0.81",
-                "ClientSubnet": "subnet-01ad79740c7fee660"
-            },
-            "NodeARN": "arn:aws:kafka:us-east-1:000000000:broker/kafkatest/34bb4335-effd-4323-bf41-eca034cf1dbd-3/8b14fbeb-545b-4db9-a8f3-832acfd3145d",
-            "InstanceType": "m5.large"
-        }
-    ]
+    "BootstrapBrokerString": "10.0.4.43:9092,10.0.3.223:9092,10.0.5.117:9092"
 }
+```
+
+
+producer
+```
+$ bin/kafka-console-producer.sh --broker-list 10.0.4.43:9092,10.0.3.223:9092,10.0.5.117:9092 --topic AWSKafkaTutorialTopic
+>hello managed streaming for kafka
+>hello managed streaming for kafak 2
+>hello managed streaming for kafka 3
+>hello managed streaming for kafak 4
+>
+
+```
+
+consumer
+```
+$ bin/kafka-console-consumer.sh --bootstrap-server 10.0.4.43:9092,10.0.3.223:9092,10.0.5.117:9092 --topic AWSKafkaTutorialTopic --from-beginning
+hello managed streaming for kafka
+hello managed streaming for kafak 2
+hello managed streaming for kafka 3
+hello managed streaming for kafak 4
 ```
