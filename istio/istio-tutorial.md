@@ -207,3 +207,23 @@ kubernetes.config.istio.io "attributes" created
 destinationrule.networking.istio.io "istio-policy" created
 destinationrule.networking.istio.io "istio-telemetry" created
 ```
+```
+$ kubectl get service -n istio-system
+NAME                     TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                                                                                                                   AGE
+grafana                  ClusterIP      10.19.240.153   <none>          3000/TCP                                                                                                                  3m
+istio-citadel            ClusterIP      10.19.240.99    <none>          8060/TCP,9093/TCP                                                                                                         3m
+istio-egressgateway      ClusterIP      10.19.243.15    <none>          80/TCP,443/TCP                                                                                                            3m
+istio-galley             ClusterIP      10.19.253.132   <none>          443/TCP,9093/TCP                                                                                                          3m
+istio-ingressgateway     LoadBalancer   10.19.255.206   35.225.94.105   80:31380/TCP,443:31390/TCP,31400:31400/TCP,15011:31944/TCP,8060:30472/TCP,853:31734/TCP,15030:31039/TCP,15031:32683/TCP   3m
+istio-pilot              ClusterIP      10.19.252.127   <none>          15010/TCP,15011/TCP,8080/TCP,9093/TCP                                                                                     3m
+istio-policy             ClusterIP      10.19.244.192   <none>          9091/TCP,15004/TCP,9093/TCP                                                                                               3m
+istio-sidecar-injector   ClusterIP      10.19.251.104   <none>          443/TCP                                                                                                                   3m
+istio-telemetry          ClusterIP      10.19.252.84    <none>          9091/TCP,15004/TCP,9093/TCP,42422/TCP                                                                                     3m
+jaeger-agent             ClusterIP      None            <none>          5775/UDP,6831/UDP,6832/UDP                                                                                                2m
+jaeger-collector         ClusterIP      10.19.248.198   <none>          14267/TCP,14268/TCP                                                                                                       2m
+jaeger-query             ClusterIP      10.19.241.142   <none>          16686/TCP                                                                                                                 2m
+prometheus               ClusterIP      10.19.252.43    <none>          9090/TCP                                                                                                                  3m
+servicegraph             ClusterIP      10.19.251.41    <none>          8088/TCP                                                                                                                  3m
+tracing                  ClusterIP      10.19.251.246   <none>          80/TCP                                                                                                                    2m
+zipkin                   ClusterIP      10.19.243.95    <none>          9411/TCP                                                                                                                  2m
+```
