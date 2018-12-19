@@ -11,6 +11,57 @@ https://docs.aws.amazon.com/cli/latest/reference/kafka/index.html
 - list-nodes
 
 ### tutorial 
+https://docs.aws.amazon.com/msk/latest/developerguide/create-cluster.html
+
+
+get subnet id from terraform that created vpc and more.
+
+```
+$ terraform output subnet_nat
+subnet-06a2d2cc65904730a,
+subnet-046e4a852221481c0,
+subnet-0506f88aace00a7ac
+```
+
+get security group id from terraform
+```
+$ terraform output sec_sg
+sg-0697e8daaeb72b651
+```
+
+
+`kafka.m5.large` is the minimum of instance type
+
+type list
+
+[kafka.m5.2xlarge, kafka.m5.xlarge, kafka.m5.24xlarge, kafka.m5.large, kafka.m5.4xlarge, kafka.m5.12xlarge]
+
+```
+$ cat <<'EOF' > brokernodegroupinfo.json
+{
+  "InstanceType": "kafka.m5.large",
+  "ClientSubnets": [
+    "subnet-06a2d2cc65904730a",
+    "subnet-046e4a852221481c0",
+    "subnet-0506f88aace00a7ac"
+  ],
+  "SecurityGroups": [
+    "sg-0697e8daaeb72b651"
+  ]
+}
+EOF
+```
+
+```
+$ aws kafka create-cluster --cluster-name "AWSKafkaTutorialCluster" --broker-node-group-info file://brokernodegroupinfo.json --kafka-version "1.1.1" --number-of-broker-nodes 3 --enhanced-monitoring PER_TOPIC_PER_BROKER --region us-east-1
+{
+    "ClusterName": "AWSKafkaTutorialCluster",
+    "State": "CREATING",
+    "ClusterArn": "arn:aws:kafka:us-east-1:00000000000:cluster/AWSKafkaTutorialCluster/695a012b-bcd6-4303-8881-12d2ed8c93ca-3"
+}
+
+```
+
 
 ```
 $ aws kafka list-clusters --region us-east-1
