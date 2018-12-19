@@ -247,3 +247,16 @@ istio-tracing-ff94688bb-dmrzd             1/1       Running     0          3m
 prometheus-f556886b8-2lxdk                1/1       Running     0          3m
 servicegraph-b5cb7dcdd-vqhcj              1/1       Running     0          3m
 ```
+```
+$ kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
+service "details" created
+deployment.extensions "details-v1" created
+service "ratings" created
+deployment.extensions "ratings-v1" created
+service "reviews" created
+deployment.extensions "reviews-v1" created
+deployment.extensions "reviews-v2" created
+deployment.extensions "reviews-v3" created
+service "productpage" created
+deployment.extensions "productpage-v1" created
+```
