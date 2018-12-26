@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>01-environment-setup</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">モジュール1: 環境構築と設定</h1>
+
+<p>最初のモジュールでは、"検知と応答" をコントロールするための初期設定します。2つのCloudFormationテンプレートのうちの1つ目を実行して、これらのコントロールのいくつかの作成を自動化し、残りのものを手動で設定します。</p>
+
+<h2 id="toc_1">AWS CloudFormationテンプレートのデプロイ</h2>
+
+<p>シナリオを開始して環境を設定するには、モジュール1用のCloudFormationテンプレートを実行する必要があります。</p>
+
+<table>
+<thead>
+<tr>
+<th>リージョン</th>
+<th>デプロイ</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>US West 2 (Oregon)</td>
+<td><a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=ThreatDetectionWksp-Env-Setup&templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/threat-detect-workshop/staging/01-environment-setup.yml"><img src="../images/deploy-to-aws.png" alt="Deploy Module 1 in us-west-2"></a></td>
+</tr>
+</tbody>
+</table>
+
+<ol>
+<li><p>上記の <strong>[Deploy to AWS]</strong> ボタンをクリックします。 これにより、自動的にテンプレートが実行されます。 <strong>次へ</strong> ボタンをクリックします。
+
+
+</p></li>
+<li><p><strong>[詳細の指定]</strong> セクションで、以下に示すように必要なパラメータを入力します。</p>
+
+<table>
+<thead>
+<tr>
+<th>パラメーター</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Stack name</td>
+<td>ThreatDetectionWksp-Env-Setup</td>
+</tr>
+<tr>
+<td>Email Address</td>
+<td><strong><em>受信可能なメールアドレス</em></strong> (検知した際のアラートの通知先に使われます）</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>パラメータを入力したら、<strong>[次へ]</strong> をクリックし、もう一度 <strong>[次へ]</strong> をクリックします（すべてをデフォルトのままにしておきます）
+
+</p></li>
+<li><p>最後に、テンプレートよってIAMロールが作成されることを確認して <strong>[作成]</strong> をクリックします。</p></li>
+</ol>
+
+<p><img src="../images/iam-capabilities.png" alt="IAM Capabilities"></p>
+
+<p>CloudFormation コンソールに戻ります。ページを更新して、作成を開始したスタックを確認することができます。次に進む前に、スタックのステータスが <strong>CREATE_COMPLETE</strong> になっていることを確認してください（下の図を参照）
+</p>
+
+<p><img src="../images/01-stack-complete.png" alt="Stack Complete"></p>
+
+<ol>
+<li><strong>SNSからサブスクリプションを確認する電子メールが届きます。</strong>これを確認して、ワークショップ中にAWSサービスから電子メールアラートを受け取ることができます。
+  <blockquote>アラートメールの送信元は &lt;no-reply@sns.amazonaws.com&gt; になります。受信できない場合は、ご利用のメール環境でフォルダ振り分けがされていたり、SPAM判定をされていないかご確認ください。  </blockquote>
+</li>
+</ol>
+
+<h2 id="toc_2">Amazon CloudWatchイベントルールと自動応答の設定</h2>
+
+<p>CloudFormationテンプレートは、アラートと応答の目的で3つの <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html">CloudWatch Events Rule</a>を作成しました。以下の手順で最終的なルールを作成します。この後、電子メール通知を受信し、応答のために適切な AWS Lambda 関数 をトリガーするための必要なすべてのルールが設定されます。</p>
+
+<p>以下は、コンソールを使用してこのルールを作成する手順ですが、<a href="http://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html">GuardDutyのドキュメント</a>を確認することで、プログラムでルールを実行する方法についても詳しく知ることができます。</p>
+
+<ol>
+<li><p><a href="https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2">CloudWatch コンソール</a>を開きます。</p></li>
+<li><p>左側のナビゲーションペインで、<strong>[イベント]</strong> の <strong>[ルール]</strong> をクリックします。</p>
+
+<blockquote>
+<p>現在実行中のルールは何かありますか？</p>
+</blockquote></li>
+<li><p><strong>ルールの作成</strong> をクリックします。</p></li>
+<li><strong>イベントパターン</strong> の下の <strong>サービス別のイベントに一致するイベントパターンの構築</strong> を選択し、ドロップダウンから <strong>カスタムイベントパターン</strong> を選択します。そして、以下のカスタムイベントパターンを貼り付けます。
+</p>
+
+<div><pre><code class="language-none">{
+  &quot;source&quot;: [
+    &quot;aws.guardduty&quot;
+  ],
+  &quot;detail&quot;: {
+    &quot;type&quot;: [
+      &quot;UnauthorizedAccess:EC2/MaliciousIPCaller.Custom&quot;
+    ]
+  }
+}</code></pre></div>
+
+<ul>
+<li><strong>ターゲットの追加</strong> をクリック、<strong>Lambda関数</strong> を選択して <strong>threat-detection-wksp-remediation-nacl</strong> を選択します。<strong>設定の詳細</strong> をクリックします。</li>
+</ul></li>
+<li><p><strong>ルールの詳細の設定</strong> 画面で、<strong>名前</strong> と <strong>説明</strong> を入力します。</p>
+
+<ul>
+<li>名前: <strong>threat-detection-wksp-guardduty-finding-ec2-maliciousip</strong></li>
+<li>説明: <strong>GuardDuty Finding: UnauthorizedAccess:EC2/MaliciousIPCaller.Custom</strong></li>
+</ul></li>
+<li><p><strong>ルールの作成</strong> をクリックします。</p></li>
+<li><p><strong>Optional:</strong> Lambda関数が何をしているのかを見てみましょう。<a href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">Lambda コンソール</a> を開きます。<strong>threat-detection-wksp-remediation-nacl</strong> という名前の関数をクリックします。</p>
+
+<blockquote>
+<p>呼び出されたときに関数は何を行いますか？</p>
+
+<p><strong>threat-detection-wksp-remediation-inspector</strong> 関数は何をしますか？</p>
+</blockquote></li>
+</ol>
+
+<h2 id="toc_3">Amazon GuardDuty の有効化</h2>
+
+<p>次のステップでは、Amazon GuardDutyを有効にして、悪意のある、または許可されていない動作を継続的に監視します。</p>
+
+<ol>
+<li><p><a href="https://us-west-2.console.aws.amazon.com/guardduty/home?region=us-west-2">Amazon GuardDuty</a> コンソールに移動します</p></li>
+<li><p><strong>[今すぐ始める]</strong> ボタンをクリックします。</p></li>
+<li><p>次の画面で、<strong>[GuardDutyの有効化]</strong> ボタンをクリックします。</p></li>
+</ol>
+
+<p>GuardDutyが有効になり、環境内の脅威発見のため CloudTrailログ、VPCフローログ、およびDNSクエリログを継続的に監視します。</p>
+
+<h2 id="toc_4">Amazon Macie の有効化</h2>
+
+<p>機密データをS3に保存する予定なので、すぐにAmazon Macieを有効にしましょう。Macieは、不正アクセスや偶発的なデータ漏洩のリスクを検出した場合にデータアクセスアクティビティを継続的に監視し、アラートを生成するセキュリティサービスです。</p>
+
+<ol>
+<li><p><a href="https://us-west-2.redirection.macie.aws.amazon.com/">Amazon Macie</a> コンソールに移動します。</p></li>
+<li><p><strong>Get Started</strong> をクリックします。</p></li>
+<li><p>有効にすると、Macieはサービスにリンクされたロールを作成します。ロールの権限を表示する場合は、<strong>View service role permissions</strong> をクリックします。</p></li>
+<li><p><strong>Enable Macie</strong> をクリックします。</p></li>
+</ol>
+
+<h2 id="toc_5">データの発見と分類のための Amazon Macie のセットアップ</h2>
+
+<p>Macieは機密データの自動検出と分類にも使用されます。S3バケットのデータ分類を統合するための設定します。</p>
+
+<ol>
+  <li><p><a href="https://us-west-2.redirection.macie.aws.amazon.com/">Amazon Macie</a> の左側のナビゲーションで <strong>Integrations</strong> をクリックします。</p></li>
+  <li><p>AWS アカウントID を見つけて、<strong>SELECT</strong> をクリックします。</p></li>
+  <li><p><strong>ADD</strong> をクリックし、次の画面で「<strong>-data</strong>」で終わるS3バケットの横にあるチェックボックスをクリックします。<strong>ADD</strong> をクリックします</p></li>
+  <li><p>Lオプションをデフォルトのままにして、<strong>Review</strong> をクリックします。</p></li>
+  <li><p>次の画面で、<strong>Start Classification</strong> をクリックします。</p></li>
+  <li><p>最後に <strong>Done</strong> をクリックします。Macie が有効になり、データの検索、分類、保護が開始されました。</p></li>
+</ol>
+
+
+<h2 id="toc_6">AWS Security Hub の有効化</h2>
+
+<p>検知を管理するための設定が完了しました。<a href="https://us-west-2.console.aws.amazon.com/securityhub/home?region=us-west-2">AWS Security Hub</a> を有効にする必要があります。これはAWS環境のセキュリティとコンプライアンスの包括的なビューを提供します。</p>
+
+<ol>
+<li><p><a href="https://us-west-2.console.aws.amazon.com/securityhub/home?region=us-west-2">AWS Security Hub</a> に移動します。 </p></li>
+<li><p><strong>Enable Security Hub</strong> をクリックします。</p></li>
+<li><p><strong>Enable AWS Security Hub</strong> をクリックします。</p></li>
+</ol>
+
+<p>AWS Security Hubが有効になり、これまでに有効にしたセキュリティサービスからの調査結果の収集と集約が開始されます。</p>
+
+<h2 id="toc_7">アーキテクチャの概要</h2>
+
+<p>環境が構成され、操作の準備が整いました。検知を管理するための構成は以下のようになっています。</p>
+
+<p><img src="../images/01-diagram-module1.png" alt="Detective Controls"></p>
+
+<p>環境を正常にセットアップしたら、トップページに戻り、次のモジュールに進んでください。</p>
+
+<h3 id="toc_8"><strong><a href="../docs/02-attack-simulation.html">モジュール2: 攻撃シミュレーション</a></strong></h3>
+
+
+
+
+</body>
+
+</html>
