@@ -14,7 +14,7 @@ $ whereis sam
 sam: /home/ec2-user/.local/bin/sam
 ```
 
-set path if not adjust
+set path if don't adjust
 ```
 $ python -m site --user-base
 /home/ec2-user/.local
