@@ -154,3 +154,30 @@ Resources:
     Type: AWS::Serverless::Function
 Transform: AWS::Serverless-2016-10-31
 ```
+
+```
+$ sam deploy \
+     --template-file packaged.yaml \
+     --stack-name sam-app \
+     --capabilities CAPABILITY_IAM \
+     --region us-west-2
+
+Waiting for changeset to be created..
+Waiting for stack create/update to complete
+Successfully created/updated stack - sam-app
+```
+
+```
+$ aws cloudformation describe-stack-resources --stack-name sam-app | jq -rc '.[][]|[.ResourceType,.LogicalResourceId]|@tsv'
+AWS::Lambda::Function   HelloWorldFunction
+AWS::Lambda::Permission HelloWorldFunctionHelloWorldPermissionProd
+AWS::Lambda::Permission HelloWorldFunctionHelloWorldPermissionTest
+AWS::IAM::Role  HelloWorldFunctionRole
+AWS::ApiGateway::RestApi        ServerlessRestApi
+AWS::ApiGateway::Deployment     ServerlessRestApiDeployment47fc2d5f9d
+AWS::ApiGateway::Stage  ServerlessRestApiProdStage
+```
+
+```
+$ aws cloudformation delete-stack --stack-name sam-app
+```
