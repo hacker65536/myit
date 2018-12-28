@@ -1,8 +1,9 @@
 
-```console 
+``` 
 $ aws cloudformation describe-stack-resources \
 --stack-name ThreatDetectionWksp-Env-Setup | \
 jq -rc '.[][]|[.ResourceType, .LogicalResourceId,.PhysicalResourceId]|@tsv'
+
 AWS::CloudTrail::Trail  CloudTrail      threat-detection-wksp-trail
 AWS::S3::Bucket DataBucket      threat-detection-wksp-000000000000-us-west-2-data
 AWS::SNS::Topic DetectionSNSTopic       arn:aws:sns:us-west-2:000000000000:threat-detection-wksp
