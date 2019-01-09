@@ -1,7 +1,10 @@
 
 
 ```
-$ aws ec2 describe-images --filters Name=product-code,Values=6x5jmcajty9edm3f211pqjfn2 Name=is-public,Values=true | \
+$ aws ec2 describe-images \
+--filters \
+Name=product-code,Values=6x5jmcajty9edm3f211pqjfn2 \
+Name=is-public,Values=true | \
 jq -rc '.Images | sort_by(.CreationDate) | reverse |.[] | [.Description,.CreationDate]'
 ["CentOS Linux 6 x86_64 HVM EBS ENA 1805_01","2018-06-13T15:55:40.000Z"]
 ["CentOS Linux 6 x86_64 HVM EBS ENA 1804_2","2018-05-17T22:08:13.000Z"]
@@ -11,7 +14,9 @@ jq -rc '.Images | sort_by(.CreationDate) | reverse |.[] | [.Description,.Creatio
 ```
 
 ```
-$ aws ec2 describe-images --filters Name=product-code,Values=aw0evgkw8e5c1q413zgy5pjce Name=is-public,Values=true | \
+$ aws ec2 describe-images --filters \
+Name=product-code,Values=aw0evgkw8e5c1q413zgy5pjce \
+Name=is-public,Values=true | \
 jq -rc '.Images | sort_by(.CreationDate) | reverse |.[]|[.Description,.CreationDate]'
 ["CentOS Linux 7 x86_64 HVM EBS ENA 1805_01","2018-06-13T15:58:14.000Z"]
 ["CentOS Linux 7 x86_64 HVM EBS ENA 1804_2","2018-05-17T09:30:44.000Z"]
@@ -19,7 +24,13 @@ jq -rc '.Images | sort_by(.CreationDate) | reverse |.[]|[.Description,.CreationD
 ["CentOS Linux 7 x86_64 HVM EBS 1708_11.01","2017-12-05T14:49:18.000Z"]
 ```
 ```
-$ aws ec2 describe-images --filters Name=owner-id,Values=137112412989 Name=is-public,Values=true Name=virtualization-type,Values=hvm Name=root-device-type,Values=ebs Name=block-device-mapping.volume-type,Values=gp2 | \
+$ aws ec2 describe-images \
+--filters \
+Name=owner-id,Values=137112412989 \
+Name=is-public,Values=true \
+Name=virtualization-type,Values=hvm \
+Name=root-device-type,Values=ebs \
+Name=block-device-mapping.volume-type,Values=gp2 | \
 jq '.[] | sort_by(.CreationDate) | reverse | .[] | select(  (.Name | (contains("amzn2")|not)) and (.Name | (contains("rc")|not))  and (.Description|(contains("NAT")|not)) )'| \
 jq -rc '[.Description,.CreationDate]'
 ["Amazon Linux AMI 2018.03.0.20181129 x86_64 HVM gp2","2018-11-28T21:08:10.000Z"]
