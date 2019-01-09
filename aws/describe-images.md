@@ -1,7 +1,8 @@
 
 
 ```
-$ aws ec2 describe-images --filters Name=product-code,Values=6x5jmcajty9edm3f211pqjfn2 Name=is-public,Values=true | jq -rc '.Images | sort_by(.CreationDate) | reverse |.[]|[.Description,.CreationDate]'
+$ aws ec2 describe-images --filters Name=product-code,Values=6x5jmcajty9edm3f211pqjfn2 Name=is-public,Values=true | \
+jq -rc '.Images | sort_by(.CreationDate) | reverse |.[] | [.Description,.CreationDate]'
 ["CentOS Linux 6 x86_64 HVM EBS ENA 1805_01","2018-06-13T15:55:40.000Z"]
 ["CentOS Linux 6 x86_64 HVM EBS ENA 1804_2","2018-05-17T22:08:13.000Z"]
 ["CentOS Linux 6 x86_64 HVM EBS 1801_01","2018-01-12T20:37:34.000Z"]
@@ -10,14 +11,17 @@ $ aws ec2 describe-images --filters Name=product-code,Values=6x5jmcajty9edm3f211
 ```
 
 ```
-$ aws ec2 describe-images --filters Name=product-code,Values=aw0evgkw8e5c1q413zgy5pjce Name=is-public,Values=true | jq -rc '.Images | sort_by(.CreationDate) | reverse |.[]|[.Description,.CreationDate]'
+$ aws ec2 describe-images --filters Name=product-code,Values=aw0evgkw8e5c1q413zgy5pjce Name=is-public,Values=true | \
+jq -rc '.Images | sort_by(.CreationDate) | reverse |.[]|[.Description,.CreationDate]'
 ["CentOS Linux 7 x86_64 HVM EBS ENA 1805_01","2018-06-13T15:58:14.000Z"]
 ["CentOS Linux 7 x86_64 HVM EBS ENA 1804_2","2018-05-17T09:30:44.000Z"]
 ["CentOS Linux 7 x86_64 HVM EBS ENA 1803_01","2018-04-04T00:11:39.000Z"]
 ["CentOS Linux 7 x86_64 HVM EBS 1708_11.01","2017-12-05T14:49:18.000Z"]
 ```
 ```
-$ aws ec2 describe-images --filters Name=owner-id,Values=137112412989 Name=is-public,Values=true Name=virtualization-type,Values=hvm Name=root-device-type,Values=ebs Name=block-device-mapping.volume-type,Values=gp2 | jq '.[] | sort_by(.CreationDate) | reverse | .[] | select(  (.Name | (contains("amzn2")|not)) and (.Name | (contains("rc")|not))  and (.Description|(contains("NAT")|not)) )'| jq -rc '[.Description,.CreationDate]'
+$ aws ec2 describe-images --filters Name=owner-id,Values=137112412989 Name=is-public,Values=true Name=virtualization-type,Values=hvm Name=root-device-type,Values=ebs Name=block-device-mapping.volume-type,Values=gp2 | \
+jq '.[] | sort_by(.CreationDate) | reverse | .[] | select(  (.Name | (contains("amzn2")|not)) and (.Name | (contains("rc")|not))  and (.Description|(contains("NAT")|not)) )'| \
+jq -rc '[.Description,.CreationDate]'
 ["Amazon Linux AMI 2018.03.0.20181129 x86_64 HVM gp2","2018-11-28T21:08:10.000Z"]
 ["Amazon Linux AMI 2018.03.0.20181116 x86_64 HVM gp2","2018-11-17T00:54:52.000Z"]
 ["Amazon Linux AMI 2018.03.0.20180811 x86_64 HVM GP2","2018-08-11T02:29:45.000Z"]
@@ -56,7 +60,14 @@ $ aws ec2 describe-images --filters Name=owner-id,Values=137112412989 Name=is-pu
 ["Amazon Linux AMI 2014.03.2 x86_64 HVM GP2","2014-06-13T17:06:56.000Z"]
 ```
 ```
-$ aws ec2 describe-images --filters Name=owner-id,Values=137112412989 Name=is-public,Values=true Name=virtualization-type,Values=hvm Name=root-device-type,Values=ebs Name=block-device-mapping.volume-type,Values=gp2 | jq -rc '.[] | sort_by(.CreationDate) | reverse | .[]|select( ( .Name | contains("amzn2"))  and (.Description | contains("Candidate")|not ) and (.Description | contains("Beta")|not)) |[.Description,.CreationDate]'
+$ aws ec2 describe-images \
+--filters \
+Name=owner-id,Values=137112412989 \
+Name=is-public,Values=true \
+Name=virtualization-type,Values=hvm \
+Name=root-device-type,Values=ebs \
+Name=block-device-mapping.volume-type,Values=gp2 | \
+jq -rc '.[] | sort_by(.CreationDate) | reverse | .[]|select( ( .Name | contains("amzn2"))  and (.Description | contains("Candidate")|not ) and (.Description | contains("Beta")|not)) |[.Description,.CreationDate]'
 ["Amazon Linux 2 LTS Arm64 AMI 2.0.20181114.1 arm64 HVM gp2","2018-11-27T03:53:22.000Z"]
 ["Amazon Linux 2 AMI 2.0.20181114 x86_64 HVM gp2","2018-11-14T09:06:55.000Z"]
 ["Amazon Linux 2 AMI 2.0.20181024 x86_64 HVM gp2","2018-10-24T21:06:50.000Z"]
