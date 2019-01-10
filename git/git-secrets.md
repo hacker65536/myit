@@ -1,6 +1,8 @@
 
 https://github.com/awslabs/git-secrets
 
+install
+---------
 ```console
 $ git clone https://github.com/awslabs/git-secrets.git
 $ cd !$:t:r
@@ -68,6 +70,8 @@ $ sudo make install
 ```
 
 
+example
+-----------
 ```
 $ mkdir secrets-scan-test
 $ cd !$
