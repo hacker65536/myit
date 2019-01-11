@@ -4,3 +4,8 @@ new circleci.yml format
 
 
 https://circleci.com/docs/2.0/basics/
+
+
+rename file
+-------
+`circle.yml` -> `.circleci/config.yml`
