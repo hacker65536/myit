@@ -44,5 +44,9 @@ $ sudo systemctl enable grafana-server.service
 ```console
 $ curl checkip.amazonaws.com
 ```
+```
+$ sudo netstat -plunt | grep grafana
+tcp6       0      0 :::3000                 :::*                    LISTEN      3736/grafana-server
+```
 
 >There you will see the login page. Default username is admin and default password is admin. 
