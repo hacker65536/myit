@@ -108,3 +108,24 @@ Possible mitigations:
 - List your configured allowed patterns in .gitallowed at repository's root directory
 - Use --no-verify if this is a one-time false positive
 ```
+
+```console
+$ git config --list
+ghq.root=/home/ec2-user/go/src
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=git@github.com:hacker65536/repository.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+user.name=shacker
+user.email=s.hacker65536@gmail.com
+secrets.providers=git secrets --aws-provider
+secrets.patterns=(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+secrets.patterns=("|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Ke                                          y)("|')?\s*(:|=>|=)\s*("|')?[A-Za-z0-9/\+=]{40}("|')?
+secrets.patterns=("|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?("|')?\s*(:|=>|=)\s*("|                                          ')?[0-9]{4}\-?[0-9]{4}\-?[0-9]{4}("|')?
+secrets.allowed=AKIAIOSFODNN7EXAMPLE
+secrets.allowed=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+```
