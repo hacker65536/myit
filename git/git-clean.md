@@ -38,5 +38,35 @@ Would remove the following items:
 *** Commands ***
     1: clean                2: filter by pattern    3: select by numbers
     4: ask each             5: quit                 6: help
-What now>
+What now> 4
+Remove LICENSE [y/N]? n
+Remove main.go [y/N]? n
+```
+```console
+$ git clean -i
+Would remove the following items:
+  LICENSE  main.go
+*** Commands ***
+    1: clean                2: filter by pattern    3: select by numbers
+    4: ask each             5: quit                 6: help
+What now> 3
+    1: LICENSE    2: main.go
+Select items to delete>> 
+```
+```console
+$ git clean -i
+Would remove the following items:
+  LICENSE  main.go
+*** Commands ***
+    1: clean                2: filter by pattern    3: select by numbers
+    4: ask each             5: quit                 6: help
+What now> 2
+  LICENSE  main.go
+Input ignore patterns>>
+```
+
+```console
+$ git clean --dry-run
+Would remove LICENSE
+Would remove main.go
 ```
