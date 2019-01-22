@@ -25,10 +25,9 @@ $ sudo prefix=/usr/local ./install
 $ whereis hub
 hub: /usr/local/bin/hub
 ```
+```
 echo 'eval "$(hub alias -s)"' >> ~/.bashrc
 ```
-
-
 
 ```
 hub clone rails/rails
