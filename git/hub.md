@@ -25,8 +25,25 @@ $ sudo prefix=/usr/local ./install
 $ whereis hub
 hub: /usr/local/bin/hub
 ```
+
+
+configuration
+------
+aliase
+```console
+$ echo 'eval "$(hub alias -s)"' >> ~/.bashrc
 ```
-echo 'eval "$(hub alias -s)"' >> ~/.bashrc
+tab-completion(bash)  
+https://github.com/github/hub/tree/master/etc
+```console
+$ cat <<EOF >> ~/.bashrc
+> if [ -f $(which hub).bash_completion ]; then
+>   . $(which hub).bash_completion
+> fi
+> EOF
+```
+```console
+$ source ~/.bashrc
 ```
 
 ```
