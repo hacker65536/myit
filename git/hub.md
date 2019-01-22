@@ -29,7 +29,7 @@ hub: /usr/local/bin/hub
 
 configuration
 ------
-aliase
+alias
 ```console
 $ echo 'eval "$(hub alias -s)"' >> ~/.bashrc
 ```
