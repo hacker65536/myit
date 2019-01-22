@@ -37,11 +37,18 @@ tab-completion(bash)
 https://github.com/github/hub/tree/master/etc
 ```console
 $ cat <<EOF >> ~/.bashrc
-> if [ -f $(which hub).bash_completion ]; then
->   . $(which hub).bash_completion
-> fi
-> EOF
+if [ -f $(which hub).bash_completion.sh ]; then
+  . $(which hub).bash_completion.sh
+fi
+EOF
 ```
+
+```console
+$ cd /usr/local/bin/
+$ sudo curl -SsLO https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh
+$ sudo chmod 755 !$:t
+```
+
 ```console
 $ source ~/.bashrc
 ```
