@@ -1,5 +1,5 @@
 
--tempfileがないと複数指定した場合データが飛んでします
+-tempfileがないと複数指定した場合データが飛ぶ
 
 ```
 [plugin.metrics.aurora56]
