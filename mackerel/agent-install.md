@@ -17,8 +17,10 @@ $ sudo mackerel-agent init -apikey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $ sudo systemctl start mackerel-agent
 ```
 
-
-
+option
+```console
+$ sudo yum install mackerel-agent mackerel-agent-plugins mackerel-check-plugins mkr
+```
 
 ```console
 $ sudo journalctl -u mackerel-agent.service
