@@ -13,7 +13,7 @@ myloop: LOOP
             LEAVE myloop;
     END IF;
 END LOOP myloop;
-SELECT 'I can count to 10';
+SELECT 'finished';
 
 END
 //
@@ -21,7 +21,7 @@ DELIMITER ;
 ```
 
 ```
-mysql> call sample01();                                                                                                                    +------+
+mysql> call sample01();                                                                                                                 +------+
 | i    |
 +------+
 |    2 |
@@ -37,11 +37,11 @@ mysql> call sample01();                                                         
 +------------+
 1 row in set (59.54 sec)
 
-+-------------------+
-| I can count to 10 |
-+-------------------+
-| I can count to 10 |
-+-------------------+
++--------------+
+|   finished   |
++--------------+
+|   finished   |
++--------------+
 1 row in set (59.54 sec)
 
 Query OK, 0 rows affected (59.54 sec)
