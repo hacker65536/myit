@@ -64,3 +64,16 @@ WARNING: The behavior of --scopes will change in a future gcloud release: servic
 WARNING: Starting in Kubernetes v1.10, new clusters will no longer get compute-rw and storage-ro scopes added to what is specified in --scopes (though the latter will remain included in the default --scopes). To use these scopes, add them explicitly to --scopes. To use the new behavior, set container/new_scopes_behavior property (gcloud config set container/new_scopes_behavior true).
 Creating cluster vtest in us-central1... Cluster is being health-checked...⠶
 ```
+
+```
+Created [https://container.googleapis.com/v1/projects/my-project-217/zones/us-central1/clusters/vtest].
+To inspect the contents of your cluster, go to: https://console.cloud.google.com/kubernetes/workload_/gcloud/us-central1/vtest?project=my-project-217
+kubeconfig entry generated for vtest.
+NAME   LOCATION     MASTER_VERSION  MASTER_IP       MACHINE_TYPE   NODE_VERSION   NUM_NODES  STATUS
+vtest  us-central1  1.10.11-gke.1   142.158.33.223  n1-standard-4  1.10.11-gke.1  15         RUNNING
+```
+
+```
+$ gsutil mb gs://vtest-backup-bucket
+Creating gs://vtest-backup-bucket/...
+```
