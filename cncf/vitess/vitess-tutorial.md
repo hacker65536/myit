@@ -22,3 +22,8 @@ The connection to the server localhost:8080 was refused - did you specify the ri
 ```console
 $ go get vitess.io/vitess/go/cmd/vtctlclient
 ```
+
+```console
+$ whereis vtctlclient
+vtctlclient: /home/USER/gopath/bin/vtctlclient
+```
