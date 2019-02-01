@@ -20,3 +20,10 @@ add subcommand
 $ cobra add subcmd1
 $ cobra add subcmd2
 ```
+
+add nested subcommand
+
+```console
+$ cobra add sub2 -p subCmd
+# go run main.go sub sub2
+```
