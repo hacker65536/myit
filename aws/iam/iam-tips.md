@@ -8,4 +8,6 @@ https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-reso
 
 Iamポリシーの記述と評価論理
 --
+https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/reference_policies_evaluation-logic.html
+
 https://dev.classmethod.jp/cloud/aws/iam-policy-evaluation-logic/
