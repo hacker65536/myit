@@ -10,4 +10,3 @@ s3がデフォルトのkmsだとcodepipelineからは読めないので403が帰
 
 kmsのアクションがないと同じく403のエラーが出る
 
-codebuildがecrにpush時失敗することがある `ecr:BatchCheckLayerAvailability` のアクションをつけるととりあえずワークアラウンドになる
