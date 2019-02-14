@@ -1,0 +1,13 @@
+
+
+kmsのpolicyはデフォルトでも問題ない。(crossaccountしなければ）
+
+s3の暗号化はcmkに切り替えが必要
+
+codepipelineはkmsのアクションが必要、同様にcodebuildもkmsのアクションが必要
+
+s3がデフォルトのkmsだとcodepipelineからは読めないので403が帰ってくる 
+
+kmsのアクションがないと同じく403のエラーが出る
+
+codebuildがecrにpush時失敗することがある `ecr:BatchCheckLayerAvailability` のアクションをつけるととりあえずワークアラウンドになる
