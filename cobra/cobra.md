@@ -40,6 +40,7 @@ unmarshaling
 
 https://github.com/spf13/viper
 
+`config.go`
 ```go
 type config struct {
 	Port int
@@ -48,11 +49,13 @@ type config struct {
 }
 
 var C config
-
-err := Unmarshal(&C)
-if err != nil {
-	t.Fatalf("unable to decode into struct, %v", err)
-}
-
 ```
 
+`root.go`
+```go
+ if err := viper.Unmarshal(&C); err != nil {
+     fmt.Println("config file Unmarshal error")
+     fmt.Println(err)
+     os.Exit(1)
+   }
+```
