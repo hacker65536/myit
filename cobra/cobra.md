@@ -34,3 +34,25 @@ viper.AddConfigPath(home)
 // add path to current
 viper.AddConfigPath(".")
 ```
+
+unmarshaling
+--
+
+https://github.com/spf13/viper
+
+```go
+type config struct {
+	Port int
+	Name string
+	PathMap string `mapstructure:"path_map"`
+}
+
+var C config
+
+err := Unmarshal(&C)
+if err != nil {
+	t.Fatalf("unable to decode into struct, %v", err)
+}
+
+```
+
