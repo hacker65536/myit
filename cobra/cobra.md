@@ -30,6 +30,6 @@ add path of configfile to current dir
 
 ```go
 viper.AddConfigPath(home)
-## add path to current
+// add path to current
 viper.AddConfigPath(".")
 ```
