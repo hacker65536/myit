@@ -28,6 +28,7 @@ setup2
 
 add path of configfile to current dir
 
+`cmd/root.go`
 ```go
 viper.AddConfigPath(home)
 // add path to current
