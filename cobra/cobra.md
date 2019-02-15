@@ -22,3 +22,14 @@ $ cd $GOPATH/src/github.com/hacker65536/myrepo
 ```console
 $ cobra add mycommand
 ```
+
+setup2
+---
+
+add path of configfile to current dir
+
+```go
+viper.AddConfigPath(home)
+## add path to current
+viper.AddConfigPath(".")
+```
