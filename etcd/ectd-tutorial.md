@@ -91,10 +91,14 @@ $ /tmp/etcd-download-test/etcd
 2019-02-18 02:21:01.663361 I | etcdserver/api: enabled capabilities for version 3.3
 ```
 
-read,write
+write,read
 --
 ```console
-# write,read to etcd
 $ ETCDCTL_API=3 /tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+OK
+```
+```console
 $ ETCDCTL_API=3 /tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+foo
+bar
 ```
