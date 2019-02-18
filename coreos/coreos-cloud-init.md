@@ -1,0 +1,4 @@
+
+terraformのtemplate_cloudinit_configを通すとうまくいかない
+
+おそらくmultipart mime configurationを対応していないかもしれない。
