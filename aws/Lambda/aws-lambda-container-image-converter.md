@@ -325,23 +325,40 @@ Hello, Myself!
 ```
 
 
-img2lambda -i lambda-php:latest
 
+### inspect
 
-cat output/laysers.json
-cd function/
-zip hello.zip src/hello.php
-
-
-
+```console
+$ unzip -l ../output/layer-1.zip
+Archive:  ../output/layer-1.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+ 35314501  02-20-2019 08:13   bin/php
+     1642  02-20-2019 07:37   bootstrap
+---------                     -------
+ 35316143                     2 files
 ```
-$ export GOPATH=$HOME/go
-$ mkdir -p $GOPATH/src/github.com/awslabs
-$ git clone https://github.com/awslabs/aws-lambda-container-image-converter $GOPATH/src/github.com/awslabs/aws-lambda-container-image-converter
-$ cd !$
-$ make
-git rev-parse --short=7 HEAD > GITCOMMIT_SHA
-./scripts/build_binary.sh ./bin/local img2lambda 0.0.1 7ef0b72
-Built img2lambda
+
+```console
+$ unzip -l ../output/layer-2.zip
+Archive:  ../output/layer-2.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+      178  02-20-2019 08:14   vendor/autoload.php
+    13459  02-20-2019 08:14   vendor/composer/ClassLoader.php
+     1070  02-20-2019 08:14   vendor/composer/LICENSE
+      147  02-20-2019 08:14   vendor/composer/autoload_classmap.php
+      558  02-20-2019 08:14   vendor/composer/autoload_files.php
+      149  02-20-2019 08:14   vendor/composer/autoload_namespaces.php
+      437  02-20-2019 08:14   vendor/composer/autoload_psr4.php
+     2414  02-20-2019 08:14   vendor/composer/autoload_real.php
+     1864  02-20-2019 08:14   vendor/composer/autoload_static.php
+     8495  02-20-2019 08:14   vendor/composer/installed.json
+    75682  04-22-2018 15:46   vendor/guzzlehttp/guzzle/CHANGELOG.md
+     1116  04-22-2018 15:46   vendor/guzzlehttp/guzzle/LICENSE
+---snip----
+     1640  02-11-2016 07:05   vendor/ralouphie/getallheaders/src/getallheaders.php
+     3595  02-11-2016 07:05   vendor/ralouphie/getallheaders/tests/GetAllHeadersTest.php
+---------                     -------
+   643789                     119 files
 ```
-$ ./bin/local/img2lambda --help
