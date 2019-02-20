@@ -1,4 +1,4 @@
-
+# aws lambda container image converter
 
 https://github.com/awslabs/aws-lambda-container-image-converter/
 
@@ -6,12 +6,11 @@ https://github.com/awslabs/aws-lambda-container-image-converter/
 prepare
 ---------
 
-### launch ec2
-
 - amazonlinux 2 ( higher than t2.micro　)
 - attatch role as below
-- install docker go git
 
+
+### install docker go git
 
 ```console
 $ sudo yum install -y git 
@@ -43,7 +42,11 @@ Server:
   OS/Arch:          linux/amd64
   Experimental:     false
 ```
-
+```console
+$ echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+$ source ~/.bashrc
+```
+### download source
 
 ```
 $ git clone https://github.com/awslabs/aws-lambda-container-image-converter.git
