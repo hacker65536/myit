@@ -184,9 +184,29 @@ COPY function/src /var/task/src/
 ```console
 $ docker build -t lambda-php .
 ---snip---
-Successfully built c90803eda009
+ ---> bf7bf1516ce0
+Step 8/11 : COPY --from=builder /lambda-php-runtime /opt/
+ ---> f324a1b44cf7
+Step 9/11 : COPY --from=builder /lambda-php-vendor/vendor /opt/vendor
+ ---> db9bbcc3f802
+Step 10/11 : FROM runtime as function
+ ---> db9bbcc3f802
+Step 11/11 : COPY function/src /var/task/src/
+ ---> 35471f16bfe9
+Successfully built 35471f16bfe9
 Successfully tagged lambda-php:latest
 ```
+
+```console
+$ docker images
+REPOSITORY          TAG                  IMAGE ID            CREATED              SIZE
+lambda-php          latest               35471f16bfe9        About a minute ago   957MB
+<none>              <none>               cbb45a861bdc        About a minute ago   1.22GB
+lambci/lambda       provided             bf7bf1516ce0        2 weeks ago          921MB
+amazonlinux         2017.03.1.20170812   28b6d09fbbe4        15 months ago        162MB
+```
+
+
 
 ```
 $ docker run lambda-php hello '{"name": "Myself"}'
