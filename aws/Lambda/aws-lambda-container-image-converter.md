@@ -181,8 +181,8 @@ FROM runtime as function
 COPY function/src /var/task/src/
 ```
 
-
-$ docker build -t lambda-php:latest .
+```console
+$ docker build -t lambda-php .
 ---snip---
 Successfully built c90803eda009
 Successfully tagged lambda-php:latest
