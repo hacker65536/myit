@@ -46,11 +46,46 @@ Server:
 $ echo 'export GOPATH=$HOME/go' >> ~/.bashrc
 $ source ~/.bashrc
 ```
-### download source
+### download source and make
 
-```
+```console
+$ mkdir -p $GOPATH/src/github.com/awslabs
+$ cd !$
 $ git clone https://github.com/awslabs/aws-lambda-container-image-converter.git
-$ cd !$:t:r/example
+$ cd !$:t:r
+$ make
+git rev-parse --short=7 HEAD > GITCOMMIT_SHA
+./scripts/build_binary.sh ./bin/local img2lambda 0.1.0 3c88cd3
+?       github.com/awslabs/aws-lambda-container-image-converter/img2lambda/cli  [no test files]
+?       github.com/awslabs/aws-lambda-container-image-converter/img2lambda/clients      [no test files]
+=== RUN   TestRepack
+2019/02/20 07:42:00 Image test-image has 4 layers
+2019/02/20 07:42:00 Created Lambda layer file /tmp/871615071/layer-1.zip from image layer digest1
+2019/02/20 07:42:00 Created Lambda layer file /tmp/871615071/layer-2.zip from image layer digest2
+2019/02/20 07:42:00 Did not create a Lambda layer file from image layer digest3 (no relevant files found)
+2019/02/20 07:42:00 Created Lambda layer file /tmp/871615071/layer-3.zip from image layer digest4
+2019/02/20 07:42:00 Created 3 Lambda layer files for image test-image
+--- PASS: TestRepack (0.00s)
+PASS
+coverage: 59.6% of statements
+ok      github.com/awslabs/aws-lambda-container-image-converter/img2lambda/extract      0.014s  coverage: 59.6% of statements
+=== RUN   TestNoLayers
+2019/02/20 07:41:59 Lambda layer ARNs (0 total) are written to /tmp/630313259/layers.json
+--- PASS: TestNoLayers (0.00s)
+=== RUN   TestPublishSuccess
+2019/02/20 07:41:59 Published Lambda layer file /tmp/438743701 (image layer sha256:1) to Lambda: arn:aws:lambda:us-east-2:123456789012:layer:example-layer-1:1
+2019/02/20 07:41:59 Published Lambda layer file /tmp/813668592 (image layer sha256:2) to Lambda: arn:aws:lambda:us-east-2:123456789012:layer:example-layer-2:1
+2019/02/20 07:41:59 Matched Lambda layer file /tmp/869350287 (image layer sha256:3) to existing Lambda layer: arn:aws:lambda:us-east-2:123456789012:layer:example-layer-3:1
+2019/02/20 07:41:59 Lambda layer ARNs (3 total) are written to /tmp/875241614/layers.json
+--- PASS: TestPublishSuccess (0.00s)
+=== RUN   TestPublishError
+--- PASS: TestPublishError (0.00s)
+PASS
+coverage: 83.9% of statements
+ok      github.com/awslabs/aws-lambda-container-image-converter/img2lambda/publish      0.009s  coverage: 83.9% of statements
+?       github.com/awslabs/aws-lambda-container-image-converter/img2lambda/types        [no test files]
+?       github.com/awslabs/aws-lambda-container-image-converter/img2lambda/version      [no test files]
+Built img2lambda
 ```
 ```
 $ docker build -t lambda-php:latest .
