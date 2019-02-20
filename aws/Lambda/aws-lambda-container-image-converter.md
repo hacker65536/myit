@@ -20,6 +20,7 @@ prepare
             "Action": [
                 "lambda:ListLayerVersions",
                 "lambda:CreateFunction",
+                "lambda:InvokeFunction",
                 "iam:PassRole"
             ],
             "Resource": "*"
@@ -290,6 +291,10 @@ $ ../../bin/local/img2lambda -i lambda-php:latest -r us-east-2
 
 ### create function
 
+```console
+$ cd function
+$ zip hello.zip src/hello.php
+```
 ```console
 $ aws lambda create-function \
     --function-name php-example-hello \
