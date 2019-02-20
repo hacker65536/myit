@@ -238,6 +238,65 @@ sha256:bf7bf1516ce08cd09d423e2d1d113a6360d753add54a46b0852db38d55d5f718   2 week
 
 ```
 
+```
+$ ../../bin/local/img2lambda -i lambda-php-latest -r us-east-2
+2019/02/20 08:45:39 Parsing the docker image docker-daemon:lambda-php-latest
+2019/02/20 08:45:39 docker-daemon: reference lambda-php-latest has neither a tag nor a digest
+[ec2-user@ip-172-31-6-227 function]$ ../../bin/local/img2lambda -i lambda-php:latest -r us-east-2
+2019/02/20 08:45:51 Parsing the docker image docker-daemon:lambda-php:latest
+2019/02/20 08:46:03 Image docker-daemon:lambda-php:latest has 5 layers
+2019/02/20 08:46:05 Did not create a Lambda layer file from image layer sha256:a62d74acabdbc7c028d47197aa6d9bb18863f751b9ce04f8dc274d4014ba51c9 (no relevant files found)
+2019/02/20 08:46:05 Did not create a Lambda layer file from image layer sha256:82e343805314ad98191a6b75d988fce607f2fdf7c2729c4acf7d68936218a9ea (no relevant files found)
+2019/02/20 08:46:06 Created Lambda layer file output/layer-1.zip from image layer sha256:68c37910ee8b14d7ad61b5a7e201ce5d1cf2fca5036a6656b4edc863ac664b33
+2019/02/20 08:46:06 Created Lambda layer file output/layer-2.zip from image layer sha256:16ceac3cbd4fa9c17a8175b70e330d985b40a86feed8c787695534c062608b31
+2019/02/20 08:46:06 Did not create a Lambda layer file from image layer sha256:7857a3dd36141bbb7cc10c802c0495a71b317d4df9da9f383c7eeb653b1217b0 (no relevant files found)
+2019/02/20 08:46:06 Created 2 Lambda layer files for image docker-daemon:lambda-php:latest
+2019/02/20 08:46:15 Published Lambda layer file output/layer-1.zip (image layer sha256:68c37910ee8b14d7ad61b5a7e201ce5d1cf2fca5036a6656b4edc863ac664b33) to Lambda: arn:aws:lambda:us-east-2:000000000000:layer:img2lambda-sha256-68c37910ee8b14d7ad61b5a7e201ce5d1cf2fca5036a6656b4edc863ac664b33:1
+2019/02/20 08:46:19 Published Lambda layer file output/layer-2.zip (image layer sha256:16ceac3cbd4fa9c17a8175b70e330d985b40a86feed8c787695534c062608b31) to Lambda: arn:aws:lambda:us-east-2:000000000000:layer:img2lambda-sha256-16ceac3cbd4fa9c17a8175b70e330d985b40a86feed8c787695534c062608b31:1
+2019/02/20 08:46:19 Lambda layer ARNs (2 total) are written to output/layers.json
+
+```
+
+
+```console
+$ aws lambda create-function \
+    --function-name php-example-hello \
+    --handler hello \
+    --zip-file fileb://./hello.zip \
+    --runtime provided \
+    --role "arn:aws:iam::000000000000:role/lambda_basic_exec_xray" \
+    --region us-east-2 \
+    --layers file://./output/layers.json
+{
+    "Layers": [
+        {
+            "CodeSize": 10737734,
+            "Arn": "arn:aws:lambda:us-east-2:000000000000:layer:img2lambda-sha256-68c37910ee8b14d7ad61b5a7e201ce5d1cf2fca5036a6656b4edc863ac664b33:1"
+        },
+        {
+            "CodeSize": 211888,
+            "Arn": "arn:aws:lambda:us-east-2:000000000000:layer:img2lambda-sha256-16ceac3cbd4fa9c17a8175b70e330d985b40a86feed8c787695534c062608b31:1"
+        }
+    ],
+    "FunctionName": "php-example-hello",
+    "LastModified": "2019-02-20T09:00:28.565+0000",
+    "RevisionId": "2f1defaa-4965-4bc8-9c31-1ebd8d9edbed",
+    "MemorySize": 128,
+    "Version": "$LATEST",
+    "Role": "arn:aws:iam::000000000000:role/lambda_basic_exec_xray",
+    "Timeout": 3,
+    "Runtime": "provided",
+    "TracingConfig": {
+        "Mode": "PassThrough"
+    },
+    "CodeSha256": "/D0eOmzyVXh80yvhIMyxzzXFTKfqsEw3qN8lGKAASao=",
+    "Description": "",
+    "CodeSize": 339,
+    "FunctionArn": "arn:aws:lambda:us-east-2:000000000000:function:php-example-hello",
+    "Handler": "hello"
+}
+```
+
 
 ```
 $ docker run lambda-php hello '{"name": "Myself"}'
