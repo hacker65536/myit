@@ -238,11 +238,8 @@ sha256:bf7bf1516ce08cd09d423e2d1d113a6360d753add54a46b0852db38d55d5f718   2 week
 
 ```
 
-```
-$ ../../bin/local/img2lambda -i lambda-php-latest -r us-east-2
-2019/02/20 08:45:39 Parsing the docker image docker-daemon:lambda-php-latest
-2019/02/20 08:45:39 docker-daemon: reference lambda-php-latest has neither a tag nor a digest
-[ec2-user@ip-172-31-6-227 function]$ ../../bin/local/img2lambda -i lambda-php:latest -r us-east-2
+```console
+$ ../../bin/local/img2lambda -i lambda-php:latest -r us-east-2
 2019/02/20 08:45:51 Parsing the docker image docker-daemon:lambda-php:latest
 2019/02/20 08:46:03 Image docker-daemon:lambda-php:latest has 5 layers
 2019/02/20 08:46:05 Did not create a Lambda layer file from image layer sha256:a62d74acabdbc7c028d47197aa6d9bb18863f751b9ce04f8dc274d4014ba51c9 (no relevant files found)
