@@ -9,7 +9,39 @@ prepare
 - amazonlinux 2 ( higher than t2.micro　)
 - attatch role as below
 
+`ec2 role`
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "0",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:ListLayerVersions",
+                "lambda:CreateFunction",
+                "iam:PassRole"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "1",
+            "Effect": "Allow",
+            "Action": "lambda:PublishLayerVersion",
+            "Resource": "arn:aws:lambda:us-east-2:000000000000:layer:*"
+        },
+        {
+            "Sid": "2",
+            "Effect": "Allow",
+            "Action": "lambda:GetLayerVersion",
+            "Resource": "arn:aws:lambda:us-east-2:000000000000:layer:*:*"
+        }
+    ]
+}
+```
 
+lambda policy of service-role  
+`arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole`
 ### install docker go git
 
 ```console
