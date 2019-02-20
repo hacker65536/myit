@@ -206,6 +206,22 @@ lambci/lambda       provided             bf7bf1516ce0        2 weeks ago        
 amazonlinux         2017.03.1.20170812   28b6d09fbbe4        15 months ago        162MB
 ```
 ```console
+$ docker history lambda-php
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+35471f16bfe9        5 minutes ago       /bin/sh -c #(nop) COPY dir:07f3d6016cf144681…   372B             
+db9bbcc3f802        5 minutes ago       /bin/sh -c #(nop) COPY dir:b68eef9b9d9055ddc…   644kB            
+f324a1b44cf7        5 minutes ago       /bin/sh -c #(nop) COPY dir:28d971eb65e1b9d9e…   35.3MB           
+bf7bf1516ce0        2 weeks ago         /bin/sh -c #(nop)  ENTRYPOINT ["/var/runtime…   0B               
+<missing>           2 weeks ago         /bin/sh -c #(nop)  USER sbx_user1051            0B               
+<missing>           2 weeks ago         /bin/sh -c #(nop) COPY file:c4e4c5d549aac001…   7.85MB           
+<missing>           2 weeks ago                                                         913MB               create new from sha256:f4a380f8da0ac3c5255b9136d0e860ea861a1a170112a0299dc95f1bcf80200f
+<missing>           2 weeks ago         /bin/sh -c #(nop) WORKDIR /var/task             0B               
+<missing>           2 weeks ago         /bin/sh -c yum reinstall -y filesystem;   rm…   0B               
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV PATH=/usr/local/bin:/…   0B               
+<missing>           2 weeks ago         /bin/sh -c #(nop) ADD file:152037be36e098638…   0B               
+```
+
+```console
 $ docker history --no-trunc lambda-php
 IMAGE                                                                     CREATED             CREATED BY                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             SIZE                COMMENT
 sha256:35471f16bfe9a1c75c2222e40d6ca362126168cdef8bfbd35e5f51524333511b   4 minutes ago       /bin/sh -c #(nop) COPY dir:07f3d6016cf144681aeace3d083bce91cb9be51809d0ecea057b75bc8144da41 in /var/task/src/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          372B
