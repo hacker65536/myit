@@ -238,6 +238,8 @@ sha256:bf7bf1516ce08cd09d423e2d1d113a6360d753add54a46b0852db38d55d5f718   2 week
 
 ```
 
+
+### publish lambda layer
 ```console
 $ ../../bin/local/img2lambda -i lambda-php:latest -r us-east-2
 2019/02/20 08:45:51 Parsing the docker image docker-daemon:lambda-php:latest
@@ -254,6 +256,7 @@ $ ../../bin/local/img2lambda -i lambda-php:latest -r us-east-2
 
 ```
 
+### create function
 
 ```console
 $ aws lambda create-function \
@@ -292,6 +295,24 @@ $ aws lambda create-function \
     "FunctionArn": "arn:aws:lambda:us-east-2:000000000000:function:php-example-hello",
     "Handler": "hello"
 }
+```
+### call funcation
+
+```console
+$ aws lambda invoke \
+    --function-name php-example-hello \
+    --region us-east-2 \
+    --log-type Tail \
+    --query 'LogResult' \
+    --output text \
+    --payload '{"name": "World"}' hello-output.txt | base64 --decode
+START RequestId: ee682900-26db-48eb-9c77-d3b84c767bc7 Version: $LATEST
+END RequestId: ee682900-26db-48eb-9c77-d3b84c767bc7
+REPORT RequestId: ee682900-26db-48eb-9c77-d3b84c767bc7  Init Duration: 130.04 ms        Duration: 44.63 ms       Billed Duration: 200 ms         Memory Size: 128 MB     Max Memory Used: 60 MB
+```
+```console
+$ cat hello-output.txt
+Hello, World!
 ```
 
 
