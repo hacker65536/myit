@@ -19,10 +19,30 @@ $ sudo amazon-linux-extras install -y docker
 $ sudo amazon-linux-extras install -y golang1.11
 $ sudo systemctl enable docker
 $ sudo systemctl start docker
-$ sudo usermod -a -G docker ec2-user
-$ sudo newgrp docker
+$ sudo usermod -a -G docker $(whoami)
+$ newgrp docker
 ```
+```console
+$ docker version
+Client:
+ Version:           18.06.1-ce
+ API version:       1.38
+ Go version:        go1.10.3
+ Git commit:        e68fc7a215d7133c34aa18e3b72b4a21fd0c6136
+ Built:             Mon Jan 28 21:03:38 2019
+ OS/Arch:           linux/amd64
+ Experimental:      false
 
+Server:
+ Engine:
+  Version:          18.06.1-ce
+  API version:      1.38 (minimum version 1.12)
+  Go version:       go1.10.3
+  Git commit:       e68fc7a/18.06.1-ce
+  Built:            Mon Jan 28 21:05:04 2019
+  OS/Arch:          linux/amd64
+  Experimental:     false
+```
 
 
 ```
