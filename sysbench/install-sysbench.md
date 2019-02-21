@@ -71,9 +71,9 @@ install from source
 ```console
 $ git clone https://github.com/akopytov/sysbench.git
 $ cd sysbench
-./autogen.sh
+$ ./autogen.sh
 # Add --with-pgsql to build with PostgreSQL support
-./configure
-make -j
-make install
+$ ./configure
+$ make -j
+$ sudo make install
 ```
