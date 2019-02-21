@@ -100,3 +100,17 @@ $ apex deploy
 $ echo '{"name": "tobi" }' | apex invoke hello
 {"hello":"world"}
 ```
+
+```console
+$ apex list
+
+  hello
+    runtime: nodejs6.10
+    memory: 128mb
+    timeout: 5s
+    role: arn:aws:iam::000000000000:role/atest_lambda_function
+    handler: index.handle
+    arn: arn:aws:lambda:us-east-2:000000000000:function:atest_hello:current
+    aliases: current@v1
+
+```
