@@ -58,3 +58,32 @@ $ apex init
     $ apex deploy
 
 ```
+
+```console
+$ tree .
+.
+├── functions
+│   └── hello
+│       └── index.js
+└── project.json
+
+2 directories, 2 files
+```
+```console
+$ cat functions/hello/index.js
+console.log('starting function')
+exports.handle = function(e, ctx, cb) {
+  console.log('processing event: %j', e)
+  cb(null, { hello: 'world' })
+}
+```
+```console
+$ cat project.json
+{
+  "name": "atest",
+  "description": "atest",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::000000000000:role/atest_lambda_function",
+  "environment": {}
+}
