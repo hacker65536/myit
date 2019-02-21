@@ -137,6 +137,21 @@ You are logged in as: xxxxxx@xxxxxxxxxxxxxx
 - Pick project [4] xxxxxxxxxxxxx
 - specify a zone  [4] asia-northeast1-a
 
+```console
+$ ls -la ~/.config/gcloud/
+total 24
+drwxrwxr-x 5 ec2-user ec2-user  198 Feb 21 08:54 .
+drwx------ 4 ec2-user ec2-user   43 Feb 21 08:47 ..
+-rw------- 1 ec2-user ec2-user 4096 Feb 21 08:54 access_tokens.db
+-rw-rw-r-- 1 ec2-user ec2-user    7 Feb 21 08:50 active_config
+-rw-rw-r-- 1 ec2-user ec2-user    0 Feb 21 08:54 config_sentinel
+drwxrwxr-x 2 ec2-user ec2-user   28 Feb 21 08:47 configurations
+-rw------- 1 ec2-user ec2-user 5120 Feb 21 08:54 credentials.db
+-rw------- 1 ec2-user ec2-user    5 Feb 21 09:00 gce
+-rw-rw-r-- 1 ec2-user ec2-user  134 Feb 21 08:47 .last_update_check.json
+drwx------ 3 ec2-user ec2-user   34 Feb 21 08:54 legacy_credentials
+drwxrwxr-x 3 ec2-user ec2-user   24 Feb 21 08:47 logs
+```
 
 apis&reference
 -------------
