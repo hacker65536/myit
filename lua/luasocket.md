@@ -39,12 +39,8 @@ print(l)
 print()
 ```
 
-```console
-$ lua socket.lua
-contents:HTTP/1.1 200 OK
-```
 
-```lua
+```console
 $ lua socket.lua
 ----body
 <!DOCTYPE html>
