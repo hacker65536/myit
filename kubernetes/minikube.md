@@ -43,3 +43,5 @@ There were problems setting up VirtualBox.  To re-start the set-up process, run
   /sbin/vboxconfig
 as root.
 ```
+
+https://stackoverflow.com/questions/7601853/can-virtualbox-be-executed-under-amazon-ec2-instance
