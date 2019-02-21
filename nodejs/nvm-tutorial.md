@@ -4,7 +4,7 @@ Node Version Manager
 
 https://github.com/creationix/nvm
 
-install
+install nvm
 --
 ```console
 $ curl -Ss -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
@@ -22,7 +22,8 @@ export NVM_DIR="$HOME/.nvm"
 ```console
 $ source ~/.bashrc
 ```
-
+install node
+--
 ```console
 $ nvm install node
 Downloading and installing node v11.10.0...
@@ -43,7 +44,8 @@ EOF
 $ node index.js
 v11.10.0
 ```
-
+list (local)
+--
 ```console
 $ nvm ls
 ->     v11.10.0
@@ -59,6 +61,8 @@ lts/carbon -> v8.15.0 (-> N/A)
 lts/dubnium -> v10.15.1 (-> N/A)
 ```
 
+list remote
+--
 ```console
 $ nvm ls-remote --lts | tail -10
         v8.13.0   (LTS: Carbon)
@@ -73,6 +77,17 @@ $ nvm ls-remote --lts | tail -10
        v10.15.1   (Latest LTS: Dubnium)
 ```
 
+install lts
+--
+```console
+$ nvm install --lts
+Installing latest LTS version.
+Downloading and installing node v10.15.1...
+Local cache found: $NVM_DIR/.cache/bin/node-v10.15.1-linux-x64/node-v10.15.1-linux-x64.tar.xz
+Checksums match! Using existing downloaded archive $NVM_DIR/.cache/bin/node-v10.15.1-linux-x64/node-v10.15.1-linux-x64.tar.xz
+Now using node v10.15.1 (npm v6.4.1)
+```
+or 
 ```console
 $ nvm install v10.15.1
 Downloading and installing node v10.15.1...
@@ -82,16 +97,10 @@ Computing checksum with sha256sum
 Checksums matched!
 Now using node v10.15.1 (npm v6.4.1)
 ```
-or 
 
-```console
-$ nvm install --lts
-Installing latest LTS version.
-Downloading and installing node v10.15.1...
-Local cache found: $NVM_DIR/.cache/bin/node-v10.15.1-linux-x64/node-v10.15.1-linux-x64.tar.xz
-Checksums match! Using existing downloaded archive $NVM_DIR/.cache/bin/node-v10.15.1-linux-x64/node-v10.15.1-linux-x64.tar.xz
-Now using node v10.15.1 (npm v6.4.1)
-```
+
+switch and uninstall
+--
 
 ```console
 $ nvm ls
