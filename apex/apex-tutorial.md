@@ -114,3 +114,16 @@ $ apex list
     aliases: current@v1
 
 ```
+
+```console
+$ apex metrics
+
+  hello
+    total cost: $0.00
+    invocations: 2 ($0.00)
+    duration: 122ms ($0.00)
+    throttles: 0
+    errors: 0
+    memory: 128
+
+```
