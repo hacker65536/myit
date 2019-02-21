@@ -1,11 +1,17 @@
+# sysbench 
+
 https://github.com/akopytov/sysbench
 
+require
+--
 ```console
 $ sudo yum -y install make automake libtool pkgconfig libaio-devel
 $ sudo yum -y install mariadb-devel openssl-devel
 $ sudo yum -y install postgresql-devel
 ```
 
+install from yum
+--
 ```console
 $ sudo yum list installed "mariadb*"
 Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
@@ -60,9 +66,11 @@ lrwxrwxrwx 1 root root 13 Jul 10 01:42 /usr/lib64/libmysqlclient.so -> libmariad
 lrwxrwxrwx 1 root root 15 Jul  2 06:52 /usr/lib64/libmysqlclient.so.18 -> libmariadb.so.3
 ```
 
-from source
-
-```
+install from source
+--
+```console
+$ git clone https://github.com/akopytov/sysbench.git
+$ cd sysbench
 ./autogen.sh
 # Add --with-pgsql to build with PostgreSQL support
 ./configure
