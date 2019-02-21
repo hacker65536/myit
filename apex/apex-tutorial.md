@@ -87,3 +87,16 @@ $ cat project.json
   "role": "arn:aws:iam::000000000000:role/atest_lambda_function",
   "environment": {}
 }
+```
+
+```console
+$ apex deploy
+   • creating function         env= function=hello
+   • created alias current     env= function=hello version=1
+   • function created          env= function=hello name=atest_hello version=1
+```
+
+```console
+$ echo '{"name": "tobi" }' | apex invoke hello
+{"hello":"world"}
+```
