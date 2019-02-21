@@ -1,4 +1,5 @@
 # luarocks
+https://github.com/luarocks/luarocks/wiki/Using-LuaRocks
 
 require lua-devel(lua.h)
 
