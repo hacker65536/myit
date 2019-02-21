@@ -28,6 +28,9 @@ Default output format [None]:
 $ export AWS_PROFILE=default
 ```
 
+## example
+
+### init
 ```console
 $ apex init
 
@@ -60,7 +63,7 @@ $ apex init
     $ apex deploy
 
 ```
-
+### inspect
 ```console
 $ tree .
 .
@@ -91,18 +94,21 @@ $ cat project.json
 }
 ```
 
+### deploy
 ```console
 $ apex deploy
    • creating function         env= function=hello
    • created alias current     env= function=hello version=1
    • function created          env= function=hello name=atest_hello version=1
 ```
-
+### invoke
 ```console
 $ echo '{"name": "tobi" }' | apex invoke hello
 {"hello":"world"}
 ```
 
+
+### list
 ```console
 $ apex list
 
@@ -116,7 +122,7 @@ $ apex list
     aliases: current@v1
 
 ```
-
+### metrics
 ```console
 $ apex metrics
 
@@ -129,11 +135,17 @@ $ apex metrics
     memory: 128
 
 ```
+### delete
 
-```console
-$ wget https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip
-$ sudo unzip terraform_0.11.11_linux_amd64.zip
-$ sudo mv terraform /usr/local/bin/
-$ rm terraform_0.11.11_linux_amd64.zip
+```console 
+$ apex delete
+Are you sure? (yes/no) yes
+   • deleting                  env= function=hello
+   • function deleted          env= function=hello
 ```
 
+but does not delete IAM roles created by `apex init`
+```console
+$ aws iam get-role --role-name atest_lambda_function | jq -r '.[]|.Arn'
+arn:aws:iam::000000000000:role/atest_lambda_function
+```
