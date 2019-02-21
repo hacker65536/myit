@@ -1,10 +1,15 @@
 # luarocks
 
 require lua-devel(lua.h)
+
+install luarocks
+--
 ```console
 $ sudo yum install luarocks
 ```
 
+install modules via luarocks
+--
 ```console
 $ luarocks search luasocket
 
@@ -65,3 +70,11 @@ Updating manifest for /home/ec2-user/.luarocks/lib64/luarocks/rocks
 No existing manifest. Attempting to rebuild...
 luasocket 3.0rc1-2 is now built and installed in /home/ec2-user/.luarocks (license: MIT)
 ```
+
+set path
+--
+```console
+$ echo 'eval $(luarocks path --bin)' >> ~/.bashrc
+$ source ~/.bashrc
+```
+
