@@ -1,34 +1,47 @@
-https://cloud.google.com/sdk/downloads?hl=ja#linux
+# google cloud sdk
 
+https://cloud.google.com/sdk/docs/quickstart-linux?hl=ja
+
+
+```console
+$ curl https://sdk.cloud.google.com | bash
+```
 
 ```
-curl https://sdk.cloud.google.com | bash
-```
+/home/ec2-user/google-cloud-sdk/install.sh
+Welcome to the Google Cloud SDK!
 
-- Do you want to help improve the Google Cloud SDK (Y/n)?  n
+To help improve the quality of this product, we collect anonymized usage data
+and anonymized stacktraces when crashes are encountered; additional information
+is available at <https://cloud.google.com/sdk/usage-statistics>. You may choose
+to opt out of this collection now (by choosing 'N' at the below prompt), or at
+any time in the future by running the following command:
 
-```
----snip---
+    gcloud config set disable_usage_reporting true
+
+Do you want to help improve the Google Cloud SDK (Y/n)?  n
+
+
 This will install all the core command line tools necessary for working with
 the Google Cloud Platform.
 
 
 
-Your current Cloud SDK version is: 177.0.0
-Installing components from version: 177.0.0
+Your current Cloud SDK version is: 235.0.0
+Installing components from version: 235.0.0
 
 ┌────────────────────────────────────────────────────────────────────────────┐
 │                    These components will be installed.                     │
 ├─────────────────────────────────────────────────────┬────────────┬─────────┤
 │                         Name                        │  Version   │   Size  │
 ├─────────────────────────────────────────────────────┼────────────┼─────────┤
-│ BigQuery Command Line Tool                          │     2.0.27 │ < 1 MiB │
-│ BigQuery Command Line Tool (Platform Specific)      │     2.0.26 │ < 1 MiB │
-│ Cloud SDK Core Libraries (Platform Specific)        │ 2017.09.15 │ < 1 MiB │
-│ Cloud Storage Command Line Tool                     │       4.28 │ 3.3 MiB │
-│ Cloud Storage Command Line Tool (Platform Specific) │       4.27 │ < 1 MiB │
+│ BigQuery Command Line Tool                          │     2.0.41 │ < 1 MiB │
+│ BigQuery Command Line Tool (Platform Specific)      │     2.0.34 │ < 1 MiB │
+│ Cloud SDK Core Libraries (Platform Specific)        │ 2018.09.24 │ < 1 MiB │
+│ Cloud Storage Command Line Tool                     │       4.36 │ 3.6 MiB │
+│ Cloud Storage Command Line Tool (Platform Specific) │       4.34 │ < 1 MiB │
 │ Default set of gcloud commands                      │            │         │
-│ gcloud cli dependencies                             │ 2017.10.20 │ 5.1 MiB │
+│ gcloud cli dependencies                             │ 2018.08.03 │ 8.6 MiB │
 └─────────────────────────────────────────────────────┴────────────┴─────────┘
 
 For the latest full release notes, please visit:
@@ -61,11 +74,9 @@ Update done!
 
 Modify profile to update your $PATH and enable shell command
 completion?
-```
 
-- Do you want to continue (Y/n)?  Y
+Do you want to continue (Y/n)?
 
-```
 The Google Cloud SDK installer will now prompt you to update an rc
 file to bring the Google Cloud CLIs into your environment.
 
@@ -79,29 +90,24 @@ Backing up [/home/ec2-user/.bashrc] to [/home/ec2-user/.bashrc.backup].
 
 For more information on how to get started, please visit:
   https://cloud.google.com/sdk/docs/quickstarts
+
+
 ```
 
 .bashrc
 ```bash
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/ec2-user/google-cloud-sdk/path.bash.inc' ]; then source '/home/ec2-user/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '/home/ec2-user/google-cloud-sdk/path.bash.inc' ]; then . '/home/ec2-user/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/ec2-user/google-cloud-sdk/completion.bash.inc' ]; then source '/home/ec2-user/google-cloud-sdk/completion.bash.inc'; fi
-```
-
-append
-```bash
-export CLOUDSDK_PYTHON=/usr/bin/python2.7
+if [ -f '/home/ec2-user/google-cloud-sdk/completion.bash.inc' ]; then . '/home/ec2-user/google-cloud-sdk/completion.bash.inc'; fi
 ```
 
 
 ```
-exec -l $SHELL
-```
 
-```
-gcloud init
+```console
+$ gcloud init
 ```
 
 ```
