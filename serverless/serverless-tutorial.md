@@ -196,3 +196,83 @@ functions:
 #       Description: "Description for the output"
 #       Value: "Some output value"
 ```
+
+```console
+$ sls deploy -v
+Serverless: Packaging service...
+Serverless: Excluding development dependencies...
+Serverless: Creating Stack...
+Serverless: Checking Stack create progress...
+CloudFormation - CREATE_IN_PROGRESS - AWS::CloudFormation::Stack - my-app-dev
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_COMPLETE - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_COMPLETE - AWS::CloudFormation::Stack - my-app-dev
+Serverless: Stack create finished...
+Serverless: Uploading CloudFormation file to S3...
+Serverless: Uploading artifacts...
+Serverless: Uploading service my-app.zip file to S3 (387 B)...
+Serverless: Validating template...
+Serverless: Updating Stack...
+Serverless: Checking Stack update progress...
+CloudFormation - CREATE_COMPLETE - AWS::CloudFormation::Stack - my-app-dev
+CloudFormation - UPDATE_IN_PROGRESS - AWS::CloudFormation::Stack - my-app-dev
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - HelloLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::IAM::Role - IamRoleLambdaExecution
+CloudFormation - CREATE_IN_PROGRESS - AWS::IAM::Role - IamRoleLambdaExecution
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - HelloLogGroup
+CloudFormation - CREATE_COMPLETE - AWS::Logs::LogGroup - HelloLogGroup
+CloudFormation - CREATE_COMPLETE - AWS::IAM::Role - IamRoleLambdaExecution
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - HelloLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - HelloLambdaFunction
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Function - HelloLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - HelloLambdaVersionZEW6fpRGsfJBuKDNiCB0yBdOfDe7LGLLUcZemJc
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - HelloLambdaVersionZEW6fpRGsfJBuKDNiCB0yBdOfDe7LGLLUcZemJc
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Version - HelloLambdaVersionZEW6fpRGsfJBuKDNiCB0yBdOfDe7LGLLUcZemJc
+CloudFormation - UPDATE_COMPLETE_CLEANUP_IN_PROGRESS - AWS::CloudFormation::Stack - my-app-dev
+CloudFormation - UPDATE_COMPLETE - AWS::CloudFormation::Stack - my-app-dev
+Serverless: Stack update finished...
+Service Information
+service: my-app
+stage: dev
+region: us-east-1
+stack: my-app-dev
+resources: 5
+api keys:
+  None
+endpoints:
+  None
+functions:
+  hello: my-app-dev-hello
+layers:
+  None
+
+Stack Outputs
+HelloLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:000000000000:function:my-app-dev-hello:1
+ServerlessDeploymentBucketName: my-app-dev-serverlessdeploymentbucket-1s9obdevv7lqu
+```
+
+```console
+$ serverless deploy function -f hello
+Serverless: Packaging function: hello...
+Serverless: Excluding development dependencies...
+Serverless: Code not changed. Skipping function deployment.
+Serverless: Successfully updated function: hello
+```
+```console
+$ serverless invoke -f hello -l
+{
+    "statusCode": 200,
+    "body": "{\"message\":\"Go Serverless v1.0! Your function executed successfully!\",\"input\":{}}"
+}
+```
+
+```console
+$ serverless remove
+Serverless: Getting all objects in S3 bucket...
+Serverless: Removing objects in S3 bucket...
+Serverless: Removing Stack...
+Serverless: Checking Stack removal progress...
+.........
+Serverless: Stack removal finished...
+```
