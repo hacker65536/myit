@@ -24,9 +24,11 @@ AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region name [None]: us-east-2
 Default output format [None]:
 ```
-
 ```console
 $ export AWS_PROFILE=default
+```
+
+```console
 $ apex init
 
 
