@@ -79,3 +79,34 @@ $ echo 'eval $(luarocks path --bin)' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
+inspect
+--
+```console
+$ tree -L 3 .luarocks/
+.luarocks/
+├── lib64
+│   ├── lua
+│   │   └── 5.1
+│   └── luarocks
+│       └── rocks
+└── share
+    └── lua
+        └── 5.1
+
+8 directories, 0 files
+```
+
+```console
+$ ls -la /usr/lib64/lua/5.1/
+total 4
+drwxr-xr-x 3 root root   22 Feb 21 10:26 .
+drwxr-xr-x 3 root root   17 Nov 14 07:24 ..
+drwxr-xr-x 7 root root 4096 Feb 21 10:26 luarocks
+```
+
+```console
+$ ls -al /usr/share/lua/5.1/
+total 0
+drwxr-xr-x 2 root root  6 Jul 31  2018 .
+drwxr-xr-x 3 root root 17 Nov 14 07:24 ..
+```
