@@ -1,4 +1,4 @@
-# mysqlsh
+# mysql shell
 ref
 --
 https://dev.mysql.com/doc/mysql-shell/8.0/en/
