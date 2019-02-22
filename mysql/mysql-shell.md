@@ -154,6 +154,13 @@ mysql> show tables
 
 ```console
 $ mysqlsh
+MySQL Shell 8.0.15
+
+Copyright (c) 2016, 2019, Oracle and/or its affiliates. All rights reserved.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
 ```
 
 ### help
@@ -194,17 +201,7 @@ The following shell commands are available:
 
 ### connect to mysql server
 
-```console
-$ mysqlsh
-MySQL Shell 8.0.15
 
-Copyright (c) 2016, 2019, Oracle and/or its affiliates. All rights reserved.
-Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
-Other names may be trademarks of their respective owners.
-
-Type '\help' or '\?' for help; '\quit' to exit.
-
-```
 ```
  MySQL  JS > \status
 MySQL Shell version 8.0.15
