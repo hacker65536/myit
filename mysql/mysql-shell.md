@@ -5,6 +5,8 @@ https://dev.mysql.com/doc/mysql-shell/8.0/en/
 
 https://dev.mysql.com/doc/dev/mysqlsh-api-javascript/8.0/
 
+https://dev.mysql.com/doc/dev/mysqlsh-api-python/8.0/
+
 ## install 
 ```
 $ sudo yum install mysql-shell
@@ -458,4 +460,66 @@ Fetching table and column names from `world_x` for auto-completion... Press ^C t
 | 10 | Tilburg        | NLD         | Noord-Brabant | {"Population": 193238}  |
 +----+----------------+-------------+---------------+-------------------------+
 10 rows in set (0.0006 sec)
+```
+python mode
+--
+```
+ MySQL  127.0.0.1:33060+ ssl  JS > \py
+Switching to Python mode...
+```
+```
+MySQL  127.0.0.1:33060+ ssl  Py > session.get_schemas();
+[
+    <Schema:information_schema>,
+    <Schema:mysql>,
+    <Schema:performance_schema>,
+    <Schema:sys>,
+    <Schema:world_x>
+]
+```
+```
+ MySQL  127.0.0.1:33060+ ssl  Py > db=session.get_schema("world_x");
+ MySQL  127.0.0.1:33060+ ssl  Py > db.get_tables();
+[
+    <Table:city>,
+    <Table:country>,
+    <Table:countrylanguage>
+]
+```
+```
+ MySQL  127.0.0.1:33060+ ssl  Py > tbl=db.get_table("city")
+ MySQL  127.0.0.1:33060+ ssl  Py > tbl.select().limit(10)
++----+----------------+-------------+---------------+-------------------------+
+| ID | Name           | CountryCode | District      | Info                    |
++----+----------------+-------------+---------------+-------------------------+
+|  1 | Kabul          | AFG         | Kabol         | {"Population": 1780000} |
+|  2 | Qandahar       | AFG         | Qandahar      | {"Population": 237500}  |
+|  3 | Herat          | AFG         | Herat         | {"Population": 186800}  |
+|  4 | Mazar-e-Sharif | AFG         | Balkh         | {"Population": 127800}  |
+|  5 | Amsterdam      | NLD         | Noord-Holland | {"Population": 731200}  |
+|  6 | Rotterdam      | NLD         | Zuid-Holland  | {"Population": 593321}  |
+|  7 | Haag           | NLD         | Zuid-Holland  | {"Population": 440900}  |
+|  8 | Utrecht        | NLD         | Utrecht       | {"Population": 234323}  |
+|  9 | Eindhoven      | NLD         | Noord-Brabant | {"Population": 201843}  |
+| 10 | Tilburg        | NLD         | Noord-Brabant | {"Population": 193238}  |
++----+----------------+-------------+---------------+-------------------------+
+10 rows in set (0.0007 sec)
+```
+```
+ MySQL  127.0.0.1:33060+ ssl  Py > session.get_schema("world_x").get_table("city").select().limit(10)
++----+----------------+-------------+---------------+-------------------------+
+| ID | Name           | CountryCode | District      | Info                    |
++----+----------------+-------------+---------------+-------------------------+
+|  1 | Kabul          | AFG         | Kabol         | {"Population": 1780000} |
+|  2 | Qandahar       | AFG         | Qandahar      | {"Population": 237500}  |
+|  3 | Herat          | AFG         | Herat         | {"Population": 186800}  |
+|  4 | Mazar-e-Sharif | AFG         | Balkh         | {"Population": 127800}  |
+|  5 | Amsterdam      | NLD         | Noord-Holland | {"Population": 731200}  |
+|  6 | Rotterdam      | NLD         | Zuid-Holland  | {"Population": 593321}  |
+|  7 | Haag           | NLD         | Zuid-Holland  | {"Population": 440900}  |
+|  8 | Utrecht        | NLD         | Utrecht       | {"Population": 234323}  |
+|  9 | Eindhoven      | NLD         | Noord-Brabant | {"Population": 201843}  |
+| 10 | Tilburg        | NLD         | Noord-Brabant | {"Population": 193238}  |
++----+----------------+-------------+---------------+-------------------------+
+10 rows in set (0.0003 sec)
 ```
