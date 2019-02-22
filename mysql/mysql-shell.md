@@ -164,7 +164,7 @@ Type '\help' or '\?' for help; '\quit' to exit.
 ```
 
 ### help
-```console
+```
  MySQL  JS > \help
  ```
 
@@ -250,7 +250,8 @@ Closing old connection...
 Your MySQL connection id is 16
 Server version: 8.0.15 MySQL Community Server - GPL
 No default schema selected; type \use <schema> to set one.
-
+```
+```
  MySQL  127.0.0.1:3306 ssl  JS > \s
 MySQL Shell version 8.0.15
 
@@ -274,8 +275,7 @@ Uptime:                       53 min 41.0000 sec
 
 Threads: 2  Questions: 114  Slow queries: 0  Opens: 319  Flush tables: 2  Open tables: 140  Queries per second avg: 0.035
 ```
-
-
+### using x protocal
 ```
  MySQL  127.0.0.1:3306 ssl  JS > session.getSchemas();
 Invalid object member getSchemas (AttributeError)
@@ -290,8 +290,8 @@ Creating an X protocol session to 'root@127.0.0.1'
 MySQL Error 2002: Connection refused connecting to 127.0.0.1:33060
 ```
 
-restart server to listen x protocal
---
+#### restart server to listen x protocal
+x protocal `33060`
 ```console
 $ docker stop mysql8
 $ docker run --rm  -it -d --name mysql8 -p 3306:3306 -p 33060:33060 -e MYSQL_ROOT_PASSWORD=mysql8 mysql:8
@@ -301,7 +301,7 @@ $ docker ps -f publish=33060
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                                              NAMES
 c178244e7a9c        mysql:8             "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:3306->3306/tcp, 0.0.0.0:33060->33060/tcp   mysql8
 ```
-
+#### reconnect
 ```
 $ mysqlsh root@127.0.0.1
 MySQL Shell 8.0.15
