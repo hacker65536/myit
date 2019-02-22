@@ -3,4 +3,5 @@
 `Ctrl+Shift+P`
 
 ### markdown preview
-`Ctrl+K V`
+- new pane `Ctrl+K V`
+- `Ctrl+Shift+V`
