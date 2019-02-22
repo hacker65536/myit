@@ -306,12 +306,19 @@ c178244e7a9c        mysql:8             "docker-entrypoint.s…"   About a minut
 ```
 
 ```
- MySQL  JS > \c mysqlx://root@127.0.0.1
-Creating an X protocol session to 'root@127.0.0.1'
+$ mysqlsh root@127.0.0.1
+MySQL Shell 8.0.15
+
+Copyright (c) 2016, 2019, Oracle and/or its affiliates. All rights reserved.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+Creating a session to 'root@127.0.0.1'
 Fetching schema names for autocompletion... Press ^C to stop.
-Your MySQL connection id is 8 (X protocol)
+Your MySQL connection id is 13 (X protocol)
 Server version: 8.0.15 MySQL Community Server - GPL
-No default schema selected; type \use <schema> to set one.^p    
+No default schema selected; type \use <schema> to set one.   
 ```
 ```
  MySQL  127.0.0.1:33060+ ssl  JS > \s
@@ -335,15 +342,14 @@ Client characterset:          utf8mb4
 Conn. characterset:           utf8mb4
 Uptime:                       2 min 5.0000 sec
 ```
-
-store db again
+```
+ MySQL  127.0.0.1:33060+ ssl  JS > session
+<Session:root@127.0.0.1:33060>
+```
+#### store db again
 --
 ```
 $ mysql -h 127.0.0.1 -u root -p <world_x.sql
-```
-```
-$ mysqlsh root@127.0.0.1
- MySQL  127.0.0.1:33060+ ssl  JS >
 ```
 
 js mode
