@@ -3,7 +3,7 @@ ref
 --
 https://dev.mysql.com/doc/mysql-shell/8.0/en/
 
-https://dev.mysql.com/doc/dev/mysqlsh-api-javascript/1.0/classmysqlsh_1_1mysqlx_1_1_base_session.html
+https://dev.mysql.com/doc/dev/mysqlsh-api-javascript/8.0/
 
 ## install 
 ```
