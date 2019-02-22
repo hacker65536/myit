@@ -344,7 +344,7 @@ Uptime:                       2 min 5.0000 sec
 <Session:root@127.0.0.1:33060>
 ```
 #### store db again
---
+
 ```
 $ mysql -h 127.0.0.1 -u root -p <world_x.sql
 ```
