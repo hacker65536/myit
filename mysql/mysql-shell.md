@@ -593,25 +593,63 @@ mysql> select * from countryinfo limit 3;
 <Collection:countryinfo>
 ```
 ```
- MySQL  127.0.0.1:33060+ ssl  JS > col.find('Name="Aruba"').execute().fetchAll();
+ MySQL  127.0.0.1:33060+ ssl  JS > col.find('geography.Continent="North America"').sort("GNP").limit(3).execute().fetchAll();
 [
     {
-        "GNP": 828,
+        "GNP": 0,
         "IndepYear": null,
-        "Name": "Aruba",
-        "_id": "ABW",
+        "Name": "Virgin Islands, U.S.",
+        "_id": "VIR",
         "demographics": {
-            "LifeExpectancy": 78.4000015258789,
-            "Population": 103000
+            "LifeExpectancy": 78.0999984741211,
+            "Population": 93000
         },
         "geography": {
             "Continent": "North America",
             "Region": "Caribbean",
-            "SurfaceArea": 193
+            "SurfaceArea": 347
         },
         "government": {
-            "GovernmentForm": "Nonmetropolitan Territory of The Netherlands",
-            "HeadOfState": "Beatrix"
+            "GovernmentForm": "US Territory",
+            "HeadOfState": "George W. Bush"
+        }
+    },
+    {
+        "GNP": 0,
+        "IndepYear": null,
+        "Name": "Saint Pierre and Miquelon",
+        "_id": "SPM",
+        "demographics": {
+            "LifeExpectancy": 77.5999984741211,
+            "Population": 7000
+        },
+        "geography": {
+            "Continent": "North America",
+            "Region": "North America",
+            "SurfaceArea": 242
+        },
+        "government": {
+            "GovernmentForm": "Territorial Collectivity of France",
+            "HeadOfState": "Jacques Chirac"
+        }
+    },
+    {
+        "GNP": 0,
+        "IndepYear": null,
+        "Name": "Greenland",
+        "_id": "GRL",
+        "demographics": {
+            "LifeExpectancy": 68.0999984741211,
+            "Population": 56000
+        },
+        "geography": {
+            "Continent": "North America",
+            "Region": "North America",
+            "SurfaceArea": 2166090
+        },
+        "government": {
+            "GovernmentForm": "Part of Denmark",
+            "HeadOfState": "Margrethe II"
         }
     }
 ]
