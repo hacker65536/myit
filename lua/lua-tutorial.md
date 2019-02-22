@@ -30,6 +30,21 @@ Lua 5.1.4  Copyright (C) 1994-2008 Lua.org, PUC-Rio
 30
 > t={1,2,3,4,5}
 > =t
-table: 0xe7c2f0
+table: 0x16a8db0
+> for i,v in ipairs(t) do
+>> print(i ,':',v)
+>> end
+1       :       1
+2       :       2
+3       :       3
+4       :       4
+5       :       5
+> t2={a=1,b=2,c=3}
+> for k,v in pairs(t2) do
+>> print(k..":"..v)
+>> end
+a:1
+c:3
+b:2
 ```
 
