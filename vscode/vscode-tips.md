@@ -4,4 +4,4 @@
 
 ### markdown preview
 - new pane `Ctrl+K V`
-- `Ctrl+Shift+V`
+- new tab `Ctrl+Shift+V`
