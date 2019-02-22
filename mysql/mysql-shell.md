@@ -523,3 +523,96 @@ MySQL  127.0.0.1:33060+ ssl  Py > session.get_schemas();
 +----+----------------+-------------+---------------+-------------------------+
 10 rows in set (0.0003 sec)
 ```
+
+collection
+--
+
+```
+mysql> show tables;
++-------------------+
+| Tables_in_world_x |
++-------------------+
+| city              |
+| country           |
+| countryinfo       |
+| countrylanguage   |
++-------------------+
+4 rows in set (0.00 sec)
+
+mysql> show create table countryinfo;
++-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table       | Create Table                                                                                                                                                                                                                    |
++-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| countryinfo | CREATE TABLE `countryinfo` (
+  `doc` json DEFAULT NULL,
+  `_id` varchar(32) GENERATED ALWAYS AS (json_unquote(json_extract(`doc`,_utf8mb3'$._id'))) STORED NOT NULL,
+  PRIMARY KEY (`_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 |
++-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.01 sec)
+```
+
+
+```
+mysql> select * from countryinfo limit 3;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----+
+| doc                                                                                                                                                                                                                                                                                                                                            | _id |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----+
+| {"GNP": 828, "_id": "ABW", "Name": "Aruba", "IndepYear": null, "geography": {"Region": "Caribbean", "Continent": "North America", "SurfaceArea": 193}, "government": {"HeadOfState": "Beatrix", "GovernmentForm": "Nonmetropolitan Territory of The Netherlands"}, "demographics": {"Population": 103000, "LifeExpectancy": 78.4000015258789}} | ABW |
+| {"GNP": 5976, "_id": "AFG", "Name": "Afghanistan", "IndepYear": 1919, "geography": {"Region": "Southern and Central Asia", "Continent": "Asia", "SurfaceArea": 652090}, "government": {"HeadOfState": "Mohammad Omar", "GovernmentForm": "Islamic Emirate"}, "demographics": {"Population": 22720000, "LifeExpectancy": 45.900001525878906}}   | AFG |
+| {"GNP": 6648, "_id": "AGO", "Name": "Angola", "IndepYear": 1975, "geography": {"Region": "Central Africa", "Continent": "Africa", "SurfaceArea": 1246700}, "government": {"HeadOfState": "José Eduardo dos Santos", "GovernmentForm": "Republic"}, "demographics": {"Population": 12878000, "LifeExpectancy": 38.29999923706055}}              | AGO |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----+
+3 rows in set (0.00 sec)
+```
+
+### format one of rows 
+```json
+{
+  "GNP": 828,
+  "_id": "ABW",
+  "Name": "Aruba",
+  "IndepYear": null,
+  "geography": {
+    "Region": "Caribbean",
+    "Continent": "North America",
+    "SurfaceArea": 193
+  },
+  "government": {
+    "HeadOfState": "Beatrix",
+    "GovernmentForm": "Nonmetropolitan Territory of The Netherlands"
+  },
+  "demographics": {
+    "Population": 103000,
+    "LifeExpectancy": 78.4000015258789
+  }
+}
+```
+
+```
+ MySQL  127.0.0.1:33060+ ssl  JS > col=session.getSchema("world_x").getCollection("countryinfo")
+<Collection:countryinfo>
+```
+```
+ MySQL  127.0.0.1:33060+ ssl  JS > col.find('Name="Aruba"').execute().fetchAll();
+[
+    {
+        "GNP": 828,
+        "IndepYear": null,
+        "Name": "Aruba",
+        "_id": "ABW",
+        "demographics": {
+            "LifeExpectancy": 78.4000015258789,
+            "Population": 103000
+        },
+        "geography": {
+            "Continent": "North America",
+            "Region": "Caribbean",
+            "SurfaceArea": 193
+        },
+        "government": {
+            "GovernmentForm": "Nonmetropolitan Territory of The Netherlands",
+            "HeadOfState": "Beatrix"
+        }
+    }
+]
+```
