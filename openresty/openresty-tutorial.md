@@ -1,5 +1,5 @@
-# https://openresty.org/
-
+# openresty
+https://openresty.org/
 
 
 install
@@ -42,4 +42,4 @@ gmake[2]: Leaving directory `/home/ec2-user/openresty-1.13.6.2/build/nginx-1.13.
 gmake[1]: Leaving directory `/home/ec2-user/openresty-1.13.6.2/build/nginx-1.13.6'
 mkdir -p /usr/local/openresty/site/lualib /usr/local/openresty/site/pod /usr/local/openresty/site/manifest
 ln -sf /usr/local/openresty/nginx/sbin/nginx /usr/local/openresty/bin/openresty
-``
+```
