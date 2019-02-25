@@ -43,3 +43,15 @@ gmake[1]: Leaving directory `/home/ec2-user/openresty-1.13.6.2/build/nginx-1.13.
 mkdir -p /usr/local/openresty/site/lualib /usr/local/openresty/site/pod /usr/local/openresty/site/manifest
 ln -sf /usr/local/openresty/nginx/sbin/nginx /usr/local/openresty/bin/openresty
 ```
+
+example
+--
+```console
+$ /usr/local/openresty/bin/resty -e 'print("hello, world")'
+hello, world
+```
+
+```console
+$ echo 'export PATH=/usr/local/openresty/bin:$PATH' >> ~/.bashrc
+$ . !$
+```
