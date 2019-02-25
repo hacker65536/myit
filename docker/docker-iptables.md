@@ -280,3 +280,13 @@ Chain DOCKER (2 references)
     0     0 RETURN     all  --  docker0 *       0.0.0.0/0            0.0.0.0/0
     0     0 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:3306 to:172.17.0.2:3306
 ```
+
+```console
+$ mysql -h 127.0.0.1 -u root -pmysql8 -e 'select @@version'
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 2003 (HY000): Can't connect to MySQL server on '127.0.0.1' (111)
+```
+
+why
+--
+why
