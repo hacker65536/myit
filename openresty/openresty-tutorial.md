@@ -103,5 +103,9 @@ $ curl http://localhost:8080/
 ```
 
 ```console
+$ nginx -p $(pwd) -s stop
+```
+or 
+```console
 $ pkill nginx
 ```
