@@ -55,3 +55,44 @@ hello, world
 $ echo 'export PATH=/usr/local/openresty/bin:$PATH' >> ~/.bashrc
 $ . !$
 ```
+
+```console
+$ mkdir -p ~/work/{logs,conf}
+```
+```console
+$ cat <<'EOF' > ~/work/conf/nginx.conf
+worker_processes  1;
+error_log logs/error.log;
+events {
+    worker_connections 1024;
+}
+http {
+    server {
+        listen 8080;
+        location / {
+            default_type text/html;
+            content_by_lua '
+                ngx.say("<p>hello, world</p>")
+            ';
+        }
+    }
+}
+EOF
+```
+
+```console
+$ ls -la /usr/local/openresty/nginx/sbin/
+total 18504
+drwxr-xr-x 2 root root       19 Feb 25 06:35 .
+drwxr-xr-x 6 root root       54 Feb 25 06:35 ..
+-rwxr-xr-x 1 root root 18946272 Feb 25 06:35 nginx
+```
+```console
+$ PATH=/usr/local/openresty/nginx/sbin:$PATH
+$ export PATH
+```
+
+```console
+$ cd ~/work
+$ nginx -p `pwd`/ -c conf/nginx.conf
+```
