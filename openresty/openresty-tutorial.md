@@ -96,3 +96,12 @@ $ export PATH
 $ cd ~/work
 $ nginx -p `pwd`/ -c conf/nginx.conf
 ```
+
+```console
+$ curl http://localhost:8080/
+<p>hello, world</p>
+```
+
+```console
+$ pkill nginx
+```
