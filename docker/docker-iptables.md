@@ -136,3 +136,26 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
 | 8.0.15    |
 +-----------+
 ```
+
+
+run mysql without publish port
+--
+```console
+$ docker run --rm -it -d --name mysql8 -e MYSQL_ROOT_PASSWORD=mysql8  mysql:8
+```
+
+```
+$ mysql -h 127.0.0.1 -u root -pmysql8 -e 'select @@version'
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 2003 (HY000): Can't connect to MySQL server on '127.0.0.1' (111)
+```
+```console
+$ ^127.0.0.1^172.17.0.2
+mysql -h 172.17.0.2 -u root -pmysql8 -e 'select @@version'
+mysql: [Warning] Using a password on the command line interface can be insecure.
++-----------+
+| @@version |
++-----------+
+| 8.0.15    |
++-----------+
+```
