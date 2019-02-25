@@ -122,6 +122,12 @@ Chain DOCKER (2 references)
 ```
 
 ```console
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                               NAMES
+32409b28c98c        mysql:8             "docker-entrypoint.s…"   2 minutes ago       Up 2 minutes        0.0.0.0:3306->3306/tcp, 33060/tcp   mysql8
+```
+
+```console
 $ mysql -h 127.0.0.1 -u root -pmysql8 -e 'select @@version'
 mysql: [Warning] Using a password on the command line interface can be insecure.
 +-----------+
