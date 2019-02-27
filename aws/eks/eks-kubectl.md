@@ -14,3 +14,8 @@ if using path to $HOME/bin
 $ mkdir $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
 $ echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 ```
+
+```console
+$ kubectl version --short --client
+Client Version: v1.11.5
+```
