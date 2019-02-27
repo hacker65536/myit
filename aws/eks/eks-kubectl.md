@@ -9,7 +9,7 @@ $ openssl sha1 -sha256 kubectl
 $ chmod +x ./kubectl
 $ mv ./kubectl ~/.local/bin
 ```
-or
+if using path to $HOME/bin
 ```console
 $ mkdir $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
 $ echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
