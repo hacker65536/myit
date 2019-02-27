@@ -51,6 +51,6 @@ extravagant-rainbow-1551249113  1.11    ACTIVE  2019-02-27T06:32:38Z    vpc-0daf
 
 ```console
 $ eksctl get nodegroup --cluster=extravagant-rainbow-1551249113
-CLUSTER                         NODEGROUP       CREATED                 MIN SIZE        MAX SIZE   DESIRED CAPACITY INSTANCE TYPE   IMAGE ID
-extravagant-rainbow-1551249113  ng-54e2d243     2019-02-27T06:41:33Z    2               2          0m5.large        ami-0484545fe7d3da96f
+CLUSTER                         NODEGROUP       CREATED                 MIN SIZE        MAX SIZE        DESIRED CAPACITY        INSTANCE TYPE   IMAGE ID
+extravagant-rainbow-1551249113  ng-54e2d243     2019-02-27T06:41:33Z    2               2               0                       m5.large        ami-0484545fe7d3da96f
 ```
