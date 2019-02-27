@@ -54,3 +54,16 @@ $ eksctl get nodegroup --cluster=extravagant-rainbow-1551249113
 CLUSTER                         NODEGROUP       CREATED                 MIN SIZE        MAX SIZE        DESIRED CAPACITY        INSTANCE TYPE   IMAGE ID
 extravagant-rainbow-1551249113  ng-54e2d243     2019-02-27T06:41:33Z    2               2               0                       m5.large        ami-0484545fe7d3da96f
 ```
+
+```console
+$ kubectl get svc
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   26m
+```
+
+```console
+$ kubectl get nodes
+NAME                                           STATUS    ROLES     AGE       VERSION
+ip-192-168-12-185.us-east-2.compute.internal   Ready     <none>    30m       v1.11.5
+ip-192-168-34-127.us-east-2.compute.internal   Ready     <none>    30m       v1.11.5
+```
