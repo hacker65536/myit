@@ -40,3 +40,17 @@ $ eksctl create cluster
 [ℹ]  kubectl command should work with "/home/ec2-user/.kube/config", try 'kubectl get nodes'
 [✔]  EKS cluster "extravagant-rainbow-1551249113" in "us-east-2" region is ready
 ```
+
+inspect
+--
+```console
+$ eksctl get cluster --name=extravagant-rainbow-1551249113
+NAME                            VERSION STATUS  CREATED                 VPC                     SUBNETS                                                                                                SECURITYGROUPS
+extravagant-rainbow-1551249113  1.11    ACTIVE  2019-02-27T06:32:38Z    vpc-0daf0e0041b88043d   subnet-031fb7019cc85b3ad,subnet-06314c1e71af5cfb1,subnet-079c4e51100c2f840,subnet-07de33f60d569a150,subnet-09ae6e9f500401735,subnet-0f879d7070f63e5a7   sg-009bd33a922e3c26a
+``
+
+```console
+$ eksctl get nodegroup --cluster=extravagant-rainbow-1551249113
+CLUSTER                         NODEGROUP       CREATED                 MIN SIZE        MAX SIZE   DESIRED CAPACITY INSTANCE TYPE   IMAGE ID
+extravagant-rainbow-1551249113  ng-54e2d243     2019-02-27T06:41:33Z    2               2          0m5.large        ami-0484545fe7d3da96f
+```
