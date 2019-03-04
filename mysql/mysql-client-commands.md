@@ -163,11 +163,11 @@ show databases
 | \w                                         | The current day of the week in three-letter format (Mon, Tue, …) |
 | \Y                                         | The current year, four digits                                    |
 | \y                                         | The current year, two digits                                     |
-| \_                                         | A space                                                          |
-| \                                          | A space (a space follows the backslash)                          |
-| \'                                         | Single quote                                                     |
-| \"                                         | Double quote                                                     |
-| \\                                         | A literal \ backslash character                                  |
+| \\_                                         | A space                                                          |
+| \\                                          | A space (a space follows the backslash)                          |
+| \\'                                         | Single quote                                                     |
+| \\"                                         | Double quote                                                     |
+| \\\\                                         | A literal \ backslash character                                  |
 | \x                                         | x, for any “x” not listed above                                  |
 
 
