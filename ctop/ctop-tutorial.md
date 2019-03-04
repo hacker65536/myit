@@ -21,6 +21,8 @@ $ docker run --rm -ti \
   quay.io/vektorlab/ctop:latest
 ```
 
+example
+--
 ```
   ctop - 07:21:59 UTC   2 containers
 
