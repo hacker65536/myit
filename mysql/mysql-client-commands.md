@@ -128,3 +128,47 @@ mysql> select * from sbtest1 limit 3;
 
 mysql> \q
 ```
+
+## warnings
+
+```
+mysql> SELECT 1/0;
++------+
+| 1/0  |
++------+
+| NULL |
++------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> \W
+Show warnings enabled.
+mysql> SELECT 1/0;
++------+
+| 1/0  |
++------+
+| NULL |
++------+
+1 row in set, 1 warning (0.00 sec)
+
+Warning (Code 1365): Division by 0
+```
+
+```
+mysql> \w
+Show warnings disabled.
+mysql> select 1/0;
++------+
+| 1/0  |
++------+
+| NULL |
++------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> show warnings;
++---------+------+---------------+
+| Level   | Code | Message       |
++---------+------+---------------+
+| Warning | 1365 | Division by 0 |
++---------+------+---------------+
+1 row in set (0.00 sec)
+```
