@@ -171,6 +171,61 @@ show databases
 | \x                                         | x, for any “x” not listed above                                  |
 
 
+```
+mysql> prompt (\u@\h) [\d]>\_
+PROMPT set to '(\u@\h) [\d]>\_'
+(root@127.0.0.1) [(none)]> \usbtest
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+(root@127.0.0.1) [sbtest]> prompt
+Returning to default PROMPT of mysql>
+```
+
+```console
+$ export MYSQL_PS1="(\u@\h) [\d]> "
+```
+```console
+$ mysql -h 127.0.0.1 -u root -p sbtest
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 44
+Server version: 8.0.15 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+(root@127.0.0.1) [sbtest]>
+```
+
+```
+$ env | grep MYSQL_PS1
+$ mysql -h 127.0.0.1 -u root -p --prompt="(\u@\h) [\d]> " sbtest
+Enter password:
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 47
+Server version: 8.0.15 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+(root@127.0.0.1) [sbtest]>
+```
+
 ## system
 
 ```
