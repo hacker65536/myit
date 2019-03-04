@@ -231,6 +231,12 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 prompt="\\r:\\m:\\s> "
 ```
 
+```
+mysql> prompt (\c)(\p)(\l)(\h)(\v)(\D)(\U)>\_
+PROMPT set to '(\c)(\p)(\l)(\h)(\v)(\D)(\U)>\_'
+(1)(3306)(;)(127.0.0.1)(8.0.15)(Mon Mar  4 04:56:20 2019)(root@172.17.0.1)>
+```
+
 ## system
 
 ```
