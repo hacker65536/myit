@@ -43,6 +43,44 @@ resetconnection(\x) Clean session context.
 For server side help, type 'help contents'
 ```
 
+## print
+
+```
+mysql> show databases \p ;
+--------------
+show databases
+--------------
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sbtest             |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+```
+
+```console
+$ mysql -h 127.0.0.1 -u root -p -e 'show databases\p'
+Enter password:
+--------------
+show databases
+--------------
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sbtest             |
+| sys                |
++--------------------+
+```
+
 ## system
 
 ```
