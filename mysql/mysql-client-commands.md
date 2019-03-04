@@ -195,7 +195,7 @@ mysql> SELECT COMMAND,COUNT(*) TOTAL FROM INFORMATION_SCHEMA.PROCESSLIST GROUP B
 3 rows in set (0.00 sec)
 ```
 
-pager grep
+extra
 ```
 mysql> pager grep "evicted without access"
 PAGER set to 'grep "evicted without access"'
