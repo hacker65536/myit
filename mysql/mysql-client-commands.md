@@ -226,6 +226,11 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 (root@127.0.0.1) [sbtest]>
 ```
 
+```ini
+[mysql]
+prompt="\\r:\\m:\\s> "
+```
+
 ## system
 
 ```
