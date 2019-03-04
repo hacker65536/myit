@@ -42,3 +42,52 @@ resetconnection(\x) Clean session context.
 
 For server side help, type 'help contents'
 ```
+
+
+## tee
+```
+mysql> \T /tmp/dump.txt
+Logging to file '/tmp/dump.txt'
+mysql> show variables like '%cha%';
++-------------------------------+--------------------------------+
+| Variable_name                 | Value                          |
++-------------------------------+--------------------------------+
+| character_set_client          | utf8mb4                        |
+| character_set_connection      | utf8mb4                        |
+| character_set_database        | utf8mb4                        |
+| character_set_filesystem      | binary                         |
+| character_set_results         | utf8mb4                        |
+| character_set_server          | utf8mb4                        |
+| character_set_system          | utf8                           |
+| character_sets_dir            | /usr/share/mysql-8.0/charsets/ |
+| innodb_change_buffer_max_size | 25                             |
+| innodb_change_buffering       | all                            |
+| session_track_state_change    | OFF                            |
++-------------------------------+--------------------------------+
+11 rows in set (0.00 sec)
+
+mysql> \q
+Bye
+```
+```console
+$ cat /tmp/dump.txt
+mysql> show variables like '%cha%';
++-------------------------------+--------------------------------+
+| Variable_name                 | Value                          |
++-------------------------------+--------------------------------+
+| character_set_client          | utf8mb4                        |
+| character_set_connection      | utf8mb4                        |
+| character_set_database        | utf8mb4                        |
+| character_set_filesystem      | binary                         |
+| character_set_results         | utf8mb4                        |
+| character_set_server          | utf8mb4                        |
+| character_set_system          | utf8                           |
+| character_sets_dir            | /usr/share/mysql-8.0/charsets/ |
+| innodb_change_buffer_max_size | 25                             |
+| innodb_change_buffering       | all                            |
+| session_track_state_change    | OFF                            |
++-------------------------------+--------------------------------+
+11 rows in set (0.00 sec)
+
+mysql> quit
+```
