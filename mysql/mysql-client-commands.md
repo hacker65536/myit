@@ -43,6 +43,19 @@ resetconnection(\x) Clean session context.
 For server side help, type 'help contents'
 ```
 
+## system
+
+```
+mysql> \!
+ERROR:
+Usage: \! shell-command
+mysql> \! date
+Mon Mar  4 02:34:48 UTC 2019
+mysql> \! docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                              NAMES
+baae67c77c16        mysql:8             "docker-entrypoint.s…"   5 days ago          Up 5 days           0.0.0.0:3306->3306/tcp, 0.0.0.0:33060->33060/tcp   mysql8
+```
+
 
 ## tee
 ```
