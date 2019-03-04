@@ -95,6 +95,114 @@ mysql> show global status like 'Connections';
 1 row in set (0.00 sec)
 ```
 
+## pager
+
+https://www.percona.com/blog/2013/01/21/fun-with-the-mysql-pager-command/
+
+
+
+- -n (--line-numbers)
+- -i (--ignore-case)
+- -S (--chop-long-lines) depends on width
+- -F (--quit-if-one-screen)
+- -X (--no-init)
+
+
+```
+mysql> pager less -n -i -S -F -X
+PAGER set to 'less -n -i -S -F -X'
+```
+
+discarding the result set
+```
+mysql> pager cat > /dev/null
+PAGER set to 'cat > /dev/null'
+mysql> select * from sbtest1 ;
+10000 rows in set (0.03 sec)
+```
+
+comparing sesult sets
+```
+mysql> pager md5sum
+PAGER set to 'md5sum'
+mysql> select * from sbtest1 limit 3;
+17b1997f3cd29a0254a460f1be7e4e4e  -
+3 rows in set (0.00 sec)
+
+mysql> select * from sbtest1 limit 3;
+17b1997f3cd29a0254a460f1be7e4e4e  -
+3 rows in set (0.00 sec)
+
+mysql> select * from sbtest1 order by c desc limit 3;
+088223dfe444e7be881fbd7532d5dd7d  -
+3 rows in set (0.02 sec)
+
+mysql> select * from sbtest1  limit 3;
+17b1997f3cd29a0254a460f1be7e4e4e  -
+3 rows in set (0.00 sec)
+```
+
+show sleep processes
+
+```
+mysql> show processlist;
++----+-----------------+------------------+--------+---------+--------+------------------------+------------------+
+| Id | User            | Host             | db     | Command | Time   | State                  | Info             |
++----+-----------------+------------------+--------+---------+--------+------------------------+------------------+
+|  4 | event_scheduler | localhost        | NULL   | Daemon  | 521889 | Waiting on empty queue | NULL             |
+| 49 | root            | 172.17.0.1:49632 | sbtest | Query   |      0 | starting               | show processlist |
+| 50 | root            | 172.17.0.1:49780 | NULL   | Sleep   |    526 |                        | NULL             |
+| 51 | root            | 172.17.0.1:49814 | NULL   | Sleep   |      6 |                        | NULL             |
++----+-----------------+------------------+--------+---------+--------+------------------------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> pager grep Sleep | wc -l
+PAGER set to 'grep Sleep | wc -l'
+mysql> show processlist;
+2
+4 rows in set (0.00 sec)
+```
+```
+mysql> pager awk -F '|' '{print $6}' | sort | uniq -c | sort -r
+PAGER set to 'awk -F '|' '{print $6}' | sort | uniq -c | sort -r'
+mysql> show processlist;
+      3
+      2  Sleep
+      1  Query
+      1  Daemon
+      1  Command
+4 rows in set (0.00 sec)
+```
+```
+mysql> pager
+Default pager wasn't set, using stdout.
+mysql> SELECT COUNT(*) FROM INFORMATION_SCHEMA.PROCESSLIST WHERE COMMAND='Sleep';
++----------+
+| COUNT(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COMMAND,COUNT(*) TOTAL FROM INFORMATION_SCHEMA.PROCESSLIST GROUP BY COMMAND ORDER BY TOTAL DESC;
++---------+-------+
+| COMMAND | TOTAL |
++---------+-------+
+| Sleep   |     2 |
+| Query   |     1 |
+| Daemon  |     1 |
++---------+-------+
+3 rows in set (0.00 sec)
+```
+
+pager grep
+```
+mysql> pager grep "evicted without access"
+PAGER set to 'grep "evicted without access"'
+mysql> show engine innodb status \G
+Pages read ahead 0.00/s, evicted without access 0.00/s, Random read ahead 0.00/s
+1 row in set (0.00 sec)
+```
 
 
 ## print
@@ -234,7 +342,9 @@ prompt="\\r:\\m:\\s> "
 ```
 mysql> prompt (\c)(\p)(\l)(\h)(\v)(\D)(\U)>\_
 PROMPT set to '(\c)(\p)(\l)(\h)(\v)(\D)(\U)>\_'
-(1)(3306)(;)(127.0.0.1)(8.0.15)(Mon Mar  4 04:56:20 2019)(root@172.17.0.1)>
+(1)(3306)(;)(127.0.0.1)(8.0.15)(Mon Mar  4 04:56:20 2019)(root@172.17.0.1)> prompt
+Returning to default PROMPT of mysql>
+mysql>
 ```
 
 ## system
