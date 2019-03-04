@@ -43,6 +43,60 @@ resetconnection(\x) Clean session context.
 For server side help, type 'help contents'
 ```
 
+## connect
+
+```
+mysql> \u sbtest
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> \r
+Connection id:    39
+Current database: sbtest
+
+mysql> \r
+Connection id:    40
+Current database: sbtest
+```
+
+
+```
+mysql> show global status like 'Connections';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| Connections   | 41    |
++---------------+-------+
+1 row in set (0.00 sec)
+
+mysql> \r
+Connection id:    42
+Current database: *** NONE ***
+
+mysql> show global status like 'Connections';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| Connections   | 42    |
++---------------+-------+
+1 row in set (0.00 sec)
+
+mysql> \r
+Connection id:    43
+Current database: *** NONE ***
+
+mysql> show global status like 'Connections';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| Connections   | 43    |
++---------------+-------+
+1 row in set (0.00 sec)
+```
+
+
+
 ## print
 
 ```
