@@ -118,6 +118,7 @@ Archive:  world_x-db.zip
    creating: world_x-db/
   inflating: world_x-db/README.txt
   inflating: world_x-db/world_x.sql
+$ cd !$:r
 ```
 
 ```console
