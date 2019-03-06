@@ -10,3 +10,11 @@ git commit-tree "$@"
 
 git push -f origin master
 ```
+
+```
+ git filter-branch -f --env-filter "
+ GIT_AUTHOR_NAME='shacker'; 
+ GIT_AUTHOR_EMAIL='s.hacker65536@gmail.com'; 
+ GIT_COMMITTER_NAME='shacker'; 
+ GIT_COMMITTER_EMAIL='s.hacker65536@gmail.com';" HEAD 
+ ```
