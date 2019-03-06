@@ -136,3 +136,11 @@ add hoks to all repos
 $ git secrets --install ~/.git-templates/git-secrets
 $ git config --global init.templateDir ~/.git-templates/git-secrets
 ```
+add pattern
+```console
+$ git secrets --add --global 'My true name'
+```
+scan from stdin
+```console
+$ echo 'hello!' | git secrets --scan -
+```
