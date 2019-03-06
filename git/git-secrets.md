@@ -129,3 +129,10 @@ secrets.patterns=("|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?("|
 secrets.allowed=AKIAIOSFODNN7EXAMPLE
 secrets.allowed=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 ```
+
+
+add hoks to all repos
+```console
+$ git secrets --install ~/.git-templates/git-secrets
+$ git config --global init.templateDir ~/.git-templates/git-secrets
+```
