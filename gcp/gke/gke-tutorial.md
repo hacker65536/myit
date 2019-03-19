@@ -19,3 +19,13 @@ kubeconfig entry generated for kuar-cluster.
 NAME          LOCATION    MASTER_VERSION  MASTER_IP      MACHINE_TYPE   NODE_VERSION  NUM_NODES  STATUS
 kuar-cluster  us-west1-a  1.11.7-gke.4    35.203.184.92  n1-standard-1  1.11.7-gke.4  3          RUNNING
 ```
+
+```console
+$ kubectl version
+Client Version: version.Info{Major:"1", Minor:"11", GitVersion:"v1.11.7", GitCommit:"65ecaf0671341311ce6aea0edab46ee69f6
+5d59e", GitTreeState:"clean", BuildDate:"2019-01-24T19:32:00Z", GoVersion:"go1.10.7", Compiler:"gc", Platform:"linux/amd
+64"}
+Server Version: version.Info{Major:"1", Minor:"11+", GitVersion:"v1.11.7-gke.4", GitCommit:"618716cbb236fb7ca9cabd822b59
+47e298ad09f7", GitTreeState:"clean", BuildDate:"2019-02-05T19:22:29Z", GoVersion:"go1.10.7b4", Compiler:"gc", Platform:"
+linux/amd64"}
+```
