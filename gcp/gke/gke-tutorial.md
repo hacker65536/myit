@@ -29,3 +29,12 @@ Server Version: version.Info{Major:"1", Minor:"11+", GitVersion:"v1.11.7-gke.4",
 47e298ad09f7", GitTreeState:"clean", BuildDate:"2019-02-05T19:22:29Z", GoVersion:"go1.10.7b4", Compiler:"gc", Platform:"
 linux/amd64"}
 ```
+
+```console
+$ kubectl get componentstatuses
+NAME                 STATUS    MESSAGE              ERROR
+etcd-0               Healthy   {"health": "true"}
+controller-manager   Healthy   ok
+scheduler            Healthy   ok
+etcd-1               Healthy   {"health": "true"}
+```
