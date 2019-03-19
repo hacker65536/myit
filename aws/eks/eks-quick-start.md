@@ -4,6 +4,10 @@ https://github.com/aws-quickstart/quickstart-amazon-eks
 
 https://s3.amazonaws.com/aws-quickstart/quickstart-amazon-eks/doc/amazon-eks-architecture.pdf
 
+deploy new vpc and workload
+
+https://fwd.aws/6dEQ7
+
 
 inspect
 --
