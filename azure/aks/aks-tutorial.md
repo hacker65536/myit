@@ -25,6 +25,7 @@ $ az aks create \
     --enable-addons monitoring \
     --generate-ssh-keys
 ```
+wait for 5-10 minutes
 
 ```
 Finished service principal creation[##################################]  100.0000%
