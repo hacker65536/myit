@@ -146,6 +146,78 @@ Here are the base commands:
     webapp            : Manage web apps.
 ```
 
+```console
+$ az --version
+azure-cli                         2.0.60
+
+acr                                2.2.2
+acs                               2.3.19
+advisor                            2.0.0
+ams                                0.4.2
+appservice                        0.2.15
+backup                             1.2.1
+batch                              4.0.0
+batchai                            0.4.7
+billing                            0.2.0
+botservice                         0.1.8
+cdn                                0.2.0
+cloud                              2.1.0
+cognitiveservices                  0.2.4
+command-modules-nspkg               2.0.2
+configure                         2.0.20
+consumption                        0.4.2
+container                         0.3.15
+core                              2.0.60
+cosmosdb                           0.2.8
+dla                                0.2.4
+dls                                0.1.8
+dms                                0.1.2
+eventgrid                          0.2.1
+eventhubs                          0.3.4
+extension                          0.2.3
+feedback                           2.1.4
+find                               0.3.0
+hdinsight                          0.3.2
+interactive                        0.4.1
+iot                                0.3.6
+iotcentral                         0.1.6
+keyvault                          2.2.12
+kusto                              0.2.0
+lab                                0.1.5
+maps                               0.3.3
+monitor                           0.2.10
+network                            2.3.4
+nspkg                              3.0.3
+policyinsights                     0.1.1
+profile                            2.1.3
+rdbms                              0.3.8
+redis                              0.4.1
+relay                              0.1.3
+reservations                       0.4.1
+resource                          2.1.11
+role                               2.4.2
+search                             0.1.1
+security                           0.1.0
+servicebus                         0.3.3
+servicefabric                     0.1.14
+signalr                            1.0.0
+sql                                2.1.9
+sqlvm                              0.1.0
+storage                            2.3.1
+telemetry                          1.0.1
+vm                                2.2.16
+
+Python location '/usr/lib64/az/bin/python'
+Extensions directory '/home/ec2-user/.azure/cliextensions'
+
+Python (Linux) 2.7.14 (default, Jul 26 2018, 19:59:38)
+[GCC 7.3.1 20180303 (Red Hat 7.3.1-5)]
+
+Legal docs and information: aka.ms/AzureCliLegal
+
+
+Your CLI is up-to-date.
+```
 
 login
 --
