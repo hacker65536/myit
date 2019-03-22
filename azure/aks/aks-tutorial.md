@@ -275,3 +275,20 @@ service/azure-vote-back created
 deployment.apps/azure-vote-front created
 service/azure-vote-front created
 ```
+
+testing
+--
+```console
+$ kubectl get service azure-vote-front --watch
+NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)        AGE
+azure-vote-front   LoadBalancer   10.0.181.241   40.121.xxx.yyy   80:31401/TCP   1m
+```
+
+http://40.121.xxx.yyyy
+
+
+delete
+--
+```console
+$ az group delete --name myResourceGroup --yes --no-wait
+```
