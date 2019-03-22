@@ -105,3 +105,17 @@ $ az resource list | jq -rc '.[]|[.type,.name]'
 ["Microsoft.ContainerService/managedClusters","myAKSCluster"]
 ["Microsoft.Network/networkWatchers","NetworkWatcher_eastus"]
 ```
+
+https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+
+```console
+$ az aks install-cli
+Downloading client to "/usr/local/bin/kubectl" from "https://storage.googleapis.com/kubernetes-release/release/v1.13.4/bin/linux/amd64/kubectl"
+Connection error while attempting to download client ([Errno 13] Permission denied: '/usr/local/bin/kubectl')
+```
+
+```console
+$ sudo az aks install-cli
+Downloading client to "/usr/local/bin/kubectl" from "https://storage.googleapis.com/kubernetes-release/release/v1.13.4/bin/linux/amd64/kubectl"
+Please ensure that /usr/local/bin is in your search PATH, so the `kubectl` command can be found.
+```
