@@ -119,3 +119,8 @@ $ sudo az aks install-cli
 Downloading client to "/usr/local/bin/kubectl" from "https://storage.googleapis.com/kubernetes-release/release/v1.13.4/bin/linux/amd64/kubectl"
 Please ensure that /usr/local/bin is in your search PATH, so the `kubectl` command can be found.
 ```
+
+```console
+$ /usr/local/bin/kubectl version --short --client
+Client Version: v1.13.4
+```
