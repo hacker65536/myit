@@ -87,3 +87,21 @@ Finished service principal creation[##################################]  100.000
   "type": "Microsoft.ContainerService/ManagedClusters"
 }
 ```
+
+```console
+$ az resource list | jq -rc '.[]|[.type,.name]'
+["Microsoft.Storage/storageAccounts","cs1739a0b359148x4601x980"]
+["Microsoft.OperationalInsights/workspaces","DefaultWorkspace-739a0b35-9148-4601-980c-50e06bda14b5-EUS"]
+["Microsoft.OperationsManagement/solutions","ContainerInsights(defaultworkspace-739a0b35-9148-4601-980c-50e06bda14b5-eus)"]
+["Microsoft.Compute/availabilitySets","nodepool1-availabilitySet-11204770"]
+["Microsoft.Compute/disks","aks-nodepool1-11204770-0_OsDisk_1_22a953dcb73c458996f2104cc8995f0b"]
+["Microsoft.Compute/virtualMachines","aks-nodepool1-11204770-0"]
+["Microsoft.Compute/virtualMachines/extensions","aks-nodepool1-11204770-0/computeAksLinuxBilling"]
+["Microsoft.Compute/virtualMachines/extensions","aks-nodepool1-11204770-0/cse-agent-0"]
+["Microsoft.Network/networkInterfaces","aks-nodepool1-11204770-nic-0"]
+["Microsoft.Network/networkSecurityGroups","aks-agentpool-11204770-nsg"]
+["Microsoft.Network/routeTables","aks-agentpool-11204770-routetable"]
+["Microsoft.Network/virtualNetworks","aks-vnet-11204770"]
+["Microsoft.ContainerService/managedClusters","myAKSCluster"]
+["Microsoft.Network/networkWatchers","NetworkWatcher_eastus"]
+```
