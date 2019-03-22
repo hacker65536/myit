@@ -1,8 +1,12 @@
-https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-yum?view=azure-cli-latest
+# Azure Command-Line Interface (CLI)
+
+https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
 
 
 install
 --
+
+https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-yum?view=azure-cli-latest
 ```console
 $ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 ```
