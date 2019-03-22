@@ -145,3 +145,35 @@ Here are the base commands:
                        (VMSS).
     webapp            : Manage web apps.
 ```
+
+
+login
+--
+
+```console
+$ az login
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAABBCC4 to authenticate.
+```
+
+1. open the URL `https://microsoft.com/devicelogin` with browser
+2. input code `AAAABBCC4`
+3. select account
+4. click continue and authenticate
+5. below lines will be able to show on prompt
+
+```console
+[
+  {
+    "cloudName": "AzureCloud",
+    "id": "00000000-0000-0000-0000-000000000000",  
+    "isDefault": true,
+    "name": "無料試用版",
+    "state": "Enabled",
+    "tenantId": "11111111-1111-1111-1111-111111111111",  
+    "user": {
+      "name": "youremail@outlook.com",
+      "type": "user"
+    }
+  }
+]
+```
