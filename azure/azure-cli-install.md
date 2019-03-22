@@ -159,7 +159,7 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 2. input code `AAAABBCC4`
 3. select account
 4. click continue and authenticate
-5. below lines will be able to show on prompt
+5. below lines will be able to show up on prompt
 
 ```console
 [
