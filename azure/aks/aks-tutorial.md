@@ -1,6 +1,6 @@
 https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
 
-create group
+create a resource group
 --
 ```console
 $ az group create --name myResourceGroup --location eastus
