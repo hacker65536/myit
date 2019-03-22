@@ -1,6 +1,7 @@
 https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
 
-
+create group
+--
 ```console
 $ az group create --name myResourceGroup --location eastus
 {
@@ -16,7 +17,8 @@ $ az group create --name myResourceGroup --location eastus
 }
 ```
 
-
+create aks
+--
 ```console
 $ az aks create \
     --resource-group myResourceGroup \
@@ -88,6 +90,8 @@ Finished service principal creation[##################################]  100.000
 }
 ```
 
+inspect
+--
 ```console
 $ az resource list | jq -rc '.[]|[.type,.name]'
 ["Microsoft.Storage/storageAccounts","cs1739a0b359148x4601x980"]
@@ -106,6 +110,8 @@ $ az resource list | jq -rc '.[]|[.type,.name]'
 ["Microsoft.Network/networkWatchers","NetworkWatcher_eastus"]
 ```
 
+kubectl
+--
 https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
 
 ```console
@@ -132,6 +138,8 @@ $ k version --short --client
 Client Version: v1.13.4
 ```
 
+operation
+--
 ```console
 $ k get nodes
 The connection to the server localhost:8080 was refused - did you specify the right host or port?
@@ -163,3 +171,107 @@ users:
     client-key-data: LS0tLS1CRUdJTi...
     token: d633...
 ```    
+
+```console
+$ k get svc
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.0.0.1     <none>        443/TCP   2h
+```
+
+```console
+$ k get nodes
+NAME                       STATUS   ROLES   AGE   VERSION
+aks-nodepool1-11204770-0   Ready    agent   1h    v1.11.8
+```
+
+deploy
+--
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-vote-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-back
+  template:
+    metadata:
+      labels:
+        app: azure-vote-back
+    spec:
+      containers:
+      - name: azure-vote-back
+        image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 6379
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-back
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: azure-vote-back
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-vote-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-front
+  template:
+    metadata:
+      labels:
+        app: azure-vote-front
+    spec:
+      containers:
+      - name: azure-vote-front
+        image: microsoft/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 80
+        env:
+        - name: REDIS
+          value: "azure-vote-back"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+```
+
+```console
+$ kubectl apply -f azure-vote.yaml
+deployment.apps/azure-vote-back created
+service/azure-vote-back created
+deployment.apps/azure-vote-front created
+service/azure-vote-front created
+```
