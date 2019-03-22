@@ -131,3 +131,35 @@ $ alias k=/usr/local/bin/kubectl
 $ k version --short --client
 Client Version: v1.13.4
 ```
+
+```console
+$ k get nodes
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+```
+```console
+$ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+Merged "myAKSCluster" as current context in /home/ec2-user/.kube/config
+```
+```console
+$ cat /home/ec2-user/.kube/config
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tL...
+    server: https://myaksclust-myresourcegroup-739a0b-495b231e.hcp.eastus.azmk8s.io:443
+  name: myAKSCluster
+contexts:
+- context:
+    cluster: myAKSCluster
+    user: clusterUser_myResourceGroup_myAKSCluster
+  name: myAKSCluster
+current-context: myAKSCluster
+kind: Config
+preferences: {}
+users:
+- name: clusterUser_myResourceGroup_myAKSCluster
+  user:
+    client-certificate-data: LS0tLS1CRUdJTi...
+    client-key-data: LS0tLS1CRUdJTi...
+    token: d633...
+```    
