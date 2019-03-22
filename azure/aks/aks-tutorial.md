@@ -124,3 +124,10 @@ Please ensure that /usr/local/bin is in your search PATH, so the `kubectl` comma
 $ /usr/local/bin/kubectl version --short --client
 Client Version: v1.13.4
 ```
+
+
+```console
+$ alias k=/usr/local/bin/kubectl
+$ k version --short --client
+Client Version: v1.13.4
+```
