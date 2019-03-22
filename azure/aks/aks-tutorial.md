@@ -292,3 +292,15 @@ delete
 ```console
 $ az group delete --name myResourceGroup --yes --no-wait
 ```
+
+
+monitor and logs
+--
+
+https://portal.azure.com
+
+1. select resource group named `myResourceGroup`
+2. `Insights`
+3. `+AddFilter` property ->  `Namespace` ,`<All but kube-system>`
+4. tag `Contianers`
+5. click link `View container logs`  from right-hand side of containers list
