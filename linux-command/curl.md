@@ -75,5 +75,5 @@ If this HTTPS server uses a certificate signed by a CA represented in
 If you'd like to turn off curl's verification of the certificate, use
  the -k (or --insecure) option.
  
- $ curl -k https://xxx.xxx.xxx
+$ curl -k https://xxx.xxx.xxx
 ```
