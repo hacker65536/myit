@@ -1,6 +1,6 @@
 
 ```console
-$ mkdir tf12
+$ mkdir tf012
 $ cd !$
 ```
 
