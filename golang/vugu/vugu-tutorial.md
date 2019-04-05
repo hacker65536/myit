@@ -22,6 +22,9 @@ golang-misc.noarch                          1.12.1-0.el7                        
 golang-src.noarch                           1.12.1-0.el7                           @go-repo
 ```
 
+need `/usr/lib/golang/misc/wasm/wasm_exec.js` contained in golang-misc
+
+
 
 mkdir 
 --
