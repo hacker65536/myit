@@ -75,6 +75,8 @@ import (
 
 func main() {
 	wd, _ := os.Getwd()
+	//  to replace ip by below command to allow access from public , if using ec2.
+	// $ ip -4 a show dev eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
 	l := "127.0.0.1:8844"
 	log.Printf("Starting HTTP Server at %q", l)
 	h := simplehttp.New(wd, true)
