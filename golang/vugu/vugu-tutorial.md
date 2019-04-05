@@ -85,3 +85,10 @@ func main() {
 	log.Fatal(http.ListenAndServe(l, h))
 }
 ```
+
+run the server
+--
+```console
+$ go run devserver.go
+2019/04/05 06:48:23 Starting HTTP Server at "172.31.21.10:8844"
+```
