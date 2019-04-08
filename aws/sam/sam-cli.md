@@ -1,17 +1,33 @@
 https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-using-pip.html
 
-```
+```console
 $ pip install --user --upgrade aws-sam-cli
 ```
 
-```
+```console
 $ sam --version
-SAM CLI, version 0.10.0
+SAM CLI, version 0.14.2
 ```
 
-```
+```console
 $ whereis sam
 sam: /home/ec2-user/.local/bin/sam
+```
+```console
+$ cat /home/ec2-user/.local/bin/sam
+```
+```python
+#!/usr/bin/python2
+
+# -*- coding: utf-8 -*-
+import re
+import sys
+
+from samcli.cli.main import cli
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(cli())
 ```
 
 set path if don't adjust
