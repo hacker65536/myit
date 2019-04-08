@@ -38,7 +38,7 @@ Read sam-app/README.md for further instructions
 
 build
 --
-need build if using go. go is not supported `sam build`
+need building if using go. because `sam build` is unsupported go1.x
 ```console
 $ cd sam-app
 $ make build
