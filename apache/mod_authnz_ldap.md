@@ -1,5 +1,7 @@
 
-https://httpd.apache.org/docs/2.4/mod/mod_authnz_ldap.html#examples
+mod_authnz_ldap
+--
+https://httpd.apache.org/docs/2.4/mod/mod_authnz_ldap.html
 
 
 AuthLDAPURL の複数指定
