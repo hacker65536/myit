@@ -294,3 +294,12 @@ $ aws cloudformation describe-stack-resources --stack-name Amazon-EKS-EKSStack-1
 | AWS::Lambda::Function | VPCLambdaCleanupLambdaFunction | Amazon-EKS-EKSStack-1U9I2-VPCLambdaCleanupLambdaFu-VVXF8OALY1J9 |
 
 
+
+BastionStack
+--
+https://github.com/aws-quickstart/quickstart-amazon-eks/blob/master/scripts/bastion_bootstrap.sh
+
+
+```console
+$ wget https://aws-quickstart.s3.amazonaws.com/quickstart-linux-bastion/scripts/bastion_bootstrap.sh
+```
