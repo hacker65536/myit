@@ -19,3 +19,7 @@ function retry_command() {
 
 }
 ```
+
+```bash
+retry_command 20 curl xxxx.host.com
+```
