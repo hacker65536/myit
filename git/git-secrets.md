@@ -144,3 +144,14 @@ scan from stdin
 ```console
 $ echo 'hello!' | git secrets --scan -
 ```
+
+
+
+
+windows
+--
+
+open powershell
+```
+> ./install.ps1
+```
