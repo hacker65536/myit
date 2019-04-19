@@ -30,3 +30,24 @@ $ ls -la $GOPATH/bin/ | peco
 QUERY> peco                                                               IgnoreCase [1 (1/1)]
 -rwxrwxr-x 1 ec2-user ec2-user  4535364 Nov 11 07:51 peco
 ```
+
+
+mac
+--
+
+```console
+$ brew install peco
+```
+
+```console
+⋊> ~ omf install peco                                                                       
+Updating https://github.com/oh-my-fish/packages-main master... Done!
+Installing package peco
+```
+
+`~/.config/fish/config.fish`
+```
+function fish_user_key_bindings
+  bind \cr 'peco_select_history (commandline -b)'
+end
+```
