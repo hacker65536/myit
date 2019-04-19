@@ -50,7 +50,6 @@ $ aws apigateway create-resource --rest-api-id x89d9sblof \
 }
 ```
 
-create child of resource 
 
 /pets/{petId}
 ```console
