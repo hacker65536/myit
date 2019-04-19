@@ -77,3 +77,85 @@ $ aws apigateway put-method --rest-api-id x89d9sblof \
     "authorizationType": "NONE"
 }
 ```
+
+```console
+$ aws apigateway put-method --rest-api-id x89d9sblof \
+--resource-id 9ju8ay \
+--http-method GET \
+--authorization-type "NONE" \
+--request-parameters method.request.path.petId=true
+{
+    "apiKeyRequired": false,
+    "httpMethod": "GET",
+    "authorizationType": "NONE",
+    "requestParameters": {
+        "method.request.path.petId": true
+    }
+}
+```
+
+
+```console
+$ aws apigateway put-method-response --rest-api-id x89d9sblof \
+--resource-id jzukf1 \
+--http-method GET \
+--status-code 200
+{
+    "statusCode": "200"
+}
+```
+
+
+```console
+$ aws apigateway put-method-response --rest-api-id x89d9sblof \
+--resource-id 9ju8ay \
+--http-method GET \
+--status-code 200
+{
+    "statusCode": "200"
+}
+```
+
+
+
+
+```console
+$ aws apigateway put-integration --rest-api-id x89d9sblof \
+--resource-id jzukf1 \
+--http-method GET --type HTTP \
+--integration-http-method GET \
+--uri 'http://petstore-demo-endpoint.execute-api.com/petstore/pets'
+{
+    "passthroughBehavior": "WHEN_NO_MATCH",
+    "timeoutInMillis": 29000,
+    "uri": "http://petstore-demo-endpoint.execute-api.com/petstore/pets",
+    "connectionType": "INTERNET",
+    "httpMethod": "GET",
+    "cacheNamespace": "jzukf1",
+    "type": "HTTP",
+    "cacheKeyParameters": []
+}
+```
+
+```console
+$ aws apigateway put-integration --rest-api-id x89d9sblof \
+--resource-id 9ju8ay \
+--http-method GET \
+--type HTTP \
+--integration-http-method GET \
+--uri 'http://petstore-demo-endpoint.execute-api.com/petstore/pets/{id}' \
+--request-parameters '{"integration.request.path.id":"method.request.path.petId"}'
+{
+    "passthroughBehavior": "WHEN_NO_MATCH",
+    "timeoutInMillis": 29000,
+    "uri": "http://petstore-demo-endpoint.execute-api.com/petstore/pets/{id}",
+    "connectionType": "INTERNET",
+    "httpMethod": "GET",
+    "cacheNamespace": "9ju8ay",
+    "type": "HTTP",
+    "requestParameters": {
+        "integration.request.path.id": "method.request.path.petId"
+    },
+    "cacheKeyParameters": []
+}
+```
