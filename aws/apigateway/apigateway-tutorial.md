@@ -3,8 +3,7 @@
 https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/create-api-using-awscli.html
 
 
-create api
---
+### create api
 
 ```console
 $ aws apigateway create-rest-api --name 'Simple PetStore (AWS CLI)'
@@ -22,7 +21,7 @@ $ aws apigateway create-rest-api --name 'Simple PetStore (AWS CLI)'
 ```
 
 
-get root resource's id
+### get root resource's id
 
 ```console
 $ aws apigateway get-resources --rest-api-id x89d9sblof
@@ -37,8 +36,8 @@ $ aws apigateway get-resources --rest-api-id x89d9sblof
 ```
 
 
-create resource
-
+### create resource
+/pets
 ```console
 $ aws apigateway create-resource --rest-api-id x89d9sblof \
 --parent-id jih521vdg7 \
@@ -53,6 +52,7 @@ $ aws apigateway create-resource --rest-api-id x89d9sblof \
 
 create child of resource 
 
+/pets/{petId}
 ```console
 $ aws apigateway create-resource --rest-api-id x89d9sblof \
 --parent-id jzukf1 \
@@ -65,7 +65,8 @@ $ aws apigateway create-resource --rest-api-id x89d9sblof \
 }
 ```
 
-put method
+### put method
+/pets
 ```console
 $ aws apigateway put-method --rest-api-id x89d9sblof \
 --resource-id jzukf1 \
@@ -77,7 +78,7 @@ $ aws apigateway put-method --rest-api-id x89d9sblof \
     "authorizationType": "NONE"
 }
 ```
-
+/pets/{petId}
 ```console
 $ aws apigateway put-method --rest-api-id x89d9sblof \
 --resource-id 9ju8ay \
@@ -94,7 +95,8 @@ $ aws apigateway put-method --rest-api-id x89d9sblof \
 }
 ```
 
-
+### put method response
+/pets
 ```console
 $ aws apigateway put-method-response --rest-api-id x89d9sblof \
 --resource-id jzukf1 \
@@ -105,7 +107,7 @@ $ aws apigateway put-method-response --rest-api-id x89d9sblof \
 }
 ```
 
-
+/pets/{petId}
 ```console
 $ aws apigateway put-method-response --rest-api-id x89d9sblof \
 --resource-id 9ju8ay \
@@ -117,8 +119,9 @@ $ aws apigateway put-method-response --rest-api-id x89d9sblof \
 ```
 
 
+### put integration
 
-
+/pets
 ```console
 $ aws apigateway put-integration --rest-api-id x89d9sblof \
 --resource-id jzukf1 \
@@ -137,6 +140,7 @@ $ aws apigateway put-integration --rest-api-id x89d9sblof \
 }
 ```
 
+/pets/{petId}
 ```console
 $ aws apigateway put-integration --rest-api-id x89d9sblof \
 --resource-id 9ju8ay \
@@ -160,6 +164,9 @@ $ aws apigateway put-integration --rest-api-id x89d9sblof \
 }
 ```
 
+### put integration response
+
+/pets
 ```console
 $ aws apigateway put-integration-response --rest-api-id x89d9sblof \
 --resource-id jzukf1 \
@@ -171,10 +178,10 @@ $ aws apigateway put-integration-response --rest-api-id x89d9sblof \
     "statusCode": "200"
 }
 ```
-
+/pets/{petId}
 ```console
 $ aws apigateway put-integration-response --rest-api-id x89d9sblof \
---resource-id jzukf1 \
+--resource-id 9ju8ay \
 --http-method GET \
 --status-code 200 \
 --selection-pattern ""
@@ -184,6 +191,7 @@ $ aws apigateway put-integration-response --rest-api-id x89d9sblof \
 }
 ```
 
+### create deployment
 ```console
 $ aws apigateway create-deployment --rest-api-id x89d9sblof \
 --stage-name test \
@@ -193,5 +201,36 @@ $ aws apigateway create-deployment --rest-api-id x89d9sblof \
     "description": "First deployment",
     "id": "2vctaw",
     "createdDate": 1555647819
+}
+```
+### test
+/pets
+```console
+$ curl https://x89d9sblof.execute-api.us-east-1.amazonaws.com/test/pets
+[
+  {
+    "id": 1,
+    "type": "dog",
+    "price": 249.99
+  },
+  {
+    "id": 2,
+    "type": "cat",
+    "price": 124.99
+  },
+  {
+    "id": 3,
+    "type": "fish",
+    "price": 0.99
+  }
+]
+```
+/pets/{petId}
+```console
+$ curl https://x89d9sblof.execute-api.us-east-1.amazonaws.com/test/pets/3
+{
+  "id": 3,
+  "type": "fish",
+  "price": 0.99
 }
 ```
