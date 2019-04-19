@@ -159,3 +159,39 @@ $ aws apigateway put-integration --rest-api-id x89d9sblof \
     "cacheKeyParameters": []
 }
 ```
+
+```console
+$ aws apigateway put-integration-response --rest-api-id x89d9sblof \
+--resource-id jzukf1 \
+--http-method GET \
+--status-code 200 \
+--selection-pattern ""
+{
+    "selectionPattern": "",
+    "statusCode": "200"
+}
+```
+
+```console
+$ aws apigateway put-integration-response --rest-api-id x89d9sblof \
+--resource-id jzukf1 \
+--http-method GET \
+--status-code 200 \
+--selection-pattern ""
+{
+    "selectionPattern": "",
+    "statusCode": "200"
+}
+```
+
+```console
+$ aws apigateway create-deployment --rest-api-id x89d9sblof \
+--stage-name test \
+--stage-description 'Test stage' \
+--description 'First deployment'
+{
+    "description": "First deployment",
+    "id": "2vctaw",
+    "createdDate": 1555647819
+}
+```
