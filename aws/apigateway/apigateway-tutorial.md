@@ -50,3 +50,30 @@ $ aws apigateway create-resource --rest-api-id x89d9sblof \
     "parentId": "jih521vdg7"
 }
 ```
+
+create child of resource 
+
+```console
+$ aws apigateway create-resource --rest-api-id x89d9sblof \
+--parent-id jzukf1 \
+--path-part '{petId}'
+{
+    "path": "/pets/{petId}",
+    "pathPart": "{petId}",
+    "id": "9ju8ay",
+    "parentId": "jzukf1"
+}
+```
+
+put method
+```console
+$ aws apigateway put-method --rest-api-id x89d9sblof \
+--resource-id jzukf1 \
+--http-method GET \
+--authorization-type "NONE" 
+{
+    "apiKeyRequired": false,
+    "httpMethod": "GET",
+    "authorizationType": "NONE"
+}
+```
