@@ -89,12 +89,12 @@ $ curl -d '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/jso
 
 
 - request type
- - `-X POST`
- - `-X PUT`
+  - `-X POST`
+  - `-X PUT`
 
 - cotent type header
- - `-H "Content-Type: application/x-www-form-urlencoded"`
- - `-H "Content-Type: application/json"`
+  - `-H "Content-Type: application/x-www-form-urlencoded"`
+  - `-H "Content-Type: application/json"`
 - data 
- - form urlencoded: `-d "param1=value1&param2=value2"` or `-d @data.txt`
- - json: `-d '{"key1":"value1", "key2":"value2"}'` or `-d @data.json`
+  - form urlencoded: `-d "param1=value1&param2=value2"` or `-d @data.txt`
+  - json: `-d '{"key1":"value1", "key2":"value2"}'` or `-d @data.json`
