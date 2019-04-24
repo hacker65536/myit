@@ -48,7 +48,7 @@ https://stackoverflow.com/questions/7601853/can-virtualbox-be-executed-under-ama
 
 
 
-brew
+brew (install on mac)
 --
 
 ```console
