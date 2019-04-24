@@ -51,6 +51,9 @@ https://stackoverflow.com/questions/7601853/can-virtualbox-be-executed-under-ama
 brew (install on mac)
 --
 
+
+https://gist.github.com/kevin-smets/b91a34cea662d0c523968472a81788f7
+
 ```console
 $ brew install kubernetes-cli
 $ brew cask install minikube docker virtualbox
@@ -209,4 +212,37 @@ spec:
     run: my-app-exposed
   type: NodePort
 EOF
+```
+```console
+$ docker build . --tag my-app
+$ docker tag my-app localhost:5000/my-app:0.1.0
+```
+
+```console
+$ kubectl create -f my-app.yml
+```
+```console
+$ kubectl get all                                                                                                                                   5.3m  木  4/25 02:23:04 2019
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/my-app-5778f8459d-gs8bq   1/1     Running   0          6m29s
+
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+service/kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP        56m
+service/my-app       NodePort    10.104.28.242   <none>        80:32304/TCP   6m29s
+
+NAME                     READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/my-app   1/1     1            1           6m29s
+
+NAME                                DESIRED   CURRENT   READY   AGE
+replicaset.apps/my-app-5778f8459d   1         1         1       6m29s
+```
+
+```console
+$ minikube service my-app --url
+http://192.168.99.100:32304
+```
+open browser with command + click
+
+```console
+$ minikube dashboard
 ```
