@@ -147,3 +147,66 @@ b6d4725c06ae        k8s_POD_kube-scheduler-minikube_kube-system_58272442e226c838
 1e1e09c5e3a2        k8s_POD_etcd-minikube_kube-system_18c827a17f0a6b507c2029890cd786ad_0                                          k8s.gcr.io/pause:3.1   "/pause"                 Up 32 minutes
 c6d9ce7e6cc5        k8s_POD_kube-addon-manager-minikube_kube-system_0abcb7a1f0c9c0ebc9ec348ffdfb220c_0                            k8s.gcr.io/pause:3.1   "/pause"                 Up 32 minutes
 ```
+
+```console
+$ docker run -d -p 5000:5000 --restart=always --name registry registry:2
+```
+
+```console
+$ mkdir dockerapp
+$ cd !$
+$ cat <<'EOF' > Dockerfile
+# Just for demo purposes obviously
+FROM httpd:2.4-alpine
+
+COPY ./index.html /usr/local/apache2/htdocs/
+EOF
+$ cat <<'EOF' > index.html
+Hello world!
+EOF
+$ cat <<'EOF' > my-app.yml
+# APP DEPLOYMENT
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: my-app
+  name: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: my-app-exposed
+  template:
+    metadata:
+      labels:
+        run: my-app-exposed
+    spec:
+      containers:
+      - image: localhost:5000/my-app:0.1.0
+        name: my-app
+        ports:
+        - containerPort: 80
+          protocol: TCP
+
+---
+
+# APP SERVICE
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: my-app
+  name: my-app
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: my-app-exposed
+  type: NodePort
+EOF
+```
