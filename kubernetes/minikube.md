@@ -110,3 +110,17 @@ Client Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.1", GitCom
 NAME       STATUS   ROLES    AGE     VERSION
 minikube   Ready    master   2m41s   v1.14.0
 ```
+
+```console
+$ minikube docker-env
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/Users/<USER>/.minikube/certs"
+export DOCKER_API_VERSION="1.35"
+# Run this command to configure your shell:
+# eval $(minikube docker-env)
+```
+
+```console
+$ eval $(minikube docker-env)
+```
