@@ -124,3 +124,26 @@ export DOCKER_API_VERSION="1.35"
 ```console
 $ eval $(minikube docker-env)
 ```
+
+```console
+$ docker ps -a --format="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Command}}\t{{.Status}}"
+CONTAINER ID        NAMES                                                                                                         IMAGE                  COMMAND                  STATUS
+66354fec1c96        k8s_storage-provisioner_storage-provisioner_kube-system_b8a046ed-66ad-11e9-8776-080027019f26_0                4689081edb10           "/storage-provisioner"   Up 32 minutes
+d9985e361619        k8s_POD_storage-provisioner_kube-system_b8a046ed-66ad-11e9-8776-080027019f26_0                                k8s.gcr.io/pause:3.1   "/pause"                 Up 32 minutes
+232ac49bf5ba        k8s_coredns_coredns-fb8b8dccf-dsz9s_kube-system_b7230dc2-66ad-11e9-8776-080027019f26_0                        eb516548c180           "/coredns -conf /etc…"   Up 32 minutes
+97b683d1fc4d        k8s_coredns_coredns-fb8b8dccf-z4sh8_kube-system_b7240c37-66ad-11e9-8776-080027019f26_0                        eb516548c180           "/coredns -conf /etc…"   Up 32 minutes
+6a9e311f7dca        k8s_POD_coredns-fb8b8dccf-dsz9s_kube-system_b7230dc2-66ad-11e9-8776-080027019f26_0                            k8s.gcr.io/pause:3.1   "/pause"                 Up 32 minutes
+ae242da1659b        k8s_POD_coredns-fb8b8dccf-z4sh8_kube-system_b7240c37-66ad-11e9-8776-080027019f26_0                            k8s.gcr.io/pause:3.1   "/pause"                 Up 32 minutes
+2899da057f4f        k8s_kube-proxy_kube-proxy-4pflf_kube-system_b76dac9d-66ad-11e9-8776-080027019f26_0                            5cd54e388aba           "/usr/local/bin/kube…"   Up 32 minutes
+50fc30088041        k8s_POD_kube-proxy-4pflf_kube-system_b76dac9d-66ad-11e9-8776-080027019f26_0                                   k8s.gcr.io/pause:3.1   "/pause"                 Up 32 minutes
+e1d6f465c9aa        k8s_kube-controller-manager_kube-controller-manager-minikube_kube-system_2899d819dcdb72186fb15d30a0cc5a71_0   b95b1efa0436           "kube-controller-man…"   Up 32 minutes
+e6f8128c8446        k8s_etcd_etcd-minikube_kube-system_18c827a17f0a6b507c2029890cd786ad_0                                         2c4adeb21b4f           "etcd --advertise-cl…"   Up 32 minutes
+17456e828cf7        k8s_kube-scheduler_kube-scheduler-minikube_kube-system_58272442e226c838b193bbba4c44091e_0                     00638a24688b           "kube-scheduler --bi…"   Up 32 minutes
+4328a67d27fa        k8s_kube-apiserver_kube-apiserver-minikube_kube-system_023cdc77988402bd2101e9dc50c78f18_0                     ecf910f40d6e           "kube-apiserver --ad…"   Up 32 minutes
+13e8fbe8711c        k8s_kube-addon-manager_kube-addon-manager-minikube_kube-system_0abcb7a1f0c9c0ebc9ec348ffdfb220c_0             119701e77cbc           "/opt/kube-addons.sh"    Up 32 minutes
+b6d4725c06ae        k8s_POD_kube-scheduler-minikube_kube-system_58272442e226c838b193bbba4c44091e_0                                k8s.gcr.io/pause:3.1   "/pause"                 Up 32 minutes
+62e0e1614faa        k8s_POD_kube-controller-manager-minikube_kube-system_2899d819dcdb72186fb15d30a0cc5a71_0                       k8s.gcr.io/pause:3.1   "/pause"                 Up 32 minutes
+51b0c609a365        k8s_POD_kube-apiserver-minikube_kube-system_023cdc77988402bd2101e9dc50c78f18_0                                k8s.gcr.io/pause:3.1   "/pause"                 Up 32 minutes
+1e1e09c5e3a2        k8s_POD_etcd-minikube_kube-system_18c827a17f0a6b507c2029890cd786ad_0                                          k8s.gcr.io/pause:3.1   "/pause"                 Up 32 minutes
+c6d9ce7e6cc5        k8s_POD_kube-addon-manager-minikube_kube-system_0abcb7a1f0c9c0ebc9ec348ffdfb220c_0                            k8s.gcr.io/pause:3.1   "/pause"                 Up 32 minutes
+```
