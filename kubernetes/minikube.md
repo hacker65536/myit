@@ -45,3 +45,17 @@ as root.
 ```
 
 https://stackoverflow.com/questions/7601853/can-virtualbox-be-executed-under-amazon-ec2-instance
+
+
+
+brew
+--
+
+```console
+$ brew install kubernetes-cli
+$ brew cask install minikube docker virtualbox
+```
+if installation is failure
+1. open up system preferences
+2. click on the security & Privacy 
+3. allow apps download from App store and identified developers
