@@ -68,7 +68,18 @@ $  brew cask list docker
 ```
 
 run docker from application icon
+
+
+### version
 ```console
-$ docker --version
+⋊> ~ docker --version                                                                                          01:22:55
 Docker version 18.09.2, build 6247962
+⋊> ~ docker-compose --version                                                                                  01:23:05
+docker-compose version 1.23.2, build 1110ad01
+⋊> ~ docker-machine --version                                                                                  01:23:09
+docker-machine version 0.16.1, build cce350d7
+⋊> ~ minikube version                                                                                          01:23:14
+minikube version: v1.0.0
+⋊> ~ kubectl version --client                                                                                  01:23:18
+Client Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.1", GitCommit:"b7394102d6ef778017f2ca4046abbaa23b88c290", GitTreeState:"clean", BuildDate:"2019-04-19T22:13:37Z", GoVersion:"go1.12.4", Compiler:"gc", Platform:"darwin/amd64"}
 ```
