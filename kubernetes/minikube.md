@@ -246,3 +246,29 @@ open browser with command + click
 ```console
 $ minikube dashboard
 ```
+
+```console
+kubectl delete deploy my-app
+deployment.extensions "my-app" deleted
+```
+```console
+$ kubectl delete service my-app
+service "my-app" deleted
+```
+```console
+$ minikube stop
+✋  Stopping "minikube" in virtualbox ...
+🛑  "minikube" stopped.
+```
+```console
+$ minikube delete
+🔥  Deleting "minikube" from virtualbox ...
+💔  The "minikube" cluster has been deleted
+```
+```console
+$ rm -rf ~/.minikube ~/.kube
+```
+```console
+$ brew uninstall kubectl
+$ brew cask uninstall docker virtualbox minikube
+```
