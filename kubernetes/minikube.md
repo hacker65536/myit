@@ -270,5 +270,13 @@ $ rm -rf ~/.minikube ~/.kube
 ```
 ```console
 $ brew uninstall kubectl
+Uninstalling /usr/local/Cellar/kubernetes-cli/1.14.1... (220 files, 47.9MB)
+```
+```console
 $ brew cask uninstall docker virtualbox minikube
+==> Uninstalling Cask docker
+--snip--
+==> Uninstalling Cask virtualbox
+--snip--
+==> Uninstalling Cask minikube
 ```
