@@ -54,3 +54,22 @@ download font from
 https://github.com/powerline/fonts/tree/master/DejaVuSansMono
 
 window -> Appearance -> Font settings -> DejaVu Sans Mono for Powerline
+
+
+
+mac
+--
+
+```console
+$ omf install bobthefish
+```
+
+### install font
+
+```console
+$ git clone https://github.com/powerline/fonts.git
+$ cd fonts
+$ ./install.sh
+$ cd ..
+$ rm -rf fonts
+```
