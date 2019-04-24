@@ -50,3 +50,9 @@ U           U    unmerged, both modified
 !           !    ignored
 -------------------------------------------------
 ```
+
+
+show ignored files
+```console
+$ git st -s --ignored
+```
