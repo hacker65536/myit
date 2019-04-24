@@ -59,6 +59,8 @@ window -> Appearance -> Font settings -> DejaVu Sans Mono for Powerline
 
 mac
 --
+https://github.com/oh-my-fish/theme-bobthefish
+
 
 ```console
 $ omf install bobthefish
