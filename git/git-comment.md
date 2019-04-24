@@ -18,3 +18,12 @@ prefix
 - Allow
 - Implement
 
+
+
+
+https://www.tam-tam.co.jp/tipsnote/program/post16686.html
+
+https://yu8mada.com/2018/06/13/how-to-write-a-better-commit-message-in-git/
+
+
+not how but what and why
