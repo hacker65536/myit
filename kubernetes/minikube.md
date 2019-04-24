@@ -55,7 +55,20 @@ brew (install on mac)
 $ brew install kubernetes-cli
 $ brew cask install minikube docker virtualbox
 ```
-if installation is failure
+if virtualbox installation is failure
 1. open up system preferences
 2. click on the security & Privacy 
 3. allow apps download from App store and identified developers
+
+
+```console
+$  brew cask list docker
+==> Apps
+/Applications/Docker.app (286 files, 1.7GB)
+```
+
+run docker from application icon
+```console
+$ docker --version
+Docker version 18.09.2, build 6247962
+```
