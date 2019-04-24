@@ -105,3 +105,8 @@ Client Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.1", GitCom
 💗  kubectl is now configured to use "minikube"
 🏄  Done! Thank you for using minikube!
 ```
+```console
+⋊> ~ kubectl get nodes                                                                                         01:27:44
+NAME       STATUS   ROLES    AGE     VERSION
+minikube   Ready    master   2m41s   v1.14.0
+```
