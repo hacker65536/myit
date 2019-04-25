@@ -1,5 +1,12 @@
 
 
+variable
+--
+```console
+$ set vars hello
+$ echo $vars
+hello
+```
 compeletion
 --
 `ctrl + f` = line end
