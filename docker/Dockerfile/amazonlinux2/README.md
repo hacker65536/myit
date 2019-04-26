@@ -6,5 +6,5 @@ $ docker build -t amz2 .
 ```
 
 ```console
-$ docker run --rm -it amz2 --user ec2-user bash
+$ docker run --rm -it --user ec2-user amz2 bash
 ```
