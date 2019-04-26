@@ -23,3 +23,13 @@ $ fish
 # mac
 $ chsh -s /usr/bin/fish
 ```
+
+
+release3
+--
+
+```
+$ cd /etc/yum.repos.d/
+$ wget https://download.opensuse.org/repositories/shells:fish:release:3/RHEL_7/shells:fish:release:3.repo
+$ yum install fish
+```
