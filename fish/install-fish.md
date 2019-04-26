@@ -30,6 +30,6 @@ release3
 
 ```
 $ cd /etc/yum.repos.d/
-$ wget https://download.opensuse.org/repositories/shells:fish:release:3/RHEL_7/shells:fish:release:3.repo
-$ yum install fish
+$ sudo curl -SsL -o fish.repo https://download.opensuse.org/repositories/shells:fish:release:3/RHEL_7/shells:fish:release:3.repo
+$ sudo yum install fish
 ```
