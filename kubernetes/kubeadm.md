@@ -16,5 +16,5 @@ EOF
 # apt-get update
 ```
 ```console
-#apt-get install -y kubelet kubeadm kubectl docker.io
+# apt-get install -y kubelet kubeadm kubectl docker.io
 ```
