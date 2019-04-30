@@ -152,3 +152,15 @@ daemonset.extensions/kube-flannel-ds-arm created
 daemonset.extensions/kube-flannel-ds-ppc64le created
 daemonset.extensions/kube-flannel-ds-s390x created
 ```
+
+
+```
+# kubectl get svc
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   15m
+# kubectl get nodes
+NAME            STATUS   ROLES    AGE   VERSION
+ip-10-0-0-39    Ready    master   15m   v1.14.1
+ip-10-0-1-164   Ready    <none>   12m   v1.14.1
+ip-10-0-2-243   Ready    <none>   12m   v1.14.1
+```
