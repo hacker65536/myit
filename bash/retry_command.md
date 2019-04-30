@@ -1,3 +1,13 @@
+```console
+$ curl -I --retry 5 wwwa.yahoo.co.jp
+Warning: Transient problem: timeout Will retry in 1 seconds. 5 retries left.
+Warning: Transient problem: timeout Will retry in 2 seconds. 4 retries left.
+Warning: Transient problem: timeout Will retry in 4 seconds. 3 retries left.
+Warning: Transient problem: timeout Will retry in 8 seconds. 2 retries left.
+Warning: Transient problem: timeout Will retry in 16 seconds. 1 retries left.
+curl: (6) Could not resolve host: wwwa.yahoo.co.jp
+```
+
 
 ```bash
 function retry_command() {
@@ -18,8 +28,6 @@ function retry_command() {
         done
 
 }
-```
 
-```bash
 retry_command 20 curl xxxx.host.com
 ```
