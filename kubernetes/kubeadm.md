@@ -35,6 +35,8 @@ error execution phase preflight: [preflight] Some fatal errors occurred:
 ```
 
 
+admin
+--
 ```console
 # kubeadm init --pod-network-cidr 10.244.0.0/16
 [init] Using Kubernetes version: v1.14.1
@@ -103,4 +105,26 @@ Then you can join any number of worker nodes by running the following on each as
 
 kubeadm join 10.0.0.39:6443 --token upoofa.4w1v4wkx3l3c6vcj \
     --discovery-token-ca-cert-hash sha256:a114afcae33e3bab23777a5141b85f74b5e1e2917e04d97aafcadad223a1cd1f
+```
+
+nodes
+--
+```console
+# kubeadm join 10.0.0.39:6443 --token upoofa.4w1v4wkx3l3c6vcj \
+>     --discovery-token-ca-cert-hash sha256:a114afcae33e3bab23777a5141b85f74b5e1e2917e04d97aafcadad223a1cd1f
+[preflight] Running pre-flight checks
+        [WARNING IsDockerSystemdCheck]: detected "cgroupfs" as the Docker cgroup driver. The recommended driver is "systemd". Please follow the guide at https://kubernetes.io/docs/setup/cri/
+[preflight] Reading configuration from the cluster...
+[preflight] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
+[kubelet-start] Downloading configuration for the kubelet from the "kubelet-config-1.14" ConfigMap in the kube-system namespace
+[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+[kubelet-start] Activating the kubelet service
+[kubelet-start] Waiting for the kubelet to perform the TLS Bootstrap...
+
+This node has joined the cluster:
+* Certificate signing request was sent to apiserver and a response was received.
+* The Kubelet was informed of the new secure connection details.
+
+Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 ```
