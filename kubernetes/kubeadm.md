@@ -130,10 +130,25 @@ Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 ```
 
 
-idividual
---
+adm
 ```console
-$ mkdir -p $HOME/.kube
-$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+# mkdir -p $HOME/.kube
+# sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+# sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+
+adm
+```console
+# kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+podsecuritypolicy.extensions/psp.flannel.unprivileged created
+clusterrole.rbac.authorization.k8s.io/flannel created
+clusterrolebinding.rbac.authorization.k8s.io/flannel created
+serviceaccount/flannel created
+configmap/kube-flannel-cfg created
+daemonset.extensions/kube-flannel-ds-amd64 created
+daemonset.extensions/kube-flannel-ds-arm64 created
+daemonset.extensions/kube-flannel-ds-arm created
+daemonset.extensions/kube-flannel-ds-ppc64le created
+daemonset.extensions/kube-flannel-ds-s390x created
 ```
