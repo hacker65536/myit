@@ -2,6 +2,7 @@
 3 nodes kubernetes
 
 
+requre
 individual
 ```console
 # apt-get update && apt-get install -y apt-transport-https
@@ -22,4 +23,13 @@ EOF
 ```console
 # sysctl net.bridge.bridge-nf-call-iptables=1
 net.bridge.bridge-nf-call-iptables = 1
+```
+
+
+if get this message ,upgrade instance type 
+```
+[preflight] Running pre-flight checks
+        [WARNING IsDockerSystemdCheck]: detected "cgroupfs" as the Docker cgroup driver. The recomme                                           nded driver is "systemd". Please follow the guide at https://kubernetes.io/docs/setup/cri/
+error execution phase preflight: [preflight] Some fatal errors occurred:
+        [ERROR NumCPU]: the number of available CPUs 1 is less than the required 2
 ```
