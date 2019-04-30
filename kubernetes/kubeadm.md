@@ -18,3 +18,8 @@ EOF
 ```console
 # apt-get install -y kubelet kubeadm kubectl docker.io
 ```
+
+```console
+# sysctl net.bridge.bridge-nf-call-iptables=1
+net.bridge.bridge-nf-call-iptables = 1
+```
