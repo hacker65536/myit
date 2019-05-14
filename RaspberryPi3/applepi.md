@@ -58,3 +58,13 @@ make[1]: ディレクトリ '/home/pi/bcm2835-1.58' から
 ```console
 $ sudo make install
 ```
+
+ApplePi
+--
+
+```console
+$ wget http://einstlab.web.fc2.com/RaspberryPi/ApplePi.tar
+$ tar xvf !$:t
+$ cd !$:r
+$ ./setup.sh
+```
