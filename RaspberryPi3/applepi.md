@@ -55,3 +55,6 @@ make[1]: ディレクトリ '/home/pi/bcm2835-1.58/doc' から出ます
 make[1]: ディレクトリ '/home/pi/bcm2835-1.58' に入ります
 make[1]: ディレクトリ '/home/pi/bcm2835-1.58' から
 ```
+```console
+$ sudo make install
+```
