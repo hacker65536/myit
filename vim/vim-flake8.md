@@ -22,17 +22,16 @@ autocmd BufWritePost,BufRead *.py call Flake8()
 ```
 
 
-plus
+customize
 --
 
-ignore E501
+`~/.config/flake8`
 
-```vim
-let g:syntastic_python_checkers = ["flake8"]
-let g:syntastic_flake8_args = '--ignore="E501"'
+
+ignore E501,W293
 ```
-
-```
-E501 line too long (96 characters)
-
+[flake8]
+max-line-length = 120
+- `g:flake8_max_line_length=120`
+- `g:flake8_ignore="E501,W293"`
 ```
