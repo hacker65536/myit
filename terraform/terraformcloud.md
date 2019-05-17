@@ -75,3 +75,6 @@ Do you want to copy only your current workspace?
   Enter a value: yes
 
 ```
+
+![](./terraformcloud_state.PNG)
+![](./terraformcloud_lock.PNG)
