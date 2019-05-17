@@ -40,13 +40,20 @@ terraform {
   backend "remote" {
     hostname     = "app.terraform.io"
     organization = "my-org"
-    token        = "xxxxx.atlasv1.xxxxxx"
+    //token        = "xxxxx.atlasv1.xxxxxx"
     # recommend setting token in CLI config file 
     
     workspaces {
       name = "my-app-name"
     }
   }
+}
+```
+
+`~/.terraformrc`
+```HCL
+credentials "app.terraform.io" {
+  token = "xxxxx.atlasv1.xxxxxx"
 }
 ```
 
