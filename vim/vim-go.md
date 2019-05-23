@@ -46,3 +46,7 @@ jump to definition
 `gd` or `ctrl+]`
 return 
 `ctrl+t`(recommend)  or `ctrl+o`
+
+
+
+https://github.com/fatih/vim-go-tutorial#go-to-definition
