@@ -42,11 +42,15 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 ```
 
+
+
+tutorial
+--
+
+https://github.com/fatih/vim-go-tutorial#go-to-definition
+
+*go to definition*  
 jump to definition
 `gd` or `ctrl+]`
 return 
 `ctrl+t`(recommend)  or `ctrl+o`
-
-
-
-https://github.com/fatih/vim-go-tutorial#go-to-definition
