@@ -189,6 +189,7 @@ terminal no.1
 $ exec 2> err
 Fri May 24 04:17:38 UTC 2019 # command is invisible input date
 # ls aaa
+bin  pkg  src # input ls go
 ```
 
 
@@ -197,6 +198,7 @@ terminal no.2
 $ tail -f err
 $ date  # command is showing on this terminal
 $ ls aaa
-ls: cannot access aaa: No such file or directory
+ls: cannot access aaa: No such file or directory # error will be showing on this terminal
+$ ls go
 ```
 
