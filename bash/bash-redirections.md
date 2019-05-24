@@ -137,3 +137,66 @@ Discard stdout and stderr of cmd.
 $ ls go/pkg/linux_amd64/ &>/dev/null
 $ ls go/pkg/aaa  &>/dev/null
 ```
+cmd < file
+--
+Redirect the contents of the file to the standard input (stdin) of cmd.
+
+```console
+$ cat file
+hello world
+$ sed 's/h/w/' < file
+wello world
+```
+
+
+cmd << EOL \nline1\nline2\nEOL
+--
+Redirect a bunch of lines to the stdin. If 'EOL' is quoted, text is treated literally. This is called a here-document.
+
+```console
+$ sed 's/h/w/g' <<EOL
+> hello
+> here
+> EOL
+wello
+were
+```
+
+
+
+cmd <<- EOL\n<tab>foo\n<tab><tab>bar\nEOL
+--
+Redirect a bunch of lines to the stdin and strip the leading tabs.
+  
+....
+
+
+
+cmd <<< "string"
+--
+Redirect a single line of text to the stdin of cmd. This is called a here-string.
+```console
+$ sed 's/h/w/' <<< "hello"
+wello
+```
+
+
+exec 2> file
+--
+
+terminal no.1
+```console
+$ exec 2> err
+Fri May 24 04:17:38 UTC 2019 # command is invisible input date
+# ls aaa
+```
+
+
+terminal no.2
+```console
+$ tail -f err
+$ date  # command is showing on this terminal
+$ ls aaa
+ls: cannot access aaa: No such file or directory
+```
+$ tail -f err
