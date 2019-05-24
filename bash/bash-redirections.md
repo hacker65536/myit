@@ -185,7 +185,7 @@ exec 2> file
 --
 
 terminal no.1
-```console
+```bash
 $ exec 2> err
 Fri May 24 04:17:38 UTC 2019 # command is invisible input date
 # ls aaa
@@ -193,10 +193,10 @@ Fri May 24 04:17:38 UTC 2019 # command is invisible input date
 
 
 terminal no.2
-```console
+```bash
 $ tail -f err
 $ date  # command is showing on this terminal
 $ ls aaa
 ls: cannot access aaa: No such file or directory
 ```
-$ tail -f err
+
