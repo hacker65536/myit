@@ -12,3 +12,5 @@ $ aws ssm put-parameter --name /amibld/slack_webhookurl --value "https://hooks.s
 
 
 https://github.com/aws/aws-cli/pull/3384
+
+`.aws/config` `cli_follow_urlparam = false`
