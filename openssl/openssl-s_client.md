@@ -148,3 +148,17 @@ SSL-Session:
 ---
 DONE
 ```
+
+### get cert(Not Intermediate Certificate)
+```console
+$ openssl s_client -connect google.com:443 -showcerts < /dev/null | grep -m 1 -B 100 'END CERTIFICATE' > crt
+$ sed -ni '/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/p' crt   
+```
+
+`-m 1` Stop reading a file after NUM matchjing lines.  
+`-B 100` Print NUM lines of leading context before matching lines.  
+
+TODO  
+using sed command
+
+
