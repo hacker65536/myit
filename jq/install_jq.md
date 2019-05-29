@@ -92,3 +92,13 @@ the command below to resolve this problem
 cd docs/
 bundle install
 ```
+
+
+1.6 binary
+--
+bult-in function e.g. round
+```console
+$ curl -SsL -o jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+$ chmod +x jq 
+$ mv jq /usr/local/bin/jq
+```
