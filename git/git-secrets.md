@@ -145,8 +145,32 @@ scan from stdin
 $ echo 'hello!' | git secrets --scan -
 ```
 
+~/.gitconfig
+--
+```
+[ghq]
+  root = /home/ec2-user/go/src
+[secrets]
+  providers = git secrets --aws-provider
+  patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+  patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+  patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+  patterns = myname | myrealname
+  patterns = mycompany
+  patterns = profile
+  patterns = AWSACCOUNTID
+  allowed = AKIAIOSFODNN7EXAMPLE
+  allowed = 000000000000
+  allowed = 012345678901
+  allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+[alias]
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  last = log -1 HEAD
 
-
+```
 
 windows
 --
@@ -155,3 +179,4 @@ open powershell
 ```
 > ./install.ps1
 ```
+
