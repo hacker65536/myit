@@ -21,3 +21,8 @@ diff unified
 ```
 diff -u a.txt b.txt
 ```
+
+patch作成
+```console
+$ diff -up a.txt b.txt > test.patch
+```
