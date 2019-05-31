@@ -24,7 +24,7 @@ $ openssl req \
 -newkey rsa:2048 \
 -days 3652 \
 -subj "/C=JP/ST=Tokyo/L=Shibuya/O=mycompany/OU=infra/CN=mycompany.com" \
--keyout jenkins.pk \
+-keyout jenkins.key \
 -out jenkins.crt
 ```
 
