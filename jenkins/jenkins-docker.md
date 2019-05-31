@@ -26,6 +26,8 @@ $ openssl req \
 -subj "/C=JP/ST=Tokyo/L=Shibuya/O=mycompany/OU=infra/CN=mycompany.com" \
 -keyout jenkins.key \
 -out jenkins.crt
+
+$ openssl rsa -in jenkins.key -out jenkins.pk
 ```
 
 import Self-signed certificate for ldaps
@@ -57,12 +59,12 @@ Your keystore contains 152 entries
 $ USER=dockerroot
 docker run -d -it -v /opt/jenkins/jenkins_home:/var/jenkins_home \
 -p 8080:8080 -p 50000:50000 \
---name devjenkins \
+--name jenkins \
 -u $(id -u ${USER}):$(id -g ${USER}) \
 --env JAVA_OPTS="-Djavax.net.ssl.trustStore=/var/jenkins_home/.cacerts/cacerts -Djavax.net.ssl.trustStorePassword=changeit" \
 jenkins/jenkins:lts \
 --httpPort=-1 \
 --httpsPort=8080 \
---httpsKeyStore=/var/jenkins_home/.cacerts/jenkins.crt \
+--httpsCertificate=/var/jenkins_home/.cacerts/jenkins.crt \
 --httpsPrivateKey=/var/jenkins_home/.cacerts/jenkins.pk
 ```
