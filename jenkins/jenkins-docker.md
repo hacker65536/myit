@@ -68,3 +68,14 @@ jenkins/jenkins:lts \
 --httpsCertificate=/var/jenkins_home/.cacerts/jenkins.crt \
 --httpsPrivateKey=/var/jenkins_home/.cacerts/jenkins.pk
 ```
+
+ldap settings
+--
+-> global settings -> LDAP
+
+```
+server  my.ldaps-host.com
+root DN  dc=mycompany,dc=local		
+Manager DN uid=readonly,ou=system,dc=mycompany,dc=local
+Manager Password xxxxxxxxxx
+```
