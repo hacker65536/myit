@@ -6,6 +6,14 @@ prepare
 $ docker pull jenkins/jenkins:lts
 ```
 
+
+```console
+$ mkdir -p /opt/jenkins/jenkins_home/.cacerts
+$ cd /opt/jenkins/jenkins_home/.cacerts
+$ chown -R dockerroot. /opt/jenkins/jenkins_home/
+```
+
+
 create ssl cert for https
 --
 ```console
@@ -16,8 +24,8 @@ $ openssl req \
 -newkey rsa:2048 \
 -days 3652 \
 -subj "/C=JP/ST=Tokyo/L=Shibuya/O=mycompany/OU=infra/CN=mycompany.com" \
--keyout example.key \
--out example.crt 
+-keyout jenkins.pk \
+-out jenkins.crt
 ```
 
 import Self-signed certificate for ldaps
@@ -27,6 +35,10 @@ copy cacerts
 ```console
 $ docker run --rm --entrypoint cat jenkins/jenkins:lts /docker-java-home/jre/lib/security/cacerts > cacerts 
 ```
+```console
+$ keytool -list -keystore cacerts -storepass changeit | grep "Your keystore contains"
+Your keystore contains 151 entries
+```
 
 import ldaps cert 
 ```console
@@ -35,3 +47,22 @@ $ openssl s_client -showcerts -connect ${ldap}:636 < /dev/null 2> /dev/null | op
 $ docker run --rm -v `pwd`:/tmp/certs openjdk:latest \
 bash -c 'cd /tmp/certs && keytool -keystore ./cacerts -storepass changeit -noprompt -trustcacerts -importcert -alias '$ldap' -file crt'
 ``` 
+
+```console
+$ keytool -list -keystore cacerts -storepass changeit | grep "Your keystore contains"
+Your keystore contains 152 entries
+```
+
+```
+$ USER=dockerroot
+docker run -d -it -v /opt/jenkins/jenkins_home:/var/jenkins_home \
+-p 8080:8080 -p 50000:50000 \
+--name devjenkins \
+-u $(id -u ${USER}):$(id -g ${USER}) \
+--env JAVA_OPTS="-Djavax.net.ssl.trustStore=/var/jenkins_home/.cacerts/cacerts -Djavax.net.ssl.trustStorePassword=changeit" \
+jenkins/jenkins:lts \
+--httpPort=-1 \
+--httpsPort=8080 \
+--httpsKeyStore=/var/jenkins_home/.cacerts/jenkins.crt \
+--httpsPrivateKey=/var/jenkins_home/.cacerts/jenkins.pk
+```
