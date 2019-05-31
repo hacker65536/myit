@@ -26,7 +26,10 @@ $ openssl req \
 -subj "/C=JP/ST=Tokyo/L=Shibuya/O=mycompany/OU=infra/CN=mycompany.com" \
 -keyout jenkins.key \
 -out jenkins.crt
+```
 
+convert pkcs#8 to pkcs#5 
+```
 $ openssl rsa -in jenkins.key -out jenkins.pk
 ```
 
