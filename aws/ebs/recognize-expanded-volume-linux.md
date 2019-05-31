@@ -28,6 +28,7 @@ tmpfs          tmpfs     497M     0  497M   0% /run/user/1000
 $ sudo file -s /dev/nvme?n*
 /dev/nvme0n1:     x86 boot sector; partition 1: ID=0xee, starthead 0, startsector 1, 16777215 sectors, extended partition table (last)\011, code offset 0x63
 /dev/nvme0n1p1:   SGI XFS filesystem data (blksz 4096, inosz 512, v2 dirs)
+/dev/nvme0n1p128: data
 ```
 
 ```console
