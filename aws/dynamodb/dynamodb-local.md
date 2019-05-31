@@ -32,3 +32,13 @@ $ docker run --rm -d -v $(pwd)/data:/data \
 --name dynamodb amazon/dynamodb-local \
 -jar DynamoDBLocal.jar -dbPath /data -sharedDb
 ```
+
+access
+--
+
+```console
+$ aws dynamodb list-tables --endpoint-url http://0.0.0.0:8000
+{
+    "TableNames": []
+}
+```
