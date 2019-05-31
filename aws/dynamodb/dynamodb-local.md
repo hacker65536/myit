@@ -33,6 +33,10 @@ $ docker run --rm -d -v $(pwd)/data:/data \
 -jar DynamoDBLocal.jar -dbPath /data -sharedDb
 ```
 
+option  
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.UsageNotes.html
+
 access
 --
 
