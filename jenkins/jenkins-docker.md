@@ -59,7 +59,7 @@ Your keystore contains 152 entries
 ```
 
 ```
-$ USER=dockerroot
+$ USER=webuser
 docker run -d -it -v /opt/jenkins/jenkins_home:/var/jenkins_home \
 -p 8080:8080 -p 50000:50000 \
 --name jenkins \
@@ -81,4 +81,23 @@ server  my.ldaps-host.com
 root DN  dc=mycompany,dc=local		
 Manager DN uid=readonly,ou=system,dc=mycompany,dc=local
 Manager Password xxxxxxxxxx
+```
+
+
+user
+--
+`I have noname`
+
+
+```console
+$ docker exec -it -u root jenkins bash
+```
+```console
+$ apt update && apt install vim rsync
+```
+
+add user info to passwd and group
+```console
+$ vim /etc/passwd
+$ vim /etc/group
 ```
