@@ -22,10 +22,6 @@ $ sudo mv /tmp/eksctl /usr/local/bin
 create cluster
 --
 
-require
-- [aws-iam-authenticator](https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html)
-- [kubectl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
-
 ```console
 $ eksctl create cluster
 [ℹ]  using region us-east-2
@@ -51,6 +47,34 @@ $ eksctl create cluster
 [ℹ]  kubectl command should work with "/home/ec2-user/.kube/config", try 'kubectl get nodes'
 [✔]  EKS cluster "extravagant-rainbow-1551249113" in "us-east-2" region is ready
 ```
+
+
+replace aws-iam-authenticator
+--
+[aws-iam-authenticator](https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html)
+
+```
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - token
+      - -i
+      - ${YOUR_CLUSTERNAME}
+      command: aws-iam-authenticator
+      env: null
+```
+```
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - eks
+      - get-token
+      - --cluster-name
+      - ${YOUR_CLUSTERNAME}
+      command: aws
+
+```
+
 
 inspect
 --
