@@ -2,6 +2,17 @@
 
 https://github.com/weaveworks/eksctl
 
+kubectl
+--
+https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
+
+```
+$ curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.7/2019-03-27/bin/linux/amd64/kubectl
+$ curl -o kubectl.sha256 https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.7/2019-03-27/bin/linux/amd64/kubectl.sha256
+$ openssl sha1 -sha256 kubectl
+$ chmod +x ./kubectl
+$ mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl 
+```
 
 ```console
 $ curl -SsL "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
