@@ -70,3 +70,13 @@ $ git clean --dry-run
 Would remove LICENSE
 Would remove main.go
 ```
+
+
+dryrun
+```console
+$ git clean -d -x -n
+```
+delete all
+```console
+$ git clean -d -x -f
+```
