@@ -15,6 +15,6 @@ $ sh param.sh
 type something word: abc
 you type abc
 $ sh param.sh
-type something word:
+type something word:  # Enter key <empty>
 param.sh: line 6: param:  no input
 ```
