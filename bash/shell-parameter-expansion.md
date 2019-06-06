@@ -52,3 +52,27 @@ $ sh param.sh
 word
 
 ```
+
+${parameter:?word}
+--
+
+If parameter is null or unset, the expansion of word (or a message to that effect if word is not present) is written to the standard error and the shell, if it is not interactive, exits. Otherwise, the value of parameter is substituted.
+
+```bash
+#!/bin/env bash
+parameter=someword
+echo ${parameter:?word}
+```
+```console
+$ sh param.sh
+someword
+```
+
+```bash
+#!/bin/env bash
+echo ${parameter:?word}
+```
+```console
+$ sh param.sh
+param.sh: line 2: parameter: word
+```
