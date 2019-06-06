@@ -9,3 +9,12 @@ chk=${param:? no input}
 
 echo "you type $param"
 ```
+
+```console
+$ sh param.sh
+type something word: abc
+you type abc
+$ sh param.sh
+type something word:
+param.sh: line 6: param:  no input
+```
