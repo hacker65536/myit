@@ -30,4 +30,5 @@ jq '.[]| select(.foobar)| select (.foobar|contains("my"))'
 from list
 ```console
 $ echo '["foo","foobar","baz"]' | jq -r '.[]|select(.|contains("bar"))'
+foobar
 ```
