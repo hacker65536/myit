@@ -3,20 +3,20 @@ https://docs.helm.sh/using_helm/#installing-helm
 
 
 
-```
+```console
 $ ver=v2.14.1
 $ curl -SsL -O https://get.helm.sh/helm-${ver}-linux-amd64.tar.gz
 $ tar zxvf !$:t
 $ sudo mv linux-amd64/helm /usr/local/bin/helm
 ```
 
-```
+```console
 $ helm version
 Client: &version.Version{SemVer:"v2.14.1", GitCommit:"5270352a09c7e8b6e8c9593002a73535276507c0", GitTreeState:"clean"}
 Error: could not find tiller
 ```
 
-```
+```console
 $ helm init
 Creating /home/shacker/.helm
 Creating /home/shacker/.helm/repository
@@ -36,4 +36,10 @@ Please note: by default, Tiller is deployed with an insecure 'allow unauthentica
 To prevent this, run `helm init` with the --tiller-tls-verify flag.
 For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
 Happy Helming!
+```
+
+```console
+$ helm version
+Client: &version.Version{SemVer:"v2.14.1", GitCommit:"5270352a09c7e8b6e8c9593002a73535276507c0", GitTreeState:"clean"}
+Server: &version.Version{SemVer:"v2.14.1", GitCommit:"5270352a09c7e8b6e8c9593002a73535276507c0", GitTreeState:"clean"}
 ```
