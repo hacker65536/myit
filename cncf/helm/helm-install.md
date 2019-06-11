@@ -43,3 +43,15 @@ $ helm version
 Client: &version.Version{SemVer:"v2.14.1", GitCommit:"5270352a09c7e8b6e8c9593002a73535276507c0", GitTreeState:"clean"}
 Server: &version.Version{SemVer:"v2.14.1", GitCommit:"5270352a09c7e8b6e8c9593002a73535276507c0", GitTreeState:"clean"}
 ```
+
+
+```console
+$ helm search 
+```
+
+enable incubator
+
+```console
+$ helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+$ helm search incubator
+```
