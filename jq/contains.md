@@ -25,3 +25,9 @@ jq '.[]| select(.foobar)| select (.foobar|contains("my"))'
   "aa": "cc"
 }
 ```
+
+
+from list
+```console
+$ echo '["foo","foobar","baz"]' | jq -r '.[]|select(.|contains("bar"))'
+```
