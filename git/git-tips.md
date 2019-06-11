@@ -23,3 +23,19 @@ commitの差分確認
 ```
 git diff SHA^..SHA
 ```
+
+Remote branch と同期
+--
+remoteで削除されているbranchがlocalに残っている場合
+
+```console
+$ git remote update origin --prune
+```
+
+```console
+$ git remote prune origi
+```
+
+```console
+$ git fetch --prune
+```
