@@ -1,15 +1,18 @@
 
 https://docs.helm.sh/using_helm/#installing-helm
 
+
+
 ```
-$ wget https://storage.googleapis.com/kubernetes-helm/helm-v2.12.3-linux-amd64.tar.gz
-$ tar zxvf helm-v2.12.3-linux-amd64.tar.gz
+$ ver=v2.14.1
+$ curl -SsL -O https://get.helm.sh/helm-${ver}-linux-amd64.tar.gz
+$ tar zxvf !$:t
 $ sudo mv linux-amd64/helm /usr/local/bin/helm
 ```
 
 ```
 $ helm version
-Client: &version.Version{SemVer:"v2.12.3", GitCommit:"eecf22f77df5f65c823aacd2dbd30ae6c65f186e", GitTreeState:"clean"}
+Client: &version.Version{SemVer:"v2.14.1", GitCommit:"5270352a09c7e8b6e8c9593002a73535276507c0", GitTreeState:"clean"}
 Error: could not find tiller
 ```
 
