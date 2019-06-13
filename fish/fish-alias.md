@@ -1,4 +1,5 @@
 
+https://orako-column.com/fish-shell/
 
 `~/.config/fish/config.fish`
 
