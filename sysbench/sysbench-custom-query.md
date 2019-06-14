@@ -1,5 +1,7 @@
 # sysbench-custom-query
 
+https://www.percona.com/blog/2019/04/25/creating-custom-sysbench-scripts/
+
 ## sysbench install
 ```console
 $ git clone https://github.com/akopytov/sysbench.git
@@ -77,6 +79,12 @@ function event()
   con:query("select * from city where ID ="..r)
   check_reconnect()
 end
+
+function thread_done()
+  -- Disconnect/close connection to MySQL
+  con:disconnect()
+end
+
 ```
 
 ```
