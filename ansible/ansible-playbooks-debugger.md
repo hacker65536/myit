@@ -17,7 +17,7 @@ on a task
 ```
 
 on a play
-```
+```yml
 - name: Play
   hosts: all
   debugger: on_skipped
