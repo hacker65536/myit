@@ -280,3 +280,22 @@ $ brew cask uninstall docker virtualbox minikube
 --snip--
 ==> Uninstalling Cask minikube
 ```
+
+
+install to windows
+--
+require hyper-v enabled
+
+- `turn windows features on or off`
+ - check `Hyper-V`
+
+https://github.com/kubernetes/minikube/releases
+
+download `minikube-installer.exe`
+
+
+run powershell with administorator
+
+```
+PS > minikube start -p mymini --vm-driver=hyperv
+```
