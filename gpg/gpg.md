@@ -285,6 +285,12 @@ gpg: no ultimately trusted keys found
 ```
 
 ## change passphrase
+
+```console
+$ gpg --passwd hacker65536
+```
+
+or command line
 ```console
 $ gpg --edit-key hacker65536
 
