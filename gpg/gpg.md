@@ -364,3 +364,12 @@ gpg: searching for "hacker65536" from hkp server pgp.mit.edu
 Keys 1-1 of 1 for "hacker65536".  Enter number(s), N)ext, or Q)uit > Q
 ```
 
+## import key (another machine)
+
+```console
+$ gpg --keyserver pgp.mit.edu --recv-keys F9CC0E0AD0C6C50C
+gpg: requesting key D0C6C50C from hkp server pgp.mit.edu
+gpg: key D0C6C50C: public key "hacker65536 <s.hacker65536@gmail.com>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1  (RSA: 1)
+```
