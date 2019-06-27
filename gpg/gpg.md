@@ -286,7 +286,6 @@ your machine might store the data and make it available to others!
 ```
 
 
-
 ## list
 ```
 $ gpg --list-keys
@@ -426,4 +425,37 @@ gpg: requesting key D0C6C50C from hkp server pgp.mit.edu
 gpg: key D0C6C50C: public key "hacker65536 <s.hacker65536@gmail.com>" imported
 gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)
+```
+
+
+
+## revoke
+
+```console
+$ gpg --import revoke.asc
+gpg: key D0C6C50C: "hacker65536 <s.hacker65536@gmail.com>" revocation certificate imported
+gpg: Total number processed: 1
+gpg:    new key revocations: 1
+gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+```
+
+```console
+gpg -k                         
+/home/ec2-user/.gnupg/pubring.gpg
+---------------------------------
+pub   4096R/D0C6C50C 2019-06-27 [revoked: 2019-06-27]
+uid                  hacker65536 <s.hacker65536@gmail.com>
+````
+
+```console
+$ gpg --keyserver pgp.mit.edu --send-keys D0C6C50C
+```
+
+```console
+$ gpg --keyserver pgp.mit.edu --search s.hacker65536@gmail.com
+gpg: searching for "s.hacker65536@gmail.com" from hkp server pgp.mit.edu
+(1)     hacker65536 <s.hacker65536@gmail.com>
+          4096 bit RSA key D0C6C50C, created: 2019-06-27 (revoked)
+Keys 1-1 of 1 for "s.hacker65536@gmail.com".  Enter number(s), N)ext, or Q)uit > q
 ```
