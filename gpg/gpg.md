@@ -14,7 +14,7 @@ $ ps aux|grep [g]pg-agent
 ```
 
 
-
+## simple 
 ## gen-key
 ```
 $ gpg --gen-key
@@ -338,3 +338,29 @@ Enter the new passphrase for this secret key.
                       │       <OK>                             <Cancel>     │
                       └─────────────────────────────────────────────────────┘
 ```
+
+## send key to pgp.mit.edu
+
+no key
+```console
+$ gpg --keyserver pgp.mit.edu --search s.hacker65536@gmail.com
+gpg: searching for "s.hacker65536@gmail.com" from hkp server pgp.mit.edu
+gpg: key "s.hacker65536@gmail.com" not found on keyserver
+```
+
+send key 
+```console
+$ gpg --keyserver pgp.mit.edu --send-keys D0C6C50C
+gpg: sending key D0C6C50C to hkp server pgp.mit.edu
+```
+
+wait a few minutes
+
+```console
+$ gpg --keyserver pgp.mit.edu --search hacker65536
+gpg: searching for "hacker65536" from hkp server pgp.mit.edu
+(1)     hacker65536 <s.hacker65536@gmail.com>
+          4096 bit RSA key D0C6C50C, created: 2019-06-27
+Keys 1-1 of 1 for "hacker65536".  Enter number(s), N)ext, or Q)uit > Q
+```
+
