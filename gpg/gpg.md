@@ -283,3 +283,52 @@ gpg --list-keys
 gpg: checking the trustdb
 gpg: no ultimately trusted keys found
 ```
+
+## change passphrase
+```console
+$ gpg --edit-key hacker65536
+
+gpg> passwd
+Key is protected.
+
+You need a passphrase to unlock the secret key for
+user: "hacker65536 <s.hacker65536@gmail.com>"
+4096-bit RSA key, ID DB927FA5, created 2018-11-24
+
+
+
+       ┌────────────────────────────────────────────────────────────────────────────────────┐
+       │ Please enter the passphrase to unlock the secret key for the OpenPGP certificate:  │
+       │ "hacker65536 <s.hacker65536@gmail.com>"                                            │
+       │ 4096-bit RSA key, ID DB927FA5,                                                     │
+       │ created 2018-11-24.                                                                │
+       │                                                                                    │
+       │                                                                                    │
+       │ Passphrase _______________________________________________________________________ │
+       │                                                                                    │
+       │            <OK>                                                  <Cancel>          │
+       └────────────────────────────────────────────────────────────────────────────────────┘
+
+
+```
+```
+Enter the new passphrase for this secret key.
+                      ┌─────────────────────────────────────────────────────┐
+                      │ Enter passphrase                                    │
+                      │                                                     │
+                      │                                                     │
+                      │ Passphrase ________________________________________ │
+                      │                                                     │
+                      │       <OK>                             <Cancel>     │
+                      └─────────────────────────────────────────────────────┘
+```
+```
+
+                      ┌─────────────────────────────────────────────────────┐
+                      │ Please re-enter this passphrase                     │
+                      │                                                     │
+                      │ Passphrase *********_______________________________ │
+                      │                                                     │
+                      │       <OK>                             <Cancel>     │
+                      └─────────────────────────────────────────────────────┘
+```
