@@ -15,7 +15,10 @@ $ ps aux|grep [g]pg-agent
 
 
 ## simple 
-## gen-key
+
+
+
+## create key
 ```
 $ gpg --gen-key
 gpg (GnuPG) 2.0.22; Copyright (C) 2013 Free Software Foundation, Inc.
@@ -232,6 +235,57 @@ EOF
 ```bash
 gpg --batch --gen-key gen-key-script
 ```
+
+
+## create revoke certification
+
+```
+gpg --output revoke.acsc --gen-revoke s.hacker65536@gmail.com
+
+sec  4096R/D0C6C50C 2019-06-27 hacker65536 <s.hacker65536@gmail.com>
+
+Create a revocation certificate for this key? (y/N) y
+Please select the reason for the revocation:
+  0 = No reason specified
+  1 = Key has been compromised
+  2 = Key is superseded
+  3 = Key is no longer used
+  Q = Cancel
+(Probably you want to select 1 here)
+Your decision? 0
+Enter an optional description; end it with an empty line:
+>
+Reason for revocation: No reason specified
+(No description given)
+Is this okay? (y/N) y
+
+You need a passphrase to unlock the secret key for
+user: "hacker65536 <s.hacker65536@gmail.com>"
+4096-bit RSA key, ID D0C6C50C, created 2019-06-27
+
+       ┌────────────────────────────────────────────────────────────────────────────────────┐
+       │ Please enter the passphrase to unlock the secret key for the OpenPGP certificate:  │
+       │ "hacker65536 <s.hacker65536@gmail.com>"                                            │
+       │ 4096-bit RSA key, ID DB927FA5,                                                     │
+       │ created 2018-11-24.                                                                │
+       │                                                                                    │
+       │                                                                                    │
+       │ Passphrase _______________________________________________________________________ │
+       │                                                                                    │
+       │            <OK>                                                  <Cancel>          │
+       └────────────────────────────────────────────────────────────────────────────────────┘
+       
+ASCII armored output forced.
+Revocation certificate created.
+
+Please move it to a medium which you can hide away; if Mallory gets
+access to this certificate he can use it to make your key unusable.
+It is smart to print this certificate and store it away, just in case
+your media become unreadable.  But have some caution:  The print system of
+your machine might store the data and make it available to others!
+```
+
+
 
 ## list
 ```
