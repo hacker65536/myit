@@ -85,3 +85,32 @@ sec   rsa3072 2019-06-28 [SC] [expires: 2021-06-27]
 uid           [ultimate] hacker65536 <s.hacker65536@gmail.com>
 ssb   rsa3072 2019-06-28 [E] [expires: 2021-06-27]
 ```
+
+
+
+## using ecc with batch
+
+```console
+$ pw=$(expect_mkpasswd -s 0 -l 12)
+$ email=alice@example.com
+$ user=alice
+
+$ cat <<EOF> my-gpg-key.conf
+Key-Type: eddsa
+Key-Length: Ed25519
+Key-Usage: sign,cert
+Subkey-Type: ecdh
+Subkey-Curve: Curve25519
+Subkey-Usage: encrypt
+Name-Real: $user
+Name-Email: $email
+Expire-Date: 2y
+Passphrase: $pw
+%commit
+%echo done
+```
+
+
+## ref
+
+https://lists.gnupg.org/pipermail/gnupg-users/2017-December/059622.html
