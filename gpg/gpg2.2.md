@@ -196,6 +196,7 @@ ssb   cv25519 2019-06-28 [E] [expires: 2021-06-27]
 
 ## ref
 
-https://lists.gnupg.org/pipermail/gnupg-users/2017-December/059622.html
+https://lists.gnupg.org/pipermail/gnupg-users/2017-December/059622.html  
 http://gnupg.10057.n7.nabble.com/How-to-batch-generate-ECC-key-td54242.html   
+https://text.baldanders.info/openpgp/using-ecc-with-gnupg/  
 https://www.gnupg.org/documentation/
