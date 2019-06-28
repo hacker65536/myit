@@ -90,6 +90,7 @@ ssb   rsa3072 2019-06-28 [E] [expires: 2021-06-27]
 
 ## using ecc with batch
 
+
 ```console
 $ pw=$(expect_mkpasswd -s 0 -l 12)
 $ email=alice@example.com
@@ -142,7 +143,39 @@ ssb   cv25519 2019-06-28 [E] [expires: 2021-06-27]
 $ echo $pw
 ```
 
+## backup
+
+```console
+$ gpg -a -o gpg-sec-key-backup --export-secret-keys
+$ gpg -a -o gpg-pub-key-backup --export
+```
+
+## restore
+```console
+$ gpg -k
+gpg: checking the trustdb
+gpg: no ultimately trusted keys found
+$ gpg -K
+```
+
+```console
+$ gpg --import gpg-pub-key-backup
+gpg: key 5B8680EAC8F57A2D: public key "hacker65536 <s.hacker65536@gmail.com>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+```
+
+```console
+$ gpg --import gpg-sec-key-backup
+gpg: key 5B8680EAC8F57A2D: "hacker65536 <s.hacker65536@gmail.com>" not changed
+gpg: key 5B8680EAC8F57A2D: secret key imported
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg:       secret keys read: 1
+gpg:   secret keys imported: 1
+```
 
 ## ref
 
 https://lists.gnupg.org/pipermail/gnupg-users/2017-December/059622.html
+http://gnupg.10057.n7.nabble.com/How-to-batch-generate-ECC-key-td54242.html  
