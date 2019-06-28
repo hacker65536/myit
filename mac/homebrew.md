@@ -51,7 +51,7 @@ brew info
 --
 
 ```console
- brew info python
+$ brew info python
 python: stable 3.7.3 (bottled), HEAD
 Interpreted, interactive, object-oriented programming language
 https://www.python.org/
