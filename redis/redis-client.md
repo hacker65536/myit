@@ -66,3 +66,23 @@ Warning: Using a password with '-a' or '-u' option on the command line interface
 (integer) 104
 (integer) 105
 ```
+
+
+stat
+--
+
+```console
+root@2066f9b46763:/data# redis-cli -a mypass --stat
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+------- data ------ --------------------- load -------------------- - child -
+keys       mem      clients blocked requests            connections
+1          562.18K  1       0       29 (+0)             7
+1          562.18K  1       0       30 (+1)             7
+1          562.18K  1       0       31 (+1)             7
+1          562.18K  1       0       32 (+1)             7
+1          562.18K  1       0       33 (+1)             7
+1          562.18K  1       0       34 (+1)             7
+1          562.18K  1       0       35 (+1)             7
+1          562.18K  1       0       36 (+1)             7
+^C
+```
