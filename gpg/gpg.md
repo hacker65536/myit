@@ -1,3 +1,9 @@
+# gpg
+
+GnuPG( GNU Privacy Guard)
+a free-software replacement for Symantec's PGP (Pretty Good Privacy) cryptographic
+
+
 
 ## info
 
@@ -223,8 +229,8 @@ sub   4096R/98463E46 2018-11-26
 NAME_REAL=username
 
 cat <<EOF > gen-key-script
-Key-Type: 1
-Key-Length: 2048
+Key-Type: RSA
+Key-Length: 4096
 Subkey-Type: 1
 Subkey-Length: 2048
 Name-Real: $NAME_REAL
@@ -459,3 +465,9 @@ gpg: searching for "s.hacker65536@gmail.com" from hkp server pgp.mit.edu
           4096 bit RSA key D0C6C50C, created: 2019-06-27 (revoked)
 Keys 1-1 of 1 for "s.hacker65536@gmail.com".  Enter number(s), N)ext, or Q)uit > q
 ```
+
+
+## ref
+
+https://text.baldanders.info/openpgp/gnupg-cheat-sheet/  
+https://qiita.com/moutend/items/5c22d6e57a74845578f6
