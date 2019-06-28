@@ -175,6 +175,25 @@ gpg:       secret keys read: 1
 gpg:   secret keys imported: 1
 ```
 
+```console
+$ gpg -k
+/home/ubuntu/.gnupg/pubring.kbx
+-------------------------------
+pub   ed25519 2019-06-28 [SC] [expires: 2021-06-27]
+      21A20E17FF3AD364ED1783255B8680EAC8F57A2D
+uid           [ unknown] hacker65536 <s.hacker65536@gmail.com>
+sub   cv25519 2019-06-28 [E] [expires: 2021-06-27]
+```
+```console
+$ gpg -K
+/home/ubuntu/.gnupg/pubring.kbx
+-------------------------------
+sec   ed25519 2019-06-28 [SC] [expires: 2021-06-27]
+      21A20E17FF3AD364ED1783255B8680EAC8F57A2D
+uid           [ unknown] hacker65536 <s.hacker65536@gmail.com>
+ssb   cv25519 2019-06-28 [E] [expires: 2021-06-27]
+```
+
 ## ref
 
 https://lists.gnupg.org/pipermail/gnupg-users/2017-December/059622.html
