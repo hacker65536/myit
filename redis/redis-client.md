@@ -91,7 +91,7 @@ keys       mem      clients blocked requests            connections
 scan
 --
 
-```
+```console
 root@2066f9b46763:/data# redis-cli -a mypass --scan
 Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
 foo3
@@ -102,7 +102,7 @@ bar
 ```
 
 
-```
+```console
 root@2066f9b46763:/data# redis-cli -a mypass --scan --pattern 'fo*'
 Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
 foo3
