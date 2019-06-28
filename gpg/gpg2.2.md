@@ -28,7 +28,7 @@ Codename:       bionic
 ```
 
 
-```
+```console
 $ gpg --gen-key
 gpg (GnuPG) 2.2.4; Copyright (C) 2017 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
