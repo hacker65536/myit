@@ -82,7 +82,7 @@ class Login extends CI_Controller {
 ```
 
 `application/views/login_view.php`
-```php
+```HTML+PHP
 <!DOCTYPE html>  
 <html>  
 <head>  
@@ -112,7 +112,7 @@ class Login extends CI_Controller {
 ```
 
 `application/views/welcome_view.php`
-```php
+```HTML+PHP
 <!DOCTYPE html>  
 <html>  
 <head>  
