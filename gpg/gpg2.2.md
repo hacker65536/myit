@@ -97,7 +97,7 @@ $ user=alice
 
 $ cat <<EOF> my-gpg-key.conf
 Key-Type: eddsa
-Key-Length: Ed25519
+Key-Curve: Ed25519
 Key-Usage: sign,cert
 Subkey-Type: ecdh
 Subkey-Curve: Curve25519
@@ -108,6 +108,38 @@ Expire-Date: 2y
 Passphrase: $pw
 %commit
 %echo done
+EOF
+```
+
+```console
+$ gpg --batch --gen-key my-gpg-key.conf
+gpg: key 5B8680EAC8F57A2D marked as ultimately trusted
+gpg: revocation certificate stored as '/home/ubuntu/.gnupg/openpgp-revocs.d/21A20E17FF3AD364ED1783255B8680EAC8F57A2D.rev'
+gpg: done
+```
+```console
+$ gpg -k
+gpg: checking the trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: next trustdb check due at 2021-06-27
+/home/ubuntu/.gnupg/pubring.kbx
+-------------------------------
+pub   ed25519 2019-06-28 [SC] [expires: 2021-06-27]
+      21A20E17FF3AD364ED1783255B8680EAC8F57A2D
+uid           [ultimate] hacker65536 <s.hacker65536@gmail.com>
+sub   cv25519 2019-06-28 [E] [expires: 2021-06-27]
+```
+```console
+$ gpg -K
+/home/ubuntu/.gnupg/pubring.kbx
+-------------------------------
+sec   ed25519 2019-06-28 [SC] [expires: 2021-06-27]
+      21A20E17FF3AD364ED1783255B8680EAC8F57A2D
+uid           [ultimate] hacker65536 <s.hacker65536@gmail.com>
+ssb   cv25519 2019-06-28 [E] [expires: 2021-06-27]
+
+$ echo $pw
 ```
 
 
