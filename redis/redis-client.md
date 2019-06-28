@@ -24,7 +24,7 @@ PONG
 ```
 
 
-set auth(password)
+enable auth(password)
 --
 
 ```console
@@ -36,4 +36,21 @@ Warning: Using a password with '-a' or '-u' option on the command line interface
 PONG
 ```
 
+set value test
+--
+
+
+```console
+$ docker exec -it redis bash
+root@2066f9b46763:/data# redis-cli -a mypass
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+127.0.0.1:6379> set foo 100
+OK
+127.0.0.1:6379> incr foo
+(integer) 101
+127.0.0.1:6379> append foo xxx
+(integer) 6
+127.0.0.1:6379> get foo
+"101xxx"
+```
 
