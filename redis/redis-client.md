@@ -54,3 +54,15 @@ OK
 "101xxx"
 ```
 
+```console
+root@2066f9b46763:/data# redis-cli -a mypass set foo 100
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+OK
+root@2066f9b46763:/data# redis-cli -a mypass -r 5 incr foo
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+(integer) 101
+(integer) 102
+(integer) 103
+(integer) 104
+(integer) 105
+```
