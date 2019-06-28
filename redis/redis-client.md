@@ -1,13 +1,17 @@
+
 systeminfo
+--
 `3.14.20-20.44.amzn1.x86_64`
 
 
-#require
+require
+--
 ```bash
 yum -y install gcc
 ```
 
-#install redisclient
+install redisclient
+--
 ```bash
 cd /usr/local/src/
 wget "http://download.redis.io/releases/redis-2.8.9.tar.gz"
@@ -17,7 +21,8 @@ make
 make install
 ```
 
-#test  
+test
+--
 ```bash
 redis-cli -h host get key
 ```
@@ -25,6 +30,7 @@ redis-cli -h host get key
 `monitor` like `tail -f`
 ```
 # redis-cli -h host
+
 host:6379> monitor
 OK
 1414638306.001141 [0 127.0.0.1:62426] "ping"
