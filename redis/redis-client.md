@@ -86,3 +86,27 @@ keys       mem      clients blocked requests            connections
 1          562.18K  1       0       36 (+1)             7
 ^C
 ```
+
+
+scan
+--
+
+```
+root@2066f9b46763:/data# redis-cli -a mypass --scan
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+foo3
+foo
+foo1
+foo2
+bar
+```
+
+
+```
+root@2066f9b46763:/data# redis-cli -a mypass --scan --pattern 'fo*'
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+foo3
+foo
+foo1
+foo2
+```
