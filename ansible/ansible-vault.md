@@ -37,7 +37,7 @@ PLAY RECAP *********************************************************************
 amz2         : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-### encrypt p.yml
+### encrypt p.yml(already existed)
 
 ```console
 $ ansible-vault encrypt p.yml
@@ -70,4 +70,30 @@ ok: [amz2] => {
 
 PLAY RECAP ***********************************************************************************
 amz2   : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
+
+
+### encrypt p2.yml(new file)
+
+```console
+$ ansible-vault create p2.yml --vault-id p2@prompt
+New vault password (p2):
+Confirm new vault password (p2):
+```
+After providing a password, the tool will launch whatever editor
+
+`/tmp/tmpQQeCP.yml`
+```yml
+---
+password2: 'foobarbaz'
+```
+
+```console
+$ cat p2.yml                             
+$ANSIBLE_VAULT;1.2;AES256;p2
+35393335363335663736393437373362313031653534386166663035376163303839613535386165
+6636626163353537343065626164633864613765306263650a376230376364633630656138323630
+31383738623837306465666661616532633861343132663836613332343731363136336133626232
+3032373861353639340a343663336264633833306563353537373036386466616234383262666431
+63623262626632353061376639333966366232616131326134306336343261346130
 ```
