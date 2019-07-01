@@ -1,5 +1,14 @@
 #!/user/bin/env bash
 
+
+# version comment is below
+
+#Terraform v0.12.2
+#
+#Your version of Terraform is out of date! The latest version
+#is 0.12.3. You can update by downloading from www.terraform.io/downloads.html
+
+
 function get_latest_tfver() {
   terraform -v | sed -n 's/^is \(\([0-9]\{1,3\}\.\)\{2\}[0-9]\{1,3\}\)\(.*\)/\1/p'
 }
