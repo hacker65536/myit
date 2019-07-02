@@ -6,9 +6,11 @@ kubectl
 --
 https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
 
-```
-$ curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.7/2019-03-27/bin/linux/amd64/kubectl
-$ curl -o kubectl.sha256 https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.7/2019-03-27/bin/linux/amd64/kubectl.sha256
+```console
+$ #ver="1.12.7/2019-03-27"
+$ ver="1.13.7/2019-06-11"
+$ curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/${ver}/bin/linux/amd64/kubectl
+$ curl -o kubectl.sha256 https://amazon-eks.s3-us-west-2.amazonaws.com/${ver}/bin/linux/amd64/kubectl.sha256
 $ diff <(cat kubectl|sha256sum |tr -d ' -') <(cat kubectl.sha256 |cut -d ' ' -f1)
 $ chmod +x ./kubectl
 $ mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl 
