@@ -53,6 +53,8 @@ $ eksctl create cluster
 [✔]  EKS cluster "extravagant-rainbow-1551249113" in "us-east-2" region is ready
 ```
 
+specific cluster version
+`eksctl create cluster --version=1.3`
 
 replace aws-iam-authenticator
 --
