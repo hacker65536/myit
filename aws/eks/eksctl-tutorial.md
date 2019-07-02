@@ -54,7 +54,7 @@ $ eksctl create cluster
 ```
 
 specific cluster version
-`eksctl create cluster --version=1.3`
+`eksctl create cluster --version=1.13`
 
 replace aws-iam-authenticator
 --
