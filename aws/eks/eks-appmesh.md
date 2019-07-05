@@ -244,3 +244,41 @@ $ aws appmesh list-virtual-services --mesh-name color-mesh
     ]
 }
 ```
+
+```console
+$ aws appmesh list-virtual-nodes --mesh-name color-mesh
+{
+    "virtualNodes": [
+        {
+            "meshName": "color-mesh",
+            "arn": "arn:aws:appmesh:us-east-1:000000000000:mesh/color-mesh/virtualNode/colorteller-appmesh-demo",
+            "virtualNodeName": "colorteller-appmesh-demo"
+        },
+        {
+            "meshName": "color-mesh",
+            "arn": "arn:aws:appmesh:us-east-1:000000000000:mesh/color-mesh/virtualNode/colorgateway-appmesh-demo",
+            "virtualNodeName": "colorgateway-appmesh-demo"
+        },
+        {
+            "meshName": "color-mesh",
+            "arn": "arn:aws:appmesh:us-east-1:000000000000:mesh/color-mesh/virtualNode/tcpecho-appmesh-demo",
+            "virtualNodeName": "tcpecho-appmesh-demo"
+        },
+        {
+            "meshName": "color-mesh",
+            "arn": "arn:aws:appmesh:us-east-1:000000000000:mesh/color-mesh/virtualNode/colorteller-black-appmesh-demo",
+            "virtualNodeName": "colorteller-black-appmesh-demo"
+        },
+        {
+            "meshName": "color-mesh",
+            "arn": "arn:aws:appmesh:us-east-1:000000000000:mesh/color-mesh/virtualNode/colorteller-red-appmesh-demo",
+            "virtualNodeName": "colorteller-red-appmesh-demo"
+        },
+        {
+            "meshName": "color-mesh",
+            "arn": "arn:aws:appmesh:us-east-1:000000000000:mesh/color-mesh/virtualNode/colorteller-blue-appmesh-demo",
+            "virtualNodeName": "colorteller-blue-appmesh-demo"
+        }
+    ]
+}
+```
