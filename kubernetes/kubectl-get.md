@@ -68,3 +68,22 @@ volumeattachments                              storage.k8s.io                 fa
 ```
 
 </details>
+
+
+bindings
+--
+```console
+$ kubectl get bindings
+Error from server (MethodNotAllowed): the server does not allow this method on the requested resource
+```
+
+
+componentstatuses
+--
+```console
+$ kubectl get cs
+NAME                 STATUS    MESSAGE              ERROR
+controller-manager   Healthy   ok
+scheduler            Healthy   ok
+etcd-0               Healthy   {"health": "true"}
+```
