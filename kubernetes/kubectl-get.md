@@ -7,6 +7,7 @@ Server Version: version.Info{Major:"1", Minor:"13+", GitVersion:"v1.13.7-eks-c57
 
 <details>
 <summary>kubectl api-resources</summary>
+  
 ```console
 $ kubectl api-resources
 NAME                              SHORTNAMES   APIGROUP                       NAMESPACED   KIND
