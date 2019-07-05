@@ -144,3 +144,12 @@ strace: Process 14307 detached
 strace: Process 14308 detached
 strace: Process 14441 detached
 ```
+
+
+
+
+ref
+--
+
+https://qiita.com/hana_shin/items/a03150552e2f70994248  
+http://www.intellilink.co.jp/article/column/oss11.html  
