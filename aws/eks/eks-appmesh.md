@@ -282,3 +282,11 @@ $ aws appmesh list-virtual-nodes --mesh-name color-mesh
     ]
 }
 ```
+
+
+
+```console
+$ kubectl -n appmesh-demo run -it curler --image=tutum/curl /bin/bash
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+If you don't see a command prompt, try pressing enter.
+```
