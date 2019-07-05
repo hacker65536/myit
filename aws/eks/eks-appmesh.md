@@ -213,3 +213,34 @@ virtualservice.appmesh.k8s.aws/colorgateway.appmesh-demo   28s
 virtualservice.appmesh.k8s.aws/colorteller.appmesh-demo    28s
 virtualservice.appmesh.k8s.aws/tcpecho.appmesh-demo        28s
 ```
+
+
+```console
+$ aws appmesh list-meshes --region us-east-1
+{
+    "meshes": [
+        {
+            "meshName": "color-mesh",
+            "arn": "arn:aws:appmesh:us-east-1:000000000000:mesh/color-mesh"
+        }
+    ]
+}
+```
+
+```console
+$ aws appmesh list-virtual-services --mesh-name color-mesh
+{
+    "virtualServices": [
+        {
+            "meshName": "color-mesh",
+            "virtualServiceName": "colorgateway.appmesh-demo",
+            "arn": "arn:aws:appmesh:us-east-1:000000000000:mesh/color-mesh/virtualService/colorgateway.appmesh-demo"
+        },
+        {
+            "meshName": "color-mesh",
+            "virtualServiceName": "colorteller.appmesh-demo",
+            "arn": "arn:aws:appmesh:us-east-1:000000000000:mesh/color-mesh/virtualService/colorteller.appmesh-demo"
+        }
+    ]
+}
+```
