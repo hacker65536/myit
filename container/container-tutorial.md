@@ -79,3 +79,34 @@ ubuntu@ip-172-31-12-65:~$ docker export bash | tar -x -C $ROOTFS
 ```console
 ubuntu@ip-172-31-12-65:~$ sudo apt install -y cgroup-tools
 ```
+
+```console
+ubuntu@ip-172-31-12-65:~$ UUID=$(uuidgen | tee  /dev/tty)
+7a0424c5-c300-465c-a052-89065447c37b
+```
+```console
+ubuntu@ip-172-31-12-65:~$ sudo cgcreate -t $(id -un):$(id -gn) -a $(id -un):$(id -gn) -g cpu,memory:$UUID
+```
+
+```console
+ubuntu@ip-172-31-12-65:~$ ls -la /sys/fs/cgroup/cpu/7a0424c5-c300-465c-a052-89065447c37b/
+total 0
+drwxr-xr-x 2 ubuntu ubuntu 0 Jul  6 18:17 .
+dr-xr-xr-x 5 root   root   0 Jul  6 18:18 ..
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cgroup.clone_children
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cgroup.procs
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.stat
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.usage
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.usage_all
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.usage_percpu
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.usage_percpu_sys
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.usage_percpu_user
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.usage_sys
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.usage_user
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpu.cfs_period_us
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpu.cfs_quota_us
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpu.shares
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpu.stat
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 notify_on_release
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 tasks
+```
