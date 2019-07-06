@@ -24,7 +24,7 @@ c5.large
 ```
 
 ```console
-ubuntu@ip-172-31-4-31:~$ sudo apt update
+ubuntu@ip-172-31-12-65:~$ sudo apt update
 Hit:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu bionic InRelease
 Get:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
 Get:3 http://us-east-2.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
@@ -40,3 +40,42 @@ Reading state information... Done
 
 
 ```console
+ubuntu@ip-172-31-12-65:~$ ROOTFS=$(mktemp -d | tee /dev/tty)
+/tmp/tmp.OOAu6NSMc8
+```
+
+
+```console
+ubuntu@ip-172-31-12-65:~$ sudo apt install -y docker.io
+```
+
+```console
+ubuntu@ip-172-31-12-65:~$ sudo usermod -a -G docker ubuntu
+ubuntu@ip-172-31-12-65:~$ newgrp docker
+```
+
+```console
+ubuntu@ip-172-31-12-65:~$ docker pull bash
+Using default tag: latest
+latest: Pulling from library/bash
+e7c96db7181b: Pull complete
+34c10b69cd5f: Pull complete
+2dc682800300: Pull complete
+Digest: sha256:e1a53addc704467d523f441b5e6cde7448e8581131c59bcf0cb113da9e53b8e8
+Status: Downloaded newer image for bash:latest
+```
+
+
+
+```console
+ubuntu@ip-172-31-12-65:~$ docker create --name bash bash
+5160cbdb6480270f16470c3301943a0af9472a27e5004a11c789a1d57552e39f
+```
+
+```console
+ubuntu@ip-172-31-12-65:~$ docker export bash | tar -x -C $ROOTFS
+```
+
+```console
+ubuntu@ip-172-31-12-65:~$ sudo apt install -y cgroup-tools
+```
