@@ -7,6 +7,8 @@ https://employment.en-japan.com/engineerhub/entry/2019/02/05/103000
 prepare
 --
 
+- apt update
+- install docker
 
 run instance (ubuntu18)
 
@@ -38,13 +40,6 @@ Reading state information... Done
 ```
 
 
-
-```console
-ubuntu@ip-172-31-12-65:~$ ROOTFS=$(mktemp -d | tee /dev/tty)
-/tmp/tmp.OOAu6NSMc8
-```
-
-
 ```console
 ubuntu@ip-172-31-12-65:~$ sudo apt install -y docker.io
 ```
@@ -53,6 +48,15 @@ ubuntu@ip-172-31-12-65:~$ sudo apt install -y docker.io
 ubuntu@ip-172-31-12-65:~$ sudo usermod -a -G docker ubuntu
 ubuntu@ip-172-31-12-65:~$ newgrp docker
 ```
+
+
+extract docker image
+--
+
+- pull a docker image of bash
+- create a container of bash
+- export the bash container's fs and extract its tar 
+- rm the container and the image
 
 ```console
 ubuntu@ip-172-31-12-65:~$ docker pull bash
@@ -70,6 +74,10 @@ Status: Downloaded newer image for bash:latest
 ```console
 ubuntu@ip-172-31-12-65:~$ docker create --name bash bash
 5160cbdb6480270f16470c3301943a0af9472a27e5004a11c789a1d57552e39f
+```
+```console
+ubuntu@ip-172-31-12-65:~$ ROOTFS=$(mktemp -d | tee /dev/tty)
+/tmp/tmp.OOAu6NSMc8
 ```
 
 ```console
@@ -101,6 +109,15 @@ Deleted: sha256:f1b5933fe4b5f49bbe8258745cf396afe07e625bdab3168e364daf7c956b6b81
 ubuntu@ip-172-31-12-65:~$ ls -la $ROOTFS/bin/bash
 lrwxrwxrwx 1 ubuntu ubuntu 19 Jul  8 03:46 /tmp/tmp.OOAu6NSMc8/bin/bash -> /usr/local/bin/bash
 ```
+
+
+
+create cgroup 
+--
+- install cgroup-tools
+- create a cgroup
+- create its limitations
+
 ```console
 ubuntu@ip-172-31-12-65:~$ sudo apt install -y cgroup-tools
 ```
@@ -109,6 +126,7 @@ ubuntu@ip-172-31-12-65:~$ sudo apt install -y cgroup-tools
 ubuntu@ip-172-31-12-65:~$ UUID=$(uuidgen | tee  /dev/tty)
 7a0424c5-c300-465c-a052-89065447c37b
 ```
+
 ```console
 ubuntu@ip-172-31-12-65:~$ sudo cgcreate -t $(id -un):$(id -gn) -a $(id -un):$(id -gn) -g cpu,memory:$UUID
 ```
@@ -199,6 +217,11 @@ ubuntu@ip-172-31-12-65:~$ cat /sys/fs/cgroup/cpu,cpuacct/$UUID/cpu.cfs_quota_us
 300000
 ```
 
+
+run bash container
+--
+
+
 ```console
 ubuntu@ip-172-31-12-65:~$ cgexec -g cpu,memory:$UUID   unshare -muinpfr /bin/sh -c "
     mount -t proc proc $ROOTFS/proc &&
@@ -212,6 +235,8 @@ ubuntu@ip-172-31-12-65:~$ cgexec -g cpu,memory:$UUID   unshare -muinpfr /bin/sh 
 / #
 ```
 
+show status in container
+--
 ```console
 / # ls -la /bin/bash
 lrwxrwxrwx    1 root     root            19 Jul  8 03:48 /bin/bash -> /usr/local/bin/bash
@@ -244,7 +269,8 @@ udev on /dev/null type devtmpfs (rw,nosuid,relatime,size=1885040k,nr_inodes=4712
 ```
 
 
-cpu utilization
+cpu utilization (30%)
+--
 ```console
 / # yes >/dev/null
 ```
@@ -272,6 +298,11 @@ KiB Swap:        0 total,        0 free,        0 used.  3359716 avail Mem
 ```
 
 cleaning
+--
+
+- exit from the container
+- delete the cgroup
+- remove the directory of the container
 ```console
 / # exit
 ```
