@@ -325,3 +325,59 @@ unshare
 - -C --cgroup
 - -f --fork
 - -r --map-root-user
+
+
+capsh
+--
+```console
+ubuntu@ip-172-31-12-65:~$ sudo apt install -y make gcc
+```
+
+
+```console
+ubuntu@ip-172-31-12-65:~$ git clone https://git.kernel.org/pub/scm/linux/kernel/git/morgan/libcap.git
+Cloning into 'libcap'...
+remote: Counting objects: 1228, done.
+remote: Total 1228 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (1228/1228), 276.41 KiB | 3.95 MiB/s, done.
+Resolving deltas: 100% (779/779), done.
+```
+
+```console
+ubuntu@ip-172-31-12-65:~$ cd libcap/
+ubuntu@ip-172-31-12-65:~/libcap$ make && sudo make install
+```
+
+```console
+ubuntu@ip-172-31-12-65:~$ cp /bin/ping .
+```
+```console
+ubuntu@ip-172-31-12-65:~$ ./ping -c1 127.0.0.1
+ping: socket: Operation not permitted
+```
+```console
+ubuntu@ip-172-31-12-65:~$ ls -la /bin/ping
+-rwsr-xr-x 1 root root 64424 Mar  9  2017 /bin/ping
+ubuntu@ip-172-31-12-65:~$ ls -la ./ping
+-rwxr-xr-x 1 ubuntu ubuntu 64424 Jul  8 08:38 ./ping
+```
+
+```console
+ubuntu@ip-172-31-12-65:~$ sudo capsh \
+>          --caps="cap_net_raw+ip cap_setpcap,cap_setuid,cap_setgid+ep" \
+>          --keep=1 --user=$USER --addamb=cap_net_raw -- \
+>          -c 'id && getcap -v ./ping && grep Cap /proc/$$/status && ./ping -c1 127.0.0.1'
+uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),108(lxd),114(netdev),115(docker)
+./ping
+CapInh: 0000000000002000
+CapPrm: 0000000000002000
+CapEff: 0000000000002000
+CapBnd: 0000003fffffffff
+CapAmb: 0000000000002000
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.022 ms
+
+--- 127.0.0.1 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.022/0.022/0.022/0.000 ms
+```
