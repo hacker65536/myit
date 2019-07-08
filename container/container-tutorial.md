@@ -1,16 +1,12 @@
-# container tutorial (with aws)
+# container tutorial 
 
 https://employment.en-japan.com/engineerhub/entry/2019/02/05/103000
 
 
-
-prepare
+run instance on aws ec2
 --
 
-- apt update
-- install docker
-
-run instance (ubuntu18)
+using ubuntu18
 
 ```console
 ubuntu@ip-172-31-12-65:~$ lsb_release -a
@@ -24,6 +20,12 @@ ubuntu@ip-172-31-12-65:~$ uname -r
 ubuntu@ip-172-31-12-65:~$ curl 169.254.169.254/latest/meta-data/instance-type
 c5.large
 ```
+
+prepare
+--
+
+- apt update
+- install docker
 
 ```console
 ubuntu@ip-172-31-12-65:~$ sudo apt update
