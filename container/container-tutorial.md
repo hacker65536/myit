@@ -383,3 +383,14 @@ PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
 1 packets transmitted, 1 received, 0% packet loss, time 0ms
 rtt min/avg/max/mdev = 0.022/0.022/0.022/0.000 ms
 ```
+
+
+
+```console
+ubuntu@ip-172-31-12-65:~$ ls -l /proc/$$/root
+lrwxrwxrwx 1 ubuntu ubuntu 0 Jul  8 04:58 /proc/10340/root -> /
+```
+```console
+ubuntu@ip-172-31-12-65:~$ awk '{ if ($5 == "/") print $0 }' /proc/$$/mountinfo
+27 0 259:1 / / rw,relatime shared:1 - ext4 /dev/nvme0n1p1 rw,discard,data=ordered
+```
