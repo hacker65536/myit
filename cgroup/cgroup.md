@@ -2,6 +2,9 @@
 
 https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt
 
+
+1.1 What are cgroups ?
+--
 A **cgroup** associates a set of tasks with a set of paramters ofr one or more subsystems.
 
 A **subsystem** is a module that makes use of the task grouping facilities provided by cgroups to treat groups of tasks in particular way. 
@@ -23,3 +26,15 @@ On their own, the only use for cgroups is for simple job tracking.
 The intention is that other subsystems hook into the generic cgroup support to provide new attributes for cgroups, 
 such as accounting/limiting the resources which processes in a cgroup can access. 
 For example, cpusets (see Documentation/cgoupr-v1/cpusets.txt) allow you to associate a set of CPUs and a set of memory nodes with the tasks in each cgroup.
+
+1.2 Why are cgroups needed ?
+--
+
+There are multiple efforts to provide process aggregations in the Linux kernel,
+mainly for resource-tracking purposes. Such efforts include cpusets, CKRM/ResGroups, UserBeanCounters, and virtual server namespaces. 
+These all require the basic notion of a gropuing/partitionng of processes, 
+with newly forked processes ending up in the same group (cgroup) as their parent process.
+
+The kernel cgroup patch provides the minimum essential kernel mechanisms required to efficientyly implement such groups. 
+It has minimal impact on the system fast paths, 
+and provides hooks for specific subsystems such as cpusets to provide addtional behaviour as desired.
