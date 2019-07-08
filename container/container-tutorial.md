@@ -310,3 +310,18 @@ cleaning
 ubuntu@ip-172-31-12-65:~$ sudo cgdelete -r -g cpu,memory:$UUID
 ubuntu@ip-172-31-12-65:~$ rm -rf $ROOTFS
 ```
+
+
+
+unshare
+--
+
+- -i --ipc
+- -m --mount
+- -n --net
+- -p --pid
+- -u --uts
+- -U --user
+- -C --cgroup
+- -f --fork
+- -r --map-root-user
