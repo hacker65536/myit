@@ -89,12 +89,16 @@ ubuntu@ip-172-31-12-65:~$ sudo cgcreate -t $(id -un):$(id -gn) -a $(id -un):$(id
 ```
 
 ```console
-ubuntu@ip-172-31-12-65:~$ ls -la /sys/fs/cgroup/cpu/7a0424c5-c300-465c-a052-89065447c37b/
+ubuntu@ip-172-31-12-65:~$ ls -la /sys/fs/cgroup/cpu,cpuacct/$UUID/
 total 0
 drwxr-xr-x 2 ubuntu ubuntu 0 Jul  6 18:17 .
 dr-xr-xr-x 5 root   root   0 Jul  6 18:18 ..
 -rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cgroup.clone_children
 -rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cgroup.procs
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpu.cfs_period_us
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpu.cfs_quota_us
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpu.shares
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpu.stat
 -r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.stat
 -rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.usage
 -r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.usage_all
@@ -103,10 +107,71 @@ dr-xr-xr-x 5 root   root   0 Jul  6 18:18 ..
 -r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.usage_percpu_user
 -r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.usage_sys
 -r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpuacct.usage_user
--rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpu.cfs_period_us
--rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpu.cfs_quota_us
--rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpu.shares
--r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cpu.stat
 -rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 notify_on_release
 -rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 tasks
+```
+
+
+https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/6/html/resource_management_guide/sec-memory
+
+
+```console
+ubuntu@ip-172-31-12-65:~$ cgset -r memory.limit_in_bytes=10M $UUID
+```
+
+
+```console
+ubuntu@ip-172-31-12-65:~$ ls -la /sys/fs/cgroup/memory/$UUID/
+total 0
+drwxr-xr-x 2 ubuntu ubuntu 0 Jul  6 18:17 .
+dr-xr-xr-x 5 root   root   0 Jul  6 18:18 ..
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cgroup.clone_children
+--w--w--w- 1 ubuntu ubuntu 0 Jul  6 18:17 cgroup.event_control
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 cgroup.procs
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.failcnt
+--w------- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.force_empty
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.kmem.failcnt
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.kmem.limit_in_bytes
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.kmem.max_usage_in_bytes
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.kmem.slabinfo
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.kmem.tcp.failcnt
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.kmem.tcp.limit_in_bytes
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.kmem.tcp.max_usage_in_bytes
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.kmem.tcp.usage_in_bytes
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.kmem.usage_in_bytes
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.limit_in_bytes
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.max_usage_in_bytes
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.move_charge_at_immigrate
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.numa_stat
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.oom_control
+---------- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.pressure_level
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.soft_limit_in_bytes
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.stat
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.swappiness
+-r--r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.usage_in_bytes
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 memory.use_hierarchy
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 notify_on_release
+-rw-r--r-- 1 ubuntu ubuntu 0 Jul  6 18:17 tasks
+```
+```console
+ubuntu@ip-172-31-12-65:~$ cat /sys/fs/cgroup/memory/$UUID/memory.limit_in_bytes
+10485760
+```
+
+https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/6/html/resource_management_guide/sec-cpu
+
+
+`1sec=1,000,000μs`  
+`0.3 = 300000 cfs_quota_us /1000000 cfs_period_us`
+```console
+ubuntu@ip-172-31-12-65:~$ cgset -r cpu.cfs_period_us=1000000 $UUID
+ubuntu@ip-172-31-12-65:~$ cat /sys/fs/cgroup/cpu,cpuacct/$UUID/cpu.cfs_period_us
+1000000
+```
+```console
+ubuntu@ip-172-31-12-65:~$ cgset -r cpu.cfs_quota_us=300000 $UUID
+ubuntu@ip-172-31-12-65:~$ cat /sys/fs/cgroup/cpu,cpuacct/$UUID/cpu.cfs_quota_us
+300000
+```
+
 ```
