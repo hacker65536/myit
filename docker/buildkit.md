@@ -1022,7 +1022,46 @@ $ go run examples/buildkit0/buildkit.go | buildctl build
  => cp -a /src/bin/buildctl /dest/bin/                                                                                   9.8s
  => cp -a /src/usr/bin/runc /dest/bin/              
  ```
+ 
+ ```console
+ $ go run examples/buildkit0/buildkit.go | buildctl build --output type=docker --exporter-opt name=buildkit0 | docker load
+[+] Building 1.0s (20/20) FINISHED
+ => docker-image://docker.io/library/alpine:latest                                                                       0.2s
+ => => resolve docker.io/library/alpine:latest                                                                           0.2s
+ => docker-image://docker.io/library/golang:1.12-alpine                                                                  0.4s
+ => => resolve docker.io/library/golang:1.12-alpine                                                                      0.4s
+ => CACHED apk add --no-cache g++ linux-headers                                                                          0.0s
+ => CACHED apk add --no-cache git libseccomp-dev make                                                                    0.0s
+ => CACHED git clone https://github.com/moby/buildkit.git /go/src/github.com/moby/buildkit                               0.0s
+ => CACHED go build -o /bin/buildctl ./cmd/buildctl                                                                      0.0s
+ => CACHED cp -a /src/bin/buildctl /dest/bin/                                                                            0.0s
+ => CACHED git clone https://github.com/opencontainers/runc.git /go/src/github.com/opencontainers/runc                   0.0s
+ => CACHED git checkout -q v1.0.0-rc8                                                                                    0.0s
+ => CACHED go build -o /usr/bin/runc ./                                                                                  0.0s
+ => CACHED cp -a /src/usr/bin/runc /dest/bin/                                                                            0.0s
+ => CACHED apk add --no-cache btrfs-progs-dev                                                                            0.0s
+ => CACHED git clone https://github.com/containerd/containerd.git /go/src/github.com/containerd/containerd               0.0s
+ => CACHED git checkout -q v1.2.1                                                                                        0.0s
+ => CACHED make bin/containerd                                                                                           0.0s
+ => CACHED cp -a /src/go/src/github.com/containerd/containerd/bin/containerd /dest/bin/                                  0.0s
+ => CACHED go build -o /bin/buildkitd ./cmd/buildkitd                                                                    0.0s
+ => CACHED cp -a /src/bin/buildkitd /dest/bin/                                                                           0.0s
+ => CACHED ls -l /bin                                                                                                    0.0s
+ => exporting to oci image format                                                                                        0.6s
+ => => exporting layers                                                                                                  0.0s
+ => => exporting manifest sha256:f9350ebd540acf8b369b98ce461082fff2c38bd4aa4ab371be73250587a59272                        0.0s
+ => => exporting config sha256:94104f920b097524c935f7943eb03de598e2e119f0d53ce4d22e4c07db30b050                          0.0s
+ => => sending tarball                                                                                                   0.6s
+Loaded image ID: sha256:94104f920b097524c935f7943eb03de598e2e119f0d53ce4d22e4c07db30b050
+```
 
+`WARN[0000] --exporter <exporter> is deprecated. Please use --output type=<exporter>[,<opt>=<optval>] instead.`
+
+```console
+$ docker image ls buildkit0 
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+buildkit0           latest              94104f920b09        6 minutes ago       127MB
+```
 ref
 --
 
