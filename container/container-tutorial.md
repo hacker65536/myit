@@ -333,10 +333,14 @@ unshare
 
 capsh
 --
+
+- install libcap for Ambient capabilities via source
+- run an unprivileged ping
+
+
 ```console
 ubuntu@ip-172-31-12-65:~$ sudo apt install -y make gcc
 ```
-
 
 ```console
 ubuntu@ip-172-31-12-65:~$ git clone https://git.kernel.org/pub/scm/linux/kernel/git/morgan/libcap.git
