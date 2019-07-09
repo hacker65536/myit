@@ -44,7 +44,7 @@ mkdir -p /usr/local/bin
 install bin/* /usr/local/bin
 ```
 ```console
-ls -la /usr/local/bin/bui*
+$ ls -la /usr/local/bin/bui*
 -rwxr-xr-x 1 root root 23493281 Jul  9 07:33 /usr/local/bin/buildctl*
 -rwxr-xr-x 1 root root 25994336 Jul  9 07:33 /usr/local/bin/buildkitd*
 -rwxr-xr-x 1 root root  7636224 Jul  9 07:33 /usr/local/bin/buildkit-runc*
