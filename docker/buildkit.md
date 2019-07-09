@@ -989,9 +989,6 @@ $ go run examples/buildkit0/buildkit.go | buildctl debug dump-llb | jq '.'
 
 ```console
 $ go run examples/buildkit0/buildkit.go | buildctl build
-```
-
-```
 [+] Building 108.1s (15/19)
  => => sha256:2d38965338529dc04aed99fbfbf548d181545c1ee2352b716e4ead932b3d11c9 301.71kB / 301.71kB                       0.5s
  => => sha256:7e39d5d392d49b0b7562bb66b8b539a73e8da6e8d59d88b9fcea7be5f1c48fd7 3.80kB / 3.80kB                           0.0s
