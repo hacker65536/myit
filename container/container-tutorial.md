@@ -234,6 +234,8 @@ ubuntu@ip-172-31-12-65:~$ cgexec -g cpu,memory:$UUID   unshare -muinpfr /bin/sh 
     /bin/hostname $UUID &&
     exec capsh --chroot=$ROOTFS --drop=cap_sys_chroot -- -c 'exec $CMD'
    "
+```
+```console
 / #
 ```
 
