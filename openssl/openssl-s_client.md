@@ -1,4 +1,43 @@
+sni check
+--
 
+```console
+$ openssl s_client -connect centos6.iuscommunity.org:443 2>&1 < /dev/null 
+CONNECTED(00000003)
+140017751033760:error:14077438:SSL routines:SSL23_GET_SERVER_HELLO:tlsv1 alert internal error:s23_clnt.c:769:
+---
+no peer certificate available
+---
+No client certificate CA names sent
+---
+SSL handshake has read 7 bytes and written 289 bytes
+---
+New, (NONE), Cipher is (NONE)
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : 0000
+    Session-ID:
+    Session-ID-ctx:
+    Master-Key:
+    Key-Arg   : None
+    Krb5 Principal: None
+    PSK identity: None
+    PSK identity hint: None
+    Start Time: 1562753175
+    Timeout   : 300 (sec)
+    Verify return code: 0 (ok)
+---
+```
+
+`-servername centos6.iuscommunity.org`
+```console
+$ openssl s_client -connect centos6.iuscommunity.org:443 -servername centos6.iuscommunity.org 2>&1 < /dev/null |grep subject
+subject=/CN=centos6.iuscommunity.org
+```
 
 showcerts
 --
@@ -8,7 +47,7 @@ $ openssl s_client -connect google.com:443 -showcerts < /dev/null 1> crt 2>&1
 ```
 
 ```console
-$ cat crt                                                                                                                        Mon 27 May 2019 02:51:41 AM UTC
+$ cat crt 
 depth=2 OU = GlobalSign Root CA - R2, O = GlobalSign, CN = GlobalSign
 verify return:1
 depth=1 C = US, O = Google Trust Services, CN = Google Internet Authority G3
