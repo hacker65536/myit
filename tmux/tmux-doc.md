@@ -1,4 +1,4 @@
-# tmux tips
+# tmux doc
 
 
 ## shortcut and cheatsheet
