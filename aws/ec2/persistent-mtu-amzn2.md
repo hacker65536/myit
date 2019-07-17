@@ -37,7 +37,6 @@ lease {
 ```
 
 
-
 ## change mtu
 
 
@@ -85,4 +84,58 @@ lease {
   rebind 3 2019/07/17 03:22:52;
   expire 3 2019/07/17 03:30:22;
 }
+```
+
+## mtu
+
+before
+
+```console
+$ tracepath amazon.com
+ 1?: [LOCALHOST]                                         pmtu 9001
+ 1:  ip-172-31-0-1.us-east-2.compute.internal              0.079ms pmtu 1500
+ 1:  no reply
+ 2:  no reply
+ 3:  no reply
+ 4:  no reply
+ 5:  no reply
+ 6:  100.65.9.161                                          0.414ms
+ 7:  52.95.1.5                                            12.246ms asymm 28
+ 8:  52.95.2.142                                          11.929ms asymm 27
+ 9:  52.95.2.127                                          19.917ms asymm 26
+10:  100.91.39.178                                        23.880ms asymm 25
+11:  52.93.133.106                                        12.476ms asymm 24
+12:  100.91.163.80                                        12.233ms asymm 23
+--snip--
+27:  no reply
+28:  no reply
+29:  no reply
+30:  no reply
+     Too many hops: pmtu 1500
+     Resume: pmtu 1500
+```
+
+
+after
+
+
+```console
+$ tracepath amazon.com
+ 1?: [LOCALHOST]                                         pmtu 1500
+ 1:  no reply
+ 2:  no reply
+ 3:  no reply
+ 4:  no reply
+ 5:  no reply
+ 6:  100.65.9.193                                          1.825ms
+ 7:  52.95.1.3                                            11.751ms asymm 28
+ 8:  52.95.2.254                                          18.026ms asymm 27
+ 9:  52.93.239.86                                         11.853ms asymm 25
+10:  100.91.41.4                                          21.275ms asymm 25
+11:  52.93.133.64                                         12.101ms asymm 24
+---snip---
+30:  no reply
+31:  no reply
+     Too many hops: pmtu 1500
+     Resume: pmtu 1500
 ```
