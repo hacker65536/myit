@@ -87,17 +87,10 @@ lease {
 ```
 
 ## mtu
-local
 
-```
-$ tracepath 172.31.0.139
- 1?: [LOCALHOST]                                         pmtu 9001
- 1:  ip-172-31-0-139.us-east-2.compute.internal            0.154ms reached
- 1:  ip-172-31-0-139.us-east-2.compute.internal            0.057ms reached
-     Resume: pmtu 9001 hops 1 back 1
-```
+### before
 
-before
+global
 
 ```console
 $ tracepath amazon.com
@@ -114,10 +107,19 @@ $ tracepath amazon.com
      Too many hops: pmtu 1500
      Resume: pmtu 1500
 ```
+local
 
+```console
+$ tracepath 172.31.0.139
+ 1?: [LOCALHOST]                                         pmtu 9001
+ 1:  ip-172-31-0-139.us-east-2.compute.internal            0.154ms reached
+ 1:  ip-172-31-0-139.us-east-2.compute.internal            0.057ms reached
+     Resume: pmtu 9001 hops 1 back 1
+```
 
-after
+### after
 
+global 
 
 ```console
 $ tracepath amazon.com
@@ -133,3 +135,12 @@ $ tracepath amazon.com
      Resume: pmtu 1500
 ```
 
+local 
+
+```console
+$ tracepath 172.31.0.139
+ 1?: [LOCALHOST]                                         pmtu 1500
+ 1:  ip-172-31-0-139.us-east-2.compute.internal            0.142ms reached
+ 1:  ip-172-31-0-139.us-east-2.compute.internal            0.052ms reached
+     Resume: pmtu 1500 hops 1 back 1
+```
