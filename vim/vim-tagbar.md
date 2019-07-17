@@ -1,4 +1,17 @@
+# tagbar
+
 https://github.com/majutsushi/tagbar
+
+
+
+## require
+
+```console
+$ sudo yum install -y ctags
+```
+
+
+## install
 
 ```console
 $ cd ~/.vim/bundle/
