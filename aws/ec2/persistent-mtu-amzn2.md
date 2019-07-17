@@ -1,4 +1,4 @@
-# ec2 mtu
+# ec2 mtu (Maximum Transmission Unit)
 
 https://dev.classmethod.jp/cloud/aws/persistent-mtu-amzn2/
 
