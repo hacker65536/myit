@@ -64,3 +64,14 @@ No packages needed for security; 6 packages available
 Run "sudo yum update" to apply all updates.
 [ec2-user@ip-172-31-13-102 ~]$
 ```
+
+
+log
+--
+
+```console
+$ aws --region us-east-2 cloudtrail lookup-events --lookup-attributes AttributeKey=EventSource,AttributeValue=ec2-instance-connect.amazonaws.com| jq -rc '.[][]|[.Username,.EventTime,.EventName]'
+["username",1563520079,"SendSSHPublicKey"]
+["username",1563519843,"SendSSHPublicKey"]
+["username",1563519833,"SendSSHPublicKey"]
+```
