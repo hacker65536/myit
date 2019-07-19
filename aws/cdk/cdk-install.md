@@ -48,3 +48,24 @@ added 243 packages from 246 contributors in 8.686s
 $ cdk --version
 1.0.0 (build d89592e)
 ```
+
+example
+--
+
+```console
+$ cdk init sample-app --language=typescript
+Applying project template sample-app for typescript
+Initializing a new git repository...
+Executing npm install...
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN cdk@0.1.0 No repository field.
+npm WARN cdk@0.1.0 No license field.
+
+# Useful commands
+
+ * `npm run build`   compile typescript to js
+ * `npm run watch`   watch for changes and compile
+ * `cdk deploy`      deploy this stack to your default AWS account/region
+ * `cdk diff`        compare deployed stack with current state
+ * `cdk synth`       emits the synthesized CloudFormation template
+```
