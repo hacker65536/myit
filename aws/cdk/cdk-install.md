@@ -69,3 +69,44 @@ npm WARN cdk@0.1.0 No license field.
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
 ```
+
+```
+$ cdk deploy
+This deployment will make potentially sensitive changes according to your current security approval level (--require-approval broadening).
+Please confirm you intend to make the following modifications:
+
+IAM Statement Changes
+┌───┬─────────────────┬────────┬─────────────────┬───────────────────────────┬─────────────────────────────────────────────────┐
+│   │ Resource        │ Effect │ Action          │ Principal                 │ Condition                                       │
+├───┼─────────────────┼────────┼─────────────────┼───────────────────────────┼─────────────────────────────────────────────────┤
+│ + │ ${CdkQueue.Arn} │ Allow  │ sqs:SendMessage │ Service:sns.amazonaws.com │ "ArnEquals": {                                  │
+│   │                 │        │                 │                           │   "aws:SourceArn": "${CdkTopic}"                │
+│   │                 │        │                 │                           │ }                                               │
+└───┴─────────────────┴────────┴─────────────────┴───────────────────────────┴─────────────────────────────────────────────────┘
+(NOTE: There may be security-related changes not in this list. See http://bit.ly/cdk-2EhF7Np)
+
+Do you wish to deploy these changes (y/n)? y
+CdkStack: deploying...
+CdkStack: creating CloudFormation changeset...
+ 0/6 | 6:19:33 AM | CREATE_IN_PROGRESS   | AWS::SNS::Topic        | CdkTopic (CdkTopic7E7E1214)
+ 0/6 | 6:19:34 AM | CREATE_IN_PROGRESS   | AWS::CDK::Metadata     | CDKMetadata
+ 0/6 | 6:19:34 AM | CREATE_IN_PROGRESS   | AWS::SQS::Queue        | CdkQueue (CdkQueueBA7F247D)
+ 0/6 | 6:19:34 AM | CREATE_IN_PROGRESS   | AWS::SNS::Topic        | CdkTopic (CdkTopic7E7E1214) Resource creation Initiated
+ 0/6 | 6:19:34 AM | CREATE_IN_PROGRESS   | AWS::SQS::Queue        | CdkQueue (CdkQueueBA7F247D) Resource creation Initiated
+ 1/6 | 6:19:34 AM | CREATE_COMPLETE      | AWS::SQS::Queue        | CdkQueue (CdkQueueBA7F247D)
+ 1/6 | 6:19:35 AM | CREATE_IN_PROGRESS   | AWS::CDK::Metadata     | CDKMetadata Resource creation Initiated
+ 2/6 | 6:19:36 AM | CREATE_COMPLETE      | AWS::CDK::Metadata     | CDKMetadata
+ 3/6 | 6:19:44 AM | CREATE_COMPLETE      | AWS::SNS::Topic        | CdkTopic (CdkTopic7E7E1214)
+ 3/6 | 6:19:47 AM | CREATE_IN_PROGRESS   | AWS::SNS::Subscription | CdkQueue/CdkStackCdkTopic7868E982 (CdkQueueCdkStackCdkTopic7868E9827092CD19)
+ 3/6 | 6:19:47 AM | CREATE_IN_PROGRESS   | AWS::SQS::QueuePolicy  | CdkQueue/Policy (CdkQueuePolicy9CB1D142)
+ 3/6 | 6:19:48 AM | CREATE_IN_PROGRESS   | AWS::SQS::QueuePolicy  | CdkQueue/Policy (CdkQueuePolicy9CB1D142) Resource creation Initiated
+ 3/6 | 6:19:48 AM | CREATE_IN_PROGRESS   | AWS::SNS::Subscription | CdkQueue/CdkStackCdkTopic7868E982 (CdkQueueCdkStackCdkTopic7868E9827092CD19) Resource creation Initiated
+ 4/6 | 6:19:48 AM | CREATE_COMPLETE      | AWS::SNS::Subscription | CdkQueue/CdkStackCdkTopic7868E982 (CdkQueueCdkStackCdkTopic7868E9827092CD19)
+ 5/6 | 6:19:48 AM | CREATE_COMPLETE      | AWS::SQS::QueuePolicy  | CdkQueue/Policy (CdkQueuePolicy9CB1D142)
+ 6/6 | 6:19:50 AM | CREATE_COMPLETE      | AWS::CloudFormation::Stack | CdkStack
+
+ ✅  CdkStack
+
+Stack ARN:
+arn:aws:cloudformation:us-west-2:000000000000:stack/CdkStack/23be5410-a9ed-11e9-ab27-02f46dd00950
+```
