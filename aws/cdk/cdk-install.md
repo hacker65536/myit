@@ -47,4 +47,4 @@ added 243 packages from 246 contributors in 8.686s
 ```console
 $ cdk --version
 1.0.0 (build d89592e)
-``
+```
