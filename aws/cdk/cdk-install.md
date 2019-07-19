@@ -70,7 +70,7 @@ npm WARN cdk@0.1.0 No license field.
  * `cdk synth`       emits the synthesized CloudFormation template
 ```
 
-```
+```console
 $ cdk deploy
 This deployment will make potentially sensitive changes according to your current security approval level (--require-approval broadening).
 Please confirm you intend to make the following modifications:
@@ -109,4 +109,23 @@ CdkStack: creating CloudFormation changeset...
 
 Stack ARN:
 arn:aws:cloudformation:us-west-2:000000000000:stack/CdkStack/23be5410-a9ed-11e9-ab27-02f46dd00950
+```
+
+```console
+$ cdk destroy 
+Are you sure you want to delete: CdkStack (y/n)? y
+CdkStack: destroying...
+   0 | 6:24:57 AM | DELETE_IN_PROGRESS   | AWS::CloudFormation::Stack | CdkStack User Initiated
+   0 | 6:24:59 AM | DELETE_IN_PROGRESS   | AWS::SQS::QueuePolicy  | CdkQueue/Policy (CdkQueuePolicy9CB1D142)
+   0 | 6:24:59 AM | DELETE_IN_PROGRESS   | AWS::CDK::Metadata     | CDKMetadata
+   0 | 6:24:59 AM | DELETE_IN_PROGRESS   | AWS::SNS::Subscription | CdkQueue/CdkStackCdkTopic7868E982 (CdkQueueCdkStackCdkTopic7868E9827092CD19)
+   1 | 6:24:59 AM | DELETE_COMPLETE      | AWS::SQS::QueuePolicy  | CdkQueue/Policy (CdkQueuePolicy9CB1D142)
+   2 | 6:24:59 AM | DELETE_COMPLETE      | AWS::SNS::Subscription | CdkQueue/CdkStackCdkTopic7868E982 (CdkQueueCdkStackCdkTopic7868E9827092CD19)
+   2 | 6:25:00 AM | DELETE_IN_PROGRESS   | AWS::SQS::Queue        | CdkQueue (CdkQueueBA7F247D)
+   2 | 6:25:00 AM | DELETE_IN_PROGRESS   | AWS::SNS::Topic        | CdkTopic (CdkTopic7E7E1214)
+   3 | 6:25:00 AM | DELETE_COMPLETE      | AWS::CDK::Metadata     | CDKMetadata
+   4 | 6:25:01 AM | DELETE_COMPLETE      | AWS::SNS::Topic        | CdkTopic (CdkTopic7E7E1214)
+  4 Currently in progress: CdkStack, CdkQueueBA7F247D
+
+ ✅  CdkStack: destroyed
 ```
