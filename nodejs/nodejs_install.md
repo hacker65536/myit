@@ -1,14 +1,9 @@
 # node.js
 
-https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora
+https://nodejs.org/en/download/package-manager/
 
+Latest LTS Version: 10.16.0 (includes npm 6.9.0)
 
-version v0.10.36  
-## env
-```bash
-uname -a
-Linux ip-xxx-xx-xx-xx 3.14.27-25.47.amzn1.x86_64 #1 SMP Wed Dec 17 18:36:15 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
-```
 
 ## require
 ```bash
@@ -18,32 +13,80 @@ yum install gcc gcc-c++
 
 ## install
 
-```bash
-wget "http://nodejs.org/dist/v0.10.36/node-v0.10.36.tar.gz"
-tar zxvf node-v0.10.36.tar.gz
-cd node-v0.10.36
-./configure
-make
-make install
+### from source
+
+```console
+$ wget "https://nodejs.org/dist/v10.16.0/node-v10.16.0.tar.gz"
+$ tar zxvf node-v10.16.0.tar.gz
+$ cd node-v10.16.0
+$ ./configure
+$ make
+$ sudo make install
 ```
+
+
+### from yum
 
 ```bash
 yum install --enablerepo=epel nodejs
 ```
 
 
-# nvm
+### from nvm(recommend)
 
-```bash
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-
-. ~/.bashrc
-
-nvm ls-remote
-nvm install v8.9.4
-nvm use 8.9.4
+```console
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ```
-# nodebrew
+```console
+$ tail -n 3 ~/.bashrc
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+
+```console
+$ source ~/.bashrc
+```
+
+```console
+$ nvm install --latest-npm --lts
+Installing latest LTS version.
+Downloading and installing node v10.16.0...
+Downloading https://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-x64.tar.xz...
+############################################################################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v10.16.0 (npm v6.9.0)
+Creating default alias: default -> lts/* (-> v10.16.0)
+Attempting to upgrade to the latest working version of npm...
+* Installing latest `npm`; if this does not work on your node version, please report a bug!
+/home/ec2-user/.nvm/versions/node/v10.16.0/bin/npm -> /home/ec2-user/.nvm/versions/node/v10.16.0/lib/node_modules/npm/bin/npm-cli.js
+/home/ec2-user/.nvm/versions/node/v10.16.0/bin/npx -> /home/ec2-user/.nvm/versions/node/v10.16.0/lib/node_modules/npm/bin/npx-cli.js
++ npm@6.10.1
+added 19 packages from 13 contributors, removed 12 packages and updated 32 packages in 4.266s
+* npm upgraded to: v6.10.1
+```
+
+```console
+$ nvm ls
+->     v10.16.0
+default -> lts/* (-> v10.16.0)
+node -> stable (-> v10.16.0) (default)
+stable -> 10.16 (-> v10.16.0) (default)
+iojs -> N/A (default)
+unstable -> N/A (default)
+lts/* -> lts/dubnium (-> v10.16.0)
+lts/argon -> v4.9.1 (-> N/A)
+lts/boron -> v6.17.1 (-> N/A)
+lts/carbon -> v8.16.0 (-> N/A)
+lts/dubnium -> v10.16.0
+```
+
+```console
+$ node -v
+v10.16.0
+```
+### from nodebrew
 ```bash
 sudo yum install -y gcc gcc-c++
 curl -L git.io/nodebrew | perl - setup
@@ -58,7 +101,7 @@ check version from remote
 nodebrew ls-remote
 ```
 
-# anyenv
+### from anyenv
 
 install anyenv
 ```
