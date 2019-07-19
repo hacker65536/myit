@@ -7,6 +7,8 @@ require node
 
 preinstall
 --
+
+install nvm
 ```console
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ```
@@ -20,6 +22,9 @@ $ nvm install --latest-npm --lts
 
 install
 --
+
+install aws-cdk
+
 ```console
 $ npm i -g aws-cdk
 /home/ec2-user/.nvm/versions/node/v10.16.0/bin/cdk -> /home/ec2-user/.nvm/versions/node/v10.16.0/lib/node_modules/aws-cdk/bin/cdk
@@ -38,3 +43,8 @@ Also, the author of core-js ( https://github.com/zloirock ) is looking for a goo
 + aws-cdk@1.0.0
 added 243 packages from 246 contributors in 8.686s
 ```
+
+```console
+$ cdk --version
+1.0.0 (build d89592e)
+``
