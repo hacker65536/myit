@@ -77,3 +77,13 @@ KiB Swap:        0 total,        0 free,        0 used.  4662408 avail Mem
  4882 ec2-user  20   0  146112   9256   5032 T   0.0  0.2   0:00.24 vim ec2.tf
  6164 ec2-user  20   0  145528   8648   5096 S   0.0  0.2   0:00.05 vim alb.tf
  ```
+ 
+ 
+ 
+ ### sort
+
+- `shift+M` memory
+- `shift+C` cpu
+- `shift+T` time
+- `shift+N` pid(number)
+- `shift+R` reverse sort
