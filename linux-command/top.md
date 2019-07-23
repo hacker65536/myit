@@ -60,3 +60,20 @@ INTERACTIVE Commands
 
 
 
+
+`shift+O`
+
+
+`add filter #1 (case sensitive) as: [!]FLD?VAL` + `COMMAND=vim`
+
+```
+top - 09:08:14 up  2:31,  2 users,  load average: 0.00, 0.00, 0.00
+Tasks:  94 total,   1 running,  54 sleeping,   1 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  5086264 total,  4251208 free,   162764 used,   672292 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  4662408 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+ 4882 ec2-user  20   0  146112   9256   5032 T   0.0  0.2   0:00.24 vim ec2.tf
+ 6164 ec2-user  20   0  145528   8648   5096 S   0.0  0.2   0:00.05 vim alb.tf
+ ```
