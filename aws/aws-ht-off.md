@@ -1,5 +1,78 @@
 # disable Hyperthreading (ec2)
 
+
+cpu inforamtion
+--
+
+
+core 
+```console
+$  find /sys/devices/system/cpu/ -name core_id | sort| xargs -i{} bash -c 'echo {} ; cat {}'
+/sys/devices/system/cpu/cpu0/topology/core_id
+0
+/sys/devices/system/cpu/cpu1/topology/core_id
+1
+/sys/devices/system/cpu/cpu2/topology/core_id
+0
+/sys/devices/system/cpu/cpu3/topology/core_id
+1
+```
+
+thread_siblings
+```console
+$  find /sys/devices/system/cpu/ -name thread_siblings | sort| xargs -i{} bash -c 'echo {} ; cat {}'
+/sys/devices/system/cpu/cpu0/topology/thread_siblings
+5
+/sys/devices/system/cpu/cpu1/topology/thread_siblings
+a
+/sys/devices/system/cpu/cpu2/topology/thread_siblings
+5
+/sys/devices/system/cpu/cpu3/topology/thread_siblings
+a
+```
+
+thread_siblings_list
+
+```console
+$  find /sys/devices/system/cpu/ -name thread_siblings_list | sort| xargs -i{} bash -c 'echo {} ; cat {}'
+/sys/devices/system/cpu/cpu0/topology/thread_siblings_list
+0,2
+/sys/devices/system/cpu/cpu1/topology/thread_siblings_list
+1,3
+/sys/devices/system/cpu/cpu2/topology/thread_siblings_list
+0,2
+/sys/devices/system/cpu/cpu3/topology/thread_siblings_list
+1,3
+```
+
+online
+```console
+$  find /sys/devices/system/cpu/ -name online | sort| xargs -i{} bash -c 'echo {} ; cat {}'
+/sys/devices/system/cpu/cpu1/online
+1
+/sys/devices/system/cpu/cpu2/online
+1
+/sys/devices/system/cpu/cpu3/online
+1
+/sys/devices/system/cpu/online
+0-3
+```
+
+```
+ +------------------------+    +-----------------------+
+ |                        |    |                       |
+ | +--------+  +--------+ |    | +--------+ +--------+ |
+ | |        |  |        | |    | |        | |        | |
+ | |  cpu0  |  |  cpu2  | |    | |  cpu1  | |  cpu3  | |
+ | |        |  |        | |    | |        | |        | |
+ | +--------+  +--------+ |    | +--------+ +--------+ |
+ |                        |    |                       |
+ +------------------------+    +-----------------------+
+
+           core0                        core1
+```
+
+
 script
 --
 
