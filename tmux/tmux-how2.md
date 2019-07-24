@@ -59,3 +59,10 @@ vim syntaxhighlight
 ```console
 $ export TERM=xterm-256color
 ```
+
+
+moving between pane
+
+```
+set display-panes-time 10000
+```
