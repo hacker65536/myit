@@ -292,7 +292,7 @@ reset core
 
 remove `nr_core=2` from /etc/default/grub
 ```console
-$ vim /etc/default/grub
+# vim /etc/default/grub
 ```
 ```console
 # grub2-mkconfig > /etc/grub2.cfg
