@@ -1,10 +1,87 @@
 
+
+```bash
+#!/bin/env bash
+
+function fix_boot_disable_ht() {
+
+  echo "${0} Updating kernel line"
+
+  if [[ -x /sbin/grubby ]] ; then
+      /sbin/grubby --update-kernel=ALL --args=maxcpus=$total_cores
+  fi
+
+  if [ -e /etc/default/grub ]; then
+
+      if grep -q maxcpus /etc/default/grub; then
+          sed -i "s/maxcpus=[0-9]*/maxcpus=$total_cores/g" /etc/default/grub
+      else
+          sed -i "/^GRUB_CMDLINE_LINUX_DEFAULT=/ s/\"$/ maxcpus=$total_cores\"/" /etc/default/grub
+          sed -i "/^GRUB_CMDLINE_LINUX=/ s/\"$/ maxcpus=$total_cores\"/" /etc/default/grub
+      fi
+
+      if [ -e /etc/grub2.cfg ]; then
+          grub2-mkconfig > /etc/grub2.cfg
+      fi
+
+      if which update-grub; then
+          update-grub
+      fi
+  fi
+
+}
+
+function disable_ht {
+  echo "${0}: disabling HT"
+
+  parent_cores=$(cat /sys/devices/system/cpu/cpu*/topology/thread_siblings_list | cut -d, -f1 | cut -d- -f1 | tr '-' '\n' | tr ',' '\n'| sort -un)
+
+  # If there are no parents, HT is probably already disabled.
+  if [ "$parent_cores" == "" ]; then
+              parent_cores=$(cat /sys/devices/system/cpu/cpu*/topology/thread_siblings_list)
+  fi
+
+  total_cores=$(cat /sys/devices/system/cpu/cpu*/topology/thread_siblings_list | cut -d, -f1 | cut -d- -f1 | tr '-' '\n' | tr ',' '\n'| sort -un | wc -l)
+  sibling_cores=$(cat /sys/devices/system/cpu/cpu*/topology/thread_siblings_list | cut -d, -f2- | cut -d- -f2- | tr '-' '\n' | tr ',' '\n'| sort -un)
+
+  # Ensure enabled cores are enabled - starting at 1, cpu0 can't be changed
+  for p in $parent_cores; do
+      if [ $p -ne 0 ]; then
+          echo 1 > /sys/devices/system/cpu/cpu${p}/online
+      fi
+  done
+
+  if [ "$parent_cores" == "$sibling_cores" ]; then
+      echo "Hyperthreading already disabled"
+  else
+      # Ensure disabled threads are actually disabled
+      for s in $sibling_cores; do
+          echo 0 > /sys/devices/system/cpu/cpu${s}/online
+      done
+  fi
+
+  fix_boot_disable_ht
+
+}
+
+disable_ht
+```
+
+```console
+$ sed -e 's/maxcpus/nr_cpus/g' -i disable_ht.sh
+```
+
+
+
+
 https://aws.amazon.com/jp/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-ec2-windows-instances/  
 https://dev.classmethod.jp/cloud/aws/how-to-disable-hyperthreading/  
 https://d0.awsstatic.com/events/jp/2017/summit/slide/D4T2-5.pdf  
 https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-devices-system-cpu  
 https://askubuntu.com/questions/942728/disable-hyper-threading-in-ubuntu  
 https://www.isus.jp/others/insights-to-hyper-threading/  
+http://zokibayashi.hatenablog.com/entry/2017/03/02/205414  
+https://access.redhat.com/solutions/2463161  
 
 centos6
 -------------
