@@ -40,3 +40,8 @@ $ tsc greeter.ts
     </body>
 </html>
 ```
+
+```console
+$ docker run --rm -it -d -v $(pwd):/usr/local/apache2/htdocs -p 80:80 httpd
+```
+
