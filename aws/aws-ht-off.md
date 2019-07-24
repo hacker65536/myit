@@ -1,4 +1,4 @@
-# aws disable Hyperthreading 
+# disable Hyperthreading (ec2)
 
 script
 --
