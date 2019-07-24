@@ -1,5 +1,9 @@
+# aws disable Hyperthreading 
 
+script
+--
 
+` disable_ht.sh`
 ```bash
 #!/bin/env bash
 
@@ -67,13 +71,128 @@ function disable_ht {
 disable_ht
 ```
 
+for dist like as RHEL7 
+--
 ```console
 $ sed -e 's/maxcpus/nr_cpus/g' -i disable_ht.sh
 ```
 
 
+show cpu info
+--
+```console
+$ lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              4
+On-line CPU(s) list: 0-3
+Thread(s) per core:  2
+Core(s) per socket:  2
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               85
+Model name:          Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+Stepping:            3
+CPU MHz:             3402.320
+BogoMIPS:            6000.00
+Hypervisor vendor:   KVM
+Virtualization type: full
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            1024K
+L3 cache:            25344K
+NUMA node0 CPU(s):   0-3
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl
+ xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor l
+ahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx5
+12vl xsaveopt xsavec xgetbv1 xsaves ida arat pku ospke
+```
+
+disable ht
+--
+```console
+$ sudo sh disable_ht.sh
+disable_ht.sh: disabling HT
+disable_ht.sh Updating kernel line
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-4.14.123-111.109.amzn2.x86_64
+Found initrd image: /boot/initramfs-4.14.123-111.109.amzn2.x86_64.img
+done
+which: no update-grub in (/sbin:/bin:/usr/sbin:/usr/bin)
+```
+
+```console
+$ lscpu
+Architecture:         x86_64
+CPU op-mode(s):       32-bit, 64-bit
+Byte Order:           Little Endian
+CPU(s):               4
+On-line CPU(s) list:  0,1
+Off-line CPU(s) list: 2,3
+Thread(s) per core:   1
+Core(s) per socket:   2
+Socket(s):            1
+NUMA node(s):         1
+Vendor ID:            GenuineIntel
+CPU family:           6
+Model:                85
+Model name:           Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+Stepping:             3
+CPU MHz:              3404.563
+BogoMIPS:             6000.00
+Hypervisor vendor:    KVM
+Virtualization type:  full
+L1d cache:            32K
+L1i cache:            32K
+L2 cache:             1024K
+L3 cache:             25344K
+NUMA node0 CPU(s):    0,1
+Flags:                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves ida arat pku ospke
+```
 
 
+reboot
+--
+
+```console
+$ sudo reboot 
+```
+
+```console
+$ lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              2
+On-line CPU(s) list: 0,1
+Thread(s) per core:  1
+Core(s) per socket:  2
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               85
+Model name:          Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+Stepping:            3
+CPU MHz:             3394.578
+BogoMIPS:            6000.00
+Hypervisor vendor:   KVM
+Virtualization type: full
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            1024K
+L3 cache:            25344K
+NUMA node0 CPU(s):   0,1
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves ida arat pku ospke
+```
+
+
+
+ref
+--
 https://aws.amazon.com/jp/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-ec2-windows-instances/  
 https://dev.classmethod.jp/cloud/aws/how-to-disable-hyperthreading/  
 https://d0.awsstatic.com/events/jp/2017/summit/slide/D4T2-5.pdf  
@@ -82,6 +201,13 @@ https://askubuntu.com/questions/942728/disable-hyper-threading-in-ubuntu
 https://www.isus.jp/others/insights-to-hyper-threading/  
 http://zokibayashi.hatenablog.com/entry/2017/03/02/205414  
 https://access.redhat.com/solutions/2463161  
+https://github.com/aws-samples/aws-hpc-workshops/issues/6  
+
+
+
+
+old info
+==
 
 centos6
 -------------
