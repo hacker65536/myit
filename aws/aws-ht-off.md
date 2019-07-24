@@ -1,10 +1,10 @@
 
-https://aws.amazon.com/jp/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-ec2-windows-instances/
-https://dev.classmethod.jp/cloud/aws/how-to-disable-hyperthreading/
-https://d0.awsstatic.com/events/jp/2017/summit/slide/D4T2-5.pdf
-https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-devices-system-cpu
-https://askubuntu.com/questions/942728/disable-hyper-threading-in-ubuntu
-https://www.isus.jp/others/insights-to-hyper-threading/
+https://aws.amazon.com/jp/blogs/compute/disabling-intel-hyper-threading-technology-on-amazon-ec2-windows-instances/  
+https://dev.classmethod.jp/cloud/aws/how-to-disable-hyperthreading/  
+https://d0.awsstatic.com/events/jp/2017/summit/slide/D4T2-5.pdf  
+https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-devices-system-cpu  
+https://askubuntu.com/questions/942728/disable-hyper-threading-in-ubuntu  
+https://www.isus.jp/others/insights-to-hyper-threading/  
 
 centos6
 -------------
