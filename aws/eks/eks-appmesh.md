@@ -44,7 +44,36 @@ eksctl create cluster --zones=us-east-1a,us-east-1b,us-east-1d --version=1.13 --
 
 from file
 
+```yml
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: adrable-rainbow
+  region: us-east-1
+  version: "1.13"
+
+availabilityZones:
+  - us-east-1a
+  - us-east-1b
+  - us-east-1d
+
+
+nodeGroups:
+  - name: ng-1
+    instanceType: m5.large
+    desiredCapacity: 2
+    iam:
+      withAddonPolicies:
+        albIngress: true
+        autoScaler: true
+        appMesh: true
+```
+
+
+
 ```console
+$ eksctl create cluster -f ekscluster.yml
 [ℹ]  using region us-east-1
 [ℹ]  subnets for us-east-1a - public:192.168.0.0/19 private:192.168.96.0/19
 [ℹ]  subnets for us-east-1b - public:192.168.32.0/19 private:192.168.128.0/19
