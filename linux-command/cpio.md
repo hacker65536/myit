@@ -126,3 +126,21 @@ ram40
 ram41
 20483 blocks
 ```
+
+```console
+$ mkdir restore
+$ cd restore
+```
+
+```console
+$ cpio -im </tmp/backup.cpio ram15
+$ cpio -im </tmp/backup.cpio ram41
+```
+```console
+$ ls -la
+total 292
+drwxrwxr-x 2 ec2-user ec2-user     32 Jul 25 06:25 .
+drwxrwxr-x 3 ec2-user ec2-user   4096 Jul 25 06:25 ..
+-rw-rw-r-- 1 ec2-user ec2-user 265162 Jul 25 06:19 ram15
+-rw-rw-r-- 1 ec2-user ec2-user  28146 Jul 25 06:19 ram41
+```
