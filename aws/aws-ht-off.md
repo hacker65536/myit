@@ -4,10 +4,39 @@
 cpu inforamtion
 --
 
-
-core 
+show cpu
 ```console
-$  find /sys/devices/system/cpu/ -name core_id | sort| xargs -i{} bash -c 'echo {} ; cat {}'
+$ lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              4
+On-line CPU(s) list: 0-3
+Thread(s) per core:  2
+Core(s) per socket:  2
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               85
+Model name:          Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+Stepping:            3
+CPU MHz:             3396.914
+BogoMIPS:            6000.00
+Hypervisor vendor:   KVM
+Virtualization type: full
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            1024K
+L3 cache:            25344K
+NUMA node0 CPU(s):   0-3
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves ida arat pku ospke
+```
+
+
+show core 
+```console
+$ find /sys/devices/system/cpu/ -name core_id | sort| xargs -i{} bash -c 'echo {} ; cat {}'
 /sys/devices/system/cpu/cpu0/topology/core_id
 0
 /sys/devices/system/cpu/cpu1/topology/core_id
@@ -18,23 +47,9 @@ $  find /sys/devices/system/cpu/ -name core_id | sort| xargs -i{} bash -c 'echo 
 1
 ```
 
-thread_siblings
+show thread_siblings_list
 ```console
-$  find /sys/devices/system/cpu/ -name thread_siblings | sort| xargs -i{} bash -c 'echo {} ; cat {}'
-/sys/devices/system/cpu/cpu0/topology/thread_siblings
-5
-/sys/devices/system/cpu/cpu1/topology/thread_siblings
-a
-/sys/devices/system/cpu/cpu2/topology/thread_siblings
-5
-/sys/devices/system/cpu/cpu3/topology/thread_siblings
-a
-```
-
-thread_siblings_list
-
-```console
-$  find /sys/devices/system/cpu/ -name thread_siblings_list | sort| xargs -i{} bash -c 'echo {} ; cat {}'
+$ find /sys/devices/system/cpu/ -name thread_siblings_list | sort| xargs -i{} bash -c 'echo {} ; cat {}'
 /sys/devices/system/cpu/cpu0/topology/thread_siblings_list
 0,2
 /sys/devices/system/cpu/cpu1/topology/thread_siblings_list
@@ -45,9 +60,22 @@ $  find /sys/devices/system/cpu/ -name thread_siblings_list | sort| xargs -i{} b
 1,3
 ```
 
+show thread_siblings
+```console
+$ find /sys/devices/system/cpu/ -name thread_siblings | sort| xargs -i{} bash -c 'echo {} ; cat {}'
+/sys/devices/system/cpu/cpu0/topology/thread_siblings
+5
+/sys/devices/system/cpu/cpu1/topology/thread_siblings
+a
+/sys/devices/system/cpu/cpu2/topology/thread_siblings
+5
+/sys/devices/system/cpu/cpu3/topology/thread_siblings
+a
+```
+
 online
 ```console
-$  find /sys/devices/system/cpu/ -name online | sort| xargs -i{} bash -c 'echo {} ; cat {}'
+$ find /sys/devices/system/cpu/ -name online | sort| xargs -i{} bash -c 'echo {} ; cat {}'
 /sys/devices/system/cpu/cpu1/online
 1
 /sys/devices/system/cpu/cpu2/online
@@ -73,10 +101,41 @@ $  find /sys/devices/system/cpu/ -name online | sort| xargs -i{} bash -c 'echo {
 ```
 
 
-script
+
+
+grubby
 --
 
-` disable_ht.sh`
+```console
+$ sudo grubby --info ALL
+index=0
+kernel=/boot/vmlinuz-4.14.123-111.109.amzn2.x86_64
+args="ro  console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 nvme_core.io_timeout=4294967295 rd.emergency=poweroff rd.shell=0"
+root=UUID=a1e1011e-e38f-408e-878b-fed395b47ad6
+initrd=/boot/initramfs-4.14.123-111.109.amzn2.x86_64.img
+title=Amazon Linux 2
+index=1
+non linux entry
+index=2
+kernel=/boot/vmlinuz-4.14.123-111.109.amzn2.x86_64
+args="ro  console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 nvme_core.io_timeout=4294967295 rd.emergency=poweroff rd.shell=0"
+root=UUID=a1e1011e-e38f-408e-878b-fed395b47ad6
+initrd=/boot/initramfs-4.14.123-111.109.amzn2.x86_64.img
+title=Amazon Linux (4.14.123-111.109.amzn2.x86_64) 2
+index=3
+non linux entry
+index=4
+non linux entry
+```
+
+
+disable ht
+--
+
+
+### script
+
+`disable_ht.sh`
 ```bash
 #!/bin/env bash
 
@@ -144,48 +203,7 @@ function disable_ht {
 disable_ht
 ```
 
-for dist like as RHEL7 
---
-```console
-$ sed -e 's/maxcpus/nr_cpus/g' -i disable_ht.sh
-```
 
-
-show cpu info
---
-```console
-$ lscpu
-Architecture:        x86_64
-CPU op-mode(s):      32-bit, 64-bit
-Byte Order:          Little Endian
-CPU(s):              4
-On-line CPU(s) list: 0-3
-Thread(s) per core:  2
-Core(s) per socket:  2
-Socket(s):           1
-NUMA node(s):        1
-Vendor ID:           GenuineIntel
-CPU family:          6
-Model:               85
-Model name:          Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
-Stepping:            3
-CPU MHz:             3402.320
-BogoMIPS:            6000.00
-Hypervisor vendor:   KVM
-Virtualization type: full
-L1d cache:           32K
-L1i cache:           32K
-L2 cache:            1024K
-L3 cache:            25344K
-NUMA node0 CPU(s):   0-3
-Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl
- xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor l
-ahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx5
-12vl xsaveopt xsavec xgetbv1 xsaves ida arat pku ospke
-```
-
-disable ht
---
 ```console
 $ sudo sh disable_ht.sh
 disable_ht.sh: disabling HT
