@@ -133,6 +133,133 @@ disable ht
 --
 
 
+
+### manually
+
+```console
+# for i in 2 3 ;do echo 0 > /sys/devices/system/cpu/cpu${i}/online; done
+```
+
+```console
+# lscpu | head -10
+Architecture:         x86_64
+CPU op-mode(s):       32-bit, 64-bit
+Byte Order:           Little Endian
+CPU(s):               4
+On-line CPU(s) list:  0,1
+Off-line CPU(s) list: 2,3
+Thread(s) per core:   1
+Core(s) per socket:   2
+Socket(s):            1
+NUMA node(s):         1
+```
+
+
+reboot then return to a former state
+
+```console
+# reboot
+```
+
+```console
+# lscpu | head -10
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              4
+On-line CPU(s) list: 0-3
+Thread(s) per core:  2
+Core(s) per socket:  2
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+```
+
+
+persistent settings 
+
+```console
+# grubby --update-kernel ALL --args "maxcpus=2"
+```
+
+```console
+# grubby --info=ALL
+index=0
+kernel=/boot/vmlinuz-4.14.123-111.109.amzn2.x86_64
+args="ro  console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 nvme_core.io_timeout=4294967295 rd.emergency=poweroff rd.shell=0 maxcpus=2"
+root=UUID=a1e1011e-e38f-408e-878b-fed395b47ad6
+initrd=/boot/initramfs-4.14.123-111.109.amzn2.x86_64.img
+title=Amazon Linux 2
+index=1
+non linux entry
+index=2
+kernel=/boot/vmlinuz-4.14.123-111.109.amzn2.x86_64
+args="ro  console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 nvme_core.io_timeout=4294967295 rd.emergency=poweroff rd.shell=0 maxcpus=2"
+root=UUID=a1e1011e-e38f-408e-878b-fed395b47ad6
+initrd=/boot/initramfs-4.14.123-111.109.amzn2.x86_64.img
+title=Amazon Linux (4.14.123-111.109.amzn2.x86_64) 2
+index=3
+non linux entry
+index=4
+non linux entry
+```
+
+```console
+# reboot
+```
+
+```console
+# lscpu | head -10
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              4
+On-line CPU(s) list: 0-3
+Thread(s) per core:  2
+Core(s) per socket:  2
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+```
+
+
+but dont working 
+
+https://access.redhat.com/solutions/2463161
+> maxcpus kernel parameter is not working as expected as RHEL 7 system still has all CPUs enabled after boot is complete
+
+https://access.redhat.com/errata/RHBA-2015:0509
+> Kernel by itself did not enable newly added CPUs, CPUs had to be enabled
+manually or systemd had to be rebooted. This update adds an udev rule that
+automatically sets CPUs to "online" state after they appear in the system.
+(BZ#968811)
+
+
+need to comment out udev hotplug
+
+```console
+# sed -i 's/^\(SUBSYSTEM=="cpu".*TEST=="online".*ATTR{online}="1"\)/#\1/' /usr/lib/udev/rules.d/40-redhat.rules
+# dracut -f 
+# reboot
+```
+
+```console
+$ lscpu | head -10
+Architecture:         x86_64
+CPU op-mode(s):       32-bit, 64-bit
+Byte Order:           Little Endian
+CPU(s):               4
+On-line CPU(s) list:  0,1
+Off-line CPU(s) list: 2,3
+Thread(s) per core:   1
+Core(s) per socket:   2
+Socket(s):            1
+NUMA node(s):         1
+```
+
+
+
+
 ### script
 
 `disable_ht.sh`
