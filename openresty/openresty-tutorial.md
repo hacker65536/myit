@@ -58,12 +58,17 @@ if using amzn2
 $ sudo sed -e 's/$releasever/7/' -i /etc/yum.repos.d/openresty.repo
 ```
 
+
+install openresty and command line
 ```console
-$ sudo yum install openresty
+$ sudo yum install openresty openresty-resty 
 ```
 
 example
 --
+
+
+### from source
 ```console
 $ /usr/local/openresty/bin/resty -e 'print("hello, world")'
 hello, world
@@ -126,4 +131,60 @@ $ nginx -p $(pwd) -s stop
 or 
 ```console
 $ pkill nginx
+```
+
+
+### from rpm
+
+```console
+$ resty -e 'print("hello,world")'
+hello,world
+```
+
+
+
+
+```console
+$ sudo cp /usr/local/openresty/nginx/conf/nginx.conf{,.bak}
+```
+
+```console
+$ sudo cat <<'EOF' | sudo tee  /usr/local/openresty/nginx/conf/nginx.conf
+worker_processes  1;
+error_log logs/error.log;
+events {
+    worker_connections 1024;
+}
+http {
+    server {
+        listen 8080;
+        location / {
+            default_type text/html;
+            content_by_lua '
+                ngx.say("<p>hello, my opneresty world</p>")
+            ';
+        }
+    }
+}
+EOF
+```
+
+```console
+$ sudo service openresty start
+Starting openresty (via systemctl):                        [  OK  ]
+```
+
+```console
+$ sudo netstat -plunt | grep nginx
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      32385/nginx: master
+```
+```console
+$ ps axu|grep open
+root     32385  0.0  0.0  37528  1220 ?        Ss   01:45   0:00 nginx: master process /usr/local/openresty/nginx/sbin/nginx -c /usr/local
+/openresty/nginx/conf/nginx.conf
+```
+
+```console
+$ curl localhost:8080
+<p>hello, my openresty world</p>
 ```
