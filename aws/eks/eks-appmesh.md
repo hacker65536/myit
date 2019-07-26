@@ -143,11 +143,11 @@ The injector is ready
 ```console
 $ kubectl -n appmesh-inject get po
 NAME                                   READY   STATUS    RESTARTS   AGE
-aws-app-mesh-inject-69bc8b6499-rrh2z   1/1     Running   0          4m9s
+aws-app-mesh-inject-69bc8b6499-ds89q   1/1     Running   0          60s
 ```
 
 ```console
-$ curl https://raw.githubusercontent.com/aws/aws-app-mesh-controller-for-k8s/v0.1.0/deploy/v0.1.0/all.yaml | kubectl apply -f -
+$ curl -SsL https://raw.githubusercontent.com/aws/aws-app-mesh-controller-for-k8s/v0.1.0/deploy/v0.1.0/all.yaml | kubectl apply -f -
 customresourcedefinition.apiextensions.k8s.io/meshes.appmesh.k8s.aws created
 customresourcedefinition.apiextensions.k8s.io/virtualnodes.appmesh.k8s.aws created
 customresourcedefinition.apiextensions.k8s.io/virtualservices.appmesh.k8s.aws created
@@ -159,7 +159,7 @@ clusterrolebinding.rbac.authorization.k8s.io/app-mesh-controller-binding created
 ```
 ```console
 $ kubectl wait $(kubectl get pods -n appmesh-system -o name) --for=condition=Ready --timeout=30s -n appmesh-system
-pod/app-mesh-controller-6b89ccfb8c-l6dsx condition met
+pod/app-mesh-controller-6b89ccfb8c-7zkvh condition met
 ```
 
 ```console
@@ -173,6 +173,12 @@ virtualservices                appmesh.k8s.aws   true         VirtualService
 ```console
 $ git clone https://github.com/aws/aws-app-mesh-controller-for-k8s.git
 $ cd aws-app-mesh-controller-for-k8s
+```
+
+
+```console
+$ export AWS_REGION=yours
+$ export AWS_ACCOUNT=yours
 ```
 ```console
 $ make example
@@ -203,45 +209,47 @@ deployment.apps/tcpecho created
 ```
 
 
-```
+```console
 $ kubectl -n appmesh-demo get deploy,po,svc,virtualnode.appmesh.k8s.aws,virtualservice.appmesh.k8s.aws
 NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.extensions/colorgateway        1/1     1            1           28s
-deployment.extensions/colorteller         1/1     1            1           28s
-deployment.extensions/colorteller-black   1/1     1            1           28s
-deployment.extensions/colorteller-blue    1/1     1            1           28s
-deployment.extensions/colorteller-red     1/1     1            1           28s
-deployment.extensions/tcpecho             1/1     1            1           27s
+deployment.extensions/colorgateway        1/1     1            1           4m43s
+deployment.extensions/colorteller         1/1     1            1           4m43s
+deployment.extensions/colorteller-black   1/1     1            1           4m42s
+deployment.extensions/colorteller-blue    1/1     1            1           4m42s
+deployment.extensions/colorteller-red     1/1     1            1           4m42s
+deployment.extensions/tcpecho             1/1     1            1           4m42s
 
 NAME                                     READY   STATUS    RESTARTS   AGE
-pod/colorgateway-678c7b88b4-jg7wn        1/1     Running   0          28s
-pod/colorteller-759fc757cc-hbg7j         1/1     Running   0          28s
-pod/colorteller-black-6c5dd7689c-nqgk5   1/1     Running   0          28s
-pod/colorteller-blue-58dbf546d5-nm88k    1/1     Running   0          28s
-pod/colorteller-red-fc6655769-jj6zp      1/1     Running   0          28s
-pod/tcpecho-6db7bff7cd-cst2c             1/1     Running   0          27s
+pod/colorgateway-678c7b88b4-xmzx5        1/1     Running   0          4m43s
+pod/colorteller-759fc757cc-j468v         1/1     Running   0          4m43s
+pod/colorteller-black-6c5dd7689c-8mx49   1/1     Running   0          4m42s
+pod/colorteller-blue-58dbf546d5-gtm9r    1/1     Running   0          4m42s
+pod/colorteller-red-fc6655769-b5xhc      1/1     Running   0          4m42s
+pod/tcpecho-6db7bff7cd-vxfds             1/1     Running   0          4m42s
 
-NAME                        TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
-service/colorgateway        ClusterIP   10.100.114.7     <none>        9080/TCP   28s
-service/colorteller         ClusterIP   10.100.144.40    <none>        9080/TCP   28s
-service/colorteller-black   ClusterIP   10.100.62.90     <none>        9080/TCP   28s
-service/colorteller-blue    ClusterIP   10.100.205.106   <none>        9080/TCP   28s
-service/colorteller-red     ClusterIP   10.100.212.134   <none>        9080/TCP   28s
-service/tcpecho             ClusterIP   10.100.243.101   <none>        2701/TCP   27s
+NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/colorgateway        ClusterIP   10.100.142.47   <none>        9080/TCP   4m43s
+service/colorteller         ClusterIP   10.100.46.206   <none>        9080/TCP   4m43s
+service/colorteller-black   ClusterIP   10.100.20.64    <none>        9080/TCP   4m43s
+service/colorteller-blue    ClusterIP   10.100.248.80   <none>        9080/TCP   4m42s
+service/colorteller-red     ClusterIP   10.100.99.59    <none>        9080/TCP   4m42s
+service/tcpecho             ClusterIP   10.100.144.88   <none>        2701/TCP   4m42s
 
 NAME                                            AGE
-virtualnode.appmesh.k8s.aws/colorgateway        28s
-virtualnode.appmesh.k8s.aws/colorteller         28s
-virtualnode.appmesh.k8s.aws/colorteller-black   28s
-virtualnode.appmesh.k8s.aws/colorteller-blue    28s
-virtualnode.appmesh.k8s.aws/colorteller-red     28s
-virtualnode.appmesh.k8s.aws/tcpecho             28s
+virtualnode.appmesh.k8s.aws/colorgateway        4m
+virtualnode.appmesh.k8s.aws/colorteller         4m
+virtualnode.appmesh.k8s.aws/colorteller-black   4m
+virtualnode.appmesh.k8s.aws/colorteller-blue    4m
+virtualnode.appmesh.k8s.aws/colorteller-red     4m
+virtualnode.appmesh.k8s.aws/tcpecho             4m
 
 NAME                                                       AGE
-virtualservice.appmesh.k8s.aws/colorgateway.appmesh-demo   28s
-virtualservice.appmesh.k8s.aws/colorteller.appmesh-demo    28s
-virtualservice.appmesh.k8s.aws/tcpecho.appmesh-demo        28s
+virtualservice.appmesh.k8s.aws/colorgateway.appmesh-demo   4m
+virtualservice.appmesh.k8s.aws/colorteller.appmesh-demo    4m
+virtualservice.appmesh.k8s.aws/tcpecho.appmesh-demo        4m
 ```
+
+
 
 
 ```console
