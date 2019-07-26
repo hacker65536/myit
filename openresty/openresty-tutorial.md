@@ -44,6 +44,24 @@ mkdir -p /usr/local/openresty/site/lualib /usr/local/openresty/site/pod /usr/loc
 ln -sf /usr/local/openresty/nginx/sbin/nginx /usr/local/openresty/bin/openresty
 ```
 
+
+### from rmp
+
+```console
+$ sudo yum install yum-utils
+$ sudo yum-config-manager --add-repo https://openresty.org/package/centos/openresty.repo
+```
+
+if using amzn2
+
+```console
+$ sudo sed -e 's/$releasever/7/' -i /etc/yum.repos.d/openresty.repo
+```
+
+```console
+$ sudo yum install openresty
+```
+
 example
 --
 ```console
