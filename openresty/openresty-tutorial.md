@@ -188,3 +188,49 @@ root     32385  0.0  0.0  37528  1220 ?        Ss   01:45   0:00 nginx: master p
 $ curl localhost:8080
 <p>hello, my openresty world</p>
 ```
+
+
+addtional
+--
+
+
+`usr/local/openresty/nginx/conf/nginx.conf`
+
+```
+worker_processes  1;
+error_log logs/error.log;
+events {
+    worker_connections 1024;
+}
+http {
+    server {
+        listen 8080;
+        location / {
+            default_type text/html;
+            content_by_lua '
+                ngx.say("<p>hello, my openresty world</p>")
+            ';
+        }
+
+
+       location /openresty {
+            default_type text/html;
+            content_by_lua_file ./mylua/hello_world.lua;
+       }
+    }
+}
+```
+
+`/usr/local/openresty/nginx/mylua/hello_world.lua`
+```lua
+ngx.say("<p>hello from myfile</p>");
+```
+
+```console
+$ sudo service openresty restart
+```
+
+```console
+$  curl localhost:8080/openresty
+<p>hello from myfile</p>
+```
