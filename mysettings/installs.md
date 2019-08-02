@@ -48,6 +48,15 @@ aws
 - awscli
 
 
+```console
+$ pip install --user -U awscli
+```
+
+```console
+$ pip install --user aws-sam-cli
+```
+
+
 vim
 --
 - vim-golang
