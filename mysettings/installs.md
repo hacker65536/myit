@@ -9,7 +9,7 @@ common
 
 
 ```console
-$ sudo yum install -y git
+$ sudo yum install -y git gcc
 ```
 
 jq 1.6+
