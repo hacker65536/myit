@@ -62,3 +62,19 @@ pathogen
 $ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 ```
+
+
+node
+--
+
+
+```console
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+```
+```console
+$ . ~/.bashrc
+```
+
+```console
+$ nvm install --lts
+```
