@@ -84,3 +84,10 @@ $ . ~/.bashrc
 ```console
 $ nvm install --lts
 ```
+
+typescript
+
+pip
+--
+
+- ansible
