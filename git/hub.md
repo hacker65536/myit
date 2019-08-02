@@ -17,7 +17,7 @@ $ export GO111MODULE=on
 $ sudo make install prefix=/usr/local
 ```
 
-god an error if without `export GO111MODULE=on`
+got an error if without `export GO111MODULE=on`
 ```
 $ sudo make install prefix=/usr/local
 script/build -o bin/hub
