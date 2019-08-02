@@ -35,6 +35,13 @@ sh
 - fish
 
 
+fish([here](/fish/install-fish.md))
+```console
+$ cd /etc/yum.repos.d/
+$ sudo wget https://download.opensuse.org/repositories/shells:fish:release:3/RHEL_7/shells:fish:release:3.repo
+$ sudo yum install fish
+```
+
 aws
 --
 - aws-sam-cli
