@@ -12,7 +12,7 @@ common
 $ sudo yum install -y git gcc
 ```
 
-jq 1.6+
+jq 1.6+ ([here](/jq/install_jq.md))
 ```console
 $ sudo curl -SsL -o jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
 $ sudo chmod +x jq 
@@ -20,6 +20,14 @@ $ sudo mv jq /usr/local/bin/jq
 ```
 
 
+golang ([here](/golang/golang-install.md))
+```console
+$ sudo rpm --import https://mirror.go-repo.io/centos/RPM-GPG-KEY-GO-REPO
+$ curl -s https://mirror.go-repo.io/centos/go-repo.repo | sudo tee /etc/yum.repos.d/go-repo.repo
+$ sudo sed -e 's/\$releasever/7/' -i /etc/yum.repos.d/go-repo.repo  #amzlinu2
+$ sudo yum install gcc # before install golang 1.11 from outside of amzn2-core
+$ sudo yum install golang --disablerepo=amzn2-core,amzn2extra-golang1.9 --enablerepo=go-repo
+```
 
 
 sh
