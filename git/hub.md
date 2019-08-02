@@ -13,8 +13,19 @@ $ git clone \
   --config fetch.fsckobjects=false \
   https://github.com/github/hub.git "$GOPATH"/src/github.com/github/hub
 $ cd "$GOPATH"/src/github.com/github/hub
-$ make install prefix=/usr/local
+$ export GO111MODULE=on 
+$ sudo make install prefix=/usr/local
 ```
+
+god an error if without `export GO111MODULE=on`
+```
+$ sudo make install prefix=/usr/local
+script/build -o bin/hub
+build flag -mod=vendor only valid when using modules
+make: *** [bin/hub] Error 1
+```
+
+
 
 download binary
 ```console
