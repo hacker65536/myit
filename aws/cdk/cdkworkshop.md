@@ -11,13 +11,13 @@ require
 awscli
 ```console 
 $ aws --version
-aws-cli/1.16.209 Python/2.7.16 Linux/4.14.133-113.105.amzn2.x86_64 botocore/1.12.199
+aws-cli/1.16.210 Python/2.7.16 Linux/4.14.133-113.105.amzn2.x86_64 botocore/1.12.200
 ```
 
 node 
 ```console
 $ node -v   
-v10.16.0
+v10.16.1
 ```
 
 cdk
