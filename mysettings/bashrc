@@ -1,0 +1,5 @@
+
+
+
+# history size
+HISTSIZE=100000
