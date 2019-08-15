@@ -13,3 +13,16 @@ https://wiki.jenkins.io/display/JENKINS/Role+Strategy+Plugin
 6. assing role in assign roles
 
 
+
+全体的な設定
+- Jenkinsの管理 -> Manage and Assign Roles -> Manage Roles
+  - global rolesにadmin以外のroleを追加
+- Jenkinsの管理 -> Manage and Assign Roles -> Assign Roles
+  - global rolesに作成したroleにユーザを追加して適応する
+
+
+個別な設定
+- Jenkinsの管理 -> Manage and Assign Roles -> Manage Roles
+  - project rolesにパターンにマッチ(ジョブ名)したroleを追加
+- Jenkinsの管理 -> Manage and Assign Roles -> Assign Roles
+  - item rolesに作成したroleにユーザを追加して適応する
