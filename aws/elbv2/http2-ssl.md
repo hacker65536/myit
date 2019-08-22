@@ -9,7 +9,7 @@ curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR (err 1)
 
 
 ```apache
-IfModule mod_http2.c>
+<IfModule mod_http2.c>
     Protocols h2 h2c http/1.1
 </IfModule>
 LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
@@ -23,7 +23,7 @@ error_log
 
 should be enable http2
 ```apache
-IfModule mod_http2.c>
+<IfModule mod_http2.c>
     Protocols h2 h2c http/1.1
 </IfModule>
 #LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
@@ -34,7 +34,7 @@ or
 
 disable http2
 ```apache
-#IfModule mod_http2.c>
+#<IfModule mod_http2.c>
 #    Protocols h2 h2c http/1.1
 #</IfModule>
 LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
