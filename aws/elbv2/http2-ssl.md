@@ -22,7 +22,7 @@ error_log
 
 
 should be enable http2
-```
+```apache
 IfModule mod_http2.c>
     Protocols h2 h2c http/1.1
 </IfModule>
@@ -33,7 +33,7 @@ LoadModule mpm_event_module modules/mod_mpm_event.so
 or
 
 disable http2
-```
+```apache
 #IfModule mod_http2.c>
 #    Protocols h2 h2c http/1.1
 #</IfModule>
