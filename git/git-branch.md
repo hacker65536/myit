@@ -32,3 +32,39 @@ git branch -u upstream/foo foo
 git branch --set-upstream-to=upstream/foo
 git branch --set-upstream-to=upstream/foo foo
 ```
+
+
+```console
+$ git remote
+hacker65536
+origin
+```
+
+```console
+$ git branch --v
+* fix    d4939d5 fix
+  master 6f1143e Create pull_request_template.md
+```
+```console
+$ git branch -vv
+* fix    d4939d5 [hacker65536/fix] fix
+  master 6f1143e [hacker65536/master] Create pull_request_template.md
+```
+```console
+$ git branch --set-upstream-to origin/master
+Branch 'fix' set up to track remote branch 'master' from 'origin'.
+```
+```console
+$ git branch -vv
+* fix    d4939d5 [origin/master: ahead 1] fix
+  master 6f1143e [hacker65536/master] Create pull_request_template.md
+```
+```console
+$ git branch master --set-upstream-to origin/master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+```
+```console
+$ git branch -vv
+* fix    d4939d5 [origin/master: ahead 1] fix
+  master 6f1143e [origin/master] Create pull_request_template.md
+```
