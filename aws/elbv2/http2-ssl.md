@@ -40,3 +40,8 @@ disable http2
 LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 #LoadModule mpm_event_module modules/mod_mpm_event.so
 ```
+
+
+
+
+https://dev.classmethod.jp/cloud/aws/resolve-safari-and-alb-https-connection-errors/
