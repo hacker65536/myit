@@ -146,3 +146,33 @@ lts/dubnium -> v10.15.1
 $ nvm uninstall --lts
 Uninstalled node v10.15.1
 ```
+
+
+
+tips
+--
+
+if get message as below 
+```
+N/A: version "N/A -> N/A" is not yet installed.
+
+You need to run "nvm install N/A" to install it before using it.
+```
+
+```console
+$ nvm ls
+->      v8.10.0
+       v10.16.1
+default -> lts/* (-> N/A)
+```
+```console
+$ nvm install --lts
+```
+
+```console
+$ nvm ls
+        v8.10.0
+       v10.16.1
+->     v10.16.3
+default -> lts/* (-> v10.16.3)
+```
