@@ -55,6 +55,14 @@ $ sudo wget https://download.opensuse.org/repositories/shells:fish:release:3/RHE
 $ sudo yum install fish
 ```
 
+```
+$ curl -L https://get.oh-my.fish | fish
+```
+```
+$ omf install bobthefish
+```
+
+
 aws
 --
 - aws-sam-cli
