@@ -9,3 +9,8 @@
         option  is supplied, the exit status is 0 if command was found, and 1 if not.  If neither option is supplied and an error occurred or com‐
         mand cannot be found, the exit status is 127.  Otherwise, the exit status of the command builtin is the exit status of command.
 ```
+
+
+-p
+-V 
+-v
