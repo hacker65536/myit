@@ -107,7 +107,9 @@ $ . ~/.bashrc
 $ nvm install --lts
 ```
 
-typescript
+```console
+$ npm i aws-cdk
+```
 
 pip
 --
