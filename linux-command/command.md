@@ -10,7 +10,16 @@
         mand cannot be found, the exit status is 127.  Otherwise, the exit status of the command builtin is the exit status of command.
 ```
 
+```
+$ command -V ls
+ls is aliased to `ls --color=auto'
+```
+```
+$ command -v ls
+alias ls='ls --color=auto'
+```
 
--p
--V 
--v
+```
+$ command -p ls
+bin  etc  games  include  lib  lib64  libexec  sbin  share  src
+```
