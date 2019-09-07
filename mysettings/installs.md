@@ -108,7 +108,7 @@ $ nvm install --lts
 ```
 
 ```console
-$ npm i aws-cdk
+$ npm i -g aws-cdk
 ```
 
 pip
