@@ -18,6 +18,15 @@ $ ./configure --enable-python3interp
 ```console
 $ make
 ```
+
+
+
 ```console
 $ sudo make install
+```
+
+
+
+```console
+$ sudo yum remove vim-enhanced vim-common vim-filesystem
 ```
