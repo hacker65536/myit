@@ -8,9 +8,22 @@ common
 - jq
 
 
+
 ```console
 $ sudo yum install -y git gcc
 ```
+
+
+vim 8.1+ with python3 ([here](/vim/vim8-from-source.md))
+
+```console
+$ git clone https://github.com/vim/vim.git
+$ cd vim
+$ ./configure --enable-python3interp
+$ make
+$ sudo make install
+```
+
 
 jq 1.6+ ([here](/jq/install_jq.md))
 ```console
