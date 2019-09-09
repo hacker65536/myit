@@ -23,7 +23,7 @@ $ chmod +x ./kubectl
 $ mv ./kubectl ~/.local/bin
 ```
 ```console
- kubectl version --short --client
+$ kubectl version --short --client
 Client Version: v1.14.6-eks-5047ed
 ```
 
