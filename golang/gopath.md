@@ -7,3 +7,17 @@ EOF
 
 $ . ~/.bashrc
 ```
+
+
+
+
+
+
+
+
+improve
+```bash
+# GOPATH
+export GOPATH=$(go env GOPATH)    # "$HOME/go"
+export PATH="$PATH:${GOPATH//://bin:}/bin"
+```
