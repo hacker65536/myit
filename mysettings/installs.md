@@ -162,3 +162,20 @@ if [ -f $(which hub).bash_completion.sh ]; then
 fi
 EOF
 ```
+
+
+
+docker
+--
+
+```
+$ sudo amazon-linux-extras install docker
+$ sudo systemctl enable docker
+$ sudo systemctl start docker
+```
+```
+$ sudo usermod -a -G docker ec2-user
+```
+```
+$ newgrp docker # optional if you dont want to re-login 
+```
