@@ -53,3 +53,21 @@ specify dir
 mkdir tmp
 tar xf archive.tar.gz -C tmp
 ```
+
+
+tips
+--
+
+
+
+```
+tar: Removing leading `/' from member names
+```
+
+絶対パスでアーカイブする場合、展開時に問題が起こるので `-P` ではなく `-C`をつける 
+
+
+https://curecode.jp/tech/tar-removing-leading-from-member-names/
+
+https://unix.stackexchange.com/questions/59243/tar-removing-leading-from-member-names
+
