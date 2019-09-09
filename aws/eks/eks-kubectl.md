@@ -15,8 +15,16 @@ $ curl -SsL -o kubectl.sha256 https://amazon-eks.s3-us-west-2.amazonaws.com/1.14
 $ openssl sha1 -sha256 kubectl
 ```
 ```console
+$ diff <(openssl sha1 -sha256 kubectl|cut -d ' ' -f 2) <(cat kubectl.sha256 | cut -d ' ' -f 1) && echo equal || echo not equal
+```
+
+```console
 $ chmod +x ./kubectl
 $ mv ./kubectl ~/.local/bin
+```
+```console
+ kubectl version --short --client
+Client Version: v1.14.6-eks-5047ed
 ```
 
 kubernetes 1.11
