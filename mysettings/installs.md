@@ -130,3 +130,35 @@ go pkg
 --
 
 hub
+
+```console
+$ mkdir -p "$GOPATH"/src/github.com/github
+$ git clone \
+  --config transfer.fsckobjects=false \
+  --config receive.fsckobjects=false \
+  --config fetch.fsckobjects=false \
+  https://github.com/github/hub.git "$GOPATH"/src/github.com/github/hub
+$ cd "$GOPATH"/src/github.com/github/hub
+$ export GO111MODULE=on 
+$ sudo make install prefix=/usr/local
+```
+
+```
+$ cd /usr/local/bin/
+$ sudo curl -SsLO https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh
+$ sudo chmod 755 !$:t
+```
+
+```
+$ echo '" HUB' >> ~/.bashrc
+```
+```
+$ echo 'eval "$(hub alias -s)"' >> ~/.bashrc
+```
+```
+$ cat <<EOF >> ~/.bashrc
+if [ -f $(which hub).bash_completion.sh ]; then
+  . $(which hub).bash_completion.sh
+fi
+EOF
+```
