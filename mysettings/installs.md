@@ -150,7 +150,7 @@ $ sudo chmod 755 !$:t
 ```
 
 ```
-$ echo '" HUB' >> ~/.bashrc
+$ echo '# HUB' >> ~/.bashrc
 ```
 ```
 $ echo 'eval "$(hub alias -s)"' >> ~/.bashrc
