@@ -6,7 +6,7 @@ server: docker
 
 install client
 ```
-yum install https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+yum install https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
 yum install mysql
 ```
 ```
