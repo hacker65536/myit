@@ -324,3 +324,8 @@ NAME           TYPE           CLUSTER-IP      EXTERNAL-IP                       
 guestbook-ui   LoadBalancer   172.20.67.120   ac0b7180fd44e11e99902125241bd54a-1928627073.us-east-1.elb.amazonaws.com   80:30975/TCP   148m
 kubernetes     ClusterIP      172.20.0.1      <none>                                                                    443/TCP        4h30m
 ```
+
+```console
+$ kubectl describe service  guestbook-ui| grep Ingress
+LoadBalancer Ingress:     ac0b7180fd44e11e99902125241bd54a-1928627073.us-east-1.elb.amazonaws.com
+```
