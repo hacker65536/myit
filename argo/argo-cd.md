@@ -94,6 +94,18 @@ $ sudo chmod +x argocd
 $ sudo mv argocd /usr/local/bin/
 ```
 
+```console
+$ argocd version
+argocd: v1.2.0+674978c
+  BuildDate: 2019-09-04T21:26:04Z
+  GitCommit: 674978cd587701b39e81fce6d5c960b6d76d5882
+  GitTreeState: clean
+  GoVersion: go1.12.6
+  Compiler: gc
+  Platform: linux/amd64
+FATA[0000] Argo CD server address unspecified
+```
+
 ### Access The Argo CD API Server
 
 ```console
