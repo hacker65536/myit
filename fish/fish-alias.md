@@ -11,3 +11,6 @@ function reload
   source ~/.config/fish/config.fish
 end
 ```
+```fish
+. ~/.config/fish/config.fish
+```
