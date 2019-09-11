@@ -163,7 +163,7 @@ Cluster 'arn:aws:eks:us-east-1:000000000000:cluster/cluster-00000000-a069-4a06-b
 
 ```console
 $ argocd app create guestbook \
-                                 --repo https://github.com/argoproj/argocd-example-apps.git \
+                                 --repo https://github.com/hacker65536/argocd-example-apps.git \
                                  --path guestbook \
                                  --dest-server https://kubernetes.default.svc \
                                  --dest-namespace default
@@ -177,30 +177,32 @@ Project:            default
 Server:             https://kubernetes.default.svc
 Namespace:          default
 URL:                https://localhost:8080/applications/guestbook
-Repo:               https://github.com/argoproj/argocd-example-apps.git
+Repo:               https://github.com/hacker65536/argocd-example-apps.git
 Target:
 Path:               guestbook
 Sync Policy:        <none>
-Sync Status:        Synced to  (b4ebe00)
-Health Status:      Healthy
+Sync Status:        OutOfSync from  (b4ebe00)
+Health Status:      Missing
 
-GROUP  KIND        NAMESPACE  NAME          STATUS  HEALTH   HOOK  MESSAGE
-       Service     default    guestbook-ui  Synced  Healthy        service/guestbook-ui unchanged
-apps   Deployment  default    guestbook-ui  Synced  Healthy        deployment.apps/guestbook-ui unchanged
+GROUP  KIND        NAMESPACE  NAME          STATUS     HEALTH   HOOK  MESSAGE
+       Service     default    guestbook-ui  OutOfSync  Missing
+apps   Deployment  default    guestbook-ui  Synced     Healthy
+
 ```
 
 ```console
 $ argocd app sync guestbook
-TIMESTAMP                  GROUP        KIND   NAMESPACE                  NAME    STATUS   HEALTH        HOOK  MESSAGE
-2019-09-11T04:58:08+00:00            Service     default          guestbook-ui    Synced  Healthy
-2019-09-11T04:58:08+00:00   apps  Deployment     default          guestbook-ui    Synced  Healthy
+TIMESTAMP                  GROUP        KIND   NAMESPACE                  NAME    STATUS    HEALTH        HOOK  MESSAGE
+2019-09-11T08:29:15+00:00            Service     default          guestbook-ui  OutOfSync  Missing
+2019-09-11T08:29:15+00:00   apps  Deployment     default          guestbook-ui    Synced   Healthy
+2019-09-11T08:29:15+00:00            Service     default          guestbook-ui    Synced  Healthy
 
 Name:               guestbook
 Project:            default
 Server:             https://kubernetes.default.svc
 Namespace:          default
 URL:                https://localhost:8080/applications/guestbook
-Repo:               https://github.com/argoproj/argocd-example-apps.git
+Repo:               https://github.com/hacker65536/argocd-example-apps.git
 Target:
 Path:               guestbook
 Sync Policy:        <none>
@@ -210,14 +212,15 @@ Health Status:      Healthy
 Operation:          Sync
 Sync Revision:      b4ebe0049d2ad363760cd2624df36c3b0acaab0e
 Phase:              Succeeded
-Start:              2019-09-11 04:58:08 +0000 UTC
-Finished:           2019-09-11 04:58:09 +0000 UTC
-Duration:           1s
+Start:              2019-09-11 08:29:15 +0000 UTC
+Finished:           2019-09-11 08:29:15 +0000 UTC
+Duration:           0s
 Message:            successfully synced (all tasks run)
 
 GROUP  KIND        NAMESPACE  NAME          STATUS  HEALTH   HOOK  MESSAGE
-       Service     default    guestbook-ui  Synced  Healthy        service/guestbook-ui unchanged
+       Service     default    guestbook-ui  Synced  Healthy        service/guestbook-ui created
 apps   Deployment  default    guestbook-ui  Synced  Healthy        deployment.apps/guestbook-ui unchanged
+
 ````
 
 
