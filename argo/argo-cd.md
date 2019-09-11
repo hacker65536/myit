@@ -137,3 +137,63 @@ INFO[0000] ClusterRole "argocd-manager-role" created
 INFO[0000] ClusterRoleBinding "argocd-manager-role-binding" created, bound "argocd-manager" to "argocd-manager-role"
 Cluster 'arn:aws:eks:us-east-1:000000000000:cluster/cluster-00000000-a069-4a06-b6b1-3b0058a43c9f' added
 ```
+
+
+```console
+$ argocd app create guestbook \
+                                 --repo https://github.com/argoproj/argocd-example-apps.git \
+                                 --path guestbook \
+                                 --dest-server https://kubernetes.default.svc \
+                                 --dest-namespace default
+application 'guestbook' created
+```
+
+```console
+$ argocd app get guestbook
+Name:               guestbook
+Project:            default
+Server:             https://kubernetes.default.svc
+Namespace:          default
+URL:                https://localhost:8080/applications/guestbook
+Repo:               https://github.com/argoproj/argocd-example-apps.git
+Target:
+Path:               guestbook
+Sync Policy:        <none>
+Sync Status:        Synced to  (b4ebe00)
+Health Status:      Healthy
+
+GROUP  KIND        NAMESPACE  NAME          STATUS  HEALTH   HOOK  MESSAGE
+       Service     default    guestbook-ui  Synced  Healthy        service/guestbook-ui unchanged
+apps   Deployment  default    guestbook-ui  Synced  Healthy        deployment.apps/guestbook-ui unchanged
+```
+
+```console
+$ argocd app sync guestbook
+TIMESTAMP                  GROUP        KIND   NAMESPACE                  NAME    STATUS   HEALTH        HOOK  MESSAGE
+2019-09-11T04:58:08+00:00            Service     default          guestbook-ui    Synced  Healthy
+2019-09-11T04:58:08+00:00   apps  Deployment     default          guestbook-ui    Synced  Healthy
+
+Name:               guestbook
+Project:            default
+Server:             https://kubernetes.default.svc
+Namespace:          default
+URL:                https://localhost:8080/applications/guestbook
+Repo:               https://github.com/argoproj/argocd-example-apps.git
+Target:
+Path:               guestbook
+Sync Policy:        <none>
+Sync Status:        Synced to  (b4ebe00)
+Health Status:      Healthy
+
+Operation:          Sync
+Sync Revision:      b4ebe0049d2ad363760cd2624df36c3b0acaab0e
+Phase:              Succeeded
+Start:              2019-09-11 04:58:08 +0000 UTC
+Finished:           2019-09-11 04:58:09 +0000 UTC
+Duration:           1s
+Message:            successfully synced (all tasks run)
+
+GROUP  KIND        NAMESPACE  NAME          STATUS  HEALTH   HOOK  MESSAGE
+       Service     default    guestbook-ui  Synced  Healthy        service/guestbook-ui unchanged
+apps   Deployment  default    guestbook-ui  Synced  Healthy        deployment.apps/guestbook-ui unchanged
+````
