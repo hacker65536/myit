@@ -254,7 +254,7 @@ guestbook-ui-6f897fc676   1         1         1       113m
 ```
 
 ```console
-kubectl describe replicasets
+$ kubectl describe replicasets
 Name:           guestbook-ui-6f897fc676
 Namespace:      default
 Selector:       app=guestbook-ui,pod-template-hash=6f897fc676
