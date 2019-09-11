@@ -1,6 +1,8 @@
 
 https://orako-column.com/fish-shell/
 
+https://wiki.archlinux.org/index.php/Fish#Setting_fish_as_default_shell
+
 `~/.config/fish/config.fish`
 
 ```fish
