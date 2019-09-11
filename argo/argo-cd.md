@@ -199,6 +199,10 @@ apps   Deployment  default    guestbook-ui  Synced  Healthy        deployment.ap
 ````
 
 
+
+access to service
+--
+
 ```console
 $ kubectl get svc
 NAME           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
