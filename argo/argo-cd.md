@@ -109,7 +109,7 @@ FATA[0000] Argo CD server address unspecified
 ### Access The Argo CD API Server
 
 
-using elb
+using elb (expose external ip)
 ```console
 $ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 service/argocd-server patched
@@ -122,7 +122,10 @@ argocd-server   LoadBalancer   172.20.91.203   ada8ab7e8d46b11e9b1910a885beca66-
 
 access from operation server 
 ```console
-$ kubectl port-forward svc/argocd-server -n argocd --address 0.0.0.0 8080:443  
+$ kubectl port-forward svc/argocd-server -n argocd 8080:443  
+```
+```console
+$ kubectl port-forward svc/argocd-server -n argocd --address 0.0.0.0 8080:443 # external 
 ```
 
 
