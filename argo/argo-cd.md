@@ -197,3 +197,118 @@ GROUP  KIND        NAMESPACE  NAME          STATUS  HEALTH   HOOK  MESSAGE
        Service     default    guestbook-ui  Synced  Healthy        service/guestbook-ui unchanged
 apps   Deployment  default    guestbook-ui  Synced  Healthy        deployment.apps/guestbook-ui unchanged
 ````
+
+
+```console
+$ kubectl get svc
+NAME           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+guestbook-ui   ClusterIP   172.20.67.120   <none>        80/TCP    116m
+kubernetes     ClusterIP   172.20.0.1      <none>        443/TCP   3h59m
+```
+
+```console
+$ kubectl get deployments
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE
+guestbook-ui   1/1     1            1           121m
+```
+
+```console
+$ kubectl describe deployments guestbook-ui
+Name:                   guestbook-ui
+Namespace:              default
+CreationTimestamp:      Wed, 11 Sep 2019 04:43:51 +0000
+Labels:                 app.kubernetes.io/instance=guestbook
+Annotations:            deployment.kubernetes.io/revision: 1
+                        kubectl.kubernetes.io/last-applied-configuration:
+                          {"apiVersion":"apps/v1beta2","kind":"Deployment","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"guestbook"},"name":"...
+Selector:               app=guestbook-ui
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=guestbook-ui
+  Containers:
+   guestbook-ui:
+    Image:        gcr.io/heptio-images/ks-guestbook-demo:0.2
+    Port:         80/TCP
+    Host Port:    0/TCP
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   guestbook-ui-6f897fc676 (1/1 replicas created)
+Events:          <none>
+```
+
+
+```console
+$ kubectl get replicasets
+NAME                      DESIRED   CURRENT   READY   AGE
+guestbook-ui-6f897fc676   1         1         1       113m
+```
+
+```console
+kubectl describe replicasets
+Name:           guestbook-ui-6f897fc676
+Namespace:      default
+Selector:       app=guestbook-ui,pod-template-hash=6f897fc676
+Labels:         app=guestbook-ui
+                pod-template-hash=6f897fc676
+Annotations:    deployment.kubernetes.io/desired-replicas: 1
+                deployment.kubernetes.io/max-replicas: 2
+                deployment.kubernetes.io/revision: 1
+Controlled By:  Deployment/guestbook-ui
+Replicas:       1 current / 1 desired
+Pods Status:    1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:  app=guestbook-ui
+           pod-template-hash=6f897fc676
+  Containers:
+   guestbook-ui:
+    Image:        gcr.io/heptio-images/ks-guestbook-demo:0.2
+    Port:         80/TCP
+    Host Port:    0/TCP
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Events:           <none>
+```
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"guestbook"},"name":"guestbook-ui","namespace":"default"},"spec":{"ports":[{"port":80,"targetPort":80}],"selector":{"app":"guestbook-ui"}}}
+  creationTimestamp: "2019-09-11T04:43:51Z"
+  labels:
+    app.kubernetes.io/instance: guestbook
+  name: guestbook-ui
+  namespace: default
+  resourceVersion: "22142"
+  selfLink: /api/v1/namespaces/default/services/guestbook-ui
+  uid: c0b7180f-d44e-11e9-9902-125241bd54aa
+spec:
+  clusterIP: 172.20.67.120
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30975
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: guestbook-ui
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer:{}
+```
+
+`type: ClusterIP` => `type:LoadBalancer`
