@@ -18,3 +18,8 @@ aws fingerprint
 ```
 openssl pkey -in key_pair -pubout -outform DER | openssl md5 -c
 ```
+
+
+```console
+find ./ -name key_pair -type f | xargs -I{} bash -c 'openssl pkey -in {} -pubout -outform DER | openssl md5 -c'
+```
