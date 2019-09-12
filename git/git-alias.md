@@ -9,3 +9,13 @@ $ git config --global alias.ci commit
 $ git config --global alias.st status
 $ git config --global alias.last 'log -1 HEAD'
 ```
+
+`~/.gitconfig`
+```gitconfig
+[alias]
+        co = checkout
+        br = branch
+        ci = commit
+        st = status
+        last = log -1 HEAD
+```
