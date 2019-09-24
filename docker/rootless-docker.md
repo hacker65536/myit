@@ -87,7 +87,7 @@ set uid/gid map
 
 
 ```console
-cat <<'EOF'  | sudo tee /etc/subuid
+$ cat <<'EOF'  | sudo tee /etc/subuid
 ec2-user:1000:65536
 EOF
 ```
