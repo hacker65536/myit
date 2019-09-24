@@ -34,15 +34,15 @@ download source and make
 --
 ```console
 $ git clone -b v19.03.2 https://github.com/docker/engine.git
-cd engine
-export GOPATH=$(go env GOPATH)
-make 
+$ cd engine
+$ export GOPATH=$(go env GOPATH)
+$ make 
 ```
 
 install
 --
 ```console
-sudo GOPATH=$(go env GOPATH) make install
+$ sudo GOPATH=$(go env GOPATH) make install
 ```
 
 
