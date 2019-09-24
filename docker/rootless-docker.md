@@ -98,3 +98,17 @@ ec2-user:100000:65536
 EOF
 ```
 
+
+run rootless-docker
+--
+
+```console
+$ dockerd-rootless.sh --experimental --storage-driver vfs
+```
+
+```
+INFO[2019-09-24T07:16:57.134012418Z] Loading containers: done.
+INFO[2019-09-24T07:16:57.157688060Z] Docker daemon                                 commit=ed20165a37 graphdriver(s)=vfs version=dev
+INFO[2019-09-24T07:16:57.157785421Z] Daemon has completed initialization
+INFO[2019-09-24T07:16:57.174989371Z] API listen on /run/user/1000/docker.sock
+```
