@@ -114,7 +114,7 @@ INFO[2019-09-24T07:16:57.174989371Z] API listen on /run/user/1000/docker.sock
 ```
 
 
-run nginx from docker
+run nginx(docker)
 --
 
 using a another terminal
