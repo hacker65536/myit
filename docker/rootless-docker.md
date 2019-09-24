@@ -88,13 +88,13 @@ set uid/gid map
 
 ```console
 $ cat <<'EOF'  | sudo tee /etc/subuid
-ec2-user:1000:65536
+ec2-user:100000:65536
 EOF
 ```
 
 ```console
 $ cat <<'EOF'  | sudo tee /etc/subgid
-ec2-user:1000:65536
+ec2-user:100000:65536
 EOF
 ```
 
