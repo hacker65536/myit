@@ -14,6 +14,16 @@ $ mkdir -p ~/.docker/cli-plugins
 $ mv buildx ~/.docker/cli-plugins/docker-buildx
 ```
 
+```console
+export DOCKER_BUILDKIT=1
+```
+
+or
+
+`/etc/docker/daemon.json`
+```json
+{ "features": { "buildkit": true}}
+```
 
 ```console
 $ ~/cli/build/docker buildx
