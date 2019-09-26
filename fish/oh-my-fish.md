@@ -4,7 +4,7 @@ https://github.com/oh-my-fish/oh-my-fish
 
 
 ```console
-$ curl -L https://get.oh-my.fish | fish
+$ curl -SsL https://get.oh-my.fish | fish
 ```
 
 ```console
