@@ -69,3 +69,10 @@ export DOCKER_BUILDKIT=1
 docker build --platform=local -o . git://github.com/docker/buildx
 mv buildx ~/.docker/cli-plugins/docker-buildx
 ```
+
+
+```
+curl -Ss -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+source ~/.bashrc
+nvm install --lts
+```
