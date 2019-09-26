@@ -40,7 +40,7 @@ setup docker for build
 The `buildkit` used in build is a experimental feature, there is need to enable experimental teature.  
 https://github.com/docker/docker-ce/blob/master/components/cli/experimental/README.md
 ```console
-cat <<'EOF' | sudo tee /etc/docker/daemon.json
+$ cat <<'EOF' | sudo tee /etc/docker/daemon.json
 {
     "experimental": true
 }
