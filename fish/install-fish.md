@@ -13,7 +13,8 @@ https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A3&
 ### release3
 
 ```console
-$ sudo curl -Ssl -o /etc/yum.repos.d/shells:fish:release:3.repo  https://download.opensuse.org/repositories/shells:fish:release:3/RHEL_7/shells:fish:release:3.repo
+$ sudo curl -Ssl -o /etc/yum.repos.d/shells:fish:release:3.repo  
+https://download.opensuse.org/repositories/shells:fish:release:/3/RHEL_7/shells:fish:release:3.repo
 $ sudo yum install fish
 ```
 
