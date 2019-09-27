@@ -10,7 +10,7 @@ $ aws secretsmanager create-secret --name sectest
 ```
 $ aws secretsmanager put-secret-value \
 --secret-id arn:aws:secretsmanager:us-east-1:123456789012:secret:sectest-HO3ZnM \
---secret-string '[{"username":"bob"},{"password":"abc123xyz456"}]'
+--secret-string '{"username":"bob","password":"abc123xyz456"}'
 {
     "ARN": "arn:aws:secretsmanager:us-east-1:123456789012:secret:sectest-HO3ZnM",
     "Name": "sectest",
