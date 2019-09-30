@@ -1,9 +1,18 @@
+# TypeScript in 5 minutes
 
+http://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
+
+
+mkdir dir
+--
 ```console
 $ mkdir typescript
 $ cd !$
 ```
 
+
+install typescript
+--
 ```console
 $ npm i -g typescript
 ```
@@ -11,6 +20,10 @@ $ npm i -g typescript
 $ tsc --version
 Version 3.5.3
 ```
+
+
+typescript file
+--
 
 `greeter.ts`
 ```typescript
@@ -26,8 +39,19 @@ let user = { firstName: "Jane", lastName: "user" };
 document.body.innerHTML = greeter(user);
 ```
 
+compiling the code
+--
 ```console
 $ tsc greeter.ts
+```
+
+`greeter.js`
+```js
+function greeter(person) {
+    return 'Hello, ' + person.firstName + ' ' + person.lastName;
+}
+var user = { firstName: 'Jane', lastName: 'User' };
+document.body.textContent = greeter(user);
 ```
 
 `index.html`
