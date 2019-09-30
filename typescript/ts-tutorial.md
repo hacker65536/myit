@@ -66,6 +66,6 @@ document.body.textContent = greeter(user);
 ```
 
 ```console
-$ docker run --rm -it -d -v $(pwd):/usr/local/apache2/htdocs -p 80:80 httpd
+$ docker run --rm -it -d -v $(pwd):/usr/local/apache2/htdocs -p 80:80 --name tstest httpd
 ```
 
