@@ -52,3 +52,29 @@ fragment frag on User {
   }
 }
 ```
+
+
+```graphql
+mutation {
+  changeUserStatus(input: {message: "busy", emoji: ":grinning:"}) {
+    status {
+      emoji
+      id
+      message
+    }
+  }
+}
+```
+```graphql
+{
+  "data": {
+    "changeUserStatus": {
+      "status": {
+        "emoji": ":grinning:",
+        "id": "1169404",
+        "message": "busy"
+      }
+    }
+  }
+}
+```
