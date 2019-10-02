@@ -15,6 +15,8 @@ $ npm i -g yarn
 demo
 --
 
+https://yarnpkg.com/en/docs/usage
+
 ```
 $ mkdir prj && cd prj
 ```
