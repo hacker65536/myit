@@ -111,7 +111,7 @@ Do you want to continue (Y/n)?  Y
 Docker configuration file updated.
 ```
 
-```
+```console
 $ docker run --rm gcr.io/prj-13254/quickstart-image
 Unable to find image 'gcr.io/prj-13254/quickstart-image:latest' locally
 latest: Pulling from prj-13254/quickstart-image
