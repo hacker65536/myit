@@ -116,6 +116,10 @@ if [ -f '/home/ec2-user/google-cloud-sdk/path.bash.inc' ]; then . '/home/ec2-use
 if [ -f '/home/ec2-user/google-cloud-sdk/completion.bash.inc' ]; then . '/home/ec2-user/google-cloud-sdk/completion.bash.inc'; fi
 ```
 
+```console
+$ source ~/.bashrc
+```
+
 init
 --
 ```console
