@@ -7,13 +7,12 @@ https://prometheus.io/docs/prometheus/latest/getting_started/
 https://prometheus.io/download/
 
 ```
-curl -SsLO https://github.com/prometheus/prometheus/releases/download/v2.3.2/prometheus-2.3.2.linux-amd64.tar.gz
-tar xf !$:t
-cd !$:r:r
+$ wget -O - https://github.com/prometheus/prometheus/releases/download/v2.12.0/prometheus-2.12.0.linux-amd64.tar.gz | tar zxvf -
 ```
 
 ```
-./prometheus --config.file=prometheus.yml
+$ cd prometheus-2.12.0.linux-amd64/
+$ ./prometheus --config.file=prometheus.yml
 ```
 
 http://host:9090
