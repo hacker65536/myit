@@ -150,8 +150,78 @@ Enter verification code: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 You are logged in as: xxxxxx@xxxxxxxxxxxxxx
 ```
 
-- Pick project [4] xxxxxxxxxxxxx
-- specify a zone  [4] asia-northeast1-a
+
+```
+Pick cloud project to use:
+ [1] prj-121608
+ [2] prj-134209
+ [3] Create a new project
+Please enter numeric choice or text value (must exactly match list
+item):  1
+```
+```
+Which Google Compute Engine zone would you like to use as project
+default?
+If you do not specify a zone via a command line flag while working
+with Compute Engine resources, the default is assumed.
+ [1] us-east1-b
+ [2] us-east1-c
+ [3] us-east1-d
+ [4] us-east4-c
+ [5] us-east4-b
+ [6] us-east4-a
+ [7] us-central1-c
+ [8] us-central1-a
+ [9] us-central1-f
+ [10] us-central1-b
+ [11] us-west1-b
+ [12] us-west1-c
+ [13] us-west1-a
+ [14] europe-west4-a
+ [15] europe-west4-b
+ [16] europe-west4-c
+ [17] europe-west1-b
+ [18] europe-west1-d
+ [19] europe-west1-c
+ [20] europe-west3-c
+ [21] europe-west3-a
+ [22] europe-west3-b
+ [23] europe-west2-c
+ [24] europe-west2-b
+ [25] europe-west2-a
+ [26] asia-east1-b
+ [27] asia-east1-a
+ [28] asia-east1-c
+ [29] asia-southeast1-b
+ [30] asia-southeast1-a
+ [31] asia-southeast1-c
+ [32] asia-northeast1-b
+ [33] asia-northeast1-c
+ [34] asia-northeast1-a
+ [35] asia-south1-c
+ [36] asia-south1-b
+ [37] asia-south1-a
+ [38] australia-southeast1-b
+ [39] australia-southeast1-c
+ [40] australia-southeast1-a
+ [41] southamerica-east1-b
+ [42] southamerica-east1-c
+ [43] southamerica-east1-a
+ [44] asia-east2-a
+ [45] asia-east2-b
+ [46] asia-east2-c
+ [47] asia-northeast2-a
+ [48] asia-northeast2-b
+ [49] asia-northeast2-c
+ [50] europe-north1-a
+Did not print [12] options.
+Too many options [62]. Enter "list" at prompt to print choices fully.
+Please enter numeric choice or text value (must exactly match list
+item):  32
+```
+
+- Pick project [1] xxxxxxxxxxxxx
+- specify a zone  [32] asia-northeast1-b
 
 ```console
 $ ls -la ~/.config/gcloud/
