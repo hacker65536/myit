@@ -5,10 +5,24 @@ https://cloud.google.com/sdk/docs/quickstart-linux?hl=ja
 install to linux (x86_64)
 --
 ```console
-$ curl https://sdk.cloud.google.com | bash
+$ curl -SsL https://sdk.cloud.google.com | bash
 ```
 
 ```
+Downloading Google Cloud SDK install script: https://dl.google.com/dl/cloudsdk/channels/rapid/install_google_cloud_sdk.bash
+######################################################################## 100.0%
+Running install script from: /tmp/tmp.VHYIWA9Nhk/install_google_cloud_sdk.bash
+which curl
+curl -# -f https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.tar.gz
+############################################################################################# 100.0%
+
+Installation directory (this will create a google-cloud-sdk subdirectory) (/home/ec2-user):
+
+---snip----
+google-cloud-sdk/.install/core.snapshot.json
+google-cloud-sdk/.install/core.manifest
+google-cloud-sdk/.install/.download/
+
 /home/ec2-user/google-cloud-sdk/install.sh
 Welcome to the Google Cloud SDK!
 
@@ -28,19 +42,19 @@ the Google Cloud Platform.
 
 
 
-Your current Cloud SDK version is: 235.0.0
-Installing components from version: 235.0.0
+Your current Cloud SDK version is: 265.0.0
+Installing components from version: 265.0.0
 
 ┌────────────────────────────────────────────────────────────────────────────┐
 │                    These components will be installed.                     │
 ├─────────────────────────────────────────────────────┬────────────┬─────────┤
 │                         Name                        │  Version   │   Size  │
 ├─────────────────────────────────────────────────────┼────────────┼─────────┤
-│ BigQuery Command Line Tool                          │     2.0.41 │ < 1 MiB │
-│ BigQuery Command Line Tool (Platform Specific)      │     2.0.34 │ < 1 MiB │
-│ Cloud SDK Core Libraries (Platform Specific)        │ 2018.09.24 │ < 1 MiB │
-│ Cloud Storage Command Line Tool                     │       4.36 │ 3.6 MiB │
-│ Cloud Storage Command Line Tool (Platform Specific) │       4.34 │ < 1 MiB │
+│ BigQuery Command Line Tool                          │     2.0.48 │ < 1 MiB │
+│ BigQuery Command Line Tool (Platform Specific)      │     2.0.46 │ < 1 MiB │
+│ Cloud SDK Core Libraries (Platform Specific)        │ 2019.08.16 │ < 1 MiB │
+│ Cloud Storage Command Line Tool                     │       4.43 │ 3.6 MiB │
+│ Cloud Storage Command Line Tool (Platform Specific) │       4.42 │ < 1 MiB │
 │ Default set of gcloud commands                      │            │         │
 │ gcloud cli dependencies                             │ 2018.08.03 │ 8.6 MiB │
 └─────────────────────────────────────────────────────┴────────────┴─────────┘
@@ -76,7 +90,7 @@ Update done!
 Modify profile to update your $PATH and enable shell command
 completion?
 
-Do you want to continue (Y/n)?
+Do you want to continue (Y/n)?  Y
 
 The Google Cloud SDK installer will now prompt you to update an rc
 file to bring the Google Cloud CLIs into your environment.
@@ -91,8 +105,6 @@ Backing up [/home/ec2-user/.bashrc] to [/home/ec2-user/.bashrc.backup].
 
 For more information on how to get started, please visit:
   https://cloud.google.com/sdk/docs/quickstarts
-
-
 ```
 
 .bashrc
