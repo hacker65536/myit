@@ -2,7 +2,7 @@
 
 Node Version Manager
 
-https://github.com/creationix/nvm
+https://github.com/nvm-sh/nvm
 
 install nvm
 --
