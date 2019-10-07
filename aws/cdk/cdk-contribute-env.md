@@ -76,3 +76,16 @@ curl -SsL -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | 
 source ~/.bashrc
 nvm install --lts
 ```
+
+```
+sudo curl -SsL -o /etc/yum.repos.d/shells:fish:release:3.repo  https://download.opensuse.org/repositories/shells:fish:release:/3/RHEL_7/shells:fish:release:3.repo
+sudo yum install -y fish
+```
+
+```
+curl -SsL https://get.oh-my.fish | fish
+```
+
+```
+omf install bobthefish
+```
