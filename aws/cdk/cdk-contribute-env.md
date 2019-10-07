@@ -89,3 +89,28 @@ curl -SsL https://get.oh-my.fish | fish
 ```
 omf install bobthefish
 ```
+
+
+relogin
+
+```
+wget -O - https://github.com/github/hub/releases/download/v2.12.8/hub-linux-amd64-2.12.8.tgz | tar zxvf - 
+cd hub-linux-amd64-2.12.8
+sudo ./install
+```
+
+```
+echo 'eval "$(hub alias -s)"' >> ~/.bashrc
+```
+
+```
+cat <<EOF >> ~/.bashrc
+if [ -f $(which hub).bash_completion.sh ]; then
+  . $(which hub).bash_completion.sh
+fi
+EOF
+```
+
+```
+sudo curl -SsL -o /usr/local/bin/hub.bash_completion.sh  https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh
+```
