@@ -2,6 +2,15 @@ redis cli
 ==
 https://redis.io/topics/rediscli
 
+source
+--
+
+```
+$ wget -O - http://download.redis.io/releases/redis-5.0.5.tar.gz | tar xzvf -
+$ cd redis-5.0.5
+$ make
+```
+
 
 docker version
 --
