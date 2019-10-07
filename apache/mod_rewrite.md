@@ -53,3 +53,13 @@ https://httpd.apache.org/docs/current/rewrite/flags.html
 
 - L (last)
 - F (forbidden)
+
+
+
+ref
+--
+
+
+https://weblabo.oscasierra.net/apache-rewrite-4/
+
+https://oxynotes.com/?p=7392
