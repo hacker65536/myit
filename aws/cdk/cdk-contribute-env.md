@@ -72,7 +72,7 @@ mv buildx ~/.docker/cli-plugins/docker-buildx
 
 
 ```
-curl -Ss -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+curl -SsL -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
 source ~/.bashrc
 nvm install --lts
 ```
