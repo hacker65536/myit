@@ -29,9 +29,8 @@ make: *** [bin/hub] Error 1
 
 download binary
 ```console
-$ curl -SsLO https://github.com/github/hub/releases/download/v2.7.1/hub-linux-amd64-2.7.1.tgz
-$ tar zxvf !$:t
-$ cd !$:r
+$ curl -SsL https://github.com/github/hub/releases/download/v2.12.8/hub-linux-amd64-2.12.8.tgz | tar zxvf -
+$ cd hub-linux-amd64-2.12.8/
 $ sudo prefix=/usr/local ./install
 $ whereis hub
 hub: /usr/local/bin/hub
