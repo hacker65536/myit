@@ -31,3 +31,6 @@ javascript  environment
 
 aws environment
 --
+
+
+Attach a IAM role that can operate as a administrator.
