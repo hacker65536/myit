@@ -52,6 +52,28 @@ aws configure set cli_follow_urlparam false
 ```
 
 
+`myprofile=myprofile`
+`myses=mysessionname`
+```
+aws configure --profile $myprof set role_arn arn:aws:iam::000000000000:role/assumegroup
+aws configure --profile $myprof set source_profile  default
+aws configure --profile $myprof set role_session_name  $myses
+```
+```
+echo "export AWS_DEFAULT_PROFILE=$myprof" >> ~/.bashrc
+```
+```
+source ~/.bashrc
+```
+
+check your iam
+```
+aws sts get-caller-identity
+```
+
+
+completion for bash and fish
+
 Or attach a IAM role that can operate as a administrator.
 
 
