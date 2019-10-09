@@ -32,7 +32,7 @@ javascript  environment
 aws environment
 --
 
-configure aws cli
+install and configure awscli
 
 ```
 sudo yum install -y python3
@@ -45,7 +45,13 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+```
+aws configure set aws_access_key_id xxxxxx
+aws configure set aws_secret_access_key yyyyy
+aws configure set cli_follow_urlparam false
+```
 
-Attach a IAM role that can operate as a administrator.
+
+Or attach a IAM role that can operate as a administrator.
 
 
