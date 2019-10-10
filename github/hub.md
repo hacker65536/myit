@@ -73,6 +73,11 @@ $ mkdir -p ~/.config/fish/completions
 $ wget -O ~/.config/fish/completions/hub.fish
 ```
 
+
+
+pullreq
+--
+
 ```
 hub clone rails/rails
 
@@ -81,7 +86,6 @@ git clone https://github.com/rails/rails.git
 
 ```
 
-pullreq
 
 ```
 git pull-request -m "comment" -b repo:master [-h myfork:feature]
