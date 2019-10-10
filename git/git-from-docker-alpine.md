@@ -2,6 +2,10 @@
 
 https://github.com/alpine-docker/git/blob/master/Dockerfile
 
+https://pkgs.alpinelinux.org/package/edge/main/x86/git
+
+https://stackoverflow.com/questions/52899227/alpine-add-package-from-edge-repository
+
 
 ```Dockerfile
 FROM alpine
