@@ -63,6 +63,16 @@ $ sudo chmod 755 !$:t
 $ source ~/.bashrc
 ```
 
+fish completion
+--
+
+```console
+$ mkdir -p ~/.config/fish/completions
+```
+```console
+$ wget -O ~/.config/fish/completions/hub.fish
+```
+
 ```
 hub clone rails/rails
 
