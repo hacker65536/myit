@@ -72,7 +72,7 @@ aws sts get-caller-identity
 ```
 
 
-completion for bash and fish
+completion for fish
 ```
 omf install aws
 ```
