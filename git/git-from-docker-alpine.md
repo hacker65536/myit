@@ -7,6 +7,8 @@ https://pkgs.alpinelinux.org/package/edge/main/x86/git
 https://stackoverflow.com/questions/52899227/alpine-add-package-from-edge-repository
 
 
+`git-2.23.0-r1`
+
 ```Dockerfile
 FROM alpine
 
