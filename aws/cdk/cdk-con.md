@@ -73,7 +73,9 @@ aws sts get-caller-identity
 
 
 completion for bash and fish
-
+```
+omf install aws
+```
 Or attach a IAM role that can operate as a administrator.
 
 
