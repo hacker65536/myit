@@ -43,3 +43,15 @@ alias git="docker run -ti --rm -v $(pwd):/git -v $HOME/.ssh:/root/.ssh git223"
 $ git --version
 git version 2.23.0
 ```
+
+
+switch
+--
+
+```
+alias gitA='docker run -ti --rm -v $(pwd):/git -u="$(id -u $(whoami)):$(id -g $(whoami))" -v $HOME/.ssh/myprivatekeyA:~$(whoami)/.ssh/id_rsa -v /etc/passwd:/etc/passwd -v /etc/group:/etc/group git223'
+```
+
+```
+alias gitB='docker run -ti --rm -v $(pwd):/git -u="$(id -u $(whoami)):$(id -g $(whoami))" -v $HOME/.ssh/myprivatekeyB:~$(whoami)/.ssh/id_rsa -v /etc/passwd:/etc/passwd -v /etc/group:/etc/group git223'
+```
