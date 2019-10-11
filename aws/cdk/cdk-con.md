@@ -175,7 +175,7 @@ git clone -b v8.1.2135 https://github.com/vim/vim.git
 cd vim
 ```
 ```
-./configure --enable-python3interp
+ ./configure --enable-python3interp -enable-python3interp=dynamic --with-python3-config-dir=/usr/lib64/python3.7/config-3.7m-x86_64-linux-gnu/
 make
 ```
 ```
