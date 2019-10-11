@@ -24,6 +24,22 @@ sudo yum install -y gcc
 sudo yum install -y golang --disablerepo=amzn2-core,amzn2extra-golang1.9 --enablerepo=go-repo
 ```
 
+install git 2.23
+```
+sudo yum install -y git zlib-devel autoconf 
+```
+```
+git clone -b v2.23.0 https://github.com/git/git
+cd git
+```
+```
+make configure
+./configure --prefix=/usr
+make all
+sudo make install
+```
+
+
 docker environment
 --
 
