@@ -283,6 +283,13 @@ autocmd FileType typescript setlocal completeopt+=menu,preview
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 set number relativenumber
 
+" deoplete
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+" pip3 install --user pynvim
+let g:deoplete#enable_at_startup = 1
+
 "----custom-end----
 
 call vundle#end()            " required
