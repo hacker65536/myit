@@ -41,6 +41,12 @@ cd git
 make configure
 ./configure --prefix=/usr
 make all
+```
+
+```
+sudo yum remove -y git
+```
+```
 sudo make install
 ```
 
