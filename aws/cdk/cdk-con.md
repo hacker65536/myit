@@ -307,8 +307,15 @@ syntax enable
 
 ```
 
-
-
+```
+cd ~/.vim/bundle/vim-prettier/ && yarn install && cd -
+```
+```
+npm -g install typescript
+```
+```
+pip3 install --user pynvim
+```
 
 aws environment
 --
