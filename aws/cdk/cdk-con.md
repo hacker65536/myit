@@ -34,7 +34,7 @@ sudo yum install -y gcc
 sudo yum install -y golang --disablerepo=amzn2-core,amzn2extra-golang1.9 --enablerepo=go-repo
 ```
 
-install git 2.23
+install git 2.23.0
 ```
 sudo yum install -y git zlib-devel autoconf 
 ```
@@ -306,9 +306,6 @@ aws environment
 
 install and configure awscli
 
-```
-sudo yum install -y python3
-```
 ```
 pip3 install --user awscli
 ```
