@@ -30,7 +30,7 @@ sudo usermod -a -G docker $(whoami)
 newgrp docker
 ```
 
-for what?
+for building docker enging with DinD
 ```
 cat <<'EOF' | sudo tee /etc/docker/daemon.json
 {
@@ -79,7 +79,7 @@ nohup sudo /usr/local/bin/dockerd -D > /dev/null &
 
 
 
-install cli
+install docker cli
 
 ```
 git clone -b v19.03.3  https://github.com/docker/cli.git
