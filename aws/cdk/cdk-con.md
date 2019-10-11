@@ -30,7 +30,7 @@ docker environment
 Independent docker that is new version 
 
 ```
-sudo amazon-linux-extras install -y docker golang1.11
+sudo amazon-linux-extras install -y docker
 ```
 ```
 sudo usermod -a -G docker $(whoami)
