@@ -15,7 +15,14 @@ sudo mv jq /usr/local/bin/jq
 ```
 
 
-
+install golang
+```
+sudo rpm --import https://mirror.go-repo.io/centos/RPM-GPG-KEY-GO-REPO
+curl -s https://mirror.go-repo.io/centos/go-repo.repo | sudo tee /etc/yum.repos.d/go-repo.repo
+sudo sed -e 's/\$releasever/7/' -i /etc/yum.repos.d/go-repo.repo 
+sudo yum install -y gcc
+sudo yum install -y golang --disablerepo=amzn2-core,amzn2extra-golang1.9 --enablerepo=go-repo
+```
 
 docker environment
 --
