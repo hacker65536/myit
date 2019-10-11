@@ -4,6 +4,18 @@ OS
 
 amzlinux2
 
+development environment
+--
+
+install jq 1.6
+```
+sudo curl -SsL -o jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+sudo chmod +x jq
+sudo mv jq /usr/local/bin/jq
+```
+
+
+
 
 docker environment
 --
