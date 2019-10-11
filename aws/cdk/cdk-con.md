@@ -160,7 +160,7 @@ javascript  environment
 - nvm
 - node
 - typescript
--
+- yarn
 
 ```
 curl -SsL -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
@@ -175,6 +175,10 @@ nvm alias default v12.11.1
 for tsuquyomi
 ```
 npm -g install typescript
+```
+
+```
+npm -g install yarn
 ```
 
 editor environemnt
