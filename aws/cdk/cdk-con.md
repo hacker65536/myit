@@ -29,6 +29,7 @@ install git 2.23
 sudo yum install -y git zlib-devel autoconf 
 ```
 ```
+cd
 git clone -b v2.23.0 https://github.com/git/git
 cd git
 ```
@@ -71,6 +72,7 @@ sudo yum install -y device-mapper-devel
 ```
 
 ```
+cd
 git clone -b v19.03.3 https://github.com/docker/engine.git
 cd engine
 ```
@@ -105,6 +107,7 @@ nohup sudo /usr/local/bin/dockerd -D > /dev/null &
 install docker cli
 
 ```
+cd
 git clone -b v19.03.3  https://github.com/docker/cli.git
 cd cli
 ```
@@ -119,6 +122,7 @@ source  ~/.bashrc
 ```
 
 ```
+cd
 mkdir -p ~/.docker/cli-plugins/
 mkdir -p testdir && cd testdir
 ```
@@ -164,6 +168,9 @@ editor environemnt
 
 ```
 sudo yum install -y python3 ncurses-devel
+```
+```
+cd
 git clone -b v8.1.2135 https://github.com/vim/vim.git
 cd vim
 ```
