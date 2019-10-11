@@ -100,14 +100,25 @@ mkdir -p ~/.docker/cli-plugins/
 mkdir -p testdir && cd testdir
 ```
 ```
-echo 'export DOCKER_BUILDKIT=1' >> ~/.bashrc
-source  ~/.bashrc
+export DOCKER_BUILDKIT=1
 ```
 ```
 docker build --platform=local -o . git://github.com/docker/buildx
 mv buildx ~/.docker/cli-plugins/docker-buildx
 ```
 
+```
+cat /etc/docker/daemon.json | jq '.|= .+{"features":{"buildkit":true}}'| sudo tee /etc/docker/daemon.json
+```
+
+```json
+{
+  "experimental": true,
+  "features": {
+    "buildkit": true
+  }
+}
+```
 
 editor environemnt
 --
