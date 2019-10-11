@@ -10,6 +10,7 @@ development environment
 
 ```
 echo "export PROMPT_COMMAND='history -a'" >> ~/.bashrc
+echo 'HISTSIZE=100000' >> ~/.bashrc
 ```
 
 
