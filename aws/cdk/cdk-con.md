@@ -65,6 +65,12 @@ sudo yum remove -y git
 sudo make install
 ```
 
+```
+cd ~/workdir
+curl -SsL https://github.com/github/hub/releases/download/v2.12.8/hub-linux-amd64-2.12.8.tgz | tar zxvf -
+cd hub-linux-amd64-2.12.8/
+sudo prefix=/usr/local ./install
+```
 
 docker environment
 --
@@ -208,9 +214,7 @@ editor environemnt
 
 
 - vim
-
 - for vscode
-
 - syntax
 
 ```
