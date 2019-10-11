@@ -120,6 +120,15 @@ cat /etc/docker/daemon.json | jq '.|= .+{"features":{"buildkit":true}}'| sudo te
 }
 ```
 
+```
+sudo kill $(pgrep dockerd)
+```
+
+```
+nohup sudo /usr/local/bin/dockerd -D > /dev/null &
+```
+
+
 editor environemnt
 --
 
