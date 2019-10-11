@@ -203,9 +203,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "----custom-start---
-Plugin 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plugin 'prettier/vim-prettier'
+"Plug 'prettier/vim-prettier', {
+"  \ 'do': 'yarn install',
+"  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
@@ -217,7 +218,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='violet'
 let g:airline_powerline_fonts = 1
 
-Plugin 'fatih/vim-go', {'do': 'GoInstallBinaries'}
+Plugin 'fatih/vim-go'
+"Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
@@ -255,6 +257,16 @@ javascript  environment
 - node
 - typescript
 -
+
+```
+curl -SsL -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+source ~/.bashrc
+nvm install --lts
+nvm install node
+nvm alias default v12.11.1
+```
+
+
 
 aws environment
 --
