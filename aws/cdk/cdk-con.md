@@ -216,6 +216,23 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='violet'
 let g:airline_powerline_fonts = 1
 
+Plugin 'fatih/vim-go', {
+\ 'do': 'GoInstallBinaries'
+}
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 0
+let g:go_highlight_string_spellcheck = 1
+let g:go_highlight_types = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_extra_types = 1
+
 "----custom-end----
 
 call vundle#end()            " required
