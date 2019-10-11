@@ -6,6 +6,12 @@ amzlinux2
 
 development environment
 --
+```
+sudo yum update -y
+```
+```
+sudo reboot
+```
 
 ```
 mkdir ~/workdir
