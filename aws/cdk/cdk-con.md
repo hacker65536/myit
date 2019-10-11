@@ -21,9 +21,6 @@ sudo yum update -y
 sudo reboot
 ```
 
-```
-export PROMPT_COMMAND='history -a'
-```
 
 ```
 mkdir ~/workdir
