@@ -10,6 +10,92 @@ docker environment
 
 Independent docker that is new version 
 
+```
+sudo amazon-linux-extras install -y docker golang1.11
+```
+```
+sudo usermod -a -G docker $(whoami)
+newgrp docker
+```
+
+for what?
+```
+cat <<'EOF' | sudo tee /etc/docker/daemon.json
+{
+    "experimental": true
+}
+EOF
+```
+
+```
+sudo systemctl start docker
+```
+
+```
+sudo yum install -y device-mapper-devel
+```
+
+```
+git clone -b v19.03.3 https://github.com/docker/engine.git
+cd engine
+```
+
+
+`[+] Building 162.6s (67/67) FINISHED`
+```
+make
+```
+
+```
+sudo GOPATH=$(go env GOPATH) make install
+```
+
+```
+sudo systemctl stop docker
+```
+
+
+for root to excute command in /usr/local/bin
+```
+sudo sed -r -e 's|^(Defaults\s+secure_path.*)|\1:/usr/local/bin|' -i /etc/sudoers
+```
+
+run service of docker
+```
+nohup sudo /usr/local/bin/dockerd -D > /dev/null &
+```
+
+
+
+install cli
+
+```
+git clone -b v19.03.3  https://github.com/docker/cli.git
+cd cli
+```
+```
+make -f docker.Makefile binary
+sudo mv build/docker* /usr/local/bin/
+```
+
+```
+echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bashrc
+source  ~/.bashrc
+```
+
+```
+mkdir -p ~/.docker/cli-plugins/
+mkdir -p testdir && cd testdir
+```
+```
+echo 'export DOCKER_BUILDKIT=1' >> ~/.bashrc
+source  ~/.bashrc
+```
+```
+docker build --platform=local -o . git://github.com/docker/buildx
+mv buildx ~/.docker/cli-plugins/docker-buildx
+```
+
 
 editor environemnt
 --
