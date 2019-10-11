@@ -185,6 +185,45 @@ sudo make install
 sudo yum remove -y vim-enhanced vim-common vim-filesystem
 ```
 
+vim plugins(vundle)
+```
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
+
+`~/.vimrc`
+
+```vim
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+"----custom-start---
+Plugin 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='violet'
+let g:airline_powerline_fonts = 1
+
+"----custom-end----
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+syntax enable
+
+```
+
 javascript  environment
 --
 - nvm
