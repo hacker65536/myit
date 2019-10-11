@@ -90,3 +90,40 @@ git clone https://github.com/rails/rails.git
 ```
 git pull-request -m "comment" -b repo:master [-h myfork:feature]
 ```
+
+
+fork
+--
+
+```console
+$ git clone https://github.com/awsdocs/aws-xray-developer-guide.git
+$ cd aws-xray-developer-guide
+```
+```console
+$ git remote -v
+origin  https://github.com/awsdocs/aws-xray-developer-guide.git (fetch)
+origin  https://github.com/awsdocs/aws-xray-developer-guide.git (push)
+```
+```cosnole
+$ hub fork --remote-name=origin
+
+renaming existing "origin" remote to "upstream"
+Updating origin
+From https://github.com/awsdocs/aws-xray-developer-guide
+ * [new branch]      master     -> origin/master
+new remote: origin
+```
+
+```console
+$ git remote -v
+origin  git@github.com:hacker65536/aws-xray-developer-guide.git (fetch)
+origin  git@github.com:hacker65536/aws-xray-developer-guide.git (push)
+upstream        https://github.com/awsdocs/aws-xray-developer-guide.git (fetch)
+upstream        https://github.com/awsdocs/aws-xray-developer-guide.git (push)
+```
+
+```console
+$ git fetch upstream
+$ git merge upstream/master
+$ git push
+```
