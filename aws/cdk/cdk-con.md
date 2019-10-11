@@ -6,11 +6,22 @@ amzlinux2
 
 development environment
 --
+
+
+```
+echo "export PROMPT_COMMAND='history -a'" >> ~/.bashrc
+```
+
+
 ```
 sudo yum update -y
 ```
 ```
 sudo reboot
+```
+
+```
+export PROMPT_COMMAND='history -a'
 ```
 
 ```
