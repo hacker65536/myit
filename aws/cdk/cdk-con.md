@@ -138,19 +138,6 @@ source  ~/.bashrc
 ```
 
 ```
-cd ~/workdir
-mkdir -p ~/.docker/cli-plugins/
-mkdir -p testdir && cd testdir
-```
-```
-export DOCKER_BUILDKIT=1
-```
-```
-docker build --platform=local -o . git://github.com/docker/buildx
-mv buildx ~/.docker/cli-plugins/docker-buildx
-```
-
-```
 cat /etc/docker/daemon.json | jq '.|= .+{"features":{"buildkit":true}}'| sudo tee /etc/docker/daemon.json
 ```
 
@@ -166,6 +153,19 @@ cat /etc/docker/daemon.json | jq '.|= .+{"features":{"buildkit":true}}'| sudo te
 ```
 sudo kill -HUP $(pgrep dockerd)
 ```
+
+```
+cd ~/workdir
+mkdir -p ~/.docker/cli-plugins/
+mkdir -p testdir && cd testdir
+```
+
+```
+docker build --platform=local -o . git://github.com/docker/buildx
+mv buildx ~/.docker/cli-plugins/docker-buildx
+```
+
+
 
 
 javascript  environment
