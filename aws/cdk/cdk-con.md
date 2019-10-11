@@ -277,7 +277,7 @@ let g:go_highlight_extra_types = 1
 " tsuquyomi
 Plugin 'quramy/tsuquyomi'
 autocmd FileType typescript setlocal completeopt+=menu,preview
-" npm -g install typescript"
+" npm -g install typescript
 
 " numbertoggle
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
