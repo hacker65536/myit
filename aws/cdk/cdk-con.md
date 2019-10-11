@@ -205,7 +205,11 @@ Plugin 'VundleVim/Vundle.vim'
 "----custom-start---
 Plugin 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  \ 'branch': 'release/1.x',
+  \ 'for': [
+    \ 'javascript',
+    \ 'typescript']}
+
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
@@ -230,6 +234,15 @@ let g:go_highlight_string_spellcheck = 1
 let g:go_highlight_types = 1
 let g:go_highlight_function_parameters = 1
 let g:go_highlight_extra_types = 1
+
+" tsuquyomi
+Plugin 'quramy/tsuquyomi'
+autocmd FileType typescript setlocal completeopt+=menu,preview
+
+
+" numbertoggle
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+set number relativenumber
 
 "----custom-end----
 
