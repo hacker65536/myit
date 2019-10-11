@@ -167,7 +167,7 @@ editor environemnt
 - syntax
 
 ```
-sudo yum install -y python3 ncurses-devel
+sudo yum install -y python3-devel ncurses-devel
 ```
 ```
 cd
