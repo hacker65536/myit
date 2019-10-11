@@ -162,6 +162,21 @@ editor environemnt
 
 - syntax
 
+```
+sudo yum install -y python3 ncurses-devel
+git clone -b v8.1.2135 https://github.com/vim/vim.git
+cd vim
+```
+```
+./configure --enable-python3interp
+make
+```
+```
+sudo make install
+```
+```
+sudo yum remove -y vim-enhanced vim-common vim-filesystem
+```
 
 javascript  environment
 --
