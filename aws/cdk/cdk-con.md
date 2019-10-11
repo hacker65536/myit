@@ -216,9 +216,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='violet'
 let g:airline_powerline_fonts = 1
 
-Plugin 'fatih/vim-go', {
-\ 'do': 'GoInstallBinaries'
-}
+Plugin 'fatih/vim-go', {'do': 'GoInstallBinaries'}
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
