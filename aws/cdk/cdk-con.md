@@ -73,6 +73,21 @@ cd hub-linux-amd64-2.12.8/
 sudo prefix=/usr/local ./install
 ```
 
+```
+sudo curl -SsL -o /usr/local/bin/hub.bash_completion.sh https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh
+sudo chmod 755 /usr/local/bin/hub.bash_completion.sh
+```
+```
+cat <<EOF >> ~/.bashrc
+if [ -f $(which hub).bash_completion.sh ]; then
+  . $(which hub).bash_completion.sh
+fi
+EOF
+```
+```
+source ~/.bashrc
+```
+
 docker environment
 --
 
