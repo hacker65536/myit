@@ -450,7 +450,7 @@ alias
 --
 
 bash
-```
+```bash
 # runs an npm script via lerna for a the current module
 alias lr='lerna run --stream --scope $(node -p "require(\"./package.json\").name")'
 
@@ -463,7 +463,7 @@ alias lw='lr watch'
 ```
 
 fish
-```
+```fish
 # runs an npm script via lerna for a the current module
 alias lr 'lerna run --stream --scope (node -p "require(\"./package.json\").name")'
 
