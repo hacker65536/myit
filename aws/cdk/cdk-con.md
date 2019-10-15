@@ -381,3 +381,13 @@ hub clone aws/aws-cdk
 cd aws-cdk
 hub fork --remote-name=origin
 ```
+
+```
+git remote -v
+```
+```
+origin  git@github.com:hacker65536/aws-cdk.git (fetch)
+origin  git@github.com:hacker65536/aws-cdk.git (push)
+upstream        git://github.com/aws/aws-cdk.git (fetch)
+upstream        git://github.com/aws/aws-cdk.git (push)
+```
