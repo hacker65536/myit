@@ -127,3 +127,17 @@ $ git fetch upstream
 $ git merge upstream/master
 $ git push
 ```
+
+
+tips
+--
+
+`~/.config/hub`
+
+
+```yaml
+github.com:
+- user: hacker65536
+  oauth_token: <TOKEN>
+  protocol: https
+```
