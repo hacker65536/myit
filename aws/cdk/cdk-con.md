@@ -4,6 +4,12 @@ OS
 
 amzlinux2
 
+sensitive data
+--
+
+- aws credential
+- github token
+
 development environment
 --
 
