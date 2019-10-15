@@ -120,6 +120,14 @@ omf install bobthefish
 omf install aws
 ```
 
+`~/.config/fish/config.fish`
+```
+alias ef 'vim ~/.config/fish/config.fish'
+
+function reload
+  source ~/.config/fish/config.fish
+end
+```
 docker environment
 --
 
