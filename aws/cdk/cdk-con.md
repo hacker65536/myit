@@ -211,7 +211,7 @@ curl -SsL -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | 
 source ~/.bashrc
 nvm install --lts
 nvm install node
-nvm alias default v12.11.1
+nvm alias default node
 ```
 
 
