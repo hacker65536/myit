@@ -238,7 +238,7 @@ sudo yum install -y python3-devel ncurses-devel
 ```
 ```
 cd ~/workdir
-git clone -b v8.1.2135 https://github.com/vim/vim.git
+git clone -b v8.1.2151 https://github.com/vim/vim.git
 cd vim
 ```
 ```
