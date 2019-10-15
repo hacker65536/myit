@@ -369,3 +369,15 @@ omf install aws
 Or attach a IAM role that can operate as a administrator.
 
 
+
+git fork and clone
+--
+
+```
+hub clone aws/aws-cdk
+```
+
+```
+cd aws-cdk
+hub fork --remote-name=origin
+```
