@@ -369,8 +369,7 @@ omf install aws
 Or attach a IAM role that can operate as a administrator.
 
 
-
-git fork and clone
+fork and clone
 --
 
 ```
@@ -390,4 +389,14 @@ origin  git@github.com:hacker65536/aws-cdk.git (fetch)
 origin  git@github.com:hacker65536/aws-cdk.git (push)
 upstream        git://github.com/aws/aws-cdk.git (fetch)
 upstream        git://github.com/aws/aws-cdk.git (push)
+```
+
+```
+git branch -u origin/master master
+```
+```
+git status -sb
+## master...origin/master
+```
+
 ```
