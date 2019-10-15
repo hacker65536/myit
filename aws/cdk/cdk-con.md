@@ -94,6 +94,32 @@ EOF
 source ~/.bashrc
 ```
 
+
+
+fish
+
+```
+sudo curl -SsL -o /etc/yum.repos.d/shells:fish:release:3.repo  https://download.opensuse.org/repositories/shells:fish:release:/3/RHEL_7/shells:fish:release:3.repo
+```
+```
+sudo yum install -y fish
+```
+```
+mkdir -p touch ~/.config/fish/functions/
+touch ~/.config/fish/functions/fish_right_prompt.fish
+```
+
+omf
+```
+curl -SsL https://get.oh-my.fish | fish
+```
+```
+omf install bobthefish
+```
+```
+omf install aws
+```
+
 docker environment
 --
 
@@ -418,6 +444,4 @@ git branch -u origin/master master
 ```
 git status -sb
 ## master...origin/master
-```
-
 ```
