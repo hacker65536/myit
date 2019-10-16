@@ -111,7 +111,7 @@ touch ~/.config/fish/functions/fish_right_prompt.fish
 
 omf
 ```
-cd
+cd ~/workdir
 curl -L https://get.oh-my.fish > install
 fish install --offline=omf.tar.gz
 ```
