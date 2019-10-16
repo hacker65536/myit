@@ -143,7 +143,9 @@ sudo amazon-linux-extras install -y docker
 ```
 ```
 sudo usermod -a -G docker $(whoami)
-# newgrp docker   re-login
+# newgrp docker   1.
+# newgrp ec2-user 2.
+# or re-login
 ```
 
 for building docker enging with DinD
