@@ -145,6 +145,8 @@ sudo amazon-linux-extras install -y docker
 sudo usermod -a -G docker $(whoami)
 # newgrp docker   1.
 # newgrp ec2-user 2.
+# or 
+# sudo su - ec2-user
 # or re-login
 ```
 
