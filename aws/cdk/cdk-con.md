@@ -112,17 +112,18 @@ touch ~/.config/fish/functions/fish_right_prompt.fish
 omf
 ```
 cd ~/workdir
-curl -L https://get.oh-my.fish > install
-fish install --offline=omf.tar.gz
+git clone https://github.com/oh-my-fish/oh-my-fish
+cd oh-my-fish
+bin/install --offline
 ```
 ```
-fish omf install bobthefish
+omf install bobthefish
 ```
 ```
-fish omf install aws
+omf install aws
 ```
 
-
+change to bash from fish
 ```
 cat <<'EOF' > ~/.config/fish/config.fish
 alias ef 'vim ~/.config/fish/config.fish'
