@@ -111,13 +111,14 @@ touch ~/.config/fish/functions/fish_right_prompt.fish
 
 omf
 ```
-curl -SsL https://get.oh-my.fish | fish
+curl -L https://get.oh-my.fish > install
+fish install --offline=omf.tar.gz
 ```
 ```
-omf install bobthefish
+fish omf install bobthefish
 ```
 ```
-omf install aws
+fish omf install aws
 ```
 
 
