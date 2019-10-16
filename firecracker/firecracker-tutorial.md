@@ -388,3 +388,44 @@ You may change this message by editing /etc/motd.
 login[855]: root login on 'ttyS0'
 localhost:~#
 ```
+
+
+
+amazon-linux-extras
+--
+
+```
+$ repoquery -l firecracker
+/usr/bin/firecracker
+/usr/bin/jailer
+/usr/share/cargo-metadata/firecracker.json
+/usr/share/doc/firecracker-0.11.0
+/usr/share/doc/firecracker-0.11.0/CHANGELOG.md
+/usr/share/doc/firecracker-0.11.0/FAQ.md
+/usr/share/doc/firecracker-0.11.0/README.md
+/usr/share/doc/firecracker-0.11.0/SECURITY-POLICY.md
+/usr/share/licenses/firecracker-0.11.0
+/usr/share/licenses/firecracker-0.11.0/LICENSE
+/usr/share/licenses/firecracker-0.11.0/NOTICE
+/usr/share/licenses/firecracker-0.11.0/THIRD-PARTY
+```
+
+```
+$ firecracker
+2019-10-16T02:18:26.230817430 [:ERROR:src/main.rs:50] Panic occurred: PanicInfo { payload: Any, message: Some(Cannot create VMM.: Kvm(Error(2))), location: Location { file: "libcore/result.rs", line: 1009, col: 5 } }
+2019-10-16T02:18:26.235466999 [:ERROR:src/main.rs:54] stack backtrace:
+   0:     0x5598d1dd049c - <no info>
+   1:     0x5598d1dfc007 - <no info>
+   2:     0x5598d1dd3bc2 - <no info>
+   3:     0x5598d1dd39fd - <no info>
+   4:     0x5598d1decfdb - <no info>
+   5:     0x5598d1cc6ea2 - <no info>
+   6:     0x5598d1cc02d0 - <no info>
+   7:     0x5598d1ccbb82 - <no info>
+   8:     0x5598d1dd6531 - <no info>
+   9:     0x7f4bdb9b354a - <no info>
+  10:     0x7f4bdb4d42fe - <no info>
+  11:                0x0 - <no info>
+2019-10-16T02:18:26.235504675 [:ERROR:src/main.rs:58] Failed to log metrics on abort. Failed to log metrics. Logger was not initialized.:?
+Aborted
+```
