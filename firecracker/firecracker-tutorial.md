@@ -36,7 +36,7 @@ Your system looks ready for Firecracker!
 grant read/write access to KVM
 ```console
 $ sudo setfacl -m u:${USER}:rw /dev/kvm
-``
+```
 
 
 down load binary
