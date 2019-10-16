@@ -6,6 +6,8 @@ git log -S "keyword"
 git show COMMIT
 ```
 
+
+search commiter | author
 ```bash
 git log --pretty=full --committer=COMMITTER
 git log --pretty=full --author=AUTHOR
