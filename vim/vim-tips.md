@@ -16,7 +16,7 @@ No newline at end of file
 --
 
 Vim will adds a new line to file is saved.
-if dont need this change for commit into github, set binary noeol.
+If don't need this change for commit into github, set binary noeol.
 
 `\ No newline at end of file`
 ```
