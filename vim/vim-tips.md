@@ -15,7 +15,8 @@ go file
 No newline at end of file
 --
 
-when edit file for commit into github
+Vim will adds a new line to file is saved.
+if dont need this change for commit into github, set binary noeol.
 
 `\ No newline at end of file`
 ```
