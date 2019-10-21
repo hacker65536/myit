@@ -115,3 +115,69 @@ Run AWS services on-premises
 Discover, Deploy, and Publish Serverless Applications
 - **VMware Cloud on AWS**  
 Build a Hybrid Cloud without Custom Hardware
+
+
+Customer Engagement
+--
+
+- **Amazon Connect**  
+Cloud-based Contactcenter
+- **Amazon Pinpoint**  
+Personalized User Engagement Across Channels
+- **Amazon Simple Email Service (SES)**  
+Email Sending and Receiving
+
+
+Database
+--
+
+- **Amazon Aurora**  
+High Performance Managed Relational Database
+- **Amazon DynamoDB**  
+Managed NoSQL Database
+- **Amazon DocumentDB (with MongoDB compatibility)**  
+Fully managed document database
+- **Amazon ElastiCache**  
+In-memory Caching System
+- **Amazon Neptune**  
+Fully Mnagaed Graph Database Service 
+- **Amazon Quantum Ledger Database (QLDB)**  
+Fully maanaged ledger database
+- **Amazon RDS**  
+Managed Relational Database Service for MySQL, PostgreSQL, Oracle, SQL Server, and MariaDB
+- **Amazon RDS on VMware**  
+Automate on-premises database management 
+- **Amazon Redshift**  
+Fast, Simple, Cost-effective Data Warehousing
+- **Amazon Timestream**  
+Fully managed time series database
+- **AWS Database Migration Service**  
+Migrate Databases with Minimal Downtime
+
+Developer Tools
+--
+
+- **Amazon Corretto**  
+Production-ready distribution of OpenJDK
+- **AWS Cloud Development Kit (CDK)**  
+Model cloud infrastructure using code
+- **AWS Cloud9**  
+Write, Run, and Debug Code on a Cloud IDE
+- **AWS CodeBuild**  
+Build and Test Code
+- **AWS CodeCommit**  
+Store Code in Private Git Repositories
+- **AWS CodeDeploy**  
+Automate Code Deployment
+- **AWSCodePipeline**  
+Release Software using Continuous Delivery
+- **AWS CodeStar**  
+Develop and Deploy AWS Applications
+- **AWS Command Line Interface**  
+Unified Tool to Manage AWS Services
+- **AWS Device Farm**  
+Test Android, iOS, and web apps on real devices in the AWS cloud
+- **AWS Tools and SDKs**  
+Tools and SDKs for AWS
+- **AWS X-Ray**  
+Analyze and debug your applications
