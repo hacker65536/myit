@@ -27,7 +27,8 @@ $ aws kms list-aliases | jq '.[][]| select(.AliasName|contains("aws"))|.AliasNam
 
 
 ```
-$ aws kms list-aliases | jq '.[][]| select(.AliasName|contains("aws")) | select (.TargetKeyId!=null)|.AliasName'
+$ aws kms list-aliases | jq '.[][]| select(.AliasName|contains("aws")) | \
+select (.TargetKeyId!=null)|.AliasName'
 "alias/aws/acm"
 "alias/aws/cloud9"
 "alias/aws/codecommit"
