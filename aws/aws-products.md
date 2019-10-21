@@ -111,7 +111,7 @@ Run Containers without Managing Servers or Clusters
 Run your Code in Response to Events
 - **AWS Outposts**  
 Run AWS services on-premises
-- **AWS Serverless Application Repository*  
+- **AWS Serverless Application Repository**  
 Discover, Deploy, and Publish Serverless Applications
 - **VMware Cloud on AWS**  
 Build a Hybrid Cloud without Custom Hardware
