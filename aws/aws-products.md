@@ -55,7 +55,7 @@ Build and Run VR and AR Applications
 
 AWS Cost Management
 --
-- **AWS Cost Explorer** 
+- **AWS Cost Explorer**  
 Analyze Your AWS Cost and Usage
 - **AWS Budgets**  
 Set Custom Cost and Usage Budgets
