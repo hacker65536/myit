@@ -24,3 +24,22 @@ $ aws kms list-aliases | jq '.[][]| select(.AliasName|contains("aws"))|.AliasNam
 "alias/aws/ssm"
 "alias/aws/xray"
 ```
+
+
+```
+$ aws kms list-aliases | jq '.[][]| select(.AliasName|contains("aws")) | select (.TargetKeyId!=null)|.AliasName'
+"alias/aws/acm"
+"alias/aws/cloud9"
+"alias/aws/codecommit"
+"alias/aws/connect"
+"alias/aws/ebs"
+"alias/aws/kafka"
+"alias/aws/lambda"
+"alias/aws/lex"
+"alias/aws/lightsail"
+"alias/aws/rds"
+"alias/aws/s3"
+"alias/aws/secretsmanager"
+"alias/aws/sns"
+"alias/aws/ssm"
+```
