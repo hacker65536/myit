@@ -24,4 +24,5 @@ ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib
 ```
 
 `Mysql localhost != 127.0.0.1?`
+
 https://stackoverflow.com/questions/19712307/mysql-localhost-127-0-0-1
