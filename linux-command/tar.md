@@ -71,3 +71,13 @@ https://curecode.jp/tech/tar-removing-leading-from-member-names/
 
 https://unix.stackexchange.com/questions/59243/tar-removing-leading-from-member-names
 
+
+
+with pigz
+
+```
+tar -cf bigsizeback.tar.gz -I pigz /path/to/bigsizedir
+```
+```
+tar -I pigz -xf bigsizeback.tar.gz -C /tmp
+```
