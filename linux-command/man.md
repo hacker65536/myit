@@ -1,4 +1,7 @@
 
+Manual sections
+--
+
 ```bash
 man man
 ```
