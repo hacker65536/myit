@@ -13,6 +13,10 @@ pigz, which stands for parallel implementation of gzip
 
 
 
+https://stackoverflow.com/questions/36917882/how-to-use-pigz-with-tar
+
+
+
 fast pack
 ```
 tar -cf bigsizeback.tar.gz -I pigz /path/to/bigsizedir
