@@ -17,3 +17,9 @@ example
 ```
 lastcomm --strict-match --command a.out --user root --tty tty0
 ```
+
+
+required running service
+```
+sudo systemctl start psacct
+```
