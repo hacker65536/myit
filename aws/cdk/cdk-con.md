@@ -409,6 +409,15 @@ vscode settings
 
 
 
+watch for file changes in large workspace
+```
+echo 'fs.inotify.max_user_watches=524288' | sudo tee -a  /etc/sysctl.conf
+```
+```
+sudo sysctl -p
+```
+
+
 aws environment
 --
 
