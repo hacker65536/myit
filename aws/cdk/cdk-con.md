@@ -1,8 +1,24 @@
 
 
-OS
 
-amzlinux2
+
+preparation
+--
+
+AWS
+
+- Sign up for AWS, if you don't have AWS Account.
+- Create an IAM User with Admin.
+- Create a VPC(Subnet, SecurityGroup, IGW...etc)
+- Launch an EC2 instance with `Amazon Linux 2`
+
+
+The all following assume you operate with `Amazon Linux 2`
+
+GitHub
+
+- Sign up for GitHub, if you don't have GitHub Account.
+- Create a personal access token
 
 sensitive data
 --
