@@ -386,6 +386,16 @@ npm -g install typescript
 pip3 install --user pynvim
 ```
 
+vscode extensions
+
+vscode settings
+
+1. `ctrl/cmd` + `,` (Settings) 
+2. search `prettier.trailingComma`
+3. select **all**
+
+
+
 aws environment
 --
 
