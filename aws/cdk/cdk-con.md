@@ -388,6 +388,19 @@ pip3 install --user pynvim
 
 vscode extensions
 
+local
+- Remote - (*)
+- vscode-icons
+- Vim
+remote
+- Prettier - Code formatter
+- TSLint
+- Git History
+- GitLens
+- Git Blame
+- Git Graph
+
+
 vscode settings
 
 1. `ctrl/cmd` + `,` (Settings) 
