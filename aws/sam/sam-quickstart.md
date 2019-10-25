@@ -68,3 +68,20 @@ REPORT RequestId: 6825c606-7bf2-1d97-de49-8f318df1fec9  Duration: 111.19 ms     
 $ curl  http://127.0.0.1:3000/hello
 Hello, 1.2.3.4
 ```
+
+
+
+tips
+--
+
+```
+go get: no install location for directory /home/ec2-user/PATHTO/hello-world outside GOPATH
+        For more details see: 'go help gopath'
+```
+
+~/.bashrc
+```
+# GOPATH
+export GOPATH=$(go env GOPATH)    # "$HOME/go"
+export PATH="$PATH:${GOPATH//://bin:}/bin"
+```
