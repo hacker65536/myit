@@ -3,6 +3,7 @@
 https://aws.amazon.com/jp/premiumsupport/knowledge-center/authenticate-mfa-cli/
 
 https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.html#MFAProtectedAPI-user-mfa
+
 prepare
 --
 
@@ -62,5 +63,41 @@ $ eval $(sh mfa.sh)
     "Resource": ["*"],
     "Condition": {"Bool": {"aws:MultiFactorAuthPresent": "true"}}
   }]
+}
+```
+
+
+no mfa token
+```
+$ aws --profile mfa ec2 describe-vpcs --region us-east-1
+
+An error occurred (UnauthorizedOperation) when calling the DescribeVpcs operation: You are not authorized to perform this operation.
+```
+
+with mfa token
+```console
+$ eval $(sh mfa.sh 123456)
+$ aws ec2 describe-vpcs
+{
+    "Vpcs": [
+        {
+            "CidrBlock": "172.31.0.0/16",
+            "DhcpOptionsId": "dopt-e050519b",
+            "State": "available",
+            "VpcId": "vpc-5614702c",
+            "OwnerId": "0000000000",
+            "InstanceTenancy": "default",
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-af0475c3",
+                    "CidrBlock": "172.31.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": true
+        }
+    ]
 }
 ```
