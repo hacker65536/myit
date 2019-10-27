@@ -2,6 +2,7 @@
 
 https://aws.amazon.com/jp/premiumsupport/knowledge-center/authenticate-mfa-cli/
 
+https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.html#MFAProtectedAPI-user-mfa
 prepare
 --
 
@@ -47,4 +48,19 @@ echo "export AWS_SESSION_TOKEN=$SessionToken"
 
 ```console
 $ eval $(sh mfa.sh)
+```
+
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": [
+      "ec2:describe*"
+    ],
+    "Resource": ["*"],
+    "Condition": {"Bool": {"aws:MultiFactorAuthPresent": "true"}}
+  }]
+}
 ```
