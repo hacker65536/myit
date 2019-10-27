@@ -30,3 +30,21 @@ $ aws --profile mfa sts get-session-token --serial-number arn:aws:iam::000000000
     }
 }
 ```
+
+
+```bash
+#!/bin/env bash
+
+sn="arn:aws:iam::123456789012:mfa/myuser"
+
+eval $(aws --profile mfa sts get-session-token --serial-number $sn --token-code $1 | jq -r  '.[] | to_entries[] | "\(.key)=\"\(.value)\""')
+
+
+echo "export AWS_ACCESS_KEY_ID=$AccessKeyId"
+echo "export AWS_SECRET_ACCESS_KEY=$SecretAccessKey"
+echo "export AWS_SESSION_TOKEN=$SessionToken"
+```
+
+```console
+$ eval $(sh mfa.sh)
+```
