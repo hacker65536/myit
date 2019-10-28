@@ -38,3 +38,11 @@ load
 ```console
 sudo sysctl -p
 ```
+
+
+autosave
+--
+
+```
+"editor.formatOnSave": true
+```
