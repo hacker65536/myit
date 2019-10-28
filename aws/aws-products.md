@@ -332,3 +332,117 @@ https://aws.amazon.com/products/
   Fully managed SFTP service
 - **CloudEndure Migration**  
   Automate your mass migration to AWS
+  
+  
+Mobile
+--
+
+- **AWS Amplify**  
+Build and deploy mobile and web applications
+- **Amazon API Gateway**  
+Build Deploy, and Manage APIs
+- **Amazon Pinpoint**  
+Personalized User Engagement Across Channels
+- **AWS AppSync**  
+Power your apps with the right data from manay sources, at scale
+- **AWS Device Farm**  
+Test Android, iOS, and web apps on real devices in the AWS cloud
+
+Networking & Content Delivery
+--
+
+- **Amazon VPC**  
+Isolated Cloud Resources
+- **Amazon API Gateway**  
+Build, Deploy, and Manage APIs
+- **Amazon CloudFront**  
+Glabal Content Delivery Network
+- **Amazon Route53**  
+Scalable Domain Name System
+- **AWSPrivateLink**  
+Securely Access Services Hosted on AWS
+- **AWS App Mesh**  
+Monitor and control microservices
+- **AWS Cloud Map**  
+Application resource registry for microservices
+- **AWS Direct Connect**  
+Dedicated Network Connection to AWS
+- **AWS Global Accelerator**  
+Improve applicationnnvailability and performance
+- **AWS Transit Gateway**  
+Easily scale VPC and account connections
+- **Elastic Load Balancing**  
+Distribute incoming traffic across multiple targets
+
+Robotics
+--
+
+- **AWS RoboMacker**  
+Develop, test, and deploy robotics applications
+
+Satellite
+--
+
+- **AWS Ground station**  
+Fully managed ground station as a service
+
+
+Security, Identity & Complicance
+--
+
+- **AWS Identity & Access Management**  
+Manage User Access and Encryption Keys
+- **Amazon Cognito**  
+Identity Management for your Apps 
+- **Amazon GuardDuty**  
+Managed Threat Detection Service
+- **Amazon Inspector**  
+Analyze Application Security
+- **Amazon Macie**  
+Discover, Classify, and Protect your Data
+- **AWS artifact**  
+On-demand access to AWS compliance reports
+- **AWS Certificate Manager**  
+Provision, Manage, and Deploy SSL/TLS Certificates
+- **AWS CloudHSM**  
+Hardware-based Key Storage for Regulatory Compliance
+- **AWS Directory Service**  
+Host and Manage Active Directory
+- **AWS Firewall Manager**  
+Central Management of Firewall Rules
+- **AWS Key Management Service**  
+Managed Cretion and Control of Encryption Keys
+- **AWS Resource Access Manager**  
+Simple, secure service to share AWS resource
+- **AWS Secrets Manager**  
+Rotate, Manage, and Retrieve Secrets
+- **AWS Security Hub**  
+Unified security and compliance center
+- **AWS Shield**  
+DDoS Protection
+- **AWS Single Sign-On**  
+Cloud Single Sign-On (SSO) Service
+- **AWS WAF**  
+Filter Malicious Web Traffic
+
+Storage
+--
+
+- **Amazon Simple Storage Service (S3)**  
+Scalable Storage in the Cloud
+- **Amazon Elastic Block Store (EBS)**  
+EC2 block storage volumes
+- **Amazon Elastic File System (EFS)**  
+Fully managed file system for EC2
+- **Amazon FSx for Lutre**  
+High-performance file system integrated with S3
+- **Amazon FSx for Windows File Server**  
+Fully managed Windows native file system
+- **Amazon S3 Glacier**  
+Low-cost Archive Storage in the Cloud
+- **AWS Backup**  
+Centralized backup across AWS services
+- **AWS Snow Family**  
+Physical devices to migrate data into and out of AWS
+- **AWS Strage Gateway**  
+Hybrid Storage Integration
