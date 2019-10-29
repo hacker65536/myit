@@ -63,3 +63,14 @@ GitHub issue descriptionで必要なものや、ユースケースをを集め�
 設計が確定したら、そのPRを実装のために再利用してもいいし、新しくPRを作成してもよい。
    
    
+Step 3: Work your Magic
+--
+
+あなたの魔法をかけてください。ここにいくつかのガイドラインがあります。
+
+- Coding style (一部略)
+   - まずは自分のスタイルに従う
+   - 2 space インデント
+   - 120 文字幅
+   - markdownでは ATX style headingsを使用( 例 `## H2 headding`)
+
