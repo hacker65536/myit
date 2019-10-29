@@ -73,4 +73,30 @@ Step 3: Work your Magic
    - 2 space インデント
    - 120 文字幅
    - markdownでは ATX style headingsを使用( 例 `## H2 headding`)
+   - すべての変更はunit testが必要
+   - もしAPIを変更する場合はそのモジュールのREADMEのupdateも確認する
+   - 一つのPRに一つの機能/bugfixを維持すること、関連のある付随変更をすこし入れてもいいが、複数の機能を混同することを避けてください。適切な範囲内で使えるようにすべてを一つのcommitに入れること。
+   
+   
+ Step 4: Commit
+ 
+ 提案された変更の commitを作成する
+ 
+- Commit タイトルとメッセージ(PRのタイトルと説明)は conventionalcommitsに準拠しなければいけない。
+  - タイトルは `feat(module): title`、`fix(module: title`、`refactor(module): title`もしくは `chore(module): title)`で始める必要がある
+  - タイトルは小文字にすべき
+  - タイトルの終わりにピリオドをつけない
+   
+- Commit メッセージに同期の説明を行うこと。reviewerたちがあなたがしたかったことを理解できるように情報を提供してください。もし、大きい commit (できればそうでない方がいいが)であれば、簡単に追えるように良いエントリポイントを提供してみてください。
+ 
+- Commit メッセージはfixされたissueを示すべき `fixes #<issue>` か `closes #<issue>`
+- コラボレータに知らせましょう。
+- もし明確ではない場合(unit testsの情報など)、どのように変更を確認したか説明してください。
+- もし breaking changeが含まれていれば、下記のフォーマットのように最後にリストされなければいけない(複数のbreaking changeはどのようなフォーマットか注意してください)
 
+```
+BREAKING CHANGE: Description of what broke and how to achieve this behavior now
+* **module-name:** Another breaking change
+* **module-name:** Yet another breaking change
+```
+   
