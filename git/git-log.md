@@ -44,6 +44,12 @@ git log --reverse
 ```
 
 
+search deleted files
+
+``
+git log --diff-filter=D --summary
+``
+
 all branch
 ```
 git log --all
