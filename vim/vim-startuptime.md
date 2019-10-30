@@ -143,3 +143,8 @@ times in msec
 737.878  014.434: first screen update
 737.880  000.002: --- VIM STARTED ---
 ```
+
+
+TODO
+
+research https://github.com/hyiltiz/vim-plugins-profile
