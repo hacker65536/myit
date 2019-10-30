@@ -7,3 +7,4 @@ https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html
 require
 
 - AWS Organizations (**all features**) enabled
+- Sign in with the AWS Organizations master account
