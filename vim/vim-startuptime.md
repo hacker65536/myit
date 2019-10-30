@@ -148,3 +148,6 @@ times in msec
 TODO
 
 research https://github.com/hyiltiz/vim-plugins-profile
+
+
+https://stackoverflow.com/questions/1687799/profiling-vim-startup-time
