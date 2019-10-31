@@ -35,3 +35,19 @@ $ ps axu|grep ssh-agen[t]
 ec2-user 21399  0.0  0.0  70244   780 ?        Ss   03:15   0:00 ssh-agent
 ```
 
+
+delete key
+```console
+$ ssh-add -d ~/.ssh/mykey
+Bad key file /home/ec2-user/.ssh/mykey: No such file or directory
+```
+
+The reasion is no public key, then generate it.
+```console
+$ ssh-keygen -yf ~/.ssh/mykey > ~/.ssh/.ssh/mykey.pub
+```
+
+```console
+$ ssh-add -d ~/.ssh/mykey
+Identity removed: /home/ec2-user/.ssh/mykey (/home/ec2-user/.ssh/mykey.pub)
+```
