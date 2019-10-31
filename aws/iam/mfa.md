@@ -52,10 +52,10 @@ sn=${arn/user/mfa}
 
 eval $(aws --profile mfa sts get-session-token --serial-number $sn --token-code $1 | jq -r  '.[] | to_entries[] | "\(.key)=\"\(.value)\""')
 
-
 echo "export AWS_ACCESS_KEY_ID=$AccessKeyId"
 echo "export AWS_SECRET_ACCESS_KEY=$SecretAccessKey"
 echo "export AWS_SESSION_TOKEN=$SessionToken"
+echo "export AWS_SESSION_EXPIRATION=$Expiration"
 ```
 
 ```console
