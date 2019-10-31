@@ -119,7 +119,7 @@ $ aws ec2 describe-vpcs
 theory
 --
 
-attachd directly (line policy) to user, and join to administrator group
+Attachd directly (line policy) to user, and join a group attached Administrator.
 
 ```json
 {
