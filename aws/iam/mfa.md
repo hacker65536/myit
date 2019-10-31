@@ -7,10 +7,25 @@ https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_mfa_config
 prepare
 --
 
+### enable MFA
+
 1. Install a compatible app on your mobile device or computer. Authenticator (Google)
 2. IAM -> choose IAM user -> Assigned MFA device (Manage)
 3. Scan QR code
 4. Input two MFA codes
+
+### set credencials
+
+- Access key ID
+- Secrets access key
+
+```
+$ keyid=XXXXXXXXXXXXXXX
+$ secret=YYYYYYYYYYYYYYY
+$ aws configure --profile mfa set aws_access_key_id $keyid
+$ aws configure --profile mfa set aws_secret_access_key $secret
+```
+
 
 
 usage
