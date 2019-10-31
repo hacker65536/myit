@@ -47,7 +47,8 @@ $ aws --profile mfa sts get-session-token --serial-number arn:aws:iam::000000000
 ```bash
 #!/bin/env bash
 
-sn="arn:aws:iam::123456789012:mfa/myuser"
+arn=$(aws --profile mfa sts get-caller-identity | jq -r '.Arn')
+sn=${arn/user/mfa}
 
 eval $(aws --profile mfa sts get-session-token --serial-number $sn --token-code $1 | jq -r  '.[] | to_entries[] | "\(.key)=\"\(.value)\""')
 
