@@ -7,14 +7,9 @@ https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_mfa_config
 prepare
 --
 
-1. Install a compatible app on your mobile device or computer. 
-
-Authenticator (Google)
-
+1. Install a compatible app on your mobile device or computer. Authenticator (Google)
 2. IAM -> choose IAM user -> Assigned MFA device (Manage)
-
 3. Scan QR code
-
 4. Input two MFA codes
 
 
