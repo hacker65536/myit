@@ -19,6 +19,13 @@ unset SSH_AGENT_PID;
 echo Agent pid 21337 killed;
 ```
 
+The following will avoid above the problem.
+```console
+$ ssh-agent bash 
+```
+
+
+
 ```console
 $ eval $(ssh-agent)
 Agent pid 21399
