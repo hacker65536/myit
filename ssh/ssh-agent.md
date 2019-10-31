@@ -5,7 +5,7 @@ SSH_AGENT_PID=21337; export SSH_AGENT_PID;
 echo Agent pid 21337;
 ```
 
-if didnt set env when start 
+If you didn't set env when start, so you can't kill ssh-agent.
 ```console
 $ ssh-agent -k
 SSH_AGENT_PID not set, cannot kill agent
