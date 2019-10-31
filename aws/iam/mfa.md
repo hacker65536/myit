@@ -4,6 +4,8 @@ https://aws.amazon.com/jp/premiumsupport/knowledge-center/authenticate-mfa-cli/
 
 https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.html#MFAProtectedAPI-user-mfa
 
+http://blog.serverworks.co.jp/tech/2019/08/16/cli-mfa/
+
 prepare
 --
 
