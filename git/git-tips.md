@@ -39,3 +39,17 @@ $ git remote prune origi
 ```console
 $ git fetch --prune
 ```
+
+
+multi user , key
+--
+
+https://superuser.com/questions/232373/how-to-tell-git-which-private-key-to-use
+
+```console
+$ GIT_SSH_COMMAND='ssh -i ~/.ssh/mykey01' hub clone git@github.com:myname/myrepo.git
+```
+```console
+$ cd myrepo
+$ git config --local core.sshCommand 'ssh -i ~/.ssh/mykey01' 
+```
