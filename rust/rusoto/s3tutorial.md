@@ -8,7 +8,7 @@ cargo new s3example
 
 ```toml
 [package]
-name = "rustaws"
+name = "s3example"
 version = "0.1.0"
 authors = ["ec2-user"]
 edition = "2018"
