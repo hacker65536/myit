@@ -49,3 +49,11 @@ fn main() {
     }
 }
 ```
+
+
+ref
+--
+
+https://docs.rs/rusoto_dynamodb/0.41.0/rusoto_dynamodb/struct.ListTablesOutput.html
+
+https://dev.classmethod.jp/server-side/language/rust-access-aws-using-rusoto/
