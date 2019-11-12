@@ -37,3 +37,8 @@ User portal URL : https://xxxxxxxxxxx.awsapps.com/start
 2. select AWS Account
 3. select permission set
 4. go to Management console or set credencial from a link
+
+
+### fig
+
+![awssso](./awssso.png)
