@@ -76,7 +76,11 @@ let g:go_highlight_function_parameters = 1
 let g:go_highlight_extra_types = 1
 ```
 
-
+```
+autocmd FileType go setlocal noexpandtab
+autocmd FileType go setlocal tabstop=4
+autocmd FileType go setlocal shiftwidth=4
+```
 
 tutorial
 --
