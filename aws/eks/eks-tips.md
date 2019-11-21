@@ -27,4 +27,4 @@ $ kubectl get svc
 'credentialScope'
 ```
 
-solution update awscli
+solution: update awscli
