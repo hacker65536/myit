@@ -9,3 +9,22 @@ Cannot create cluster 'exciting-gopher-1559710619' because us-east-1e, the targe
 
 
 eksctl create cluster --zones=us-east-1a,us-east-1b,us-east-1d
+
+
+cant get token
+--
+
+https://github.com/kubernetes/kubectl/issues/747
+
+
+```console
+$ kubectl get svc
+
+'credentialScope'
+
+'credentialScope'
+
+'credentialScope'
+```
+
+solution update awscli
