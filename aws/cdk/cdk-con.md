@@ -65,13 +65,13 @@ sudo yum install -y gcc
 sudo yum install -y golang --disablerepo=amzn2-core,amzn2extra-golang* --enablerepo=go-repo
 ```
 
-install git 2.23.0
+install git 2.24.0
 ```
 sudo yum install -y git zlib-devel autoconf 
 ```
 ```
 cd ~/workdir
-git clone -b v2.23.0 https://github.com/git/git
+git clone -b v2.24.0 https://github.com/git/git
 cd git
 ```
 ```
@@ -90,8 +90,8 @@ sudo make install
 install hub
 ```
 cd ~/workdir
-curl -SsL https://github.com/github/hub/releases/download/v2.12.8/hub-linux-amd64-2.12.8.tgz | tar zxvf -
-cd hub-linux-amd64-2.12.8/
+curl -SsL https://github.com/github/hub/releases/download/v2.13.0/hub-linux-amd64-2.13.0.tgz | tar zxvf -
+cd hub-linux-amd64-2.13.0/
 sudo prefix=/usr/local ./install
 ```
 
@@ -139,7 +139,7 @@ omf install bobthefish
 omf install aws
 ```
 
-change to bash from fish
+excute with bash 
 ```
 cat <<'EOF' > ~/.config/fish/config.fish
 alias ef 'vim ~/.config/fish/config.fish'
@@ -220,7 +220,7 @@ install docker cli
 
 ```
 cd ~/workdir
-git clone -b v19.03.3  https://github.com/docker/cli.git
+git clone -b v19.03.5  https://github.com/docker/cli.git
 cd cli
 ```
 ```
