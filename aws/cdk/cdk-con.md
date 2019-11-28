@@ -149,7 +149,7 @@ function reload
 end
 EOF
 ```
-docker environment
+docker environment (19.03+)
 --
 
 Independent docker that is new version 
@@ -185,7 +185,7 @@ sudo yum install -y device-mapper-devel
 
 ```
 cd ~/workdir
-git clone -b v19.03.3 https://github.com/docker/engine.git
+git clone -b v19.03.5 https://github.com/docker/engine.git
 cd engine
 ```
 
@@ -227,6 +227,12 @@ cd cli
 make -f docker.Makefile binary
 sudo mv build/docker* /usr/local/bin/
 ```
+
+2019/11/28 can't make docker cli
+
+https://github.com/docker/for-linux/issues/813
+
+waiting for containerd.x86_64-1.2.6-3.amzn2
 
 ```
 echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bashrc
@@ -272,7 +278,7 @@ javascript  environment
 - yarn
 
 ```
-curl -SsL -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 source ~/.bashrc
 nvm install --lts
 nvm install node
