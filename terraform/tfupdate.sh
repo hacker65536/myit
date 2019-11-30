@@ -20,10 +20,10 @@ function getarch() {
 function updatetf() {
   latestver=$(get_latest_tfver)
   arch=$(getarch)
-  curl -SsL -O https://releases.hashicorp.com/terraform/${latestver}/terraform_${latestver}_linux_${arch}.zip
-  sudo unzip terraform_${latestver}_linux_${arch}.zip
-  sudo mv terraform /usr/local/bin/terraform
-  rm terraform_${latestver}_linux_${arch}.zip
+  curl -SsL -o /tmp/terraform_${latestver}_linux_${arch}.zip https://releases.hashicorp.com/terraform/${latestver}/terraform_${latestver}_linux_${arch}.zip
+  sudo unzip /tmp/terraform_${latestver}_linux_${arch}.zip
+  sudo mv /tmp/terraform /usr/local/bin/terraform
+  rm /tmp/terraform_${latestver}_linux_${arch}.zip
 }
 
 terraform -v | grep 'out of date' && updatetf || echo "version of terraform is latest"
