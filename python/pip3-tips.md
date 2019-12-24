@@ -46,3 +46,52 @@ workaround?
 ```
 sudo pip3 install -t python/ boto3
 ```
+
+## occur error when update pip3 on mac
+
+```
+You are using pip version 19.0.3, however version 19.3.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+ ~  pip3 install --upgrade pip                     16.9s  Tue Dec 24 11:29:45 2019
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/00/b6/9cfa56b4081ad13874b0c6f96af8ce16cfbc1cb06bedf8e9164ce5551ec1/pip-19.3.1-py2.py3-none-any.whl (1.4MB)
+    100% |████████████████████████████████| 1.4MB 2.1MB/s
+Installing collected packages: pip
+  Found existing installation: pip 19.0.3
+    Uninstalling pip-19.0.3:
+Could not install packages due to an EnvironmentError: [Errno 13] Permission denied: 'RECORD'
+Consider using the `--user` option or check the permissions.
+
+You are using pip version 19.0.3, however version 19.3.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+ !  ~  pip3 install --user --upgrade pip                    3809ms  Tue Dec 24 11:30:04 2019
+Collecting pip
+  Using cached https://files.pythonhosted.org/packages/00/b6/9cfa56b4081ad13874b0c6f96af8ce16cfbc1cb06bedf8e9164ce5551ec1/pip-19.3.1-py2.py3-none-any.whl
+Installing collected packages: pip
+Successfully installed pip-19.3.1
+ ~  pip3 install --user awscli                    2157ms  Tue Dec 24 11:30:15 2019
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/usr/bin/pip3", line 10, in <module>
+    sys.exit(main())
+TypeError: 'module' object is not callable
+```
+https://stackoverflow.com/questions/58386953/pip3-typeerror-module-object-is-not-callable-after-update
+
+why?
+
+```
+% python3 -m pip uninstall pip
+Uninstalling pip-19.3.1:
+  Would remove:
+    /Users/hacker65536/Library/Python/3.7/bin/pip
+    /Users/hacker65536/Library/Python/3.7/bin/pip3
+    /Users/hacker65536/Library/Python/3.7/bin/pip3.7
+    /Users/hacker65536/Library/Python/3.7/lib/python/site-packages/pip-19.3.1.dist-info/*
+    /Users/hacker65536/Library/Python/3.7/lib/python/site-packages/pip/*
+Proceed (y/n)? y
+  Successfully uninstalled pip-19.3.1
+```
+```
+% pip3 --version
+pip 19.0.3 from /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.7/lib/python3.7/site-packages/pip (python 3.7)
+```
