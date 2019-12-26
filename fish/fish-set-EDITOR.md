@@ -1,4 +1,5 @@
 
+`alt + e` open editor to edit the current command line
 
 `~/.config/fish/config.fish`
 
