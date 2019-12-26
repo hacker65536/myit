@@ -35,3 +35,8 @@ p.p.s. Get stickers, shirts, and coffee mugs at https://shop.planetargon.com/col
 
 ➜  ~
 ```
+
+
+```
+ZSH_THEME="agnoster"
+```
