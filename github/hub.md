@@ -121,7 +121,9 @@ origin  git@github.com:hacker65536/aws-xray-developer-guide.git (push)
 upstream        https://github.com/awsdocs/aws-xray-developer-guide.git (fetch)
 upstream        https://github.com/awsdocs/aws-xray-developer-guide.git (push)
 ```
-
+```console
+$ git branch -u origin/master
+```
 ```console
 $ git fetch upstream
 $ git merge upstream/master
