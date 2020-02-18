@@ -1,3 +1,6 @@
+mac で github の token を switchするときにうまく行かない
+--
+
 configで設定しているユーザと違うユーザでアクセ使用として、permission deniedになるパターン
 
 
@@ -26,4 +29,7 @@ file:/Library/Developer/CommandLineTools/usr/share/git-core/gitconfig	osxkeychai
 $ sudo rm /Library/Developer/CommandLineTools/usr/share/git-core/gitconfig
 ```
 
+ref
+--
 
+http://ropupu-ropupu.hatenablog.com/entry/2018/02/06/204431
