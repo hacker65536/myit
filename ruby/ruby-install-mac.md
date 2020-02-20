@@ -28,3 +28,9 @@ $ rbenv global 2.6.5
 ```console
 $ rbenv init
 ```
+
+
+
+ref
+
+https://github.com/rbenv/ruby-build/issues/1353#issuecomment-537749304
