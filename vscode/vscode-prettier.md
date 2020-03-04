@@ -19,7 +19,7 @@ or
 
 format on save
 ctrl/cmd + shfit + P -> Open Settings (JSON)
-```
+```json
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true
