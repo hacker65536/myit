@@ -15,3 +15,13 @@ or
         "markdown",
     ],
 ```
+
+
+format on save
+ctrl/cmd + shfit + P -> Open Settings (JSON)
+```
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    }
+```
