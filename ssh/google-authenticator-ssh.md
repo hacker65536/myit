@@ -67,3 +67,6 @@ $ sudo sed -r -e 's/^(ChallengeResponseAuthentication).*/\1 yes/' /etc/ssh/sshd_
 ---
 > ChallengeResponseAuthentication yes
 ```
+```console
+$ sudo sed -r -e 's/^(ChallengeResponseAuthentication).*/\1 yes/' -i /etc/ssh/sshd_config
+```
