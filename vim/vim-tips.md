@@ -51,3 +51,8 @@ https://discourse.brew.sh/t/failed-to-set-locale-category-lc-numeric-to-en-ru/50
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 ```
+
+to open file and go to a particular line
+```console
+$ vim +30 filename
+```
