@@ -52,6 +52,11 @@ set termguicolors
 
 ~/.bash_profile
 ```
-eval $(TERM=xterm dircolors)
+#eval $(TERM=xterm dircolors)
 alias ls='ls --color=auto'
+
+
+alias ssh='TERM=xterm-256color ssh'
 ```
+
+
