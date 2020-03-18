@@ -28,7 +28,19 @@ secret_key     ******************** shared-credentials-file
     region                us-east-2              env    ['AWS_REGION', 'AWS_DEFAULT_REGION']
 ```
 
-create log group
+### create log group
 
 https://docs.aws.amazon.com/cli/latest/reference/logs/create-log-group.html
 
+```console 
+$ aws logs create-log-group --log-group-name testloggroup
+```
+```
+ aws logs describe-log-groups --output yaml
+logGroups:
+- arn: arn:aws:logs:us-east-2:123456789012:log-group:testloggroup:*
+  creationTime: 1584508344901
+  logGroupName: testloggroup
+  metricFilterCount: 0
+  storedBytes: 0
+```
