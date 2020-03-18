@@ -67,3 +67,29 @@ logStreams:
   logStreamName: testlogstream1
   storedBytes: 0
 ```
+
+
+### put event to log stream
+
+https://docs.aws.amazon.com/cli/latest/reference/logs/put-log-events.html
+
+
+> timestamp=long,message=string ...
+
+
+```console 
+$ aws logs put-log-events --log-group-name $loggroup --log-stream-name testlogstream1 --log-events timestamp=$(date +%s%3N),message="test mes3"
+{
+    "nextSequenceToken": "49601986952501524961423223600015250923942560088713144578"
+}
+```
+
+```console
+$ aws logs get-log-events --log-group-name $loggroup --log-stream-name testlogstream1 --output yaml
+events:
+- ingestionTime: 1584511691398
+  message: test mes3
+  timestamp: 1584511689743
+nextBackwardToken: b/35335791457051851676641057103395682906646276005392678912
+nextForwardToken: f/35335791457051851676641057103395682906646276005392678912
+```
