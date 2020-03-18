@@ -96,3 +96,40 @@ events:
 nextBackwardToken: b/35335791457051851676641057103395682906646276005392678912
 nextForwardToken: f/35335791457051851676641057103395682906646276005392678912
 ```
+
+
+### limited
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "logs:StartQuery",
+                "logs:GetLogEvents",
+                "logs:FilterLogEvents",
+                "logs:GetLogGroupFields",
+                "logs:Desc*"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-2:123456789012:log-group:testloggroup",
+                "arn:aws:logs:us-east-2:123456789012:log-group:testloggroup:log-stream:*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "logs:DescribeLogGroups",
+                "logs:DescribeSubscriptionFilters"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-2:123456789012:log-group:*"
+            ]
+        }
+    ]
+}
+```
