@@ -18,3 +18,10 @@ format
 ```
 date -d "@1465364068" +"%F %R:%S"
 ```
+
+to long (for aws cloudwatch log)
+> %N     nanoseconds (000000000..999999999)
+```
+date +%s%3N
+1584510188036
+```
