@@ -78,7 +78,10 @@ https://docs.aws.amazon.com/cli/latest/reference/logs/put-log-events.html
 
 
 ```console 
-$ aws logs put-log-events --log-group-name $loggroup --log-stream-name testlogstream1 --log-events timestamp=$(date +%s%3N),message="test mes3"
+$ aws logs put-log-events \
+--log-group-name $loggroup \
+--log-stream-name testlogstream1 \
+--log-events timestamp=$(date +%s%3N),message="test mes3"
 {
     "nextSequenceToken": "49601986952501524961423223600015250923942560088713144578"
 }
