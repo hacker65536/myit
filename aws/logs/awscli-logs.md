@@ -77,6 +77,8 @@ https://docs.aws.amazon.com/cli/latest/reference/logs/put-log-events.html
 > timestamp=long,message=string ...
 
 
+Need sequncetoken, but not first time.
+
 ```console 
 $ aws logs put-log-events \
 --log-group-name $loggroup \
