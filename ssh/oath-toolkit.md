@@ -11,6 +11,8 @@ install mac
 $ brew install oath-toolkit
 ```
 
+check secret
+--
 
 log in to configurated server
 ```console
@@ -25,8 +27,30 @@ B*LZ3*FIL*WES*KP   # <-secret
 80861432
 ```
 
-
+usage
+--
 ```console
 $ oathtool --totp -b B*LZ3*FIL*WES*KP
 123456
 ```
+
+
+```bash
+alias  HOSTmfa='oathtool --totp -b B*LZ3*FIL*WES*KP | pbcopy ; ssh HOST'
+```
+
+```console
+$ mfaHOST
+Warning: Permanently added 'XXX.XXX.XXX.XXX' (ECDSA) to the list of known hosts.
+Verification code:
+```
+`cmd/ctrl + v`
+
+
+ref
+--
+
+https://gihyo.jp/admin/serial/01/ubuntu-recipe/0508
+
+https://qiita.com/ChaseSan/items/b1f63984e4eb5667154b
+
