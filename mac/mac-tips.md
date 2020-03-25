@@ -17,6 +17,8 @@ For more details, please visit https://support.apple.com/kb/HT208050.
 export BASH_SILENCE_DEPRECATION_WARNING=1
 ```
 
+https://apple.stackexchange.com/questions/371997/suppressing-zsh-verbose-message-in-macos-catalina
+
 xcode-select 
 --
 
