@@ -29,6 +29,10 @@ file:/Library/Developer/CommandLineTools/usr/share/git-core/gitconfig	osxkeychai
 $ sudo rm /Library/Developer/CommandLineTools/usr/share/git-core/gitconfig
 ```
 
+helperをstoreに変える
+```console
+$ git config --local credential.helper "store --file ~/.myname-credentials"
+```
 ref
 --
 
