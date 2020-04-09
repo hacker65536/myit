@@ -36,4 +36,5 @@ $ git config --local credential.helper "store --file ~/.myname-credentials"
 ref
 --
 
-http://ropupu-ropupu.hatenablog.com/entry/2018/02/06/204431
+http://ropupu-ropupu.hatenablog.com/entry/2018/02/06/204431  
+https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E8%AA%8D%E8%A8%BC%E6%83%85%E5%A0%B1%E3%81%AE%E4%BF%9D%E5%AD%98
