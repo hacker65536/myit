@@ -1,7 +1,7 @@
 # vscode python
 
 
-tool
+tools
 --
 ```console
 $ pip3 install flake8 autopep8
