@@ -102,6 +102,9 @@ $ git config --global push.default current
 $ git checkout -b fixpullrequestbranch
 ```
 
+edit commit and pull request
+--
+
 ```console
 $ git add somechanges
 $ git commit -m "fix something"
