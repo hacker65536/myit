@@ -80,3 +80,36 @@ $ git branch -vva
   remotes/upstream/HEAD   -> upstream/master
   remotes/upstream/master 7d692a1 Initial commit
 ```
+
+create branch for pull request
+--
+
+- configure 
+  - user.name 
+  - user.email 
+  - credentials(token)
+  - push.default
+  
+```console
+$ git config --local user.name hacker65536 
+$ git config --local user.email s.hacker65536@gmail.com 
+$ git config --local credential.helper "store --file ~/.myaccount-credentials"
+$ git config --global push.default current
+```
+
+
+```console
+$ git checkout -b fixpullrequestbranch
+```
+
+```console
+$ git add somechanges
+$ git commit -m "fix something"
+$ git push 
+```
+
+configure `~/.config/hub` 
+
+```console
+$ hub pull-request 
+```
