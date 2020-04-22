@@ -47,3 +47,11 @@ The animated GIF image is saved into the file:
 /Users/myaccount/render1587574791824.gif
 ```
 -o filename
+
+
+config
+--
+
+```yaml
+fontFamily: "DejaVu Sans Mono for Powerline, Monaco, Lucida Console, Ubuntu Mono, Monospace"
+```
