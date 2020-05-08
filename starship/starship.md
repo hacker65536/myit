@@ -6,6 +6,12 @@ https://starship.rs/
 install
 --
 
+require libssl.so.1.1
+
+```console 
+$ sudo yum install openssl11-libs
+```
+
 do with root
 ```console
 $ curl -fsSL https://starship.rs/install.sh | bash
