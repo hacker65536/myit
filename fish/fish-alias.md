@@ -16,3 +16,11 @@ end
 ```fish
 . ~/.config/fish/config.fish
 ```
+
+
+unalias
+--
+
+```
+functions -e aliasname
+```
