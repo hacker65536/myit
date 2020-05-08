@@ -34,3 +34,11 @@ eval "$(starship init bash)"
 
 starship init fish | source
 ```
+
+## configure
+
+https://starship.rs/config/
+
+```console
+$ mkdir -p ~/.config && touch ~/.config/starship.toml
+```
