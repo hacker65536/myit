@@ -7,7 +7,7 @@ https://github.com/nvm-sh/nvm
 install nvm
 --
 ```console
-$ curl -Ss -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 => nvm is already installed in /home/ec2-user/.nvm, trying to update the script
 
 => Appending nvm source string to /home/ec2-user/.bashrc
