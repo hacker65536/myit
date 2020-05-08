@@ -14,6 +14,6 @@ $ cat <<'EOF' | xargs -I{} bash -c 'brew cask install font-{}-nerd-font'
 3270
 DejaVuSansMono
 GoMono
-InconsolateGo
+InconsolataGo
 EOF
 ```
