@@ -11,37 +11,46 @@ install
 
 ### Using rustup (recommended)
 
-```
-curl https://sh.rustup.rs -sSf | sh
-```
+
 
 ```console
-$ curl https://sh.rustup.rs -sSf | sh
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 info: downloading installer
 
 Welcome to Rust!
 
-This will download and install the official compiler for the Rust programming
-language, and its package manager, Cargo.
+This will download and install the official compiler for the Rust
+programming language, and its package manager, Cargo.
 
-It will add the cargo, rustc, rustup and other commands to Cargo's bin
-directory, located at:
+It will add the cargo, rustc, rustup and other commands to
+Cargo's bin directory, located at:
 
   /home/ec2-user/.cargo/bin
 
-This path will then be added to your PATH environment variable by modifying the
-profile files located at:
+This can be modified with the CARGO_HOME environment variable.
+
+Rustup metadata and toolchains will be installed into the Rustup
+home directory, located at:
+
+  /home/ec2-user/.rustup
+
+This can be modified with the RUSTUP_HOME environment variable.
+
+This path will then be added to your PATH environment variable by
+modifying the profile files located at:
 
   /home/ec2-user/.profile
-  /home/ec2-user/.bash_profile
+/home/ec2-user/.bash_profile
 
-You can uninstall at any time with rustup self uninstall and these changes will
-be reverted.
+You can uninstall at any time with rustup self uninstall and
+these changes will be reverted.
 
 Current installation options:
 
+
    default host triple: x86_64-unknown-linux-gnu
      default toolchain: stable
+               profile: default
   modify PATH variable: yes
 
 1) Proceed with installation (default)
@@ -49,25 +58,36 @@ Current installation options:
 3) Cancel installation
 >
 
+info: profile set to 'default'
+info: default host triple is x86_64-unknown-linux-gnu
 info: syncing channel updates for 'stable-x86_64-unknown-linux-gnu'
-info: latest update on 2018-12-06, rust version 1.31.0 (abe02cefd 2018-12-04)
-info: downloading component 'rustc'
-info: downloading component 'rust-std'
+info: latest update on 2020-05-07, rust version 1.43.1 (8d69840ab 2020-05-04)
 info: downloading component 'cargo'
+info: downloading component 'clippy'
 info: downloading component 'rust-docs'
-info: installing component 'rustc'
-info: installing component 'rust-std'
+info: downloading component 'rust-std'
+info: downloading component 'rustc'
+ 60.0 MiB /  60.0 MiB (100 %)  54.1 MiB/s in  1s ETA:  0s
+info: downloading component 'rustfmt'
 info: installing component 'cargo'
+info: installing component 'clippy'
 info: installing component 'rust-docs'
+ 12.1 MiB /  12.1 MiB (100 %)   8.4 MiB/s in  1s ETA:  0s
+info: installing component 'rust-std'
+ 17.5 MiB /  17.5 MiB (100 %)  13.5 MiB/s in  1s ETA:  0s
+info: installing component 'rustc'
+ 60.0 MiB /  60.0 MiB (100 %)  10.4 MiB/s in  5s ETA:  0s
+info: installing component 'rustfmt'
 info: default toolchain set to 'stable'
 
-  stable installed - rustc 1.31.0 (abe02cefd 2018-12-04)
+  stable installed - rustc 1.43.1 (8d69840ab 2020-05-04)
 
 
 Rust is installed now. Great!
 
 To get started you need Cargo's bin directory ($HOME/.cargo/bin) in your PATH
-environment variable. Next time you log in this will be done automatically.
+environment variable. Next time you log in this will be done
+automatically.
 
 To configure your current shell run source $HOME/.cargo/env
 ```
