@@ -54,4 +54,11 @@ config
 
 ```yaml
 fontFamily: "DejaVu Sans Mono for Powerline, Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+frameBox:
+  type: solid
+  title: null
+  style:
+    boxShadow: none
+    margin: 0px
 ```
