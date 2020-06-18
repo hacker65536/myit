@@ -1,4 +1,9 @@
 
+ref
+--
+https://github.com/aws/aws-toolkit-vscode/issues/695#issuecomment-516163498
+
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sourcing-external.html
 
 using ec2role 
 --
