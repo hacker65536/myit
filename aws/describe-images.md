@@ -436,3 +436,11 @@ jq -s
   }
 ]
 ```
+
+
+## ubuntu
+
+```console
+$ aws ec2 describe-images --filters Name=root-device-type,Values=ebs Name=virtualization-type,Values=hvm Name=is-public,Values=true Name=owner-id,Values=099720109477 Name=state,Values=available Name=description,Values='*16.04*' Name=name,Values='ubuntu/images/hvm-ssd/ubuntu-xenial-16.04*' Name=architecture,Values=x86_64| jq -rc '.Images | sort_by(.CreationDate) | reverse |.[]|[.Description,.CreationDate,.ImageId]'
+
+```
