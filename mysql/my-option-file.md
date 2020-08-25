@@ -20,9 +20,9 @@ https://dev.mysql.com/doc/refman/8.0/en/option-file-options.html
 
 ## check defaults
 ```console
-$ mysql --print-defaults
-mysql would have been started with the following arguments:
---host=database-2-org.cluster-ceeqcjdp1pdt.us-east-2.rds.amazonaws.com
+$ mysql_config_editor print
+[client]
+host = database-2-org.cluster-ceeqcjdp1pdt.us-east-2.rds.amazonaws.com
 ```
 
 ## test
