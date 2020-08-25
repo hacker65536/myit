@@ -1,7 +1,7 @@
 # mysql option files
 
 
-https://dev.mysql.com/doc/refman/8.0/en/option-files.html
+https://dev.mysql.com/doc/refman/8.0/en/option-files.html  
 https://dev.mysql.com/doc/refman/8.0/en/option-file-options.html
 
 
