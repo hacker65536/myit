@@ -72,7 +72,7 @@ $ go run greeter_server/main.go
 ```
 
 client
-```
+```console
 $ go run greeter_client/main.go Alice
 2020/08/31 08:29:57 Greeting: Hello Alice
 2020/08/31 08:29:57 Greeting: Hello again Alice
