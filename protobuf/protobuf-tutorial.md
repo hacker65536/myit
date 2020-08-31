@@ -56,3 +56,10 @@ Enter a phone number (or leave blank to finish): 000
 Is this a mobile, home, or work phone? mobile
 Enter a phone number (or leave blank to finish):
 ```
+```console
+$ ./list_people_go addressbook.data
+Person ID: 1
+  Name: myname
+  E-mail address: my@emal.com
+  Mobile phone #: 000
+```
