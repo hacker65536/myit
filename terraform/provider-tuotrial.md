@@ -2,7 +2,8 @@
 
 https://learn.hashicorp.com/collections/terraform/providers
 
-
+Set up development environment
+--
 ```console
 $ git clone --branch boilerplate https://github.com/hashicorp/terraform-provider-hashicups
 $ cd terraform-provider-hashicups
@@ -115,3 +116,311 @@ $ curl localhost:19090/health
 ok
 ```
 
+
+Explore develpment environment
+--
+
+
+change to appropriate `OS_ARCH`
+
+`Makefile`
+
+```diff
+-OS_ARCH=darwin_amd64
++OS_ARCH=$$(go env GOOS)_$$(go env GOARCH)
+```
+
+go mod init
+```console
+$ go mod init terraform-provider-hashicups
+$ go mod vendor
+```
+
+`main.go`
+```go
+package main
+
+import (
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
+
+	"terraform-provider-hashicups/hashicups"
+)
+
+func main() {
+	plugin.Serve(&plugin.ServeOpts{
+		ProviderFunc: func() *schema.Provider {
+			return hashicups.Provider()
+		},
+	})
+}
+```
+`ProviderFunc` returns a `*schema.Provider` from the `hashicups` package.
+
+`hashicups/provider.go`
+```go
+package hashicups
+
+import (
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+)
+
+// Provider -
+func Provider() *schema.Provider {
+	return &schema.Provider{
+		ResourcesMap:   map[string]*schema.Resource{},
+		DataSourcesMap: map[string]*schema.Resource{},
+	}
+}
+```
+`*schema.Provider` contains `ResourcesMap` and `DataSourcesMap`
+
+```console
+$ make build
+go build -o terraform-provider-hashicups
+```
+
+```console
+$ ./terraform-provider-hashicups
+This binary is a plugin. These are not meant to be executed directly.
+Please execute the program that consumes these plugins, which will
+load any plugins automatically
+```
+
+Define coffees data resource
+
+`hashicups/data_source_coffee.go`
+```go
+package hashicups
+
+import (
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+)
+
+func dataSourceCoffees() *schema.Resource {
+	return &schema.Resource{
+		ReadContext: dataSourceCoffeesRead,
+		Schema:      map[string]*schema.Schema{},
+	}
+}
+```
+
+Define coffees schema and Implement read
+
+
+```console
+$ curl -SsL localhost:19090/coffees| jq .
+```
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Packer Spiced Latte",
+    "teaser": "Packed with goodness to spice up your images",
+    "description": "",
+    "price": 350,
+    "image": "/packer.png",
+    "ingredients": [
+      {
+        "ingredient_id": 1
+      },
+      {
+        "ingredient_id": 2
+      },
+      {
+        "ingredient_id": 4
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Vaulatte",
+    "teaser": "Nothing gives you a safe and secure feeling like a Vaulatte",
+    "description": "",
+    "price": 200,
+    "image": "/vault.png",
+    "ingredients": [
+      {
+        "ingredient_id": 1
+      },
+      {
+        "ingredient_id": 2
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Nomadicano",
+    "teaser": "Drink one today and you will want to schedule another",
+    "description": "",
+    "price": 150,
+    "image": "/nomad.png",
+    "ingredients": [
+      {
+        "ingredient_id": 1
+      },
+      {
+        "ingredient_id": 3
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Terraspresso",
+    "teaser": "Nothing kickstarts your day like a provision of Terraspresso",
+    "description": "",
+    "price": 150,
+    "image": "terraform.png",
+    "ingredients": [
+      {
+        "ingredient_id": 1
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Vagrante espresso",
+    "teaser": "Stdin is not a tty",
+    "description": "",
+    "price": 200,
+    "image": "vagrant.png",
+    "ingredients": [
+      {
+        "ingredient_id": 1
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Connectaccino",
+    "teaser": "Discover the wonders of our meshy service",
+    "description": "",
+    "price": 250,
+    "image": "consul.png",
+    "ingredients": [
+      {
+        "ingredient_id": 1
+      },
+      {
+        "ingredient_id": 5
+      }
+    ]
+  }
+]
+```
+
+
+`hashicups/data_source_coffee.go` change as below
+```go
+package hashicups
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"strconv"
+	"time"
+
+	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+)
+
+func dataSourceCoffees() *schema.Resource {
+	return &schema.Resource{
+		ReadContext: dataSourceCoffeesRead,
+		Schema: map[string]*schema.Schema{
+			"coffees": {
+				Type:     schema.TypeList,
+				Computed: true,
+				Elem: &schema.Resource{
+					Schema: map[string]*schema.Schema{
+						"id": {
+							Type:     schema.TypeInt,
+							Computed: true,
+						},
+						"name": {
+							Type:     schema.TypeString,
+							Computed: true,
+						},
+						"teaser": {
+							Type:     schema.TypeString,
+							Computed: true,
+						},
+						"description": {
+							Type:     schema.TypeString,
+							Computed: true,
+						},
+						"price": {
+							Type:     schema.TypeInt,
+							Computed: true,
+						},
+						"image": {
+							Type:     schema.TypeString,
+							Computed: true,
+						},
+						"ingredients": {
+							Type:     schema.TypeList,
+							Computed: true,
+							Elem: &schema.Resource{
+								Schema: map[string]*schema.Schema{
+									"ingredient_id": {
+										Type:     schema.TypeInt,
+										Computed: true,
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
+func dataSourceCoffeesRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+	client := &http.Client{Timeout: 10 * time.Second}
+
+	// Warning or errors can be collected in a slice type
+	var diags diag.Diagnostics
+
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/coffees", "http://localhost:19090"), nil)
+	if err != nil {
+		return diag.FromErr(err)
+	}
+
+	r, err := client.Do(req)
+	if err != nil {
+		return diag.FromErr(err)
+	}
+	defer r.Body.Close()
+
+	coffees := make([]map[string]interface{}, 0)
+	err = json.NewDecoder(r.Body).Decode(&coffees)
+	if err != nil {
+		return diag.FromErr(err)
+	}
+
+	if err := d.Set("coffees", coffees); err != nil {
+		return diag.FromErr(err)
+	}
+
+	// always run
+	d.SetId(strconv.FormatInt(time.Now().Unix(), 10))
+
+	return diags
+}
+
+```
+
+
+`hashicups/provider.go`
+```diff
+-               ResourcesMap:   map[string]*schema.Resource{},
+-               DataSourcesMap: map[string]*schema.Resource{},
++               ResourcesMap: map[string]*schema.Resource{},
++               DataSourcesMap: map[string]*schema.Resource{
++                       "hashicups_coffees": dataSourceCoffees(),
++               },
+```
