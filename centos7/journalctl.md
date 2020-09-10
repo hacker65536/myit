@@ -52,7 +52,7 @@ boot message
 journalctl -b 
 ```
 
-no pager
+no pager (wrap long lines)
 ```
 journalctl -u slapd --no-pager
 ```
