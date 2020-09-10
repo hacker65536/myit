@@ -424,3 +424,80 @@ func dataSourceCoffeesRead(ctx context.Context, d *schema.ResourceData, m interf
 +                       "hashicups_coffees": dataSourceCoffees(),
 +               },
 ```
+
+```console
+$ make install
+go build -o terraform-provider-hashicups
+mkdir -p ~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2/$(go env GOOS)_$(go env GOARCH)
+mv terraform-provider-hashicups ~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2/$(go env GOOS)_$(go env GOARCH)
+```
+
+```console
+$ examples
+```
+```console
+$ terraform init
+Initializing modules...
+- psl in coffee
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Finding latest version of hashicorp.com/edu/hashicups...
+- Installing hashicorp.com/edu/hashicups v0.2.0...
+- Installed hashicorp.com/edu/hashicups v0.2.0 (unauthenticated)
+
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
+
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, we recommend adding version constraints in a required_providers block
+in your configuration, with the constraint strings suggested below.
+
+* hashicorp.com/edu/hashicups: version = "~> 0.2.0"
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+```
+
+```console
+$ cmp .terraform/plugins/hashicorp.com/edu/hashicups/0.2.0/linux_amd64/terraform-provider-hashicups ~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2/linux_amd64/terraform-provider-hashicups
+```
+
+```console
+$ terraform apply --auto-approve
+module.psl.data.hashicups_coffees.all: Refreshing state...
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+psl = {
+  "1" = {
+    "description" = ""
+    "id" = 1
+    "image" = "/packer.png"
+    "ingredients" = [
+      {
+        "ingredient_id" = 1
+      },
+      {
+        "ingredient_id" = 2
+      },
+      {
+        "ingredient_id" = 4
+      },
+    ]
+    "name" = "Packer Spiced Latte"
+    "price" = 350
+    "teaser" = "Packed with goodness to spice up your images"
+  }
+}
+```
