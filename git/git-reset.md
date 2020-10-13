@@ -21,6 +21,8 @@ On branch master
 Your branch is ahead of 'origin/master' by 2 commits.
   (use "git push" to publish your local commits)
 ```
+
+force pull
 ```
 git reset --hard origin/master
 ```
