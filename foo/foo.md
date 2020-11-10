@@ -6,3 +6,10 @@ list
 --
 
 bar, baz, qux, quux, corge, grault, garply, waldo, fred, plugh, xyzzy, thud
+
+
+
+in japan
+--
+
+hoge, fuga, piyo, hogera, hogehoge
