@@ -23,3 +23,9 @@ https://github.com/zsh-users/zsh-autosuggestions/issues/472
 $ ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(end-of-line)
 $ bindkey -M viins '^E' end-of-line
 ```
+
+or 
+
+```zsh
+bindkey '^F' forward-char
+```
