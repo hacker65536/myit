@@ -30,3 +30,7 @@ or
 bindkey '^F' forward-char
 ```
 or both
+
+
+ref  
+https://qiita.com/yuku_t/items/e58cbecf13407446bd50
