@@ -29,3 +29,4 @@ or
 ```zsh
 bindkey '^F' forward-char
 ```
+or both
