@@ -81,5 +81,5 @@ $ git log --pretty=format:"%C(auto)[%as] %h %<(18)%an : %s"
 ```
 
 ```console
- git config --global format.pretty format:"%C(auto)[%as] %h %<(18)%an : %s"
+$ git config --global format.pretty format:"%C(auto)[%as] %h %<(18)%an : %s"
 ```
