@@ -18,3 +18,8 @@ $ pip3 install -r requirements.txt && pip3 install -e .
 $ aws --version
 aws-cli/2.1.19 Python/3.7.3 Linux/5.4.83-v7l+ source/armv7l.raspbian.10 prompt/off
 ```
+
+```console
+$ python3 -c 'import botocore;print(botocore.__version__)'
+2.0.0dev87
+```
