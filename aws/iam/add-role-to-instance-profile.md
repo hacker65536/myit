@@ -134,3 +134,9 @@ $ aws iam list-instance-profiles --query 'InstanceProfiles[?contains(InstancePro
     }
 ]
 ```
+
+same `aws iam list-instance-profiles-for-role --role-name roletest`
+
+```console
+$ aws iam attach-role-policy --role-name roletest --policy-arn arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess
+```
