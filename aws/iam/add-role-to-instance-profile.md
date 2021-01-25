@@ -39,9 +39,29 @@ $ aws iam create-role --role-name roletest \
 
 ```console
 $ aws iam create-instance-profile --instance-profile-name roletest1
+{
+    "InstanceProfile": {
+        "Path": "/",
+        "InstanceProfileName": "roletest1",
+        "InstanceProfileId": "AIPASOFHUNRFVENLBGCHF",
+        "Arn": "arn:aws:iam::012345678901:instance-profile/roletest1",
+        "CreateDate": "2021-01-25T09:16:00+00:00",
+        "Roles": []
+    }
+}
 ```
 ```console
 $ aws iam create-instance-profile --instance-profile-name roletest2
+{
+    "InstanceProfile": {
+        "Path": "/",
+        "InstanceProfileName": "roletest2",
+        "InstanceProfileId": "AIPASOFHUNRF2AFEH7W3W",
+        "Arn": "arn:aws:iam::012345678901:instance-profile/roletest2",
+        "CreateDate": "2021-01-25T09:16:45+00:00",
+        "Roles": []
+    }
+}
 ```
 
 ```console 
