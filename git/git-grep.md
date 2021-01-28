@@ -13,3 +13,7 @@ file name only
 ```console
 $ git grep --files-with-matches 'word'
 ```
+
+```console
+$ git grep -e "word" --and --not "ignoreword"
+```
