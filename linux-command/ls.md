@@ -1,6 +1,6 @@
 ls
 
-
+http://itdoc.hitachi.co.jp/manuals/3021/3021336200e/JPAS0325.HTM
 
 The first character indicates the type of target:
 
