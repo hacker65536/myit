@@ -49,7 +49,7 @@ $ ls -la lower
 $ touch lower/lowertestfile
 ```
 
-``console
+```console
 $ ls -la upper
 .rw-rw-r-- 0 ec2-user 30 Jan 17:10 README.md
 drwxrwxr-x - ec2-user 30 Jan 17:10 testdir
