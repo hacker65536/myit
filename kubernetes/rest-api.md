@@ -17,3 +17,7 @@ $ aws eks describe-cluster --name myeks | jq -r '.cluster.certificateAuthority.d
 ```console
 $ curl -X GET $SERVER --header "Authorization: Bearer $TOKEN" --cacert ca.crt
 ```
+
+```console
+curl  --header "Authorization: Bearer $TOKEN" --cacert ca.crt -X GET ${SERVER}/api/v1/namespaces/kube-system/pods
+```
