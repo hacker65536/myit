@@ -80,3 +80,15 @@ $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
 $ tail -n 1 /var/log/td-agent/td-agent.log
 2021-04-11 18:31:22.164842963 +0000 debug.test: {"json":"message"}
 ```
+
+
+```console
+$ mkdir rubyapp
+```
+
+```console
+$ cat <<'EOF'> Gemfile
+source 'https://rubygems.org'
+gem 'fluent-logger', "~> 0.7.1"
+EOF
+```
