@@ -70,3 +70,13 @@ tcp        0      0 0.0.0.0:8888            0.0.0.0:*               LISTEN      
 tcp        0      0 0.0.0.0:24224           0.0.0.0:*               LISTEN      2932/ruby
 udp        0      0 0.0.0.0:24224           0.0.0.0:*                           2932/ruby
 ```
+
+
+```console
+$ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
+```
+
+```console
+$ tail -n 1 /var/log/td-agent/td-agent.log
+2021-04-11 18:31:22.164842963 +0000 debug.test: {"json":"message"}
+```
