@@ -84,6 +84,7 @@ $ tail -n 1 /var/log/td-agent/td-agent.log
 
 ```console
 $ mkdir rubyapp
+$ cd rubyapp
 ```
 
 ```console
@@ -91,4 +92,40 @@ $ cat <<'EOF'> Gemfile
 source 'https://rubygems.org'
 gem 'fluent-logger', "~> 0.7.1"
 EOF
+```
+
+```console
+$ gem install bundle
+```
+```console
+$ bundle install
+```
+
+`app.rb`
+```ruby
+require 'fluent-logger'
+Fluent::Logger::FluentLogger.open(nil, :host=>'localhost', :port=>24224)
+Fluent::Logger.post("fluentd.test.follow", {"from"=>"userA", "to"=>"userB"})
+```
+
+
+add below to /etc/td-agent/td-agent.conf
+```
+<match fluentd.test.**>
+  @type stdout
+</match>
+```
+
+
+```console
+$ sudo systemctl restart td-agent
+```
+
+```console
+$ ruby app.rb
+```
+
+```console
+$ tail -f /var/log/td-agent/td-agent.log
+2021-04-11 19:04:28.000000000 +0000 fluentd.test.follow: {"from":"userA","to":"userB"}
 ```
