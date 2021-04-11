@@ -98,7 +98,7 @@ EOF
 $ gem install bundle
 ```
 ```console
-$ bundle install
+$ bundle install --path vendor/bundle
 ```
 
 `app.rb`
@@ -122,7 +122,7 @@ $ sudo systemctl restart td-agent
 ```
 
 ```console
-$ ruby app.rb
+$ bundle ex ruby app.rb
 ```
 
 ```console
