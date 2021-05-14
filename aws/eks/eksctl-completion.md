@@ -16,13 +16,11 @@ $ mkdir -p ~/.zsh/completion/
 $ eksctl completion zsh > ~/.zsh/completion/_eksctl
 ```
 
-```console
-$ fpath=($fpath ~/.zsh/completion)
-```
+```zsh
+fpath=($fpath ~/.zsh/completion)
 
-```console 
-$ autoload -U compinit
-$ compinit
+autoload -U compinit
+compinit
 ```
 
 fish
