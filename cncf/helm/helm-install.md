@@ -4,10 +4,10 @@ https://docs.helm.sh/using_helm/#installing-helm
 
 
 ```console
-$ ver=v2.14.1
-$ curl -SsL -O https://get.helm.sh/helm-${ver}-linux-amd64.tar.gz
-$ tar zxvf !$:t
-$ sudo mv linux-amd64/helm /usr/local/bin/helm
+ver=v3.5.4
+curl -SsL -O https://get.helm.sh/helm-${ver}-linux-amd64.tar.gz
+tar zxvf !$:t
+sudo mv linux-amd64/helm ~/.local/bin/helm
 ```
 
 ```console
