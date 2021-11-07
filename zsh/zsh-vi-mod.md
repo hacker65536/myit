@@ -32,5 +32,11 @@ bindkey '^F' forward-char
 or both
 
 
+set follow line to make `meta-.` behavior
+```
+bindkey '\e.' insert-last-word
+```
+
 ref  
-https://qiita.com/yuku_t/items/e58cbecf13407446bd50
+https://qiita.com/yuku_t/items/e58cbecf13407446bd50  
+https://github.com/ohmyzsh/ohmyzsh/issues/497  
