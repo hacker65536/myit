@@ -38,7 +38,8 @@ bindkey '\e.' insert-last-word
 ```
 
 
-
+# another zsh-vi-mode
+https://github.com/jeffreytse/zsh-vi-mode
 ```
 git clone https://github.com/jeffreytse/zsh-vi-mode \
   $ZSH/custom/plugins/zsh-vi-mode
