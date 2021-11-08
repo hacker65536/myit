@@ -37,6 +37,19 @@ set follow line to make `meta-.` behavior
 bindkey '\e.' insert-last-word
 ```
 
+
+
+```
+git clone https://github.com/jeffreytse/zsh-vi-mode \
+  $ZSH/custom/plugins/zsh-vi-mode
+```
+```
+plugins+=(zsh-vi-mode)
+ZVM_CURSOR_STYLE_ENABLED=false
+```
+
+
+
 ref  
 https://qiita.com/yuku_t/items/e58cbecf13407446bd50  
 https://github.com/ohmyzsh/ohmyzsh/issues/497  
