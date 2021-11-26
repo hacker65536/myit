@@ -17,3 +17,11 @@ git rm --cached secretfile
 ```
 git commit -m "first commit"
 ```
+
+
+最初はからコミットを入れていまう方法
+
+```
+git init
+git commit --allow-empty -m "first commit"
+```
