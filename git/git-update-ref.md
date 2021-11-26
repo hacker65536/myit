@@ -9,3 +9,11 @@ remove first commit
 ```
 git update-ref -d HEAD
 ```
+
+```
+git rm --cached secretfile
+```
+
+```
+git commit -m "first commit"
+```
