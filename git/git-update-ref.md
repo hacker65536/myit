@@ -4,7 +4,7 @@ https://git-scm.com/docs/git-update-ref
 
 
 
-remove first commit
+最初のcommitをやり直す
 
 ```
 git update-ref -d HEAD
