@@ -48,3 +48,10 @@ eksctl: /home/ec2-user/.asdf/shims/eksctl
 $ eksctl version
 0.70.0
 ```
+
+### list
+
+```
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git 
+asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
+```
