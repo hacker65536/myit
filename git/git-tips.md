@@ -53,3 +53,11 @@ $ GIT_SSH_COMMAND='ssh -i ~/.ssh/mykey01' hub clone git@github.com:myname/myrepo
 $ cd myrepo
 $ git config --local core.sshCommand 'ssh -i ~/.ssh/mykey01' 
 ```
+
+最初に空commitをする
+--
+
+```
+git init
+git commit --allow-empty -m "first commit"
+```
