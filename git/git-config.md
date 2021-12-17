@@ -1,5 +1,5 @@
 
-```ini
+```gitconfig
 [secrets]
   providers = git secrets --aws-provider
   patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
