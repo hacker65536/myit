@@ -1,4 +1,5 @@
 
+`~/.gitconfig`
 ```gitconfig
 [secrets]
   providers = git secrets --aws-provider
@@ -45,4 +46,10 @@
   pager = less -R -F -X
 [init]
   defaultBranch = main
+```
+
+`.gitattributes`
+```
+/paht/ansible-repo/*.yml diff=ansible-vault grep=ansible-vault merge=binary
+/path/secrets.yaml diff=sopsdiffer grep=sopsdiffer
 ```
