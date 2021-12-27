@@ -33,7 +33,7 @@ sudo cp /etc/fstab{,org}
 goofys#bucket   /mnt/mountpoint        fuse     _netdev,allow_other,--file-mode=0666,--dir-mode=0777    0       0
 ```
 
-```
+```console
 sudo mount -a
 # or
 sudo mount /mnt/mountpoint
