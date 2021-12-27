@@ -20,7 +20,7 @@ sudo chmod 755 /usr/local/bin/goofys
 ```
 
 ```console
-sudo mkdir /mnt/goofys
+sudo mkdir /mnt/mountpoint
 ```
 
 
