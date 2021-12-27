@@ -28,6 +28,7 @@ sudo mkdir /mnt/goofys
 sudo cp /etc/fstab{,org}
 ```
 
+`/etc/fstab` 
 ```console
 goofys#bucket   /mnt/mountpoint        fuse     _netdev,allow_other,--file-mode=0666,--dir-mode=0777    0       0
 ```
