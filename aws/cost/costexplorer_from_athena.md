@@ -33,3 +33,6 @@ WHERE line_item_product_code = 'AmazonS3'
 group by line_item_resource_id
 order by cost desc
 ```
+
+
+https://prestodb.io/docs/0.217/functions/datetime.html#id2 
