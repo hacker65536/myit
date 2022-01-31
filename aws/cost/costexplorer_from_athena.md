@@ -14,13 +14,17 @@ WHERE line_item_product_code = 'AmazonS3'
 	-- exclude TAX
 	and line_item_tax_type = ''
 	-- yesterday1 day
-	and line_item_usage_start_date between date_parse(
+	and line_item_usage_start_date between 
+	-- 2022-01-01 00:00:00.000
+	date_parse(
 		date_format(
 			current_timestamp - interval '1' day,
 			'%Y-%m-%d'
 		),
 		'%Y-%m-%d'
-	) and date_parse(
+	) and 
+	-- 2022-01-01 23:59:59.000
+	date_parse(
 		date_format(current_timestamp, '%Y-%m-%d'),
 		'%Y-%m-%d'
 	) - interval '1' second 
