@@ -9,3 +9,15 @@ XXXXX
 XXXXX
 XXXXX
 ```
+
+
+```
+aws athena list-named-queries --query '*[*].[@]' --output text
+```
+
+```
+xxxxxx-xxxx-xxxx-xxxxx
+xxxxxx-xxxx-xxxx-xxxxx
+xxxxxx-xxxx-xxxx-xxxxx
+xxxxxx-xxxx-xxxx-xxxxx
+```
