@@ -12,7 +12,7 @@ XXXXX
 
 
 ```
-aws athena list-named-queries --query '*[*]' --output text
+aws athena list-named-queries --query '*[*].[@]' --output text
 ```
 
 ```
@@ -20,4 +20,8 @@ xxxxxx-xxxx-xxxx-xxxxx
 xxxxxx-xxxx-xxxx-xxxxx
 xxxxxx-xxxx-xxxx-xxxxx
 xxxxxx-xxxx-xxxx-xxxxx
+```
+
+```
+aws autoscaling describe-tags --filters Name=Key,Values=Project Name=Value,Values=someproject  --query 'Tags[*][ResourceId][*]' --output text
 ```
