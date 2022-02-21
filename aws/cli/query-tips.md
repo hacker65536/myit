@@ -12,7 +12,7 @@ XXXXX
 
 
 ```
-aws athena list-named-queries --query '*[*].[@]' --output text
+aws athena list-named-queries --query '*[*]' --output text
 ```
 
 ```
