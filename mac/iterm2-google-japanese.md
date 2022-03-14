@@ -1,4 +1,6 @@
-`⌘,` -> Keys tab -> Key Bindings tab
+iterm2
+
+`⌘,` -> Keys tab -> Key Mappings
 
 `+` ->   `^⇧:` Do Not Remap Modifiers
 
