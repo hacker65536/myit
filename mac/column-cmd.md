@@ -13,5 +13,5 @@ docker build . -t column
 ```
 
 ```zsh
-alias column='docker run --rm -i column:latest'
+alias column='docker run --rm -i column'
 ```
