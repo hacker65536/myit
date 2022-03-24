@@ -16,6 +16,7 @@
   st = status
   last = log -1 HEAD
   graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+  mylog = log --pretty=format:\"%C(auto)[%as] %h %<(18)%an : %s\"
 [push]
   default = current
 [hub]
@@ -38,8 +39,8 @@
 [grep "vault"]
   textconv = ansible-vault view
   cachetextconv = true
-[format]
-  pretty = format:"%C(auto)[%as] %h %<(18)%an : %s"
+#[format]
+#  pretty = format:"%C(auto)[%as] %h %<(18)%an : %s"
 [pull]
   rebase = true
 [core]
