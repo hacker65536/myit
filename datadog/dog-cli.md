@@ -16,3 +16,12 @@ from source
 ```
 python3 setup.py install
 ```
+
+
+## config
+`.dogrc`
+```
+[Connection]
+apikey = <DATADOG_API_KEY>
+appkey = <YOUR_APPLICATION_KEY>
+```
