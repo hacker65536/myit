@@ -143,3 +143,14 @@ github.com:
   oauth_token: <TOKEN>
   protocol: https
 ```
+
+```zsh
+hsync(){
+  local defaultbranch=master
+  git rev-parse --verify $defaultbranch>/dev/null 2>&1
+  if [ $? -ne 0 ]; then
+    defaultbranch=main
+  fi
+   git checkout $defaultbranch && git branch -u origin/$defaultbranch $defaultbranch && hub sync && git push -u origin
+}
+```
