@@ -19,4 +19,4 @@ echo '{"key":["value1","value2"]}' | fx
 }
 ```
 
-expand: `l` ,compress: 'h' , search: `/`
+expand: `l`/'L' all 'e' ,collapse: 'h'/'H' all 'E' , search: `/` 
