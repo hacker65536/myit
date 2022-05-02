@@ -13,3 +13,7 @@ setopt EXTENDED_HISTORY
 #setopt hist_no_store
 setopt hist_expand
 ```
+
+
+
+https://unix.stackexchange.com/questions/568907/why-do-i-lose-my-zsh-history
