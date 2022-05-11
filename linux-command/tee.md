@@ -54,3 +54,10 @@ mongod    1230  0.1  1.7 452876 30388 ?        Sl   17:11   0:10 /usr/bin/mongod
 ```
 bash -c 'sh hoge.sh | tee -a log ; exit ${PIPESTATUS}'
 ```
+
+## stdout & pipe
+
+```
+echo aaa | tee >(cat >/dev/null)
+aaa
+```
