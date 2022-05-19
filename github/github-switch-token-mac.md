@@ -24,6 +24,12 @@ $ git config --show-origin --get credential.helper
 file:/Library/Developer/CommandLineTools/usr/share/git-core/gitconfig	osxkeychain
 ```
 
+```console
+$ cat /Library/Developer/CommandLineTools/usr/share/git-core/gitconfig
+[credential]
+	helper = osxkeychain
+```
+
 グローバル設定のファイルを削除 or コメントアウト
 ```console
 $ sudo rm /Library/Developer/CommandLineTools/usr/share/git-core/gitconfig
