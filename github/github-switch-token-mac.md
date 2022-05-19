@@ -24,8 +24,17 @@ $ git config --show-origin --get credential.helper
 file:/Library/Developer/CommandLineTools/usr/share/git-core/gitconfig	osxkeychain
 ```
 
+2022/05/19
+```console
+$ git config --show-origin -l |grep credential.helper
+file:/Applications/Xcode.app/Contents/Developer/usr/share/git-core/gitconfig	credential.helper=osxkeychain
+```
+
 ```console
 $ cat /Library/Developer/CommandLineTools/usr/share/git-core/gitconfig
+[credential]
+	helper = osxkeychain
+$ cat /Applications/Xcode.app/Contents/Developer/usr/share/git-core/gitconfig
 [credential]
 	helper = osxkeychain
 ```
@@ -33,6 +42,7 @@ $ cat /Library/Developer/CommandLineTools/usr/share/git-core/gitconfig
 グローバル設定のファイルを削除 or コメントアウト
 ```console
 $ sudo rm /Library/Developer/CommandLineTools/usr/share/git-core/gitconfig
+$ sudo rm /Applications/Xcode.app/Contents/Developer/usr/share/git-core/gitconfig
 ```
 
 helperをstoreに変える
