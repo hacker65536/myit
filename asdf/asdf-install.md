@@ -55,3 +55,10 @@ $ eksctl version
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git 
 asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
 ```
+
+
+### upgrade
+
+```
+rm -rf ~/.asdf/shims && asdf reshim
+```
