@@ -4,6 +4,11 @@ go get
 ```console
 $ go get github.com/spf13/cobra/cobra
 ```
+
+
+```console
+go install github.com/spf13/cobra-cli@latest
+```
 create dir
 ```console
 $ newrepo=newrepo
