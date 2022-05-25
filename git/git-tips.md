@@ -61,3 +61,31 @@ $ git config --local core.sshCommand 'ssh -i ~/.ssh/mykey01'
 git init
 git commit --allow-empty -m "first commit"
 ```
+
+git refname 'origin/master' is ambiguous
+--
+
+```
+❯ git branch -u origin/master master
+warning: refname 'origin/master' is ambiguous.
+fatal: Ambiguous object name: 'origin/master'.
+```
+
+
+solution
+
+```
+❯ git branch -l
+* master
+  origin/master
+```
+
+```
+❯ git branch -d origin/master
+Deleted branch origin/master (was xxxxxx).
+```
+
+```
+❯ git branch -u origin/master master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+```
