@@ -52,4 +52,7 @@ echo 'eval "$(plenv init - zsh)"' >> ~/.zshrc
 v5.36.0
 ```
 
+```
+plenv install-cpanm
+```
 
