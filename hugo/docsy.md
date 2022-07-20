@@ -19,6 +19,25 @@ git archive master| tar -x -C /Users/myname/mygitpages
 
 
 edit config.toml
-```
-baseURL = ''
+```toml
+baseURL = "http://localhost"
+
+# Language settings
+contentDir = "content/ja"
+defaultContentLanguage = "ja"
+
+
+
+[languages]
+[languages.ja]
+title = "Goldydocs"
+description = "A Docsy example site"
+languageName ="Japanese"
+# Weight used for sorting.
+weight = 1
+[languages.en]
+title = "Goldydocs"
+description = "A Docsy example site"
+languageName ="English"
+contentDir = "content/en"
 ```
