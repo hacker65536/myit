@@ -35,3 +35,14 @@ change font
 ```json
 "terminal.integrated.fontFamily": "DejaVu Sans Mono for Powerline"
 ```
+
+
+ALT + .
+--
+
+https://github.com/microsoft/vscode/issues/11314
+
+
+```json
+  "terminal.integrated.macOptionIsMeta": true
+```
