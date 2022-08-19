@@ -91,3 +91,9 @@ for japanese
 ```
 export LESSCHARSET=utf-8
 ```
+
+or
+
+```
+git config --global core.pager "LESSCHARSET=utf-8 less"
+```
