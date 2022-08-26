@@ -1,7 +1,7 @@
 
 
 
-否定
+## 否定検索
 
 
 http://vimdoc.sourceforge.net/htmldoc/usr_27.html
