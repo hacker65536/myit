@@ -24,7 +24,7 @@ go version go1.19.1 linux/amd64
 
 ### install docker 
 ```
-sudo amazon-linux-extras install docker
+sudo amazon-linux-extras install -y docker
 sudo usermod -a -G docker ec2-user
 sudo systemctl start docker
 ```
