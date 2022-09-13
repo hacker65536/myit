@@ -346,3 +346,73 @@ index 70865a6..3b6b199 100644
  
         if err := mgr.AddHealthzCheck("healthz", healthz.Ping); err != nil {
 ```
+
+
+### edit kustomization.yaml
+
+`config/default/kustomization.yaml`
+
+```diff
+diff --git a/config/default/kustomization.yaml b/config/default/kustomization.yaml
+index c850af7..3092c13 100644
+--- a/config/default/kustomization.yaml
++++ b/config/default/kustomization.yaml
+@@ -46,29 +46,29 @@ patchesStrategicMerge:
+ # the following config is for teaching kustomize how to do var substitution
+ vars:
+ # [CERTMANAGER] To enable cert-manager, uncomment all sections with 'CERTMANAGER' prefix.
+-#- name: CERTIFICATE_NAMESPACE # namespace of the certificate CR
+-#  objref:
+-#    kind: Certificate
+-#    group: cert-manager.io
+-#    version: v1
+-#    name: serving-cert # this name should match the one in certificate.yaml
+-#  fieldref:
+-#    fieldpath: metadata.namespace
+-#- name: CERTIFICATE_NAME
+-#  objref:
+-#    kind: Certificate
+-#    group: cert-manager.io
+-#    version: v1
+-#    name: serving-cert # this name should match the one in certificate.yaml
+-#- name: SERVICE_NAMESPACE # namespace of the service
+-#  objref:
+-#    kind: Service
+-#    version: v1
+-#    name: webhook-service
+-#  fieldref:
+-#    fieldpath: metadata.namespace
+-#- name: SERVICE_NAME
+-#  objref:
+-#    kind: Service
+-#    version: v1
+-#    name: webhook-service
++- name: CERTIFICATE_NAMESPACE # namespace of the certificate CR
++  objref:
++    kind: Certificate
++    group: cert-manager.io
++    version: v1
++    name: serving-cert # this name should match the one in certificate.yaml
++  fieldref:
++    fieldpath: metadata.namespace
++- name: CERTIFICATE_NAME
++  objref:
++    kind: Certificate
++    group: cert-manager.io
++    version: v1
++    name: serving-cert # this name should match the one in certificate.yaml
++- name: SERVICE_NAMESPACE # namespace of the service
++  objref:
++    kind: Service
++    version: v1
++    name: webhook-service
++  fieldref:
++    fieldpath: metadata.namespace
++- name: SERVICE_NAME
++  objref:
++    kind: Service
++    version: v1
++    name: webhook-service
+```
+
+
