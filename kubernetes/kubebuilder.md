@@ -139,9 +139,7 @@ Create Controller [y/n]
 y
 ```
 
-```
-make manifests
-```
+
 
 ```console
 $ tree -C .
