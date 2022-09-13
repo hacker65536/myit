@@ -61,7 +61,11 @@ sudo chmod +x kubebuilder && sudo mv kubebuilder /usr/local/bin/
 
 ## create project
 
+
+
 ```
+mkdir markdown-view
+cd markdown-view
 kubebuilder init --domain zoetrope.github.io --repo github.com/zoetrope/markdown-view
 ```
 
