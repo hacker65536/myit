@@ -103,7 +103,11 @@ $ tree -C .
 6 directories, 25 files
 ```
 
-
+```
+git config --local user.name yourname
+git config --local user.email yourmail
+git init
+```
 ## create api
 
 ```console
