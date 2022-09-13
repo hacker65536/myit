@@ -329,3 +329,20 @@ $ git diff --name-only HEAD^
 config/webhook/manifests.yaml
 ```
 
+```diff
+diff --git a/main.go b/main.go
+index 70865a6..3b6b199 100644
+--- a/main.go
++++ b/main.go
+@@ -96,6 +96,10 @@ func main() {
+                setupLog.Error(err, "unable to create controller", "controller", "MarkdownView")
+                os.Exit(1)
+        }
++       if err = (&viewv1.MarkdownView{}).SetupWebhookWithManager(mgr); err != nil {
++               setupLog.Error(err, "unable to create webhook", "webhook", "MarkdownView")
++               os.Exit(1)
++       }
+        //+kubebuilder:scaffold:builder
+ 
+        if err := mgr.AddHealthzCheck("healthz", healthz.Ping); err != nil {
+```
