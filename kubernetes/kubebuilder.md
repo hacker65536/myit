@@ -64,6 +64,15 @@ sudo chmod +x kubebuilder && sudo mv kubebuilder /usr/local/bin/
 ```
 yum install -y git tree
 ```
+
+```
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.sw switch
+git config --global alias.last "log -1 HEAD"
+```
+
 ## create project
 
 
