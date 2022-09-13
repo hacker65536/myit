@@ -50,3 +50,55 @@ curl -SsL -o ./kind https://kind.sigs.k8s.io/dl/v0.15.0/kind-linux-amd64
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 ```
+
+### install kubebuilder
+
+```
+# download kubebuilder and install locally.
+sudo curl -SsL -o kubebuilder https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH)
+sudo chmod +x kubebuilder && sudo mv kubebuilder /usr/local/bin/
+```
+
+## create project
+
+```
+kubebuilder init --domain zoetrope.github.io --repo github.com/zoetrope/markdown-view
+```
+
+```console
+$ tree -C .
+.
+├── config
+│   ├── default
+│   │   ├── kustomization.yaml
+│   │   ├── manager_auth_proxy_patch.yaml
+│   │   └── manager_config_patch.yaml
+│   ├── manager
+│   │   ├── controller_manager_config.yaml
+│   │   ├── kustomization.yaml
+│   │   └── manager.yaml
+│   ├── prometheus
+│   │   ├── kustomization.yaml
+│   │   └── monitor.yaml
+│   └── rbac
+│       ├── auth_proxy_client_clusterrole.yaml
+│       ├── auth_proxy_role_binding.yaml
+│       ├── auth_proxy_role.yaml
+│       ├── auth_proxy_service.yaml
+│       ├── kustomization.yaml
+│       ├── leader_election_role_binding.yaml
+│       ├── leader_election_role.yaml
+│       ├── role_binding.yaml
+│       └── service_account.yaml
+├── Dockerfile
+├── go.mod
+├── go.sum
+├── hack
+│   └── boilerplate.go.txt
+├── main.go
+├── Makefile
+├── PROJECT
+└── README.md
+
+6 directories, 25 files
+```
