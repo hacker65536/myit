@@ -256,14 +256,12 @@ PROJECT
 api/v1/groupversion_info.go
 api/v1/markdownview_types.go
 api/v1/zz_generated.deepcopy.go
-config/crd/bases/view.zoetrope.github.io_markdownviews.yaml
 config/crd/kustomization.yaml
 config/crd/kustomizeconfig.yaml
 config/crd/patches/cainjection_in_markdownviews.yaml
 config/crd/patches/webhook_in_markdownviews.yaml
 config/rbac/markdownview_editor_role.yaml
 config/rbac/markdownview_viewer_role.yaml
-config/rbac/role.yaml
 config/samples/view_v1_markdownview.yaml
 controllers/markdownview_controller.go
 controllers/suite_test.go
@@ -271,7 +269,23 @@ go.mod
 go.sum
 main.go
 ```
+```console
+$ make manifests
+/home/ec2-user/markdown-view/bin/controller-gen rbac:roleName=manager-role crd webhook paths="./..." output:crd:artifacts:config=config/crd/bases
+```
 
+```console
+$ git st 
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        config/crd/bases/
+        config/rbac/role.yaml
+```
+```
+git add .
+git ci -m "add api manifests"
+```
 
 ## create  webhook
 
