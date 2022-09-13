@@ -116,6 +116,9 @@ $ tree -C .
 git init
 git config --local user.name yourname
 git config --local user.email yourmail
+git commit --allow-empty -m "first commit"
+git add .
+git commit -m "add files"
 ```
 ## create api
 
@@ -190,4 +193,9 @@ $ tree -C .
 └── README.md
 
 14 directories, 40 files
+```
+
+```
+git add .
+git commit -m "add api"
 ```
