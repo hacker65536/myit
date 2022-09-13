@@ -291,15 +291,7 @@ git ci -m "add api manifests"
 
 ```console
 $ kubebuilder create webhook --group view --version v1 --kind MarkdownView --programmatic-validation --defaulting
-Writing kustomize manifests for you to edit...
-Writing scaffold for you to edit...
-api/v1/markdownview_webhook.go
-Update dependencies:
-$ go mod tidy
-Running make:
-$ make generate
-/home/ec2-user/markdown-view/bin/controller-gen object:headerFile="hack/boilerplate.go.txt" paths="./..."
-Next: implement your new Webhook and generate the manifests with:
+
 $ make manifests
 ```
 
