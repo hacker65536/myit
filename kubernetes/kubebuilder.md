@@ -153,8 +153,6 @@ $ tree -C .
 │   └── controller-gen
 ├── config
 │   ├── crd
-│   │   ├── bases
-│   │   │   └── view.zoetrope.github.io_markdownviews.yaml
 │   │   ├── kustomization.yaml
 │   │   ├── kustomizeconfig.yaml
 │   │   └── patches
@@ -182,7 +180,6 @@ $ tree -C .
 │   │   ├── markdownview_editor_role.yaml
 │   │   ├── markdownview_viewer_role.yaml
 │   │   ├── role_binding.yaml
-│   │   ├── role.yaml
 │   │   └── service_account.yaml
 │   └── samples
 │       └── view_v1_markdownview.yaml
@@ -199,7 +196,7 @@ $ tree -C .
 ├── PROJECT
 └── README.md
 
-14 directories, 40 files
+13 directories, 38 files
 ```
 
 ```
@@ -285,11 +282,50 @@ git add .
 git ci -m "add api manifests"
 ```
 
+```
+$ git diff --name-only HEAD^
+config/crd/bases/view.zoetrope.github.io_markdownviews.yaml
+config/rbac/role.yaml
+```
+
 ## create  webhook
 
 ```console
 $ kubebuilder create webhook --group view --version v1 --kind MarkdownView --programmatic-validation --defaulting
+```
 
-$ make manifests
+```
+git add .
+git ci -m "add webhook"
+```
+
+```console
+$ git diff --name-only HEAD^
+PROJECT
+api/v1/markdownview_webhook.go
+api/v1/webhook_suite_test.go
+api/v1/zz_generated.deepcopy.go
+config/certmanager/certificate.yaml
+config/certmanager/kustomization.yaml
+config/certmanager/kustomizeconfig.yaml
+config/default/manager_webhook_patch.yaml
+config/default/webhookcainjection_patch.yaml
+config/webhook/kustomization.yaml
+config/webhook/kustomizeconfig.yaml
+config/webhook/service.yaml
+go.mod
+main.go
+```
+```
+make manifests
+```
+
+```
+git add .
+git ci -m "add webhook manifests"
+```
+```
+$ git diff --name-only HEAD^
+config/webhook/manifests.yaml
 ```
 
