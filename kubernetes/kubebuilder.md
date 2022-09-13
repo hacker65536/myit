@@ -59,6 +59,11 @@ sudo curl -SsL -o kubebuilder https://go.kubebuilder.io/dl/latest/$(go env GOOS)
 sudo chmod +x kubebuilder && sudo mv kubebuilder /usr/local/bin/
 ```
 
+### install misc
+
+```
+yum install -y git tree
+```
 ## create project
 
 
