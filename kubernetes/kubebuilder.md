@@ -417,6 +417,10 @@ index c850af7..3092c13 100644
 +    version: v1
 +    name: webhook-service
 ```
+```
+git add .
+git ci -m "edit kustomization"
+```
 
 ### launch cluster
 
@@ -459,4 +463,95 @@ kube-system          kube-controller-manager-kind-control-plane   1/1     Runnin
 kube-system          kube-proxy-25kpb                             1/1     Running   0          43s
 kube-system          kube-scheduler-kind-control-plane            1/1     Running   0          58s
 local-path-storage   local-path-provisioner-684f458cdd-pxlnb      1/1     Running   0          43s
+```
+
+
+```console
+$ kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/latest/download/cert-manager.yaml
+namespace/cert-manager created
+customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/certificates.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/challenges.acme.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/clusterissuers.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/issuers.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/orders.acme.cert-manager.io created
+serviceaccount/cert-manager-cainjector created
+serviceaccount/cert-manager created
+serviceaccount/cert-manager-webhook created
+configmap/cert-manager-webhook created
+clusterrole.rbac.authorization.k8s.io/cert-manager-cainjector created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-issuers created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificates created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-orders created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-challenges created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim created
+clusterrole.rbac.authorization.k8s.io/cert-manager-view created
+clusterrole.rbac.authorization.k8s.io/cert-manager-edit created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests created
+clusterrole.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-cainjector created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-issuers created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-certificates created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-orders created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-challenges created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews created
+role.rbac.authorization.k8s.io/cert-manager-cainjector:leaderelection created
+role.rbac.authorization.k8s.io/cert-manager:leaderelection created
+role.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving created
+rolebinding.rbac.authorization.k8s.io/cert-manager-cainjector:leaderelection created
+rolebinding.rbac.authorization.k8s.io/cert-manager:leaderelection created
+rolebinding.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving created
+service/cert-manager created
+service/cert-manager-webhook created
+deployment.apps/cert-manager-cainjector created
+deployment.apps/cert-manager created
+deployment.apps/cert-manager-webhook created
+mutatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook created
+validatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook created
+```
+
+```console
+$ kubectl get pod -n cert-manager
+NAME                                       READY   STATUS    RESTARTS   AGE
+cert-manager-cainjector-857ff8f7cb-nk4bj   1/1     Running   0          36s
+cert-manager-d58554549-qfc76               1/1     Running   0          36s
+cert-manager-webhook-76fdf7c485-8qrgv      1/1     Running   0          36s
+```
+
+
+```console
+$ kind load docker-image controller:latest
+Image: "controller:latest" with ID "sha256:3ce9ae85b547319abc611ddcbb39c3f44ed21608bea6f77697e29474853d6d7f" not yet present on node "kind-control-plane", loading...
+```
+
+### edit `config/manager/manager.yaml`
+
+
+```diff
+diff --git a/config/manager/manager.yaml b/config/manager/manager.yaml
+index 878ad48..ea3a068 100644
+--- a/config/manager/manager.yaml
++++ b/config/manager/manager.yaml
+@@ -39,6 +39,7 @@ spec:
+         args:
+         - --leader-elect
+         image: controller:latest
++        imagePullPolicy: IfNotPresent
+         name: manager
+         securityContext:
+           allowPrivilegeEscalation: false
+```
+
+
+```
+make install
+```
+```
+make deploy
 ```
