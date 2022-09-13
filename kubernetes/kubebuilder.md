@@ -113,9 +113,9 @@ $ tree -C .
 ```
 
 ```
+git init
 git config --local user.name yourname
 git config --local user.email yourmail
-git init
 ```
 ## create api
 
