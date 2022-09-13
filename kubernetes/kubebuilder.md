@@ -102,3 +102,79 @@ $ tree -C .
 
 6 directories, 25 files
 ```
+
+
+## create api
+
+```console
+$ kubebuilder create api --group view --version v1 --kind MarkdownView
+Create Resource [y/n]
+y
+Create Controller [y/n]
+y
+```
+
+```
+make manifests
+```
+
+```console
+$ tree -C .
+.
+├── api
+│   └── v1
+│       ├── groupversion_info.go
+│       ├── markdownview_types.go
+│       └── zz_generated.deepcopy.go
+├── bin
+│   └── controller-gen
+├── config
+│   ├── crd
+│   │   ├── bases
+│   │   │   └── view.zoetrope.github.io_markdownviews.yaml
+│   │   ├── kustomization.yaml
+│   │   ├── kustomizeconfig.yaml
+│   │   └── patches
+│   │       ├── cainjection_in_markdownviews.yaml
+│   │       └── webhook_in_markdownviews.yaml
+│   ├── default
+│   │   ├── kustomization.yaml
+│   │   ├── manager_auth_proxy_patch.yaml
+│   │   └── manager_config_patch.yaml
+│   ├── manager
+│   │   ├── controller_manager_config.yaml
+│   │   ├── kustomization.yaml
+│   │   └── manager.yaml
+│   ├── prometheus
+│   │   ├── kustomization.yaml
+│   │   └── monitor.yaml
+│   ├── rbac
+│   │   ├── auth_proxy_client_clusterrole.yaml
+│   │   ├── auth_proxy_role_binding.yaml
+│   │   ├── auth_proxy_role.yaml
+│   │   ├── auth_proxy_service.yaml
+│   │   ├── kustomization.yaml
+│   │   ├── leader_election_role_binding.yaml
+│   │   ├── leader_election_role.yaml
+│   │   ├── markdownview_editor_role.yaml
+│   │   ├── markdownview_viewer_role.yaml
+│   │   ├── role_binding.yaml
+│   │   ├── role.yaml
+│   │   └── service_account.yaml
+│   └── samples
+│       └── view_v1_markdownview.yaml
+├── controllers
+│   ├── markdownview_controller.go
+│   └── suite_test.go
+├── Dockerfile
+├── go.mod
+├── go.sum
+├── hack
+│   └── boilerplate.go.txt
+├── main.go
+├── Makefile
+├── PROJECT
+└── README.md
+
+14 directories, 40 files
+```
