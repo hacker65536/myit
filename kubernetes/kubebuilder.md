@@ -436,3 +436,27 @@ kubectl cluster-info --context kind-kind
 
 Thanks for using kind! 😊
 ```
+
+```console
+$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS          PORTS                       NAMES
+6ccaea0b5061   kindest/node:v1.25.0   "/usr/local/bin/entr…"   About a minute ago   Up 57 seconds   127.0.0.1:46043->6443/tcp   kind-control-plane
+```
+```console
+$ k config current-context
+kind-kind
+```
+
+```console
+$ k get pod -A
+NAMESPACE            NAME                                         READY   STATUS    RESTARTS   AGE
+kube-system          coredns-565d847f94-dshhb                     1/1     Running   0          43s
+kube-system          coredns-565d847f94-pmlsv                     1/1     Running   0          43s
+kube-system          etcd-kind-control-plane                      1/1     Running   0          58s
+kube-system          kindnet-z5jjf                                1/1     Running   0          43s
+kube-system          kube-apiserver-kind-control-plane            1/1     Running   0          58s
+kube-system          kube-controller-manager-kind-control-plane   1/1     Running   0          58s
+kube-system          kube-proxy-25kpb                             1/1     Running   0          43s
+kube-system          kube-scheduler-kind-control-plane            1/1     Running   0          58s
+local-path-storage   local-path-provisioner-684f458cdd-pxlnb      1/1     Running   0          43s
+```
