@@ -632,6 +632,11 @@ index 2bcd3ee..5e793dd 100644
 +  newName: controller
 +  newTag: latest
 ```
+```
+git add .
+git ci -m"deploy controller"
+```
+
 
 ```console
 $ kubectl get pod -n markdown-view-system
@@ -639,26 +644,130 @@ NAME                                                READY   STATUS    RESTARTS  
 markdown-view-controller-manager-6c684dbdfd-5jkkh   2/2     Running   0          93s
 ```
 
-
 ```console
-$ k logs -n markdown-view-system markdown-view-controller-manager-6c684dbdfd-5jkkh 
-1.6636690517465425e+09  INFO    controller-runtime.metrics      Metrics server is starting to listen    {"addr": "127.0.0.1:8080"}
-1.663669051746759e+09   INFO    controller-runtime.builder      Registering a mutating webhook  {"GVK": "view.zoetrope.github.io/v1, Kind=MarkdownView", "path": "/mutate-view-zoetrope-github-io-v1-markdownview"}
-1.6636690517468295e+09  INFO    controller-runtime.webhook      Registering webhook     {"path": "/mutate-view-zoetrope-github-io-v1-markdownview"}
-1.6636690517468789e+09  INFO    controller-runtime.builder      Registering a validating webhook        {"GVK": "view.zoetrope.github.io/v1, Kind=MarkdownView", "path": "/validate-view-zoetrope-github-io-v1-markdownview"}
-1.6636690517469127e+09  INFO    controller-runtime.webhook      Registering webhook     {"path": "/validate-view-zoetrope-github-io-v1-markdownview"}
-1.6636690517469697e+09  INFO    setup   starting manager
-1.6636690517471147e+09  INFO    controller-runtime.webhook.webhooks     Starting webhook server
-1.6636690517471483e+09  INFO    Starting server {"kind": "health probe", "addr": "[::]:8081"}
-1.6636690517471936e+09  INFO    Starting server {"path": "/metrics", "kind": "metrics", "addr": "127.0.0.1:8080"}
-1.6636690517472675e+09  INFO    controller-runtime.certwatcher  Updated current TLS certificate
-1.663669051747319e+09   INFO    controller-runtime.webhook      Serving webhook server  {"host": "", "port": 9443}
-I0920 10:17:31.747399       1 leaderelection.go:248] attempting to acquire leader lease markdown-view-system/3ca5b296.zoetrope.github.io...
-1.6636690517475576e+09  INFO    controller-runtime.certwatcher  Starting certificate watcher
-I0920 10:17:31.750400       1 leaderelection.go:258] successfully acquired lease markdown-view-system/3ca5b296.zoetrope.github.io
-1.6636690517505648e+09  DEBUG   events  Normal  {"object": {"kind":"Lease","namespace":"markdown-view-system","name":"3ca5b296.zoetrope.github.io","uid":"d4a2a060-6659-4166-b20d-daa1576a5955","apiVersion":"coordination.k8s.io/v1","resourceVersion":"1319"}, "reason": "LeaderElection", "message": "markdown-view-controller-manager-6c684dbdfd-5jkkh_9842d70a-2532-4831-9098-aa4442be9b0b became leader"}
-1.6636690517506897e+09  INFO    Starting EventSource    {"controller": "markdownview", "controllerGroup": "view.zoetrope.github.io", "controllerKind": "MarkdownView", "source": "kind source: *v1.MarkdownView"}
-1.6636690517507148e+09  INFO    Starting Controller     {"controller": "markdownview", "controllerGroup": "view.zoetrope.github.io", "controllerKind": "MarkdownView"}
-1.663669051851831e+09   INFO    Starting workers        {"controller": "markdownview", "controllerGroup": "view.zoetrope.github.io", "controllerKind": "MarkdownView", "worker count": 1}
+k ns markdown-view-system
+```
+```console
+$ stern --since=10m markdown-view-controller-manager
++ markdown-view-controller-manager-6c684dbdfd-5jkkh › manager
++ markdown-view-controller-manager-6c684dbdfd-5jkkh › kube-rbac-proxy
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517465425e+09        INFO    controller-runtime.metrics      Metrics server is starting to listen    {"addr": "127.0.0.1:8080"}
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.663669051746759e+09 INFO    controller-runtime.builder      Registering a mutating webhook  {"GVK": "view.zoetrope.github.io/v1, Kind=MarkdownView", "path": "/mutate-view-zoetrope-github-io-v1-markdownview"}
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517468295e+09        INFO    controller-runtime.webhook      Registering webhook     {"path": "/mutate-view-zoetrope-github-io-v1-markdownview"}
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517468789e+09        INFO    controller-runtime.builder      Registering a validating webhook        {"GVK": "view.zoetrope.github.io/v1, Kind=MarkdownView", "path": "/validate-view-zoetrope-github-io-v1-markdownview"}
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517469127e+09        INFO    controller-runtime.webhook      Registering webhook     {"path": "/validate-view-zoetrope-github-io-v1-markdownview"}
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517469697e+09        INFO    setup   starting manager
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517471147e+09        INFO    controller-runtime.webhook.webhooks     Starting webhook server
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517471483e+09        INFO    Starting server {"kind": "health probe", "addr": "[::]:8081"}
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517471936e+09        INFO    Starting server {"path": "/metrics", "kind": "metrics", "addr": "127.0.0.1:8080"}
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517472675e+09        INFO    controller-runtime.certwatcher  Updated current TLS certificate
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.663669051747319e+09 INFO    controller-runtime.webhook      Serving webhook server  {"host": "", "port": 9443}
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager I0920 10:17:31.747399       1 leaderelection.go:248] attempting to acquire leader lease markdown-view-system/3ca5b296.zoetrope.github.io...
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517475576e+09        INFO    controller-runtime.certwatcher  Starting certificate watcher
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager I0920 10:17:31.750400       1 leaderelection.go:258] successfully acquired lease markdown-view-system/3ca5b296.zoetrope.github.io
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517505648e+09        DEBUG   events  Normal  {"object": {"kind":"Lease","namespace":"markdown-view-system","name":"3ca5b296.zoetrope.github.io","uid":"d4a2a060-6659-4166-b20d-daa1576a5955","apiVersion":"coordination.k8s.io/v1","resourceVersion":"1319"}, "reason": "LeaderElection", "message": "markdown-view-controller-manager-6c684dbdfd-5jkkh_9842d70a-2532-4831-9098-aa4442be9b0b became leader"}
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517506897e+09        INFO    Starting EventSource    {"controller": "markdownview", "controllerGroup": "view.zoetrope.github.io", "controllerKind": "MarkdownView", "source": "kind source: *v1.MarkdownView"}
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.6636690517507148e+09        INFO    Starting Controller     {"controller": "markdownview", "controllerGroup": "view.zoetrope.github.io", "controllerKind": "MarkdownView"}
+markdown-view-controller-manager-6c684dbdfd-5jkkh manager 1.663669051851831e+09 INFO    Starting workers        {"controller": "markdownview", "controllerGroup": "view.zoetrope.github.io", "controllerKind": "MarkdownView", "worker count": 1}
+markdown-view-controller-manager-6c684dbdfd-5jkkh kube-rbac-proxy I0920 10:17:31.630883       1 main.go:186] Valid token audiences: 
+markdown-view-controller-manager-6c684dbdfd-5jkkh kube-rbac-proxy I0920 10:17:31.630946       1 main.go:316] Generating self signed cert as no cert is provided
+markdown-view-controller-manager-6c684dbdfd-5jkkh kube-rbac-proxy I0920 10:17:32.959896       1 main.go:366] Starting TCP socket on 0.0.0.0:8443
+markdown-view-controller-manager-6c684dbdfd-5jkkh kube-rbac-proxy I0920 10:17:32.960111       1 main.go:373] Listening securely on 0.0.0.0:8443
 ```
 
+### deploy samples
+
+```
+kubectl apply -f config/samples/view_v1_markdownview.yaml
+```
+
+### controller-gen
+
+```
+export PATH=$PATH:$(pwd)/bin
+```
+
+```console
+$ controller-gen crd -w
+
+CRD
+
++groupName=<string>                                                                                                               package  specifies the API group name for this package.                                    
++kubebuilder:deprecatedversion[:warning=<string>]                                                                                 type     marks this version as deprecated.                                                 
++kubebuilder:printcolumn:JSONPath=<string>[,description=<string>][,format=<string>],name=<string>[,priority=<int>],type=<string>  type     adds a column to "kubectl get" output for this CRD.                               
++kubebuilder:resource[:categories=<[]string>][,path=<string>][,scope=<string>][,shortName=<[]string>][,singular=<string>]         type     configures naming and scope for a CRD.                                            
++kubebuilder:skip                                                                                                                 package  don't consider this package as an API version.                                    
++kubebuilder:skipversion                                                                                                          type     removes the particular version of the CRD from the CRDs spec.                     
++kubebuilder:storageversion                                                                                                       type     marks this version as the "storage version" for the CRD for conversion.           
++kubebuilder:subresource:scale[:selectorpath=<string>],specpath=<string>,statuspath=<string>                                      type     enables the "/scale" subresource on a CRD.                                        
++kubebuilder:subresource:status                                                                                                   type     enables the "/status" subresource on a CRD.                                       
++kubebuilder:unservedversion                                                                                                      type     does not serve this version.                                                      
++versionName=<string>                                                                                                             package  overrides the API group version for this package (defaults to the package name).  
+
+
+CRD processing
+
++kubebuilder:pruning:PreserveUnknownFields      type   PreserveUnknownFields stops the apiserver from pruning fields which are not specified.                                                                            
++kubebuilder:pruning:PreserveUnknownFields      field  PreserveUnknownFields stops the apiserver from pruning fields which are not specified.                                                                            
++kubebuilder:validation:XPreserveUnknownFields  type   PreserveUnknownFields stops the apiserver from pruning fields which are not specified.                                                                            
++kubebuilder:validation:XPreserveUnknownFields  field  PreserveUnknownFields stops the apiserver from pruning fields which are not specified.                                                                            
++listMapKey=<string>                            type   specifies the keys to map listTypes.                                                                                                                              
++listMapKey=<string>                            field  specifies the keys to map listTypes.                                                                                                                              
++listType=<string>                              type   specifies the type of data-structure that the list represents (map, set, atomic).                                                                                 
++listType=<string>                              field  specifies the type of data-structure that the list represents (map, set, atomic).                                                                                 
++mapType=<string>                               type   specifies the level of atomicity of the map; i.e. whether each item in the map is independent of the others, or all fields are treated as a single unit.          
++mapType=<string>                               field  specifies the level of atomicity of the map; i.e. whether each item in the map is independent of the others, or all fields are treated as a single unit.          
++structType=<string>                            type   specifies the level of atomicity of the struct; i.e. whether each field in the struct is independent of the others, or all fields are treated as a single unit.   
++structType=<string>                            field  specifies the level of atomicity of the struct; i.e. whether each field in the struct is independent of the others, or all fields are treated as a single unit.   
+
+
+CRD validation
+
++kubebuilder:default=<any>                                            field    sets the default value for this field.                                                               
++kubebuilder:validation:EmbeddedResource                              field    EmbeddedResource marks a fields as an embedded resource with apiVersion, kind and metadata fields.   
++kubebuilder:validation:Enum=<[]any>                                  type     specifies that this (scalar) field is restricted to the *exact* values specified here.               
++kubebuilder:validation:Enum=<[]any>                                  field    specifies that this (scalar) field is restricted to the *exact* values specified here.               
++kubebuilder:validation:ExclusiveMaximum=<bool>                       type     indicates that the maximum is "up to" but not including that value.                                  
++kubebuilder:validation:ExclusiveMaximum=<bool>                       field    indicates that the maximum is "up to" but not including that value.                                  
++kubebuilder:validation:ExclusiveMinimum=<bool>                       type     indicates that the minimum is "up to" but not including that value.                                  
++kubebuilder:validation:ExclusiveMinimum=<bool>                       field    indicates that the minimum is "up to" but not including that value.                                  
++kubebuilder:validation:Format=<string>                               field    specifies additional "complex" formatting for this field.                                            
++kubebuilder:validation:Format=<string>                               type     specifies additional "complex" formatting for this field.                                            
++kubebuilder:validation:MaxItems=<int>                                type     specifies the maximum length for this list.                                                          
++kubebuilder:validation:MaxItems=<int>                                field    specifies the maximum length for this list.                                                          
++kubebuilder:validation:MaxLength=<int>                               field    specifies the maximum length for this string.                                                        
++kubebuilder:validation:MaxLength=<int>                               type     specifies the maximum length for this string.                                                        
++kubebuilder:validation:MaxProperties=<int>                           field    restricts the number of keys in an object                                                            
++kubebuilder:validation:MaxProperties=<int>                           type     restricts the number of keys in an object                                                            
++kubebuilder:validation:Maximum=<>                                    type     specifies the maximum numeric value that this field can have.                                        
++kubebuilder:validation:Maximum=<>                                    field    specifies the maximum numeric value that this field can have.                                        
++kubebuilder:validation:MinItems=<int>                                type     specifies the minimun length for this list.                                                          
++kubebuilder:validation:MinItems=<int>                                field    specifies the minimun length for this list.                                                          
++kubebuilder:validation:MinLength=<int>                               field    specifies the minimum length for this string.                                                        
++kubebuilder:validation:MinLength=<int>                               type     specifies the minimum length for this string.                                                        
++kubebuilder:validation:MinProperties=<int>                           type     restricts the number of keys in an object                                                            
++kubebuilder:validation:MinProperties=<int>                           field    restricts the number of keys in an object                                                            
++kubebuilder:validation:Minimum=<>                                    type     specifies the minimum numeric value that this field can have. Negative numbers are supported.        
++kubebuilder:validation:Minimum=<>                                    field    specifies the minimum numeric value that this field can have. Negative numbers are supported.        
++kubebuilder:validation:MultipleOf=<>                                 field    specifies that this field must have a numeric value that's a multiple of this one.                   
++kubebuilder:validation:MultipleOf=<>                                 type     specifies that this field must have a numeric value that's a multiple of this one.                   
++kubebuilder:validation:Optional                                      package  specifies that all fields in this package are optional by default.                                   
++kubebuilder:validation:Optional                                      field    specifies that this field is optional, if fields are required by default.                            
++kubebuilder:validation:Pattern=<string>                              field    specifies that this string must match the given regular expression.                                  
++kubebuilder:validation:Pattern=<string>                              type     specifies that this string must match the given regular expression.                                  
++kubebuilder:validation:Required                                      package  specifies that all fields in this package are required by default.                                   
++kubebuilder:validation:Required                                      field    specifies that this field is required, if fields are optional by default.                            
++kubebuilder:validation:Schemaless                                    field    marks a field as being a schemaless object.                                                          
++kubebuilder:validation:Type=<string>                                 type     overrides the type for this field (which defaults to the equivalent of the Go type).                 
++kubebuilder:validation:Type=<string>                                 field    overrides the type for this field (which defaults to the equivalent of the Go type).                 
++kubebuilder:validation:UniqueItems=<bool>                            field    specifies that all items in this list must be unique.                                                
++kubebuilder:validation:UniqueItems=<bool>                            type     specifies that all items in this list must be unique.                                                
++kubebuilder:validation:XEmbeddedResource                             type     EmbeddedResource marks a fields as an embedded resource with apiVersion, kind and metadata fields.   
++kubebuilder:validation:XEmbeddedResource                             field    EmbeddedResource marks a fields as an embedded resource with apiVersion, kind and metadata fields.   
++kubebuilder:validation:XIntOrString                                  field    IntOrString marks a fields as an IntOrString.                                                        
++kubebuilder:validation:XIntOrString                                  type     IntOrString marks a fields as an IntOrString.                                                        
++kubebuilder:validation:XValidation[:message=<string>],rule=<string>  field    marks a field as requiring a value for which a given expression evaluates to true.                   
++kubebuilder:validation:XValidation[:message=<string>],rule=<string>  type     marks a field as requiring a value for which a given expression evaluates to true.                   
++nullable                                                             field    marks this field as allowing the "null" value.                                                       
++optional                                                             field    specifies that this field is optional, if fields are required by default.   
+```
