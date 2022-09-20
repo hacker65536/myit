@@ -145,61 +145,23 @@ y
 
 
 ```console
-$ tree -C .
-.
-├── api
-│   └── v1
-│       ├── groupversion_info.go
-│       ├── markdownview_types.go
-│       └── zz_generated.deepcopy.go
-├── bin
-│   └── controller-gen
-├── config
-│   ├── crd
-│   │   ├── kustomization.yaml
-│   │   ├── kustomizeconfig.yaml
-│   │   └── patches
-│   │       ├── cainjection_in_markdownviews.yaml
-│   │       └── webhook_in_markdownviews.yaml
-│   ├── default
-│   │   ├── kustomization.yaml
-│   │   ├── manager_auth_proxy_patch.yaml
-│   │   └── manager_config_patch.yaml
-│   ├── manager
-│   │   ├── controller_manager_config.yaml
-│   │   ├── kustomization.yaml
-│   │   └── manager.yaml
-│   ├── prometheus
-│   │   ├── kustomization.yaml
-│   │   └── monitor.yaml
-│   ├── rbac
-│   │   ├── auth_proxy_client_clusterrole.yaml
-│   │   ├── auth_proxy_role_binding.yaml
-│   │   ├── auth_proxy_role.yaml
-│   │   ├── auth_proxy_service.yaml
-│   │   ├── kustomization.yaml
-│   │   ├── leader_election_role_binding.yaml
-│   │   ├── leader_election_role.yaml
-│   │   ├── markdownview_editor_role.yaml
-│   │   ├── markdownview_viewer_role.yaml
-│   │   ├── role_binding.yaml
-│   │   └── service_account.yaml
-│   └── samples
-│       └── view_v1_markdownview.yaml
-├── controllers
-│   ├── markdownview_controller.go
-│   └── suite_test.go
-├── Dockerfile
-├── go.mod
-├── go.sum
-├── hack
-│   └── boilerplate.go.txt
-├── main.go
-├── Makefile
-├── PROJECT
-└── README.md
-
-13 directories, 38 files
+$ git status -u -s
+ M PROJECT
+ M go.mod
+ M go.sum
+ M main.go
+?? api/v1/groupversion_info.go
+?? api/v1/markdownview_types.go
+?? api/v1/zz_generated.deepcopy.go
+?? config/crd/kustomization.yaml
+?? config/crd/kustomizeconfig.yaml
+?? config/crd/patches/cainjection_in_markdownviews.yaml
+?? config/crd/patches/webhook_in_markdownviews.yaml
+?? config/rbac/markdownview_editor_role.yaml
+?? config/rbac/markdownview_viewer_role.yaml
+?? config/samples/view_v1_markdownview.yaml
+?? controllers/markdownview_controller.go
+?? controllers/suite_test.go
 ```
 
 ```
