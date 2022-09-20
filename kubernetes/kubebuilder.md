@@ -391,7 +391,7 @@ git ci -m "edit kustomization"
 ```console
 $ kind create cluster
 Creating cluster "kind" ...
- ✓ Ensuring node image (kindest/node:v1.25.0) 🖼 
+ ✓ Ensuring node image (kindest/node:v1.25.0) 🖼
  ✓ Preparing nodes 📦  
  ✓ Writing configuration 📜 
  ✓ Starting control-plane 🕹️ 
@@ -402,13 +402,13 @@ You can now use your cluster with:
 
 kubectl cluster-info --context kind-kind
 
-Thanks for using kind! 😊
+Have a nice day! 👋
 ```
 
 ```console
 $ docker ps
-CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS          PORTS                       NAMES
-6ccaea0b5061   kindest/node:v1.25.0   "/usr/local/bin/entr…"   About a minute ago   Up 57 seconds   127.0.0.1:46043->6443/tcp   kind-control-plane
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS          PORTS                       NAMES
+d84e998bac1f   kindest/node:v1.25.0   "/usr/local/bin/entr…"   56 seconds ago   Up 52 seconds   127.0.0.1:38897->6443/tcp   kind-control-plane
 ```
 ```console
 $ k config current-context
@@ -418,17 +418,18 @@ kind-kind
 ```console
 $ k get pod -A
 NAMESPACE            NAME                                         READY   STATUS    RESTARTS   AGE
-kube-system          coredns-565d847f94-dshhb                     1/1     Running   0          43s
-kube-system          coredns-565d847f94-pmlsv                     1/1     Running   0          43s
-kube-system          etcd-kind-control-plane                      1/1     Running   0          58s
-kube-system          kindnet-z5jjf                                1/1     Running   0          43s
-kube-system          kube-apiserver-kind-control-plane            1/1     Running   0          58s
-kube-system          kube-controller-manager-kind-control-plane   1/1     Running   0          58s
-kube-system          kube-proxy-25kpb                             1/1     Running   0          43s
-kube-system          kube-scheduler-kind-control-plane            1/1     Running   0          58s
-local-path-storage   local-path-provisioner-684f458cdd-pxlnb      1/1     Running   0          43s
+kube-system          coredns-565d847f94-cwv2q                     1/1     Running   0          52s
+kube-system          coredns-565d847f94-kvc4n                     1/1     Running   0          52s
+kube-system          etcd-kind-control-plane                      1/1     Running   0          65s
+kube-system          kindnet-bwwqq                                1/1     Running   0          52s
+kube-system          kube-apiserver-kind-control-plane            1/1     Running   0          65s
+kube-system          kube-controller-manager-kind-control-plane   1/1     Running   0          64s
+kube-system          kube-proxy-2qt9v                             1/1     Running   0          52s
+kube-system          kube-scheduler-kind-control-plane            1/1     Running   0          65s
+local-path-storage   local-path-provisioner-684f458cdd-zxl24      1/1     Running   0          52s
 ```
 
+### install cert-manager
 
 ```console
 $ kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/latest/download/cert-manager.yaml
@@ -483,17 +484,46 @@ validatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook
 ```console
 $ kubectl get pod -n cert-manager
 NAME                                       READY   STATUS    RESTARTS   AGE
-cert-manager-cainjector-857ff8f7cb-nk4bj   1/1     Running   0          36s
-cert-manager-d58554549-qfc76               1/1     Running   0          36s
-cert-manager-webhook-76fdf7c485-8qrgv      1/1     Running   0          36s
+cert-manager-cainjector-857ff8f7cb-cbcb8   1/1     Running   0          61s
+cert-manager-d58554549-hkrrd               1/1     Running   0          61s
+cert-manager-webhook-76fdf7c485-6xwsw      1/1     Running   0          61s
 ```
+
+### docker build
+
 
 ```
 make docker-build
 ```
 
 
+```
+$ git st -su
+ M api/v1/groupversion_info.go
+```
 
+```diff
+diff --git a/api/v1/groupversion_info.go b/api/v1/groupversion_info.go
+index e6798e3..88b3af3 100644
+--- a/api/v1/groupversion_info.go
++++ b/api/v1/groupversion_info.go
+@@ -15,8 +15,8 @@ limitations under the License.
+ */
+ 
+ // Package v1 contains API Schema definitions for the view v1 API group
+-//+kubebuilder:object:generate=true
+-//+groupName=view.zoetrope.github.io
++// +kubebuilder:object:generate=true
++// +groupName=view.zoetrope.github.io
+ package v1
+ 
+ import (
+```
+
+```
+git add .
+git ci -m "auto fmt by dockerbuild"
+```
 ### edit `config/manager/manager.yaml`
 
 
@@ -512,19 +542,47 @@ index 878ad48..ea3a068 100644
            allowPrivilegeEscalation: false
 ```
 
+```
+git add .
+git ci -m"fix imagepullpolicy"
+```
+
+
 ```console
 $ kind load docker-image controller:latest
 Image: "controller:latest" with ID "sha256:3ce9ae85b547319abc611ddcbb39c3f44ed21608bea6f77697e29474853d6d7f" not yet present on node "kind-control-plane", loading...
 ```
 
-```
-git add .
-git ci -m"build image"
-```
-
+### deploy controller
 ```
 make install
 ```
 ```
 make deploy
+```
+```console
+$ git st -su
+ M config/manager/kustomization.yaml
+```
+
+```diff
+diff --git a/config/manager/kustomization.yaml b/config/manager/kustomization.yaml
+index 2bcd3ee..5e793dd 100644
+--- a/config/manager/kustomization.yaml
++++ b/config/manager/kustomization.yaml
+@@ -5,6 +5,12 @@ generatorOptions:
+   disableNameSuffixHash: true
+ 
+ configMapGenerator:
+-- name: manager-config
+-  files:
++- files:
+   - controller_manager_config.yaml
++  name: manager-config
++apiVersion: kustomize.config.k8s.io/v1beta1
++kind: Kustomization
++images:
++- name: controller
++  newName: controller
++  newTag: latest
 ```
