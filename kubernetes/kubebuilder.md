@@ -164,12 +164,6 @@ $ git status -u -s
 ?? controllers/suite_test.go
 ```
 
-```
-git add .
-git commit -m "add api"
-```
-
-
 ```diff
 diff --git a/main.go b/main.go
 index 97fd920..70865a6 100644
@@ -210,48 +204,27 @@ index 97fd920..70865a6 100644
 ```
 
 
-```console
-$ git diff --name-only HEAD^
-PROJECT
-api/v1/groupversion_info.go
-api/v1/markdownview_types.go
-api/v1/zz_generated.deepcopy.go
-config/crd/kustomization.yaml
-config/crd/kustomizeconfig.yaml
-config/crd/patches/cainjection_in_markdownviews.yaml
-config/crd/patches/webhook_in_markdownviews.yaml
-config/rbac/markdownview_editor_role.yaml
-config/rbac/markdownview_viewer_role.yaml
-config/samples/view_v1_markdownview.yaml
-controllers/markdownview_controller.go
-controllers/suite_test.go
-go.mod
-go.sum
-main.go
 ```
+git add .
+git commit -m "add api"
+```
+
+
 ```console
 $ make manifests
 /home/ec2-user/markdown-view/bin/controller-gen rbac:roleName=manager-role crd webhook paths="./..." output:crd:artifacts:config=config/crd/bases
 ```
 
 ```console
-$ git st 
-On branch master
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        config/crd/bases/
-        config/rbac/role.yaml
+$ git st -su
+?? config/crd/bases/view.zoetrope.github.io_markdownviews.yaml
+?? config/rbac/role.yaml
 ```
 ```
 git add .
 git ci -m "add api manifests"
 ```
 
-```
-$ git diff --name-only HEAD^
-config/crd/bases/view.zoetrope.github.io_markdownviews.yaml
-config/rbac/role.yaml
-```
 
 ## create  webhook
 
