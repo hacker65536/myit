@@ -320,6 +320,9 @@ go.mod
 main.go
 ```
 ```
+make generate
+```
+```
 make manifests
 ```
 
