@@ -22,6 +22,10 @@ sudo yum install -y golang --disablerepo=amzn2-core,amzn2extra-golang1.9 --enabl
 go version go1.19.1 linux/amd64
 ```
 
+
+```
+echo 'export PATH="$PATH:$(go env GOPATH)/bin"' >>~/.bashrc
+```
 ### install docker 
 ```
 sudo amazon-linux-extras install -y docker
