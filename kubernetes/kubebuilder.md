@@ -130,7 +130,7 @@ git config --local user.name yourname
 git config --local user.email yourmail
 git commit --allow-empty -m "first commit"
 git add .
-git commit -m "add files"
+git commit -m "init project"
 ```
 ## create api
 
