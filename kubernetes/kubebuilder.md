@@ -51,7 +51,10 @@ chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 ```
 ```
-alias k=kubectl
+echo 'alias k=kubectl' >>~/.bashrc
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+echo 'complete -o default -F __start_kubectl k' >>~/.bashrc
+
 ```
 
 ### install kubebuilder
@@ -64,9 +67,44 @@ sudo chmod +x kubebuilder && sudo mv kubebuilder /usr/local/bin/
 
 ### install misc
 
+#### tree
 ```
 yum install -y git tree
 ```
+
+#### stern
+```
+go install github.com/stern/stern@latest
+```
+
+#### krew
+```
+(
+  set -x; cd "$(mktemp -d)" &&
+  OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+  ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+  KREW="krew-${OS}_${ARCH}" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+  tar zxvf "${KREW}.tar.gz" &&
+  ./"${KREW}" install krew
+)
+
+
+echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> ~/.bashrc
+. ~/.bashrc
+```
+
+
+```
+kubectl krew update
+```
+
+```
+k krew install ctx
+k krew install ns
+```
+
+### configure git
 
 ```
 git config --global alias.co checkout
@@ -586,3 +624,33 @@ index 2bcd3ee..5e793dd 100644
 +  newName: controller
 +  newTag: latest
 ```
+
+```console
+$ kubectl get pod -n markdown-view-system
+NAME                                                READY   STATUS    RESTARTS   AGE
+markdown-view-controller-manager-6c684dbdfd-5jkkh   2/2     Running   0          93s
+```
+
+
+```console
+$ k logs -n markdown-view-system markdown-view-controller-manager-6c684dbdfd-5jkkh 
+1.6636690517465425e+09  INFO    controller-runtime.metrics      Metrics server is starting to listen    {"addr": "127.0.0.1:8080"}
+1.663669051746759e+09   INFO    controller-runtime.builder      Registering a mutating webhook  {"GVK": "view.zoetrope.github.io/v1, Kind=MarkdownView", "path": "/mutate-view-zoetrope-github-io-v1-markdownview"}
+1.6636690517468295e+09  INFO    controller-runtime.webhook      Registering webhook     {"path": "/mutate-view-zoetrope-github-io-v1-markdownview"}
+1.6636690517468789e+09  INFO    controller-runtime.builder      Registering a validating webhook        {"GVK": "view.zoetrope.github.io/v1, Kind=MarkdownView", "path": "/validate-view-zoetrope-github-io-v1-markdownview"}
+1.6636690517469127e+09  INFO    controller-runtime.webhook      Registering webhook     {"path": "/validate-view-zoetrope-github-io-v1-markdownview"}
+1.6636690517469697e+09  INFO    setup   starting manager
+1.6636690517471147e+09  INFO    controller-runtime.webhook.webhooks     Starting webhook server
+1.6636690517471483e+09  INFO    Starting server {"kind": "health probe", "addr": "[::]:8081"}
+1.6636690517471936e+09  INFO    Starting server {"path": "/metrics", "kind": "metrics", "addr": "127.0.0.1:8080"}
+1.6636690517472675e+09  INFO    controller-runtime.certwatcher  Updated current TLS certificate
+1.663669051747319e+09   INFO    controller-runtime.webhook      Serving webhook server  {"host": "", "port": 9443}
+I0920 10:17:31.747399       1 leaderelection.go:248] attempting to acquire leader lease markdown-view-system/3ca5b296.zoetrope.github.io...
+1.6636690517475576e+09  INFO    controller-runtime.certwatcher  Starting certificate watcher
+I0920 10:17:31.750400       1 leaderelection.go:258] successfully acquired lease markdown-view-system/3ca5b296.zoetrope.github.io
+1.6636690517505648e+09  DEBUG   events  Normal  {"object": {"kind":"Lease","namespace":"markdown-view-system","name":"3ca5b296.zoetrope.github.io","uid":"d4a2a060-6659-4166-b20d-daa1576a5955","apiVersion":"coordination.k8s.io/v1","resourceVersion":"1319"}, "reason": "LeaderElection", "message": "markdown-view-controller-manager-6c684dbdfd-5jkkh_9842d70a-2532-4831-9098-aa4442be9b0b became leader"}
+1.6636690517506897e+09  INFO    Starting EventSource    {"controller": "markdownview", "controllerGroup": "view.zoetrope.github.io", "controllerKind": "MarkdownView", "source": "kind source: *v1.MarkdownView"}
+1.6636690517507148e+09  INFO    Starting Controller     {"controller": "markdownview", "controllerGroup": "view.zoetrope.github.io", "controllerKind": "MarkdownView"}
+1.663669051851831e+09   INFO    Starting workers        {"controller": "markdownview", "controllerGroup": "view.zoetrope.github.io", "controllerKind": "MarkdownView", "worker count": 1}
+```
+
