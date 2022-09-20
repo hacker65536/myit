@@ -80,6 +80,10 @@ yum install -y git tree
 ```
 go install github.com/stern/stern@latest
 ```
+```
+echo 'source <(stern --completion=bash)' >> ~/.bashrc
+. ~/.bashrc
+```
 
 #### krew
 ```
