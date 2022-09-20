@@ -771,3 +771,12 @@ CRD validation
 +nullable                                                             field    marks this field as allowing the "null" value.                                                       
 +optional                                                             field    specifies that this field is optional, if fields are required by default.   
 ```
+
+
+```console
+$ controller-gen webhook -w
+
+Webhook
+
++kubebuilder:webhook:admissionReviewVersions=<[]string>,failurePolicy=<string>,groups=<[]string>[,matchPolicy=<string>],mutating=<bool>,name=<string>,path=<string>,resources=<[]string>[,sideEffects=<string>],verbs=<[]string>,versions=<[]string>[,webhookVersions=<[]string>]  package  specifies how a webhook should be served.   
+```
