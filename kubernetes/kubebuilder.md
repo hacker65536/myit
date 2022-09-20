@@ -232,43 +232,24 @@ git ci -m "add api manifests"
 $ kubebuilder create webhook --group view --version v1 --kind MarkdownView --programmatic-validation --defaulting
 ```
 
-```
-git add .
-git ci -m "add webhook"
-```
-
 ```console
-$ git diff --name-only HEAD^
-PROJECT
-api/v1/markdownview_webhook.go
-api/v1/webhook_suite_test.go
-api/v1/zz_generated.deepcopy.go
-config/certmanager/certificate.yaml
-config/certmanager/kustomization.yaml
-config/certmanager/kustomizeconfig.yaml
-config/default/manager_webhook_patch.yaml
-config/default/webhookcainjection_patch.yaml
-config/webhook/kustomization.yaml
-config/webhook/kustomizeconfig.yaml
-config/webhook/service.yaml
-go.mod
-main.go
-```
-```
-make generate
-```
-```
-make manifests
+$ git st -su
+ M PROJECT
+ M api/v1/zz_generated.deepcopy.go
+ M go.mod
+ M main.go
+?? api/v1/markdownview_webhook.go
+?? api/v1/webhook_suite_test.go
+?? config/certmanager/certificate.yaml
+?? config/certmanager/kustomization.yaml
+?? config/certmanager/kustomizeconfig.yaml
+?? config/default/manager_webhook_patch.yaml
+?? config/default/webhookcainjection_patch.yaml
+?? config/webhook/kustomization.yaml
+?? config/webhook/kustomizeconfig.yaml
+?? config/webhook/service.yaml
 ```
 
-```
-git add .
-git ci -m "add webhook manifests"
-```
-```
-$ git diff --name-only HEAD^
-config/webhook/manifests.yaml
-```
 
 ```diff
 diff --git a/main.go b/main.go
@@ -288,6 +269,27 @@ index 70865a6..3b6b199 100644
         if err := mgr.AddHealthzCheck("healthz", healthz.Ping); err != nil {
 ```
 
+```
+git add .
+git ci -m "add webhook"
+```
+
+```
+make manifests
+```
+
+```console
+$ git st -su
+?? config/webhook/manifests.yaml
+```
+```
+git add .
+git ci -m "add webhook manifests"
+```
+
+
+
+
 
 ### edit kustomization.yaml
 
@@ -295,10 +297,34 @@ index 70865a6..3b6b199 100644
 
 ```diff
 diff --git a/config/default/kustomization.yaml b/config/default/kustomization.yaml
-index c850af7..3092c13 100644
+index c850af7..1c89fac 100644
 --- a/config/default/kustomization.yaml
 +++ b/config/default/kustomization.yaml
-@@ -46,29 +46,29 @@ patchesStrategicMerge:
+@@ -18,9 +18,9 @@ bases:
+ - ../manager
+ # [WEBHOOK] To enable webhook, uncomment all the sections with [WEBHOOK] prefix including the one in
+ # crd/kustomization.yaml
+-#- ../webhook
++- ../webhook
+ # [CERTMANAGER] To enable cert-manager, uncomment all sections with 'CERTMANAGER'. 'WEBHOOK' components are required.
+-#- ../certmanager
++- ../certmanager
+ # [PROMETHEUS] To enable prometheus monitor, uncomment all sections with 'PROMETHEUS'.
+ #- ../prometheus
+ 
+@@ -36,39 +36,39 @@ patchesStrategicMerge:
+ 
+ # [WEBHOOK] To enable webhook, uncomment all the sections with [WEBHOOK] prefix including the one in
+ # crd/kustomization.yaml
+-#- manager_webhook_patch.yaml
++- manager_webhook_patch.yaml
+ 
+ # [CERTMANAGER] To enable cert-manager, uncomment all sections with 'CERTMANAGER'.
+ # Uncomment 'CERTMANAGER' sections in crd/kustomization.yaml to enable the CA injection in the admission webhooks.
+ # 'CERTMANAGER' needs to be enabled to use ca injection
+-#- webhookcainjection_patch.yaml
++- webhookcainjection_patch.yaml
+ 
  # the following config is for teaching kustomize how to do var substitution
  vars:
  # [CERTMANAGER] To enable cert-manager, uncomment all sections with 'CERTMANAGER' prefix.
