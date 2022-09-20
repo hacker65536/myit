@@ -527,11 +527,11 @@ cert-manager-d58554549-qfc76               1/1     Running   0          36s
 cert-manager-webhook-76fdf7c485-8qrgv      1/1     Running   0          36s
 ```
 
-
-```console
-$ kind load docker-image controller:latest
-Image: "controller:latest" with ID "sha256:3ce9ae85b547319abc611ddcbb39c3f44ed21608bea6f77697e29474853d6d7f" not yet present on node "kind-control-plane", loading...
 ```
+make docker-build
+```
+
+
 
 ### edit `config/manager/manager.yaml`
 
@@ -551,6 +551,15 @@ index 878ad48..ea3a068 100644
            allowPrivilegeEscalation: false
 ```
 
+```console
+$ kind load docker-image controller:latest
+Image: "controller:latest" with ID "sha256:3ce9ae85b547319abc611ddcbb39c3f44ed21608bea6f77697e29474853d6d7f" not yet present on node "kind-control-plane", loading...
+```
+
+```
+git add .
+git ci -m"build image"
+```
 
 ```
 make install
