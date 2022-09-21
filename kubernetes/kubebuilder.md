@@ -897,10 +897,23 @@ index 34e1242..4c52355 100644
  type MarkdownView struct {
  ```
  
-  ```
+ ```
  git add .
  git ci -m"edit markdownview"
  ```
  
+ 
+ ```
+ make manifests
+ ```
+ 
+ ```console
+ $ git st -su
+ M config/crd/bases/view.zoetrope.github.io_markdownviews.yaml
+ ```
+ 
+ ```
+ git add .
+ git ci -m "make crd manifest"
  ```
  
