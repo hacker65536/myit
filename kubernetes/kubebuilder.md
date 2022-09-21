@@ -780,3 +780,127 @@ Webhook
 
 +kubebuilder:webhook:admissionReviewVersions=<[]string>,failurePolicy=<string>,groups=<[]string>[,matchPolicy=<string>],mutating=<bool>,name=<string>,path=<string>,resources=<[]string>[,sideEffects=<string>],verbs=<[]string>,versions=<[]string>[,webhookVersions=<[]string>]  package  specifies how a webhook should be served.   
 ```
+
+## generate crd manifests
+
+### edit manifest
+`vim config/samples/view_v1_markdownview.yaml`
+
+```diff
+diff --git a/config/samples/view_v1_markdownview.yaml b/config/samples/view_v1_markdownview.yaml
+index 71212b8..afee52a 100644
+--- a/config/samples/view_v1_markdownview.yaml
++++ b/config/samples/view_v1_markdownview.yaml
+@@ -3,4 +3,14 @@ kind: MarkdownView
+ metadata:
+   name: markdownview-sample
+ spec:
+-  # TODO(user): Add fields here
++  markdowns:
++    SUMMARY.md: |
++      # Summary
++
++      - [Page1](page1.md)
++    page1.md: |
++      # Page 1
++
++      一ページ目のコンテンツです。
++  replicas: 1
++  viewerImage: "peaceiris/mdbook:latest"
+\ No newline at end of file
+```
+
+### edit crd struct
+
+```diff
+diff --git a/api/v1/markdownview_types.go b/api/v1/markdownview_types.go
+index e76d377..64ee4e9 100644
+--- a/api/v1/markdownview_types.go
++++ b/api/v1/markdownview_types.go
+@@ -25,11 +25,21 @@ import (
+ 
+ // MarkdownViewSpec defines the desired state of MarkdownView
+ type MarkdownViewSpec struct {
+-       // INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
+-       // Important: Run "make" to regenerate code after modifying this file
++       // Markdowns contain the markdown files you want to display.
++       // The key indicates the file name and must not overlap with the keys.
++       // The value is the content in markdown format.
++       //+kubebuilder:validation:Required
++       //+kubebuilder:validation:MinProperties=1
++       Markdowns map[string]string `json:"markdowns,omitempty"`
++
++       // Replicas is the number of viewers.
++       // +kubebuilder:default=1
++       // +optional
++       Replicas int32 `json:"replicas,omitempty"`
+ 
+-       // Foo is an example field of MarkdownView. Edit markdownview_types.go to remove/update
+-       Foo string `json:"foo,omitempty"`
++       // ViewerImage is the image name of the viewer.
++       // +optional
++       ViewerImage string `json:"viewerImage,omitempty"`
+ }
+ 
+ // MarkdownViewStatus defines the observed state of MarkdownView
+ ```
+ 
+ ```
+ git add .
+ git ci -m"edit markdownviewspec"
+ ```
+ 
+ ```diff
+ diff --git a/api/v1/markdownview_types.go b/api/v1/markdownview_types.go
+index 64ee4e9..34e1242 100644
+--- a/api/v1/markdownview_types.go
++++ b/api/v1/markdownview_types.go
+@@ -43,10 +43,14 @@ type MarkdownViewSpec struct {
+ }
+ 
+ // MarkdownViewStatus defines the observed state of MarkdownView
+-type MarkdownViewStatus struct {
+-       // INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
+-       // Important: Run "make" to regenerate code after modifying this file
+-}
++// +kubebuilder:validation:Enum=NotReady;Available;Healthy
++type MarkdownViewStatus string
++
++const (
++       MarkdownViewNotReady  = MarkdownViewStatus("NotReady")
++       MarkdownViewAvailable = MarkdownViewStatus("Available")
++       MarkdownViewHealthy   = MarkdownViewStatus("Healthy")
++)
+ 
+ //+kubebuilder:object:root=true
+ //+kubebuilder:subresource:status
+ ```
+
+ ```
+ git add .
+ git ci -m"edit markdownviewstatus"
+ ```
+ 
+ ```diff
+ diff --git a/api/v1/markdownview_types.go b/api/v1/markdownview_types.go
+index 34e1242..4c52355 100644
+--- a/api/v1/markdownview_types.go
++++ b/api/v1/markdownview_types.go
+@@ -54,6 +54,8 @@ const (
+ 
+ //+kubebuilder:object:root=true
+ //+kubebuilder:subresource:status
++//+kubebuilder:printcolumn:name="REPLICAS",type="integer",JSONPath=".spec.replicas"
++//+kubebuilder:printcolumn:name="STATUS",type="string",JSONPath=".status"
+ 
+ // MarkdownView is the Schema for the markdownviews API
+ type MarkdownView struct {
+ ```
+ 
+  ```
+ git add .
+ git ci -m"edit markdownview"
+ ```
+ 
+ ```
+ 
