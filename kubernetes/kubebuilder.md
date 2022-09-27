@@ -917,3 +917,89 @@ index 34e1242..4c52355 100644
  git ci -m "make crd manifest"
  ```
  
+### edit rbac manifest
+
+```diff
+diff --git a/controllers/markdownview_controller.go b/controllers/markdownview_controller.go
+index aa6bec2..911bce4 100644
+--- a/controllers/markdownview_controller.go
++++ b/controllers/markdownview_controller.go
+@@ -36,6 +36,10 @@ type MarkdownViewReconciler struct {
+ //+kubebuilder:rbac:groups=view.zoetrope.github.io,resources=markdownviews,verbs=get;list;watch;create;update;patch;delete
+ //+kubebuilder:rbac:groups=view.zoetrope.github.io,resources=markdownviews/status,verbs=get;update;patch
+ //+kubebuilder:rbac:groups=view.zoetrope.github.io,resources=markdownviews/finalizers,verbs=update
++//+kubebuilder:rbac:groups=core,resources=configmaps,verbs=get;list;watch;create;update;patch;delete
++//+kubebuilder:rbac:groups=apps,resources=deployments,verbs=get;list;watch;create;update;patch;delete
++//+kubebuilder:rbac:groups=core,resources=services,verbs=get;list;watch;create;update;patch;delete
++//+kubebuilder:rbac:groups=core,resources=events,verbs=create;update;patch
+ 
+ // Reconcile is part of the main kubernetes reconciliation loop which aims to
+ // move the current state of the cluster closer to the desired state.
+```
+
+```
+make manifests
+```
+
+```diff
+diff --git a/config/rbac/role.yaml b/config/rbac/role.yaml
+index 53039dd..bf8f0c1 100644
+--- a/config/rbac/role.yaml
++++ b/config/rbac/role.yaml
+@@ -5,6 +5,50 @@ metadata:
+   creationTimestamp: null
+   name: manager-role
+ rules:
++- apiGroups:
++  - apps
++  resources:
++  - deployments
++  verbs:
++  - create
++  - delete
++  - get
++  - list
++  - patch
++  - update
++  - watch
++- apiGroups:
++  - ""
++  resources:
++  - configmaps
++  verbs:
++  - create
++  - delete
++  - get
++  - list
++  - patch
++  - update
++  - watch
++- apiGroups:
++  - ""
++  resources:
++  - events
++  verbs:
++  - create
++  - patch
++  - update
++- apiGroups:
++  - ""
++  resources:
++  - services
++  verbs:
++  - create
++  - delete
++  - get
++  - list
++  - patch
++  - update
++  - watch
+ - apiGroups:
+   - view.zoetrope.github.io
+   resources:
+```
+
+```
+git add .
+git ci -m "make rbac manifest"
+```
