@@ -1633,3 +1633,12 @@ index 11b1713..e7c16f1 100644
 git add .
 git ci -m "fix reconcile"
 ```
+
+
+```
+$ make docker-build
+$ kind load docker-image controller:latest
+$ make install
+$ make deploy
+$ kubectl rollout restart -n markdown-view-system deployment markdown-view-controller-manager
+```
