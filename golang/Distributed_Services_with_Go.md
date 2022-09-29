@@ -9,3 +9,10 @@ mkdir proglog
 cd !$
 go mod init github.com/hacker65536/$(basename $(pwd))
 ```
+
+
+
+```
+brew install protobuf
+brew install protoc-gen-go
+```
