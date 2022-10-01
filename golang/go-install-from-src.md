@@ -2,7 +2,7 @@
 
 https://go.dev/doc/install/source
 
-## enviornament
+## environment
 ```
 $ uname -a
 Linux ip-172-31-47-0.us-east-2.compute.internal 5.10.135-122.509.amzn2.x86_64 #1 SMP Thu Aug 11 22:41:16 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
