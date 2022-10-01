@@ -24,7 +24,7 @@ cd !$
 ```
 
 ## checkout recently version
-```
+```console
 $ git ls-remote --refs --sort="version:refname" --tags $repo|cut -d/ -f3- | grep go |grep -v -E "beta|rc"| sort -h |tail -n 10
 From https://go.googlesource.com/go
 go1.8.6
@@ -61,4 +61,15 @@ ALL TESTS PASSED
 Installed Go for linux/amd64 in /home/ec2-user/goroot
 Installed commands in /home/ec2-user/goroot/bin
 *** You need to add /home/ec2-user/goroot/bin to your PATH.
+```
+
+## set up path
+
+```console
+$ export PATH=$PATH:/home/ec2-user/goroot/bin
+```
+
+```console
+$ go version
+go version go1.9.1 linux/amd64
 ```
