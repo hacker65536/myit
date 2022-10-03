@@ -393,3 +393,12 @@ layoutと数字は決まっているので最初はよく分からなかった�
 j, _ := json.Marshal(v)
 fmt.Println(string(j))
 ```
+
+
+
+
+## awesome go
+
+https://awesome-go.com/
+
+https://github.com/avelino/awesome-go
