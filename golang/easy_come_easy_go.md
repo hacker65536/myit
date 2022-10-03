@@ -236,6 +236,40 @@ http://localhost:6060/
 
 
 
+## デバッグ
+
+golangのdebbugは[delve](https://github.com/go-delve/delve)が有名
+
+[usage](https://github.com/go-delve/delve/tree/master/Documentation/usage)
+
+
+vscodeの場合はtoolと一緒にinstallしているので、[vscodeからデバッグ](https://code.visualstudio.com/docs/editor/debugging)するほうが楽
+
+
+
+`launch.json`を作成する [書き方の詳細](https://go.microsoft.com/fwlink/?linkid=830387)
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Package",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${fileDirname}",
+            "args": ["status"]
+        }
+    ]
+}
+```
+
+止めたいコードにbreakpointを入れ、main.goを選んで実行する
+
+<img width="1193" alt="image" src="https://user-images.githubusercontent.com/2577368/193661066-80e8674f-5062-40e1-a82b-155b4926260a.png">
+
+
+
 
 ## 正規表現
 
