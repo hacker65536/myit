@@ -359,3 +359,13 @@ golangの時間計算はとてもいい感じ
 
 layoutと数字は決まっているので最初はよく分からなかった。。。
 (Y-m-d の代わりに 2006-01-02)
+
+## json
+
+メッチャ使う
+
+
+```go
+j, _ := json.Marshal(v)
+fmt.Println(string(j))
+```
