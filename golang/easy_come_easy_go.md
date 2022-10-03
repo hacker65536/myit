@@ -172,3 +172,16 @@ https://github.com/golang-standards/project-layout
 パーツは`/pkg` or `/internal`に書く
 
 あとは他のgolangで書いてるプロジェクトから学ぶ
+
+
+https://github.com/trending/go?since=daily
+
+<img width="1057" alt="image" src="https://user-images.githubusercontent.com/2577368/193654918-88145801-87c4-4879-80fd-d6c152acc076.png">
+
+## goignore
+
+golang用 gitignore
+
+https://github.com/golang/go/blob/master/.gitignore
+
+
