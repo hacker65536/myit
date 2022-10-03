@@ -311,6 +311,21 @@ vscodeではコマンドパレット開いて`snippets:`を入力して新しい
 <img width="344" alt="image" src="https://user-images.githubusercontent.com/2577368/193667101-c7b5e30d-f7a8-47a7-9c90-4732dc77d4d5.png">
 
 
+## lint
+
+https://golangci-lint.run/
+
+[こういう](https://github.com/hacker65536/goapptemplate/blob/main/.github/workflows/golangci-lint.yml)のを設定するとciの方でチェックしてくれるようになる
+
+手元で簡単に走らせる場合は
+```
+golangci-lint run -v
+```
+
+最近こういうのもあるらしいけどあまり知らない
+
+https://staticcheck.io/
+
 
 ## goreleaser
 
