@@ -278,6 +278,20 @@ vscodeの場合はtoolと一緒にinstallしているので、[vscodeからデ�
 <img width="1193" alt="image" src="https://user-images.githubusercontent.com/2577368/193661066-80e8674f-5062-40e1-a82b-155b4926260a.png">
 
 
+## test
+
+
+テストは書きましょう
+
+
+とりあえずファイルは作っておく  
+そして中身はただ関数を呼び出すだけのやつでもよい
+
+<img width="484" alt="image" src="https://user-images.githubusercontent.com/2577368/193665089-b20ba6ec-1aad-4cf2-97a4-d56a4b7b9c87.png">
+
+
+
+
 ## goreleaser
 
 githubで公開するときにバージョン作成してbinaryを上げて、changelog書いてとか色々面倒なことを自動でやってくれる
