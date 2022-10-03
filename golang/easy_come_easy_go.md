@@ -188,7 +188,7 @@ https://github.com/golang/go/blob/master/.gitignore
 
 ## aws-sdk-go-v2
 
-awsを使っていると結構お世話になるやつです
+awsを使っていると結構お世話になるやつです  
 https://github.com/aws/aws-sdk-go-v2
 
 
@@ -196,6 +196,41 @@ https://github.com/aws/aws-sdk-go-v2
 
 
 [コード例](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2)
+
+
+## godoc
+
+https://go.dev/blog/godoc
+
+https://go.dev/doc/comment
+
+
+よくリファレンスとしてみるgodocですが、自分で作成するときにどうやるのか公式で書かれています
+
+コメントの書き方のガイドラインがある
+
+
+```
+go install golang.org/x/tools/cmd/godoc@latest
+```
+
+サーバが起動する
+```console
+$ godoc
+
+using module mode; GOMOD=/Users/USERNAME/asg/go.mod
+
+2022/10/04 04:10:17 cannot find package "." in:
+	/src/github.com/hacker65536
+```
+
+ローカルアドレスをブラウザでみる
+
+http://localhost:6060/
+
+書いていれば何かしらが見えるようになる  
+<img width="645" alt="image" src="https://user-images.githubusercontent.com/2577368/193659680-2feec547-0fde-4396-ae78-d6b66464aad3.png">
+
 
 
 
