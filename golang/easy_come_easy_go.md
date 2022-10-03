@@ -186,6 +186,19 @@ https://github.com/golang/go/blob/master/.gitignore
 
 
 
+## aws-sdk-go-v2
+
+awsを使っていると結構お世話になるやつです
+https://github.com/aws/aws-sdk-go-v2
+
+
+[developer guide](https://aws.github.io/aws-sdk-go-v2/docs/)
+
+
+[コード例](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2)
+
+
+
 
 ## 正規表現
 
