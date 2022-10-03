@@ -97,3 +97,26 @@ Installing golang.org/x/tools/gopls@latest (/Users/USERNAME/go/bin/gopls) SUCCEE
 All tools successfully installed. You are ready to Go. :)
 ```
 
+
+## project 作成
+
+
+[go module以前は](https://go.dev/doc/gopath_code)
+
+```
+mkdir $GOPATH/src/github.com/user/hello
+```
+
+[今は](https://go.dev/doc/code)
+
+```
+$ mkdir hello 
+$ cd hello
+$ go mod init example/user/hello
+```
+
+毎回設定するの面倒なので、私はディレクトリに入ってからこのコマンドを実行しています。
+
+` go mod init github.com/hacker65536/$(basename $(pwd))`
+
+
