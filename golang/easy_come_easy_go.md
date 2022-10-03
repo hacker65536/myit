@@ -1,4 +1,4 @@
-# 楽々glang開発
+# 楽々glang開発のための読み物
 
 
 ## go の install
