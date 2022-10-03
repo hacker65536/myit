@@ -25,6 +25,12 @@ apt -y update
 apt install -y golang
 ```
 
+[asdf](https://asdf-vm.com/) とかも 大丈夫
+
+[linux brew](https://docs.brew.sh/Homebrew-on-Linux)　とかも大丈夫
+個人的に linux brew 使う意味あるのかなと思うところがある
+
+
 ### source から install
 
 https://go.dev/doc/install/source
