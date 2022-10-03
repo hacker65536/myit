@@ -200,16 +200,18 @@ https://github.com/aws/aws-sdk-go-v2
 
 ## godoc
 
-https://go.dev/blog/godoc
-
-https://go.dev/doc/comment
-
-
 よくリファレンスとしてみるgodocですが、自分で作成するときにどうやるのか公式で書かれています
 
 コメントの書き方のガイドラインがある
 
 
+https://go.dev/blog/godoc
+
+https://go.dev/doc/comment
+
+
+
+godocはインストールする必要がある
 ```
 go install golang.org/x/tools/cmd/godoc@latest
 ```
