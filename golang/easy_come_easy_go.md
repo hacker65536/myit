@@ -290,6 +290,13 @@ vscodeの場合はtoolと一緒にinstallしているので、[vscodeからデ�
 <img width="484" alt="image" src="https://user-images.githubusercontent.com/2577368/193665089-b20ba6ec-1aad-4cf2-97a4-d56a4b7b9c87.png">
 
 
+`want`と`got`にほしい結果と、実際関数を呼び出して得た結果を比べる
+
+```go
+if want != got {
+    t.Errorf("input=%v\nwant=%v\ngot=%", input, want,got)
+}
+```
 
 
 ## goreleaser
