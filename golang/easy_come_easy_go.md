@@ -274,7 +274,7 @@ vscodeの場合はtoolと一緒にinstallしているので、[vscodeからデ�
 githubで公開するときにバージョン作成してbinaryを上げて、changelog書いてとか色々面倒なことを自動でやってくれる
 
 
-github workflowsに[こういう]https://github.com/hacker65536/goapptemplate/blob/main/.github/workflows/goreleaser.yml)を用意する  
+github workflowsに[こういう](https://github.com/hacker65536/goapptemplate/blob/main/.github/workflows/goreleaser.yml)を用意する  
 [こういうのも](https://github.com/hacker65536/goapptemplate/blob/main/.goreleaser.yml)も用意する
 
 あとはtagを追加すると
