@@ -117,6 +117,46 @@ $ go mod init example/user/hello
 
 毎回タイプして設定するの面倒なので、私はディレクトリに入ってからこのコマンドを実行しています。
 
-` go mod init github.com/hacker65536/$(basename $(pwd))`
+`go mod init github.com/hacker65536/$(basename $(pwd))`
+
+
+## cobra 準備
+
+cliで使えるコマンド自体を作成するケースが多い、cobraをインストールしておく
+
+kubectl,helm,hugo。。使ってない[cli系ツール](https://github.com/spf13/cobra/blob/main/projects_using_cobra.md)の方が少ないくらい
+
+install
+```
+go get -u github.com/spf13/cobra@latest
+```
+
+準備できたら、これからコマンドをgoで開発したいと思っているディレクトリで初期化コマンドを実行する
+
+```
+cobra-cli init
+```
+
+サブコマンドを追加するコマンド
+
+```
+$ cobra-cli add subcmd
+subcmd created at /Users/USERNAME/anygoprj
+```
+
+`cmd`の下にファイルが作られるので、必要な処理のコードを追加していく
+```console
+$ tree
+.
+|-- LICENSE
+|-- cmd
+|   |-- root.go
+|   `-- subcmd.go
+|-- go.mod
+|-- go.sum
+`-- main.go
+```
+
+変数やオプションからの読み込み、また設定ファイルを読み込み、コマンドに渡すための処理を自前で毎回実装するのは正直面倒いので、こういうのを自動で生成してくれるのはとても便利。
 
 
