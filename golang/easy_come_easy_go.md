@@ -340,6 +340,30 @@ https://github.com/hacker65536/findlb/releases
 こんな感じのやつが自動でやってくれるようになる
 
 
+## log
+
+標準のものよりも人気のものを使おう
+
+https://github.com/sirupsen/logrus
+
+
+```go
+package main
+
+import (
+  log "github.com/sirupsen/logrus"
+)
+
+func main() {
+  log.WithFields(log.Fields{
+    "animal": "walrus",
+  }).Info("A walrus appears")
+}
+
+```
+
+
+
 ## 正規表現
 
 https://pkg.go.dev/regexp
