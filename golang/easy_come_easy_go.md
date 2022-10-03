@@ -185,6 +185,15 @@ golang用 gitignore
 https://github.com/golang/go/blob/master/.gitignore
 
 
+## makefile
+
+https://sohlich.github.io/post/go_makefile/
+
+[簡単なやつ](https://github.com/hacker65536/findlb/blob/main/Makefile)
+
+いろんな人のmakefileを参考にちょっとずつチューニングするしか無いかもしれない
+
+
 
 ## aws-sdk-go-v2
 
