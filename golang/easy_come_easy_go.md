@@ -269,6 +269,17 @@ vscodeの場合はtoolと一緒にinstallしているので、[vscodeからデ�
 <img width="1193" alt="image" src="https://user-images.githubusercontent.com/2577368/193661066-80e8674f-5062-40e1-a82b-155b4926260a.png">
 
 
+## goreleaser
+
+githubで公開するときにバージョン作成してbinaryを上げて、changelog書いてとか色々面倒なことを自動でやってくれる
+
+
+github workflowsに[こういう]https://github.com/hacker65536/goapptemplate/blob/main/.github/workflows/goreleaser.yml)を用意する  
+[こういうのも](https://github.com/hacker65536/goapptemplate/blob/main/.goreleaser.yml)も用意する
+
+あとはtagを追加すると
+https://github.com/hacker65536/findlb/releases
+こんな感じのやつが自動でやってくれるようになる
 
 
 ## 正規表現
