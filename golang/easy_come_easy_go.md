@@ -170,3 +170,5 @@ https://github.com/golang-standards/project-layout
 
 
 パーツは`/pkg` or `/internal`に書く
+
+あとは他のgolangで書いてるプロジェクトから学ぶ
