@@ -298,6 +298,19 @@ if want != got {
 }
 ```
 
+## snippet
+
+
+vscodeではコマンドパレット開いて`snippets:`を入力して新しいuser snippetsの設定ができる
+<img width="604" alt="image" src="https://user-images.githubusercontent.com/2577368/193666606-84449490-ab09-4355-a736-9d40bbba17bc.png">
+
+[昔のやつ](https://github.com/microsoft/vscode-go/blob/master/snippets/go.json)
+
+今は[こいつ](https://github.com/features/copilot)がいるのでもう必要無い気がする
+
+<img width="344" alt="image" src="https://user-images.githubusercontent.com/2577368/193667101-c7b5e30d-f7a8-47a7-9c90-4732dc77d4d5.png">
+
+
 
 ## goreleaser
 
