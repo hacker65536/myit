@@ -115,7 +115,7 @@ $ cd hello
 $ go mod init example/user/hello
 ```
 
-毎回設定するの面倒なので、私はディレクトリに入ってからこのコマンドを実行しています。
+毎回タイプして設定するの面倒なので、私はディレクトリに入ってからこのコマンドを実行しています。
 
 ` go mod init github.com/hacker65536/$(basename $(pwd))`
 
