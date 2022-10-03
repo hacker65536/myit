@@ -45,11 +45,7 @@ go を installするにのに go が必要
 
 ### vim 
 
-一番有名なやつだと思う plugin
-https://github.com/fatih/vim-go
-
+vimでgoといえばこれ[vim-go](https://github.com/fatih/vim-go)  
+一番有名なやつだと思う 
 [入れ方](https://github.com/hacker65536/myit/blob/master/vim/vim-go.md)
 
-
-
-https://github.com/fatih/vim-go
