@@ -128,7 +128,7 @@ kubectl,helm,hugo。。使ってない[cli系ツール](https://github.com/spf13
 
 install
 ```
-go get -u github.com/spf13/cobra@latest
+go install github.com/spf13/cobra-cli@latest
 ```
 
 準備できたら、これからコマンドをgoで開発したいと思っているディレクトリで初期化コマンドを実行する
