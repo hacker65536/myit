@@ -16,7 +16,7 @@ https://scriptingosx.com/zsh/
 
 ## zsh hook
 
-https://qiita.com/mollifier/items/558712f1a93ee07e22e2
+https://qiita.com/mollifier/items/558712f1a93ee07e22e2  
 https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Manipulating-Hook-Functions
 
 ## zsh alias 
