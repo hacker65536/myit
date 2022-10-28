@@ -28,6 +28,7 @@
 
 ## terminal
 - tmux
+- keycastr (--cask)
 
 
 ## aws
