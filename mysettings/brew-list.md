@@ -30,6 +30,8 @@
 - tmux
 - keycastr (--cask)
 
+## go
+- goreleaser
 
 ## aws
 - awscli
