@@ -306,3 +306,18 @@ AWSアカウントを整理するためのパターン例を確認し、推奨�
 ## Separate production from non-production workloads
 
 本番用ワークロードを非本番用ワークロードから分離することを推奨します。この分離の設計に関する全体的な推奨事項については、「[ワークロード指向のOUを編成する](https://docs.aws.amazon.com/ja_jp/whitepapers/latest/organizing-your-aws-environment/organizing-workload-oriented-ous.html)」を参照してください。
+
+
+## Assign a single or small set of related workloads to each production account
+本番用ワークロードをサポートするために、各本番用アカウントに単一のワークロードを割り当てるか、または密接に関連するワークロードの小規模なセットを割り当てることを推奨する。
+アクセス管理の簡素化、変更承認プロセスの合理化、および設定ミスによる影響範囲の限定を目的として、所有者が異なるワークロードをそれぞれの本番用アカウントに分離することを検討する。
+## Use federated access to help simplify managing human access to accounts
+IAM Identity CenterまたはサードパーティのIDプロバイダーとのIAM統合のいずれかを使用して、AWSのIDフェデレーション機能を使用することをお勧めします。これらの機能は、AWSアカウントへの人間のユーザーアクセスを制御するために、共通のIDプロバイダと既存のプロセスを使用することができます。
+
+フェデレートアクセスと共通のIDプロバイダーを使用することで、各アカウントで個別のIAMユーザーを管理する必要がない。その代わりに、ユーザーは既存のクレデンシャルを使用して、許可されたアカウントにアクセスすることができます。また、個人を特定できる情報（PII）をIAMから排除できるメリットもあります。
+
+連携アクセスでは、ユーザーはAWS環境へのプログラムアクセスに長期的なアクセスキーではなく、一時的なクレデンシャルを使用する。
+
+連携アクセスの使用により、人間のためのAWSアカウントでのIAMユーザーの作成と管理を回避することができます。その代わり、IAMユーザーの使用は、IAMロールの使用をサポートしないサードパーティアプリケーションなどの例外的なケースに限定することができる。
+
+アイデンティティの管理の詳細については、[AWS Well-Architected Security Pillar](https://docs.aws.amazon.com/ja_jp/wellarchitected/latest/security-pillar/identity-management.html)のIdentity Managementおよび[AWSのIdentity federation](https://aws.amazon.com/identity/federation/)を参照してください。
