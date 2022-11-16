@@ -7,7 +7,6 @@ find_resource_record_set_get_list() {
 	aws route53 list-resource-record-sets --hosted-zone-id XXXXXXXXXX >$tmp
 }
 
-
 ## If the cache is out of date or non-existent
 find_resource_record_set_cache_is_old() {
 	[[ ! -e "$tmp" ]] && return 0
