@@ -2,7 +2,7 @@
 
 tmp=/tmp/domain_rrs_list
 
-find_record_set_get_list() {
+find_resource_record_set_get_list() {
 
 	echo "refresh list"
 	aws route53 list-resource-record-sets --hosted-zone-id XXXXXXXXXX >$tmp
@@ -10,7 +10,7 @@ find_record_set_get_list() {
 
 
 ## If the cache is out of date or non-existent
-find_record_set_cache_is_old() {
+find_resource_record_set_cache_is_old() {
 	[[ ! -e "$tmp" ]] && return 0
 	local duration=300 #sec
 	local now=$(date +%s)
@@ -18,12 +18,12 @@ find_record_set_cache_is_old() {
 	[[ $(($now - $ts)) -gt $duration ]] && return 0 || return 1
 }
 
-find_record_set() {
+find_resource_record_set() {
 	local host=$1
 
   # check file and timestamp
-	find_record_set_cache_is_old && find_record_set_get_list
+	find_resource_record_set_cache_is_old && find_resource_record_set_get_list
 	cat $tmp | jp -u 'ResourceRecordSets[?contains(Name,`"'$host'"`) && Type==`"A"`].Name| join (`"\n"`,@)' | grep $host --color=auto
 }
 
-find_record_set "$@"
+find_resource_record_set "$@"
