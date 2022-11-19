@@ -1,5 +1,7 @@
 
 
+https://unix.stackexchange.com/questions/676634/creating-a-nested-json-file-from-variables-using-jq
+
 ```
 ❯ jq --arg key 'value' '$ARGS' <<<'{}'
 {
