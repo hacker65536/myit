@@ -9,3 +9,11 @@
   }
 }
 ```
+
+
+```
+❯ jq --arg key 'value' '$ARGS.named' <<<'{}'
+{
+  "key": "value"
+}
+```
