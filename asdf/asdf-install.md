@@ -49,6 +49,20 @@ $ eksctl version
 0.70.0
 ```
 
+```console
+$ asdf plugin update eksctl
+Updating eksctl to master
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+```
+```console
+$ asdf install eksctl latest
+eksctl 0.122.0 is already installed
+```
+```console
+$ asdf global eksctl latest
+```
+
 ### list
 
 ```
