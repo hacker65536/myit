@@ -39,3 +39,9 @@ $ echo '{"c":[{"a":"bbb"},{"a":"bbc"},{"a":"bc"}]}'| jp "c[?contains(a,'bb')]"
   }
 ]
 ```
+
+### to text
+
+```
+ aws autoscaling describe-auto-scaling-groups |  jp -u 'AutoScalingGroups[*].AutoScalingGroupName| join(`"\n"`,@)'
+```
