@@ -49,6 +49,12 @@ helperをstoreに変える
 ```console
 $ git config --local credential.helper "store --file ~/.myname-credentials"
 ```
+
+check url is https://github.com/xxxxx, not git@github.com:xxxx
+```
+git remote -v
+```
+
 ref
 --
 
