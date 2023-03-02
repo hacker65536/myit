@@ -15,3 +15,9 @@ run curl -SsL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "aws
 unzip awscliv2.zip && \
 ./aws/install
 ```
+
+
+```
+docker run --rm -it --platform linux/x86_64 mycontainer bash
+```
+
