@@ -1,4 +1,20 @@
 
+`config`
+
+```ini
+[profile AWSAdministratorAccess-111111111111]
+sso_session = myname
+sso_account_id = 111111111111
+sso_role_name = AWSAdministratorAccess
+region = us-east-1
+[sso-session myname]
+sso_start_url = https://d-111111111111.awsapps.com/start
+sso_region = us-east-1
+sso_registration_scopes = sso:account:access
+```
+
+
+
 ```dockerfile
 FROM --platform=linux/x86_64 amazonlinux:2
 
