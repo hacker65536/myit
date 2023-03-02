@@ -1,7 +1,9 @@
 
 
 https://docs.docker.com/engine/reference/builder/
---platform=<platform>
+
+
+`FROM [--platform=<platform>] <image> [AS <name>]`
   
 ```dockerfile
 FROM --platform=linux/x86_64 amazonlinux:2
