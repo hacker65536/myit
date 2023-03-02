@@ -8,5 +8,5 @@
 
 SUBTOTAL(関数コード, 範囲1, [範囲2, ...])
 
-example
+### example
 SUBTOTAL(1,A2:A5,B2:B8)
