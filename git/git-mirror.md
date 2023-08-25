@@ -11,7 +11,7 @@ cd REPOSITORY-TO-MIRROR
 git remote set-url --push origin https://github.com/EXAMPLE-USER/MIRRORED
 ```
 
-```console
+```
 git fetch -p origin
 # or
 # git remote update
