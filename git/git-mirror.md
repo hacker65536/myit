@@ -13,5 +13,7 @@ git remote set-url --push origin https://github.com/EXAMPLE-USER/MIRRORED
 
 ```console
 git fetch -p origin
+# or
+# git remote update
 git push --mirror
 ```
