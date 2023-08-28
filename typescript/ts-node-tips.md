@@ -14,4 +14,5 @@ solution
   },
 ```
 
-https://github.com/TypeStrong/ts-node/issues/1997
+https://github.com/TypeStrong/ts-node/issues/1997  
+https://github.com/TypeStrong/ts-node#esm
