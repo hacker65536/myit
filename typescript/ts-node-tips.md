@@ -13,3 +13,5 @@ solution
     "experimentalSpecifierResolution": "node"
   },
 ```
+
+https://github.com/TypeStrong/ts-node/issues/1997
