@@ -58,7 +58,7 @@ date string)
 ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
 STORED AS INPUTFORMAT 'com.amazon.emr.cloudtrail.CloudTrailInputFormat'
 OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION '[S3_BUCKET_URL]'
+LOCATION 's3://[S3_BUCKET_NAME]/[ORG_ID]AWSLogs/[ORG_ID]'
 TBLPROPERTIES (
     'projection.enabled' = 'true',
     'projection.date.type' = 'date',
