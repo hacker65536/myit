@@ -40,6 +40,8 @@ Resources:
 ## cli
 
 ```bash
+aws iam get-role --role-name AWSControlTowerExecution
+
 ACCOUNTID=<MNG_ACCOUNT>
 aws iam create-role --role-name AWSControlTowerExecution --assume-role-policy-document file://<(jq -c -n '$ARGS.named' --arg Version "2012-10-17" --argjson Statement $(jq -c -n '$ARGS.named' --arg Action "sts:AssumeRole" --arg Effect "Allow" --arg Sid "" --argjson Principal "{\"AWS\":\"arn:aws:iam::${ACCOUNTID}:root\"}"))
 aws iam attach-role-policy --role-name AWSControlTowerExecution --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
